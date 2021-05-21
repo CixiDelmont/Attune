@@ -1,0 +1,12 @@
+## Interface: 20501
+## Title: Attune
+## Author: Cixi@Remulos
+## Notes: Track your Attunement progression
+## SavedVariables: Attune_DB
+## SavedVariablesPerCharacter: AttuneLastViewed
+## Version: 2.5.1.225
+## X-Website: https://warcraftratings.com
+embeds.xml
+Locales\Locales.xml
+Attune.lua
+AttuneData.lua
