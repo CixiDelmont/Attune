@@ -126,9 +126,10 @@ Lang["Select a raid and click on players to add them in"] = "选择一个团队�
 --v224
 Lang["Enter a new name for this raid group"] = "输入此团队的新名称"
 Lang["Save"] = "保存"
---v225
+--v226
 Lang["Invite"] = "邀请"
 Lang["Send raid invites to all listed players?"] = "向所有列出的玩家发送突袭邀请？"
+Lang["External link"] = "链接到在线数据库"
 
 
 -- OPTIONS

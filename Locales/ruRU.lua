@@ -126,9 +126,10 @@ Lang["Select a raid and click on players to add them in"] ="Выберите р�
 --v224
 Lang["Enter a new name for this raid group"] = "Укажите новое название для рейдового состава."
 Lang["Save"] = "Сохранить"
---v225
+--v226
 Lang["Invite"] = "Приглашать"
 Lang["Send raid invites to all listed players?"] = "Отправить приглашения в рейд всем перечисленным игрокам?"
+Lang["External link"] = "Ссылка на онлайн-базу данных"
 
 
 -- OPTIONS

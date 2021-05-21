@@ -126,9 +126,10 @@ Lang["Select a raid and click on players to add them in"] = "Choisissez un raid 
 --v224
 Lang["Enter a new name for this raid group"] = "Saisissez un nom pour ce groupe raid"
 Lang["Save"] = "Sauvegarder"
---v225
+--v226
 Lang["Invite"] = "Inviter"
 Lang["Send raid invites to all listed players?"] = "Inviter tous les joueurs listés a joindre le raid?"
+Lang["External link"] = "Lien vers une base de données en ligne"
 
 
 -- OPTIONS
@@ -528,9 +529,9 @@ Lang["Q2_8728"] = "Narain Divinambolesque, en Tanaris, veut que vous lui apporti
 Lang["Q1_8729"] = "Le courroux de Neptulon"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8729
 Lang["Q2_8729"] = "Utilisez la Bouée d’arcanite au Maelström tourbillonnant dans la Baie des tempêtes en Azshara."
 Lang["Q1_8742"] = "La puissance de Kalimdor"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8742
-Lang["Q2_8742"] = "Devant moi se tient la personne qui va guider son peuple vers une nouvelle ère.\n\nL'Ancien Dieu tremble. Oh oui, il a peur de votre foi. Brisez la prophecie de C'Thun.\n\nIl sait que vous venez, champion - et avec vous toute la puissance de Kalimdor. Dites moi quand vous etes pret et je vous donnerai le Sceptre des Sables changeants."
+Lang["Q2_8742"] = "Devant moi se tient la personne qui va guider son peuple vers une nouvelle ère.\n\nL'Ancien Dieu tremble. Oh oui, il a peur de votre foi. Brisez la prophecie de C'Thun.\n\nIl sait que vous venez, champion - et avec vous toute la puissance de Kalimdor. Dites moi quand vous etes pret et je vous donnerai le Sceptre des Sables changeants."
 Lang["Q1_8745"] = "Le trésor de l'Intemporel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8745
-Lang["Q2_8745"] = "Bienvenu, champion. Je suis Jonathan, guardien du gong sacré.\n\nL'Intemporel m'a donné le pouvoir de vous récompenser avec un objet de son trésor eternel. Qu'il vous aide dans votre lutte contre C'Thun."
+Lang["Q2_8745"] = "Bienvenu, champion. Je suis Jonathan, guardien du gong sacré.\n\nL'Intemporel m'a donné le pouvoir de vous récompenser avec un objet de son trésor eternel. Qu'il vous aide dans votre lutte contre C'Thun."
 
 
 -- QUESTS - TBC
@@ -726,15 +727,15 @@ Lang["Q2_10985"] = "Assurez-vous qu'Akama et Maiev pénètrent bien dans le Temp
 
 -- NPC
 Lang["N1_9196"] = "Généralissime Omokk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9196
-Lang["N2_9196"] = "Omokk est le premier boss au Bas de Pic Rochenoire."
+Lang["N2_9196"] = "Omokk est le premier boss au Bas de Pic Rochenoire."
 Lang["N1_9237"] = "Maître de guerre Voone"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9237
-Lang["N2_9237"] = "Voone est un boss a l'interieur du Bas de Pic Rochenoire."
+Lang["N2_9237"] = "Voone est un boss a l'interieur du Bas de Pic Rochenoire."
 Lang["N1_9568"] = "Seigneur Wyrmthalak"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9568
 Lang["N2_9568"] = "Seigneur Wyrmthalak est le dernier boss du Bas du Pic de Rochenoire."
 Lang["N1_10429"] = "Chef de guerre Rend Main-noire"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10429
-Lang["N2_10429"] = "Rend Main-noire est le 6ème boss au Sommet du Pic Rochenoire. Dal'rend, communement appelé Rend, est le chef de la Horde noire."
+Lang["N2_10429"] = "Rend Main-noire est le 6ème boss au Sommet du Pic Rochenoire. Dal'rend, communement appelé Rend, est le chef de la Horde noire."
 Lang["N1_10182"] = "Rexxar"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10182
-Lang["N2_10182"] = "<Champion de la Horde>\n\nSe promène du sud de Serres-Rocheuses jusqu'au nord de Féralas."
+Lang["N2_10182"] = "<Champion de la Horde>\n\nSe promène du sud de Serres-Rocheuses jusqu'au nord de Féralas."
 Lang["N1_8197"] = "Chronalis"	-- https://www.thegeekcrusade-serveur.com/db/?npc=8197
 Lang["N2_8197"] = "Chronalis du Vol de Bronze.\n\nSe trouve a l'entrée des Grottes du Temps."
 Lang["N1_10664"] = "Clairvoyant"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10664

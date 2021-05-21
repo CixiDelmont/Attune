@@ -126,9 +126,10 @@ Lang["Select a raid and click on players to add them in"] = "Wähle den Raid und
 --v224
 Lang["Enter a new name for this raid group"] = "Geben Sie einen neuen Namen für diese Schlachtzugsgruppe ein"
 Lang["Save"] = "Speichern"
---v225
+--v226
 Lang["Invite"] = "Einladen"
 Lang["Send raid invites to all listed players?"] = "Raid-Einladungen an alle aufgelisteten Spieler senden?"
+Lang["External link"] = "Link zu einer Online-Datenbank"
 
 
 -- OPTIONS

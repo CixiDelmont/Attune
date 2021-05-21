@@ -126,9 +126,10 @@ Lang["Select a raid and click on players to add them in"] = "Selecciona una band
 --v224
 Lang["Enter a new name for this raid group"] = "Introduce un nuevo nombre para esta banda."
 Lang["Save"] = "Info Banda"
---v225
+--v226
 Lang["Invite"] = "Invitar"
 Lang["Send raid invites to all listed players?"] = "¿Enviar invitaciones de incursión a todos los jugadores listados?"
+Lang["External link"] = "Enlace a una base de datos en línea"
 
 
 -- OPTIONS
@@ -422,7 +423,7 @@ Lang["Q2_6570"] = "Viaja a la Ciénaga de Fuego del Marjal Revolcafango y busca 
 Lang["Q1_6584"] = "La prueba de las calaveras, Chronalis"			-- https://es.tbc.wowhead.com/quest=6584
 Lang["Q2_6584"] = "Chronalis, hijo de Nozdormu, custodia las Cavernas del Tiempo en el Desierto de Tanaris. Destrúyelo y lleva su calavera a Brasaliza."
 Lang["Q1_6582"] = "La prueba de las calaveras, Arúspice"			-- https://es.tbc.wowhead.com/quest=6582
-Lang["Q2_6582"] = "Debes encontrar a Arúspice, el campeón draco del Vuelo Azul y matarlo. Separa su calavera de su cuerpo y llévasela a Brasaliza. \n\nSabes que puedes encontrar a Arúspice en Cuna del Invierno."
+Lang["Q2_6582"] = "Debes encontrar a Arúspice, el campeón draco del Vuelo Azul y matarlo. Separa su calavera de su cuerpo y llévasela a Brasaliza. \n\nSabes que puedes encontrar a Arúspice en Cuna del Invierno."
 Lang["Q1_6583"] = "La prueba de las calaveras, Somnus"			-- https://es.tbc.wowhead.com/quest=6583
 Lang["Q2_6583"] = "Destruye al campeón draco del Vuelo Verde, Somnus. Lleva su calavera a Brasaliza."
 Lang["Q1_6585"] = "La prueba de las calaveras, Axtroz"			-- https://es.tbc.wowhead.com/quest=6585
@@ -484,7 +485,7 @@ Lang["Q2_8305"] = "Encuentra la lágrima cristalina en Silithus y mira en sus pr
 Lang["Q1_8519"] = "Un peón en el ajedrez de la vida"			-- https://es.tbc.wowhead.com/quest=8519
 Lang["Q2_8519"] = "Aprende todo lo que puedas del pasado y habla con Anacronos en las Cavernas del Tiempo de Tanaris."
 Lang["Q1_8555"] = "Encomienda a los Vuelos"			-- https://es.tbc.wowhead.com/quest=8555
-Lang["Q2_8555"] = "Eranikus, Vaelastrasz, and Azuregos... No doubt you know of these dragons, mortal. It is no coincidence, then, that they have played such influential roles as watchers of our world.\n\nUnfortunately (and my own naivety is partially to blame) whether by agents of the Old Gods or betrayal by those that would call them friend, each guardian has fallen to tragedy. The extent of which has fueled my own distrust towards your kind.\n\nSeek them out... And prepare yourself for the worst."
+Lang["Q2_8555"] = "Eranikus, Vaelastrasz, and Azuregos... No doubt you know of these dragons, mortal. It is no coincidence, then, that they have played such influential roles as watchers of our world.\n\nUnfortunately (and my own naivety is partially to blame) whether by agents of the Old Gods or betrayal by those that would call them friend, each guardian has fallen to tragedy. The extent of which has fueled my own distrust towards your kind.\n\nSeek them out... And prepare yourself for the worst."
 Lang["Q1_8730"] = "La corrupción de Nefarius"			-- https://es.tbc.wowhead.com/quest=8730
 Lang["Q2_8730"] = "Mata a Nefarian y recupera del fragmento de cetro rojo. Llévaselo a Anacronos a las Cavernas del Tiempo, en Tanaris. Tienes 5 horas para completar esta tarea."
 Lang["Q1_8733"] = "Eranikus, el Tirano del Sueño"			-- https://es.tbc.wowhead.com/quest=8733
@@ -530,7 +531,7 @@ Lang["Q2_8729"] = "Utiliza la boya de arcanita en el maelstrom espiral de la Bah
 Lang["Q1_8742"] = "El poder de Kalimdor"			-- https://es.tbc.wowhead.com/quest=8742
 Lang["Q2_8742"] = "Han pasado mil años y, tal como estaba destinado, uno está frente a mí. Uno que guiará a su pueblo a una nueva era.\n\nEl Dios antiguo tiembla. Oh, sí, teme tu fe. Rompe la profecía de C'Thun.\n\nSabe que vienes, campeón, y contigo viene el poder de Kalimdor. Sólo tienes que avisarme cuando estés preparado y te concederé el Cetro del Mar de Dunas."
 Lang["Q1_8745"] = "El tesoro del Atemporal"			-- https://es.tbc.wowhead.com/quest=8745
-Lang["Q2_8745"] = "Saludos, campeón. Soy Jonathan, guardián del gong sagrado y vigilante eterno del Vuelo de Bronce.\n\nHe recibido el poder del propio Atemporal para otorgarte un objeto de tu elección de su tesoro atemporal. Que te ayude en tus guerras contra C'Thun."
+Lang["Q2_8745"] = "Saludos, campeón. Soy Jonathan, guardián del gong sagrado y vigilante eterno del Vuelo de Bronce.\n\nHe recibido el poder del propio Atemporal para otorgarte un objeto de tu elección de su tesoro atemporal. Que te ayude en tus guerras contra C'Thun."
 
 
 -- QUESTS - TBC
@@ -539,7 +540,7 @@ Lang["Q2_10755"] = "Lleva el molde de llave preparado a Nazgrel a Thrallmar en l
 Lang["Q1_10756"] = "Gran maestro Rohok"			-- https://es.tbc.wowhead.com/quest=10756
 Lang["Q2_10756"] = "Lleva el molde de llave preparado a Rohok a Thrallmar, en la Península del Fuego Infernal."
 Lang["Q1_10757"] = "La petición de Rohok"			-- https://es.tbc.wowhead.com/quest=10757
-Lang["Q2_10757"] = "Trae 4 Barras de hierro vil, 2 Polvo Arcano and 4 Motas de fuego a Rohok en Thrallmar, Península del Fuego Infernal."
+Lang["Q2_10757"] = "Trae 4 Barras de hierro vil, 2 Polvo Arcano and 4 Motas de fuego a Rohok en Thrallmar, Península del Fuego Infernal."
 Lang["Q1_10758"] = "Más caliente que el infierno"			-- https://es.tbc.wowhead.com/quest=10758
 Lang["Q2_10758"] = "Destruye un atracador vil en la Península del Fuego Infernal e introduce el molde de llave sin templar en sus entrañas. Lleva el molde de llave carbonizado a Rohok en Thrallmar."
 Lang["Q1_10754"] = "Entrada a la Ciudadela"			-- https://es.tbc.wowhead.com/quest=10754
@@ -687,7 +688,7 @@ Lang["Q2_10568"] = "La anacoreta Ceyla del Altar de Sha'tar quiere que recojas 1
 Lang["Q1_10683"] = "Las tablillas de Baa'ri"			-- https://es.tbc.wowhead.com/quest=10683
 Lang["Q2_10683"] = "El arcanista Thelis del Sagrario de las Estrellas quiere que consigas 12 tablillas Baa'ri en las Ruinas de Baa'ri.\n\nCompletar misiones para los Arúspices hará que tu nivel de reputación entre los Aldor descienda."
 Lang["Q1_10571"] = "Oronu the Elder"			-- https://es.tbc.wowhead.com/quest=10571
-Lang["Q2_10571"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompletar misiones para los Aldor hará que disminuya tu nivel de reputación con los Arúspices."
+Lang["Q2_10571"] = "Anchorite Ceyla at the Altar of Sha'tar wants you to obtain the Orders from Akama from Oronu the Elder at the Ruins of Baa'ri.\n\nCompletar misiones para los Aldor hará que disminuya tu nivel de reputación con los Arúspices."
 Lang["Q1_10684"] = "Oronu el Anciano"			-- https://es.tbc.wowhead.com/quest=10684
 Lang["Q2_10684"] = "El arcanista Thelis del Sagrario de las Estrellas quiere que consigas las órdenes de Akama de Oronu el Anciano en las Ruinas de Baa'ri.\n\nCompletar misiones para los Arúspices hará que tu nivel de reputación entre los Aldor descienda."
 Lang["Q1_10574"] = "Los corruptores Lengua de Ceniza"			-- https://es.tbc.wowhead.com/quest=10574
