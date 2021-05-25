@@ -9,7 +9,7 @@ end
 Lang["Credits"] = "애드온을 테스트하는 동안 길드 |cffffd100<Divine Heresy>|r 의 지원과 격려에 매우 감사합니다, 그리고 |cffffd100Bushido @ Pyrewood Village|r 에 대한 도움을 주신 BOB에게 큰 찬사를 보냅니다!\n\n 또한 번역을 해주신 덕분에:\n  - 독어 번역: |cffffd100Sumaya @ Razorfen DE|r\n  - 노어 번역: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - 스페인어 번역: |cffffd100Coyu @ Pyrewood Village EU|r\n  - 중국어 번역: |cffffd100ly395842562|r 과 |cffffd100Icyblade|r\n  - 한글 번역: |cffffd100Drix @ 아즈샤라 KR|r\n\n/Hug Cixi/Gaya @ Remulos Horde 드림"
 Lang["Mini"] = "작게"
 Lang["Maxi"] = "크게"
-Lang["Version"] = "Attune ##VERSION## by Cixi@Remulos"
+Lang["Version"] = "Attune v.##VERSION## by Cixi@Remulos"
 Lang["Splash"] = "v.##VERSION## by Cixi@Remulos. /attune 입력"
 Lang["Survey"] = "조회"
 Lang["Guild"] = "길드"

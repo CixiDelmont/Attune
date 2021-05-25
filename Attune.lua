@@ -8,12 +8,9 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 226
--- - Fixed an issue where some quest texts would not wrap properly
--- - Moved all addon communication to AceComm / ChatThrottleLib 
--- - Added an option to right-click on items to copy the URL to a WoW Database website
---   Right-click on a step to get the link
--- - Added a setting to specify which database to use
+-- Done in 227
+-- - Fixed an where leveling up would sometime give you messages for attunements of the other faction
+-- - UPdated the toc to fix the wowup/curse updater issues
 
 
 -------------------------------------------------------------------------
@@ -34,7 +31,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "2.5.1.226"  			-- change here, and in TOC
+local attunelocal_version = "227"  			-- change here, and in TOC
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -540,6 +537,7 @@ function Attune:OnEnable()
 
 	if Attune_DB.showOtherChat then DEFAULT_CHAT_FRAME:AddMessage("|cffff00ff[Attune]|r "..Lang["Splash"]:gsub("##VERSION##", attunelocal_version)) end
 
+
 	-- add new fields to toons data
 	for kt, t in pairs(Attune_DB.toons) do
 		if t.status == nil then t.status = "None" end
@@ -766,21 +764,22 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 
 					if isNext then
 						if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-							--mark step as done
-							Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-							refreshNeeded = true
-							PlaySound(1210) --putdownring
-							-- need to refresh attune in window
-							-- fetch attune name for chat message
 							for k, a in pairs(Attune_Data.attunes) do
 								if a.ID == s.ID_ATTUNE then
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-									Attune_SendPushInfo("TOON")
-									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-									Attune_SendPushInfo("OVER")
+									if a.FACTION == faction or a.FACTION == 'Both' then
+										--mark step as done
+										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+										refreshNeeded = true
+										PlaySound(1210) --putdownring
+										-- need to refresh attune in window
+										-- fetch attune name for chat message
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+										Attune_SendPushInfo("TOON")
+										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+										Attune_SendPushInfo("OVER")
+									end
 								end
 							end
-
 						end
 					end
 				end
@@ -805,17 +804,22 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 			if arg1 >= tonumber(s.ID_WOWHEAD) then
 
 				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					--mark step as done
-					Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-					refreshNeeded = true
-					PlaySound(1210) --putdownring
-					-- fetch attune name for chat message
+
+					local faction = UnitFactionGroup("player")
+					-- check attune warning is for the right faction
 					for k, a in pairs(Attune_Data.attunes) do
 						if a.ID == s.ID_ATTUNE then
-							if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_SendPushInfo("OVER")
+							if a.FACTION == faction or a.FACTION == 'Both' then
+								--mark step as done
+								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								refreshNeeded = true
+								PlaySound(1210) --putdownring
+								-- fetch attune name for chat message
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								Attune_SendPushInfo("TOON")
+								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+								Attune_SendPushInfo("OVER")
+							end
 						end
 					end
 				end
@@ -842,17 +846,22 @@ function Attune:QUEST_ACCEPTED(event)
 			if C_QuestLog.IsOnQuest(s.ID_WOWHEAD) then
 
 				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					--mark step as done
-					Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-					refreshNeeded = true
-					PlaySound(1210) --putdownring
-					-- fetch attune name for chat message
+
+					local faction = UnitFactionGroup("player")
+					-- check attune warning is for the right faction
 					for k, a in pairs(Attune_Data.attunes) do
 						if a.ID == s.ID_ATTUNE then
-							if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_SendPushInfo("OVER")
+							if a.FACTION == faction or a.FACTION == 'Both' then
+								--mark step as done
+								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								refreshNeeded = true
+								PlaySound(1210) --putdownring
+								-- fetch attune name for chat message
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								Attune_SendPushInfo("TOON")
+								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+								Attune_SendPushInfo("OVER")
+							end
 						end
 					end
 				end
@@ -878,26 +887,30 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 			if tonumber(s.ID_WOWHEAD) == arg1 then
 
 				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					--mark step as done
-					Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-					refreshNeeded = true
-					PlaySound(1210) --putdownring
-					-- fetch attune name for chat message
+
+					local faction = UnitFactionGroup("player")
+					-- check attune warning is for the right faction
 					for k, a in pairs(Attune_Data.attunes) do
 						if a.ID == s.ID_ATTUNE then
-							if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_CheckComplete()
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								PlaySound(5275) -- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+							if a.FACTION == faction or a.FACTION == 'Both' then
+								--mark step as done
+								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								refreshNeeded = true
+								PlaySound(1210) --putdownring
+								-- fetch attune name for chat message
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								Attune_SendPushInfo("TOON")
+								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+								Attune_CheckComplete()
+								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+									PlaySound(5275) -- AuctionWindowClose
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+								end
+								Attune_SendPushInfo("OVER")
 							end
-							Attune_SendPushInfo("OVER")
 						end
 					end
-
 				end
 			end
 		end
@@ -925,23 +938,27 @@ function Attune:BAG_UPDATE(event)
 				if Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] >= countNeeded then   --check bags and bank
 
 				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					--mark step as done
-					Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-					refreshNeeded = true
-					PlaySound(1210) --putdownring
-					-- fetch attune name for chat message
+					local faction = UnitFactionGroup("player")
+					-- check attune warning is for the right faction
 					for k, a in pairs(Attune_Data.attunes) do
 						if a.ID == s.ID_ATTUNE then
-							if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_CheckComplete()
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								PlaySound(5275) -- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+							if a.FACTION == faction or a.FACTION == 'Both' then
+								--mark step as done
+								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								refreshNeeded = true
+								PlaySound(1210) --putdownring
+								-- fetch attune name for chat message
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								Attune_SendPushInfo("TOON")
+								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+								Attune_CheckComplete()
+								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+									PlaySound(5275) -- AuctionWindowClose
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+								end
+								Attune_SendPushInfo("OVER")
 							end
-							Attune_SendPushInfo("OVER")
 						end
 					end
 				end
@@ -983,23 +1000,27 @@ function Attune:UPDATE_FACTION(event)
 			if Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned >= tonumber(s.ID_WOWHEAD) then
 
 				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					--mark step as done
-					Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-					refreshNeeded = true
-					PlaySound(1210) --putdownring
-					-- fetch attune name for chat message
+					local faction = UnitFactionGroup("player")
+					-- check attune warning is for the right faction
 					for k, a in pairs(Attune_Data.attunes) do
 						if a.ID == s.ID_ATTUNE then
-							if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-							Attune_SendPushInfo("TOON")
-							Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_CheckComplete()
-							if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-								PlaySound(5275) -- AuctionWindowClose
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-								if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+							if a.FACTION == faction or a.FACTION == 'Both' then
+								--mark step as done
+								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								refreshNeeded = true
+								PlaySound(1210) --putdownring
+								-- fetch attune name for chat message
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								Attune_SendPushInfo("TOON")
+								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+								Attune_CheckComplete()
+								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+									PlaySound(5275) -- AuctionWindowClose
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+								end
+								Attune_SendPushInfo("OVER")
 							end
-							Attune_SendPushInfo("OVER")
 						end
 					end
 				end
