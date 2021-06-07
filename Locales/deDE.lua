@@ -563,6 +563,10 @@ Lang["Q1_10284"] = "Flucht aus Durnholde"			-- https://de.tbc.wowhead.com/quest=
 Lang["Q2_10284"] = "Gebt Thrall Bescheid, wenn Ihr bereit seid. Folgt Thrall aus der Burg Durnholde und helft ihm, Taretha zu befreien und sein Schicksal zu erfüllen.\n\nSprecht mit Erozion im Alten Hügelland, wenn Ihr diese Aufgabe erfüllt habt. "
 Lang["Q1_10285"] = "Rückkehr zu Andormu"			-- https://de.tbc.wowhead.com/quest=10285
 Lang["Q2_10285"] = "Kehrt zu dem jungen Andormu in den Höhlen der Zeit in Tanaris zurück."
+Lang["Q1_10265"] = "Kristallsammlung des Konsortiums"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "Besorgt ein Kristallartefakt von Arklon und bringt es zu Netherpirscher Khay'ji in Area 52 im Nethersturm."
+Lang["Q1_10262"] = "Ein Hügel voll Astraler"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "Sammelt 10 Insignien der Zaxxis und kehrt dann zu Netherpirscher Khay'ji in Area 52 im Nethersturm zurück."
 Lang["Q1_10205"] = "Sphärenräuber Nesaad"			-- https://de.tbc.wowhead.com/quest=10205
 Lang["Q2_10205"] = "Tötet Sphärenräuber Nesaad und kehrt dann zu Netherpirscher Khay'ji in Area 52 im Nethersturm zurück."
 Lang["Q1_10266"] = "Bitte um Unterstützung"			-- https://de.tbc.wowhead.com/quest=10266

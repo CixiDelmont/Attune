@@ -563,6 +563,10 @@ Lang["Q1_10284"] = "Évasion de Fort-de-Durn"			-- https://www.thegeekcrusade-se
 Lang["Q2_10284"] = "Faites signe à Thrall lorsque vous serez <prêt/prête> à continuer. Suivez-le dans son évasion du bastion de Fort-de-Durn et aidez-le à libérer Taretha et à accomplir son destin.\n\nAllez parler à Erozion au Hautebrande d'antan si vous parvenez à accomplir cette tâche."
 Lang["Q1_10285"] = "Retour vers Andormu"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10285
 Lang["Q2_10285"] = "Retournez voir le jeune dragon, Andormu, aux Grottes du temps dans le désert de Tanaris."
+Lang["Q1_10265"] = "La collection de cristaux du Consortium"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "Procurez-vous un artefact cristallin d'Arklon et rapportez-le au traqueur-du-Néant Khay'ji à la Zone 52 au Raz-de-Néant."
+Lang["Q1_10262"] = "Un monceau d'éthériens"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "Collectez 10 Insignes de Zaxxis et et apportez-les au Traqueur-du-Néant Khay'ji dans la Zone 52 de Raz-de-Néant."
 Lang["Q1_10205"] = "L'écumeur-dimensionnel Nesaad"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10205
 Lang["Q2_10205"] = "Tuez l'Écumeur-dimensionnel Nesaad, puis retournez voir le traqueur-du-Néant Khay'ji dans la Zone 52 de Raz-de-Néant."
 Lang["Q1_10266"] = "Demande d'assistance"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10266

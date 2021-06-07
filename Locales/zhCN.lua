@@ -563,6 +563,10 @@ Lang["Q1_10284"] = "逃离敦霍尔德"			-- https://cn.tbc.wowhead.com/?quest=1
 Lang["Q2_10284"] = "准备就绪后告知萨尔。保护萨尔逃离敦霍尔德城堡，并与他一起搭救塔蕾莎。\n\任务完成后与旧希尔斯布莱德丘陵的伊洛希恩谈一谈。"
 Lang["Q1_10285"] = "返回安多尔姆身边"			-- https://cn.tbc.wowhead.com/?quest=10285
 Lang["Q2_10285"] = "返回塔纳利斯沙漠的时光之穴，向幼时的安多尔姆复命。"
+Lang["Q1_10265"] = "星界财团的水晶"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "将一件阿尔科隆水晶神器交给虚空风暴52区的虚空猎手卡尔伊。"
+Lang["Q1_10262"] = "叛徒的徽记"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "收集10枚萨克希斯徽记，将它们交给虚空风暴52区的虚空猎手卡尔伊。"
 Lang["Q1_10205"] = "星界强盗奈萨德"			-- https://cn.tbc.wowhead.com/?quest=10205
 Lang["Q2_10205"] = "杀死星界强盗奈萨德，然后返回虚空风暴52区，向虚空猎手卡尔伊复命。"
 Lang["Q1_10266"] = "寻求帮助"			-- https://cn.tbc.wowhead.com/?quest=10266

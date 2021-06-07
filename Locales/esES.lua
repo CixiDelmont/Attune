@@ -563,6 +563,10 @@ Lang["Q1_10284"] = "Huida de Durnholde"			-- https://es.tbc.wowhead.com/quest=10
 Lang["Q2_10284"] = "Cuando estés para proceder, díselo a Thrall. Sigue a Thrall al exterior del Castillo de Durnholde y ayúdale a liberar a Taretha y así cumplir su destino."
 Lang["Q1_10285"] = "Regresa junto a Andormu"			-- https://es.tbc.wowhead.com/quest=10285
 Lang["Q2_10285"] = "Regresa junto al niño, Andormu, en las Cavernas del Tiempo, en el Desierto de Tanaris."
+Lang["Q1_10265"] = "Colección de cristales de El Consorcio"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "Consigue un artefacto de cristal de Arklon y llévaselo al acechador abisal Khay'ji al Área 52 en Tormenta Abisal."
+Lang["Q1_10262"] = "Un montón de etéreos"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "Recoge 10 insignias de Zaxxis y llévaselas al acechador abisal Khay'ji al Área 52 en Tormenta Abisal."
 Lang["Q1_10205"] = "Asaltante de distorsión Nesaad"			-- https://es.tbc.wowhead.com/quest=10205
 Lang["Q2_10205"] = "Mata al asaltante de distorsión Nesaad y ve a ver al acechador abisal Khay'ji al Área 52 en Tormenta Abisal."
 Lang["Q1_10266"] = "Petición de ayuda"			-- https://es.tbc.wowhead.com/quest=10266

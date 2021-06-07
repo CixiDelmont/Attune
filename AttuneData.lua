@@ -324,7 +324,9 @@ Attune_Data.steps = 	{
 
 	{ID_ATTUNE="80",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 67",LOCATION="",ID_WOWHEAD="67",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="80",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="19880",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="80",ID="25",TYPE="Pick Up",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10205",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="25"},
+	{ID_ATTUNE="80",ID="22",TYPE="Quest",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10265",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="22"},
+	{ID_ATTUNE="80",ID="23",TYPE="Quest",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22",STAGE="23"},
+	{ID_ATTUNE="80",ID="25",TYPE="Pick Up",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10205",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23",STAGE="25"},
 	{ID_ATTUNE="80",ID="30",TYPE="Kill",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="19641",ICON="Interface\\AddOns\\Attune\\Images\\inv_enchant_shardprismaticlarge",FOLLOWS="25",STAGE="30"},
 	{ID_ATTUNE="80",ID="35",TYPE="Turn In",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10205",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="35"},
 	{ID_ATTUNE="80",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="10266",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="35",STAGE="40"},
@@ -474,8 +476,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="120",ID="80",TYPE="Item",STEP="",LOCATION=Lang["Gruul's Lair"],ID_WOWHEAD="31750",ICON="Interface\\Icons\\inv_ore_thorium_01",FOLLOWS="60",STAGE="60"},
 	{ID_ATTUNE="120",ID="90",TYPE="Item",STEP="",LOCATION=Lang["Karazhan"],ID_WOWHEAD="31751",ICON="Interface\\AddOns\\Attune\\Images\\spell_fire_burnout",FOLLOWS="70",STAGE="60"},
 	{ID_ATTUNE="120",ID="95",TYPE="Turn In",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Slave Pens"],ID_WOWHEAD="10901",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80&90",STAGE="70"},
-	{ID_ATTUNE="120",ID="100",TYPE="Quest",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Slave Pens"],ID_WOWHEAD="10900",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="95",STAGE="80"},
-	{ID_ATTUNE="120",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_ladyvashj",FOLLOWS="100",STAGE="90"},
+	--{ID_ATTUNE="120",ID="100",TYPE="Quest",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Slave Pens"],ID_WOWHEAD="10900",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="95",STAGE="80"}, -- internal quest
+	{ID_ATTUNE="120",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_ladyvashj",FOLLOWS="95",STAGE="90"},
 
 	{ID_ATTUNE="140",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 68",LOCATION="",ID_WOWHEAD="68",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="140",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="21938",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="10",STAGE="20"},
@@ -823,6 +825,8 @@ Attune_Data.quests = {
 	[10276]={67,1},
 	[10280]={67,1},
 	[10704]={67,1},
+	[10265]={67,1},
+	[10262]={67,1},
 	[10205]={67,1},
 	[9836]={69,1},
 	[9837]={69,1},

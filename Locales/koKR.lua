@@ -402,326 +402,330 @@ Lang["I_32649"] = "카라보르의 메달"			-- https://www.thegeekcrusade-serve
 
 
 -- QUESTS - Classic
-Lang["Q1_7848"] = "심장부와의 조화"			-- https://www.thegeekcrusade-serveur.com/db/?quest=7848
+Lang["Q1_7848"] = "심장부와의 조화"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=7848
 Lang["Q2_7848"] = "검은바위 나락의 화산 심장부 입구에 있는 차원의 문으로 가서 핵 조각을 하나 찾아야 합니다. 핵 조각을 가지고 검은바위 산에 있는 로소스 리프트웨이커에게로 돌아가십시오"
-Lang["Q1_4903"] = "장군의 명령"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4903
+Lang["Q1_4903"] = "장군의 명령"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4903
 Lang["Q2_4903"] = "대군주 오모크와 대장군 부네, 대군주 웜타라크를 처단해야 합니다. 검은바위의 중요한 문서들을 확보해야 합니다. 임무를 완수하는 대로 카르가스의 장군 고어투스에게로 돌아가야 합니다."
-Lang["Q1_4941"] = "아이트리그의 지혜"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4941
+Lang["Q1_4941"] = "아이트리그의 지혜"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4941
 Lang["Q2_4941"] = "오그리마의 스랄의 요새에 있는 아이트리그와 대화해야 합니다. 아이트리그의 얘기를 듣고 난 후에는 대족장 스랄과 상의해야 합니다."
-Lang["Q1_4974"] = "호드를 위하여!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4974
+Lang["Q1_4974"] = "호드를 위하여!"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4974
 Lang["Q2_4974"] = "검은바위 첨탑으로 가서 대족장 렌드 블랙핸드를 처치하십시오. 그 증거로 그의 머리카락을 가지고 오그리마로 돌아와야 합니다."
-Lang["Q1_6566"] = "바람이 전해 온 소식"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6566
+Lang["Q1_6566"] = "바람이 전해 온 소식"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6566
 Lang["Q2_6566"] = "스랄의 이야기를 들어야 합니다."
-Lang["Q1_6567"] = "호드의 용사"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6567
+Lang["Q1_6567"] = "호드의 용사"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6567
 Lang["Q2_6567"] = "렉사르를 찾아야 합니다. 그의 행방은 대족장이 설명해 주었습니다. 돌발톱 산맥과 페랄라스 사이에 있는 잊혀진 땅의 길에서 찾아 보십시오."
-Lang["Q1_6568"] = "렉사르의 유언"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6568
+Lang["Q1_6568"] = "렉사르의 유언"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6568
 Lang["Q2_6568"] = "서부 역병지대에 있는 노파 미란다에게 렉사르의 유서를 전달해야 합니다."
-Lang["Q1_6569"] = "눈동자의 환영"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6569
+Lang["Q1_6569"] = "눈동자의 환영"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6569
 Lang["Q2_6569"] = "검은바위 첨탑으로 가서 검은 용혈족의 눈동자 20개를 모아서 노파 미란다에게 돌아가야 합니다."
-Lang["Q1_6570"] = "엠버스트라이프"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6570
+Lang["Q1_6570"] = "엠버스트라이프"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6570
 Lang["Q2_6570"] = "먼지진흙 습지대에 있는 용의 둥지로 가서 엠버스트라이프의 굴을 찾아야 합니다. 안으로 들어가서 용족 파멸의 아뮬렛을 착용하고 엠버스트라이프와 대화해야 합니다."
-Lang["Q1_6584"] = "해골 시험 - 크로날리스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6584
+Lang["Q1_6584"] = "해골 시험 - 크로날리스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6584
 Lang["Q2_6584"] = "노즈도르무의 자손인 크로날리스가 타나리스 사막에 있는 시간의 동굴을 지키고 있습니다. 그를 처치한 후 그의 해골을 엠버스트라이프에게 가져가야 합니다."
-Lang["Q1_6582"] = "해골 시험 - 스크라이어"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6582
+Lang["Q1_6582"] = "해골 시험 - 스크라이어"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6582
 Lang["Q2_6582"] = "여명의 설원에서 찾을 수 있는 푸른용군단의 용사 스크라이어를 찾아 처치해야 합니다. 그의 시체에서 해골을 수습해서 엠버스트라이프에게 돌아가야 합니다."
-Lang["Q1_6583"] = "해골 시험 - 솜누스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6583
+Lang["Q1_6583"] = "해골 시험 - 솜누스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6583
 Lang["Q2_6583"] = "녹색용군단의 우두머리 솜누스를 처치한 후 그의 해골을 수습해서 엠버스트라이프에게 돌아가야 합니다."
-Lang["Q1_6585"] = "해골 시험 - 악트로스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6585
+Lang["Q1_6585"] = "해골 시험 - 악트로스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6585
 Lang["Q2_6585"] = "그림 바톨로 가서 붉은용군단의 우두머리 악트로즈를 찾아 그를 처치한 다음 그의 해골을 수습하여 엠버스트라이프에게 돌아가야 합니다."
-Lang["Q1_6601"] = "진급"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6601
+Lang["Q1_6601"] = "진급"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6601
 Lang["Q2_6601"] = "이제 가면놀이는 끝난 것 같습니다. 노파 미란다가 만든 용족 파멸의 아뮬렛이 검은바위 첨탐 안에서 원래 구실을 하지 않는 것을 알고 있습니다. 아마도 렉사르를 찾아가 곤경에 처한 상황을 설명하는 것이 좋겠습니다. 렉사르에게 흐릿한 비룡불꽃 아뮬렛을 보여주면 아마도 필요한 게 무엇인지 알 수 있을 겁니다."
-Lang["Q1_6602"] = "검은용 용사의 피"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6602
+Lang["Q1_6602"] = "검은용 용사의 피"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6602
 Lang["Q2_6602"] = "검은바위 첨탑으로 가서 사령관 드라키사스를 처치하고 사령관의 피를 모아 렉사르에게 가져가야 합니다."
-Lang["Q1_4182"] = "용혈족의 위협"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4182
+Lang["Q1_4182"] = "용혈족의 위협"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4182
 Lang["Q2_4182"] = "검은 새끼용 15마리, 검은용혈족 10마리, 검은고룡족 4마리와 검은 비룡 1마리를 처치한 후, 헬렌디스 리버혼에게 돌아가야 합니다."
-Lang["Q1_4183"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4183
+Lang["Q1_4183"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4183
 Lang["Q2_4183"] = "레이크샤이어로 가서 집정관 솔로몬에게 헬렌디스 리버혼의 편지를 전달해야 합니다."
-Lang["Q1_4184"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4184
+Lang["Q1_4184"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4184
 Lang["Q2_4184"] = "스톰윈드로 가서 대영주 볼바르 폴드라곤에게 볼바르에게 보내는 솔로몬의 탄원서를 전해주어야 합니다."
-Lang["Q1_4185"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4185
+Lang["Q1_4185"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4185
 Lang["Q2_4185"] = "여군주 카트라나 프레스톨과 얘기를 나눈 후, 대영주 볼바르 폴드라곤과 대화하십시오."
-Lang["Q1_4186"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4186
+Lang["Q1_4186"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4186
 Lang["Q2_4186"] = "레이크샤이어에 있는 집정관 솔로몬에게 볼바르의 명령서를 가져가야 합니다."
-Lang["Q1_4223"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4223
+Lang["Q1_4223"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4223
 Lang["Q2_4223"] = "불타는 평원에 있는 치안대장 맥스웰과 대화하십시오."
-Lang["Q1_4224"] = "진정한 지도자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4224
+Lang["Q1_4224"] = "진정한 지도자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4224
 Lang["Q2_4224"] = "털보 존을 만나 치안대장 윈저의 행방에 대해서 알아낸 다음 치안대장 맥스웰에게 돌아가 보고해야 합니다.\n\n치안대장 맥스웰은 북쪽에 있는 동굴에서 털보 존을 찾아보라고 했습니다."
-Lang["Q1_4241"] = "치안대장 윈저"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4241
+Lang["Q1_4241"] = "치안대장 윈저"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4241
 Lang["Q2_4241"] = "북서쪽에 있는 검은바위 산으로 가서 검은바위 나락으로 들어가십시오. 치안대장 윈저에게 무슨 일이 있었는지 알아내야 합니다.\n\n털보 존은 윈저가 감옥으로 끌려갔다고 했습니다."
-Lang["Q1_4242"] = "실망"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4242
+Lang["Q1_4242"] = "실망"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4242
 Lang["Q2_4242"] = "치안대장 맥스웰에게 나쁜 소식을 전해줘야 합니다."
-Lang["Q1_4264"] = "꼬깃꼬깃한 쪽지"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4264
+Lang["Q1_4264"] = "꼬깃꼬깃한 쪽지"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4264
 Lang["Q2_4264"] = "방금 우연히 치안대장 윈저가 보고 싶어할 듯한 물건을 찾은 것 같습니다. 어쩌면 희망이 있을지도 모릅니다."
-Lang["Q1_4282"] = "잔존하는 희망"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4282
+Lang["Q1_4282"] = "잔존하는 희망"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4282
 Lang["Q2_4282"] = "치안대장 윈저의 잃어버린 단서를 가져 와야 합니다.\n\n치안대장 윈저는 골렘 군주 아젤마크와 사령관 앵거포지가 이 정보를 가지고 있을 것이라 생각합니다."
-Lang["Q1_4322"] = "탈옥"			-- https://www.thegeekcrusade-serveur.com/db/?quest=4322
+Lang["Q1_4322"] = "탈옥"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=4322
 Lang["Q2_4322"] = "치안대장 윈저가 자신의 장비를 되찾고 갇힌 동료들을 풀어 주는 것을 도와야 합니다. 성공하면 치안대장 맥스웰에게 돌아가십시오."
-Lang["Q1_6402"] = "스톰윈드 회합"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6402
+Lang["Q1_6402"] = "스톰윈드 회합"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6402
 Lang["Q2_6402"] = "스톰윈드 도시 성문으로 가서, 수습기사 로우와 대화하면 그가 당신의 도착을 치안대장 윈저에게 알릴 것입니다."
-Lang["Q1_6403"] = "대단한 가장무도회"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6403
+Lang["Q1_6403"] = "대단한 가장무도회"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6403
 Lang["Q2_6403"] = "레지널드 윈저를 따라 스톰윈드를 통과해 왕궁으로 가야합니다. 윈저를 보호하십시오!"
-Lang["Q1_6501"] = "용의 눈"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6501
+Lang["Q1_6501"] = "용의 눈"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6501
 Lang["Q2_6501"] = "전 세계를 뒤져 용의눈 조각의 힘을 복원할 수 있는 자를 찾아야 합니다. 이와 관련해 알고 있는 유일한 정보는 그러한 자들이 존재한다는 것뿐입니다."
-Lang["Q1_6502"] = "비룡불꽃 아뮬렛"			-- https://www.thegeekcrusade-serveur.com/db/?quest=6502
+Lang["Q1_6502"] = "비룡불꽃 아뮬렛"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=6502
 Lang["Q2_6502"] = "사령관 드라키사스에게서 검은용 용사의 피를 가져와야 합니다. 드라키사스는 검은바위 첨탑의 승천의 전당 뒤에 있는 알현실에 있습니다."
-Lang["Q1_7761"] = "블랙핸드의 명령서"			-- https://www.thegeekcrusade-serveur.com/db/?quest=7761
+Lang["Q1_7761"] = "블랙핸드의 명령서"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=7761
 Lang["Q2_7761"] = "아주 멍청한 오크로군요. 지배의 보주를 사용하려면 드라키사스의 낙인을 찾아 드라키사스의 징표를 받아야 할 거 같습니다.\n\n이 편지에 따르면 드라키사스 사령관이 낙인을 지키고 있다고 하니 조사해 보는 것이 좋겠습니다."
-Lang["Q1_9121"] = "공포의 요새 낙스라마스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9121
+Lang["Q1_9121"] = "공포의 요새 낙스라마스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9121
 Lang["Q2_9121"] = "동부 역병지대의 희망의 빛 예배당에 있는 대마법사 안젤라 도산토스가 신비한 수정 5개, 마력의 결정체 2개, 정의의 보주 1개, 60골드를 가져다달라고 부탁했습니다. 또한 은빛 여명회의 평판이 우호적이어야 합니다."
-Lang["Q1_9122"] = "공포의 요새 낙스라마스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9122
+Lang["Q1_9122"] = "공포의 요새 낙스라마스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9122
 Lang["Q2_9122"] = "동부 역병지대의 희망의 빛 예배당에 있는 대마법사 안젤라 도산토스가 신비한 수정 2개, 마력의 결정체 1개, 30골드를 가져다 달라고 부탁했습니다. 또한 은빛 여명회의 평판이 매우 우호적이어야 합니다."
-Lang["Q1_9123"] = "공포의 요새 낙스라마스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9123
+Lang["Q1_9123"] = "공포의 요새 낙스라마스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9123
 Lang["Q2_9123"] = "동부 역병지대의 희망의 빛 예배당에 있는 대마법사 안젤라 도산토스가 비전 은신 마법으로 낙스라마스로 들어갈 수 있도록 해 줄 것입니다. 은빛 여명회의 평판이 확고한 동맹이어야 합니다."
-Lang["Q1_8286"] = "미래의 운명"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8286
+Lang["Q1_8286"] = "미래의 운명"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8286
 Lang["Q2_8286"] = "타나리스에 있는 시간의 동굴로 가서 노즈도르무 혈족인 아나크로노스를 찾아야 합니다."
-Lang["Q1_8288"] = "최후의 한 명"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8288
+Lang["Q1_8288"] = "최후의 한 명"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8288
 Lang["Q2_8288"] = "실리더스의 세나리온 요새에 있는 흐르는 모래의 바리스톨스에게 용기대장 래쉬레이어의 머리를 가져가야 합니다."
-Lang["Q1_8301"] = "정의의 길"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8301
+Lang["Q1_8301"] = "정의의 길"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8301
 Lang["Q2_8301"] = "실리시드 등껍질 조각 200개를 모아 바리스톨스에게 가져가야 합니다."
-Lang["Q1_8303"] = "아나크로노스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8303
+Lang["Q1_8303"] = "아나크로노스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8303
 Lang["Q2_8303"] = "타나리스의 시간의 동굴에 있는 아나크로노스를 찾아가야 합니다."
-Lang["Q1_8305"] = "잊혀진 오랜 기억"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8305
+Lang["Q1_8305"] = "잊혀진 오랜 기억"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8305
 Lang["Q2_8305"] = "실리더스에서 눈물의 결정의 위치를 찾아 그 안을 응시하십시오."
-Lang["Q1_8519"] = "장기판 위의 졸"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8519
+Lang["Q1_8519"] = "장기판 위의 졸"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8519
 Lang["Q2_8519"] = "잊혀진 오랜 기억에 대해 가능한 모든 것을 확인한 후 타나리스의 시간의 동굴에 있는 아나크로노스와 대화하십시오."
-Lang["Q1_8555"] = "용군단의 임무"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8555
+Lang["Q1_8555"] = "용군단의 임무"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8555
 Lang["Q2_8555"] = "에라니쿠스, 밸라스트라즈, 아주어고스... 필멸의 존재여, 그대는 필시 이 용들에 대해 알고 있다. 그러니 이들이 우리 세계의 파수꾼으로서 중요한 역할을 해 왔다는 것은 결코 우연이 아니니라.\n\n불행히도 고대 신들의 추종자 아니면 그들을 친구라고 부르는 자들의 배신으로 인해 우리의 수호자들에게 비극이 일어났다. 물론 내 어리석음도 어느 정도 잘못이 있다는 것을 부인할 수는 없지만... 이 일로 그대의 종족에 대한 나의 불신은 그만큼 깊어졌느니라.\n\n그들을 찾아라... 그리고 최악의 상황에 대비하도록 하라."
-Lang["Q1_8730"] = "네파리우스의 타락"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8730
+Lang["Q1_8730"] = "네파리우스의 타락"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8730
 Lang["Q2_8730"] = "네파리안을 해치우고 붉은색 홀 파편을 되찾아 타나리스의 시간의 동굴에 있는 아나크로노스에게 돌아가십시오. 5시간 내에 임무를 완수해야 합니다."
-Lang["Q1_8733"] = "꿈의 폭군 에라니쿠스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8733
+Lang["Q1_8733"] = "꿈의 폭군 에라니쿠스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8733
 Lang["Q2_8733"] = "나이트 엘프의 땅 텔드랏실로 가 다르나서스 성벽 밖에서 말퓨리온의 대리인을 찾아야 합니다."
-Lang["Q1_8734"] = "티란데와 레물로스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8734
+Lang["Q1_8734"] = "티란데와 레물로스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8734
 Lang["Q2_8734"] = "달의 숲으로 가서 수호자 레물로스와 대화하십시오."
-Lang["Q1_8735"] = "에라니쿠스의 타락"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8735
+Lang["Q1_8735"] = "에라니쿠스의 타락"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8735
 Lang["Q2_8735"] = "아제로스에 있는 4개의 에메랄드의 꿈의 차원문으로 간 다음 각 에메랄드의 꿈의 차원문에서 오염된 악몽의 조각을 모은 후, 임무를 완수하면 달의 숲에 있는 수호자 레물로스에게 돌아가야 합니다."
-Lang["Q1_8736"] = "드러난 악몽"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8736
+Lang["Q1_8736"] = "드러난 악몽"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8736
 Lang["Q2_8736"] = "에라니쿠스로부터 나이트헤이븐을 지켜야 합니다. 수호자 레물로스가 죽지 않도록 지켜내고 에라니쿠스 또한 죽지 않아야 합니다. 자신을 지키며 티란데를 기다려야 합니다."
-Lang["Q1_8741"] = "용사의 귀환"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8741
+Lang["Q1_8741"] = "용사의 귀환"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8741
 Lang["Q2_8741"] = "타나리스의 시간의 동굴에 있는 아나크로노스에게 녹색 홀 파편을 가져가야 합니다."
-Lang["Q1_8575"] = "아주어고스의 마법 장부"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8575
+Lang["Q1_8575"] = "아주어고스의 마법 장부"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8575
 Lang["Q2_8575"] = "타나리스에 있는 나라인 수스팬시에게 아주어고스의 마법 장부를 전달해야 합니다."
-Lang["Q1_8576"] = "장부 해석"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8576
+Lang["Q1_8576"] = "장부 해석"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8576
 Lang["Q2_8576"] = "이걸 해석하려면 내 수정점 고글과 250kg짜리 닭, 그리고 왕초보를 위한 용언 완전정복: 제2권이 있어야 할 것 같군요. 순서는 바뀌어도 상관없어요."
-Lang["Q1_8597"] = "왕초보를 위한 용언 완전정복"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8597
+Lang["Q1_8597"] = "왕초보를 위한 용언 완전정복"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8597
 Lang["Q2_8597"] = "남쪽 바다의 한 섬에 묻혀 있는 나라인 수스팬시의 책을 찾아야 합니다."
-Lang["Q1_8599"] = "나라인을 위한 사랑 노래"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8599
+Lang["Q1_8599"] = "나라인을 위한 사랑 노래"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8599
 Lang["Q2_8599"] = "타나리스에 있는 나라인 수스팬시에게 메리디스의 연애 편지를 전해 주어야 합니다."
-Lang["Q1_8598"] = "협박장"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8598
+Lang["Q1_8598"] = "협박장"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8598
 Lang["Q2_8598"] = "타나리스에 있는 나라인 수스팬시에게 협박장을 전달해야 합니다."
-Lang["Q1_8606"] = "미끼!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8606
+Lang["Q1_8606"] = "미끼!"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8606
 Lang["Q2_8606"] = "타나리스에 있는 나라인 수스팬시가 여명의 설원으로 가서 책을 훔쳐 간 자들이 적어 놓은 접선 장소에 돈자루를 갖다 놓아 달라고 부탁했습니다."
-Lang["Q1_8620"] = "유일한 방법"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8620
+Lang["Q1_8620"] = "유일한 방법"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8620
 Lang["Q2_8620"] = "사라진 왕초보를 위한 용언 완전정복의 여덟 장을 모두 찾아서 마법의 제본 매듭으로 붙인 후, 타나리스에 있는 나라인 수스팬시에게 완성된 왕초보를 위한 용언 완전정복: 제 2권을 가져가야 합니다."
-Lang["Q1_8584"] = "질문 사절"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8584
+Lang["Q1_8584"] = "질문 사절"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8584
 Lang["Q2_8584"] = "타나리스에 있는 나라인 수스팬시가 가젯잔에 있는 더지 퀵클레이브와 대화해 보라고 부탁했습니다."
-Lang["Q1_8585"] = "공포의 섬!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8585
+Lang["Q1_8585"] = "공포의 섬!"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8585
 Lang["Q2_8585"] = "라크마에란의 시체를 손에 넣고 키메로크 안심 20개를 구해서 타나리스에 있는 더지 퀵클레이브에게 돌아가야 합니다."
-Lang["Q1_8586"] = "더지의 기똥찬 키메로크 찹스테이크"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8586
+Lang["Q1_8586"] = "더지의 기똥찬 키메로크 찹스테이크"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8586
 Lang["Q2_8586"] = "가젯잔에 있는 더지 퀵클레이브에게 고블린 로켓 연료와 깊은바다 소금을 각각 20개씩 가져가야 합니다."
-Lang["Q1_8587"] = "나라인에게 돌아가기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8587
+Lang["Q1_8587"] = "나라인에게 돌아가기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8587
 Lang["Q2_8587"] = "타나리스에 있는 나라인 수스팬시에게 250Kg짜리 닭을 가져가야 합니다."
-Lang["Q1_8577"] = "가장 절친했던 옛 친구 스튜불"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8577
+Lang["Q1_8577"] = "가장 절친했던 옛 친구 스튜불"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8577
 Lang["Q2_8577"] = "나라인 수스팬시가 그의 가장 절친했던 옛 친구 스튜불을 찾아 자신에게서 훔쳐간 수정점 고글을 되찾아 달라고 부탁했습니다."
-Lang["Q1_8578"] = "수정점 고글? 문제 없어요!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8578
+Lang["Q1_8578"] = "수정점 고글? 문제 없어요!"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8578
 Lang["Q2_8578"] = "나라인의 수정점 고글을 찾은 후, 타나리스에 있는 나라인 수스팬시에게 돌아가야 합니다."
-Lang["Q1_8728"] = "좋은 소식과 나쁜 소식"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8728
+Lang["Q1_8728"] = "좋은 소식과 나쁜 소식"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8728
 Lang["Q2_8728"] = "타나리스에 있는 나라인 수스팬시가 아케이나이트 주괴 20개, 엘레멘티움 광석 10개, 아제로스 다이아몬드 10개, 푸른 사파이어 10개를 가져다 달라고 부탁했습니다."
-Lang["Q1_8729"] = "넵튤론의 분노"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8729
+Lang["Q1_8729"] = "넵튤론의 분노"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8729
 Lang["Q2_8729"] = "아즈샤라의 폭풍의 만에 있는 회오리치는 소용돌이에서 아케이나이트 부표를 사용해야 합니다."
-Lang["Q1_8742"] = "칼림도어의 힘"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8742
+Lang["Q1_8742"] = "칼림도어의 힘"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8742
 Lang["Q2_8742"] = "수천년이 흘러 운명처럼 내 앞에 당신이 서 있습니다. 새로운 시대로 사람들을 이끄는 사람이 나타났습니다.\n\n옛 신이 공포에 떱니다. 맞습니다, 당신의 신념을 두려워합니다. 크툰의 신념을 산산조각내자.\n\n그것은 당신이 칼림도어의 힘을 가지고 온 영웅이 되었음을 알고 있습니다. 준비가 되면 당신에게 이 흐르는 모래의 홀을 드리겠습니다."
-Lang["Q1_8745"] = "시간 지배자의 보물"			-- https://www.thegeekcrusade-serveur.com/db/?quest=8745
+Lang["Q1_8745"] = "시간 지배자의 보물"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=8745
 Lang["Q2_8745"] = "영웅이여 환영합니다. 나는 징의 수호자이며 청동군단의 추적자 조나단입니다.\n\n당신이 원하는 시간 지배자의 보물을 선택하세요. 크툰과의 전투에서 승리하는데 도움이 되길 바랍니다."
 
 
 -- QUESTS - TBC
-Lang["Q1_10755"] = "지옥불 성채로"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10755
+Lang["Q1_10755"] = "지옥불 성채로"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10755
 Lang["Q2_10755"] = "지옥불 반도의 스랄마에 있는 나즈그렐에게 준비된 열쇠 거푸집을 가져가야 합니다."
-Lang["Q1_10756"] = "대장기술의 거장 로호크"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10756
+Lang["Q1_10756"] = "대장기술의 거장 로호크"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10756
 Lang["Q2_10756"] = "스랄마에 있는 로호크에게 준비된 열쇠 거푸집을 가져가야 합니다."
-Lang["Q1_10757"] = "로호크의 부탁"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10757
+Lang["Q1_10757"] = "로호크의 부탁"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10757
 Lang["Q2_10757"] = "지옥불 반도의 스랄마에 있는 로호크에게 지옥무쇠 주괴 4개, 신비한 수정 가루 2개, 불의 티끌 4개를 가져가야 합니다."
-Lang["Q1_10758"] = "지옥보다 뜨거운"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10758
+Lang["Q1_10758"] = "지옥보다 뜨거운"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10758
 Lang["Q2_10758"] = "지옥불 반도에서 지옥절단기 1대를 파괴한 후 그 안에 달궈지지 않은 열쇠 거푸집을 넣어야 합니다. 스랄마에 있는 로호크에게 그을린 열쇠 거푸집을 가져가야 합니다."
-Lang["Q1_10754"] = "지옥불 성채로"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10754
+Lang["Q1_10754"] = "지옥불 성채로"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10754
 Lang["Q2_10754"] = "지옥불 반도의 명예의 요새에 있는 전투사령관 다나스에게 준비된 열쇠 거푸집을 가져가야 합니다."
-Lang["Q1_10762"] = "거장 덤프리"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10762
+Lang["Q1_10762"] = "거장 덤프리"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10762
 Lang["Q2_10762"] = "명예의 요새에 있는 덤프리에게 준비된 열쇠 거푸집을 가져가야 합니다."
-Lang["Q1_10763"] = "덤프리의 부탁"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10763
+Lang["Q1_10763"] = "덤프리의 부탁"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10763
 Lang["Q2_10763"] = "지옥불 반도의 명예의 요새에 있는 덤프리에게 지옥무쇠 주괴 4개, 신비한 수정 가루 2개, 불의 티끌 4개를 가져가야 합니다."
-Lang["Q1_10764"] = "지옥보다 뜨거운 지옥절단기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10764
+Lang["Q1_10764"] = "지옥보다 뜨거운 지옥절단기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10764
 Lang["Q2_10764"] = "지옥불 반도에서 지옥절단기 1대를 파괴한 후 그 안에 달궈지지 않은 열쇠 거푸집을 넣은 후, 그을린 열쇠 거푸집을 명예의 요새에 있는 덤프리에게 가져가야 합니다."
-Lang["Q1_10279"] = "지배자의 둥지로"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10279
+Lang["Q1_10279"] = "지배자의 둥지로"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10279
 Lang["Q2_10279"] = "시간의 동굴에 있는 안도르무와 대화해야 합니다."
-Lang["Q1_10277"] = "시간의 동굴"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10277
+Lang["Q1_10277"] = "시간의 동굴"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10277
 Lang["Q2_10277"] = "시간의 동굴에 있는 안도르무가 동굴 주변에 있는 시간의 관리인을 따라가 달라고 부탁했습니다."
-Lang["Q1_10282"] = "옛 힐스브래드"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10282
+Lang["Q1_10282"] = "옛 힐스브래드"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10282
 Lang["Q2_10282"] = "시간의 동굴에 있는 안도르무가 옛 힐스브래드로 가서 에로지온과 대화해 달라고 부탁했습니다."
-Lang["Q1_10283"] = "타레사의 작전"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10283
+Lang["Q1_10283"] = "타레사의 작전"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10283
 Lang["Q2_10283"] = "던홀드 요새로 가서 에로지온이 준 화염 폭탄 자루를 사용하여 모든 수용소의 안에 있는 맥주통에 화염 폭탄을 5개씩 설치해야 합니다. 수용소를 다 불태웠으면 던홀드 요새의 지하 감옥에 있는 스랄과 대화하십시오."
-Lang["Q1_10284"] = "던홀드 탈출"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10284
+Lang["Q1_10284"] = "던홀드 탈출"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10284
 Lang["Q2_10284"] = "준비가 되면 스랄에게 알려준 후, 던홀드 요새에서 스랄을 따라나가 그가 타레사를 구출하고 운명을 실현할 수 있도록 도와야 합니다. 이 임무를 완수하면 옛 힐스브래드에 있는 에로지온과 대화해야 합니다."
-Lang["Q1_10285"] = "안도르무에게 돌아가기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10285
+Lang["Q1_10285"] = "안도르무에게 돌아가기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10285
 Lang["Q2_10285"] = "타나리스의 시간의 동굴에 있는 어린 안도르무에게 돌아가야 합니다."
-Lang["Q1_10205"] = "초공간 약탈자 네사드"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10205
+Lang["Q1_10265"] = "무역연합 수정 수집"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10265
+Lang["Q2_10265"] = "황천의 폭풍의 52번 구역에 있는 황천추적자 케이지에게 알클론 수정 유물 1개를 가져가야 합니다."
+Lang["Q1_10262"] = "에테리얼 무리"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10262
+Lang["Q2_10262"] = "작시스 휘장 10개를 수집해서 황천의 폭풍 52번 구역에 있는 황천추적자 케이지에게 가져가야 합니다."
+Lang["Q1_10205"] = "초공간 약탈자 네사드"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10205
 Lang["Q2_10205"] = "초공간 약탈자 네사드를 처치한 후에 황천의 폭풍의 52번 구역에 있는 황천추적자 케이지에게 돌아가야 합니다"
-Lang["Q1_10266"] = "원조 요청"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10266
+Lang["Q1_10266"] = "원조 요청"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10266
 Lang["Q2_10266"] = "가루즈를 찾아서 도와주어야 합니다. 황천의 폭풍, 중앙 생태지구 안에 있는 중앙 생태지구 주둔지로 가십시오."
-Lang["Q1_10267"] = "정당한 회수"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10267
+Lang["Q1_10267"] = "정당한 회수"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10267
 Lang["Q2_10267"] = "측량 장비 상자 10개를 모아서 황천의 폭풍, 중앙 생태지구 안에서 중앙 생태지구 주둔지에 있는 가루즈에게 돌려주어야 합니다."
-Lang["Q1_10268"] = "왕자 알현"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10268
+Lang["Q1_10268"] = "왕자 알현"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10268
 Lang["Q2_10268"] = "황천의 폭풍, 폭풍 첨탑에 있는 연합왕자 하라매드의 영상에게 측량 장비를 가져가야 합니다."
-Lang["Q1_10269"] = "첫 번째 삼각측량 지점"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10269
+Lang["Q1_10269"] = "첫 번째 삼각측량 지점"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10269
 Lang["Q2_10269"] = "삼각측량 장비를 사용하여 첫 번째 삼각측량 지점을 찾아가십시오. 발견한 후에는 황천의 폭풍의 울트리스 마나괴철로 섬에 있는 자유연합 경비초소의 무역업자 하진에게 가서 위치를 보고하십시오."
-Lang["Q1_10275"] = "두 번째 삼각측량 지점"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10275
+Lang["Q1_10275"] = "두 번째 삼각측량 지점"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10275
 Lang["Q2_10275"] = "삼각측량 장비를 사용하여 두 번째 삼각측량 지점을 찾으십시오. 발견하면 황천의 폭풍의 아라 마나괴철로 섬으로 들어가는 다리 옆, 툴루만의 교역지에 있는 바람의 무역상 툴루만에게 가서 그 위치를 보고하십시오."
-Lang["Q1_10276"] = "완전한 삼각형"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10276
+Lang["Q1_10276"] = "완전한 삼각형"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10276
 Lang["Q2_10276"] = "아타말 수정을 찾아서 황천의 폭풍, 폭풍 첨탑에 있는 연합왕자 하라매드의 영상에게 가져가야 합니다."
-Lang["Q1_10280"] = "샤트라스로 특별 배달"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10280
+Lang["Q1_10280"] = "샤트라스로 특별 배달"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10280
 Lang["Q2_10280"] = "샤트라스의 빛의 정원에 있는 아달에게 아타말 수정을 배달해야 합니다."
-Lang["Q1_10704"] = "알카트라즈에 잠입하는 방법"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10704
+Lang["Q1_10704"] = "알카트라즈에 잠입하는 방법"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10704
 Lang["Q2_10704"] = "아달이 알카트라즈 열쇠의 윗조각과 아랫조각을 찾아달라고 부탁했습니다. 열쇠 조각을 다 모아서 가져가면 알카트라즈 열쇠로 만들어줄 것입니다."
-Lang["Q1_9824"] = "발산되는 비전의 힘"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9824
+Lang["Q1_9824"] = "발산되는 비전의 힘"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9824
 Lang["Q2_9824"] = "지배자의 지하실에 있는 지하 수원 근처에서 보랏빛 수정구슬을 사용한 후 카라잔 밖에 있는 대마법사 알투루스에게 돌아가야 합니다."
-Lang["Q1_9825"] = "끊임없는 유령의 활동"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9825
+Lang["Q1_9825"] = "끊임없는 유령의 활동"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9825
 Lang["Q2_9825"] = "카라잔 밖에 있는 대마법사 알투루스에게 유령의 정수 10개를 가져가야 합니다."
-Lang["Q1_9826"] = "달라란에서의 전갈"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9826
+Lang["Q1_9826"] = "달라란에서의 전갈"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9826
 Lang["Q2_9826"] = "달라란 구덩이 외곽에 있는 대마법사 세드릭에게 알투루스의 보고서를 가져가야 합니다."
-Lang["Q1_9829"] = "카드가"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9829
+Lang["Q1_9829"] = "카드가"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9829
 Lang["Q2_9829"] = "테로카르 숲의 샤트라스에 있는 카드가에게 알투루스의 보고서를 전달해야 합니다."
-Lang["Q1_9831"] = "카라잔으로..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=9831
+Lang["Q1_9831"] = "카라잔으로..."			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9831
 Lang["Q2_9831"] = "카드가가 아킨둔의 어둠의 미궁으로 들어가서 그곳에 숨겨진 마법 단지에서 첫 번째 열쇠 조각을 꺼내오라고 부탁했습니다."
-Lang["Q1_9832"] = "두 번째와 세 번째 조각"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9832
+Lang["Q1_9832"] = "두 번째와 세 번째 조각"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9832
 Lang["Q2_9832"] = "갈퀴송곳니 저수지 안의 마법 단지에서 두 번째 열쇠 조각을, 폭풍우 요새 내부의 마법 단지에서 세 번째 열쇠 조각을 찾아야 합니다. 모두 찾은 후 샤트라스에 있는 카드가에게 돌아가십시오."
-Lang["Q1_9836"] = "메디브와의 만남"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9836
+Lang["Q1_9836"] = "메디브와의 만남"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9836
 Lang["Q2_9836"] = "시간의 동굴 안에 들어간 후 메디브를 설득하여 복원된 수습생의 열쇠를 활성화해야 합니다."
-Lang["Q1_9837"] = "카드가에게 돌아가기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9837
+Lang["Q1_9837"] = "카드가에게 돌아가기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9837
 Lang["Q2_9837"] = "샤트라스에 있는 카드가에게 돌아가서 주인의 열쇠를 보여 주어야 합니다."
-Lang["Q1_9630"] = "메디브의 일지"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9630
+Lang["Q1_9630"] = "메디브의 일지"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9630
 Lang["Q2_9630"] = "죽음의 고개에 있는 대마법사 알투루스가 카라잔으로 가서 레비엔과 대화해 보라고 부탁했습니다."
-Lang["Q1_9638"] = "그라다브와의 대화"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9638
+Lang["Q1_9638"] = "그라다브와의 대화"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9638
 Lang["Q2_9638"] = "카라잔의 수호자의 도서관에 있는 그라다브와 대화해야 합니다.."
-Lang["Q1_9639"] = "캄시스와의 대화"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9639
+Lang["Q1_9639"] = "캄시스와의 대화"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9639
 Lang["Q2_9639"] = "카라잔의 수호자의 도서관에 있는 캄시스와 대화해야 합니다."
-Lang["Q1_9640"] = "아란의 망령"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9640
+Lang["Q1_9640"] = "아란의 망령"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9640
 Lang["Q2_9640"] = "메디브의 일지를 얻은 후 카라잔의 수호자의 도서관에 있는 캄시스에게 돌아가야 합니다."
-Lang["Q1_9645"] = "주인의 테라스"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9645
+Lang["Q1_9645"] = "주인의 테라스"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9645
 Lang["Q2_9645"] = "카라잔에 있는 주인의 테라스로 가서 메디브의 일지를 읽은 후 메디브의 일기를 가지고 대마법사 알투루스에게 돌아가야 합니다."
-Lang["Q1_9680"] = "과거의 추적"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9680
+Lang["Q1_9680"] = "과거의 추적"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9680
 Lang["Q2_9680"] = "대마법사 알투루스가 카라잔 남쪽의 죽음의 고개에 있는 산으로 가서 그을린 뼈 조각을 되찾아 달라고 부탁했습니다."
-Lang["Q1_9631"] = "동료의 도움"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9631
+Lang["Q1_9631"] = "동료의 도움"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9631
 Lang["Q2_9631"] = "황천의 폭풍의 52번 구역에 있는 칼린나 나스레드에게 그을린 뼈 조각을 가져가야 합니다."
-Lang["Q1_9637"] = "칼린나의 부탁"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9637
+Lang["Q1_9637"] = "칼린나의 부탁"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9637
 Lang["Q2_9637"] = "칼린나 나스레드가 지옥불 성채의 으스러진 손의 전당에 있는 대흑마법사 네더쿠르스로부터 어둠의 고서를, 아킨둔의 세데크 전당에 있는 흑마술사 시스에게서 잊혀진 이름의 고서를 되찾아 달라고 부탁했습니다.\n\n이 퀘스트는 던전 난이도를 영웅으로 설정한 후 수행해야 합니다."
-Lang["Q1_9644"] = "파멸의 어둠"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9644
+Lang["Q1_9644"] = "파멸의 어둠"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9644
 Lang["Q2_9644"] = "카라잔에 있는 주인의 테라스로 간 후 어둠의 단지를 만져 파멸의 어둠을 소환한 후, 파멸의 어둠의 시체에서 희미한 비전 정수를 되찾은 후 대마법사 알투루스에게 가져가야 합니다."
-Lang["Q1_10901"] = "카르데쉬의 곤봉"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10901
+Lang["Q1_10901"] = "카르데쉬의 곤봉"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10901
 Lang["Q2_10901"] = "갈퀴송곳니 저수지의 용사 강제 노역소에 있는 이단자 스카디스가 땅의 인장과 불의 인장을 가져다 달라고 부탁했습니다.\n\n이 퀘스트는 던전 난이도를 영웅으로 설정한 후 수행해야 합니다."
-Lang["Q1_10900"] = "바쉬의 증표"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10900
+Lang["Q1_10900"] = "바쉬의 증표"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10900
 Lang["Q2_10900"] = "(바로 완료됨)"
-Lang["Q1_10681"] = "굴단의 손아귀"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10681
+Lang["Q1_10681"] = "굴단의 손아귀"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10681
 Lang["Q2_10681"] = "어둠달 골짜기의 저주의 제단에 있는 대지의 치유사 토르록과 대화하십시오."
-Lang["Q1_10458"] = "분노한 불과 대지의 정령들"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10458
+Lang["Q1_10458"] = "분노한 불과 대지의 정령들"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10458
 Lang["Q2_10458"] = "어둠달 골짜기 저주의 제단에 있는 대지의 치유사 토르록이 정기의 토템을 사용해 분노한 대지의 영혼 8명과 분노한 불의 영혼 8명을 사로잡아 달라고 부탁했습니다."
-Lang["Q1_10480"] = "분노한 물의 정령"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10480
+Lang["Q1_10480"] = "분노한 물의 정령"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10480
 Lang["Q2_10480"] = "어둠달 골짜기의 저주의 제단에 있는 대지의 치유사 토르록이 정기의 토템을 사용하여 분노한 물의 영혼 5명을 사로잡아 달라고 부탁했습니다."
-Lang["Q1_10481"] = "분노한 바람의 정령"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10481
+Lang["Q1_10481"] = "분노한 바람의 정령"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10481
 Lang["Q2_10481"] = "어둠달 골짜기의 저주의 제단에 있는 대지의 치유사 토르록이 정기의 토템을 사용하여 분노한 바람의 영혼 10명을 사로잡아 달라고 부탁했습니다."
-Lang["Q1_10513"] = "비통의 오로노크"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10513
+Lang["Q1_10513"] = "비통의 오로노크"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10513
 Lang["Q2_10513"] = "갈퀴흉터 저수지 북쪽에 있는 융기한 지대 위에서 비통의 오로노크를 찾으십시오."
-Lang["Q1_10514"] = "과거는 과거일 뿐..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=10514
+Lang["Q1_10514"] = "과거는 과거일 뿐..."			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10514
 Lang["Q2_10514"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크가 부서진 평원에서 어둠달 덩이줄기 10개를 캐달라고 부탁했습니다."
-Lang["Q1_10515"] = "본때 보여주기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10515
+Lang["Q1_10515"] = "본때 보여주기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10515
 Lang["Q2_10515"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크가 부서진 평원에 있는 걸신들린 바위갈퀴 알 10개를 파괴해 달라고 부탁했습니다."
-Lang["Q1_10519"] = "파멸의 암호 - 진실과 역사"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10519
+Lang["Q1_10519"] = "파멸의 암호 - 진실과 역사"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10519
 Lang["Q2_10519"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크가 그의 이야기를 들어달라고 했습니다. 그에게 다시 말을 걸면 이야기를 들을 수 있습니다."
-Lang["Q1_10521"] = "오로노크의 아들 그롬토르"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10521
+Lang["Q1_10521"] = "오로노크의 아들 그롬토르"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10521
 Lang["Q2_10521"] = "어둠달 골짜기의 갈퀴흉터 거점에서 오로노크의 아들 그롬토르를 찾아야 합니다."
-Lang["Q1_10527"] = "오로노크의 아들 알토르"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10527
+Lang["Q1_10527"] = "오로노크의 아들 알토르"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10527
 Lang["Q2_10527"] = "어둠달 골짜기의 일리다리 거점에서 오로노크의 아들 알토르를 찾아야 합니다."
-Lang["Q1_10546"] = "오로노크의 아들 보라크"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10546
+Lang["Q1_10546"] = "오로노크의 아들 보라크"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10546
 Lang["Q2_10546"] = "어둠달 골짜기의 해그늘 주둔지 근처에 있는 오로노크의 아들 보라크를 찾아야 합니다."
-Lang["Q1_10522"] = "파멸의 암호 - 그롬토르의 임무"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10522
+Lang["Q1_10522"] = "파멸의 암호 - 그롬토르의 임무"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10522
 Lang["Q2_10522"] = "어둠달 골짜기의 갈퀴흉터 거점에 있는 오로노크의 아들 그롬토르가 첫 번째 파멸의 암호 조각을 가져오라고 부탁했습니다."
-Lang["Q1_10528"] = "악마의 수정 감옥"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10528
+Lang["Q1_10528"] = "악마의 수정 감옥"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10528
 Lang["Q2_10528"] = "일리다리 거점에서 고통의 여왕 가브리사를 찾아 처치한 후에 수정 열쇠를 가지고 오로노크의 아들 알토르의 주검이 있는 곳으로 돌아가십시오."
-Lang["Q1_10547"] = "엉겅퀴 중독자와 알"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10547
+Lang["Q1_10547"] = "엉겅퀴 중독자와 알"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10547
 Lang["Q2_10547"] = "해그늘 주둔지에서 북쪽 다리에 있는 오로노크의 아들 보라크가 썩은 아라코아 알 한 개를 찾아서 북서쪽 테로카르 숲에 있는 샤트라스의 쓰레기 수집가 토비아스에게 가져가 달라고 부탁했습니다."
-Lang["Q1_10523"] = "파멸의 암호 - 첫 번째 조각 입수"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10523
+Lang["Q1_10523"] = "파멸의 암호 - 첫 번째 조각 입수"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10523
 Lang["Q2_10523"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크에게 그롬토르의 금고를 가져가야 합니다."
-Lang["Q1_10537"] = "론고른, 비통의 장궁"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10537
+Lang["Q1_10537"] = "론고른, 비통의 장궁"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10537
 Lang["Q2_10537"] = "어둠달 골짜기의 일리다리 거점에 있는 알토르의 영혼이 그 지역에 있는 악마들을 처치하고 론고른, 비통의 장궁을 찾아달라고 부탁했습니다."
-Lang["Q1_10550"] = "피엉겅퀴 묶음"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10550
+Lang["Q1_10550"] = "피엉겅퀴 묶음"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10550
 Lang["Q2_10550"] = "어둠달 골짜기의 해그늘 주둔지 근처에 있는 오로노크의 아들 보라크에게 피엉겅퀴 묶음을 돌려주어야 합니다."
-Lang["Q1_10540"] = "파멸의 암호 - 알토르의 임무"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10540
+Lang["Q1_10540"] = "파멸의 암호 - 알토르의 임무"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10540
 Lang["Q2_10540"] = "어둠달 골짜기의 일리다리 거점에 있는 알토르의 영혼이 베네라투스를 처치하고 두 번째 파멸의 암호 조각을 찾아오라고 부탁했습니다.\n\n단, 정령사냥꾼이 공격하여 대부분의 피해를 입힌 몬스터는 전리품이나 경험치를 주지 않습니다."
-Lang["Q1_10570"] = "엉겅퀴 중독자 포획"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10570
+Lang["Q1_10570"] = "엉겅퀴 중독자 포획"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10570
 Lang["Q2_10570"] = "어둠달 골짜기의 해그늘 주둔지 근처에 있는 오로노크의 아들 보라크가 스톰레이지의 서신을 입수해 달라고 부탁했습니다."
-Lang["Q1_10576"] = "어둠달의 속임수"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10576
+Lang["Q1_10576"] = "어둠달의 속임수"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10576
 Lang["Q2_10576"] = "어둠달 골짜기의 해그늘 주둔지 근처에 있는 오로노크의 아들 보라크가 해그늘 방어구 6벌을 구해오라고 부탁했습니다."
-Lang["Q1_10577"] = "일리단은 원하면, 갖는다..."			-- https://www.thegeekcrusade-serveur.com/db/?quest=10577
+Lang["Q1_10577"] = "일리단은 원하면, 갖는다..."			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10577
 Lang["Q2_10577"] = "어둠달 골짜기의 해그늘 주둔지 근처에 있는 오로노크의 아들 보라크가 해그늘 주둔지에 있는 총사령관에게 일리단의 전갈을 전해 달라고 부탁했습니다."
-Lang["Q1_10578"] = "파멸의 암호 - 보라크의 임무"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10578
+Lang["Q1_10578"] = "파멸의 암호 - 보라크의 임무"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10578
 Lang["Q2_10578"] = "어둠달 골짜기, 해그늘 주둔지 근처의 다리에 있는 오로노크의 아들 보라크가 암흑의 인도자 루울을 처치하고 세 번째 파멸의 암호 조각을 찾아와 달라고 부탁했습니다."
-Lang["Q1_10541"] = "파멸의 암호 - 두 번째 조각 입수"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10541
+Lang["Q1_10541"] = "파멸의 암호 - 두 번째 조각 입수"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10541
 Lang["Q2_10541"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크에게 알토르의 금고를 가져가야 합니다."
-Lang["Q1_10579"] = "파멸의 암호 - 세 번째 조각 입수"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10579
+Lang["Q1_10579"] = "파멸의 암호 - 세 번째 조각 입수"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10579
 Lang["Q2_10579"] = "어둠달 골짜기의 오로노크의 농장에 있는 비통의 오로노크에게 보라크의 금고를 가져가야 합니다."
-Lang["Q1_10588"] = "파멸의 암호"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10588
+Lang["Q1_10588"] = "파멸의 암호"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10588
 Lang["Q2_10588"] = "저주의 제단에서 파멸의 암호를 사용하여 불의 군주 사이루크를 소환해야 합니다.\n\n불의 군주 사이루크를 파괴한 후 저주의 제단에 있는 대지의 치유사 토르록과 대화하십시오."
-Lang["Q1_10883"] = "폭풍우 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10883
+Lang["Q1_10883"] = "폭풍우 열쇠"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10883
 Lang["Q2_10883"] = "샤트라스에 있는 아달과 대화해야 합니다."
-Lang["Q1_10884"] = "나루의 시험: 자비"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10884
+Lang["Q1_10884"] = "나루의 시험: 자비"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10884
 Lang["Q2_10884"] = "샤트라스에 있는 아달이 지옥불 성채의 으스러진 손의 전당에서 사용되지 않은 집행자의 도끼를 가져다 달라고 부탁했습니다.\n\n이 퀘스트는 던전 난이도를 영웅으로 설정한 후 수행해야 합니다."
-Lang["Q1_10885"] = "나루의 시험: 힘"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10885
+Lang["Q1_10885"] = "나루의 시험: 힘"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10885
 Lang["Q2_10885"] = "샤트라스에 있는 아달이 칼리스레쉬의 삼지창, 울림의 정수를 가져다 달라고 부탁했습니다.\n\n이 퀘스트는 던전 난이도를 영웅으로 설정한 후 수행해야 합니다."
-Lang["Q1_10886"] = "나루의 시험: 끈기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10886
+Lang["Q1_10886"] = "나루의 시험: 끈기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10886
 Lang["Q2_10886"] = "샤트라스에 있는 아달이 폭풍우 요새의 알카트라즈에서 밀하우스 마나스톰을 구출해 달라고 부탁했습니다.\n\n이 퀘스트는 던전 난이도를 영웅으로 설정한 후 수행해야 합니다."
-Lang["Q1_10888"] = "나루의 시험: 마그테리돈"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10888
+Lang["Q1_10888"] = "나루의 시험: 마그테리돈"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10888
 Lang["Q2_10888"] = "샤트라스에 있는 아달이 마그테리돈을 처치해 달라고 부탁했습니다."
-Lang["Q1_10680"] = "굴단의 손아귀"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10680
+Lang["Q1_10680"] = "굴단의 손아귀"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10680
 Lang["Q2_10680"] = "어둠달 골짜기의 저주의 제단에 있는 대지의 치유사 토르록과 대화해야 합니다."
-Lang["Q1_10445"] = "영원의 샘"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10445
+Lang["Q1_10445"] = "영원의 샘"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10445
 Lang["Q2_10445"] = "시간의 동굴에 있는 소리도르미가 갈퀴송곳니 저수지에 있는 여군주 바쉬에게서 유리병 잔여물을, 폭풍우 요새에 있는 캘타스 선스트라이더로부터 유리병 잔여물을 되찾아 달라고 부탁했습니다."
-Lang["Q1_10568"] = "바아리 서판"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10568
+Lang["Q1_10568"] = "바아리 서판"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10568
 Lang["Q2_10568"] = "샤타르 제단에 있는 수도사 케일라가 바아리 폐허에서 바아리 서판 12개를 모아달라고 부탁했습니다. 서판은 땅에서 줍거나 폐허의 잿빛혓바닥 일꾼을 처치해서 얻을 수 있습니다\n\n알도르 사제회를 위한 퀘스트를 완료하면 점술가 길드에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10683"] = "바아리 서판"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10683
+Lang["Q1_10683"] = "바아리 서판"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10683
 Lang["Q2_10683"] = "별의 성소에 있는 비전술사 텔리스가 바아리 폐허에서 바아리 서판 12개를 모아달라고 부탁했습니다. 서판은 땅에서 줍거나 폐허의 잿빛혓바닥 일꾼을 처치해서 얻을 수 있습니다.\n\n점술가 길드를 위한 퀘스트를 완료하면 알도르 사제회에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10571"] = "장로 오로누"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10571
+Lang["Q1_10571"] = "장로 오로누"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10571
 Lang["Q2_10571"] = "샤타르 제단에 있는 수도사 케일라가 바아리 폐허에 있는 장로 오로누를 해치우고 아카마의 명령서를 입수해 달라고 부탁했습니다.\n\n알도르 사제회를 위한 퀘스트를 완료하면 점술가 길드에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10684"] = "장로 오로누"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10684
+Lang["Q1_10684"] = "장로 오로누"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10684
 Lang["Q2_10684"] = "별의 성소에 있는 비전술사 텔리스가 바아리 폐허에 있는 장로 오로누를 해치우고 아카마의 명령서를 입수해 달라고 부탁했습니다.\n\n점술가 길드를 위한 퀘스트를 완료하면 알도르 사제회에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10574"] = "잿빛혓바닥 타락자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10574
+Lang["Q1_10574"] = "잿빛혓바닥 타락자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10574
 Lang["Q2_10574"] = "할룸, 에이케넨, 라칸, 우일라루를 처치하고 메달 조각 4개를 입수한 후 어둠달 골짜기의 샤타르 제단에 있는 수도사 케일라에게 돌아가십시오.\n\n알도르 사제회를 위한 퀘스트를 완료하면 점술가 길드에 대한 당신의 평판은 떨어질 것입니다."
-Lang["Q1_10685"] = "잿빛혓바닥 타락자"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10685
+Lang["Q1_10685"] = "잿빛혓바닥 타락자"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10685
 Lang["Q2_10685"] = "할룸, 에이케넨, 라칸, 우일라루를 처치하고 메달 조각 4개를 입수한 후 어둠달 골짜기의 별의 성소에 있는 비전술사 텔리스에게 돌아가십시오.\n\n점술가 길드를 위한 퀘스트를 완료하면 알도르 사제회에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10575"] = "감시자의 수용소"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10575
+Lang["Q1_10575"] = "감시자의 수용소"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10575
 Lang["Q2_10575"] = "수도사 케일라가 바아리 폐허의 남쪽에 있는 감시자의 수용소로 들어가서 사노루를 심문해 아카마의 행방을 알아봐 달라고 부탁했습니다.\n\n알도르 사제회를 위한 퀘스트를 완료하면 점술가 길드에 대한 당신의 평판은 떨어질 것입니다."
-Lang["Q1_10686"] = "감시자의 수용소"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10686
+Lang["Q1_10686"] = "감시자의 수용소"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10686
 Lang["Q2_10686"] = "비전술사 텔리스가 바아리 폐허의 남쪽에 있는 감시자의 수용소로 들어가서 사노루를 심문해 아카마의 행방을 알아봐 달라고 부탁했습니다.\n\n점술가 길드를 위한 퀘스트를 완료하면 알도르 사제회에 대한 평판은 떨어질 것입니다."
-Lang["Q1_10622"] = "충성의 증거"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10622
+Lang["Q1_10622"] = "충성의 증거"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10622
 Lang["Q2_10622"] = "어둠달 골짜기의 감시자의 수용소에 있는 잔드라스를 해치운 후 사노루에게 돌아가십시오."
-Lang["Q1_10628"] = "아카마"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10628
+Lang["Q1_10628"] = "아카마"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10628
 Lang["Q2_10628"] = "감시자의 수용소의 비밀 석실 안에 있는 아카마와 대화하십시오."
-Lang["Q1_10705"] = "현자 우달로"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10705
+Lang["Q1_10705"] = "현자 우달로"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10705
 Lang["Q2_10705"] = "폭풍우 요새의 알카트라즈 안에 있는 현자 우달로를 찾아야 합니다."
-Lang["Q1_10706"] = "수수께끼의 징후"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10706
+Lang["Q1_10706"] = "수수께끼의 징후"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10706
 Lang["Q2_10706"] = "어둠달 골짜기의 감시자의 수용소에 있는 아카마에게 돌아가십시오."
-Lang["Q1_10707"] = "아타말 언덕"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10707
+Lang["Q1_10707"] = "아타말 언덕"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10707
 Lang["Q2_10707"] = "어둠달 골짜기의 아타말 언덕 꼭대기에 가서 격노의 심장을 찾으십시오. 임무를 완수하면 어둠달 골짜기의 감시자의 수용소에 있는 아카마에게 돌아가십시오."
-Lang["Q1_10708"] = "아카마의 약속"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10708
+Lang["Q1_10708"] = "아카마의 약속"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10708
 Lang["Q2_10708"] = "샤트라스에 있는 아달에게 카라보르의 메달을 가져가야 합니다."
-Lang["Q1_10944"] = "위기에 빠진 비밀"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10944
+Lang["Q1_10944"] = "위기에 빠진 비밀"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10944
 Lang["Q2_10944"] = "어둠달 골짜기에 있는 감시자의 수용소로 가서 아카마를 만나야 합니다."
-Lang["Q1_10946"] = "잿빛혓바닥의 환영"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10946
+Lang["Q1_10946"] = "잿빛혓바닥의 환영"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10946
 Lang["Q2_10946"] = "폭풍우 요새로 가서 잿빛혓바닥 두건을 착용한 채로 알라르를 처치한 후, 어둠달 골짜기에 있는 아카마에게 돌아가야 합니다."
-Lang["Q1_10947"] = "과거로부터 온 유물"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10947
+Lang["Q1_10947"] = "과거로부터 온 유물"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10947
 Lang["Q2_10947"] = "타나리스에 있는 시간의 동굴로 가서 하이잘 산의 전투가 벌어지는 곳으로 진입하십시오. 전투에 참여하면 격노한 윈터칠을 처치하고 어둠달 골짜기에 있는 아카마에게 시간을 거스른 성물함을 가져가야 합니다."
-Lang["Q1_10948"] = "볼모가 된 영혼"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10948
+Lang["Q1_10948"] = "볼모가 된 영혼"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10948
 Lang["Q2_10948"] = "샤트라스로 가서 아달에게 아카마의 요청에 대해서 알려줘야 합니다."
-Lang["Q1_10949"] = "검은 사원 속으로"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10949
+Lang["Q1_10949"] = "검은 사원 속으로"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10949
 Lang["Q2_10949"] = "어둠달 골짜기에 있는 검은 사원의 입구로 간 후 지리와 대화해야 합니다.."
-Lang["Q1_10985"] = "아카마를 위한 소동"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10985
+Lang["Q1_10985"] = "아카마를 위한 소동"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=10985
 Lang["Q2_10985"] = "지리의 군대가 소동을 일으킨 후에 마이에브와 아카마가 어둠달 골짜기의 검은 사원에 진입하도록 도와야 합니다."
 	
 

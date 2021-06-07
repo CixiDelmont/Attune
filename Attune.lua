@@ -8,9 +8,12 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 227
--- - Fixed an where leveling up would sometime give you messages for attunements of the other faction
--- - UPdated the toc to fix the wowup/curse updater issues
+-- Done in 229
+-- - Fixed an issue with SSC early completion
+-- - Fixed an issue with Arcatraz no completion
+-- - Fixed an issue with Nightbane no completion
+-- - Fixed an issue where spacer objects show a tooltip
+-- - Fixed an issue where status text for steps wasn't correct
 
 
 -------------------------------------------------------------------------
@@ -31,7 +34,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "227"  			-- change here, and in TOC
+local attunelocal_version = "229"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -493,7 +496,7 @@ function Attune:OnEnable()
 	if Attune_DB.sortresult == nil then Attune_DB.sortresult = { 0, true } end -- sort order for the result tab (attune, asc/desc)  (0 for name)
 	if Attune_DB.showList == nil then Attune_DB.showList = true end
 	if Attune_DB.showListAlt == nil then Attune_DB.showListAlt = false end
-	if Attune_DB.showSurveyed == nil then Attune_DB.showSurveyed = true end
+	if Attune_DB.showSurveyed == nil then Attune_DB.showSurveyed = false end
 	if Attune_DB.showResponses == nil then Attune_DB.showResponses = true end
 	if Attune_DB.showStepReached == nil then Attune_DB.showStepReached = true end
 	if Attune_DB.announceAttuneCompleted == nil then Attune_DB.announceAttuneCompleted = true end
@@ -1192,7 +1195,9 @@ function Attune_CheckComplete()
 	if att.done["109-20"] 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100 end	-- CoT
 
 	if att.done["115-170"] 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100 end	-- Kara
-	if att.done["120-100"] 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100 end	-- SSC
+	if att.done["116-235"] 	then att.done["116-240"] = 1; 	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100 end	-- Nightbane Horde
+	if att.done["118-235"] 	then att.done["118-240"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100 end	-- Nightbane Alliance
+	if att.done["120-95"] 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100 end	-- SSC
 	if att.done["140-460"] 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100 end	-- The Eye Horde
 	if att.done["160-460"] 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100 end	-- The Eye Alliance
 	if att.done["170-80"] 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100 end	-- Hyjal Alliance
@@ -1798,14 +1803,14 @@ function Attune_CreateNode(step, parent, posX, posY)
 	fnode:SetScript("OnEnter", function()
 
 		-- put full step info in status bar
-		attunelocal_frame:SetStatusText(step.STEP)
+		--if step.TYPE ~= "Spacer" then attunelocal_frame:SetStatusText(step.STEP) end
 
 		-- display Item link or quest tooltip on hover
 		if step.TYPE == "Item" then
 			if countNeeded == 1 then
-				attunelocal_frame:SetStatusText(step.STEP)
+				attunelocal_frame:SetStatusText(Lang["I_"..step.ID_WOWHEAD])
 			else
-				attunelocal_frame:SetStatusText(step.STEP .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
+				attunelocal_frame:SetStatusText(Lang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
 			end
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
@@ -1833,6 +1838,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			local tempGoal = step.ID_WOWHEAD
 			if tonumber(tempRep) > tonumber(step.ID_WOWHEAD) then tempRep = step.ID_WOWHEAD end
 
+			attunelocal_frame:SetStatusText("" .. Attune_DB.toons[attunelocal_charKey].reps[step.LOCATION].name)
 			GameTooltip:SetText("" .. Attune_DB.toons[attunelocal_charKey].reps[step.LOCATION].name)
 			GameTooltip:AddLine(Lang["Current progress"]..": ".. tempRep .. "/" ..step.ID_WOWHEAD, 0.5, 0.5, 0.5, 1)
 			if step.OFFSET ~= nil then
@@ -1846,6 +1852,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end)
 
 		elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
+			attunelocal_frame:SetStatusText(Lang["Q1_"..step.ID_WOWHEAD])
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
 			local quest = Attune_Data.quests[tonumber(step.ID_WOWHEAD)]
@@ -1871,6 +1878,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 
 		elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
+			attunelocal_frame:SetStatusText(Lang["N1_"..step.ID_WOWHEAD])
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
 			local npc = Attune_Data.npcs[tonumber(step.ID_WOWHEAD)]
@@ -1899,6 +1907,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 				GameTooltip:SetText(Lang["Information not found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
 			else
 				-- build tooltip
+				attunelocal_frame:SetStatusText(Lang[step.STEP])
 				GameTooltip:SetText((Attune_DB.mini and step.STEP.."\n" or "") .. other)
 			end
 

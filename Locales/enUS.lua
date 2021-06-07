@@ -563,6 +563,10 @@ Lang["Q1_10284"] = "Escape from Durnholde"			-- https://www.thegeekcrusade-serve
 Lang["Q2_10284"] = "When you are ready to proceed, let Thrall know. Follow Thrall out of Durnholde Keep and help him free Taretha and fulfill his destiny."
 Lang["Q1_10285"] = "Return to Andormu"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10285
 Lang["Q2_10285"] = "Return to the child Andormu at the Caverns of Time in the Tanaris desert."
+Lang["Q1_10265"] = "Consortium Crystal Collection"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "Obtain an Arklon Crystal Artifact and return it to Nether-Stalker Khay'ji at Area 52 in the Netherstorm."
+Lang["Q1_10262"] = "A Heap of Ethereals"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "Collect 10 Zaxxis Insignias and return them to Nether-Stalker Khay'ji at Area 52 in the Netherstorm."
 Lang["Q1_10205"] = "Warp-Raider Nesaad"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10205
 Lang["Q2_10205"] = "Kill Warp-Raider Nesaad and then return to Nether-Stalker Khay'ji at Area 52 in the Netherstorm."
 Lang["Q1_10266"] = "Request for Assistance"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10266
