@@ -8,12 +8,10 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 229
--- - Fixed an issue with SSC early completion
--- - Fixed an issue with Arcatraz no completion
--- - Fixed an issue with Nightbane no completion
--- - Fixed an issue where spacer objects show a tooltip
--- - Fixed an issue where status text for steps wasn't correct
+-- Done in 230
+-- - Officers (GM or guildies with the right to remove people from guild) now have the ability 
+--   to update status and role on behalf of their guildies.
+--   These changes are automatically pushed to other guildies online at the time
 
 
 -------------------------------------------------------------------------
@@ -34,7 +32,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "229"  			-- change here, and in TOC x3
+local attunelocal_version = "230"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -723,7 +721,7 @@ function Attune:CHAT_MSG_ADDON(event, arg1, arg2, arg3, arg4)
 	if arg1 == attunelocal_versionprefix then
 		if arg2 > attunelocal_version and not attunelocal_detectedNewer then
 			attunelocal_detectedNewer = true
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"]) end -- 	ved check with a newer version, warn the user
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"].." (v"..arg2..")") end -- 	ved check with a newer version, warn the user
 		end
 	end
 
@@ -2953,6 +2951,7 @@ end
 function Attune_ShowProfileList(title)
 
 	local count = 0 -- number of rows displayed in table
+	local att = Attune_DB.toons[attunelocal_charKey]
 
 	-- adjust the title according to the selection
 	if title ~= nil then
@@ -3064,7 +3063,7 @@ function Attune_ShowProfileList(title)
 						gguild:SetFont(GameFontNormal:GetFont(), 12)
 						gframe:AddChild(gguild)
 
-						if t.owner == 1 then 
+						if t.owner == 1 or (t.guild == att.guild and att.officer == "1") then 
 							local gstatus = AceGUI:Create("Dropdown")
 							gstatus:SetWidth(100)
 							gstatus:SetList({
@@ -3074,7 +3073,10 @@ function Attune_ShowProfileList(title)
 							  }, {"None", "Main", "Alt"})
 							if t.status == nil then t.status = "None" end
 							gstatus:SetValue(t.status)
-							gstatus:SetCallback("OnValueChanged", function(choice) t.status = choice:GetValue() end )
+							gstatus:SetCallback("OnValueChanged", function(choice) 
+								t.status = choice:GetValue() 
+								if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONSTATUS|" .. t.status, "GUILD") end 
+							end )
 							gframe:AddChild(gstatus)
 
 							
@@ -3088,10 +3090,13 @@ function Attune_ShowProfileList(title)
 								["Ranged"] = Attune_StatusRole("Ranged"),
 								["Bank"] = Attune_StatusRole("Bank"),
 							  }, {"None", "Tank", "Healer", "Melee", "Ranged", "Bank"})
-							  if t.role == nil then t.role = "None" end
-							  grole:SetValue(t.role)
-							  grole:SetCallback("OnValueChanged", function(choice) t.role = choice:GetValue() end )
-							  gframe:AddChild(grole)
+							if t.role == nil then t.role = "None" end
+							grole:SetValue(t.role)
+							grole:SetCallback("OnValueChanged", function(choice) 
+								t.role = choice:GetValue() 
+								if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONROLE|" .. t.role, "GUILD") end 
+							end )
+							gframe:AddChild(grole)
 
 						else
 							local gstatus = AceGUI:Create("Label")
@@ -3413,9 +3418,15 @@ function Attune_HandleRequestResults(response)
 		if player.version ~= nil then
 			if player.version > attunelocal_version and not attunelocal_detectedNewer then
 				attunelocal_detectedNewer = true
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"]) end-- detected someone with a newer version, warn the user
+				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"].." (v"..player.version..")") end-- detected someone with a newer version, warn the user
 			end
 		end
+
+	elseif tag == 'TOONROLE' then
+		if player.name ~= nil then player.role = data[3] end   --don't add new members like this (not enough metadata)
+	
+	elseif tag == 'TOONSTATUS' then
+		if player.name ~= nil then player.status = data[3] end   --don't add new members like this (not enough metadata)
 
 
 	-- STEP replies
