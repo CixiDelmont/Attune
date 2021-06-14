@@ -8,15 +8,9 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 232
--- - DONE		Karazhan complete doesn't show as complete in the tree
--- - PARTIAL	Game freezes a sec when completing steps
--- - WONT DO 	Manually set steps for lockpickers (discord chat instead)
--- - DONE		Wrong location for heroic keys Sha'tar / Lower City
--- - DONE		Missing last step in Karazhan (The violet eye)
--- - DONE		Check and remove attunement for buggy ones (SSC)
--- - NOT ATTUNE	integration with ajour
--- - DONE		color change on done attunements
+-- Done in 233
+-- - Fixed freezes when completing steps. (might still occur on full attune completion)
+-- - Repackaging the toc to avoid issues with ajour and wowup etc
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -36,7 +30,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "232"  			-- change here, and in TOC x3
+local attunelocal_version = "233"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -920,7 +914,7 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete()
+								Attune_CheckComplete(false)
 								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 									PlaySound(5275) -- AuctionWindowClose
 									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
@@ -970,7 +964,7 @@ function Attune:BAG_UPDATE(event)
 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete()
+								Attune_CheckComplete(false)
 								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 									PlaySound(5275) -- AuctionWindowClose
 									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
@@ -1032,7 +1026,7 @@ function Attune:UPDATE_FACTION(event)
 								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete()
+								Attune_CheckComplete(false)
 								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 									PlaySound(5275) -- AuctionWindowClose
 									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
@@ -1164,7 +1158,7 @@ function Attune_CheckProgress()
 	-- some specific steps mean the whole achievement is complete. Close off the whole tree if those are done
 	-- including a second pass to mark as done all non-trackable steps (interact/kill/past items) that belong to earlier (completed) quests
 	Attune_SendPushInfo("TOON")
-	Attune_CheckComplete()
+	Attune_CheckComplete(true)
 	Attune_SendPushInfo("OVER")
 
 	-- a third pass to mark as done all attunements used in further attunements
@@ -1181,53 +1175,55 @@ end
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
-function Attune_CheckComplete()
+function Attune_CheckComplete(newComplete)
 	local att = Attune_DB.toons[attunelocal_charKey]
 
+
 	-- WoW
-	if att.done["0-40"] and att.attuned["0"] ~= 100 	then att.done["0-50"] = 1; 	Attune_SendPushInfo("0-50");	att.attuned["0"] = 100; Attune_UpdateTreeGroup("0"); end	-- Debug
-	if att.done["1-15"] and att.attuned["1"] ~= 100 	then att.done["1-20"] = 1; 	Attune_SendPushInfo("1-20"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); end	-- Debug multi
-	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); end	-- MC
-	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); end	-- Ony Horde
-	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); end	-- Ony Alliance
-	if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); end	-- BWL
-	if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); end	-- Naxx
-	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); end	-- Naxx
-	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); end	-- Naxx
-	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); end	-- scarab
+	if att.done["0-40"] and att.attuned["0"] ~= 100 	then att.done["0-50"] = 1; 	Attune_SendPushInfo("0-50");	att.attuned["0"] = 100; Attune_UpdateTreeGroup("0"); newComplete = true; end	-- Debug
+	if att.done["1-15"] and att.attuned["1"] ~= 100 	then att.done["1-20"] = 1; 	Attune_SendPushInfo("1-20"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); newComplete = true;  end	-- Debug multi
+	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
+	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
+	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
+	if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
+	if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
 
 	-- TBC
-	if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); end		-- SH Horde
-	if att.done["21-85"] and att.attuned["21"] ~= 100 	then att.done["21-90"] = 1; 	Attune_SendPushInfo("21-90"); 	att.attuned["21"] = 100; Attune_UpdateTreeGroup("21"); end		-- SH Alliance
-	if att.done["30-20"] and att.attuned["30"] ~= 100 	then att.done["30-30"] = 1; 	Attune_SendPushInfo("30-30"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); end		-- Shadow Lab
-	if att.done["40-90"] and att.attuned["40"] ~= 100 	then att.done["40-100"] = 1; 	Attune_SendPushInfo("40-100"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); end		-- Black Morass
-	if att.done["80-160"] and att.attuned["80"] ~= 100 	then att.done["80-180"] = 1; 	Attune_SendPushInfo("80-180"); 	att.attuned["80"] = 100; Attune_UpdateTreeGroup("80"); end		-- Arcatraz
+	if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end		-- SH Horde
+	if att.done["21-85"] and att.attuned["21"] ~= 100 	then att.done["21-90"] = 1; 	Attune_SendPushInfo("21-90"); 	att.attuned["21"] = 100; Attune_UpdateTreeGroup("21"); newComplete = true;  end		-- SH Alliance
+	if att.done["30-20"] and att.attuned["30"] ~= 100 	then att.done["30-30"] = 1; 	Attune_SendPushInfo("30-30"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end		-- Shadow Lab
+	if att.done["40-90"] and att.attuned["40"] ~= 100 	then att.done["40-100"] = 1; 	Attune_SendPushInfo("40-100"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end		-- Black Morass
+	if att.done["80-160"] and att.attuned["80"] ~= 100 	then att.done["80-180"] = 1; 	Attune_SendPushInfo("80-180"); 	att.attuned["80"] = 100; Attune_UpdateTreeGroup("80"); newComplete = true;  end		-- Arcatraz
 
-	if att.done["104-20"] and att.attuned["104"] ~= 100 	then att.done["104-30"] = 1; 	Attune_SendPushInfo("104-30"); 	att.attuned["104"] = 100; Attune_UpdateTreeGroup("104"); end	-- Thrallmar
-	if att.done["105-20"] and att.attuned["105"] ~= 100 	then att.done["105-30"] = 1; 	Attune_SendPushInfo("105-30"); 	att.attuned["105"] = 100; Attune_UpdateTreeGroup("105"); end	-- HH
-	if att.done["106-20"] and att.attuned["106"] ~= 100 	then att.done["106-30"] = 1; 	Attune_SendPushInfo("106-30"); 	att.attuned["106"] = 100; Attune_UpdateTreeGroup("106"); end	-- CE
-	if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; Attune_UpdateTreeGroup("107"); end	-- Lower City
-	if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; Attune_UpdateTreeGroup("108"); end	-- Shatar
-	if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); end	-- CoT
+	if att.done["104-20"] and att.attuned["104"] ~= 100 	then att.done["104-30"] = 1; 	Attune_SendPushInfo("104-30"); 	att.attuned["104"] = 100; Attune_UpdateTreeGroup("104"); newComplete = true;  end	-- Thrallmar
+	if att.done["105-20"] and att.attuned["105"] ~= 100 	then att.done["105-30"] = 1; 	Attune_SendPushInfo("105-30"); 	att.attuned["105"] = 100; Attune_UpdateTreeGroup("105"); newComplete = true;  end	-- HH
+	if att.done["106-20"] and att.attuned["106"] ~= 100 	then att.done["106-30"] = 1; 	Attune_SendPushInfo("106-30"); 	att.attuned["106"] = 100; Attune_UpdateTreeGroup("106"); newComplete = true;  end	-- CE
+	if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; Attune_UpdateTreeGroup("107"); newComplete = true;  end	-- Lower City
+	if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; Attune_UpdateTreeGroup("108"); newComplete = true;  end	-- Shatar
+	if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
 
-	if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); end	-- Kara
-	if att.done["116-235"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; 	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); end	-- Nightbane Horde
-	if att.done["118-235"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); end	-- Nightbane Alliance
-	if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); end	-- SSC
-	if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); end	-- The Eye Horde
-	if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); end	-- The Eye Alliance
-	if att.done["170-80"] and att.attuned["170"] ~= 100 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100; Attune_UpdateTreeGroup("170"); end	-- Hyjal Alliance
-	if att.done["180-80"] and att.attuned["180"] ~= 100 	then att.done["180-90"] = 1; 	Attune_SendPushInfo("180-90"); 		att.attuned["180"] = 100; Attune_UpdateTreeGroup("180"); end	-- Hyjal Horde
-	if att.done["190-260"] and att.attuned["190"] ~= 100 	then att.done["190-280"] = 1; 	Attune_SendPushInfo("190-280"); 	att.attuned["190"] = 100; Attune_UpdateTreeGroup("190"); end	-- BT Horde
-	if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); end	-- BT Alliance
+	if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
+	if att.done["116-235"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; 	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
+	if att.done["118-235"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
+	if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- SSC
+	if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- The Eye Horde
+	if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); newComplete = true;  end	-- The Eye Alliance
+	if att.done["170-80"] and att.attuned["170"] ~= 100 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100; Attune_UpdateTreeGroup("170"); newComplete = true;  end	-- Hyjal Alliance
+	if att.done["180-80"] and att.attuned["180"] ~= 100 	then att.done["180-90"] = 1; 	Attune_SendPushInfo("180-90"); 		att.attuned["180"] = 100; Attune_UpdateTreeGroup("180"); newComplete = true;  end	-- Hyjal Horde
+	if att.done["190-260"] and att.attuned["190"] ~= 100 	then att.done["190-280"] = 1; 	Attune_SendPushInfo("190-280"); 	att.attuned["190"] = 100; Attune_UpdateTreeGroup("190"); newComplete = true;  end	-- BT Horde
+	if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); newComplete = true;  end	-- BT Alliance
 
-	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
-		if att.done[s.ID_ATTUNE .. "-" .. s.ID] then
-			-- recurse into earlier steps to mark them as done too
-			Attune_recursePreviousSteps(s.ID_ATTUNE, s.FOLLOWS)
+	if newComplete then 
+		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
+			if att.done[s.ID_ATTUNE .. "-" .. s.ID] then
+				-- recurse into earlier steps to mark them as done too
+				Attune_recursePreviousSteps(s.ID_ATTUNE, s.FOLLOWS)
+			end
 		end
 	end
-
 	Attune_CheckIsNext(attunelocal_charKey)
 end
 
@@ -4169,8 +4165,6 @@ function Attune_SlashCommandHandler( msg )
 		attunelocal_frame:Hide()
 	
 	else
-		--Attune_CheckProgress()  -- already done on login
-
 		if attunelocal_initial then
 			attunelocal_initial = false
 			Attune_LoadTree()
