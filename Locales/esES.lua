@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "El toque del maestro"			-- https://es.tbc.wowhead.com/quest=9
 Lang["Q2_9836"] = "Ve a las Cavernas del Tiempo y convence a Medivh para que active tu llave de aprendiz restaurada."
 Lang["Q1_9837"] = "Regresa junto a Khadgar"			-- https://es.tbc.wowhead.com/quest=9837
 Lang["Q2_9837"] = "Vuelve a ver a Khadgar en la Ciudad de Shattrath y enséñale la llave del maestro."
+Lang["Q1_9838"] = "El Ojo Violeta"			-- https://es.tbc.wowhead.com/quest=9838
+Lang["Q2_9838"] = "Habla con el Archimago Alturus fuera de Karazhan."
 Lang["Q1_9630"] = "El diario de Medivh"			-- https://es.tbc.wowhead.com/quest=9630
 Lang["Q2_9630"] = "El archimago Alturus, del Paso de la Muerte, quiere que vayas a Karazhan y hables con Wravien."
 Lang["Q1_9638"] = "En buenas manos"			-- https://es.tbc.wowhead.com/quest=9638

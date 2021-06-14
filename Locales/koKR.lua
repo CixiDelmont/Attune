@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "메디브와의 만남"			-- https://wow.inven.co.kr/dataninf
 Lang["Q2_9836"] = "시간의 동굴 안에 들어간 후 메디브를 설득하여 복원된 수습생의 열쇠를 활성화해야 합니다."
 Lang["Q1_9837"] = "카드가에게 돌아가기"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9837
 Lang["Q2_9837"] = "샤트라스에 있는 카드가에게 돌아가서 주인의 열쇠를 보여 주어야 합니다."
+Lang["Q1_9838"] = "보랏빛 눈"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9838
+Lang["Q2_9838"] = "카라잔 밖에 있는 대마법사 알투루스와 대화해야 합니다."
 Lang["Q1_9630"] = "메디브의 일지"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9630
 Lang["Q2_9630"] = "죽음의 고개에 있는 대마법사 알투루스가 카라잔으로 가서 레비엔과 대화해 보라고 부탁했습니다."
 Lang["Q1_9638"] = "그라다브와의 대화"			-- https://wow.inven.co.kr/dataninfo/wdb/edb_quest/detail.php?id=9638

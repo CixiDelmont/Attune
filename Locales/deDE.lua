@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "Die Berührung des Meisters"			-- https://de.tbc.wowhead.com/
 Lang["Q2_9836"] = " Geht in die Höhlen der Zeit und überzeugt Medivh davon, den wiederhergestellten Schlüssel des Lehrlings zu aktivieren."
 Lang["Q1_9837"] = "Rückkehr Khadgar"			-- https://de.tbc.wowhead.com/quest=9837
 Lang["Q2_9837"] = "Kehrt zu Khadgar in Shattrath zurück und zeigt ihm den Schlüssel des Meisters."
+Lang["Q1_9838"] = "Das Violette Auge"			-- https://de.tbc.wowhead.com/quest=9838
+Lang["Q2_9838"] = "Sprecht mit Erzmagier Alturus außerhalb von Karazhan."
 Lang["Q1_9630"] = "Medivhs Tagebuch"			-- https://de.tbc.wowhead.com/quest=9630
 Lang["Q2_9630"] = "Erzmagier Alturus am Gebirgspass der Totenwinde möchte, dass Ihr nach Karazhan geht und mit Wravien sprecht."
 Lang["Q1_9638"] = "In guten Händen"			-- https://de.tbc.wowhead.com/quest=9638

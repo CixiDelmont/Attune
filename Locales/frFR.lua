@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "Le toucher du maître"			-- https://www.thegeekcrusade-serveu
 Lang["Q2_9836"] = "Rendez-vous aux Grottes du temps et persuadez Medivh d’accepter votre Clé de l’apprenti réparée."
 Lang["Q1_9837"] = "Retour vers Khadgar"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9837
 Lang["Q2_9837"] = "Retournez voir Khadgar à Shattrath, et montrez-lui à la Clé du maître."
+Lang["Q1_9838"] = "L’Œil pourpre"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9838
+Lang["Q2_9838"] = "Parlez à l'archimage Alturus à l'extérieur de Karazhan."
 Lang["Q1_9630"] = "Le journal de Medivh"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9630
 Lang["Q2_9630"] = "L’archimage Alturus, du défilé de Deuillevent, veut que vous entriez dans Karazhan et que vous parliez à Wravien."
 Lang["Q1_9638"] = "En de bonnes mains"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9638

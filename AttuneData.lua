@@ -359,11 +359,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="106",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_racial_ultravision",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="107",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Lower City"],LOCATION="1011",ID_WOWHEAD="21000",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="107",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Terokkar Forest"],ID_WOWHEAD="30633",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="107",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="30633",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="107",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="108",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["The Sha'tar"],LOCATION="935",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="108",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="30634",ICON="Interface\\Icons\\inv_misc_key_09",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="108",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="30634",ICON="Interface\\Icons\\inv_misc_key_09",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="108",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="109",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Keepers of Time"],LOCATION="989",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="0",STAGE="10"},
@@ -395,9 +395,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="115",ID="145",TYPE="Attune",STEP=Lang["The Black Morass"],LOCATION="",ID_WOWHEAD="40",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_aeonus_01",FOLLOWS="0",STAGE="120"},
 	{ID_ATTUNE="115",ID="150",TYPE="Interact",STEP="",LOCATION=Lang["The Black Morass"],ID_WOWHEAD="15608",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="140&145",STAGE="140"},
 	{ID_ATTUNE="115",ID="160",TYPE="Turn In",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="9836",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="150"},
-	{ID_ATTUNE="115",ID="170",TYPE="Quest",STEP="",LOCATION="Black Morass",ID_WOWHEAD="9837",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="160"},
+	{ID_ATTUNE="115",ID="170",TYPE="Quest",STEP="",LOCATION=Lang["The Black Morass"],ID_WOWHEAD="9837",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="160"},
 	{ID_ATTUNE="115",ID="180",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="24490",ICON="Interface\\Icons\\inv_misc_key_07",FOLLOWS="170",STAGE="170"},
-	{ID_ATTUNE="115",ID="190",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_princemalchezaar_02",FOLLOWS="180",STAGE="180"},
+	{ID_ATTUNE="115",ID="185",TYPE="Quest",STEP="",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="9838",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="175"},
+	{ID_ATTUNE="115",ID="190",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_princemalchezaar_02",FOLLOWS="185",STAGE="180"},
 
 	{ID_ATTUNE="116",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 70",LOCATION="",ID_WOWHEAD="70",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="116",ID="15",TYPE="Attune",STEP=Lang["Karazhan"],LOCATION="",ID_WOWHEAD="115",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_princemalchezaar_02",FOLLOWS="0",STAGE="10"},
@@ -828,8 +829,9 @@ Attune_Data.quests = {
 	[10265]={67,1},
 	[10262]={67,1},
 	[10205]={67,1},
-	[9836]={69,1},
-	[9837]={69,1},
+	[9836]={68,1},
+	[9837]={68,1},
+	[9838]={68,1},
 	[9630]={70,10},
 	[9638]={70,10},
 	[9639]={70,10},

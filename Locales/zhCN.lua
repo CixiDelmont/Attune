@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "麦迪文的触摸"			-- https://cn.tbc.wowhead.com/?quest=98
 Lang["Q2_9836"] = "进入时光之穴，说服麦迪文让复原的学徒钥匙重新获得打开卡拉赞大门的能力。"
 Lang["Q1_9837"] = "返回卡德加身边"			-- https://cn.tbc.wowhead.com/?quest=9837
 Lang["Q2_9837"] = "将麦迪文的钥匙交给沙塔斯城的卡德加。"
+Lang["Q1_9838"] = "紫罗兰之眼"			-- https://cn.tbc.wowhead.com/?quest=9838
+Lang["Q2_9838"] = "与卡拉赞外的大法师奥图鲁斯谈一谈。"
 Lang["Q1_9630"] = "麦迪文的日记"			-- https://cn.tbc.wowhead.com/?quest=9630
 Lang["Q2_9630"] = "逆风小径的大法师奥图鲁斯要你进入卡拉赞，与拉维恩谈一谈。"
 Lang["Q1_9638"] = "书呆子"			-- https://cn.tbc.wowhead.com/?quest=9638

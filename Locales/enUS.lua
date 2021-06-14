@@ -601,6 +601,8 @@ Lang["Q1_9836"] = "The Master's Touch"			-- https://www.thegeekcrusade-serveur.c
 Lang["Q2_9836"] = "Go into the Caverns of Time and convince Medivh to enable your Restored Apprentice's Key."
 Lang["Q1_9837"] = "Return to Khadgar"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9837
 Lang["Q2_9837"] = "Return to Khadgar in Shattrath City and show him the Master's Key."
+Lang["Q1_9838"] = "The Violet Eye"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9838
+Lang["Q2_9838"] = "Speak to Archmage Alturus outside Karazhan."
 Lang["Q1_9630"] = "Medivh's Journal"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9630
 Lang["Q2_9630"] = "Archmage Alturus at Deadwind Pass wants you go into Karazhan and speak to Wravien."
 Lang["Q1_9638"] = "In Good Hands"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9638
