@@ -426,7 +426,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="116",ID="180",TYPE="Kill",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="16807",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="140&150&174",STAGE="160"},
 	{ID_ATTUNE="116",ID="190",TYPE="Kill",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Sethekk Halls"],ID_WOWHEAD="18472",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_talonkingikiss",FOLLOWS="140&170",STAGE="160"},
 	{ID_ATTUNE="116",ID="200",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="25462",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="180",STAGE="170"},
-	{ID_ATTUNE="116",ID="210",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="25461",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="190",STAGE="170"},
+	{ID_ATTUNE="116",ID="210",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Sethekk Halls"],ID_WOWHEAD="25461",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="190",STAGE="170"},
 	{ID_ATTUNE="116",ID="220",TYPE="Turn In",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="9637",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="200&210",STAGE="180"},
 	{ID_ATTUNE="116",ID="230",TYPE="Pick Up",STEP=Lang["Nightbane"],LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="9644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="190"},
 	{ID_ATTUNE="116",ID="235",TYPE="Item",STEP="",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="24140",ICON="Interface\\Icons\\inv_misc_urn_01",FOLLOWS="230",STAGE="195"},

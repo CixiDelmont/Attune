@@ -8,9 +8,10 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 233
--- - Fixed freezes when completing steps. (might still occur on full attune completion)
--- - Repackaging the toc to avoid issues with ajour and wowup etc
+-- Done in 235
+-- - Modified the result pane to allow scrolling of the names only, rather than the whole window
+-- - Attempted fix for the Blackened Urn of the Nightbane attunement
+-- - Attempted fix to an issue where SSC status is not appearing for alts
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -30,7 +31,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "233"  			-- change here, and in TOC x3
+local attunelocal_version = "235"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -555,6 +556,8 @@ function Attune:OnEnable()
 		end
 
 
+--[[	-- NOW REMOVED as it was clearing alt status
+
 		-- tentative fix for SSC
 		-- attune was granted on error (picking up quest instead of turning in)
 		t.attuned["120"] = 0		-- removing completion status
@@ -565,7 +568,7 @@ function Attune:OnEnable()
 		t.done["120-110"] = nil		-- removing 'end' step
 		t.done["120-100"] = nil		-- removing bad step (mark of vashj)
 		t.done["120-95"] = nil		-- removing quest turn in step  --  this should re-complete itself automatically if the player has done it
-
+]]
 	end 
 
 	Attune_UpdateLogs()
@@ -573,6 +576,7 @@ function Attune:OnEnable()
 	--this is per character as it could cause problems with alliance vs horde last viewed (ex if last viewed is Honor Hold)
 	if AttuneLastViewed == nil then AttuneLastViewed = Attune_Data.attunes[1].EXPAC.."\001"..Attune_Data.attunes[1].ID end --select first in the list by default (should be MC, same alliance/horde)
 
+	Attune:BAG_UPDATE(nil)
 	Attune_CheckProgress() -- get your own standing
 	Attune:BAG_UPDATE(nil)
 
@@ -1206,8 +1210,8 @@ function Attune_CheckComplete(newComplete)
 	if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
 
 	if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
-	if att.done["116-235"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; 	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
-	if att.done["118-235"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
+	if att.done["116-230"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; att.done["116-235"] = 1;	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
+	if att.done["118-230"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; att.done["118-235"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
 	if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- SSC
 	if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- The Eye Horde
 	if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); newComplete = true;  end	-- The Eye Alliance
@@ -2334,15 +2338,7 @@ function Attune_ToggleView(noToggle)
 		attunelocal_frame:AddChild(attunelocal_guildframe)
 
 
-		attunelocal_gscroll = AceGUI:Create("ScrollFrame")
-		attunelocal_gscroll:SetLayout("Flow")
-		attunelocal_gscroll:SetFullWidth(true)
-		
 
-		-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
-		attunelocal_gscroll.frame:SetScript("OnUpdate", function()
-			attunelocal_gscroll:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
-		end)
 
 		--Display guild name and sort message
 		local titleGroup = AceGUI:Create("SimpleGroup")
@@ -2404,7 +2400,7 @@ function Attune_ToggleView(noToggle)
 			titleGroup:AddChild(prof)
 
 
-		attunelocal_gscroll:AddChild(titleGroup)
+		attunelocal_guildframe:AddChild(titleGroup)
 
 
 		--CheckBox
@@ -2471,7 +2467,7 @@ function Attune_ToggleView(noToggle)
 			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
 			else Attune_ShowProfileList(label)	end
 		end)
-		attunelocal_gscroll:AddChild(radioGroup)
+		attunelocal_guildframe:AddChild(radioGroup)
 
 
 		local syncGroup = AceGUI:Create("SimpleGroup")
@@ -2503,7 +2499,9 @@ function Attune_ToggleView(noToggle)
 			end)
 			syncGroup:AddChild(sync)
 
-		attunelocal_gscroll:AddChild(syncGroup)
+		attunelocal_guildframe:AddChild(syncGroup)
+
+
 
 
 		-- show attunes or profiles
@@ -2568,8 +2566,21 @@ function Attune_ToggleView(noToggle)
 				end
 			end
 
-			attunelocal_gscroll:AddChild(gftitle)
+			attunelocal_guildframe:AddChild(gftitle)
 
+
+
+			attunelocal_gscroll = AceGUI:Create("ScrollFrame")
+			attunelocal_gscroll:SetLayout("Flow")
+			attunelocal_gscroll:SetFullWidth(true)
+			
+	
+			-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
+			attunelocal_gscroll.frame:SetScript("OnUpdate", function()
+				attunelocal_gscroll:SetHeight(attunelocal_frame.frame:GetHeight() - 255)
+			end)
+	
+	
 
 			attunelocal_glist = AceGUI:Create("SimpleGroup")
 			attunelocal_glist:SetLayout("Flow")
@@ -2581,6 +2592,7 @@ function Attune_ToggleView(noToggle)
 
 			attunelocal_gscroll:AddChild(attunelocal_glist)
 
+			attunelocal_guildframe:AddChild(attunelocal_gscroll)
 
 		else
 
@@ -2684,8 +2696,18 @@ function Attune_ToggleView(noToggle)
 			gficon:SetImageSize(24, 24)
 			gftitle:AddChild(gficon)
 
-			attunelocal_gscroll:AddChild(gftitle)
+			attunelocal_guildframe:AddChild(gftitle)
 
+
+			attunelocal_gscroll = AceGUI:Create("ScrollFrame")
+			attunelocal_gscroll:SetLayout("Flow")
+			attunelocal_gscroll:SetFullWidth(true)
+			
+	
+			-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
+			attunelocal_gscroll.frame:SetScript("OnUpdate", function()
+				attunelocal_gscroll:SetHeight(attunelocal_frame.frame:GetHeight() - 255)
+			end)
 
 			attunelocal_glist = AceGUI:Create("SimpleGroup")
 			attunelocal_glist:SetLayout("Flow")
@@ -2697,11 +2719,9 @@ function Attune_ToggleView(noToggle)
 
 			attunelocal_gscroll:AddChild(attunelocal_glist)
 
+			attunelocal_guildframe:AddChild(attunelocal_gscroll)
 
-		
 		end
-
-		attunelocal_guildframe:AddChild(attunelocal_gscroll)
 
 	else
 
@@ -3084,7 +3104,8 @@ function Attune_ShowProfileList(title)
 								["None"] = "-",
 								["Main"] = Attune_StatusRole("Main"),
 								["Alt"] = Attune_StatusRole("Alt"),
-							  }, {"None", "Main", "Alt"})
+								["Bank"] = Attune_StatusRole("Bank"),								
+							  }, {"None", "Main", "Alt", "Bank"})
 							if t.status == nil then t.status = "None" end
 							gstatus:SetValue(t.status)
 							gstatus:SetCallback("OnValueChanged", function(choice) 
@@ -3102,8 +3123,7 @@ function Attune_ShowProfileList(title)
 								["Healer"] = Attune_StatusRole("Healer"),
 								["Melee"] = Attune_StatusRole("Melee"),
 								["Ranged"] = Attune_StatusRole("Ranged"),
-								["Bank"] = Attune_StatusRole("Bank"),
-							  }, {"None", "Tank", "Healer", "Melee", "Ranged", "Bank"})
+							  }, {"None", "Tank", "Healer", "Melee", "Ranged"})
 							if t.role == nil then t.role = "None" end
 							grole:SetValue(t.role)
 							grole:SetCallback("OnValueChanged", function(choice) 
@@ -3136,7 +3156,7 @@ function Attune_ShowProfileList(title)
 							--glast:SetText("    "..Lang['Seconds ago']:gsub("##DURATION##", Attune_formatTime(time() - t.survey)) )
 							glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) )
 						end
-						glast:SetWidth(180)
+						glast:SetWidth(190)
 						glast:SetFont(GameFontNormal:GetFont(), 12)
 						gframe:AddChild(glast)
 
@@ -3524,6 +3544,8 @@ function Attune_ExportToWebsite()
 				--attunelocal_data[t.name].f = t.faction
 				attunelocal_data[t.name].owner = t.owner
 				attunelocal_data[t.name].done = "-1"
+				attunelocal_data[t.name].ro = t.role
+				attunelocal_data[t.name].st = t.status
 
 				for i, d in pairs(t.done) do
 					attunelocal_data[t.name].done = attunelocal_data[t.name].done .. "|" .. i
