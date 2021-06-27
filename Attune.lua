@@ -8,7 +8,7 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 235
+-- Done in 236
 -- - Modified the result pane to allow scrolling of the names only, rather than the whole window
 -- - Attempted fix for the Blackened Urn of the Nightbane attunement
 -- - Attempted fix to an issue where SSC status is not appearing for alts
@@ -31,7 +31,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "235"  			-- change here, and in TOC x3
+local attunelocal_version = "236"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -576,7 +576,6 @@ function Attune:OnEnable()
 	--this is per character as it could cause problems with alliance vs horde last viewed (ex if last viewed is Honor Hold)
 	if AttuneLastViewed == nil then AttuneLastViewed = Attune_Data.attunes[1].EXPAC.."\001"..Attune_Data.attunes[1].ID end --select first in the list by default (should be MC, same alliance/horde)
 
-	Attune:BAG_UPDATE(nil)
 	Attune_CheckProgress() -- get your own standing
 	Attune:BAG_UPDATE(nil)
 
