@@ -8,10 +8,8 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 236
--- - Modified the result pane to allow scrolling of the names only, rather than the whole window
--- - Attempted fix for the Blackened Urn of the Nightbane attunement
--- - Attempted fix to an issue where SSC status is not appearing for alts
+-- Done in 238
+-- - Fixed an issue where a strsplit error would occur upon interacting with an item or npc
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -31,7 +29,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "236"  			-- change here, and in TOC x3
+local attunelocal_version = "238"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -482,6 +480,8 @@ function Attune:OnEnable()
 	self:RegisterEvent("QUEST_TURNED_IN")
 	self:RegisterEvent("UPDATE_FACTION")
 	self:RegisterEvent("BAG_UPDATE")
+	self:RegisterEvent("GOSSIP_SHOW")
+	
 
 	if Attune_DB == nil then Attune_DB = {} end
 	if Attune_DB.width == nil then Attune_DB.width = 950 end
@@ -757,8 +757,16 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 
 		for i, s in pairs(Attune_Data.steps) do
 			if s.TYPE == "Kill" then
-				if s.STEP == param9 then
-
+				local npc_id = -1
+				if param8 ~= nil then
+					 _, _, _, _, _, npc_id = strsplit("-", param8);
+					 if npc_id == nil then npc_id = -1 end
+				else 
+					npc_id = -1
+				end
+				--print(npc_id)
+	
+				if s.ID_WOWHEAD == npc_id then
 					-- checking that predecessors are done (meaning this step is ISNext)
 					local isNext = true
 					local followOR = false
@@ -777,7 +785,7 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 							end
 						end
 					end
-
+					
 					if isNext then
 						if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 							for k, a in pairs(Attune_Data.attunes) do
@@ -792,7 +800,16 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 										Attune_SendPushInfo("TOON")
 										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+										Attune_CheckComplete(false)
+										if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+											PlaySound(5275) -- AuctionWindowClose
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+										end
 										Attune_SendPushInfo("OVER")
+		
+
+
 									end
 								end
 							end
@@ -924,6 +941,83 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 								end
 								Attune_SendPushInfo("OVER")
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+
+	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
+
+end
+
+-------------------------------------------------------------------------
+-- EVENT: Interact with NPC
+-------------------------------------------------------------------------
+
+function Attune:GOSSIP_SHOW(event)
+	--print(UnitGUID("target"))
+	local npc_id = -1
+	if UnitGUID("target") ~= nil then
+		 _, _, _, _, _, npc_id = strsplit("-", UnitGUID("target") );
+		 if npc_id == nil then npc_id = -1 end
+	else 
+		npc_id = -1
+	end
+	--print(npc_id)
+	
+	local refreshNeeded = false
+
+	for i, s in pairs(Attune_Data.steps) do
+		if s.TYPE == "Interact" then
+
+			if s.ID_WOWHEAD == npc_id then
+				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+
+					-- checking that predecessors are done (meaning this step is ISNext)
+					local isNext = true
+					local followOR = false
+					if s.FOLLOWS ~= "0" then
+						local fIDs = Attune_split(s.FOLLOWS, "&")
+						if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
+						if followOR then
+							isNext = false
+							for fi, f in pairs(fIDs) do
+								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
+							end
+						else
+							isNext = true
+							for fi, f in pairs(fIDs) do
+								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
+							end
+						end
+					end
+					
+					if isNext then
+
+						local faction = UnitFactionGroup("player")
+						-- check attune warning is for the right faction
+						for k, a in pairs(Attune_Data.attunes) do
+							if a.ID == s.ID_ATTUNE then
+								if a.FACTION == faction or a.FACTION == 'Both' then
+									--mark step as done
+									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									refreshNeeded = true
+									PlaySound(1210) --putdownring
+									-- fetch attune name for chat message
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+									Attune_SendPushInfo("TOON")
+									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+									Attune_CheckComplete(false)
+									if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+										PlaySound(5275) -- AuctionWindowClose
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+										if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+									end
+									Attune_SendPushInfo("OVER")
+								end
 							end
 						end
 					end
@@ -1181,10 +1275,11 @@ end
 function Attune_CheckComplete(newComplete)
 	local att = Attune_DB.toons[attunelocal_charKey]
 
+	-- test
+--	if att.done["0-40"] and att.attuned["0"] ~= 100 	then att.done["0-50"] = 1; 	Attune_SendPushInfo("0-50");	att.attuned["0"] = 100; Attune_UpdateTreeGroup("0"); newComplete = true; end	-- Debug
+--	if att.done["1-55"] and att.attuned["1"] ~= 100 	then att.done["1-65"] = 1; 	Attune_SendPushInfo("1-65"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); newComplete = true;  end	-- Debug multi
 
 	-- WoW
-	if att.done["0-40"] and att.attuned["0"] ~= 100 	then att.done["0-50"] = 1; 	Attune_SendPushInfo("0-50");	att.attuned["0"] = 100; Attune_UpdateTreeGroup("0"); newComplete = true; end	-- Debug
-	if att.done["1-15"] and att.attuned["1"] ~= 100 	then att.done["1-20"] = 1; 	Attune_SendPushInfo("1-20"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); newComplete = true;  end	-- Debug multi
 	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
 	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
 	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
@@ -1391,7 +1486,7 @@ function Attune_Frame()
 	if guildName ~= nil then attunelocal_myguild = guildName end
 
 
-	attunelocal_frame = AceGUI:Create("Frame")
+	attunelocal_frame = AceGUI:Create("Frame", "AttuneFrame")
 	attunelocal_frame:SetTitle("  Attune")
 	attunelocal_frame:SetStatusText(attunelocal_statusText)
 

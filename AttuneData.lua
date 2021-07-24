@@ -11,7 +11,7 @@
 
 Attune_Data.attunes = 	{
 --	{ID="0",NAME="Debug",EXPAC="World of Warcraft",FACTION="Both",ICON="Interface\\Icons\\inv_misc_questionmark", "This is a simple debug attune, not to be used by non-developers"},
---	{ID="1",NAME="Test multiple items",EXPAC="World of Warcraft",FACTION="Both",ICON="Interface\\Icons\\inv_misc_questionmark", "This is a simple debug attune, not to be used by non-developers"},
+--	{ID="1",NAME="Test multiple items",EXPAC="World of Warcraft",FACTION="Both",ICON="Interface\\Icons\\inv_fabric_linen_01", "This is a simple debug attune, not to be used by non-developers"},
 	{ID="2",NAME=Lang["Molten Core"],EXPAC=Lang["World of Warcraft"],FACTION="Both",ICON="Interface\\Icons\\inv_hammer_unique_sulfuras", DESC=Lang["MC_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="3",NAME=Lang["Onyxia's Lair"],EXPAC=Lang["World of Warcraft"],FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_dragon_01", DESC=Lang["Ony_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="4",NAME=Lang["Onyxia's Lair"],EXPAC=Lang["World of Warcraft"],FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_01", DESC=Lang["Ony_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
@@ -57,9 +57,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="0",ID="30",TYPE="Level",STEP=Lang["Reach level"].." 2",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="20",STAGE="40"},
 	{ID_ATTUNE="0",ID="40",TYPE="Turn In",STEP="Cutting Teeth",LOCATION="Durotar",ID_WOWHEAD="788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="50"},
 	{ID_ATTUNE="0",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="40",STAGE="60"},
-
-	{ID_ATTUNE="1",ID="15",TYPE="Item",STEP="Chunk of Boar Meat",LOCATION="Durotar",ID_WOWHEAD="769",ICON="Interface\\Icons\\inv_misc_food_14",FOLLOWS="0",STAGE="10", COUNT=2},
-	{ID_ATTUNE="1",ID="20",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\inv_misc_food_16",FOLLOWS="15",STAGE="20"},
+]]
+--[[
+	{ID_ATTUNE="1",ID="15",TYPE="Item",STEP="Linen Cloth",LOCATION="Org",ID_WOWHEAD="2589",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="0",STAGE="10", COUNT=2},
+	{ID_ATTUNE="1",ID="25",TYPE="Interact",STEP="Org Grunt",LOCATION="Org",ID_WOWHEAD="3296",ICON="Interface\\Icons\\inv_shield_30",FOLLOWS="15",STAGE="20"},
+	{ID_ATTUNE="1",ID="35",TYPE="Item",STEP="Linen Cloth",LOCATION="Org",ID_WOWHEAD="2589",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="25",STAGE="30", COUNT=5},
+	{ID_ATTUNE="1",ID="45",TYPE="Kill",STEP="Elder Mottled Boar",LOCATION="Durotar",ID_WOWHEAD="3100",ICON="Interface\\Icons\\ability_hunter_pet_boar",FOLLOWS="35",STAGE="40", COUNT=3},
+	{ID_ATTUNE="1",ID="55",TYPE="Kill",STEP="Gamon",LOCATION="Org",ID_WOWHEAD="6466",ICON="Interface\\Icons\\ability_hunter_pet_boar",FOLLOWS="45",STAGE="50"},
+	{ID_ATTUNE="1",ID="65",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="55",STAGE="60"},
 ]]
 	{ID_ATTUNE="2",ID="20",TYPE="Level",STEP=Lang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="1"},
 	{ID_ATTUNE="2",ID="30",TYPE="Pick Up",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="7848",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="2"},
@@ -459,10 +464,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="118",ID="180",TYPE="Kill",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="16807",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="140&150&174",STAGE="160"},
 	{ID_ATTUNE="118",ID="190",TYPE="Kill",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Sethekk Halls"],ID_WOWHEAD="18472",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_talonkingikiss",FOLLOWS="140&170",STAGE="160"},
 	{ID_ATTUNE="118",ID="200",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="25462",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="180",STAGE="170"},
-	{ID_ATTUNE="118",ID="210",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["The Shattered Halls"],ID_WOWHEAD="25461",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="190",STAGE="170"},
+	{ID_ATTUNE="118",ID="210",TYPE="Item",STEP="",LOCATION=Lang["HEROIC"].." "..Lang["Sethekk Halls"],ID_WOWHEAD="25461",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="190",STAGE="170"},
 	{ID_ATTUNE="118",ID="220",TYPE="Turn In",STEP="",LOCATION=Lang["Netherstorm"],ID_WOWHEAD="9637",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="200&210",STAGE="180"},
 	{ID_ATTUNE="118",ID="230",TYPE="Pick Up",STEP=Lang["Nightbane"],LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="9644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="190"},
-	{ID_ATTUNE="118",ID="235",TYPE="Item",STEP=" Urn",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="24140",ICON="Interface\\Icons\\inv_misc_urn_01",FOLLOWS="230",STAGE="195"},
+	{ID_ATTUNE="118",ID="235",TYPE="Item",STEP="",LOCATION=Lang["Deadwind Pass"],ID_WOWHEAD="24140",ICON="Interface\\Icons\\inv_misc_urn_01",FOLLOWS="230",STAGE="195"},
 	{ID_ATTUNE="118",ID="240",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_blue",FOLLOWS="235",STAGE="200"},
 
 
@@ -816,8 +821,8 @@ Attune_Data.quests = {
 	[9825]={68,1},
 	[9826]={68,1},
 	[9829]={68,1},
-	[9831]={68,1},
-	[9832]={68,1},
+	[9831]={68,5},
+	[9832]={68,5},
 	[10266]={67,1},
 	[10267]={67,1},
 	[10268]={67,1},
@@ -829,7 +834,7 @@ Attune_Data.quests = {
 	[10265]={67,1},
 	[10262]={67,1},
 	[10205]={67,1},
-	[9836]={68,1},
+	[9836]={68,5},
 	[9837]={68,1},
 	[9838]={68,1},
 	[9630]={70,10},
@@ -906,6 +911,9 @@ Attune_Data.quests = {
 
 -- level, type, kind, desc
 Attune_Data.npcs = {
+	[3296] = { "55", "", "Org Grunt"},
+	[6466] = { "12", "", "Gamon"},
+	[3100] = { "8", "",  "Elder Mottled Boar"},	
 	[9568] = { "60", Lang["Elite"], Lang["Dragonkin"]},
 	[9237] = { "59", Lang["Elite"], Lang["Troll"]},
 	[9196] = { "59", Lang["Elite"], Lang["Ogre"]},
