@@ -8,8 +8,15 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 238
--- - Fixed an issue where a strsplit error would occur upon interacting with an item or npc
+-- Done in 239
+-- - Added an option to export all one's main/alts
+-- - Traditional Chinese translation (Taiwan)
+-- - Much better rendering of the result list
+
+-- Todo in next release
+-- - people on step lists not correct
+-- - status/roles being overwritten
+
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -29,7 +36,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "238"  			-- change here, and in TOC x3
+local attunelocal_version = "239"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -63,7 +70,7 @@ local attunelocal_glist						-- individual rows of data inside the result tab
 local attunelocal_export_frame				-- export submenu frame
 local attunelocal_survey_frame				-- survey submenu frame
 local attunelocal_resultselection = 1 		-- indicates whether to show last survey results(0) or guild results(1) or all(2)
-local attunelocal_exportselection = 0 		-- indicates what dataset to export 0:me, 1:last survey, 2:guild, 3:all
+local attunelocal_exportselection = 0 		-- indicates what dataset to export 0:me, 1:last survey, 2:guild, 3:all, 4:all my alts
 local attunelocal_gflabel					-- table header (used to update the number of characters in list)
 local attunelocal_showResultAttunes = true 	-- indicates whether to show toon profiles or attunes
 
@@ -807,9 +814,6 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 										end
 										Attune_SendPushInfo("OVER")
-		
-
-
 									end
 								end
 							end
@@ -1318,7 +1322,7 @@ function Attune_CheckComplete(newComplete)
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
 			if att.done[s.ID_ATTUNE .. "-" .. s.ID] then
 				-- recurse into earlier steps to mark them as done too
-				Attune_recursePreviousSteps(s.ID_ATTUNE, s.FOLLOWS)
+				Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
 			end
 		end
 	end
@@ -1331,18 +1335,20 @@ end
 
 function Attune_CheckIsNext(who)
 	local att = Attune_DB.toons[who]
-
+	--print("Checking "..who)
 	-- blank the array
 	att.next = {}
 
 	for i, step in pairs(Attune_Data.steps) do
 
+		if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
+
 		local next = false
 		if  att.done[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
 			-- if done, then not isnext
 			next = false
-
 		else
+
 			local followOR = false
 			local fIDs = Attune_split(step.FOLLOWS, "&")
 			if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|"); followOR = true end
@@ -1352,11 +1358,13 @@ function Attune_CheckIsNext(who)
 				for fi, flw in pairs(fIDs) do
 					if  att.done[step.ID_ATTUNE .. "-" .. flw] then next = true end
 				end
+
 			else
 				next = true
 				for fi, flw in pairs(fIDs) do
 					if  att.done[step.ID_ATTUNE .. "-" .. flw] == nil or att.done[step.ID_ATTUNE .. "-" .. flw] == false then next = false end
 				end
+	
 			end
 			if step.FOLLOWS == "0" then next = true end
 		end
@@ -1397,7 +1405,7 @@ end
 -- Recurse through previous steps (following the FOLLOWS path)
 -------------------------------------------------------------------------
 
-function Attune_recursePreviousSteps(aID, follows)
+function Attune_recursePreviousSteps(who, aID, follows)
 
 	-- there can be multi-follows (for example FOLLOW=160|170)
 	-- We need to recurse both paths
@@ -1408,12 +1416,12 @@ function Attune_recursePreviousSteps(aID, follows)
 		for i, s in pairs(Attune_Data.steps) do
 			if s.ID_ATTUNE == aID and s.ID == f then
 				if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
-					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then 
-						Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+					if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then 
+						Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 						Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID); 	
 					end
 					if follows ~= 0 then -- no need to recurse first level
-						Attune_recursePreviousSteps(s.ID_ATTUNE, s.FOLLOWS)
+						Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
 					end
 				end
 			end
@@ -1523,6 +1531,7 @@ function Attune_Frame()
 		attunelocal_export_frame.frame:Hide() -- close other submenu
 		attunelocal_survey_frame.frame:Hide() -- close other submenu
 		attunelocal_frame:Hide()
+		Attune_Release()
 	end)
 
 
@@ -1607,11 +1616,20 @@ function Attune_Frame()
 		attunelocal_export_frame:SetPoint("TOPLEFT", exportbutton,"BOTTOMLEFT", 0, 10)
 		attunelocal_export_frame.frame:Hide()
 
+		local exportThisToon = AceGUI:Create("Button")
+		exportThisToon:SetText(Lang["This Toon"])
+		exportThisToon:SetCallback("OnClick", function()
+			attunelocal_export_frame.frame:Hide()
+			attunelocal_exportselection = 0
+			Attune_ExportToWebsite()
+		end)
+		attunelocal_export_frame:AddChild(exportThisToon)
+
 		local exportMyData = AceGUI:Create("Button")
 		exportMyData:SetText(Lang["My Data"])
 		exportMyData:SetCallback("OnClick", function()
 			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 0
+			attunelocal_exportselection = 4
 			Attune_ExportToWebsite()
 		end)
 		attunelocal_export_frame:AddChild(exportMyData)
@@ -2465,7 +2483,10 @@ function Attune_ToggleView(noToggle)
 			local raid = AceGUI:Create("Button")
 			raid:SetText(Lang["Open Raid Planner"])
 			raid:SetCallback("OnClick", function()
-				if attunelocal_initial == false and attunelocal_frame:IsShown() then attunelocal_frame:Hide() end
+				if attunelocal_initial == false and attunelocal_frame:IsShown() then 
+					attunelocal_frame:Hide()
+					Attune_Release()
+				end
 				Attune_RaidPlannerFrame()
 				end)
 			titleGroup:AddChild(raid)
@@ -2990,78 +3011,82 @@ function Attune_ShowResultList(title)
 				if tonumber(t.level) >= (Attune_DB.minFilterValue or 1) then
 
 					count = count + 1
-					local lev = t.level
-					if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
-
-					local ggg = t.guild
-					if ggg == '' then ggg = "(Not in a guild)" else ggg = "< "..ggg.." >" end
-
-					local vvv = t.version
-					if vvv == nil then vvv = "(older addon version)" else vvv = "(v"..vvv..")" end
 
 
-					-- container for the whole row
-					local gframe = AceGUI:Create("SimpleGroup")
-					gframe:SetLayout("Flow")
-					gframe:SetAutoAdjustHeight(true)
-					gframe:SetFullWidth(true)
-					gframe.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(t.name.."  "..ggg.."    "..vvv)  end)
-					gframe.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
+					C_Timer.After(0.005*count, function()
+						local lev = t.level
+						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
 
-					-- add toon part
-						local glabel = AceGUI:Create("Label")
-						glabel:SetText("    |c80808080"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..t.name)
-						glabel:SetWidth(180)
-						glabel:SetFont(GameFontNormal:GetFont(), 12)
-						gframe:AddChild(glabel)
+						local ggg = t.guild
+						if ggg == '' then ggg = "(Not in a guild)" else ggg = "< "..ggg.." >" end
+
+						local vvv = t.version
+						if vvv == nil then vvv = "(older addon version)" else vvv = "(v"..vvv..")" end
 
 
-					-- Go through each Attune and create the corresponding % label for this toon
-					local expac = ""
-					for i, a in pairs(Attune_Data.attunes) do
+						-- container for the whole row
+						local gframe = AceGUI:Create("SimpleGroup")
+						gframe:SetLayout("Flow")
+						gframe:SetAutoAdjustHeight(true)
+						gframe:SetFullWidth(true)
+						gframe.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(t.name.."  "..ggg.."    "..vvv)  end)
+						gframe.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
 
-						-- This spacer to separate Wow classic from TBC attunes
-						if expac ~= a.EXPAC then
-							local gfspacer = AceGUI:Create("Label")
-							gfspacer:SetText(" ")
-							gfspacer:SetWidth(30)
-							gframe:AddChild(gfspacer)
-							expac = a.EXPAC
-						end
+						-- add toon part
+							local glabel = AceGUI:Create("Label")
+							glabel:SetText("    |c80808080"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..t.name)
+							glabel:SetWidth(180)
+							glabel:SetFont(GameFontNormal:GetFont(), 12)
+							gframe:AddChild(glabel)
 
-						-- Only look at attunes for this toon's faction
-						if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
 
-							local gflabel = AceGUI:Create("Label")
-							if t.attuned[a.ID] >= 100 then
-								gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\success:16|t")
-							else
-								gflabel:SetText(t.attuned[a.ID].."%")
+						-- Go through each Attune and create the corresponding % label for this toon
+						local expac = ""
+						for i, a in pairs(Attune_Data.attunes) do
+
+							-- This spacer to separate Wow classic from TBC attunes
+							if expac ~= a.EXPAC then
+								local gfspacer = AceGUI:Create("Label")
+								gfspacer:SetText(" ")
+								gfspacer:SetWidth(30)
+								gframe:AddChild(gfspacer)
+								expac = a.EXPAC
 							end
-							gflabel:SetWidth(30)
-							gframe:AddChild(gflabel)
 
+							-- Only look at attunes for this toon's faction
+							if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
+
+								local gflabel = AceGUI:Create("Label")
+								if t.attuned[a.ID] >= 100 then
+									gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\success:16|t")
+								else
+									gflabel:SetText(t.attuned[a.ID].."%")
+								end
+								gflabel:SetWidth(30)
+								gframe:AddChild(gflabel)
+
+							end
 						end
-					end
 
 
-					if attunelocal_charKey ~= kt then
-						-- add a delete button, to allow removing players from our data (for example if they changed guilds)
-						local gdel = AceGUI:Create("Button")
-						gdel:SetText("X")
-						gdel:SetWidth(50)
-						gdel:SetCallback("OnClick", function()
-							Attune_DB.toons[kt] = nil
-							if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-							else Attune_ShowProfileList(label)	end
-				
-						end)
-						gframe:AddChild(gdel)
-					end
+						if attunelocal_charKey ~= kt then
+							-- add a delete button, to allow removing players from our data (for example if they changed guilds)
+							local gdel = AceGUI:Create("Button")
+							gdel:SetText("X")
+							gdel:SetWidth(50)
+							gdel:SetCallback("OnClick", function()
+								Attune_DB.toons[kt] = nil
+								if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+								else Attune_ShowProfileList(label)	end
+					
+							end)
+							gframe:AddChild(gdel)
+						end
 
-					-- add the row to the list
-					attunelocal_glist:AddChild(gframe)
-
+						-- add the row to the list
+						attunelocal_glist:AddChild(gframe)
+						attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
+					end) -- end of timer function
 				end
 			end
 		end
@@ -3160,124 +3185,125 @@ function Attune_ShowProfileList(title)
 				if tonumber(t.level) >= (Attune_DB.minFilterValue or 1) then
 
 					count = count + 1
-					local lev = t.level
-					if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
 
-					local ggg = t.guild
-					if ggg == '' then ggg = "(Not in a guild)" else ggg = "< "..ggg.." >" end
+					C_Timer.After(0.005*count, function()
+						local lev = t.level
+						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
 
-					local vvv = t.version
-					if vvv == nil then vvv = "(older addon version)" else vvv = "(v"..vvv..")" end
+						local ggg = t.guild
+						if ggg == '' then ggg = "(Not in a guild)" else ggg = "< "..ggg.." >" end
+
+						local vvv = t.version
+						if vvv == nil then vvv = "(older addon version)" else vvv = "(v"..vvv..")" end
 
 
-					-- container for the whole row
-					local gframe = AceGUI:Create("SimpleGroup")
-					gframe:SetLayout("Flow")
-					gframe:SetAutoAdjustHeight(true)
-					gframe:SetFullWidth(true)
-					gframe.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(t.name.."  "..ggg.."    "..vvv)  end)
-					gframe.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
+						-- container for the whole row
+						local gframe = AceGUI:Create("SimpleGroup")
+						gframe:SetLayout("Flow")
+						gframe:SetAutoAdjustHeight(true)
+						gframe:SetFullWidth(true)
+						gframe.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(t.name.."  "..ggg.."    "..vvv)  end)
+						gframe.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
 
-					-- add toon part
-						local glabel = AceGUI:Create("Label")
-						glabel:SetText("    |c80808080"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..t.name)
-						glabel:SetWidth(210)
-						glabel:SetFont(GameFontNormal:GetFont(), 12)
-						gframe:AddChild(glabel)
+						-- add toon part
+							local glabel = AceGUI:Create("Label")
+							glabel:SetText("    |c80808080"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..t.name)
+							glabel:SetWidth(210)
+							glabel:SetFont(GameFontNormal:GetFont(), 12)
+							gframe:AddChild(glabel)
 
-						local gguild = AceGUI:Create("Label")
-						gguild:SetText(t.guild)
-						gguild:SetWidth(240)
-						gguild:SetFont(GameFontNormal:GetFont(), 12)
-						gframe:AddChild(gguild)
+							local gguild = AceGUI:Create("Label")
+							gguild:SetText(t.guild)
+							gguild:SetWidth(240)
+							gguild:SetFont(GameFontNormal:GetFont(), 12)
+							gframe:AddChild(gguild)
 
-						if t.owner == 1 or (t.guild == att.guild and att.officer == "1") then 
-							local gstatus = AceGUI:Create("Dropdown")
-							gstatus:SetWidth(100)
-							gstatus:SetList({
-								["None"] = "-",
-								["Main"] = Attune_StatusRole("Main"),
-								["Alt"] = Attune_StatusRole("Alt"),
-								["Bank"] = Attune_StatusRole("Bank"),								
-							  }, {"None", "Main", "Alt", "Bank"})
-							if t.status == nil then t.status = "None" end
-							gstatus:SetValue(t.status)
-							gstatus:SetCallback("OnValueChanged", function(choice) 
-								t.status = choice:GetValue() 
-								if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONSTATUS|" .. t.status, "GUILD") end 
-							end )
-							gframe:AddChild(gstatus)
+							if t.owner == 1 or (t.guild == att.guild and att.officer == "1") then 
+								local gstatus = AceGUI:Create("Dropdown")
+								gstatus:SetWidth(100)
+								gstatus:SetList({
+									["None"] = "-",
+									["Main"] = Attune_StatusRole("Main"),
+									["Alt"] = Attune_StatusRole("Alt"),
+									["Bank"] = Attune_StatusRole("Bank"),								
+								}, {"None", "Main", "Alt", "Bank"})
+								if t.status == nil then t.status = "None" end
+								gstatus:SetValue(t.status)
+								gstatus:SetCallback("OnValueChanged", function(choice) 
+									t.status = choice:GetValue() 
+									if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONSTATUS|" .. t.status, "GUILD") end 
+								end )
+								gframe:AddChild(gstatus)
 
-							
-							local grole = AceGUI:Create("Dropdown")
-							grole:SetWidth(100)
-							grole:SetList({
-								["None"] = "-",
-								["Tank"] = Attune_StatusRole("Tank"),
-								["Healer"] = Attune_StatusRole("Healer"),
-								["Melee"] = Attune_StatusRole("Melee"),
-								["Ranged"] = Attune_StatusRole("Ranged"),
-							  }, {"None", "Tank", "Healer", "Melee", "Ranged"})
-							if t.role == nil then t.role = "None" end
-							grole:SetValue(t.role)
-							grole:SetCallback("OnValueChanged", function(choice) 
-								t.role = choice:GetValue() 
-								if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONROLE|" .. t.role, "GUILD") end 
-							end )
-							gframe:AddChild(grole)
+								
+								local grole = AceGUI:Create("Dropdown")
+								grole:SetWidth(100)
+								grole:SetList({
+									["None"] = "-",
+									["Tank"] = Attune_StatusRole("Tank"),
+									["Healer"] = Attune_StatusRole("Healer"),
+									["Melee"] = Attune_StatusRole("Melee"),
+									["Ranged"] = Attune_StatusRole("Ranged"),
+								}, {"None", "Tank", "Healer", "Melee", "Ranged"})
+								if t.role == nil then t.role = "None" end
+								grole:SetValue(t.role)
+								grole:SetCallback("OnValueChanged", function(choice) 
+									t.role = choice:GetValue() 
+									if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, t.name .. "|TOONROLE|" .. t.role, "GUILD") end 
+								end )
+								gframe:AddChild(grole)
 
-						else
-							local gstatus = AceGUI:Create("Label")
-							if t.status == nil then t.status = "None" end
-							gstatus:SetText(Attune_StatusRole(t.status))	
-							gstatus:SetWidth(100)
-							gstatus:SetFont(GameFontNormal:GetFont(), 12)
-							gframe:AddChild(gstatus)
+							else
+								local gstatus = AceGUI:Create("Label")
+								if t.status == nil then t.status = "None" end
+								gstatus:SetText(Attune_StatusRole(t.status))	
+								gstatus:SetWidth(100)
+								gstatus:SetFont(GameFontNormal:GetFont(), 12)
+								gframe:AddChild(gstatus)
 
-							local grole = AceGUI:Create("Label")
-							if t.role == nil then t.role = "None" end
-							grole:SetText(Attune_StatusRole(t.role))
-							grole:SetWidth(100)
-							grole:SetFont(GameFontNormal:GetFont(), 12)
-							gframe:AddChild(grole)
+								local grole = AceGUI:Create("Label")
+								if t.role == nil then t.role = "None" end
+								grole:SetText(Attune_StatusRole(t.role))
+								grole:SetWidth(100)
+								grole:SetFont(GameFontNormal:GetFont(), 12)
+								gframe:AddChild(grole)
 
+							end
+
+							local glast = AceGUI:Create("Label")
+							if t.survey == nil or t.survey == 0 then 
+								glast:SetText("    -")
+							else 
+								--glast:SetText("    "..Lang['Seconds ago']:gsub("##DURATION##", Attune_formatTime(time() - t.survey)) )
+								glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) )
+							end
+							glast:SetWidth(190)
+							glast:SetFont(GameFontNormal:GetFont(), 12)
+							gframe:AddChild(glast)
+
+
+						if attunelocal_charKey ~= kt then
+							-- add a delete button, to allow removing players from our data (for example if they changed guilds)
+							local gdel = AceGUI:Create("Button")
+							gdel:SetText("X")
+							gdel:SetWidth(50)
+							gdel:SetCallback("OnClick", function()
+								Attune_DB.toons[kt] = nil
+								if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+								else Attune_ShowProfileList(label)	end
+
+							end)
+							gframe:AddChild(gdel)
 						end
 
-						local glast = AceGUI:Create("Label")
-						if t.survey == nil or t.survey == 0 then 
-							glast:SetText("    -")
-						else 
-							--glast:SetText("    "..Lang['Seconds ago']:gsub("##DURATION##", Attune_formatTime(time() - t.survey)) )
-							glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) )
-						end
-						glast:SetWidth(190)
-						glast:SetFont(GameFontNormal:GetFont(), 12)
-						gframe:AddChild(glast)
-
-
-					if attunelocal_charKey ~= kt then
-						-- add a delete button, to allow removing players from our data (for example if they changed guilds)
-						local gdel = AceGUI:Create("Button")
-						gdel:SetText("X")
-						gdel:SetWidth(50)
-						gdel:SetCallback("OnClick", function()
-							Attune_DB.toons[kt] = nil
-							if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-							else Attune_ShowProfileList(label)	end
-
-						end)
-						gframe:AddChild(gdel)
-					end
-
-					-- add the row to the list
-					attunelocal_glist:AddChild(gframe)
-
+						-- add the row to the list
+						attunelocal_glist:AddChild(gframe)
+						attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
+					end) -- end of timer function
 				end
 			end
 		end
 	end
-
-	
 
 	attunelocal_gflabel:SetText(Lang["Characters"].." ("..count..")")
 	attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
@@ -3576,8 +3602,8 @@ function Attune_HandleRequestResults(response)
 			Attune_CheckIsNext(name)
 		end
 
-
-		C_Timer.After(1, function()
+		-- Wait a few seconds before refreshing the result tab, to avoid refreshing it multiple times
+		C_Timer.After(5, function()
 			if attunelocal_frame ~= nil then
 				if not attunelocal_treeIsShown then
 					if not attunelocal_refreshDone then 
@@ -3622,7 +3648,9 @@ function Attune_ExportToWebsite()
 			-- 		if attunelocal_exportselection == 1, players that have been put in the survey list
 			--		if attunelocal_exportselection == 2, all players in the same guild
 			--		if attunelocal_exportselection == 3, all players recorded
+			-- 		if attunelocal_exportselection == 4, all this player's data (main and alts)
 			if (attunelocal_exportselection == 0 and kt == (UnitName("player").."-"..attunelocal_realm))
+			or (attunelocal_exportselection == 4 and t.owner == 1)
 			or (attunelocal_exportselection == 1 and Attune_DB.survey[kt])
 			or (attunelocal_exportselection == 2 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == UnitName("player")))
 			or (attunelocal_exportselection == 3) then
@@ -4279,7 +4307,7 @@ function Attune_SlashCommandHandler( msg )
 
 	elseif attunelocal_initial == false and attunelocal_frame:IsShown() then
 		attunelocal_frame:Hide()
-	
+		Attune_Release()
 	else
 		if attunelocal_initial then
 			attunelocal_initial = false
@@ -4292,6 +4320,18 @@ function Attune_SlashCommandHandler( msg )
 
 	end
 
+end
+
+
+-------------------------------------------------------------------------
+
+function Attune_Release()
+	--[[
+	if attunelocal_glist ~= nil then attunelocal_glist:ReleaseChildren() end
+	if attunelocal_scroll ~= nil then attunelocal_scroll:ReleaseChildren() end
+	if attunelocal_raidroster ~= nil then attunelocal_raidroster:ReleaseChildren() end
+	if attunelocal_frame ~= nil then attunelocal_frame:ReleaseChildren() end
+]]
 end
 
 -------------------------------------------------------------------------

@@ -6,7 +6,7 @@ end
 
 
 -- INTERFACE
-Lang["Credits"] = "Ein großes DANKESCHÖN an meine Gilde |cffffd100<Divine Heresy>|r für Ihre Unterstützung bei der Entwicklung und dem Test des Addons, und danke an |cffffd100Bushido @ Pyrewood Village|r für die Hilfe bei TBC!\n\nVielen, vielen dank auch an die Übersetzer:\n  - Deutsche Übersetzung: |cffffd100Sumaya @ Razorfen DE|r\n  - Russische Übersetzung: |cffffd100Greymarch Gilde @ Flamegor RU|r\n  - Spanische Übersetzung: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Chinesische Übersetzung: |cffffd100ly395842562|r und |cffffd100Icyblade|r\n  - Koreanische Übersetzung: |cffffd100Drix @ Azshara KR|r\n\n/Hug von Cixi/Gaya @ Remulos Horde"
+Lang["Credits"] = "Ein großes DANKESCHÖN an meine Gilde |cffffd100<Divine Heresy>|r für Ihre Unterstützung bei der Entwicklung und dem Test des Addons, und danke an |cffffd100Bushido @ Pyrewood Village|r für die Hilfe bei TBC!\n\nVielen, vielen dank auch an die Übersetzer:\n  - Deutsche Übersetzung: |cffffd100Sumaya @ Razorfen DE|r\n  - Russische Übersetzung: |cffffd100Greymarch Gilde @ Flamegor RU|r\n  - Spanische Übersetzung: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Vereinfachte chinesische Übersetzung: |cffffd100ly395842562|r und |cffffd100Icyblade|r\n  - Traditionelle Chinesische Übersetzung: |cffffd100DayZ|r @ Ivus TW|r\n  - Koreanische Übersetzung: |cffffd100Drix @ Azshara KR|r\n\n/Hug von Cixi/Gaya @ Remulos Horde"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
 Lang["Version"] = "Attune v##VERSION## von Cixi@Remulos"
