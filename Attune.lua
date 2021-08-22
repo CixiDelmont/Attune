@@ -1418,7 +1418,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 				if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
 					if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then 
 						Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-						Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID); 	
+						if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
 					end
 					if follows ~= 0 then -- no need to recurse first level
 						Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
@@ -3012,7 +3012,6 @@ function Attune_ShowResultList(title)
 
 					count = count + 1
 
-
 					C_Timer.After(0.005*count, function()
 						local lev = t.level
 						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
@@ -3497,7 +3496,7 @@ function Attune_SendPushInfo(step)
 
 	else
 		-- then send the data for that newly completed steps
-		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|DONE|" .. step, "GUILD") end
+		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|SILENTDONE|" .. step, "GUILD") end
 	end
 
 end
@@ -3584,12 +3583,19 @@ function Attune_HandleRequestResults(response)
 
 
 	-- STEP replies
-	elseif tag == 'DONE' then
+	elseif tag == 'DONE' or tag == 'SILENTDONE' then
 		--print("DONE " .. player.name .. ": " ..data[3])
 		attunelocal_refreshDone = false
 		player.done[data[3]] = 1 -- step
-		--print(player.name .. " done " .. data[3])
-
+		if tag == 'SILENTDONE' then 
+			--print("Received ".. data[3] .. " from " .. player.name)
+			for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
+				if data[3] == (s.ID_ATTUNE .. "-" .. s.ID) then
+					-- recurse into earlier steps to mark them as done too
+					Attune_recursePreviousSteps(player.name, s.ID_ATTUNE, s.FOLLOWS)
+				end
+			end
+		end
 
 
 	-- OVER reply

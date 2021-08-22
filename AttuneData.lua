@@ -51,12 +51,12 @@ Attune_Data.noattunes = {
 
 Attune_Data.steps = 	{
 --[[	{ID_ATTUNE="0",ID="5",TYPE="Quest",STEP="Your place in the world",LOCATION="Durotar",ID_WOWHEAD="4641",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="0",ID="10",TYPE="Rep",STEP="Friendly",LOCATION=Lang["Orgrimmar"],ID_WOWHEAD="3120",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="0",ID="10",TYPE="Rep",STEP="Friendly with "..Lang["Orgrimmar"],LOCATION="76",ID_WOWHEAD="3120",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="0",ID="15",TYPE="Pick Up",STEP="Cutting Teeth",LOCATION="Durotar",ID_WOWHEAD="788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="5&10",STAGE="20"},
 	{ID_ATTUNE="0",ID="20",TYPE="Kill",STEP="Mottled Boar",LOCATION="Durotar",ID_WOWHEAD="3098",ICON="Interface\\Icons\\ability_hunter_pet_boar",FOLLOWS="15",STAGE="30"},
 	{ID_ATTUNE="0",ID="30",TYPE="Level",STEP=Lang["Reach level"].." 2",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="20",STAGE="40"},
 	{ID_ATTUNE="0",ID="40",TYPE="Turn In",STEP="Cutting Teeth",LOCATION="Durotar",ID_WOWHEAD="788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="50"},
-	{ID_ATTUNE="0",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="40",STAGE="60"},
+	{ID_ATTUNE="0",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="40",STAGE="60"},
 ]]
 --[[
 	{ID_ATTUNE="1",ID="15",TYPE="Item",STEP="Linen Cloth",LOCATION="Org",ID_WOWHEAD="2589",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="0",STAGE="10", COUNT=2},
@@ -64,7 +64,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="1",ID="35",TYPE="Item",STEP="Linen Cloth",LOCATION="Org",ID_WOWHEAD="2589",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="25",STAGE="30", COUNT=5},
 	{ID_ATTUNE="1",ID="45",TYPE="Kill",STEP="Elder Mottled Boar",LOCATION="Durotar",ID_WOWHEAD="3100",ICON="Interface\\Icons\\ability_hunter_pet_boar",FOLLOWS="35",STAGE="40", COUNT=3},
 	{ID_ATTUNE="1",ID="55",TYPE="Kill",STEP="Gamon",LOCATION="Org",ID_WOWHEAD="6466",ICON="Interface\\Icons\\ability_hunter_pet_boar",FOLLOWS="45",STAGE="50"},
-	{ID_ATTUNE="1",ID="65",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="2",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="55",STAGE="60"},
+	{ID_ATTUNE="1",ID="65",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_fabric_linen_01",FOLLOWS="55",STAGE="60"},
 ]]
 	{ID_ATTUNE="2",ID="20",TYPE="Level",STEP=Lang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="1"},
 	{ID_ATTUNE="2",ID="30",TYPE="Pick Up",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="7848",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="2"},
