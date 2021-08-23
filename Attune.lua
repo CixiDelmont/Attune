@@ -36,7 +36,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "239"  			-- change here, and in TOC x3
+local attunelocal_version = "240"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -1407,21 +1407,26 @@ end
 
 function Attune_recursePreviousSteps(who, aID, follows)
 
-	-- there can be multi-follows (for example FOLLOW=160|170)
-	-- We need to recurse both paths
-	local fIDs = Attune_split(follows, "&")
-	if string.find(follows, "|") then fIDs = Attune_split(follows, "|") end
+	if (Attune_DB.toons[who] ~= nil) then
+		if (Attune_DB.toons[who].done ~= nil) then
 
-	for fi, f in pairs(fIDs) do
-		for i, s in pairs(Attune_Data.steps) do
-			if s.ID_ATTUNE == aID and s.ID == f then
-				if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
-					if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then 
-						Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-						if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
-					end
-					if follows ~= 0 then -- no need to recurse first level
-						Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
+			-- there can be multi-follows (for example FOLLOW=160|170)
+			-- We need to recurse both paths
+			local fIDs = Attune_split(follows, "&")
+			if string.find(follows, "|") then fIDs = Attune_split(follows, "|") end
+
+			for fi, f in pairs(fIDs) do
+				for i, s in pairs(Attune_Data.steps) do
+					if s.ID_ATTUNE == aID and s.ID == f then
+						if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
+							if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
+								Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+								if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
+							end
+							if follows ~= 0 then -- no need to recurse first level
+								Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
+							end
+						end
 					end
 				end
 			end
@@ -3529,7 +3534,6 @@ function Attune_HandleRequestResults(response)
 
 	-- META reply
 	if tag == 'TOON' then
-		--print("TOON " .. player.name)
 		attunelocal_refreshDone = false
 		attunelocal_count = attunelocal_count + 1
 		player.name = data[1] -- short name
@@ -3592,7 +3596,7 @@ function Attune_HandleRequestResults(response)
 			for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
 				if data[3] == (s.ID_ATTUNE .. "-" .. s.ID) then
 					-- recurse into earlier steps to mark them as done too
-					Attune_recursePreviousSteps(player.name, s.ID_ATTUNE, s.FOLLOWS)
+					Attune_recursePreviousSteps(name, s.ID_ATTUNE, s.FOLLOWS)
 				end
 			end
 		end
