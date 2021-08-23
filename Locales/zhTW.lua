@@ -6,885 +6,885 @@ end
 
 
 -- INTERFACE
-Lang["Credits"] = "非常感謝我的公會團員|cffffd100<Divine Heresy>|r在我測試此UI時給予的支持與理解，并感谢|cffffd100Bushido @ Pyrewood Village|r在TBC上的帮助！\n\n 另外，非常感谢翻译人员：\n  - 德语翻译: |cffffd100Sumaya @ Razorfen DE|r\n  - 俄语翻译: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - 西班牙语翻译: |cffffd100Coyu @ Pyrewood Village EU|r\n  - 簡體中文翻譯: |cffffd100ly395842562|r 和 |cffffd100Icyblade|r\n  - 繁體中文翻譯: |cffffd100DayZ 三指打天下|r 和 |cffffd100薇兒 @ Ivus TW|r\n  - 韩语翻译: |cffffd100Drix @ Azshara KR|r\n\n/Hug 来自 Cixi/Gaya @ Remulos Horde"
-Lang["Mini"] = "缩小"
+Lang["Credits"] = "非常感謝我的公會團員|cffffd100<Divine Heresy>|r在我測試此UI時給予的支持與理解，並感謝|cffffd100Bushido @ Pyrewood Village|r在TBC上的幫助！\n\n 另外，非常感謝翻譯人員：\n  - 德語翻譯: |cffffd100Sumaya @ Razorfen DE|r\n  - 俄語翻譯: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - 西班牙語翻譯: |cffffd100Coyu @ Pyrewood Village EU|r\n  - 簡體中文翻譯: |cffffd100ly395842562|r 和 |cffffd100Icyblade|r\n  - 繁體中文翻譯: |cffffd100DayZ 三指打天下|r 和 |cffffd100薇兒 @ Ivus TW|r\n  - 韓語翻譯: |cffffd100Drix @ Azshara KR|r\n\n/Hug 来自 Cixi/Gaya @ Remulos Horde"
+Lang["Mini"] = "縮小"
 Lang["Maxi"] = "放大"
 Lang["Version"] = "Attune v##VERSION## by Cixi@Remulos"
-Lang["Splash"] = "v##VERSION## by Cixi@Remulos. 輸入/ attune開始。"
-Lang["Survey"] = "掃描"
+Lang["Splash"] = "v##VERSION## by Cixi@Remulos. 輸入/attune開始。"
+Lang["Survey"] = "調查"
 Lang["Guild"] = "公會"
-Lang["Party"] = "小隊"
+Lang["Party"] = "隊伍"
 Lang["Raid"] = "團隊"
-Lang["Run an attunement survey (for people with the addon)"] = "進行訪問掃描（安装此插件的玩家）"
-Lang["Toggle between attunements and survey results"] = "切換掃描結果" 
+Lang["Run an attunement survey (for people with the addon)"] = "進行開門任務調查（安裝此插件的玩家）"
+Lang["Toggle between attunements and survey results"] = "切換調查結果" 
 Lang["Close"] = "關閉" 
 Lang["Export"] = "匯出"
 Lang["My Data"] = "我的資料"
-Lang["Last Survey"] = "上次掃描"
+Lang["Last Survey"] = "上次調查"
 Lang["Guild Data"] = "公會數據"
 Lang["All Data"] = "所有數據"
 Lang["Export your Attune data to the website"] = "將您的Attune數據匯出到網站"
 Lang["Copy the text below, then upload it to"] = "複製下面的文本，然後將其上傳到"
-Lang["Results"] = "掃描結果"
-Lang["Not in a guild"] = "没有加入公會"
-Lang["Click on a header to sort the results"] = "单击标题以对结果进行排序" 
-Lang["Character"] = "特點" 
-Lang["Characters"] = "人物"
-Lang["Last survey results"] = "上次掃描结果"	
+Lang["Results"] = "調查結果"
+Lang["Not in a guild"] = "沒有加入公會"
+Lang["Click on a header to sort the results"] = "點擊標題以對結果進行排序" 
+Lang["Character"] = "特質" 
+Lang["Characters"] = "角色"
+Lang["Last survey results"] = "上次調查结果"	
 Lang["All FACTION results"] = "所有 ##FACTION## 结果"
-Lang["Guild members"] = "公会成员" 
-Lang["All results"] = "所有结果" 
-Lang["Minimum level"] = "最低等级" 
-Lang["Click to navigate to that attunement"] = "單點以導航到該訪問全縣"
+Lang["Guild members"] = "公會成員" 
+Lang["All results"] = "所有結果" 
+Lang["Minimum level"] = "最低等級" 
+Lang["Click to navigate to that attunement"] = "點擊以導航到該開門任務權限"
 Lang["Attunes"] = "使用權"
 Lang["Guild members on this step"] = "同任務進度的公會成員"
 Lang["Attuned guild members"] = "Attuned 公會成員"
 Lang["Attuned alts"] = "Attuned 超越"
 Lang["Alts on this step"] = "超越該任務進度"
-Lang["Settings"] = "設置"
-Lang["Survey Log"] = "掃描紀錄"
+Lang["Settings"] = "設定"
+Lang["Survey Log"] = "調查紀錄"
 Lang["LeftClick"] = "左鍵點選"
-Lang["OpenAttune"] = "    打開 Attune"
+Lang["OpenAttune"] = "打開 Attune"
 Lang["RightClick"] = "右鍵點選"
-Lang["OpenSettings"] = "  打開設定"
+Lang["OpenSettings"] = "打開設定"
 Lang["Addon disabled"] = "插件已禁用"
-Lang["StartAutoGuildSurvey"] = "開始公會自動掃描"
+Lang["StartAutoGuildSurvey"] = "開始公會自動調查"
 Lang["SendingDataTo"] = "發送Attune數據给 |cffffd100NA##NAME##|r"
-Lang["NewVersionAvailable"] = "一個Attune的 |cffffd100新版本|r 可用, 请更新它！"
-Lang["CompletedStep"] = "已完成该 ##TYPE## |cffe4e400##STEP##|r  |cffe4e400##NAME##|r."
+Lang["NewVersionAvailable"] = "一個Attune的 |cffffd100新版本|r 可用, 請更新它！"
+Lang["CompletedStep"] = "已完成該 ##TYPE## |cffe4e400##STEP##|r  |cffe4e400##NAME##|r."
 Lang["AttuneComplete"] = " |cffe4e400##NAME##|r 聲望已達到!"
 Lang["AttuneCompleteGuild"] = "##NAME## 聲望已達到!"
-Lang["SendingSurveyWhat"] = "發送檢測"
-Lang["SendingGuildSilentSurvey"] = "發送公會静默調查"
-Lang["SendingYellSilentSurvey"] = "發送 /大喊 静默调查"
-Lang["ReceivedDataFromName"] = "从 |cffffd100##NAME##接收的數據|r"
+Lang["SendingSurveyWhat"] = "發送調查"
+Lang["SendingGuildSilentSurvey"] = "發送公會靜默調查"
+Lang["SendingYellSilentSurvey"] = "發送 /大喊 靜默調查"
+Lang["ReceivedDataFromName"] = "從 |cffffd100##NAME##接收的數據|r"
 Lang["ExportingData"] = "統計Attune人物數據 ##COUNT##"
 Lang["ReceivedRequestFrom"] = "收到 |cffffd100##FROM##的請求|r"
-Lang["Help1"] = "该插件可让您检查并导出声望进度"
-Lang["Help2"] = "运行 |cfffff700/attune|r 开始。"
-Lang["Help3"] = "要调查公会的进度，请单击 |cfffff700扫描|r 收集信息。"
-Lang["Help4"] = "您将从带有插件的任何公会成员那里收到任务进度数据。"
-Lang["Help5"] = "获得足够的信息后，请单击 |cfffff700导出|r 以导出公会进度"
-Lang["Help6"] = "数据可以上传到 |cfffff700https://warcraftratings.com/attune/upload|r"
-Lang["Survey_DESC"] = "运行声望检测 (安装本插件的玩家)"
-Lang["Export_DESC"] = "将您的Attune数据导出到网站"
-Lang["Toggle_DESC"] = "显示扫描结果"
---Lang["PreferredLocale_TEXT"] = "首选语言"
---Lang["PreferredLocale_DESC"] = "选择您想要使用的Attune语言。对此进行更改将需要重新加载才能生效。"
+Lang["Help1"] = "該插件可讓您檢查並導出聲望進度。"
+Lang["Help2"] = "運行 |cfffff700/attune|r 開始。"
+Lang["Help3"] = "要調查公會的進度，請點擊 |cfffff700調查|r 收集訊息。"
+Lang["Help4"] = "您將從帶有插件的任何公會成員那裡收到任務進度數據。"
+Lang["Help5"] = "獲得足夠的訊息後，請點擊 |cfffff700導出|r 以導出公會進度。"
+Lang["Help6"] = "數據可以上傳到 |cfffff700https://warcraftratings.com/attune/upload|r"
+Lang["Survey_DESC"] = "進行聲望調查 (安裝本插件的玩家)"
+Lang["Export_DESC"] = "將您的Attune數據導出到網站"
+Lang["Toggle_DESC"] = "顯示調查結果"
+--Lang["PreferredLocale_TEXT"] = "首選語言"
+--Lang["PreferredLocale_DESC"] = "選擇您想要使用的Attune語言。對此進行更改將需要重新加載才能生效。"
 --v220
 Lang["My Toons"] = "我的角色"
-Lang["No Target"] = "你没有目标"
-Lang["No Response From"] = " ##PLAYER##没有响应"
-Lang["Sync Request From"] = "来自:\n\n##PLAYER##的扫描请求"
-Lang["Could be slow"] = "根据您拥有的数据量，这可能是一个非常缓慢的过程"
+Lang["No Target"] = "你沒有目標"
+Lang["No Response From"] = " ##PLAYER##沒有回應"
+Lang["Sync Request From"] = "來自:\n\n##PLAYER##的同步請求"
+Lang["Could be slow"] = "根據您擁有的數據量，這可能是一個非常緩慢的過程。"
 Lang["Accept"] = "接受"
-Lang["Reject"] = "拒绝"
-Lang["Busy right now"] = "##PLAYER## 正忙，稍后再试"
-Lang["Sending Sync Request"] = "发送同步请求到 ##PLAYER##"
-Lang["Request accepted, sending data to "] = "请求已接受，将数据发送到 ##PLAYER##"
-Lang["Received request from"] = "收到来自 ##PLAYER##的请求"
-Lang["Request rejected"] = "请求被拒绝"
-Lang["Sync over"] = "同步结束，用时##DURATION##"
-Lang["Syncing Attune data with"] = "与##PLAYER##数据同步"
-Lang["Cannot sync while another sync is in progress"] = "正在进行另一个同步时无法同步"
-Lang["Sync with target"] = "正在与目标同步"
-Lang["Show Profiles"] = "显示个人资料"
-Lang["Show Progress"] = "显示进度"
-Lang["Status"] = "状态"
+Lang["Reject"] = "拒絕"
+Lang["Busy right now"] = "##PLAYER## 正在忙碌，稍後再試"
+Lang["Sending Sync Request"] = "發送同步請求到 ##PLAYER##"
+Lang["Request accepted, sending data to "] = "請求已接受，將數據發送到 ##PLAYER##"
+Lang["Received request from"] = "收到來自 ##PLAYER##的請求"
+Lang["Request rejected"] = "請求被拒絕"
+Lang["Sync over"] = "同步結束，使用時間##DURATION##"
+Lang["Syncing Attune data with"] = "與##PLAYER##數據同步"
+Lang["Cannot sync while another sync is in progress"] = "無法同時進行兩個同步"
+Lang["Sync with target"] = "正在與目標同步"
+Lang["Show Profiles"] = "顯示個人資料"
+Lang["Show Progress"] = "顯示進度"
+Lang["Status"] = "狀態"
 Lang["Role"] = "角色"
-Lang["Last Surveyed"] = "上次扫描"
+Lang["Last Surveyed"] = "上次的調查"
 Lang['Seconds ago'] = "##DURATION## 秒"
-Lang["Main"] = "主菜单"
-Lang["Alt"] = "备用"
+Lang["Main"] = "主選單"
+Lang["Alt"] = "備用角色"
 Lang["Tank"] = "坦克"
-Lang["Healer"] = "治疗"
-Lang["Melee DPS"] = "近战输出"
-Lang["Ranged DPS"] = "远程输出"
-Lang["Bank"] = "银行"
-Lang["DelAlts_TEXT"] = "删除所有Alts"
-Lang["DelAlts_DESC"] = "删除所有标记为Alt的玩家信息"
-Lang["DelAlts_CONF"] = "确定删除所有Alts?"
-Lang["DelAlts_DONE"] = "所有Alts已删除"
-Lang["DelUnspecified_TEXT"] = "删除未指定"
-Lang["DelUnspecified_DESC"] = "删除有关未指定主/备用状态的玩家的所有信息"
-Lang["DelUnspecified_CONF"] = "确定删除所有未指定主/备用状态的玩家的所有信息么？"
-Lang["DelUnspecified_DONE"] = "所有未指定的主/备用状态的玩家的所有信息都已删除"
+Lang["Healer"] = "治療"
+Lang["Melee DPS"] = "近戰輸出"
+Lang["Ranged DPS"] = "遠程輸出"
+Lang["Bank"] = "銀行"
+Lang["DelAlts_TEXT"] = "刪除所有備用角色。"
+Lang["DelAlts_DESC"] = "刪除所有標記為備用角色訊息。"
+Lang["DelAlts_CONF"] = "確定刪除所有備用角色?"
+Lang["DelAlts_DONE"] = "所有備用角色已刪除。"
+Lang["DelUnspecified_TEXT"] = "刪除未指定。"
+Lang["DelUnspecified_DESC"] = "刪除有關未指定主/備用狀態的玩家的所有訊息。"
+Lang["DelUnspecified_CONF"] = "確定刪除所有未指定主/備用狀態的玩家的所有訊息嗎？"
+Lang["DelUnspecified_DONE"] = "所有未指定的主/備用狀態的玩家的所有訊息都已刪除。"
 --v221
-Lang["Open Raid Planner"] = "公开突袭计划师"
+Lang["Open Raid Planner"] = "公開團隊副本設計師"
 Lang["Unspecified"] = "未指定"
 Lang["Empty"] = "空的"
-Lang["Guildies only"] = "仅显示公会成员"
-Lang["Show Mains"] = "显示主要角色"
-Lang["Show Unspecified"] = "显示未指定"
-Lang["Show Alts"] = "显示替代项"
-Lang["Show Unattuned"] = "显示不协调"
-Lang["Raid spots"] = "##SIZE## 突袭阵地"
-Lang["Group Number"] = "团体 ##NUMBER##"
-Lang["Move to next group"] = "    移至下一组"
-Lang["Remove from raid"] = "  从团队中移除"
-Lang["Select a raid and click on players to add them in"] = "选择一个团队并单击玩家以添加他们"
+Lang["Guildies only"] = "僅顯示公會成員"
+Lang["Show Mains"] = "顯示主要角色"
+Lang["Show Unspecified"] = "顯示未指定角色"
+Lang["Show Alts"] = "顯示備用角色"
+Lang["Show Unattuned"] = "顯示未完成開門任務角色"
+Lang["Raid spots"] = "##SIZE## 團隊副本陣地"
+Lang["Group Number"] = "團本 ##NUMBER##"
+Lang["Move to next group"] = "移至下一組"
+Lang["Remove from raid"] = "從團隊副本中移除"
+Lang["Select a raid and click on players to add them in"] = "選擇一個團隊並點擊玩家以添加他們"
 --v224
-Lang["Enter a new name for this raid group"] = "输入此团队的新名称"
+Lang["Enter a new name for this raid group"] = "輸入此團隊的新名稱"
 Lang["Save"] = "保存"
 --v226
-Lang["Invite"] = "邀请"
-Lang["Send raid invites to all listed players?"] = "向所有列出的玩家发送突袭邀请？"
-Lang["External link"] = "链接到在线数据库"
+Lang["Invite"] = "邀請"
+Lang["Send raid invites to all listed players?"] = "向所有列出的玩家發送團隊副本邀請？"
+Lang["External link"] = "連接到在線數據庫"
 
 
 -- OPTIONS
-Lang["MinimapButton_TEXT"] = "显示小地图按钮"
-Lang["MinimapButton_DESC"] = "显示小地图按钮可快速访问插件界面或选项。"
-Lang["AutoSurvey_TEXT"] = "对登录运行公会自动调查"
-Lang["AutoSurvey_DESC"] = "每当您登录游戏时，插件都会进行行会调查。"
-Lang["ShowSurveyed_TEXT"] = "在接受调查时显示"
-Lang["ShowSurveyed_DESC"] =  "接收（和回答）调查请求时显示聊天消息。"
-Lang["ShowResponses_TEXT"] = "进行调查时显示答复"
-Lang["ShowResponses_DESC"] = "显示每个调查响应的聊天消息。"
-Lang["ShowSetMessages_TEXT"] = "显示步骤完成消息"
-Lang["ShowSetMessages_DESC"] = "当步调完成时，显示聊天消息。"
-Lang["AnnounceToGuild_TEXT"] = "在公会聊天中宣布完成"
-Lang["AnnounceToGuild_DESC"] = "使用权完成后发送公会消息。"
-Lang["ShowOther_TEXT"] = "显示其他聊天消息"
-Lang["ShowOther_DESC"] = "显示所有其他常规聊天消息（启动消息，发送调查，可用更新等）。"
-Lang["ShowGuildies_TEXT"] = "在每个使用权步骤中显示行会成员列表。               最大清单大小"  --this has a gap for the editbox
-Lang["ShowGuildies_DESC"] = "当前在使用权步骤中的行会成员列表显示在步骤工具提示中。\n如有必要，请调整要在每个调整步骤中列出的最大结果数。"
-Lang["ShowAltsInstead_TEXT"] = "显示替代列表，而不是公会成员"
-Lang["ShowAltsInstead_DESC"] = "步骤工具提示将显示您当前在该使用权步骤中的所有替代项，而不是行会成员。"
-Lang["ClearAll_TEXT"] = "删除所有结果"
-Lang["ClearAll_DESC"] = "删除所有收集的有关其他玩家的信息。"
-Lang["ClearAll_CONF"] = "真的要删除所有结果吗？"
-Lang["ClearAll_DONE"] = "所有结果已删除。"
-Lang["DelNonGuildies_TEXT"] = "删除非公会会员"
-Lang["DelNonGuildies_DESC"] = "从公会外部删除所有有关玩家的信息。"
-Lang["DelNonGuildies_CONF"] = "真的删除所有非公会会员吗？"
-Lang["DelNonGuildies_DONE"] = "公会以外的所有结果均已删除。"
-Lang["DelUnder60_TEXT"] = "删除60岁以下的字符"
-Lang["DelUnder60_DESC"] = "删除所有收集的有关60级以下玩家的信息。"
-Lang["DelUnder60_CONF"] = "真的要删除60级以下的所有角色吗？"
-Lang["DelUnder60_DONE"] = "所有低于60的结果均已删除."
-Lang["DelUnder70_TEXT"] = "删除70岁以下的字符"
-Lang["DelUnder70_DESC"] = "删除所有收集的有关70级以下玩家的信息。"
-Lang["DelUnder70_CONF"] = "真的要删除70级以下的所有角色吗？"
-Lang["DelUnder70_DONE"] = "所有低于70的结果均已删除."
+Lang["MinimapButton_TEXT"] = "顯示小地圖按鈕"
+Lang["MinimapButton_DESC"] = "顯示小地圖按鈕可快速訪問插件介面或選項。"
+Lang["AutoSurvey_TEXT"] = "對登入玩家進行公會自動調查"
+Lang["AutoSurvey_DESC"] = "每當您登入遊戲時，插件都會進行公會調查。"
+Lang["ShowSurveyed_TEXT"] = "在接受調查時顯示"
+Lang["ShowSurveyed_DESC"] =  "接受（和回答）調查請求時顯示聊天訊息。"
+Lang["ShowResponses_TEXT"] = "進行調查時顯示答覆"
+Lang["ShowResponses_DESC"] = "顯示每隔調查響應的聊天消訊息。"
+Lang["ShowSetMessages_TEXT"] = "顯示步驟完成訊息"
+Lang["ShowSetMessages_DESC"] = "當步調完成時，顯示聊天訊息。"
+Lang["AnnounceToGuild_TEXT"] = "在公會聊天中宣布完成"
+Lang["AnnounceToGuild_DESC"] = "開門任務完成後發送公會訊息。"
+Lang["ShowOther_TEXT"] = "顯示其他聊天訊息"
+Lang["ShowOther_DESC"] = "顯示所有其他常規聊天訊息（啟動訊息，發送調查，可用更新等）。"
+Lang["ShowGuildies_TEXT"] = "在每個使用權步驟中顯示公會成員列表。               最大清單大小"  --this has a gap for the editbox
+Lang["ShowGuildies_DESC"] = "當前在使用權步驟中的公會成員列表顯示在步驟工具提示中。\n如有必要，請調整要在每個調整步驟中列出的最大結果數。"
+Lang["ShowAltsInstead_TEXT"] = "顯示備用角色，而不是公會成員"
+Lang["ShowAltsInstead_DESC"] = "步驟工具提示將顯示您當前在該使用權步驟中的所有備用角色，而不是公會成員。"
+Lang["ClearAll_TEXT"] = "刪除所有結果"
+Lang["ClearAll_DESC"] = "刪除所有收集的有關其他玩家的訊息。"
+Lang["ClearAll_CONF"] = "真的要刪除所有結果嗎？"
+Lang["ClearAll_DONE"] = "所有結果已刪除。"
+Lang["DelNonGuildies_TEXT"] = "刪除非公會成員"
+Lang["DelNonGuildies_DESC"] = "從公會外部刪除所有有關玩家的信息。"
+Lang["DelNonGuildies_CONF"] = "真的刪除所有非公會會員嗎？"
+Lang["DelNonGuildies_DONE"] = "公會以外的所有結果均已刪除。"
+Lang["DelUnder60_TEXT"] = "刪除60等以下的角色"
+Lang["DelUnder60_DESC"] = "刪除所有收集的有關60級以下玩家的信息。"
+Lang["DelUnder60_CONF"] = "真的要刪除60級以下的所有角色嗎？"
+Lang["DelUnder60_DONE"] = "所有低於60的角色均已刪除。"
+Lang["DelUnder70_TEXT"] = "刪除70等以下的角色"
+Lang["DelUnder70_DESC"] = "刪除所有收集的有關70級以下玩家的信息。"
+Lang["DelUnder70_CONF"] = "真的要刪除70級以下的所有角色嗎？"
+Lang["DelUnder70_DONE"] = "所有低於70的角色均已刪除。"
 
 
 -- TREEVIEW
-Lang["World of Warcraft"] = "经典旧世"
-Lang["The Burning Crusade"] = "燃烧的远征"
+Lang["World of Warcraft"] = "魔獸世界"
+Lang["The Burning Crusade"] = "燃燒的遠征"
 Lang["Molten Core"] = "熔火之心"
-Lang["Onyxia's Lair"] = "奥妮克希亚的巢穴"
+Lang["Onyxia's Lair"] = "奧妮克希亞的巢穴"
 Lang["Blackwing Lair"] = "黑翼之巢"
-Lang["Naxxramas"] = "纳克萨玛斯"
-Lang["Scepter of the Shifting Sands"] = "流沙节杖"
-Lang["Shadow Labyrinth"] = "暗影迷宫"
-Lang["The Shattered Halls"] = "破碎大厅"
-Lang["The Arcatraz"] = "禁魔监狱"
-Lang["The Black Morass"] = "黑色沼泽"
-Lang["Thrallmar Heroics"] = "萨尔玛英雄"
-Lang["Honor Hold Heroics"] = "荣耀堡英雄"
-Lang["Cenarion Expedition Heroics"] = "塞纳里奥远征队英雄"
-Lang["Lower City Heroics"] = "贫民窟英雄"
-Lang["Sha'tar Heroics"] = "沙塔尔英雄"
-Lang["Keepers of Time Heroics"] = "时光守护者英雄"
-Lang["Nightbane"] = "夜之魇"
-Lang["Karazhan"] = "卡拉赞"
+Lang["Naxxramas"] = "納克薩馬斯"
+Lang["Scepter of the Shifting Sands"] = "流沙節杖"
+Lang["Shadow Labyrinth"] = "暗影迷宮"
+Lang["The Shattered Halls"] = "破碎大廳"
+Lang["The Arcatraz"] = "亞克崔茲"
+Lang["The Black Morass"] = "黑色沼澤"
+Lang["Thrallmar Heroics"] = "索爾瑪英雄"
+Lang["Honor Hold Heroics"] = "榮譽堡英雄"
+Lang["Cenarion Expedition Heroics"] = "塞納里奧遠征隊英雄"
+Lang["Lower City Heroics"] = "陰鬱城英雄"
+Lang["Sha'tar Heroics"] = "薩塔英雄"
+Lang["Keepers of Time Heroics"] = "時光守望者英雄"
+Lang["Nightbane"] = "夜禍"
+Lang["Karazhan"] = "卡拉贊"
 Lang["Serpentshrine Cavern"] = "毒蛇神殿"
-Lang["The Eye"] = "风暴要塞"
-Lang["Mount Hyjal"] = "海加尔山"
-Lang["Black Temple"] = "黑暗神殿"
-Lang["MC_Desc"] = "团队中的所有成员都必须完成该任务，才能进入该副本，除非他们通过黑石深渊进入。" 
-Lang["Ony_Desc"] = "团队中的所有成员都必须在其背包中携带龙火护符，才能进入该副本。"
-Lang["BWL_Desc"] = "团队中的所有成员都必须完成该任务，才能进入该副本，除非他们通过黑石塔上层进入。"
-Lang["All_Desc"] = "团队中的所有成员都必须完成该任务，才能进入该副本"
-Lang["AQ_Desc"] = "每个服务器只要有一个人完成此任务，就能打开安其拉之门。"
-Lang["OnlyOne_Desc"] = "小队中只需要有一个人拥有此钥匙。 350开锁技能的潜行者也可以打开大门。"
-Lang["Heroic_Desc"] = "该小队的所有成员都需要声望和钥匙，才能进入英雄难度的地下城。"
-Lang["NB_Desc"] = "团队中需要有一名成员拥有黑色骨灰才能召唤夜之魇。"
-Lang["BT_Desc"] = "团队中的所有成员都必须拥有卡拉伯勋章，才能进入团队副本。"
-Lang["BM_Desc"] = "组中的所有成员都需要完成任务链才能划分到实例中。" 
+Lang["The Eye"] = "風暴要塞"
+Lang["Mount Hyjal"] = "海加爾山"
+Lang["Black Temple"] = "黑暗神廟"
+Lang["MC_Desc"] = "團隊中的所有成員都必須完成該任務，才能進入該副本，除非他們通過黑石深淵進入。" 
+Lang["Ony_Desc"] = "團隊中的所有成員都必須在其背包中攜帶龍火護符，才能進入該副本。"
+Lang["BWL_Desc"] = "團隊中的所有成員都必須完成該任務，才能進入該副本，除非他們從黑石塔上層進入。"
+Lang["All_Desc"] = "團隊中的所有成員都必須完成該任務，才能進入該副本"
+Lang["AQ_Desc"] = "每個伺服器只要有一個人完成此任務，就能打開安琪拉之門。"
+Lang["OnlyOne_Desc"] = "隊伍中只需要有一個人擁有此鑰匙。350開鎖技能的盜賊也可以打開大門。"
+Lang["Heroic_Desc"] = "隊伍中地所有成員都需要聲望和鑰匙，才能進入英雄難度的副本。"
+Lang["NB_Desc"] = "團隊中需要有一名成員擁有黑色骨灰才能招喚夜禍。"
+Lang["BT_Desc"] = "團隊中的所有成員都必須擁有卡拉伯爾勳章，才能進入該團隊副本。"
+Lang["BM_Desc"] = "團隊中的所有成員都需要完成任務鏈才能劃分到團隊副本中。" 
 
 
 -- GENERIC
-Lang["Reach level"] = "达到等级"
+Lang["Reach level"] = "達到等級"
 Lang["Attuned"] = "完成"
 Lang["Not attuned"] = "未完成"
-Lang["AttuneColors"] = "蓝色: 完成\n红色:  未完成"
-Lang["Minimum Level"] = "这是接取任务的最低等级。"
-Lang["NPC Not Found"] = "找不到NPC信息"
-Lang["Level"] = "等级"
+Lang["AttuneColors"] = "藍色: 完成\n红色:未完成"
+Lang["Minimum Level"] = "接取任務的最低等級。"
+Lang["NPC Not Found"] = "找不到NPC訊息"
+Lang["Level"] = "等級"
 Lang["Exalted with"] = "崇拜"
 Lang["Revered with"] = "崇敬"
 Lang["Honored with"] = "尊敬"
-Lang["Friendly with"] = "友善"
+Lang["Friendly with"] = "友好"
 Lang["Neutral with"] = "中立"
-Lang["Quest"] = "任务"
+Lang["Quest"] = "任務"
 Lang["Pick Up"] = "拾取"
-Lang["Turn In"] = "上交"
-Lang["Kill"] = "击杀"
-Lang["Interact"] = "交互"
+Lang["Turn In"] = "上繳"
+Lang["Kill"] = "擊殺"
+Lang["Interact"] = "互動"
 Lang["Item"] = "物品"
-Lang["Required level"] = "所需等级"
-Lang["Requires level"] = "需要等级"
-Lang["Attunement or key"] = "开门任务或钥匙"
-Lang["Reputation"] = "声望"
-Lang["in"] = "进入"
-Lang["Unknown Reputation"] = "未知声望"
-Lang["Current progress"] = "当前进度"
-Lang["Completion"] = "完成时间"
-Lang["Quest information not found"] = "找不到任务信息"
-Lang["Information not found"] = "找不到信息"
-Lang["Solo quest"] = "单人任务"
-Lang["Party quest"] = "小队任务 (##NB##-man)"
-Lang["Raid quest"] = "团队任务 (##NB##-man)"
+Lang["Required level"] = "所需等級"
+Lang["Requires level"] = "需要等級"
+Lang["Attunement or key"] = "開門任務或鑰匙"
+Lang["Reputation"] = "聲望"
+Lang["in"] = "進入"
+Lang["Unknown Reputation"] = "未知聲望"
+Lang["Current progress"] = "當前進度"
+Lang["Completion"] = "完成時間"
+Lang["Quest information not found"] = "找不到任務訊息"
+Lang["Information not found"] = "找不到訊息"
+Lang["Solo quest"] = "單人任務"
+Lang["Party quest"] = "隊伍任務 (##NB##-man)"
+Lang["Raid quest"] = "團隊任務   (##NB##-man)"
 Lang["HEROIC"] = "英雄"
 Lang["Elite"] = "精英"
-Lang["Boss"] = "首领"
+Lang["Boss"] = "首領"
 Lang["Rare Elite"] = "稀有精英"
-Lang["Dragonkin"] = "龙类"
-Lang["Troll"] = "巨魔"
-Lang["Ogre"] = "食人魔"
-Lang["Orc"] = "兽人"
-Lang["Half-Orc"] = "半兽人"
-Lang["Dragonkin (in Blood Elf form)"] = "龙类（血精灵形态）"
-Lang["Human"] = "人类"
+Lang["Dragonkin"] = "龍類"
+Lang["Troll"] = "食人妖"
+Lang["Ogre"] = "巨魔"
+Lang["Orc"] = "獸人"
+Lang["Half-Orc"] = "半獸人"
+Lang["Dragonkin (in Blood Elf form)"] = "龍類（血精靈型態）"
+Lang["Human"] = "人類"
 Lang["Dwarf"] = "矮人"
-Lang["Mechanical"] = "机械"
-Lang["Arakkoa"] = "鸦人"
-Lang["Dragonkin (in Humanoid form)"] = "龙类（人形态）"
-Lang["Ethereal"] = "虚空人"
-Lang["Blood Elf"] = "血精灵"
+Lang["Mechanical"] = "機械"
+Lang["Arakkoa"] = "阿拉卡"
+Lang["Dragonkin (in Humanoid form)"] = "龍類（人形態）"
+Lang["Ethereal"] = "乙太"
+Lang["Blood Elf"] = "血精靈"
 Lang["Elemental"] = "元素"
-Lang["Shiny thingy"] = "Shiny thingy"
-Lang["Naga"] = "娜迦"
-Lang["Demon"] = "恶魔"
+Lang["Shiny thingy"] = "閃亮的東東"
+Lang["Naga"] = "納迦"
+Lang["Demon"] = "惡魔"
 Lang["Gronn"] = "戈隆"
-Lang["Undead (in Dragon form)"] = "亡灵（龙形态）"
-Lang["Tauren"] = "牛头人"
-Lang["Qiraji"] = "其拉虫人"
-Lang["Gnome"] = "侏儒"
+Lang["Undead (in Dragon form)"] = "不死族（龍型態）"
+Lang["Tauren"] = "牛頭人"
+Lang["Qiraji"] = "其拉蟲族"
+Lang["Gnome"] = "地精"
 Lang["Broken"] = "破碎者"
-Lang["Draenei"] = "德莱尼"
-Lang["Undead"] = "亡灵"
+Lang["Draenei"] = "德萊尼"
+Lang["Undead"] = "不死族"
 Lang["Gorilla"] = "猩猩"
-Lang["Shark"] = "鲨鱼"
+Lang["Shark"] = "鯊魚"
 Lang["Chimaera"] = "奇美拉"
-Lang["Wisp"] = "小精灵"
-Lang["Night-Elf"] = "暗夜精灵"
+Lang["Wisp"] = "幽光"
+Lang["Night-Elf"] = "夜精靈"
 
 
 -- REP
-Lang["Argent Dawn"] = "银色黎明"
-Lang["Brood of Nozdormu"] = "诺兹多姆的子嗣"
-Lang["Thrallmar"] = "萨尔玛"
-Lang["Honor Hold"] = "荣耀堡"
-Lang["Cenarion Expedition"] = "塞纳里奥远征队"
-Lang["Lower City"] = "贫民窟"
-Lang["The Sha'tar"] = "沙塔尔"
-Lang["Keepers of Time"] = "时光守护者"
-Lang["The Violet Eye"] = "紫罗兰之眼"
-Lang["The Aldor"] = "奥尔多"
-Lang["The Scryers"] = "占星者"
+Lang["Argent Dawn"] = "銀色黎明"
+Lang["Brood of Nozdormu"] = "諾茲多姆的子嗣"
+Lang["Thrallmar"] = "索爾瑪"
+Lang["Honor Hold"] = "榮譽堡"
+Lang["Cenarion Expedition"] = "塞納里奧遠征隊"
+Lang["Lower City"] = "陰鬱城"
+Lang["The Sha'tar"] = "薩塔"
+Lang["Keepers of Time"] = "時光守望者"
+Lang["The Violet Eye"] = "紫羅蘭之眼"
+Lang["The Aldor"] = "奧爾多"
+Lang["The Scryers"] = "占卜者"
 
 
 -- LOCATIONS
 Lang["Blackrock Mountain"] = "黑石山"
-Lang["Blackrock Depths"] = "黑石深渊"
-Lang["Badlands"] = "荒芜之地"
-Lang["Lower Blackrock Spire"] = "黑石塔下层"
-Lang["Upper Blackrock Spire"] = "黑石塔上层"
-Lang["Orgrimmar"] = "奥格瑞玛"
+Lang["Blackrock Depths"] = "黑石深淵"
+Lang["Badlands"] = "荒蕪之地"
+Lang["Lower Blackrock Spire"] = "黑石塔下層"
+Lang["Upper Blackrock Spire"] = "黑石塔上層"
+Lang["Orgrimmar"] = "奧格瑪"
 Lang["Western Plaguelands"] = "西瘟疫之地"
-Lang["Desolace"] = "凄凉之地"
-Lang["Dustwallow Marsh"] = "尘泥沼泽"
-Lang["Tanaris"] = "塔纳利斯"
+Lang["Desolace"] = "淒涼之地"
+Lang["Dustwallow Marsh"] = "塵泥沼澤"
+Lang["Tanaris"] = "塔納利斯"
 Lang["Winterspring"] = "冬泉谷"
-Lang["Swamp of Sorrows"] = "悲伤沼泽"
-Lang["Wetlands"] = "湿地"
-Lang["Burning Steppes"] = "燃烧平原"
+Lang["Swamp of Sorrows"] = "悲傷沼澤"
+Lang["Wetlands"] = "濕地"
+Lang["Burning Steppes"] = "燃燒平原"
 Lang["Redridge Mountains"] = "赤脊山"
-Lang["Stormwind City"] = "暴风城"
-Lang["Eastern Plaguelands"] = "东瘟疫之地"
-Lang["Silithus"] = "希利苏斯"
-Lang["The Temple of Atal'Hakkar"] = "阿塔哈卡神庙"
-Lang["Teldrassil"] = "泰达希尔"
+Lang["Stormwind City"] = "暴風城"
+Lang["Eastern Plaguelands"] = "東瘟疫之地"
+Lang["Silithus"] = "希利蘇斯"
+Lang["The Temple of Atal'Hakkar"] = "阿塔哈卡神廟"
+Lang["Teldrassil"] = "泰達希爾"
 Lang["Moonglade"] = "月光林地"
-Lang["Hinterlands"] = "辛特兰"
-Lang["Ashenvale"] = "灰谷"
+Lang["Hinterlands"] = "辛特蘭"
+Lang["Ashenvale"] = "梣谷"
 Lang["Feralas"] = "菲拉斯"
 Lang["Duskwood"] = "暮色森林"
-Lang["Azshara"] = "艾萨拉"
-Lang["Blasted Lands"] = "诅咒之地"
+Lang["Azshara"] = "艾薩拉"
+Lang["Blasted Lands"] = "詛咒之地"
 Lang["Undercity"] = "幽暗城"
-Lang["Silverpine Forest"] = "银松森林"
+Lang["Silverpine Forest"] = "銀松森林"
 Lang["Shadowmoon Valley"] = "影月谷"
-Lang["Hellfire Peninsula"] = "地狱火半岛"
-Lang["Sethekk Halls"] = "塞泰克大厅"
-Lang["Caverns Of Time"] = "时光之穴"
-Lang["Netherstorm"] = "虚空风暴"
-Lang["Shattrath City"] = "沙塔斯城"
-Lang["The Mechanaar"] = "能源舰"
-Lang["The Botanica"] = "生态船"
-Lang["Zangarmarsh"] = "赞加沼泽"
-Lang["Terokkar Forest"] = "泰罗卡森林"
-Lang["Deadwind Pass"] = "逆风小径"
-Lang["Alterac Mountains"] = "奥特兰克山脉"
-Lang["The Steamvault"] = "蒸汽地窟"
-Lang["Slave Pens"] = "奴隶围栏"
-Lang["Gruul's Lair"] = "格鲁尔的巢穴"
-Lang["Magtheridon's Lair"] = "玛瑟里顿的巢穴"
+Lang["Hellfire Peninsula"] = "地獄火半島"
+Lang["Sethekk Halls"] = "塞司克大廳"
+Lang["Caverns Of Time"] = "時光之穴"
+Lang["Netherstorm"] = "虛空風暴"
+Lang["Shattrath City"] = "撒塔斯城"
+Lang["The Mechanaar"] = "麥克納爾"
+Lang["The Botanica"] = "波塔尼卡"
+Lang["Zangarmarsh"] = "贊格沼澤"
+Lang["Terokkar Forest"] = "泰洛卡森林"
+Lang["Deadwind Pass"] = "逆風小徑"
+Lang["Alterac Mountains"] = "奧特蘭克山脈"
+Lang["The Steamvault"] = "蒸氣洞窟"
+Lang["Slave Pens"] = "奴隸監獄"
+Lang["Gruul's Lair"] = "戈魯爾的巢穴"
+Lang["Magtheridon's Lair"] = "瑪瑟里頓的巢穴"
 Lang["Zul'Aman"] = "祖阿曼"
-Lang["Sunwell Plateau"] = "太阳之井高地"
+Lang["Sunwell Plateau"] = "太陽之井高地"
 
 
 
 -- ITEMS
-Lang["Drakkisath's Brand"] = "达基萨斯的烙印"
-Lang["Crystalline Tear"] = "水晶之泪"
-Lang["I_18412"] = "熔火碎片"			-- https://cn.tbc.wowhead.com/?item=18412
+Lang["Drakkisath's Brand"] = "達基薩斯的烙印"
+Lang["Crystalline Tear"] = "水晶之淚"
+Lang["I_18412"] = "熔核碎片"			-- https://cn.tbc.wowhead.com/?item=18412
 Lang["I_12562"] = "重要的黑石文件"			-- https://cn.tbc.wowhead.com/?item=12562
-Lang["I_16786"] = "黑色龙人的眼球"			-- https://cn.tbc.wowhead.com/?item=16786
-Lang["I_11446"] = "弄皱的便笺"			-- https://cn.tbc.wowhead.com/?item=11446
-Lang["I_11465"] = "温德索尔元帅遗失的情报"			-- https://cn.tbc.wowhead.com/?item=11465
-Lang["I_11464"] = "温德索尔元帅遗失的情报"			-- https://cn.tbc.wowhead.com/?item=11464
+Lang["I_16786"] = "黑色龍人的眼球"			-- https://cn.tbc.wowhead.com/?item=16786
+Lang["I_11446"] = "弄皺的便箋"			-- https://cn.tbc.wowhead.com/?item=11446
+Lang["I_11465"] = "溫德索爾元帥遺失的情報"			-- https://cn.tbc.wowhead.com/?item=11465
+Lang["I_11464"] = "溫德索爾元帥遺失的情報"			-- https://cn.tbc.wowhead.com/?item=11464
 Lang["I_18987"] = "黑手的命令"			-- https://cn.tbc.wowhead.com/?item=18987
-Lang["I_20383"] = "勒什雷尔的徽记"			-- https://cn.tbc.wowhead.com/?item=20383
-Lang["I_21138"] = "红色节杖碎片"			-- https://cn.tbc.wowhead.com/?item=21138
-Lang["I_21146"] = "腐蚀梦魇的碎片"			-- https://cn.tbc.wowhead.com/?item=21146
-Lang["I_21147"] = "腐蚀梦魇的碎片"			-- https://cn.tbc.wowhead.com/?item=21147
-Lang["I_21148"] = "腐蚀梦魇的碎片"			-- https://cn.tbc.wowhead.com/?item=21148
-Lang["I_21149"] = "腐蚀梦魇的碎片"			-- https://cn.tbc.wowhead.com/?item=21149
-Lang["I_21139"] = "绿色节杖碎片"			-- https://cn.tbc.wowhead.com/?item=21139
-Lang["I_21103"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21103
-Lang["I_21104"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21104
-Lang["I_21105"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21105
-Lang["I_21106"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21106
-Lang["I_21107"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21107
-Lang["I_21108"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21108
-Lang["I_21109"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21109
-Lang["I_21110"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21110
-Lang["I_21111"] = "龙语傻瓜教程：第二卷"			-- https://cn.tbc.wowhead.com/?item=21111
-Lang["I_21027"] = "拉克麦拉的肉"			-- https://cn.tbc.wowhead.com/?item=21027
+Lang["I_20383"] = "勒西雷爾的頭顱"			-- https://cn.tbc.wowhead.com/?item=20383
+Lang["I_21138"] = "紅色節杖碎片"			-- https://cn.tbc.wowhead.com/?item=21138
+Lang["I_21146"] = "腐蝕夢魘的碎片"			-- https://cn.tbc.wowhead.com/?item=21146
+Lang["I_21147"] = "腐蝕夢魘的碎片"			-- https://cn.tbc.wowhead.com/?item=21147
+Lang["I_21148"] = "腐蝕夢魘的碎片"			-- https://cn.tbc.wowhead.com/?item=21148
+Lang["I_21149"] = "腐蝕夢魘的碎片"			-- https://cn.tbc.wowhead.com/?item=21149
+Lang["I_21139"] = "綠色節杖碎片"			-- https://cn.tbc.wowhead.com/?item=21139
+Lang["I_21103"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21103
+Lang["I_21104"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21104
+Lang["I_21105"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21105
+Lang["I_21106"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21106
+Lang["I_21107"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21107
+Lang["I_21108"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21108
+Lang["I_21109"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21109
+Lang["I_21110"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?item=21110
+Lang["I_21111"] = "龍語傻瓜教程：第二卷"			-- https://cn.tbc.wowhead.com/?item=21111
+Lang["I_21027"] = "拉克麥拉的屍體"			-- https://cn.tbc.wowhead.com/?item=21027
 Lang["I_21024"] = "奇美洛克的腰肋肉"			-- https://cn.tbc.wowhead.com/?item=21024
-Lang["I_20951"] = "纳瑞安的占卜眼镜"			-- https://cn.tbc.wowhead.com/?item=20951
-Lang["I_21137"] = "蓝色节杖碎片"			-- https://cn.tbc.wowhead.com/?item=21137
-Lang["I_21175"] = "流沙节杖"			-- https://cn.tbc.wowhead.com/?item=21175
-Lang["I_31241"] = "原始钥匙模具"			-- https://cn.tbc.wowhead.com/?item=31241
-Lang["I_31239"] = "原始钥匙模具"			-- https://cn.tbc.wowhead.com/?item=31239
-Lang["I_27991"] = "暗影迷宫钥匙"			-- https://cn.tbc.wowhead.com/?item=27991
-Lang["I_31086"] = "禁魔监狱钥匙的下半块"			-- https://cn.tbc.wowhead.com/?item=31086
-Lang["I_31085"] = "禁魔监狱钥匙的上半块"			-- https://cn.tbc.wowhead.com/?item=31085
-Lang["I_31084"] = "禁魔监狱钥匙"			-- https://cn.tbc.wowhead.com/?item=31084
-Lang["I_30637"] = "焰铸钥匙"			-- https://cn.tbc.wowhead.com/?item=30637
-Lang["I_30622"] = "焰铸钥匙"			-- https://cn.tbc.wowhead.com/?item=30622
-Lang["I_30623"] = "水库钥匙"			-- https://cn.tbc.wowhead.com/?item=30623
-Lang["I_30633"] = "奥金尼钥匙"			-- https://cn.tbc.wowhead.com/?item=30633
-Lang["I_30634"] = "星船钥匙"			-- https://cn.tbc.wowhead.com/?item=30634
-Lang["I_30635"] = "时光之钥"			-- https://cn.tbc.wowhead.com/?item=30635
-Lang["I_24514"] = "第一块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24514
-Lang["I_24487"] = "第二块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24487
-Lang["I_24488"] = "第三块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24488
-Lang["I_24490"] = "麦迪文的钥匙"			-- https://cn.tbc.wowhead.com/?item=24490
-Lang["I_23933"] = "麦迪文的日记"			-- https://cn.tbc.wowhead.com/?item=23933
-Lang["I_25462"] = "暮色魔典"			-- https://cn.tbc.wowhead.com/?item=25462
-Lang["I_25461"] = "忘却之名"			-- https://cn.tbc.wowhead.com/?item=25461
-Lang["I_24140"] = "黑色骨灰"			-- https://cn.tbc.wowhead.com/?item=24140
-Lang["I_31750"] = "土灵徽记"			-- https://cn.tbc.wowhead.com/?item=31750
-Lang["I_31751"] = "灿烂徽记"			-- https://cn.tbc.wowhead.com/?item=31751
-Lang["I_31716"] = "未使用的刽子手之斧"			-- https://cn.tbc.wowhead.com/?item=31716
-Lang["I_31721"] = "卡利瑟里斯的三叉戟"			-- https://cn.tbc.wowhead.com/?item=31721
-Lang["I_31722"] = "摩摩尔的精华"			-- https://cn.tbc.wowhead.com/?item=31722
-Lang["I_31704"] = "风暴钥匙"			-- https://cn.tbc.wowhead.com/?item=31704
-Lang["I_29905"] = "凯尔萨斯的水瓶残余"			-- https://cn.tbc.wowhead.com/?item=29905
-Lang["I_29906"] = "瓦丝琪的水瓶残余"			-- https://cn.tbc.wowhead.com/?item=29906
-Lang["I_31307"] = "愤怒之心"			-- https://cn.tbc.wowhead.com/?item=31307
-Lang["I_32649"] = "卡拉波勋章"			-- https://cn.tbc.wowhead.com/?item=32649
+Lang["I_20951"] = "納里安的占卜眼鏡"			-- https://cn.tbc.wowhead.com/?item=20951
+Lang["I_21137"] = "藍色節杖碎片"			-- https://cn.tbc.wowhead.com/?item=21137
+Lang["I_21175"] = "流沙節杖"			-- https://cn.tbc.wowhead.com/?item=21175
+Lang["I_31241"] = "原始鑰匙模子"			-- https://cn.tbc.wowhead.com/?item=31241
+Lang["I_31239"] = "原始鑰匙模子"			-- https://cn.tbc.wowhead.com/?item=31239
+Lang["I_27991"] = "暗影迷宫鑰匙"			-- https://cn.tbc.wowhead.com/?item=27991
+Lang["I_31086"] = "亞克崔茲鑰匙的底部裂片"			-- https://cn.tbc.wowhead.com/?item=31086
+Lang["I_31085"] = "亞克崔茲鑰匙的頂部裂片"			-- https://cn.tbc.wowhead.com/?item=31085
+Lang["I_31084"] = "亞克崔茲鑰匙"			-- https://cn.tbc.wowhead.com/?item=31084
+Lang["I_30637"] = "火鑄之鑰"			-- https://cn.tbc.wowhead.com/?item=30637
+Lang["I_30622"] = "火鑄之鑰"			-- https://cn.tbc.wowhead.com/?item=30622
+Lang["I_30623"] = "蓄湖之鑰"			-- https://cn.tbc.wowhead.com/?item=30623
+Lang["I_30633"] = "奧奇奈鑰匙"			-- https://cn.tbc.wowhead.com/?item=30633
+Lang["I_30634"] = "扭曲鍛造鑰匙"			-- https://cn.tbc.wowhead.com/?item=30634
+Lang["I_30635"] = "時光之鑰"			-- https://cn.tbc.wowhead.com/?item=30635
+Lang["I_24514"] = "第一塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24514
+Lang["I_24487"] = "第二塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24487
+Lang["I_24488"] = "第三塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24488
+Lang["I_24490"] = "麥迪文的鑰匙"			-- https://cn.tbc.wowhead.com/?item=24490
+Lang["I_23933"] = "麥迪文的日記"			-- https://cn.tbc.wowhead.com/?item=23933
+Lang["I_25462"] = "黑暗之書"			-- https://cn.tbc.wowhead.com/?item=25462
+Lang["I_25461"] = "遺忘之名魔典"			-- https://cn.tbc.wowhead.com/?item=25461
+Lang["I_24140"] = "燻黑的骨灰甕"			-- https://cn.tbc.wowhead.com/?item=24140
+Lang["I_31750"] = "土靈徽記"			-- https://cn.tbc.wowhead.com/?item=31750
+Lang["I_31751"] = "熾亮徽記"			-- https://cn.tbc.wowhead.com/?item=31751
+Lang["I_31716"] = "劊子手的廢棄之斧"			-- https://cn.tbc.wowhead.com/?item=31716
+Lang["I_31721"] = "卡利斯瑞的三叉戟"			-- https://cn.tbc.wowhead.com/?item=31721
+Lang["I_31722"] = "莫爾墨的精華"			-- https://cn.tbc.wowhead.com/?item=31722
+Lang["I_31704"] = "風暴鑰匙"			-- https://cn.tbc.wowhead.com/?item=31704
+Lang["I_29905"] = "凱爾薩斯的殘存之瓶"			-- https://cn.tbc.wowhead.com/?item=29905
+Lang["I_29906"] = "瓦許的殘存之瓶"			-- https://cn.tbc.wowhead.com/?item=29906
+Lang["I_31307"] = "狂怒之心"			-- https://cn.tbc.wowhead.com/?item=31307
+Lang["I_32649"] = "卡拉伯爾勳章"			-- https://cn.tbc.wowhead.com/?item=32649
 
 
 -- QUESTS - Classic
-Lang["Q1_7848"] = "熔火之心的传送门"			-- https://cn.tbc.wowhead.com/?quest=7848
-Lang["Q2_7848"] = "进入黑石深渊，在通往熔火之心的传送门附近找到一块熔火碎片，然后回到黑石山脉的洛索斯·天痕那里。"
-Lang["Q1_4903"] = "高图斯的命令"			-- https://cn.tbc.wowhead.com/?quest=4903
-Lang["Q2_4903"] = "杀死欧莫克大王、指挥官沃恩和维姆萨拉克。找到重要的黑石文件，然后向卡加斯的军官高图斯汇报。"
+Lang["Q1_7848"] = "熔火之心的傳送門"			-- https://cn.tbc.wowhead.com/?quest=7848
+Lang["Q2_7848"] = "進入黑石深淵，在通往熔火之心的傳送門附近找到一塊熔核碎片，然後回到黑石山的洛索斯·天痕那裡。"
+Lang["Q1_4903"] = "高圖斯的命令"			-- https://cn.tbc.wowhead.com/?quest=4903
+Lang["Q2_4903"] = "殺死歐莫克大王、將領沃恩和維姆薩拉克主宰。找到重要的黑石文件，然後向卡加斯的督軍高圖斯彙報。"
 Lang["Q1_4941"] = "伊崔格的智慧"			-- https://cn.tbc.wowhead.com/?quest=4941
-Lang["Q2_4941"] = "和奥格瑞玛的伊崔格谈一谈。讨论完毕后，咨询萨尔的意见。\n\n你回忆起曾在萨尔的大厅中见过伊崔格。"
-Lang["Q1_4974"] = "为部落而战！"			-- https://cn.tbc.wowhead.com/?quest=4974
-Lang["Q2_4974"] = "去黑石塔杀死大酋长雷德·黑手，带着他的徽记返回奥格瑞玛。"
-Lang["Q1_6566"] = "风吹来的消息"			-- https://cn.tbc.wowhead.com/?quest=6566
-Lang["Q2_6566"] = "听萨尔讲话。"
+Lang["Q2_4941"] = "和奧格瑪的伊崔格談一談。討論完畢後，諮詢索爾的意見。\n\n你回憶起曾在索爾的大廳中見過伊崔格。"
+Lang["Q1_4974"] = "為部落而戰！"			-- https://cn.tbc.wowhead.com/?quest=4974
+Lang["Q2_4974"] = "去黑石塔殺死大酋長雷德·黑手，帶著他的頭顱返回奧格瑪。"
+Lang["Q1_6566"] = "風吹來的消息"			-- https://cn.tbc.wowhead.com/?quest=6566
+Lang["Q2_6566"] = "聽索爾講話。"
 Lang["Q1_6567"] = "部落的勇士"			-- https://cn.tbc.wowhead.com/?quest=6567
-Lang["Q2_6567"] = "按照酋长的指示找到雷克萨。他在石爪山和菲拉斯之间的凄凉之地游荡。"
-Lang["Q1_6568"] = "雷克萨的证明"			-- https://cn.tbc.wowhead.com/?quest=6568
-Lang["Q2_6568"] = "把雷克萨的证明交给西瘟疫之地的巫女麦兰达。"
-Lang["Q1_6569"] = "黑龙幻象"			-- https://cn.tbc.wowhead.com/?quest=6569
-Lang["Q2_6569"] = "到黑石塔去收集20颗黑色龙人的眼球，完成任务之后回到巫女麦兰达那里。"
+Lang["Q2_6567"] = "按照酋長的指示找到雷克薩。他在石爪山脈和菲拉斯之間的淒涼之地遊蕩。"
+Lang["Q1_6568"] = "雷克薩的證明"			-- https://cn.tbc.wowhead.com/?quest=6568
+Lang["Q2_6568"] = "把雷克薩的證明交给西瘟疫之地的巫女米蘭達。"
+Lang["Q1_6569"] = "黑龍幻象"			-- https://cn.tbc.wowhead.com/?quest=6569
+Lang["Q2_6569"] = "到黑石塔去收集20顆黑色龍人的眼球，完成任務之後回到巫女米蘭達那裡。"
 Lang["Q1_6570"] = "埃博斯塔夫"			-- https://cn.tbc.wowhead.com/?quest=6570
-Lang["Q2_6570"] = "到尘泥沼泽中的巨龙沼泽去，找到埃博斯塔夫的洞穴。进入洞穴之后戴上龙形护符，然后跟埃博斯塔夫交谈。"
-Lang["Q1_6584"] = "龙骨试炼，克鲁纳里斯"			-- https://cn.tbc.wowhead.com/?quest=6584
-Lang["Q2_6584"] = "诺兹多姆的孩子克鲁纳里斯在塔纳利斯沙漠守卫着时光之穴。杀了他，把他的颅骨交给埃博斯塔夫。"
-Lang["Q1_6582"] = "龙骨试炼，斯克利尔"			-- https://cn.tbc.wowhead.com/?quest=6582
-Lang["Q2_6582"] = "找到蓝龙斯克利尔并杀掉他。从他的身上取下他的颅骨，然后将其交给埃博斯塔夫。"
-Lang["Q1_6583"] = "龙骨试炼，索姆努斯"			-- https://cn.tbc.wowhead.com/?quest=6583
-Lang["Q2_6583"] = "杀掉绿龙索姆努斯，把他的颅骨交给埃博斯塔夫。"
-Lang["Q1_6585"] = "龙骨试炼，埃克托兹"			-- https://cn.tbc.wowhead.com/?quest=6585
-Lang["Q2_6585"] = "到格瑞姆巴托去杀掉红龙埃克托兹，把他的颅骨交给埃博斯塔夫。"
-Lang["Q1_6601"] = "晋升……"			-- https://cn.tbc.wowhead.com/?quest=6601
-Lang["Q2_6601"] = "看来这场假面舞会就要结束了。你知道麦兰达为你制作的龙形护符在黑石塔里面不会发挥作用，也许你应该去找雷克萨，将你的困境告诉他。把黯淡的龙火护符给他看看，也许他知道下一步该怎么做。"
-Lang["Q1_6602"] = "黑龙勇士之血"			-- https://cn.tbc.wowhead.com/?quest=6602
-Lang["Q2_6602"] = "到黑石塔去杀掉达基萨斯将军，把它的血交给雷克萨。"
-Lang["Q1_4182"] = "黑龙的威胁"			-- https://cn.tbc.wowhead.com/?quest=4182
-Lang["Q2_4182"] = "杀掉15条黑色小龙、10条黑色龙人、4条火鳞龙人和1条黑色幼龙。"
+Lang["Q2_6570"] = "到塵泥沼澤中的巨龍沼澤去，找到埃博斯塔夫的洞穴。進入洞穴之後戴上龍形護符，然後跟埃博斯塔夫交談。"
+Lang["Q1_6584"] = "龍骨試煉，克鲁纳里斯"			-- https://cn.tbc.wowhead.com/?quest=6584
+Lang["Q2_6584"] = "諾茲多姆的孩子克魯納裡斯在塔納利斯沙漠守衛著時光之穴。殺了他，把他的顱骨交給埃博斯塔夫。"
+Lang["Q1_6582"] = "龍骨試煉，斯克利爾"			-- https://cn.tbc.wowhead.com/?quest=6582
+Lang["Q2_6582"] = "找到藍龍斯克利爾並殺掉他。從他的身上取下他的顱骨，然後將其交給埃博斯塔夫。"
+Lang["Q1_6583"] = "龍骨試煉，索姆努斯"			-- https://cn.tbc.wowhead.com/?quest=6583
+Lang["Q2_6583"] = "殺掉綠龍索姆努斯，把他的顱骨交給埃博斯塔夫。"
+Lang["Q1_6585"] = "龍骨試煉，埃克托兹"			-- https://cn.tbc.wowhead.com/?quest=6585
+Lang["Q2_6585"] = "到格瑞姆巴托去殺掉紅龍埃克托兹，把他的顱骨交給埃博斯塔夫。"
+Lang["Q1_6601"] = "晉升……"			-- https://cn.tbc.wowhead.com/?quest=6601
+Lang["Q2_6601"] = "看來這場假面舞會就要結束了。你知道米蘭達為你製作的龍形護符在黑石塔裡面不會發揮作用，也許你應該去找雷克薩，將你的困境告訴他。把黯淡的龍火護符給他看看，也許他知道下一步該怎麼做。"
+Lang["Q1_6602"] = "黑龍勇士之血"			-- https://cn.tbc.wowhead.com/?quest=6602
+Lang["Q2_6602"] = "到黑石塔去殺掉達基薩斯將軍，把它的血交給雷克薩。"
+Lang["Q1_4182"] = "黑龍的威脅"			-- https://cn.tbc.wowhead.com/?quest=4182
+Lang["Q2_4182"] = "殺掉15條黑色小龍、10條黑色龍人、4條火鱗龍人和1條黑色幼龍。"
 Lang["Q1_4183"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4183
-Lang["Q2_4183"] = "把赫林迪斯·河角的信交给赤脊山湖畔镇的所罗门镇长。"
+Lang["Q2_4183"] = "把赫林迪斯·河角的信交给赤脊山湖畔鎮的索羅門鎮長。"
 Lang["Q1_4184"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4184
-Lang["Q2_4184"] = "到暴风城去把所罗门的求援信交给伯瓦尔·弗塔根公爵。\n\n伯瓦尔在暴风要塞里。"
+Lang["Q2_4184"] = "到暴風成去把索羅門的求援信交给伯瓦爾·弗塔根公爵。\n\n伯瓦爾在暴風要塞裡。"
 Lang["Q1_4185"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4185
-Lang["Q2_4185"] = "与女伯爵卡特拉娜·普瑞斯托谈话，然后再与伯瓦尔·弗塔根公爵谈话。"
+Lang["Q2_4185"] = "與女伯爵卡特拉娜·普瑞斯托談話，然後再與伯瓦爾·弗塔根公爵談話。"
 Lang["Q1_4186"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4186
-Lang["Q2_4186"] = "把伯瓦尔的命令交给湖畔镇的所罗门镇长。"
+Lang["Q2_4186"] = "把伯瓦爾的命令交给湖畔鎮的索羅門鎮長。"
 Lang["Q1_4223"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4223
-Lang["Q2_4223"] = "和燃烧平原的麦克斯韦尔元帅谈一谈。"
+Lang["Q2_4223"] = "和燃燒平原的麥克斯爾元帥談一談。"
 Lang["Q1_4224"] = "真正的主人"			-- https://cn.tbc.wowhead.com/?quest=4224
-Lang["Q2_4224"] = "和狼狈不堪的约翰谈谈来了解温德索尔元帅的命运，然后回到麦克斯韦尔元帅那里。\n\n你想起麦克斯韦尔元帅说过他在一个北面的洞穴那里。"
-Lang["Q1_4241"] = "温德索尔元帅"			-- https://cn.tbc.wowhead.com/?quest=4241
-Lang["Q2_4241"] = "到西北部的黑石山脉去，在黑石深渊中找到温德索尔元帅的下落。\n\n狼狈不堪的约翰曾告诉你说温德索尔被关进了一个监狱。"
-Lang["Q1_4242"] = "被遗弃的希望"			-- https://cn.tbc.wowhead.com/?quest=4242
-Lang["Q2_4242"] = "把这个坏消息传达给麦克斯韦尔元帅。"
-Lang["Q1_4264"] = "弄皱的便笺"			-- https://cn.tbc.wowhead.com/?quest=4264
-Lang["Q2_4264"] = "温德索尔元帅也许会对你手中的东西感兴趣。毕竟，希望还没有被完全扼杀。"
-Lang["Q1_4282"] = "一丝希望"			-- https://cn.tbc.wowhead.com/?quest=4282
-Lang["Q2_4282"] = "找回温德索尔元帅遗失的情报。\n\n温德索尔元帅确信那些情报在安格弗将军和傀儡统帅阿格曼奇的手里。"
-Lang["Q1_4322"] = "冲破牢笼！"			-- https://cn.tbc.wowhead.com/?quest=4322
-Lang["Q2_4322"] = "帮助温德索尔元帅拿回他的装备并救出他的朋友。当你成功之后就回去向麦克斯韦尔元帅复命。"
-Lang["Q1_6402"] = "集合在暴风城"			-- https://cn.tbc.wowhead.com/?quest=6402
-Lang["Q2_6402"] = "前往暴风城的城门。与侍卫洛文交谈，他会通知温德索尔元帅你已经到达了。"
-Lang["Q1_6403"] = "潜藏者"			-- https://cn.tbc.wowhead.com/?quest=6403
-Lang["Q2_6403"] = "跟随雷吉纳德·温德索尔元帅在暴风城中前进。保护他，别让他受到伤害！"
-Lang["Q1_6501"] = "巨龙之眼"			-- https://cn.tbc.wowhead.com/?quest=6501
-Lang["Q2_6501"] = "你必须寻遍世界以找到一种能恢复龙眼碎片的能量的生物。你对这种生物的唯一了解就是：他们确实存在。"
-Lang["Q1_6502"] = "龙火护符"			-- https://cn.tbc.wowhead.com/?quest=6502
-Lang["Q2_6502"] = "你必须从达基萨斯将军身上取回黑龙勇士之血，你可以在黑石塔的晋升大厅后面的房间里找到他。"
+Lang["Q2_4224"] = "和狼狽不堪的約翰談談來了解溫德索爾元帥的命運，然後回到麥克斯爾元帥那裡。\n\n你想起麥克斯爾元帥說過他在一個北面的洞穴那裡。"
+Lang["Q1_4241"] = "溫德索爾元帥"			-- https://cn.tbc.wowhead.com/?quest=4241
+Lang["Q2_4241"] = "到西北部的黑石山脈去，在黑石深淵中找到溫德索爾元帥的下落。\n\n狼狽不堪的約翰曾告訴你說溫德索爾被關進了一個監獄。"
+Lang["Q1_4242"] = "被遺棄的希望"			-- https://cn.tbc.wowhead.com/?quest=4242
+Lang["Q2_4242"] = "把這個壞消息傳達給麥克斯爾元帥。"
+Lang["Q1_4264"] = "弄皺的便箋"			-- https://cn.tbc.wowhead.com/?quest=4264
+Lang["Q2_4264"] = "溫德索爾元帥也許會對你手中的東西感興趣。畢竟，希望還沒有被完全扼殺。"
+Lang["Q1_4282"] = "一絲希望"			-- https://cn.tbc.wowhead.com/?quest=4282
+Lang["Q2_4282"] = "找回溫德索爾元帥遺失的情報。\n\n溫德索爾元帥確信那些情報在安格佛將軍和魔像領主阿格曼奇的手裡。"
+Lang["Q1_4322"] = "衝破牢籠！"			-- https://cn.tbc.wowhead.com/?quest=4322
+Lang["Q2_4322"] = "幫助溫德索爾元帥拿回他的裝備並救出他的朋友。當你成功之後就回去向麥克斯爾元帥覆命。"
+Lang["Q1_6402"] = "集合在暴風成"			-- https://cn.tbc.wowhead.com/?quest=6402
+Lang["Q2_6402"] = "前往暴風城的城門。與侍衛洛文交談，他會通知溫德索爾元帥你已經到達了。"
+Lang["Q1_6403"] = "潛藏者"			-- https://cn.tbc.wowhead.com/?quest=6403
+Lang["Q2_6403"] = "跟隨雷吉納德·溫德索爾元帥在暴風城中前進。保護他，別讓他受到傷害！"
+Lang["Q1_6501"] = "巨龍之眼"			-- https://cn.tbc.wowhead.com/?quest=6501
+Lang["Q2_6501"] = "你必須尋遍世界以找到一種能恢復龍眼碎片的能量的生物。你對這種生物的唯一了解就是：他們確實存在。"
+Lang["Q1_6502"] = "龍火護符"			-- https://cn.tbc.wowhead.com/?quest=6502
+Lang["Q2_6502"] = "你必須從達基薩斯將軍身上取回黑龍勇士之血，你可以在黑石塔的晋升大廳後面的房間裡找到他。"
 Lang["Q1_7761"] = "黑手的命令"			-- https://cn.tbc.wowhead.com/?quest=7761
-Lang["Q2_7761"] = "真是个愚蠢的兽人。看来你需要找到那枚烙印并获得达基萨斯徽记才可以使用命令宝珠。\n\n你从信中获知，达基萨斯将军守卫着烙印。也许你应该就此进行更深入的调查。"
-Lang["Q1_9121"] = "恐怖之城，纳克萨玛斯"			-- https://cn.tbc.wowhead.com/?quest=9121
-Lang["Q2_9121"] = "东瘟疫之地圣光之愿礼拜堂的大法师安吉拉·杜萨图斯需要5块奥术水晶、2块连结水晶、1个正义宝珠和60金币。你在银色黎明中的声望必须达到尊敬。"
-Lang["Q1_9122"] = "恐怖之城，纳克萨玛斯"			-- https://cn.tbc.wowhead.com/?quest=9122
-Lang["Q2_9122"] = "东瘟疫之地圣光之愿礼拜堂的大法师安吉拉·杜萨图斯需要2块奥术水晶、1块连结水晶和30金币。你在银色黎明中的声望必须达到崇敬。"
-Lang["Q1_9123"] = "恐怖之城，纳克萨玛斯"			-- https://cn.tbc.wowhead.com/?quest=9123
-Lang["Q2_9123"] = "东瘟疫之地圣光之愿礼拜堂的大法师安吉拉·杜萨图斯会免费为你施放奥术遮罩的咒语。你在银色黎明中的声望必须达到崇拜。"
+Lang["Q2_7761"] = "真是個愚蠢的獸人。看來你需要找到那枚烙印並獲得達基薩斯徽記才可以使用命令寶珠。\n\n你從信中獲知，達基薩斯將軍守衛著烙印。也許你應該就此進行更深入的調查。"
+Lang["Q1_9121"] = "驚懼城塞，納克薩瑪斯"			-- https://cn.tbc.wowhead.com/?quest=9121
+Lang["Q2_9121"] = "東瘟疫之地聖光之願禮拜堂的大法師安琪拉·多桑杜需要5個秘法水晶，2個聯結水晶，1個正義寶珠和60金。你一定要在銀色黎明達到尊敬聲望。"
+Lang["Q1_9122"] = "驚懼城塞，納克薩瑪斯"			-- https://cn.tbc.wowhead.com/?quest=9122
+Lang["Q2_9122"] = "東瘟疫之地聖光之願禮拜堂的大法師安琪拉·多桑杜需要2個秘法水晶、1個聯結水晶和30金。你在銀色黎明中的聲望必須達到崇敬。"
+Lang["Q1_9123"] = "驚懼城塞，納克薩瑪斯"			-- https://cn.tbc.wowhead.com/?quest=9123
+Lang["Q2_9123"] = "東瘟疫之地聖光之願禮拜堂的大法師安琪拉·多桑杜會免費為你施放奧術遮罩的咒語。你在銀色黎明中的聲望必須達到崇拜。"
 Lang["Q1_8286"] = "明天的希望"			-- https://cn.tbc.wowhead.com/?quest=8286
-Lang["Q2_8286"] = "前往塔纳利斯的时光之穴寻找诺兹多姆的子嗣，阿纳克洛斯。"
-Lang["Q1_8288"] = "唯一的领袖"			-- https://cn.tbc.wowhead.com/?quest=8288
-Lang["Q2_8288"] = "到黑石山中的奈法利安巢穴去，杀死勒什雷尔，并带回它的头颅。\n\n将勒什雷尔的头颅交给希利苏斯塞纳里奥要塞的流沙守望者巴里斯托尔斯。"
-Lang["Q1_8301"] = "正义之路"			-- https://cn.tbc.wowhead.com/?quest=8301
-Lang["Q2_8301"] = "为流沙守望者巴里斯托尔斯收集200块异种蝎壳碎片。"
-Lang["Q1_8303"] = "阿纳克洛斯"			-- https://cn.tbc.wowhead.com/?quest=8303
-Lang["Q2_8303"] = "到塔纳利斯的时光之穴去寻找阿纳克洛斯。"
-Lang["Q1_8305"] = "久远的记忆"			-- https://cn.tbc.wowhead.com/?quest=8305
-Lang["Q2_8305"] = "找到希利苏斯的水晶之泪，并凝视它。"
-Lang["Q1_8519"] = "往日的回忆"			-- https://cn.tbc.wowhead.com/?quest=8519
-Lang["Q2_8519"] = "了解所有可以了解的关于的过去的事情，然后和塔纳利斯时光之穴的阿纳克洛斯谈谈。"
-Lang["Q1_8555"] = "守护之龙"			-- https://cn.tbc.wowhead.com/?quest=8555
-Lang["Q2_8555"] = "伊兰尼库斯、瓦拉斯塔兹、和艾索雷葛斯……你的确知道这些龙，凡人。这不是巧合，他们看守我们的世界，扮演着如此有影响力的角色。\n\n不幸的是(有部份也要怪我涉世未深)不论是上古诸神的密探或者称他们为朋友的背叛者，每个守卫都沦陷了。其程度只加深了我对你的种族的不信任。\n\n找到他们……，做好最坏的准备吧。"
-Lang["Q1_8730"] = "奈法里奥斯的腐蚀"			-- https://cn.tbc.wowhead.com/?quest=8730
-Lang["Q2_8730"] = "杀死奈法利安，并拿到红色节杖碎片。把红色节杖碎片交给塔纳利斯时光之穴入口处的阿纳克洛斯。你必须在5小时之内完成这个任务。"
-Lang["Q1_8733"] = "伊兰尼库斯，梦境之暴君"			-- https://cn.tbc.wowhead.com/?quest=8733
-Lang["Q2_8733"] = "到达纳苏斯的城墙外去找到玛法里奥的亲信。"
-Lang["Q1_8734"] = "泰兰德和雷姆洛斯"			-- https://cn.tbc.wowhead.com/?quest=8734
-Lang["Q2_8734"] = "到月光林地去，和守护者雷姆洛斯谈一谈。"
-Lang["Q1_8735"] = "腐蚀梦魇"			-- https://cn.tbc.wowhead.com/?quest=8735
-Lang["Q2_8735"] = "到艾泽拉斯世界的四个翡翠梦境入口去，分别收集该处的腐蚀梦魇的碎片。当你任务完成之后，就回到月光林地的守护者雷姆洛斯那里。"
-Lang["Q1_8736"] = "噩梦显现"			-- https://cn.tbc.wowhead.com/?quest=8736
-Lang["Q2_8736"] = "保护永夜港免受伊兰尼库斯的伤害。不要让守护者雷姆洛斯死亡。不要杀掉伊兰尼库斯。保护好你们自己。等待泰兰德。"
-Lang["Q1_8741"] = "勇士归来"			-- https://cn.tbc.wowhead.com/?quest=8741
-Lang["Q2_8741"] = "把绿色节杖碎片交给塔纳利斯时光之穴的阿纳克洛斯。"
-Lang["Q1_8575"] = "艾索雷葛斯的魔法账本"			-- https://cn.tbc.wowhead.com/?quest=8575
-Lang["Q2_8575"] = "把魔法账本交给塔纳利斯的纳瑞安。"
-Lang["Q1_8576"] = "翻译龙语"			-- https://cn.tbc.wowhead.com/?quest=8576
-Lang["Q2_8576"] = "先处理当务之急，我们必须搞清楚艾索雷葛斯到底在石板上写了什麽。\n\n你说他叫你做一个奥金浮标而这只是个概要图吗?可是他会用龙语写还真奇怪。那个讨厌的老家伙知道我看不懂这乱七八糟的文字。\n\n如果有用的话，我需要我的水晶球护目镜，一只500磅的鸡和〝龙语傻瓜教程〞第二卷。不需要按照顺序。"
-Lang["Q1_8597"] = "龙语傻瓜教程"			-- https://cn.tbc.wowhead.com/?quest=8597
-Lang["Q2_8597"] = "寻找纳瑞安埋在南海的某座小岛上的书。"
-Lang["Q1_8599"] = "唱给纳瑞安的情歌"			-- https://cn.tbc.wowhead.com/?quest=8599
-Lang["Q2_8599"] = "把米莉蒂丝的情书交给塔纳利斯的纳瑞安。"
-Lang["Q1_8598"] = "敲诈"			-- https://cn.tbc.wowhead.com/?quest=8598
-Lang["Q2_8598"] = "把勒索信交给塔纳利斯的纳瑞安。"
-Lang["Q1_8606"] = "螳螂捕蝉！"			-- https://cn.tbc.wowhead.com/?quest=8606
-Lang["Q2_8606"] = "塔纳利斯的纳瑞安要你去冬泉谷，把一袋金子放在绑匪的勒索信上所写的位置。他还要求你教训一下那些家伙！"
+Lang["Q2_8286"] = "到塔納利斯的時光之穴尋找諾茲多姆的子嗣安納克羅斯。"
+Lang["Q1_8288"] = "唯一的領袖"			-- https://cn.tbc.wowhead.com/?quest=8288
+Lang["Q2_8288"] = "到黑石山中的黑翼之巢去，殺死勒西雷爾，並帶回他的頭顱。\n\n將勒西雷爾的頭顱交给希利蘇斯塞納裡奧城堡的流沙守望者巴里斯托爾斯。"
+Lang["Q1_8301"] = "正義之路"			-- https://cn.tbc.wowhead.com/?quest=8301
+Lang["Q2_8301"] = "為流沙守望者巴里斯托爾斯收集200塊異種蠍殼碎片。"
+Lang["Q1_8303"] = "阿納克洛斯"			-- https://cn.tbc.wowhead.com/?quest=8303
+Lang["Q2_8303"] = "到塔納利斯的時光之穴去尋找阿納克洛斯。"
+Lang["Q1_8305"] = "久遠的記憶"			-- https://cn.tbc.wowhead.com/?quest=8305
+Lang["Q2_8305"] = "找到希利蘇斯的水晶之淚，並凝視它。"
+Lang["Q1_8519"] = "往日的回憶"			-- https://cn.tbc.wowhead.com/?quest=8519
+Lang["Q2_8519"] = "了解所有可以了解的關於的過去的事情，然後和塔納利斯時光之穴的阿納克洛斯談談。"
+Lang["Q1_8555"] = "守護之龍"			-- https://cn.tbc.wowhead.com/?quest=8555
+Lang["Q2_8555"] = "伊蘭尼庫斯、瓦拉斯塔兹、和艾索雷葛斯……你的確知道這些龍，凡人。這不是巧合，他們看守我們的世界，扮演著如此有影響力的角色。\n\n不幸的是(有部份也要怪我涉世未深)不論是上古諸神的密探或者稱他們為朋友的背叛者，每個首位都淪陷了。其程度只加深了我對你的種族的不信任。\n\n找到他们……，做好最壞的準備吧。"
+Lang["Q1_8730"] = "奈法里奥斯的腐蝕"			-- https://cn.tbc.wowhead.com/?quest=8730
+Lang["Q2_8730"] = "殺死奈法利安，並拿到红色節杖碎片。把红色節杖碎片交给塔納利斯時光之穴入口處的阿納克洛斯。你必須在5小時之內完成這個任務。"
+Lang["Q1_8733"] = "伊蘭尼庫斯，夢境之暴君"			-- https://cn.tbc.wowhead.com/?quest=8733
+Lang["Q2_8733"] = "到達納蘇斯的城牆外去找到瑪法里恩的親信。"
+Lang["Q1_8734"] = "泰蘭達和雷姆洛斯"			-- https://cn.tbc.wowhead.com/?quest=8734
+Lang["Q2_8734"] = "到月光林地去，和守護者雷姆洛斯談一談。"
+Lang["Q1_8735"] = "腐蝕夢魘"			-- https://cn.tbc.wowhead.com/?quest=8735
+Lang["Q2_8735"] = "到艾澤拉斯世界的四個翡翠夢境入口去，分别收集該處的腐蝕夢魘的碎片。當你任務完成之後，就回到月光林地的守護者雷姆洛斯那裡。"
+Lang["Q1_8736"] = "噩夢顯現"			-- https://cn.tbc.wowhead.com/?quest=8736
+Lang["Q2_8736"] = "保護永夜港免受伊蘭尼庫斯的傷害。不要讓守護者雷姆洛斯死亡。不要殺掉伊蘭尼庫斯。保護好你們自己。等待泰蘭達。"
+Lang["Q1_8741"] = "勇士歸來"			-- https://cn.tbc.wowhead.com/?quest=8741
+Lang["Q2_8741"] = "把綠色節杖碎片交给塔納利斯時光之穴的阿納克洛斯。"
+Lang["Q1_8575"] = "艾索雷葛斯的魔法帳本"			-- https://cn.tbc.wowhead.com/?quest=8575
+Lang["Q2_8575"] = "把魔法帳本交给塔納利斯的納瑞安。"
+Lang["Q1_8576"] = "翻譯龍語"			-- https://cn.tbc.wowhead.com/?quest=8576
+Lang["Q2_8576"] = "先處理當務之急，我們必須搞清楚艾索雷葛斯到底在石板上寫了什麽。\n\n你說它叫你做一個奧金浮標而這只是個概要圖嗎?可是他會用龍語寫還真奇怪。那個討厭的老傢伙知道我看不懂這亂七八糟的文字。\n\n如果有用的話，我需要我的水晶球護目鏡，一隻500磅的雞和〝龍語傻瓜教程〞第二卷。不需要按照順序。"
+Lang["Q1_8597"] = "龍語傻瓜教程"			-- https://cn.tbc.wowhead.com/?quest=8597
+Lang["Q2_8597"] = "尋找納瑞安埋在南海的某座小島上的書。"
+Lang["Q1_8599"] = "唱给納瑞安的情歌"			-- https://cn.tbc.wowhead.com/?quest=8599
+Lang["Q2_8599"] = "把米莉蒂私的情書交给塔納利斯的納瑞安。"
+Lang["Q1_8598"] = "敲詐"			-- https://cn.tbc.wowhead.com/?quest=8598
+Lang["Q2_8598"] = "把勒索信交给塔納利斯的納瑞安。"
+Lang["Q1_8606"] = "螳螂捕蟬！"			-- https://cn.tbc.wowhead.com/?quest=8606
+Lang["Q2_8606"] = "塔納利斯的納瑞安要你去冬泉谷，把一袋金子放在绑匪的勒索信上所寫的位置。他還要求你教訓一下那些傢伙！"
 Lang["Q1_8620"] = "唯一的方案"			-- https://cn.tbc.wowhead.com/?quest=8620
-Lang["Q2_8620"] = "把8章《龙语傻瓜教程》的章节用魔法书封面合起来，然后把完整的《龙语傻瓜教程：第二卷》交给塔纳利斯的纳瑞安。"
-Lang["Q1_8584"] = "少管闲事"			-- https://cn.tbc.wowhead.com/?quest=8584
-Lang["Q2_8584"] = "塔纳利斯的纳瑞安让你和加基森的迪尔格·奎克里弗谈一谈。"
-Lang["Q1_8585"] = "恐怖之岛！"			-- https://cn.tbc.wowhead.com/?quest=8585
-Lang["Q2_8585"] = "加基森的迪尔格·奎克里弗要你去菲拉斯的恐怖之岛击杀拉克麦拉，获得拉克麦拉的肉，并从岛上收集20份奇美洛克的腰肋肉。"
-Lang["Q1_8586"] = "迪尔格的超美味奇美拉肉片"			-- https://cn.tbc.wowhead.com/?quest=8586
-Lang["Q2_8586"] = "加基森的迪尔格·奎克里弗要你给他带去20份地精火箭燃油和20份石中盐。"
-Lang["Q1_8587"] = "向纳瑞安回复"			-- https://cn.tbc.wowhead.com/?quest=8587
-Lang["Q2_8587"] = "把500磅的小鸡交给塔纳利斯的纳瑞安。"
-Lang["Q1_8577"] = "斯图沃尔，前任死党"			-- https://cn.tbc.wowhead.com/?quest=8577
-Lang["Q2_8577"] = "纳瑞安要你找到他的前任死党斯图沃尔，从他那里拿回从纳瑞安那里偷走的占卜眼镜。"
-Lang["Q1_8578"] = "占卜眼镜？没问题！"			-- https://cn.tbc.wowhead.com/?quest=8578
-Lang["Q2_8578"] = "找到纳瑞安的占卜眼镜。"
-Lang["Q1_8728"] = "好消息和坏消息"			-- https://cn.tbc.wowhead.com/?quest=8728
-Lang["Q2_8728"] = "塔纳利斯的纳瑞安要你给他带去20块奥金锭、10块源质矿石、10颗艾泽拉斯钻石，以及10颗蓝宝石。"
-Lang["Q1_8729"] = "耐普图洛斯的愤怒"			-- https://cn.tbc.wowhead.com/?quest=8729
-Lang["Q2_8729"] = "在艾萨拉风暴海湾一带的湍急的漩涡处使用奥金鱼漂。"
+Lang["Q2_8620"] = "把8章《龍語傻瓜教程》的章節用魔法書封面合起来，然後把完整的《龍語傻瓜教程：第二卷》交给塔納利斯的納瑞安。"
+Lang["Q1_8584"] = "少管閒事"			-- https://cn.tbc.wowhead.com/?quest=8584
+Lang["Q2_8584"] = "塔納利斯的納瑞安讓你和加基森的迪爾格·奎克里弗談一談。"
+Lang["Q1_8585"] = "恐怖之島！"			-- https://cn.tbc.wowhead.com/?quest=8585
+Lang["Q2_8585"] = "加基森的迪爾格·奎克里弗要你去菲拉斯的恐怖之島擊殺拉克麥拉，獲得拉克麥拉的屍體，並從島上收集20份奇美洛克的腰肋肉。"
+Lang["Q1_8586"] = "迪爾格的超美味奇美拉肉片"			-- https://cn.tbc.wowhead.com/?quest=8586
+Lang["Q2_8586"] = "加基森的迪爾格·奎克里弗要你給他帶去20份地精火箭燃油和20份石中鹽。"
+Lang["Q1_8587"] = "向納瑞安回覆"			-- https://cn.tbc.wowhead.com/?quest=8587
+Lang["Q2_8587"] = "把500磅的小雞交给塔納利斯的納瑞安。"
+Lang["Q1_8577"] = "斯圖沃爾，前任死黨"			-- https://cn.tbc.wowhead.com/?quest=8577
+Lang["Q2_8577"] = "納瑞安要你找到他的前任死黨斯圖沃爾，從他那裡拿回從納瑞安那裡偷走的占卜眼鏡。"
+Lang["Q1_8578"] = "占卜眼鏡？沒問題！"			-- https://cn.tbc.wowhead.com/?quest=8578
+Lang["Q2_8578"] = "找到納瑞安的占卜眼鏡。"
+Lang["Q1_8728"] = "好消息和壞消息"			-- https://cn.tbc.wowhead.com/?quest=8728
+Lang["Q2_8728"] = "塔納利斯的納瑞安要你給他帶去20塊奥金錠、10塊原質礦石、10顆艾澤拉斯鑽石，以及10顆藍寶石。"
+Lang["Q1_8729"] = "耐普圖洛斯的憤怒"			-- https://cn.tbc.wowhead.com/?quest=8729
+Lang["Q2_8729"] = "在艾薩拉風暴海灣一帶的湍急的漩渦處使用奥金魚標。"
 Lang["Q1_8742"] = "卡利姆多的力量"			-- https://cn.tbc.wowhead.com/?quest=8742
-Lang["Q2_8742"] = "一千年过去了，正如命中注定的那样，一位勇士站在了我的面前。这位勇士将会带领他的人民走向新的纪元。\n\n上古之神在颤抖，是的，它在你坚定的信念面前恐惧地颤抖着。打破克苏恩的预言吧。\n\它知道你会到来的，勇士―它还知道卡利姆多的力量与你同在。当你做好准备之后，请通知我，我将把流沙权杖赐予你。"
-Lang["Q1_8745"] = "时光之王的财宝"			-- https://cn.tbc.wowhead.com/?quest=8745
-Lang["Q2_8745"] = "你好，勇士。我是神圣之锣和青铜龙军团的永恒观察者，乔纳森。\n\n永恒之王授权我让你从他永恒的宝物箱里选择一样物品。愿它能在你对抗克苏恩的战役中帮助你。"
+Lang["Q2_8742"] = "一千年過去了，正如命中注定的那樣，一位勇士站在了我的面前。這位勇士將會帶領他的人民走向新的紀元。\n\n上古之神在顫抖，是的，它在你堅定的信念面前恐懼地顫抖著。打破克蘇恩的預言吧。\n\它知道你會到來的，勇士―它還知道卡利姆多的力量與你同在。當你做好準備之後，請通知我，我將把流沙節杖賜予你。"
+Lang["Q1_8745"] = "時光之王的財寶"			-- https://cn.tbc.wowhead.com/?quest=8745
+Lang["Q2_8745"] = "你好，勇士。我是神聖之鑼和青銅龍軍團的永恆觀察者，喬納森。\n\n永恆之王授權我讓你從他永恆的寶物箱裡選擇一樣物品。願它能在你對抗克蘇恩的戰役中幫助你。"
 
 
 -- QUESTS - TBC
-Lang["Q1_10755"] = "堡垒的钥匙"			-- https://cn.tbc.wowhead.com/?quest=10755
-Lang["Q2_10755"] = "将原始钥匙模具交给地狱火半岛萨尔玛的纳兹格雷尔。"
-Lang["Q1_10756"] = "罗霍克大师"			-- https://cn.tbc.wowhead.com/?quest=10756
-Lang["Q2_10756"] = "将原始钥匙模具交给萨尔玛的罗霍克。"
-Lang["Q1_10757"] = "罗霍克的要求"			-- https://cn.tbc.wowhead.com/?quest=10757
-Lang["Q2_10757"] = "将4块魔铁锭、2份奥法之尘和4颗火焰微粒交给地狱火半岛萨尔玛的罗霍克。"
-Lang["Q1_10758"] = "比地狱更炎热"			-- https://cn.tbc.wowhead.com/?quest=10758
-Lang["Q2_10758"] = "摧毁地狱火半岛的魔能机甲，将未淬火的钥匙模具插入魔能机甲的残骸，然后将灼烧过的钥匙模具交给萨尔玛的罗霍克。"
-Lang["Q1_10754"] = "堡垒的钥匙"			-- https://cn.tbc.wowhead.com/?quest=10754
-Lang["Q2_10754"] = "将原始钥匙模具交给地狱火半岛荣耀堡的远征军指挥官达纳斯·托尔贝恩。"
-Lang["Q1_10762"] = "达姆菲大师"			-- https://cn.tbc.wowhead.com/?quest=10762
-Lang["Q2_10762"] = "将原始钥匙模具交给荣耀堡的达姆菲。"
-Lang["Q1_10763"] = "达姆菲的要求"			-- https://cn.tbc.wowhead.com/?quest=10763
-Lang["Q2_10763"] = "将4块魔铁锭、2份奥法之尘和4颗火焰微粒交给地狱火半岛荣耀堡的达姆菲。"
-Lang["Q1_10764"] = "比地狱更炎热"			-- https://cn.tbc.wowhead.com/?quest=10764
-Lang["Q2_10764"] = "摧毁地狱火半岛的魔能机甲，将未淬火的钥匙模具插入魔能机甲的残骸，然后将灼烧过的钥匙模具交给荣耀堡的达姆菲。"
-Lang["Q1_10279"] = "主宰之巢"			-- https://cn.tbc.wowhead.com/?quest=10279
-Lang["Q2_10279"] = "与时光之穴的安多尔姆谈一谈。"
-Lang["Q1_10277"] = "时光之穴"			-- https://cn.tbc.wowhead.com/?quest=10277
-Lang["Q2_10277"] = "时光之穴的安多尔姆要你跟随时光监护者游览时光之穴。"
-Lang["Q1_10282"] = "往日的希尔斯布莱德"			-- https://cn.tbc.wowhead.com/?quest=10282
-Lang["Q2_10282"] = "时光之穴的安多尔姆要求你进入旧希尔斯布莱德丘陵，与伊洛希恩谈一谈。"
-Lang["Q1_10283"] = "塔蕾莎的计谋"			-- https://cn.tbc.wowhead.com/?quest=10283
-Lang["Q2_10283"] = "进入敦霍尔德城堡，将伊洛希恩交给你的燃烧弹包分别放入5间收容所内的木桶，并启动定时装置。"
-Lang["Q1_10284"] = "逃离敦霍尔德"			-- https://cn.tbc.wowhead.com/?quest=10284
-Lang["Q2_10284"] = "准备就绪后告知萨尔。保护萨尔逃离敦霍尔德城堡，并与他一起搭救塔蕾莎。\n\任务完成后与旧希尔斯布莱德丘陵的伊洛希恩谈一谈。"
-Lang["Q1_10285"] = "返回安多尔姆身边"			-- https://cn.tbc.wowhead.com/?quest=10285
-Lang["Q2_10285"] = "返回塔纳利斯沙漠的时光之穴，向幼时的安多尔姆复命。"
-Lang["Q1_10265"] = "星界财团的水晶"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
-Lang["Q2_10265"] = "将一件阿尔科隆水晶神器交给虚空风暴52区的虚空猎手卡尔伊。"
-Lang["Q1_10262"] = "叛徒的徽记"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
-Lang["Q2_10262"] = "收集10枚萨克希斯徽记，将它们交给虚空风暴52区的虚空猎手卡尔伊。"
-Lang["Q1_10205"] = "星界强盗奈萨德"			-- https://cn.tbc.wowhead.com/?quest=10205
-Lang["Q2_10205"] = "杀死星界强盗奈萨德，然后返回虚空风暴52区，向虚空猎手卡尔伊复命。"
-Lang["Q1_10266"] = "寻求帮助"			-- https://cn.tbc.wowhead.com/?quest=10266
-Lang["Q2_10266"] = "转至虚空风暴中央生态圆顶的中央圆顶哨站，找到加鲁斯并为他效力。"
-Lang["Q1_10267"] = "贸易终结"			-- https://cn.tbc.wowhead.com/?quest=10267
-Lang["Q2_10267"] = "收集10箱测量装置，然后返回虚空风暴中央生态圆顶的中央圆顶哨站，将它们交给加鲁斯。"
-Lang["Q1_10268"] = "与节点亲王会面"			-- https://cn.tbc.wowhead.com/?quest=10268
-Lang["Q2_10268"] = "转至虚空风暴的风暴尖塔，将测量装置交给节点亲王哈拉迈德的影像。"
-Lang["Q1_10269"] = "一号三角点"			-- https://cn.tbc.wowhead.com/?quest=10269
-Lang["Q2_10269"] = "利用三角测量仪找到一号三角点。找到之后，立刻转至虚空风暴法力熔炉：乌提斯的维序派哨站，向商人哈斯辛汇报三角点的位置。"
-Lang["Q1_10275"] = "二号三角点"			-- https://cn.tbc.wowhead.com/?quest=10275
-Lang["Q2_10275"] = "利用三角测量仪找到二号三角点。找到之后，立刻转至虚空风暴法力熔炉：艾拉对面的图鲁曼的营地，向星界商人图鲁曼汇报三角点的位置。"
-Lang["Q1_10276"] = "三角测量"			-- https://cn.tbc.wowhead.com/?quest=10276
-Lang["Q2_10276"] = "夺得阿塔玛水晶，然后返回虚空风暴的风暴之塔，将它交给节点亲王哈拉迈德的影像。"
-Lang["Q1_10280"] = "送往沙塔斯的特殊货物"			-- https://cn.tbc.wowhead.com/?quest=10280
-Lang["Q2_10280"] = "将阿塔玛水晶交给沙塔斯城圣光广场的阿达尔。"
-Lang["Q1_10704"] = "如何杀入禁魔监狱"			-- https://cn.tbc.wowhead.com/?quest=10704
-Lang["Q2_10704"] = "阿达尔要你取回禁魔监狱钥匙的上半块和下半块，他会将这两块碎片组合成禁魔监狱钥匙。"
-Lang["Q1_9824"] = "奥术扰动"			-- https://cn.tbc.wowhead.com/?quest=9824
-Lang["Q2_9824"] = "在麦迪文的酒窖内的地下水源附近使用紫罗兰占卜水晶，然后向卡拉赞外的大法师奥图鲁斯复命。"
-Lang["Q1_9825"] = "幽灵的活动"			-- https://cn.tbc.wowhead.com/?quest=9825
-Lang["Q2_9825"] = "将10个幽灵精华交给卡拉赞外的大法师奥图鲁斯。"
-Lang["Q1_9826"] = "联络达拉然"			-- https://cn.tbc.wowhead.com/?quest=9826
-Lang["Q2_9826"] = "将奥图鲁斯的报告交给达拉然巨坑外的大法师塞德瑞克。"
+Lang["Q1_10755"] = "進入堡壘"			-- https://cn.tbc.wowhead.com/?quest=10755
+Lang["Q2_10755"] = "將原始鑰匙模子帶去給地獄火半島上索爾瑪的納茲格雷爾。"
+Lang["Q1_10756"] = "洛赫克大師"			-- https://cn.tbc.wowhead.com/?quest=10756
+Lang["Q2_10756"] = "將原始鑰匙模子交給索爾瑪的洛赫克。"
+Lang["Q1_10757"] = "洛赫克的請求"			-- https://cn.tbc.wowhead.com/?quest=10757
+Lang["Q2_10757"] = "帶4個魔鐵錠，2個魔塵和4個火焰微粒回到地獄火半島的索爾瑪交給洛赫克。"
+Lang["Q1_10758"] = "比地獄還熱"			-- https://cn.tbc.wowhead.com/?quest=10758
+Lang["Q2_10758"] = "在地獄火半島破壞一部惡魔劫奪者，並且將未淬火的鑰匙模插入它的殘骸裡。將燒焦的鑰匙模型帶到洛赫克給索爾瑪。"
+Lang["Q1_10754"] = "進入堡壘"			-- https://cn.tbc.wowhead.com/?quest=10754
+Lang["Q2_10754"] = "將原始鑰匙模子帶去給地獄火半島上榮譽堡的軍隊指揮官達納斯。"
+Lang["Q1_10762"] = "戴夫利大師"			-- https://cn.tbc.wowhead.com/?quest=10762
+Lang["Q2_10762"] = "將原始鑰匙模子交給榮譽堡的戴夫利。"
+Lang["Q1_10763"] = "戴夫利的請求"			-- https://cn.tbc.wowhead.com/?quest=10763
+Lang["Q2_10763"] = "帶4個魔鐵錠，2個魔塵和4個火焰微粒回到地獄火半島的榮譽堡給戴夫利。"
+Lang["Q1_10764"] = "比地獄還熱"			-- https://cn.tbc.wowhead.com/?quest=10764
+Lang["Q2_10764"] = "在地獄火半島破壞一部惡魔劫奪者，並且將未淬火的鑰匙模插入它的殘骸裡。將燒焦的鑰匙模型帶到榮譽堡給戴夫利。"
+Lang["Q1_10279"] = "前往主人的巢穴"			-- https://cn.tbc.wowhead.com/?quest=10279
+Lang["Q2_10279"] = "與時光之穴的安杜姆談談。"
+Lang["Q1_10277"] = "時光之穴"			-- https://cn.tbc.wowhead.com/?quest=10277
+Lang["Q2_10277"] = "在時光之穴的安杜姆要你跟隨洞穴附近的時間管理人。"
+Lang["Q1_10282"] = "舊時的希爾斯布萊德"			-- https://cn.tbc.wowhead.com/?quest=10282
+Lang["Q2_10282"] = "時光之穴的安杜姆要你到希爾斯布萊德丘陵去跟伊洛森談談。"
+Lang["Q1_10283"] = "塔蕾莎的聲東擊西"			-- https://cn.tbc.wowhead.com/?quest=10283
+Lang["Q2_10283"] = "前往敦霍爾德城堡，使用伊洛森交給你的燃燒炸彈包裹，在每一個拘留守衛室裡的桶中放置5個燃燒炸藥。\n\n當你引爆拘留守衛室後，與敦霍爾德城堡地牢裡的索爾談談。"
+Lang["Q1_10284"] = "逃離敦霍爾德"			-- https://cn.tbc.wowhead.com/?quest=10284
+Lang["Q2_10284"] = "當你準備開始時，讓索爾知道。跟著索爾離開敦霍爾德城堡，並協助他釋放塔蕾莎以及完成他的天命。\n\n任務完成後到希爾斯布萊德找伊洛森談談。"
+Lang["Q1_10285"] = "回去安杜姆身邊"			-- https://cn.tbc.wowhead.com/?quest=10285
+Lang["Q2_10285"] = "回去塔納利斯沙漠的時光之穴找小孩安杜姆。"
+Lang["Q1_10265"] = "聯合團水晶收集"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10265
+Lang["Q2_10265"] = "取得阿克隆水晶手工品，並且將它帶回虛空風暴的52區交給虛空巡者凱澤。"
+Lang["Q1_10262"] = "一堆以太族"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10262
+Lang["Q2_10262"] = "收集10枚薩希斯徽記，並且將它們帶回虛空風暴的52區交給虛空巡者凱澤。"
+Lang["Q1_10205"] = "星移劫掠者尼薩德"			-- https://cn.tbc.wowhead.com/?quest=10205
+Lang["Q2_10205"] = "殺掉星移劫掠者尼薩德，完成後回到虛空風暴的52區找虛空巡者凱澤。"
+Lang["Q1_10266"] = "要求幫助"			-- https://cn.tbc.wowhead.com/?quest=10266
+Lang["Q2_10266"] = "尋找並提供加魯你的幫助。他就在虛空風暴的秘境領地裡的領地崗哨。"
+Lang["Q1_10267"] = "合法的回收"			-- https://cn.tbc.wowhead.com/?quest=10267
+Lang["Q2_10267"] = "收集10箱勘探設備帶回虛空風暴秘境領地的領地崗哨給加魯。"
+Lang["Q1_10268"] = "晉見王子"			-- https://cn.tbc.wowhead.com/?quest=10268
+Lang["Q2_10268"] = "將勘探設備送到虛空風暴的風暴之尖交給奈薩斯王子哈拉瑪德的影像。"
+Lang["Q1_10269"] = "三角測量點之一"			-- https://cn.tbc.wowhead.com/?quest=10269
+Lang["Q2_10269"] = "使用三角裝置指引你前往第一個三角測量點的方向。一旦你找到它，把位置報告給虛空風暴法力熔爐奧崔斯島上護國者哨站的商人海辛。"
+Lang["Q1_10275"] = "三角測量點之二"			-- https://cn.tbc.wowhead.com/?quest=10275
+Lang["Q2_10275"] = "使用三角裝置指引你前往第二個三角測量點的方向。一旦你找到它，將位置報告給在虛空風暴的吐魯曼平臺的風之貿易者吐魯曼，他就在從法力熔爐艾拉島出來的橋的另一邊。"
+Lang["Q1_10276"] = "完整三角形"			-- https://cn.tbc.wowhead.com/?quest=10276
+Lang["Q2_10276"] = "取回阿塔莫水晶並且將它帶到虛空風暴的風暴之尖交給奈薩斯王子哈拉瑪德的影像。"
+Lang["Q1_10280"] = "給撒塔斯城的特件"			-- https://cn.tbc.wowhead.com/?quest=10280
+Lang["Q2_10280"] = "將阿塔莫水晶送交到撒塔斯城的聖光露臺交給阿達歐。"
+Lang["Q1_10704"] = "闖入亞克崔茲的方法"			-- https://cn.tbc.wowhead.com/?quest=10704
+Lang["Q2_10704"] = "阿達歐派你去取得亞克崔茲鑰匙的頂部和底部裂片。將它們帶回去給他，他會將他們合成亞克崔茲鑰匙後交給你。"
+Lang["Q1_9824"] = "秘法干擾"			-- https://cn.tbc.wowhead.com/?quest=9824
+Lang["Q2_9824"] = "到大師的地窖，在靠近地下水源的地方使用紫羅蘭占卜水晶再回到卡拉贊外面的大法師艾特羅斯那裡。"
+Lang["Q1_9825"] = "不安的活動"			-- https://cn.tbc.wowhead.com/?quest=9825
+Lang["Q2_9825"] = "帶10個鬼魅精華給卡拉贊外面的大法師艾特羅斯。"
+Lang["Q1_9826"] = "達拉然的聯繫"			-- https://cn.tbc.wowhead.com/?quest=9826
+Lang["Q2_9826"] = "將艾特羅斯的報告帶給達拉然陷坑郊區的大法師賽卓克。"
 Lang["Q1_9829"] = "卡德加"			-- https://cn.tbc.wowhead.com/?quest=9829
-Lang["Q2_9829"] = "将奥图鲁斯的报告交给泰罗卡森林中沙塔斯城的卡德加。"
-Lang["Q1_9831"] = "卡拉赞的钥匙"			-- https://cn.tbc.wowhead.com/?quest=9831
-Lang["Q2_9831"] = "卡德加要求你进入奥金顿的暗影迷宫中，回收储藏在那里的一个奥术容器中的第一块钥匙碎片。"
-Lang["Q1_9832"] = "第二块和第三块"			-- https://cn.tbc.wowhead.com/?quest=9832
-Lang["Q2_9832"] = "从盘牙水库内的一个奥术容器中拿到第二块钥匙碎片，从风暴要塞内的一个奥术容器中拿到第三块钥匙碎片。任务完成之后向沙塔斯城的卡德加复命。"
-Lang["Q1_9836"] = "麦迪文的触摸"			-- https://cn.tbc.wowhead.com/?quest=9836
-Lang["Q2_9836"] = "进入时光之穴，说服麦迪文让复原的学徒钥匙重新获得打开卡拉赞大门的能力。"
-Lang["Q1_9837"] = "返回卡德加身边"			-- https://cn.tbc.wowhead.com/?quest=9837
-Lang["Q2_9837"] = "将麦迪文的钥匙交给沙塔斯城的卡德加。"
-Lang["Q1_9838"] = "紫罗兰之眼"			-- https://cn.tbc.wowhead.com/?quest=9838
-Lang["Q2_9838"] = "与卡拉赞外的大法师奥图鲁斯谈一谈。"
-Lang["Q1_9630"] = "麦迪文的日记"			-- https://cn.tbc.wowhead.com/?quest=9630
-Lang["Q2_9630"] = "逆风小径的大法师奥图鲁斯要你进入卡拉赞，与拉维恩谈一谈。"
-Lang["Q1_9638"] = "书呆子"			-- https://cn.tbc.wowhead.com/?quest=9638
-Lang["Q2_9638"] = "与卡拉赞守护者的图书馆中的格拉达夫谈一谈。"
-Lang["Q1_9639"] = "卡姆希丝"			-- https://cn.tbc.wowhead.com/?quest=9639
-Lang["Q2_9639"] = "与卡拉赞守护者的图书馆中的卡姆希丝谈一谈。"
-Lang["Q1_9640"] = "埃兰之影"			-- https://cn.tbc.wowhead.com/?quest=9640
-Lang["Q2_9640"] = "将麦迪文的日记交给卡拉赞守护者的图书馆中的卡姆希丝。"
-Lang["Q1_9645"] = "主宰的露台"			-- https://cn.tbc.wowhead.com/?quest=9645
-Lang["Q2_9645"] = "进入卡拉赞的主宰的露台，阅读麦迪文的日记。完成任务后将麦迪文的日记交给大法师奥图鲁斯。"
+Lang["Q2_9829"] = "將艾特羅斯的報告送到泰洛卡森林給撒塔斯城的卡德加。"
+Lang["Q1_9831"] = "卡拉贊的入口"			-- https://cn.tbc.wowhead.com/?quest=9831
+Lang["Q2_9831"] = "卡德加要你進入奧齊頓的暗影迷宮並從藏在那裡的秘法容器取得第一塊鑰匙碎片。"
+Lang["Q1_9832"] = "第二和第三個碎片"			-- https://cn.tbc.wowhead.com/?quest=9832
+Lang["Q2_9832"] = "在盤牙蓄湖的秘法容器裡取得第二塊鑰匙碎片，風暴要塞的秘法容器裡取得第三塊鑰匙碎片。完成任務後回到撒塔斯城的卡德加那裡。"
+Lang["Q1_9836"] = "大師之觸"			-- https://cn.tbc.wowhead.com/?quest=9836
+Lang["Q2_9836"] = "進入時光之穴說服麥迪文讓復原的初生之鑰恢復能力。"
+Lang["Q1_9837"] = "回到卡德加那裡"			-- https://cn.tbc.wowhead.com/?quest=9837
+Lang["Q2_9837"] = "回到撒塔斯城的卡德加那裡並給他大師之鑰。"
+Lang["Q1_9838"] = "紫羅蘭之眼"			-- https://cn.tbc.wowhead.com/?quest=9838
+Lang["Q2_9838"] = "和卡拉贊外的大法師艾特羅斯談談。"
+Lang["Q1_9630"] = "麥迪文的日記"			-- https://cn.tbc.wowhead.com/?quest=9630
+Lang["Q2_9630"] = "逆風小徑的大法師艾特羅斯要你進入卡拉贊並和瑞依恩談談。"
+Lang["Q1_9638"] = "妥善保管"			-- https://cn.tbc.wowhead.com/?quest=9638
+Lang["Q2_9638"] = "到卡拉贊和守護者圖書館的葛瑞戴談談。"
+Lang["Q1_9639"] = "康席斯"			-- https://cn.tbc.wowhead.com/?quest=9639
+Lang["Q2_9639"] = "到卡拉贊和守護者圖書館的康席斯談談。"
+Lang["Q1_9640"] = "埃蘭之影"			-- https://cn.tbc.wowhead.com/?quest=9640
+Lang["Q2_9640"] = "取得麥迪文的日記並帶到卡拉贊的守護者圖書館交給康席斯。"
+Lang["Q1_9645"] = "大師的露臺"			-- https://cn.tbc.wowhead.com/?quest=9645
+Lang["Q2_9645"] = "前往卡拉贊的大師的露臺並閱讀麥迪文的日記。完成任務後將麥迪文的日記交給大法師艾特羅斯。"
 Lang["Q1_9680"] = "挖掘历史"			-- https://cn.tbc.wowhead.com/?quest=9680
-Lang["Q2_9680"] = "大法师奥图鲁斯要求你转至逆风小径，从卡拉赞以南的山脉中取回一块焦骨碎块。"
-Lang["Q1_9631"] = "同事的帮助"			-- https://cn.tbc.wowhead.com/?quest=9631
-Lang["Q2_9631"] = "将焦骨碎块交给虚空风暴52区的卡琳娜·拉瑟德。"
-Lang["Q1_9637"] = "卡琳娜的要求"			-- https://cn.tbc.wowhead.com/?quest=9637
-Lang["Q2_9637"] = "从地狱火堡垒破碎大厅的高阶术士奈瑟库斯手中夺得暮色魔典，从奥金顿塞泰克大厅的黑暗编织者塞斯手中夺得忘却之名，将它们交给卡琳娜·拉瑟德。"
-Lang["Q1_9644"] = "夜之魇"			-- https://cn.tbc.wowhead.com/?quest=9644
-Lang["Q2_9644"] = "进入卡拉赞的主宰的露台，碰触黑色骨灰，召唤夜之魇并杀死它，然后从夜之魇的尸体上取得暗淡的奥术精华，并将它交给大法师奥图鲁斯。"
-Lang["Q1_10901"] = "卡达什圣杖"			-- https://cn.tbc.wowhead.com/?quest=10901
-Lang["Q2_10901"] = "将土灵徽记和灿烂徽记交给盘牙水库奴隶围栏的异教徒斯卡希斯。"
-Lang["Q1_10900"] = "瓦丝琪的印记"			-- https://cn.tbc.wowhead.com/?quest=10900
+Lang["Q2_9680"] = "大法師艾特羅斯要你去卡拉贊南方山脈的逆風小徑取回一個燒焦的白骨碎片。"
+Lang["Q1_9631"] = "朋友的協助"			-- https://cn.tbc.wowhead.com/?quest=9631
+Lang["Q2_9631"] = "將燒焦的白骨碎片帶給虛空風暴的凱娜·拉斯蕊德。"
+Lang["Q1_9637"] = "凱娜的要求"			-- https://cn.tbc.wowhead.com/?quest=9637
+Lang["Q2_9637"] = "凱娜·拉斯蕊德要你到地獄火堡壘的破碎大廳，從大術士奈德克斯那裡取得黑暗之書，再到奧齊頓的塞司克大廳，從暗織者希斯那裡取得遺忘之名魔典。這個任務必須在英雄難度中完成。"
+Lang["Q1_9644"] = "夜禍"			-- https://cn.tbc.wowhead.com/?quest=9644
+Lang["Q2_9644"] = "前往卡拉贊大師的露臺並碰觸燻黑的骨灰甕來召喚夜禍。從夜禍的屍體取得微弱的秘法精華並帶給大法師艾特羅斯。"
+Lang["Q1_10901"] = "卡德許的鬥棍"			-- https://cn.tbc.wowhead.com/?quest=10901
+Lang["Q2_10901"] = "盤牙蓄湖中奴隸監獄的『異端』司卡利斯要你帶給他土靈徽記和熾烈徽記。"
+Lang["Q1_10900"] = "瓦許的印記"			-- https://cn.tbc.wowhead.com/?quest=10900
 Lang["Q2_10900"] = ""
-Lang["Q1_10681"] = "古尔丹之手"			-- https://cn.tbc.wowhead.com/?quest=10681
-Lang["Q2_10681"] = "与影月谷诅咒祭坛的大地治愈者托洛克谈一谈。"
-Lang["Q1_10458"] = "愤怒的火灵和地灵"			-- https://cn.tbc.wowhead.com/?quest=10458
-Lang["Q2_10458"] = "使用灵魂图腾俘获8个土之魂和8个火之魂，然后向影月谷诅咒祭坛的大地治愈者托洛克复命。"
-Lang["Q1_10480"] = "愤怒的水灵"			-- https://cn.tbc.wowhead.com/?quest=10480
-Lang["Q2_10480"] = "使用灵魂图腾俘获5个水之魂，然后向影月谷诅咒祭坛的大地治愈者托洛克复命。"
-Lang["Q1_10481"] = "愤怒的气灵"			-- https://cn.tbc.wowhead.com/?quest=10481
-Lang["Q2_10481"] = "使用灵魂图腾俘获10个气之魂，然后向影月谷诅咒祭坛的大地治愈者托洛克复命。"
-Lang["Q1_10513"] = "欧鲁诺克·裂心"			-- https://cn.tbc.wowhead.com/?quest=10513
-Lang["Q2_10513"] = "转至库斯卡水池北边的破碎岩床寻找欧鲁诺克·裂心。"
-Lang["Q1_10514"] = "历经沧桑……"			-- https://cn.tbc.wowhead.com/?quest=10514
-Lang["Q2_10514"] = "影月谷欧鲁诺克农场的欧鲁诺克·裂心要你在破碎平原收集10个影月块茎。"
-Lang["Q1_10515"] = "严厉的教训"			-- https://cn.tbc.wowhead.com/?quest=10515
-Lang["Q2_10515"] = "返回破碎平原，摧毁10枚贪婪剥石者的卵，然后向影月谷欧鲁诺克农场的欧鲁诺克·裂心复命。"
-Lang["Q1_10519"] = "诅咒密码 - 真相和历史"			-- https://cn.tbc.wowhead.com/?quest=10519
-Lang["Q2_10519"] = "影月谷欧鲁诺克农场的欧鲁诺克·裂心要你听听他的故事。跟欧鲁诺克谈谈，听这位年老的兽人讲述他的故事。"
-Lang["Q1_10521"] = "格洛姆托，欧鲁诺克之子"			-- https://cn.tbc.wowhead.com/?quest=10521
-Lang["Q2_10521"] = "转至影月谷的库斯卡岗哨寻找格洛姆托，欧鲁诺克之子。"
-Lang["Q1_10527"] = "阿托尔，欧鲁诺克之子"			-- https://cn.tbc.wowhead.com/?quest=10527
-Lang["Q2_10527"] = "转至影月谷的伊利达雷岗哨寻找阿托尔，欧鲁诺克之子。"
-Lang["Q1_10546"] = "伯拉克，欧鲁诺克之子"			-- https://cn.tbc.wowhead.com/?quest=10546
-Lang["Q2_10546"] = "转至影月谷的日蚀岗哨附近寻找伯拉克，欧鲁诺克之子。"
-Lang["Q1_10522"] = "诅咒密码 - 格洛姆托的命令"			-- https://cn.tbc.wowhead.com/?quest=10522
-Lang["Q2_10522"] = "取回诅咒密码的第一块碎片，然后向影月谷库斯卡岗哨的欧鲁诺克之子格洛姆托复命。"
-Lang["Q1_10528"] = "恶魔的水晶牢笼"			-- https://cn.tbc.wowhead.com/?quest=10528
-Lang["Q2_10528"] = "杀死伊利达雷岗哨的痛苦女王加布莉萨，夺得晶体钥匙，然后返回欧鲁诺克之子阿托尔的尸体旁。"
-Lang["Q1_10547"] = "血蓟交易……"			-- https://cn.tbc.wowhead.com/?quest=10547
-Lang["Q2_10547"] = "位于日蚀岗哨北面石桥旁的欧鲁诺克之子伯拉克要你将一枚腐烂的鸦人之卵交给沙塔斯城中的暴食者托比亚斯。"
-Lang["Q1_10523"] = "诅咒密码 - 第一块碎片"			-- https://cn.tbc.wowhead.com/?quest=10523
-Lang["Q2_10523"] = "将格洛姆托的箱子交给影月谷欧鲁诺克农场的欧鲁诺克·裂心。"
-Lang["Q1_10537"] = "洛恩戈鲁，裂心之弓"			-- https://cn.tbc.wowhead.com/?quest=10537
-Lang["Q2_10537"] = "影月谷伊利达雷岗哨的阿托尔的灵魂要你从驻守岗哨的恶魔手中夺得洛恩戈鲁，裂心之弓。"
-Lang["Q1_10550"] = "一捆血蓟"			-- https://cn.tbc.wowhead.com/?quest=10550
-Lang["Q2_10550"] = "将一捆血蓟交给位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克。"
-Lang["Q1_10540"] = "诅咒密码 - 阿托尔的命令"			-- https://cn.tbc.wowhead.com/?quest=10540
-Lang["Q2_10540"] = "从维内拉图斯手中夺得诅咒密码的第二块碎片，然后向影月谷伊利达雷岗哨的阿托尔的灵魂复命。\n\n你无法从被灵魂猎手攻击或杀死的怪物身上获得物品和经验值。"
-Lang["Q1_10570"] = "血蓟瘾君子"			-- https://cn.tbc.wowhead.com/?quest=10570
-Lang["Q2_10570"] = "将怒风的信件交给位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克。"
-Lang["Q1_10576"] = "影月谷的乔装者"			-- https://cn.tbc.wowhead.com/?quest=10576
-Lang["Q2_10576"] = "将6件日蚀护甲交给位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克。"
-Lang["Q1_10577"] = "伊利丹的信使……"			-- https://cn.tbc.wowhead.com/?quest=10577
-Lang["Q2_10577"] = "位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克要求你将伊利丹的口信传达给日蚀岗哨的总指挥官卢斯克。"
-Lang["Q1_10578"] = "诅咒密码 - 伯拉克的命令"			-- https://cn.tbc.wowhead.com/?quest=10578
-Lang["Q2_10578"] = "从亵渎者鲁尔手中夺回诅咒密码的第二块碎片，然后向位于影月谷日蚀岗哨附近石桥处的欧鲁诺克之子伯拉克复命。"
-Lang["Q1_10541"] = "诅咒密码 - 第二块碎片"			-- https://cn.tbc.wowhead.com/?quest=10541
-Lang["Q2_10541"] = "将阿托尔的箱子交给影月谷欧鲁诺克农场的欧鲁诺克·裂心。"
-Lang["Q1_10579"] = "诅咒密码 - 第三块碎片"			-- https://cn.tbc.wowhead.com/?quest=10579
-Lang["Q2_10579"] = "将伯拉克的箱子交给影月谷欧鲁诺克农场的欧鲁诺克·裂心。"
-Lang["Q1_10588"] = "诅咒密码"			-- https://cn.tbc.wowhead.com/?quest=10588
-Lang["Q2_10588"] = "在诅咒祭坛念诵诅咒密码，召唤出火焰之王森卢肯。\n\n杀死火焰之王森卢肯，然后与诅咒祭坛的大地治愈者托洛克谈一谈。"
-Lang["Q1_10883"] = "风暴钥匙"			-- https://cn.tbc.wowhead.com/?quest=10883
-Lang["Q2_10883"] = "与沙塔斯城的阿达尔谈一谈。"
-Lang["Q1_10884"] = "纳鲁的试炼：仁慈"			-- https://cn.tbc.wowhead.com/?quest=10884
-Lang["Q2_10884"] = "沙塔斯城的阿达尔要求你从地狱火堡垒的破碎大厅中取回未使用的刽子手之斧。\n\n该任务必须在英雄等级难度的地下城中完成。"
-Lang["Q1_10885"] = "纳鲁的试炼：力量"			-- https://cn.tbc.wowhead.com/?quest=10885
-Lang["Q2_10885"] = "沙塔斯城的阿达尔要求你取回卡利瑟里斯的三叉戟和摩摩尔的精华。\n\n该任务必须在英雄等级难度的地下城中完成。"
-Lang["Q1_10886"] = "纳鲁的试炼：坚韧"			-- https://cn.tbc.wowhead.com/?quest=10886
-Lang["Q2_10886"] = "沙塔斯城的阿达尔要求你从风暴要塞的禁魔监狱中救出米尔豪斯·法力风暴。\n\n该任务必须在英雄等级难度的地下城中完成。"
-Lang["Q1_10888"] = "纳鲁的试炼：玛瑟里顿"			-- https://cn.tbc.wowhead.com/?quest=10888
-Lang["Q2_10888"] = "沙塔斯城的阿达尔要求你杀死玛瑟里顿。"
-Lang["Q1_10680"] = "古尔丹之手"			-- https://cn.tbc.wowhead.com/?quest=10680
-Lang["Q2_10680"] = "与影月谷诅咒祭坛的大地治愈者托洛克谈一谈。"
-Lang["Q1_10445"] = "永恒水瓶"			-- https://cn.tbc.wowhead.com/?quest=10445
-Lang["Q2_10445"] = "时光之穴的索莉多米要你从盘牙水库的瓦丝琪那里取回瓦丝琪的水瓶残馀，并从风暴要塞的凯尔萨斯·逐日者那里取回凯尔萨斯的水瓶残馀。"
-Lang["Q1_10568"] = "巴尔里石板"			-- https://cn.tbc.wowhead.com/?quest=10568
-Lang["Q2_10568"] = "沙塔尔祭坛的学者希拉要你收集12块巴尔里石板，它们散落在巴尔里废墟中，那里的灰舌工人身上也携带着这种石板。\n\n为奥尔多阵营完成任务将降低你在占星者阵营中的声望等级。"
-Lang["Q1_10683"] = "巴尔里石板"			-- https://cn.tbc.wowhead.com/?quest=10683
-Lang["Q2_10683"] = "群星圣殿的奥术师塞里斯要你收集12块巴尔里石板。它们散落在巴尔里废墟中，那里的灰舌工人身上也携带着这种石板。\n\n为占星者阵营完成任务将降低你在奥尔多阵营中的声望等级。"
-Lang["Q1_10571"] = "长者奥洛努"			-- https://cn.tbc.wowhead.com/?quest=10571
-Lang["Q2_10571"] = "沙塔尔祭坛的学者希拉要求你从巴尔里废墟的长者奥洛努手中夺得阿卡玛的命令。\n\n为奥尔多阵营完成任务将降低你在占星者阵营中的声望等级。"
-Lang["Q1_10684"] = "长者奥洛努"			-- https://cn.tbc.wowhead.com/?quest=10684
-Lang["Q2_10684"] = "群星圣殿的奥术师塞里斯要求你从巴尔里废墟的长者奥洛努手中夺得阿卡玛的命令。\n\n为占星者阵营完成任务将降低你在奥尔多阵营中的声望等级。"
-Lang["Q1_10574"] = "灰舌腐蚀者"			-- https://cn.tbc.wowhead.com/?quest=10574
-Lang["Q2_10574"] = "从哈鲁姆、埃肯尼、拉坎恩和乌拉鲁手中夺得他们的勋章碎片，并把这些碎片交给影月谷沙塔尔祭坛的学者希拉。\n\n为奥尔多阵营完成任务将降低你在占星者阵营中的声望等级。"
-Lang["Q1_10685"] = "灰舌腐蚀者"			-- https://cn.tbc.wowhead.com/?quest=10685
-Lang["Q2_10685"] = "从哈鲁姆、埃肯尼、拉坎恩和乌拉鲁手中夺得他们的勋章碎片，并把这些碎片交给影月谷群星圣殿的奥术师塞里斯。\n\n为占星者阵营完成任务将降低你在奥尔多阵营中的声望等级。"
-Lang["Q1_10575"] = "守望者的牢笼"			-- https://cn.tbc.wowhead.com/?quest=10575
-Lang["Q2_10575"] = "学者希拉要求你进入巴尔里废墟以南的守望者牢笼，从萨诺鲁口中审问出阿卡玛的下落。\n\n为奥尔多完成任务将降低你在占星者阵营中的声望等级。"
-Lang["Q1_10686"] = "守望者的牢笼"			-- https://cn.tbc.wowhead.com/?quest=10686
-Lang["Q2_10686"] = "奥术师塞里斯要求你进入巴尔里废墟以南的守望者牢笼，从萨诺鲁口中审问出阿卡玛的下落。\n\n为占星者完成任务将降低你在奥尔多阵营中的声望等级。"
-Lang["Q1_10622"] = "忠诚的证明"			-- https://cn.tbc.wowhead.com/?quest=10622
-Lang["Q2_10622"] = "杀死影月谷内守望者牢笼的杉德拉斯，然后向萨诺鲁复命。"
-Lang["Q1_10628"] = "阿卡玛"			-- https://cn.tbc.wowhead.com/?quest=10628
-Lang["Q2_10628"] = "与守望者牢笼的密室中的阿卡玛谈一谈。"
-Lang["Q1_10705"] = "先知乌达鲁"			-- https://cn.tbc.wowhead.com/?quest=10705
-Lang["Q2_10705"] = "转至风暴要塞的禁魔监狱，寻找乌达鲁。"
-Lang["Q1_10706"] = "神秘的征兆"			-- https://cn.tbc.wowhead.com/?quest=10706
-Lang["Q2_10706"] = "向影月谷守望者牢笼的阿卡玛复命。"
-Lang["Q1_10707"] = "阿塔玛平台"			-- https://cn.tbc.wowhead.com/?quest=10707
-Lang["Q2_10707"] = "转至影月谷的阿塔玛平台顶部，夺得愤怒之心。完成任务后向影月谷守望者牢笼的阿卡玛复命。"
-Lang["Q1_10708"] = "阿卡玛的保证"			-- https://cn.tbc.wowhead.com/?quest=10708
-Lang["Q2_10708"] = "将卡拉波护符交给沙塔斯城的阿达尔。"
-Lang["Q1_10944"] = "危险的秘密"			-- https://cn.tbc.wowhead.com/?quest=10944
-Lang["Q2_10944"] = "转至影月谷内的守望者牢笼，与阿卡玛谈一谈。"
-Lang["Q1_10946"] = "灰舌的计谋"			-- https://cn.tbc.wowhead.com/?quest=10946
-Lang["Q2_10946"] = "转至风暴要塞，在穿着灰舌兜帽的情况下杀死奥。完成任务之后回到影月谷，向阿卡玛复命。"
-Lang["Q1_10947"] = "往日的神器"			-- https://cn.tbc.wowhead.com/?quest=10947
-Lang["Q2_10947"] = "转至塔纳利斯的时空之穴，进入海加尔山战役之后击败雷基·冬寒，将他的时光护符匣交给影月谷的阿卡玛。"
-Lang["Q1_10948"] = "灵魂之囚"			-- https://cn.tbc.wowhead.com/?quest=10948
-Lang["Q2_10948"] = "转至沙塔斯城，将阿卡玛的请求告诉阿达尔。"
-Lang["Q1_10949"] = "进入黑暗神殿"			-- https://cn.tbc.wowhead.com/?quest=10949
-Lang["Q2_10949"] = "转至影月谷的黑暗神殿入口处，与克希利谈一谈。"
-Lang["Q1_10985"] = "帮助阿卡玛"			-- https://cn.tbc.wowhead.com/?quest=10985
-Lang["Q2_10985"] = "在克希利的军队发动佯攻之后，保护阿卡玛和玛维进入影月谷内的黑暗神殿。"
+Lang["Q1_10681"] = "古爾丹火山"			-- https://cn.tbc.wowhead.com/?quest=10681
+Lang["Q2_10681"] = "跟影月谷詛咒祭壇的大地治癒者托爾洛克交談。"
+Lang["Q1_10458"] = "火與大地的暴怒之靈"			-- https://cn.tbc.wowhead.com/?quest=10458
+Lang["Q2_10458"] = "影月谷裡詛咒祭壇的大地治癒者托爾洛克要你使用靈魂圖騰捕捉8個土靈之魂及8個熾熱之魂"
+Lang["Q1_10480"] = "暴怒的水靈"			-- https://cn.tbc.wowhead.com/?quest=10480
+Lang["Q2_10480"] = "影月谷的詛咒祭壇的大地治癒者托爾洛克要你使用靈魂圖騰去捕獲5個水之魂。"
+Lang["Q1_10481"] = "暴怒的風之靈"			-- https://cn.tbc.wowhead.com/?quest=10481
+Lang["Q2_10481"] = "影月谷的詛咒祭壇的大地治癒者托爾洛克要你使用靈魂圖騰去捕獲10個大氣之魂。"
+Lang["Q1_10513"] = "歐朗諾克·碎心"			-- https://cn.tbc.wowhead.com/?quest=10513
+Lang["Q2_10513"] = "到破碎暗礁去找歐朗諾克·碎心 - 就在考斯卡水池的北方。"
+Lang["Q1_10514"] = "我經歷過很多事..."			-- https://cn.tbc.wowhead.com/?quest=10514
+Lang["Q2_10514"] = "影月谷內歐朗諾克的農場的歐朗諾克·碎心要你去破碎平原取回10個影月塊莖。\n\n他也要你在完成任務後將歐朗諾克的野豬哨帶回來。"
+Lang["Q1_10515"] = "學到一課"			-- https://cn.tbc.wowhead.com/?quest=10515
+Lang["Q2_10515"] = "影月谷內歐朗諾克的農場的歐朗諾克·碎心要你去破碎平原破壞10個掠食鐮奪怪的蛋。"
+Lang["Q1_10519"] = "毀滅密碼 - 歷史與真相"			-- https://cn.tbc.wowhead.com/?quest=10519
+Lang["Q2_10519"] = "影月谷裡歐朗諾克的農場的歐朗諾克·碎心要你聆聽他的故事。"
+Lang["Q1_10521"] = "葛洛姆特，歐朗諾克之子"			-- https://cn.tbc.wowhead.com/?quest=10521
+Lang["Q2_10521"] = "在影月谷的考斯卡崗哨找到葛洛姆特，歐朗諾克之子。"
+Lang["Q1_10527"] = "阿爾托，歐朗諾克之子"			-- https://cn.tbc.wowhead.com/?quest=10527
+Lang["Q2_10527"] = "在影月谷的伊利達瑞崗哨找到阿爾托，歐朗諾克之子。"
+Lang["Q1_10546"] = "柏爾拉克，歐朗諾克之子"			-- https://cn.tbc.wowhead.com/?quest=10546
+Lang["Q2_10546"] = "到影月谷的日蝕崗哨附近尋找柏爾拉克，歐朗諾克之子。"
+Lang["Q1_10522"] = "毀滅密碼 - 葛洛姆特的命令"			-- https://cn.tbc.wowhead.com/?quest=10522
+Lang["Q2_10522"] = "在影月谷考斯卡崗哨的葛洛姆特，歐朗諾克之子要你奪回毀滅密碼第一部。"
+Lang["Q1_10528"] = "惡魔水晶囚牢"			-- https://cn.tbc.wowhead.com/?quest=10528
+Lang["Q2_10528"] = "在伊利達瑞崗哨找到並殺掉痛苦魔女卡布利莎，拿著結晶鑰匙回到阿爾托，歐朗諾克之子的屍體那。"
+Lang["Q1_10547"] = "血薊與蛋"			-- https://cn.tbc.wowhead.com/?quest=10547
+Lang["Q2_10547"] = "在日蝕崗哨北邊橋上的柏爾拉克, 歐朗諾克之子要你找到腐爛的阿拉卡蛋然後交給泰洛卡森林西北邊撒塔斯城的『骯髒暴食者』托比亞斯。"
+Lang["Q1_10523"] = "毀滅密碼 - 取回第一部"			-- https://cn.tbc.wowhead.com/?quest=10523
+Lang["Q2_10523"] = "帶著葛洛姆特的帶鎖箱到影月谷的歐朗諾克的農場給歐朗諾克·碎心。"
+Lang["Q1_10537"] = "羅恩格隆，碎心之弓"			-- https://cn.tbc.wowhead.com/?quest=10537
+Lang["Q2_10537"] = "影月谷內伊利達瑞崗哨的阿爾托之靈要你去從本地的惡魔手中取回羅恩格隆，碎心之弓。"
+Lang["Q1_10550"] = "一捆血薊"			-- https://cn.tbc.wowhead.com/?quest=10550
+Lang["Q2_10550"] = "將一捆血薊交給影月谷的日蝕崗哨附近橋上的柏爾拉克，歐朗諾克之子。"
+Lang["Q1_10540"] = "毀滅密碼 - 阿爾托的命令"			-- https://cn.tbc.wowhead.com/?quest=10540
+Lang["Q2_10540"] = "影月谷中伊利達瑞崗哨的阿爾托之靈要你從『百觸』威納拉圖斯邊取回毀滅密碼第二部。\n\n遭受幽魂獵手攻擊或傷害的生物將無法獲得戰利品或經驗值。"
+Lang["Q1_10570"] = "血薊花的陷阱"			-- https://cn.tbc.wowhead.com/?quest=10570
+Lang["Q2_10570"] = "影月谷的日蝕崗哨附近橋上的柏爾拉克，歐朗諾克之子要你取回怒風信件。"
+Lang["Q1_10576"] = "影月谷的潛行"			-- https://cn.tbc.wowhead.com/?quest=10576
+Lang["Q2_10576"] = "位在影月谷靠近日蝕崗哨一座橋上的柏爾拉克, 歐朗諾克之子要你找回6件日蝕護甲。"
+Lang["Q1_10577"] = "予取予求的伊利丹..."			-- https://cn.tbc.wowhead.com/?quest=10577
+Lang["Q2_10577"] = "位在影月谷靠近日蝕崗哨的一座橋上的柏爾拉克, 歐朗諾克之子要你傳遞伊利丹的一段訊息給日蝕崗哨的大指揮官魯斯克。"
+Lang["Q1_10578"] = "毀滅密碼 - 柏爾拉克的命令"			-- https://cn.tbc.wowhead.com/?quest=10578
+Lang["Q2_10578"] = "影月谷的日蝕崗哨附近橋上的柏爾拉克，歐朗諾克之子要你從『晦暗者』魯歐身上奪回毀滅密碼第三部。"
+Lang["Q1_10541"] = "毀滅密碼 - 取回第二部"			-- https://cn.tbc.wowhead.com/?quest=10541
+Lang["Q2_10541"] = "將阿爾托的上鎖帶鎖箱交給影月谷裡歐朗諾克的農場的歐朗諾克·碎心。"
+Lang["Q1_10579"] = "毀滅密碼 - 取回第三部"			-- https://cn.tbc.wowhead.com/?quest=10579
+Lang["Q2_10579"] = "帶著柏爾拉克的帶鎖箱到影月谷的歐朗諾克的農場交給歐朗諾克·碎心。"
+Lang["Q1_10588"] = "毀滅密碼"			-- https://cn.tbc.wowhead.com/?quest=10588
+Lang["Q2_10588"] = "在詛咒祭壇使用毀滅密碼，召喚『火焰之王』賽洛庫。\n\n殺死火焰之王賽洛庫然後去跟大地治癒者托爾洛克談話，你同樣可以在詛咒祭壇找到他"
+Lang["Q1_10883"] = "風暴之鑰"			-- https://cn.tbc.wowhead.com/?quest=10883
+Lang["Q2_10883"] = "與撒塔斯城的阿達歐談談。"
+Lang["Q1_10884"] = "那魯的試煉：寬容"			-- https://cn.tbc.wowhead.com/?quest=10884
+Lang["Q2_10884"] = "撒塔斯城的阿達歐要你自地獄火堡壘的破碎大廳取回劊子手的廢棄之斧。\n\n此任務必須在英雄難度的地城裡完成。"
+Lang["Q1_10885"] = "那魯的試煉：力量"			-- https://cn.tbc.wowhead.com/?quest=10885
+Lang["Q2_10885"] = "撒塔斯城的阿達歐要你去取回卡利斯瑞的三叉戟和莫爾墨的精華。\n\n此任務必須在英雄難度的地城裡完成。"
+Lang["Q1_10886"] = "那魯的試煉：堅毅"			-- https://cn.tbc.wowhead.com/?quest=10886
+Lang["Q2_10886"] = "撒塔斯城的阿達歐要你去援救來自風暴要塞，亞克崔茲的米歐浩斯·曼納斯頓。\n\n此任務必須在英雄難度的地城裡完成。"
+Lang["Q1_10888"] = "那魯的試煉：瑪瑟里頓"			-- https://cn.tbc.wowhead.com/?quest=10888
+Lang["Q2_10888"] = "撒塔斯城的阿達歐要你殺死瑪瑟里頓。"
+Lang["Q1_10680"] = "古爾丹火山"			-- https://cn.tbc.wowhead.com/?quest=10680
+Lang["Q2_10680"] = "跟影月谷詛咒祭壇的大地治癒者托爾洛克交談。"
+Lang["Q1_10445"] = "永恆之瓶"			-- https://cn.tbc.wowhead.com/?quest=10445
+Lang["Q2_10445"] = "時光之穴的索芮朵蜜要你去從盤牙蓄湖的瓦許女士身上取得瓦許的殘存之瓶，從風暴要塞的凱爾薩斯·逐日者身上取得凱爾薩斯的殘存之瓶。"
+Lang["Q1_10568"] = "巴瑞碑文"			-- https://cn.tbc.wowhead.com/?quest=10568
+Lang["Q2_10568"] = "薩塔祭壇的隱士希拉要你去巴瑞廢墟從地上或者灰舌勞工的身上收集12個巴瑞碑文。\n\n為奧多爾完成任務會讓你的占卜者聲望降低。"
+Lang["Q1_10683"] = "巴瑞碑文"			-- https://cn.tbc.wowhead.com/?quest=10683
+Lang["Q2_10683"] = "星光聖所的秘法師賽利斯要你去巴瑞廢墟從地上及灰舌勞工身上收集12個巴瑞碑文。\n\n為占卜者完成任務會讓你的奧多爾聲望降低。"
+Lang["Q1_10571"] = "長者奧洛努"			-- https://cn.tbc.wowhead.com/?quest=10571
+Lang["Q2_10571"] = "薩塔祭壇的隱士希拉要你去巴瑞廢墟的長者奧洛努手中奪得阿卡瑪的命令。\n\n為奧多爾完成任務會讓你的占卜者聲望降低。"
+Lang["Q1_10684"] = "長者奧洛努"			-- https://cn.tbc.wowhead.com/?quest=10684
+Lang["Q2_10684"] = "星光聖所的秘法師賽利斯要你去巴瑞廢墟的長者奧洛努手中奪得阿卡瑪的命令。\n\n為占卜者完成任務會讓你的奧多爾聲望降低。"
+Lang["Q1_10574"] = "灰舌墮落者"			-- https://cn.tbc.wowhead.com/?quest=10574
+Lang["Q2_10574"] = "從哈盧姆，伊肯尼恩，拉卡恩和烏拉魯那邊取回四個勳章碎片然後回到影月谷的薩塔祭壇找隱士希拉。\n\n為奧多爾完成任務會使你的占卜者聲望降低。"
+Lang["Q1_10685"] = "灰舌墮落者"			-- https://cn.tbc.wowhead.com/?quest=10685
+Lang["Q2_10685"] = "從哈盧姆，伊肯尼恩，拉卡恩和烏拉魯那邊取回四個勳章碎片然後回到影月谷的星光聖所的秘法師賽利斯。\n\n為占卜者完成任務會讓你的奧多爾聲望降低。"
+Lang["Q1_10575"] = "典獄官監牢"			-- https://cn.tbc.wowhead.com/?quest=10575
+Lang["Q2_10575"] = "隱士希拉要求你進入巴瑞廢墟以南的典獄官監牢，從薩諾魯口中審問出阿卡瑪的下落。\n\n為奧多爾完成任務會讓你的占卜者聲望降低。"
+Lang["Q1_10686"] = "典獄官監牢"			-- https://cn.tbc.wowhead.com/?quest=10686
+Lang["Q2_10686"] = "秘法師賽利斯要求你進入巴瑞廢墟以南的典獄官監牢，從薩諾魯口中審問出阿卡瑪的下落。\n\n為占卜者完成任務會讓你的奧多爾聲望降低。"
+Lang["Q1_10622"] = "忠誠的證明"			-- https://cn.tbc.wowhead.com/?quest=10622
+Lang["Q2_10622"] = "殺死影月谷内典獄官監牢的杉德拉斯，然後向薩諾魯覆命。"
+Lang["Q1_10628"] = "阿卡瑪"			-- https://cn.tbc.wowhead.com/?quest=10628
+Lang["Q2_10628"] = "與典獄官監牢的密室中的阿卡瑪談一談。"
+Lang["Q1_10705"] = "先知烏達羅"			-- https://cn.tbc.wowhead.com/?quest=10705
+Lang["Q2_10705"] = "到風暴要塞的亞克崔茲找到先知烏達羅。"
+Lang["Q1_10706"] = "神秘的前兆"			-- https://cn.tbc.wowhead.com/?quest=10706
+Lang["Q2_10706"] = "回到影月谷的典獄官監牢找阿卡瑪。"
+Lang["Q1_10707"] = "阿塔莫露臺"			-- https://cn.tbc.wowhead.com/?quest=10707
+Lang["Q2_10707"] = "到影月谷內阿塔莫露臺的頂端取得狂怒之心。完成任務後回到影月谷的典獄官監牢找阿卡瑪。"
+Lang["Q1_10708"] = "阿卡瑪的保證"			-- https://cn.tbc.wowhead.com/?quest=10708
+Lang["Q2_10708"] = "將卡拉伯爾勳章交給撒塔斯城的阿達歐。"
+Lang["Q1_10944"] = "保守的秘密"			-- https://cn.tbc.wowhead.com/?quest=10944
+Lang["Q2_10944"] = "前往影月谷的典獄官監牢並且跟阿卡瑪交談。"
+Lang["Q1_10946"] = "灰舌偽裝"			-- https://cn.tbc.wowhead.com/?quest=10946
+Lang["Q2_10946"] = "前往風暴要塞並且戴上灰舌風帽殺死歐爾。完成任務後回到影月谷找阿卡瑪。"
+Lang["Q1_10947"] = "古老的神器"			-- https://cn.tbc.wowhead.com/?quest=10947
+Lang["Q2_10947"] = "前往塔納利斯的時光之穴並且進入海加爾山戰役。進入之後，擊敗瑞齊·凜冬並且將時間定相骨匣交給影月谷的阿卡瑪。"
+Lang["Q1_10948"] = "靈魂之囚"			-- https://cn.tbc.wowhead.com/?quest=10948
+Lang["Q2_10948"] = "前往塔斯城，將阿卡瑪的請求告訴阿達歐。"
+Lang["Q1_10949"] = "進入黑暗神廟"			-- https://cn.tbc.wowhead.com/?quest=10949
+Lang["Q2_10949"] = "前往影月谷的黑暗神廟，在入口處與希瑞談話。"
+Lang["Q1_10985"] = "幫助阿卡瑪"			-- https://cn.tbc.wowhead.com/?quest=10985
+Lang["Q2_10985"] = "在克希利的軍隊發動佯攻之後，保護阿卡瑪和瑪維進入影月谷内的黑暗神廟。"
 	
 
 -- NPC
-Lang["N1_9196"] = "欧莫克大王"	-- https://cn.tbc.wowhead.com/?npc=9196
-Lang["N2_9196"] = "欧莫克大王能在以下地区找到：​黑石塔下层."
-Lang["N1_9237"] = "指挥官沃恩"	-- https://cn.tbc.wowhead.com/?npc=9237
-Lang["N2_9237"] = "指挥官沃恩能在以下地区找到：​黑石塔下层."
-Lang["N1_9568"] = "维姆萨拉克"	-- https://cn.tbc.wowhead.com/?npc=9568
-Lang["N2_9568"] = "维姆萨拉克能在以下地区找到：​黑石塔下层."
-Lang["N1_10429"] = "大酋长雷德·黑手"	-- https://cn.tbc.wowhead.com/?npc=10429
-Lang["N2_10429"] = "大酋长雷德·黑手能在以下地区找到：​黑石塔上层."
+Lang["N1_9196"] = "歐莫克大王"	-- https://cn.tbc.wowhead.com/?npc=9196
+Lang["N2_9196"] = "歐莫克大王能在以下地區找到：黑石塔下層。"
+Lang["N1_9237"] = "指揮官沃恩"	-- https://cn.tbc.wowhead.com/?npc=9237
+Lang["N2_9237"] = "指揮官沃恩能在以下地區找到：​黑石塔下層。"
+Lang["N1_9568"] = "維姆薩拉克主宰"	-- https://cn.tbc.wowhead.com/?npc=9568
+Lang["N2_9568"] = "維姆薩拉克主宰能在以下地區找到：​黑石塔下層。"
+Lang["N1_10429"] = "大酋長雷德·黑手"	-- https://cn.tbc.wowhead.com/?npc=10429
+Lang["N2_10429"] = "大酋長雷德·黑手能在以下地區找到：​黑石塔上層。"
 Lang["N1_10182"] = "雷克萨<部落的勇士>"	-- https://cn.tbc.wowhead.com/?npc=10182
-Lang["N2_10182"] = "雷克萨能在以下地区找到：​ 凄凉之地、菲拉斯、石爪山脉."
-Lang["N1_8197"] = "克鲁纳里斯"	-- https://cn.tbc.wowhead.com/?npc=8197
-Lang["N2_8197"] = "克鲁纳里斯能在塔纳利斯的时光之穴门外找到."
-Lang["N1_10664"] = "斯克利尔"	-- https://cn.tbc.wowhead.com/?npc=10664
-Lang["N2_10664"] = "斯克利尔能在冬泉谷的蓝龙洞深处找到."
+Lang["N2_10182"] = "雷克薩能能在以下地區找到：淒涼之地、菲拉斯、石爪山脈。"
+Lang["N1_8197"] = "克魯納里斯"	-- https://cn.tbc.wowhead.com/?npc=8197
+Lang["N2_8197"] = "克魯納里斯能在塔納利斯的時光之穴門外找到。"
+Lang["N1_10664"] = "斯克利爾"	-- https://cn.tbc.wowhead.com/?npc=10664
+Lang["N2_10664"] = "斯克利爾能在冬泉谷的藍龍洞深處找到。"
 Lang["N1_12900"] = "索姆努斯"	-- https://cn.tbc.wowhead.com/?npc=12900
-Lang["N2_12900"] = "索姆努斯能在悲伤沼泽的沉没的神庙东侧找到."
-Lang["N1_12899"] = "埃克托兹"	-- https://cn.tbc.wowhead.com/?npc=12899
-Lang["N2_12899"] = "埃克托兹能在湿地的格瑞姆巴托找到."
-Lang["N1_10363"] = "达基萨斯将军"	-- https://cn.tbc.wowhead.com/?npc=10363
-Lang["N2_10363"] = "达基萨斯将军是黑石塔上层的最终首领."
-Lang["N1_8983"] = "傀儡统帅阿格曼奇"	-- https://cn.tbc.wowhead.com/?npc=8983
-Lang["N2_8983"] = "傀儡统帅阿格曼奇能在以下地区找到：​黑石深渊."
-Lang["N1_9033"] = "安格弗将军"	-- https://cn.tbc.wowhead.com/?npc=9033
-Lang["N2_9033"] = "安格弗将军能在以下地区找到：​黑石深渊."
-Lang["N1_17804"] = "侍卫洛文"	-- https://cn.tbc.wowhead.com/?npc=17804
-Lang["N2_17804"] = "侍卫洛文能在暴风城大门找到."
-Lang["N1_10929"] = "哈尔琳"	-- https://cn.tbc.wowhead.com/?npc=10929
-Lang["N2_10929"] = "站在外面的Mazthoril洞穴顶部。\n可以通过洞穴深处地板上的蓝色符文到达。"
-Lang["N1_9046"] = "裂盾军需官 <裂盾军团>"	-- https://cn.tbc.wowhead.com/?npc=9046
-Lang["N2_9046"] = "位于副本外部，在黑石塔楼阳台入口附近."
-Lang["N1_15180"] = "流沙守望者巴里斯托尔斯"	-- https://cn.tbc.wowhead.com/?npc=15180
-Lang["N2_15180"] = "流沙守望者巴里斯托尔斯位于希利苏斯 (49.6,36.6)."
-Lang["N1_12017"] = "勒什雷尔"	-- https://cn.tbc.wowhead.com/?npc=12017
-Lang["N2_12017"] = "勒什雷尔是黑翼之巢的三号首领."
+Lang["N2_12900"] = "索姆努斯能在悲傷沼澤的沉默的神廟東側找到。"
+Lang["N1_12899"] = "埃克托茲"	-- https://cn.tbc.wowhead.com/?npc=12899
+Lang["N2_12899"] = "埃克托茲能在濕地的格瑞姆巴托找到。"
+Lang["N1_10363"] = "達基薩斯將軍"	-- https://cn.tbc.wowhead.com/?npc=10363
+Lang["N2_10363"] = "達基薩斯將軍是黑石塔上層的最終首領。"
+Lang["N1_8983"] = "魔像領主阿格曼奇"	-- https://cn.tbc.wowhead.com/?npc=8983
+Lang["N2_8983"] = "魔像領主阿格曼奇能在以下地區找到：​黑石深淵。"
+Lang["N1_9033"] = "安格佛將軍"	-- https://cn.tbc.wowhead.com/?npc=9033
+Lang["N2_9033"] = "安格佛將軍能在以下地區找到：​黑石深淵。"
+Lang["N1_17804"] = "侍衛洛文"	-- https://cn.tbc.wowhead.com/?npc=17804
+Lang["N2_17804"] = "侍衛洛文能在暴風城大門找到。"
+Lang["N1_10929"] = "哈爾琳"	-- https://cn.tbc.wowhead.com/?npc=10929
+Lang["N2_10929"] = "站在馬茲索里爾洞穴頂部。\n可以通過洞穴深處地板上的藍色符文到達。"
+Lang["N1_9046"] = "裂盾軍需官 <裂盾軍團>"	-- https://cn.tbc.wowhead.com/?npc=9046
+Lang["N2_9046"] = "位於副本外，在黑石塔陽台入口附近。"
+Lang["N1_15180"] = "流沙守望者巴里斯托爾斯"	-- https://cn.tbc.wowhead.com/?npc=15180
+Lang["N2_15180"] = "流沙守望者巴里斯托爾斯位於希利蘇斯 (49.6,36.6)。"
+Lang["N1_12017"] = "龍領主勒西雷爾"	-- https://cn.tbc.wowhead.com/?npc=12017
+Lang["N2_12017"] = "龍領主勒西雷爾是黑翼之巢的第三位首領。"
 Lang["N1_13020"] = "堕落的瓦拉斯塔兹"	-- https://cn.tbc.wowhead.com/?npc=13020
-Lang["N2_13020"] = "堕落的瓦拉斯塔兹是黑翼之巢的二号首领."
+Lang["N2_13020"] = "堕落的瓦拉斯塔兹是黑翼之巢的第二位首領。"
 Lang["N1_11583"] = "奈法利安"	-- https://cn.tbc.wowhead.com/?npc=11583
-Lang["N2_11583"] = "奈法利安是黑翼之巢的最终首领."
-Lang["N1_15362"] = "玛法里奥·怒风"	-- https://cn.tbc.wowhead.com/?npc=15362
-Lang["N2_15362"] = "玛法里奥·怒风位于沉没的神庙最终首领附近"
-Lang["N1_15624"] = "森林小精灵"	-- https://cn.tbc.wowhead.com/?npc=15624
-Lang["N2_15624"] = "森林小精灵位于达纳苏斯(37.6,48.0)."
+Lang["N2_11583"] = "奈法利安是黑翼之巢的最終首領。"
+Lang["N1_15362"] = "瑪法里恩·怒風"	-- https://cn.tbc.wowhead.com/?npc=15362
+Lang["N2_15362"] = "瑪法里恩·怒風位於沉默的神廟最終首領附近。"
+Lang["N1_15624"] = "森林幽光"	-- https://cn.tbc.wowhead.com/?npc=15624
+Lang["N2_15624"] = "森林幽光位於達納蘇斯(37.6,48.0)。"
 Lang["N1_15481"] = "艾索雷葛斯之魂"	-- https://cn.tbc.wowhead.com/?npc=15481
-Lang["N2_15481"] = "艾索雷葛斯之魂位于艾萨拉 (58.8,82.2). "
-Lang["N1_11811"] = "纳瑞安"	-- https://cn.tbc.wowhead.com/?npc=11811
-Lang["N2_11811"] = "纳瑞安位于塔纳利斯 (65.2,18.4)."
-Lang["N1_15526"] = "人鱼米莉蒂丝"	-- https://cn.tbc.wowhead.com/?npc=15526
-Lang["N2_15526"] = "人鱼米莉蒂丝位于塔纳利斯 (59.6,95.6)."
-Lang["N1_15554"] = "人造猿二号"	-- https://cn.tbc.wowhead.com/?npc=15554
-Lang["N2_15554"] = "人造猿二号位于冬泉谷 (67.2,72.6). "
-Lang["N1_15552"] = "维维尔博士"	-- https://cn.tbc.wowhead.com/?npc=15552
-Lang["N2_15552"] = "维维尔博士位于尘泥沼泽(77.8,17.6). "
-Lang["N1_10184"] = "奥妮克希亚"	-- https://cn.tbc.wowhead.com/?npc=10184
-Lang["N2_10184"] = "奥妮克希亚位于奥妮克希亚的巢穴"
-Lang["N1_11502"] = "拉格纳罗斯"	-- https://cn.tbc.wowhead.com/?npc=11502
-Lang["N2_11502"] = "拉格纳罗斯是熔火之心的最终首领."
-Lang["N1_12803"] = "拉克麦拉"	-- https://cn.tbc.wowhead.com/?npc=12803
-Lang["N2_12803"] = "拉克麦拉位于菲拉斯 (29.8,72.6)."
-Lang["N1_15571"] = "巨齿鲨"	-- https://cn.tbc.wowhead.com/?npc=15571
-Lang["N2_15571"] = "巨齿鲨位于艾萨拉 (65.6,54.6)"
-Lang["N1_22037"] = "铁匠戈伦克"	-- https://cn.tbc.wowhead.com/?npc=22037
-Lang["N2_22037"] = "铁匠戈伦克位于影月谷 (67,36)."
-Lang["N1_18733"] = "魔能机甲"	-- https://cn.tbc.wowhead.com/?npc=18733
-Lang["N2_18733"] = "倾向于漫游地狱火城堡的西侧."
-Lang["N1_18473"] = "利爪之王艾吉斯"	-- https://cn.tbc.wowhead.com/?npc=18473
-Lang["N2_18473"] = "利爪之王艾吉斯是塞泰克大厅的最终首领"
-Lang["N1_20142"] = "时间管理者 <时光守护者>"	-- https://cn.tbc.wowhead.com/?npc=20142
-Lang["N2_20142"] = "时间管理者 <时光守护者>位于时光之穴的入口"
-Lang["N1_20130"] = "安多尔姆 <时光守护者>"	-- https://cn.tbc.wowhead.com/?npc=20130
-Lang["N2_20130"] = "看起来像一个小男孩，靠近时间之穴的沙漏."
-Lang["N1_18096"] = "时空猎手"	-- https://cn.tbc.wowhead.com/?npc=18096
-Lang["N2_18096"] = "时空猎手是旧希尔斯布莱德丘陵的最终首领."
-Lang["N1_19880"] = "虚空猎手卡尔伊"	-- https://cn.tbc.wowhead.com/?npc=19880
-Lang["N2_19880"] = "虚空猎手卡尔伊位于虚空风暴52区 (32,64)"
-Lang["N1_19641"] = "星界强盗奈萨德"	-- https://cn.tbc.wowhead.com/?npc=19641
-Lang["N2_19641"] = "星界强盗奈萨德位于虚空风暴(28,79). "
-Lang["N1_18481"] = "阿达尔"	-- https://cn.tbc.wowhead.com/?npc=18481
-Lang["N2_18481"] = "阿达尔位于沙塔斯城的中央"
-Lang["N1_19220"] = "计算者帕萨雷恩"	-- https://cn.tbc.wowhead.com/?npc=19220
-Lang["N2_19220"] = "计算者帕萨雷恩是能源舰的最终首领."
-Lang["N1_17977"] = "迁跃扭木"	-- https://cn.tbc.wowhead.com/?npc=17977
-Lang["N2_17977"] = "迁跃扭木是生态船的最终首领."
-Lang["N1_17613"] = "大法师奥图鲁斯"	-- https://cn.tbc.wowhead.com/?npc=17613
-Lang["N2_17613"] = "大法师奥图鲁斯站在卡拉赞的入口."
-Lang["N1_18708"] = "摩摩尔"	-- https://cn.tbc.wowhead.com/?npc=18708
-Lang["N2_18708"] = "摩摩尔是暗影迷宫的最终首领."
-Lang["N1_17797"] = "水术师瑟丝比娅"	-- https://cn.tbc.wowhead.com/?npc=17797
-Lang["N2_17797"] = "水术师瑟丝比娅是蒸汽地窟的一号首领."
-Lang["N1_20870"] = "自由的瑟雷凯斯"	-- https://cn.tbc.wowhead.com/?npc=20870
-Lang["N2_20870"] = "自由的瑟雷凯斯是禁魔监狱的一号首领."
-Lang["N1_15608"] = "麦迪文"	-- https://cn.tbc.wowhead.com/?npc=15608
-Lang["N2_15608"] = "麦迪文在黑色沼泽南部的黑暗之门附近。"
-Lang["N1_16524"] = "埃兰之影"	-- https://cn.tbc.wowhead.com/?npc=16524
-Lang["N2_16524"] = "麦迪文的疯狂父亲，在卡拉赞"
-Lang["N1_16807"] = "高阶术士奈瑟库斯"	-- https://cn.tbc.wowhead.com/?npc=16807
-Lang["N2_16807"] = "高阶术士奈瑟库斯是破碎大厅的一号首领."
-Lang["N1_18472"] = "黑暗编织者塞斯"	-- https://cn.tbc.wowhead.com/?npc=18472
-Lang["N2_18472"] = "黑暗编织者塞斯是赛泰克大厅的一号首领."
-Lang["N1_22421"] = "异教徒斯卡希斯"	-- https://cn.tbc.wowhead.com/?npc=22421
-Lang["N2_22421"] = "异教徒斯卡希斯在英雄难度奴隶围栏."
-Lang["N1_19044"] = "屠龙者格鲁尔"	-- https://cn.tbc.wowhead.com/?npc=19044
-Lang["N2_19044"] = "屠龙者格鲁尔是格鲁尔的巢穴的最终首领."
-Lang["N1_17225"] = "夜之魇"	-- https://cn.tbc.wowhead.com/?npc=17225
-Lang["N2_17225"] = "夜魔是卡拉赞的召唤首领。."
-Lang["N1_21938"] = "大地治愈者斯普林·裂蹄 <大地之环>"	-- https://cn.tbc.wowhead.com/?npc=21938
-Lang["N2_21938"] = "大地治愈者斯普林·裂蹄 <大地之环>位于影月谷 (28.6,26.6)."
-Lang["N1_21183"] = "欧鲁诺克·裂心 <隐士商人>"	-- https://cn.tbc.wowhead.com/?npc=21183
-Lang["N2_21183"] = "欧鲁诺克·裂心 <隐士商人>位于影月谷 (53.8,23.4)."
-Lang["N1_21291"] = "格洛姆托，欧鲁诺克之子"	-- https://cn.tbc.wowhead.com/?npc=21291
-Lang["N2_21291"] = "格洛姆托，欧鲁诺克之子位于影月谷 (44.6,23.6)."
-Lang["N1_21292"] = "阿托尔，欧鲁诺克之子"	-- https://cn.tbc.wowhead.com/?npc=21292
-Lang["N2_21292"] = "阿托尔，欧鲁诺克之子位于影月谷 (29.6,50.4)."
-Lang["N1_21293"] = "伯拉克，欧鲁诺克之子"	-- https://cn.tbc.wowhead.com/?npc=21293
-Lang["N2_21293"] = "伯拉克，欧鲁诺克之子位于影月谷 (47.6,57.2)."
-Lang["N1_18166"] = "卡德加 <洛萨之子>"	-- https://cn.tbc.wowhead.com/?npc=18166
-Lang["N2_18166"] = "他站在沙塔斯城的中心，就在黄色发光的阿达尔旁边。"
-Lang["N1_16808"] = "酋长卡加斯·刃拳"	-- https://cn.tbc.wowhead.com/?npc=16808
-Lang["N2_16808"] = "酋长卡加斯·刃拳是破碎大厅的最终首领."
-Lang["N1_17798"] = "督军卡利瑟里斯"	-- https://cn.tbc.wowhead.com/?npc=17798
-Lang["N2_17798"] = "督军卡利瑟里斯是蒸汽地窟的最终首领."
-Lang["N1_20912"] = "预言者斯克瑞斯"	-- https://cn.tbc.wowhead.com/?npc=20912
-Lang["N2_20912"] = "预言者斯克瑞斯是禁魔监狱的最终首领."
-Lang["N1_20977"] = "米尔豪斯·法力风暴"	-- https://cn.tbc.wowhead.com/?npc=20977
-Lang["N2_20977"] = "米尔豪斯·法力风暴是在禁魔监狱中发现的侏儒法师。 他将协助攻击从监狱释放的其他生物."
-Lang["N1_17257"] = "玛瑟里顿"	-- https://cn.tbc.wowhead.com/?npc=17257
-Lang["N2_17257"] = "玛瑟瑟顿在地狱火堡垒的下层被关押，团队副本被称为玛瑟瑟顿的巢穴."
-Lang["N1_21937"] = "大地治愈者索弗鲁斯 <大地之环>"	-- https://cn.tbc.wowhead.com/?npc=21937
-Lang["N2_21937"] = "大地治愈者索弗鲁斯 <大地之环>位于影月谷 (36.4,56.8)."
-Lang["N1_19935"] = "索莉多米 <流沙之鳞>"	-- https://cn.tbc.wowhead.com/?npc=19935
-Lang["N2_19935"] = "索里多米徘徊在时光之穴的大沙漏周围."
-Lang["N1_19622"] = "凯尔萨斯·逐日者 <血精灵之王>"	-- https://cn.tbc.wowhead.com/?npc=19622
-Lang["N2_19622"] = "凯尔萨斯·逐日者 <血精灵之王>是风暴要塞的最终首领."
-Lang["N1_21212"] = "瓦丝琪 <盘牙女王>"	-- https://cn.tbc.wowhead.com/?npc=21212
-Lang["N2_21212"] = "瓦丝琪 <盘牙女王>是毒蛇神殿的最终首领."
-Lang["N1_21402"] = "学者希拉"	-- https://cn.tbc.wowhead.com/?npc=21402
-Lang["N2_21402"] = "学者希拉位于影月谷 (62.6,28.4)."
-Lang["N1_21955"] = "奥术师塞里斯"	-- https://cn.tbc.wowhead.com/?npc=21955
-Lang["N2_21955"] = "奥术师塞里斯位于影月谷 (56.2,59.6)"
-Lang["N1_21962"] = "乌达鲁"	-- https://cn.tbc.wowhead.com/?npc=21962
-Lang["N2_21962"] = "乌达鲁在禁魔监狱的最终首领战斗之前，他躺在小坡道上死了."
-Lang["N1_22006"] = "暗影领主达斯维尔"	-- https://cn.tbc.wowhead.com/?npc=22006
-Lang["N2_22006"] = "暗影领主达斯维尔在黑暗神殿的北塔上骑龙 (71.6,35.6) "
-Lang["N1_22820"] = "先知奥鲁姆"	-- https://cn.tbc.wowhead.com/?npc=22820
-Lang["N2_22820"] = "先知奥鲁姆位于毒蛇神殿深水领主卡拉瑟雷斯附近."
-Lang["N1_21700"] = "阿卡玛"	-- https://cn.tbc.wowhead.com/?npc=21700
-Lang["N2_21700"] = "阿卡玛位于影月谷 (58.0,48.2)."
-Lang["N1_19514"] = "奥 <凤凰之神>"	-- https://cn.tbc.wowhead.com/?npc=19514
-Lang["N2_19514"] = "奥 <凤凰之神>是风暴要塞的一号首领"
-Lang["N1_17767"] = "雷基·冬寒"	-- https://cn.tbc.wowhead.com/?npc=17767
-Lang["N2_17767"] = "雷基·冬寒是海加尔山的一号首领."
-Lang["N1_18528"] = "克希利"	-- https://cn.tbc.wowhead.com/?npc=18528
-Lang["N2_18528"] = "克希利位于黑暗神殿的门外."
+Lang["N2_15481"] = "艾索雷葛斯之魂位於艾薩拉 (58.8,82.2)。"
+Lang["N1_11811"] = "納瑞安"	-- https://cn.tbc.wowhead.com/?npc=11811
+Lang["N2_11811"] = "納瑞安位於塔納利斯 (65.2,18.4)."
+Lang["N1_15526"] = "人魚米莉蒂絲"	-- https://cn.tbc.wowhead.com/?npc=15526
+Lang["N2_15526"] = "人魚米莉蒂絲位於塔納利斯 (59.6,95.6)。"
+Lang["N1_15554"] = "人造猿二號"	-- https://cn.tbc.wowhead.com/?npc=15554
+Lang["N2_15554"] = "人造猿二號位於冬泉谷 (67.2,72.6). "
+Lang["N1_15552"] = "維維爾博士"	-- https://cn.tbc.wowhead.com/?npc=15552
+Lang["N2_15552"] = "維維爾博士位於塵泥沼澤(77.8,17.6)。"
+Lang["N1_10184"] = "奧妮克希亞"	-- https://cn.tbc.wowhead.com/?npc=10184
+Lang["N2_10184"] = "奧妮克希亞位於奧妮克希亞的巢穴。"
+Lang["N1_11502"] = "拉格納羅斯"	-- https://cn.tbc.wowhead.com/?npc=11502
+Lang["N2_11502"] = "拉格納羅斯是熔火之心的最終首領。"
+Lang["N1_12803"] = "拉克麥拉"	-- https://cn.tbc.wowhead.com/?npc=12803
+Lang["N2_12803"] = "拉克麥拉位於菲拉斯 (29.8,72.6)。"
+Lang["N1_15571"] = "巨齒鯊"	-- https://cn.tbc.wowhead.com/?npc=15571
+Lang["N2_15571"] = "巨齒鯊位於艾薩拉 (65.6,54.6)。"
+Lang["N1_22037"] = "鐵匠戈蘭克"	-- https://cn.tbc.wowhead.com/?npc=22037
+Lang["N2_22037"] = "鐵匠戈蘭克位於影月谷 (67,36)。"
+Lang["N1_18733"] = "惡魔劫奪者"	-- https://cn.tbc.wowhead.com/?npc=18733
+Lang["N2_18733"] = "傾向於漫遊在地獄火壁壘的西側。"
+Lang["N1_18473"] = "鷹王伊奇斯"	-- https://cn.tbc.wowhead.com/?npc=18473
+Lang["N2_18473"] = "鷹王伊奇斯是塞司克大廳的最終首領"
+Lang["N1_20142"] = "時間服務員 <時光守望者>"	-- https://cn.tbc.wowhead.com/?npc=20142
+Lang["N2_20142"] = "時間服務員 <時光守望者>位於時光之穴的入口"
+Lang["N1_20130"] = "安杜姆 <時光守望者>"	-- https://cn.tbc.wowhead.com/?npc=20130
+Lang["N2_20130"] = "看起來像一個小男孩，靠近時光之穴的沙漏."
+Lang["N1_18096"] = "紀元狩獵者"	-- https://cn.tbc.wowhead.com/?npc=18096
+Lang["N2_18096"] = "紀元狩獵者是希爾斯布萊德丘陵舊址的最終首領."
+Lang["N1_19880"] = "虛空巡者凱澤"	-- https://cn.tbc.wowhead.com/?npc=19880
+Lang["N2_19880"] = "虛空巡者凱澤位於虛空風暴52區 (32,64)"
+Lang["N1_19641"] = "星界強盜奈薩德"	-- https://cn.tbc.wowhead.com/?npc=19641
+Lang["N2_19641"] = "星界強盜奈薩德於虛空風暴(28,79)。"
+Lang["N1_18481"] = "阿達歐"	-- https://cn.tbc.wowhead.com/?npc=18481
+Lang["N2_18481"] = "阿達歐位於撒塔斯城的中央。"
+Lang["N1_19220"] = "操縱者帕薩里歐"	-- https://cn.tbc.wowhead.com/?npc=19220
+Lang["N2_19220"] = "操縱者帕薩里歐是麥克納爾的最終首領。"
+Lang["N1_17977"] = "扭曲分裂者"	-- https://cn.tbc.wowhead.com/?npc=17977
+Lang["N2_17977"] = "扭曲分裂者波塔尼卡的最終首領。"
+Lang["N1_17613"] = "大法師艾特羅斯"	-- https://cn.tbc.wowhead.com/?npc=17613
+Lang["N2_17613"] = "大法師艾特羅斯站在卡拉贊的入口。"
+Lang["N1_18708"] = "莫爾墨"	-- https://cn.tbc.wowhead.com/?npc=18708
+Lang["N2_18708"] = "莫爾墨是暗影迷宫的最終首領。"
+Lang["N1_17797"] = "水占師希斯比亞"	-- https://cn.tbc.wowhead.com/?npc=17797
+Lang["N2_17797"] = "水占師希斯比亞是蒸氣洞窟的第一位首領。"
+Lang["N1_20870"] = "無約束的希瑞奇斯"	-- https://cn.tbc.wowhead.com/?npc=20870
+Lang["N2_20870"] = "無約束的希瑞奇斯亞克崔茲的第一位首領。"
+Lang["N1_15608"] = "麥迪文"	-- https://cn.tbc.wowhead.com/?npc=15608
+Lang["N2_15608"] = "麥迪文在黑色沼澤南部的黑暗之門附近。"
+Lang["N1_16524"] = "埃蘭之影"	-- https://cn.tbc.wowhead.com/?npc=16524
+Lang["N2_16524"] = "麥迪文的瘋狂父親，在卡拉贊。"
+Lang["N1_16807"] = "大術士奈德克斯"	-- https://cn.tbc.wowhead.com/?npc=16807
+Lang["N2_16807"] = "大術士奈德克斯是破碎大廳的第一位首領。"
+Lang["N1_18472"] = "暗織者希斯"	-- https://cn.tbc.wowhead.com/?npc=18472
+Lang["N2_18472"] = "暗織者希斯是塞司克大廳的第一位首領。"
+Lang["N1_22421"] = "異教徒司卡利斯"	-- https://cn.tbc.wowhead.com/?npc=22421
+Lang["N2_22421"] = "異教徒司卡利斯在英雄難度的奴隸監獄。"
+Lang["N1_19044"] = "弒龍者戈魯爾"	-- https://cn.tbc.wowhead.com/?npc=19044
+Lang["N2_19044"] = "弒龍者戈魯爾是戈魯爾的巢穴的最終首領。"
+Lang["N1_17225"] = "夜禍"	-- https://cn.tbc.wowhead.com/?npc=17225
+Lang["N2_17225"] = "夜禍是卡拉贊的召喚首領。"
+Lang["N1_21938"] = "大地治愈者斯普林·裂蹄 <陶土議會>"	-- https://cn.tbc.wowhead.com/?npc=21938
+Lang["N2_21938"] = "大地治愈者斯普林·裂蹄 <陶土議會>位於影月谷 (28.6,26.6)。"
+Lang["N1_21183"] = "歐朗諾克·碎心 <隱士和商人>"	-- https://cn.tbc.wowhead.com/?npc=21183
+Lang["N2_21183"] = "歐朗諾克·碎心 <隱士和商人>位於影月谷 (53.8,23.4)。"
+Lang["N1_21291"] = "葛洛姆特，歐朗諾克之子"	-- https://cn.tbc.wowhead.com/?npc=21291
+Lang["N2_21291"] = "葛洛姆特，歐朗諾克之子位於影月谷 (44.6,23.6)。"
+Lang["N1_21292"] = "阿爾托，歐朗諾克之子"	-- https://cn.tbc.wowhead.com/?npc=21292
+Lang["N2_21292"] = "阿爾托，歐朗諾克之子位於影月谷 (29.6,50.4)。"
+Lang["N1_21293"] = "柏爾拉克，歐朗諾克之子"	-- https://cn.tbc.wowhead.com/?npc=21293
+Lang["N2_21293"] = "柏爾拉克，歐朗諾克之子位於影月谷 (47.6,57.2)。"
+Lang["N1_18166"] = "卡德加 <洛薩之子>"	-- https://cn.tbc.wowhead.com/?npc=18166
+Lang["N2_18166"] = "他站在撒塔斯城的中心，就在黄色發光的阿達歐旁邊。"
+Lang["N1_16808"] = "大酋長卡加斯·刃拳"	-- https://cn.tbc.wowhead.com/?npc=16808
+Lang["N2_16808"] = "大酋長卡加斯·刃拳是破碎大廳的最終首領。"
+Lang["N1_17798"] = "督軍卡利斯瑞"	-- https://cn.tbc.wowhead.com/?npc=17798
+Lang["N2_17798"] = "督軍卡利斯瑞是蒸氣洞窟的最終首領。"
+Lang["N1_20912"] = "先驅者史蓋力司"	-- https://cn.tbc.wowhead.com/?npc=20912
+Lang["N2_20912"] = "先驅者史蓋力司是亞克崔茲的最終首領。"
+Lang["N1_20977"] = "米歐浩斯·曼納斯頓"	-- https://cn.tbc.wowhead.com/?npc=20977
+Lang["N2_20977"] = "米歐浩斯·曼納斯頓是在亞克崔茲中發現的地精法師。 他將協助攻擊從監獄釋放的其他生物。"
+Lang["N1_17257"] = "瑪瑟里頓"	-- https://cn.tbc.wowhead.com/?npc=17257
+Lang["N2_17257"] = "瑪瑟里頓被關押在地獄火壁壘的下層，團隊副本被稱為瑪瑟里頓的巢穴."
+Lang["N1_21937"] = "大地治癒者索菲魯斯 <陶土議會>"	-- https://cn.tbc.wowhead.com/?npc=21937
+Lang["N2_21937"] = "大地治癒者索菲魯斯 <陶土議會>位於影月谷 (36.4,56.8)。"
+Lang["N1_19935"] = "索芮朵蜜 <流沙之鳞>"	-- https://cn.tbc.wowhead.com/?npc=19935
+Lang["N2_19935"] = "索芮朵蜜徘徊在時光之穴的大沙漏周圍."
+Lang["N1_19622"] = "凱爾薩斯·逐日者 <血精靈之王>"	-- https://cn.tbc.wowhead.com/?npc=19622
+Lang["N2_19622"] = "凱爾薩斯·逐日者 <血精靈之王>是風暴要塞的最終首領。"
+Lang["N1_21212"] = "瓦許女士 <盤牙女王>"	-- https://cn.tbc.wowhead.com/?npc=21212
+Lang["N2_21212"] = "瓦許女士 <盤牙女王>是毒蛇神殿的最終首領。"
+Lang["N1_21402"] = "隱士希拉"	-- https://cn.tbc.wowhead.com/?npc=21402
+Lang["N2_21402"] = "隱士希拉位於影月谷 (62.6,28.4)。"
+Lang["N1_21955"] = "秘法師賽利斯"	-- https://cn.tbc.wowhead.com/?npc=21955
+Lang["N2_21955"] = "秘法師賽利斯位於影月谷 (56.2,59.6)。"
+Lang["N1_21962"] = "烏達羅"	-- https://cn.tbc.wowhead.com/?npc=21962
+Lang["N2_21962"] = "烏達羅在亞克崔茲的最終首領戰鬥之前，他躺在小坡道上死了."
+Lang["N1_22006"] = "暗影領主達斯維爾"	-- https://cn.tbc.wowhead.com/?npc=22006
+Lang["N2_22006"] = "暗影領主達斯維爾騎龍在黑暗神廟的北塔上 (71.6,35.6)。"
+Lang["N1_22820"] = "先知奧魯姆"	-- https://cn.tbc.wowhead.com/?npc=22820
+Lang["N2_22820"] = "先知奥鲁姆位於毒蛇神殿深淵之王卡拉薩瑞斯附近。"
+Lang["N1_21700"] = "阿卡瑪"	-- https://cn.tbc.wowhead.com/?npc=21700
+Lang["N2_21700"] = "阿卡瑪位於影月谷 (58.0,48.2)。"
+Lang["N1_19514"] = "歐爾 <鳳凰神>"	-- https://cn.tbc.wowhead.com/?npc=19514
+Lang["N2_19514"] = "歐爾 <鳳凰神>是風暴要塞的第一位首領。"
+Lang["N1_17767"] = "瑞齊·凜冬"	-- https://cn.tbc.wowhead.com/?npc=17767
+Lang["N2_17767"] = "瑞齊·凜冬是海加爾山的第一位首領。"
+Lang["N1_18528"] = "希瑞"	-- https://cn.tbc.wowhead.com/?npc=18528
+Lang["N2_18528"] = "希瑞位於黑暗神廟的門外."
 
 
-Lang["O_1"] = "击杀达基萨斯将军以完成任务。\n位于达基萨斯将军后面的发光球."
-Lang["O_2"] = "这是一个在地面上发光的小红点\n位于安其拉之门 (28.7,89.2)."
+Lang["O_1"] = "擊殺達基薩斯將軍以完成任務。\n位於達基薩斯將軍後面的發光球。"
+Lang["O_2"] = "這是一個在地面上發光的小紅點\n位於安琪拉之門 (28.7,89.2)。"
