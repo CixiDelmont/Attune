@@ -8,14 +8,12 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 241
--- - Added an option to export all one's main/alts
--- - Traditional Chinese translation (Taiwan)
--- - Much better rendering of the result list
+-- Done in 242
+-- - Fixed an issue where status and role got overwritten (addon and website)
+-- - Fixed an issue where the chat message on step completion was wrong
 
 -- Todo in next release
 -- - people on step lists not correct
--- - status/roles being overwritten
 
 
 -------------------------------------------------------------------------
@@ -36,7 +34,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "241"  			-- change here, and in TOC x3
+local attunelocal_version = "242"  			-- change here, and in TOC x3
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -804,7 +802,7 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 										PlaySound(1210) --putdownring
 										-- need to refresh attune in window
 										-- fetch attune name for chat message
-										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 										Attune_SendPushInfo("TOON")
 										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 										Attune_CheckComplete(false)
@@ -894,7 +892,7 @@ function Attune:QUEST_ACCEPTED(event)
 								refreshNeeded = true
 								PlaySound(1210) --putdownring
 								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 								Attune_SendPushInfo("OVER")
@@ -935,7 +933,7 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 								refreshNeeded = true
 								PlaySound(1210) --putdownring
 								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 								Attune_CheckComplete(false)
@@ -1011,7 +1009,7 @@ function Attune:GOSSIP_SHOW(event)
 									refreshNeeded = true
 									PlaySound(1210) --putdownring
 									-- fetch attune name for chat message
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 									Attune_SendPushInfo("TOON")
 									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 									Attune_CheckComplete(false)
@@ -1062,7 +1060,7 @@ function Attune:BAG_UPDATE(event)
 								refreshNeeded = true
 								PlaySound(1210) --putdownring
 								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 								Attune_SendPushInfo("TOON")
 								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 								Attune_CheckComplete(false)
@@ -3226,11 +3224,11 @@ function Attune_ShowProfileList(title)
 								local gstatus = AceGUI:Create("Dropdown")
 								gstatus:SetWidth(100)
 								gstatus:SetList({
-									["None"] = "-",
+--									["None"] = "-",
 									["Main"] = Attune_StatusRole("Main"),
 									["Alt"] = Attune_StatusRole("Alt"),
 									["Bank"] = Attune_StatusRole("Bank"),								
-								}, {"None", "Main", "Alt", "Bank"})
+								}, {"Main", "Alt", "Bank"})
 								if t.status == nil then t.status = "None" end
 								gstatus:SetValue(t.status)
 								gstatus:SetCallback("OnValueChanged", function(choice) 
@@ -3243,12 +3241,12 @@ function Attune_ShowProfileList(title)
 								local grole = AceGUI:Create("Dropdown")
 								grole:SetWidth(100)
 								grole:SetList({
-									["None"] = "-",
+--									["None"] = "-",
 									["Tank"] = Attune_StatusRole("Tank"),
 									["Healer"] = Attune_StatusRole("Healer"),
 									["Melee"] = Attune_StatusRole("Melee"),
 									["Ranged"] = Attune_StatusRole("Ranged"),
-								}, {"None", "Tank", "Healer", "Melee", "Ranged"})
+								}, {"Tank", "Healer", "Melee", "Ranged"})
 								if t.role == nil then t.role = "None" end
 								grole:SetValue(t.role)
 								grole:SetCallback("OnValueChanged", function(choice) 
@@ -3546,12 +3544,13 @@ function Attune_HandleRequestResults(response)
 		player.version = data[9]	--version
 		player.faction = UnitFactionGroup("player")
 		player.survey = time()	--time of last survey
-		player.status = data[10]	--status
-		player.role = data[11]	--role
+		if (data[10] ~= nil and data[10] ~= "None" and data[10] ~= "-") then player.status = data[10];	end --status
+		if (data[11] ~= nil and data[11] ~= "None" and data[11] ~= "-") then player.role = data[11]; end	--role
 		
 
 		if player.status == nil then player.status = "None" end
 		if player.role == nil then player.role = "None" end
+		--print(""..player.name .." NORM "..player.status .. " / " .. player.role)
 
 		if player.role == "None" then 
 			if player.class == "MAGE" or player.class == "WARLOCK"  or player.class == "HUNTER" then player.role = "Ranged"
@@ -3580,10 +3579,12 @@ function Attune_HandleRequestResults(response)
 		end
 
 	elseif tag == 'TOONROLE' then
-		if player.name ~= nil then player.role = data[3] end   --don't add new members like this (not enough metadata)
+		if player.name ~= nil and data[3] ~= "None" then player.role = data[3] end   --don't add new members like this (not enough metadata)
+--		print("received from "..player.name .." TOON role "..player.role)
 	
 	elseif tag == 'TOONSTATUS' then
-		if player.name ~= nil then player.status = data[3] end   --don't add new members like this (not enough metadata)
+		if player.name ~= nil and data[3] ~= "None" then player.status = data[3] end   --don't add new members like this (not enough metadata)
+--		print("received from "..player.name .." TOON status "..player.status)
 
 
 	-- STEP replies
