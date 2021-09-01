@@ -130,6 +130,18 @@ Lang["Save"] = "Speichern"
 Lang["Invite"] = "Einladen"
 Lang["Send raid invites to all listed players?"] = "Raid-Einladungen an alle aufgelisteten Spieler senden?"
 Lang["External link"] = "Link zu einer Online-Datenbank"
+--v243
+Lang["Ogrila"] = "Ogri'la"
+Lang["Ogri'la Quest Hub"] = "Ogri'la Quest-Hub"
+Lang["Ogrila_Desc"] = "Die erleuchteten Bewohner von Ogri'la haben sich im Westen des Schergrats angesiedelt."
+Lang["DelInactive_TEXT"] = "Inaktiv löschen"
+Lang["DelInactive_DESC"] = "Löschen Sie alle Informationen über Spieler, die als inaktiv markiert sind"
+Lang["DelInactive_CONF"] = "Wirklich alle Inaktiven löschen?"
+Lang["DelInactive_DONE"] = "Alle Inaktiven gelöscht"
+Lang["RAIDS"] = "Schlachtzügen"
+Lang["KEYS"] = "Schlüssel"
+Lang["MISC"] = "Sonstiges"
+Lang["HEROICS"] = "Heroisch"
 
 
 -- OPTIONS
@@ -729,6 +741,25 @@ Lang["Q1_10949"] = "Zutritt zum schwarzen Tempel"			-- https://de.tbc.wowhead.co
 Lang["Q2_10949"] = "Reist zum Eingang des Schwarzen Tempels im Schattenmondtal und sprecht mit Xi'ri."
 Lang["Q1_10985"] = "Ein Ablenkungsmanöver für Akama"			-- https://de.tbc.wowhead.com/quest=10985
 Lang["Q2_10985"] = "Stellt sicher, dass Akama und Maiev den Schwarzen Tempel betreten, nachdem Xi'ris Streitkräfte ihr Ablenkungsmanöver durchgeführt haben."
+--v243
+Lang["Q1_10984"] = "Sprecht mit dem Oger"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10984
+Lang["Q2_10984"] = "Sprecht mit dem Oger Grok im unteren Viertel von Shattrath."
+Lang["Q1_10983"] = "Mog'dorg der Weise"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10983
+Lang["Q2_10983"] = "Besucht Mog'dorg den Weisen auf einem der Türme außerhalb des Zirkels des Blutes im Schergrat."
+Lang["Q1_10995"] = "Grulloc hat zwei Schädel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10995
+Lang["Q2_10995"] = "Beschafft Grullocs Drachenschädel und bringt ihn zu Mog'dorg dem Weisen auf dem Turm beim Zirkel des Blutes im Schergrat."
+Lang["Q1_10996"] = "Maggocs Schatztruhe"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10996
+Lang["Q2_10996"] = "Beschafft Euch Maggocs Schatztruhe und bringt sie zu Mog'dorg dem Weisen auf dem Turm beim Zirkel des Blutes im Schergrat."
+Lang["Q1_10997"] = "Sogar ein Gronn hat Standards"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10997
+Lang["Q2_10997"] = "Besorgt Euch Slaags Standarte und bringt sie zu Mog'dorg dem Weisen auf dem Turm beim Zirkel des Blutes im Schergrat."
+Lang["Q1_10998"] = "In den übelsten Kreisen"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10998
+Lang["Q2_10998"] = "Ihr müsst Vim'gols üblen Zauberfolianten beschafften. Bringt ihn zu Mog'dorg dem Weisen auf dem Turm beim Zirkel des Blutes im Schergrat."
+Lang["Q1_11000"] = "Schänder der Seelen"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11000
+Lang["Q2_11000"] = "Beschafft Euch Skullocs Seele und bringt ihn zu Mog'dorg dem Weisen auf dem Turm beim Zirkel des Blutes im Schergrat."
+Lang["Q1_11022"] = "Sprecht mit Mog'dorg"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11022
+Lang["Q2_11022"] = "Sprecht mit Mog'dorg dem Weisen. Er steht oben auf dem Turm auf der Ostseite des Zirkels des Blutes im Schergrat."
+Lang["Q1_11009"] = "Ogerhimmel"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
+Lang["Q2_11009"] = "Mog'dorg der Weise hat Euch gebeten, mit Chu'a'lor in Ogri'la im Schergrat zu sprechen."
 	
 
 -- NPC
@@ -884,6 +915,9 @@ Lang["N1_17767"] = "Furor Winterfrost"	-- https://de.tbc.wowhead.com/npc=17767
 Lang["N2_17767"] = "Furor Winterfrots ist der erste Boss in der Schlacht um den Berg Hyjal."
 Lang["N1_18528"] = "Xi'ri"	-- https://de.tbc.wowhead.com/npc=18528
 Lang["N2_18528"] = "Xi'ri befindet sich am Eingagn des schwarzen Tempels. Großes, blaues, leuchtendes Ding. Was macht es? Es leuchtet blau!."
+--v243
+Lang["N1_22497"] = "V'eru"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
+Lang["N2_22497"] = "V'eru ist im selben Raum wie A'dal, aber er ist blau. Er ist auf dem obersten Treppenabsatz."
 
 
 Lang["O_1"] = "Klicke auf Drakkisaths Brandzeichen um die Quest abzuschließen.\nEs ist der glühende Ball hinter General Drakkisath."

@@ -130,6 +130,18 @@ Lang["Save"] = "保存"
 Lang["Invite"] = "邀請"
 Lang["Send raid invites to all listed players?"] = "向所有列出的玩家發送團隊副本邀請？"
 Lang["External link"] = "連接到在線數據庫"
+--v243
+Lang["Ogrila"] = "奧格瑞拉"
+Lang["Ogri'la Quest Hub"] = "奧格瑞拉宣教中心"
+Lang["Ogrila_Desc"] = "聰明而開化的奧格瑞拉食人魔居住在刀鋒山的西部區域。"
+Lang["DelInactive_TEXT"] = "刪除不活動"
+Lang["DelInactive_DESC"] = "刪除所有標記為非活動玩家的信息"
+Lang["DelInactive_CONF"] = "真的刪除所有非活動嗎？"
+Lang["DelInactive_DONE"] = "已刪除所有非活動"
+Lang["RAIDS"] = "團隊"
+Lang["KEYS"] = "鑰匙"
+Lang["MISC"] = "雜項"
+Lang["HEROICS"] = "英雄"
 
 
 -- OPTIONS
@@ -729,6 +741,25 @@ Lang["Q1_10949"] = "進入黑暗神廟"			-- https://cn.tbc.wowhead.com/?quest=1
 Lang["Q2_10949"] = "前往影月谷的黑暗神廟，在入口處與希瑞談話。"
 Lang["Q1_10985"] = "幫助阿卡瑪"			-- https://cn.tbc.wowhead.com/?quest=10985
 Lang["Q2_10985"] = "在克希利的軍隊發動佯攻之後，保護阿卡瑪和瑪維進入影月谷内的黑暗神廟。"
+--v243
+Lang["Q1_10984"] = "援助食人魔"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10984
+Lang["Q2_10984"] = "與沙塔斯城貧民窟的食人魔格羅科爾談一談。"
+Lang["Q1_10983"] = "枯瘦的莫戈多格"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10983
+Lang["Q2_10983"] = "與枯瘦的莫戈多格談一談，他就在刀鋒山鮮血之環外的某座塔頂上。"
+Lang["Q1_10995"] = "格魯洛克的巨龍顱骨"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10995
+Lang["Q2_10995"] = "奪回格魯洛克的巨龍顱骨，將其交給刀鋒山鮮血之環塔頂上的枯瘦的莫戈多格。"
+Lang["Q1_10996"] = "瑪古克的寶箱"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10996
+Lang["Q2_10996"] = "奪取瑪古克的寶箱，將它交給刀鋒山鮮血之環塔頂上的枯瘦的莫戈多格。"
+Lang["Q1_10997"] = "戈隆的軍旗"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10997
+Lang["Q2_10997"] = "奪取斯萊格的軍旗，將其交給刀鋒山鮮血之環塔頂上的枯瘦的莫戈多格。"
+Lang["Q1_10998"] = "維姆高爾的魔典"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10998
+Lang["Q2_10998"] = "奪取維姆高爾的魔典，並將它帶回刀鋒山內鮮血之環的塔頂上，交給枯瘦的莫戈多格。"
+Lang["Q1_11000"] = "磨魂者"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11000
+Lang["Q2_11000"] = "奪得斯古洛克的靈魂，然後返回刀鋒山的鮮血之環，將它交給塔樓頂部的枯瘦的莫戈多格。"
+Lang["Q1_11022"] = "與莫戈多格會面"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11022
+Lang["Q2_11022"] = "與枯瘦的莫戈多格談一談，他就在刀鋒山鮮血之環東側的塔樓頂部。"
+Lang["Q1_11009"] = "食人魔的天堂"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
+Lang["Q2_11009"] = "枯瘦的莫戈多格要求你與刀鋒山奧格瑞拉的庫洛爾談一談。"
 	
 
 -- NPC
@@ -884,6 +915,9 @@ Lang["N1_17767"] = "瑞齊·凜冬"	-- https://cn.tbc.wowhead.com/?npc=17767
 Lang["N2_17767"] = "瑞齊·凜冬是海加爾山的第一位首領。"
 Lang["N1_18528"] = "希瑞"	-- https://cn.tbc.wowhead.com/?npc=18528
 Lang["N2_18528"] = "希瑞位於黑暗神廟的門外."
+--v243
+Lang["N1_22497"] = "弗埃盧"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
+Lang["N2_22497"] = "弗埃盧和阿達爾在同一個房間，但他是藍色的。他在頂層著陸。"
 
 
 Lang["O_1"] = "擊殺達基薩斯將軍以完成任務。\n位於達基薩斯將軍後面的發光球。"

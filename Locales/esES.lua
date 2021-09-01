@@ -130,6 +130,18 @@ Lang["Save"] = "Info Banda"
 Lang["Invite"] = "Invitar"
 Lang["Send raid invites to all listed players?"] = "¿Enviar invitaciones de incursión a todos los jugadores listados?"
 Lang["External link"] = "Enlace a una base de datos en línea"
+--v243
+Lang["Ogrila"] = "Ogri'la"
+Lang["Ogri'la Quest Hub"] = "Centro de misiones de Ogri'la"
+Lang["Ogrila_Desc"] = "Los iluminados habitantes de Ogri'la han creado su hogar en las Montañas Filospada occidentales."
+Lang["DelInactive_TEXT"] = "Eliminar inactivos"
+Lang["DelInactive_DESC"] = "Eliminar toda la información sobre los jugadores marcados como Inactivos"
+Lang["DelInactive_CONF"] = "¿Eliminar realmente todos los inactivos?"
+Lang["DelInactive_DONE"] = "Todos los inactivos eliminados"
+Lang["RAIDS"] = "BANDAS"
+Lang["KEYS"] = "TECLAS"
+Lang["MISC"] = "MISC"
+Lang["HEROICS"] = "HEROICAS"
 
 
 -- OPTIONS
@@ -729,6 +741,25 @@ Lang["Q1_10949"] = "La entrada a El Templo Oscuro"			-- https://es.tbc.wowhead.c
 Lang["Q2_10949"] = "Viaja hasta la entrada del Templo Oscuro en el Valle Sombraluna y habla con Xi'ri."
 Lang["Q1_10985"] = "Una distracción para Akama"			-- https://es.tbc.wowhead.com/quest=10985
 Lang["Q2_10985"] = "Asegúrate de que Akama y Maiev entran en El Templo Oscuro, en el Valle Sombraluna, cuando las fuerzas de Xi'ri creen una distracción."
+--v243
+Lang["Q1_10984"] = "Habla con el ogro"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10984
+Lang["Q2_10984"] = "Habla con Grok, el ogro, en el Bajo Arrabal de la Ciudad de Shattrath."
+Lang["Q1_10983"] = "Mog'dorg el Marchito"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10983
+Lang["Q2_10983"] = "Visita a Mog'dorg el Marchito en lo alto de una de las torres que hay justo fuera del Anillo de Sangre en las Montañas Filospada."
+Lang["Q1_10995"] = "Grulloc tiene dos calaveras"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10995
+Lang["Q2_10995"] = "Consigue la calavera de dragón de Grulloc y llévasela a Mog'dorg el Marchito, que se encuentra en lo alto de la torre del Anillo de Sangre en las Montañas Filospada."
+Lang["Q1_10996"] = "Cofre del tesoro de Maggoc"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10996
+Lang["Q2_10996"] = "Consigue el cofre del tesoro de Maggoc y llévaselo a Mog'dorg el Marchito, que se encuentra en lo alto de la torre del Anillo de Sangre de las Montañas Filospada."
+Lang["Q1_10997"] = "Incluso los gronn tienen confalones"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10997
+Lang["Q2_10997"] = "Consigue el confalón de Slaag y llévaselo a Mog'dorg el Marchito, que se encuentra en lo alto de la torre del Anillo de Sangre en las Montañas Filospada."
+Lang["Q1_10998"] = "Un asunto grimoso"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10998
+Lang["Q2_10998"] = "Debes conseguir el grimorio de Vim'gol el Vil. Llévaselo a Mog'dorg el Marchito, que se encuentra en lo alto de la torre del Anillo de Sangre, en las Montañas Filospada."
+Lang["Q1_11000"] = "Dentro del Moledor de Almas"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11000
+Lang["Q2_11000"] = "Recupera el alma de Skulloc y llévasela a Mog'dorg el Marchito, que se encuentra en lo alto de la torre del Anillo de Sangre en las Montañas Filospada."
+Lang["Q1_11022"] = "Habla con Mog'dorg"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11022
+Lang["Q2_11022"] = "Habla con Mog'dorg el Marchito. Se encuentra en lo alto de la torre al este del Anillo de Sangre, en las Montañas Filospada."
+Lang["Q1_11009"] = "El cielo de los Ogros"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
+Lang["Q2_11009"] = "Mog'dorg el Marchito te ha pedido que hables con Chu'a'lor en Ogri'la, en las Montañas Filospada."
 	
 
 -- NPC
@@ -884,6 +915,9 @@ Lang["N1_17767"] = "Ira Fríoinvierno"	-- https://es.tbc.wowhead.com/npc=17767
 Lang["N2_17767"] = "Ira Fríoinvierno es el primer jefe de la instancia de Banda Monte Hyjal."
 Lang["N1_18528"] = "Xi'ri"	-- https://es.tbc.wowhead.com/npc=18528
 Lang["N2_18528"] = "Xi'ri se encuentra localizado en la entrada del Templo Oscuro. La cosa esa grande brillante azul. No puedes no verlo, en serio."
+--v243
+Lang["N1_22497"] = "V'eru"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
+Lang["N2_22497"] = "V'eru está en la misma habitación que A'dal, pero es azul. Está en el rellano superior."
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."
