@@ -33,7 +33,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "244"  					-- change here, and in TOC x2
+local attunelocal_version = "245"  					-- change here, and in TOC x2
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -723,34 +723,39 @@ function Attune:OnEnable()
 
 	-- Remedy can be time consuming because of the recursive loop.
 	-- Only perform when a new version of the addon is found
+	local ind = 0
 	if Attune_DB.version == nil or Attune_DB.version < attunelocal_version then 
 		-- remedy IsNext
 		for it, tt in pairs(Attune_DB.toons) do
 			if tt.next ~= nil then 
-				for i, n in Attune_spairs(tt.next, function(t,a,b) 
-						local aa = Attune_split(a, "-")
-						local bb = Attune_split(b, "-")
-						local aaa = aa[1]*1000 + aa[2]
-						local bbb = bb[1]*1000 + bb[2]
-						return (bbb < aaa) 
-					end) do
-					for is, ts in pairs(Attune_Data.steps) do
-						if ts.ID_ATTUNE .. "-" .. ts.ID == i then 
-							if ts.FOLLOWS ~= "0" then 
-		
-								--this is where the remediation needs to happen
-								Attune_remedyIsNext(it, ts.ID_ATTUNE, ts.FOLLOWS)
-								
+
+				C_Timer.After(0.200*ind, function() --stagger those to not freeze
+					--print("Checking "..it)
+					for i, n in Attune_spairs(tt.next, function(t,a,b) 
+							local aa = Attune_split(a, "-")
+							local bb = Attune_split(b, "-")
+							local aaa = aa[1]*1000 + aa[2]
+							local bbb = bb[1]*1000 + bb[2]
+							return (bbb < aaa) 
+						end) do
+						for is, ts in pairs(Attune_Data.steps) do
+							if ts.ID_ATTUNE .. "-" .. ts.ID == i then 
+								if ts.FOLLOWS ~= "0" then 
+
+									--this is where the remediation needs to happen
+									Attune_remedyIsNext(it, ts.ID_ATTUNE, ts.FOLLOWS)
+									
+								end
+								break
 							end
-							break
 						end
 					end
-				end
+				end)
+				ind = ind + 1
 			end
 		end
 		Attune_DB.version = attunelocal_version
 	end
-
 
 end
 
@@ -3173,7 +3178,7 @@ function Attune_ShowResultList(title)
 
 					count = count + 1
 
-					C_Timer.After(0.005*count, function()
+					C_Timer.After(0.01*count, function()
 						local lev = t.level
 						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
 
@@ -3373,7 +3378,7 @@ function Attune_ShowProfileList(title)
 
 					count = count + 1
 
-					C_Timer.After(0.005*count, function()
+					C_Timer.After(0.01*count, function()
 						local lev = t.level
 						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
 
