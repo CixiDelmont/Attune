@@ -142,6 +142,9 @@ Lang["RAIDS"] = "团队"
 Lang["KEYS"] = "钥匙"
 Lang["MISC"] = "杂项"
 Lang["HEROICS"] = "英雄"
+--v244
+Lang["Ally of the Netherwing"] = "灵翼之盟"
+Lang["Netherwing_Desc"] = "虚空之翼是位于外域的一个龙派系。"
 
 
 -- OPTIONS
@@ -760,6 +763,25 @@ Lang["Q1_11022"] = "与莫戈多格会面"			-- https://www.thegeekcrusade-serve
 Lang["Q2_11022"] = "与枯瘦的莫戈多格谈一谈，他就在刀锋山鲜血之环东侧的塔楼顶部。"
 Lang["Q1_11009"] = "食人魔的天堂"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
 Lang["Q2_11009"] = "枯瘦的莫戈多格要求你与刀锋山奥格瑞拉的库洛尔谈一谈。"
+--v244
+Lang["Q1_10804"] = "友善"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10804
+Lang["Q2_10804"] = "影月谷灵翼平原的莫德奈要你喂养8只成熟的灵翼幼龙。"
+Lang["Q1_10811"] = "寻找奈尔萨拉库"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10811
+Lang["Q2_10811"] = "寻找奈尔萨拉库，虚空龙族的领袖。"
+Lang["Q1_10814"] = "奈尔萨拉库的故事"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10814
+Lang["Q2_10814"] = "与奈尔萨拉库谈一谈，听听他的故事。"
+Lang["Q1_10836"] = "攻击龙喉要塞"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10836
+Lang["Q2_10836"] = "杀死15名龙喉兽人，然后向飞翔在影月谷灵翼平原上空的奈尔萨拉库复命。"
+Lang["Q1_10837"] = "前往灵翼浮岛！"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10837
+Lang["Q2_10837"] = "前往灵翼浮岛收集12枚灵藤水晶，然后向飞翔在影月谷灵翼平原上空的奈尔萨拉库复命。"
+Lang["Q1_10854"] = "奈尔萨拉库之力"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10854
+Lang["Q2_10854"] = "解救5只被奴役的灵翼幼龙，然后向飞翔在影月谷灵翼平原上空的奈尔萨拉库复命。"
+Lang["Q1_10858"] = "卡瑞纳库"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10858
+Lang["Q2_10858"] = "前往龙喉要塞，寻找卡瑞纳库。"
+Lang["Q1_10866"] = "疲惫的祖鲁希德"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10866
+Lang["Q2_10866"] = "杀死疲惫的祖鲁希德，取回祖鲁希德的钥匙，并用它打开祖鲁希德的锁链，释放卡瑞纳库。"
+Lang["Q1_10870"] = "灵翼之盟"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
+Lang["Q2_10870"] = "让卡瑞纳库把你送回灵翼平原的莫德奈身边。"
 	
 
 -- NPC
@@ -918,6 +940,9 @@ Lang["N2_18528"] = "克希利位于黑暗神殿的门外."
 --v243
 Lang["N1_22497"] = "弗埃卢"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
 Lang["N2_22497"] = "弗埃盧和阿達爾在同一個房間，但他是藍色的。 他在頂層著陸。"
+--v244
+Lang["N1_22113"] = "莫德奈"
+Lang["N2_22113"] = "一个血精灵（剧透警报，实际上是一条龙）走在星辰圣殿东边的虚空之翼领域"
 
 
 Lang["O_1"] = "击杀达基萨斯将军以完成任务。\n位于达基萨斯将军后面的发光球."

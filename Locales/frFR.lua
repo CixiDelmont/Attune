@@ -142,6 +142,9 @@ Lang["RAIDS"] = "RAIDS"
 Lang["KEYS"] = "CLEFS"
 Lang["MISC"] = "DIVERS"
 Lang["HEROICS"] = "HEROIQUES"
+--v244
+Lang["Ally of the Netherwing"] = "Allié du vol du Néant"
+Lang["Netherwing_Desc"] = "L'Aile du Néant est une faction de dragons située en Outreterre."
 
 
 -- OPTIONS
@@ -760,6 +763,25 @@ Lang["Q1_11022"] = "Parler à Mog'dorg"			-- https://www.thegeekcrusade-serveur.
 Lang["Q2_11022"] = "Allez parler à Mog'dorg le Ratatiné. Il se trouve au sommet de la tour située du côté est du Cercle de sang dans les Tranchantes."
 Lang["Q1_11009"] = "Le paradis des ogres"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
 Lang["Q2_11009"] = "Mog'dorg le Ratatiné vous demande d'aller parler à Chu'a'lor à Ogri'la dans les Tranchantes."
+--v244
+Lang["Q1_10804"] = "Un peu de gentillesse"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10804
+Lang["Q2_10804"] = "Mordenai, aux champs de l'Aile-du-Néant, dans la vallée d'Ombrelune, veut que vous nourrissiez 8 Drakes Aile-du-Néant adultes."
+Lang["Q1_10811"] = "Trouvez Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10811
+Lang["Q2_10811"] = "Partez à la recherche de Neltharaku, le protecteur du Vol de l'Aile-du-Néant."
+Lang["Q1_10814"] = "L'histoire de Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10814
+Lang["Q2_10814"] = "Parlez à Neltharaku et écoutez son histoire."
+Lang["Q1_10836"] = "Infiltrer la forteresse Gueule-de-dragon"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10836
+Lang["Q2_10836"] = "Neltharaku, qui vole au-dessus des Champs de l'Aile-du-Néant dans la Vallée d'Ombrelune, veut que vous tuiez 15 Orcs Gueule-de-dragon."
+Lang["Q1_10837"] = "Vers l'escarpement de l'Aile-du-Néant !"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10837
+Lang["Q2_10837"] = "Neltharaku, qui vole au-dessus des champs de l'Aile-du-Néant dans la vallée d'Ombrelune, veut que vous ramassiez 12 cristaux vignéants à l'escarpement de l'Aile-du-Néant."
+Lang["Q1_10854"] = "La force de Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10854
+Lang["Q2_10854"] = "Neltharaku, qui vole au-dessus des champs de l'Aile-du-Néant dans la vallée d'Ombrelune, veut que vous libériez 5 Drakes de l'Aile-du-Néant asservis."
+Lang["Q1_10858"] = "Karynaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10858
+Lang["Q2_10858"] = "Trouvez Karynaku à la Forteresse Gueule-de-dragon."
+Lang["Q1_10866"] = "Zuluhed le Fourbu"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10866
+Lang["Q2_10866"] = "Tuez Zuluhed le Fourbu et récupérez la Clé de Zuluhed. Utilisez-la sur les Chaînes de Zuluhed pour libérer Karynaku."
+Lang["Q1_10870"] = "Allié du vol du Néant"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
+Lang["Q2_10870"] = "Permettez à Karynaku de vous ramener auprès de Mordenai dans les Champs de l'Aile-du-Néant."
 	
 
 -- NPC
@@ -918,6 +940,9 @@ Lang["N2_18528"] = "Xi'ri est a l'entree du Temple Noir. C'est un grand truc ble
 --v243
 Lang["N1_22497"] = "V'eru"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
 Lang["N2_22497"] = "V'eru est dans la même pièce qu'A'dal, mais il est bleu. Il est sur le palier supérieur."
+--v244
+Lang["N1_22113"] = "Mordenai"
+Lang["N2_22113"] = "Un elfe de sang (alerte spoiler, en fait un dragon) qui parcourt les champs de l'Aile du Néant juste à l'est du Sanctum des étoiles"
 
 
 Lang["O_1"] = "Clickez la Marque de Drakkisath pour completer la quete.\nC'est le globe brillant qui se trouve juste derriere Drakkisath."

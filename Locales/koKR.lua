@@ -142,6 +142,9 @@ Lang["RAIDS"] = "공격대"
 Lang["KEYS"] = "열쇠"
 Lang["MISC"] = "기타"
 Lang["HEROICS"] = "영웅"
+--v244
+Lang["Ally of the Netherwing"] = "황천날개 용군단의 동맹"
+Lang["Netherwing_Desc"] = "황천의 용군단은 아웃랜드에 위치한 드래곤의 진영입니다."
 
 
 -- OPTIONS
@@ -760,6 +763,25 @@ Lang["Q1_11022"] = "모그도그와의 대화"			-- https://www.thegeekcrusade-s
 Lang["Q2_11022"] = "칼날 산맥의 피의 투기장의 동쪽 끝 탑 위에 있는 주름투성이 모그도그와 대화해야 합니다."
 Lang["Q1_11009"] = "오우거의 천국"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
 Lang["Q2_11009"] = "칼날 산맥의 오그릴라에 있는 추알로르와 대화해야 합니다."
+--v244
+Lang["Q1_10804"] = "친절"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10804
+Lang["Q2_10804"] = "어둠달 골짜기의 황천날개 벌판에 있는 모르데나이가 다 자란 황천날개 비룡 8마리에게 먹이를 주라고 부탁했습니다."
+Lang["Q1_10811"] = "넬타라쿠 찾기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10811
+Lang["Q2_10811"] = "황천날개 용군단의 지도자인 넬타라쿠를 찾아야 합니다."
+Lang["Q1_10814"] = "넬타라쿠의 이야기"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10814
+Lang["Q2_10814"] = "넬타라쿠와 대화해서 그의 이야기를 들어야 합니다."
+Lang["Q1_10836"] = "용아귀 요새 침입"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10836
+Lang["Q2_10836"] = "어둠달 골짜기, 황천날개 벌판의 창공을 나는 넬타라쿠가 용아귀부족 오크 15명을 처치해 달라고 부탁했습니다."
+Lang["Q1_10837"] = "황천날개 마루를 향해!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10837
+Lang["Q2_10837"] = "어둠달 골짜기, 황천날개 벌판의 창공을 나는 넬타라쿠가 황천날개 마루에 있는 황천덩굴 수정 12개를 모아오라고 부탁했습니다."
+Lang["Q1_10854"] = "넬타라쿠의 힘"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10854
+Lang["Q2_10854"] = "어둠달 골짜기, 황천날개 벌판의 창공을 나는 넬타라쿠가 사로잡힌 황천날개 비룡 5마리를 구출해 달라고 부탁했습니다."
+Lang["Q1_10858"] = "카리나쿠"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10858
+Lang["Q2_10858"] = "용아귀 요새에 있는 카리나쿠를 찾아야 합니다."
+Lang["Q1_10866"] = "늙은 줄루헤드"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10866
+Lang["Q2_10866"] = "늙은 줄루헤드를 처치한 후 손에 넣은 줄루헤드의 열쇠로 줄루헤드의 족쇄를 풀고 카리나쿠를 구출해야 합니다."
+Lang["Q1_10870"] = "황천날개 용군단의 동맹"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
+Lang["Q2_10870"] = "카리나쿠의 인도를 받아 황천날개 벌판에 있는 모르데나이에게 돌아가야 합니다."
 	
 
 -- NPC
@@ -918,6 +940,9 @@ Lang["N2_18528"] = "검은 사원 입구에 있음. 거대한 파랑 인형"
 --v243
 Lang["N1_22497"] = "베루"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
 Lang["N2_22497"] = "베루는 아달과 같은 방에 있지만 파란색입니다. 그는 꼭대기 층에 있습니다."
+--v244
+Lang["N1_22113"] = "모르데나이"
+Lang["N2_22113"] = "별의 성소 바로 동쪽에 있는 황천의 들판을 걷는 블러드 엘프(스포일러 주의, 실제로는 드래곤)"
 
 
 Lang["O_1"] = "드라키사스의 낙인을 꼭 클릭하여 퀘를 완료!\n파랑 오브는 사령관 드라키사스 뒤에 있음"

@@ -8,16 +8,11 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 243
---	More tree groups/categories
---  Tree now remembers last expand/collapse state
---  Ogrila chain
---  Visual display of inactive profiles (those not surveyed within 30 days)
---  Option to delete inactive profiles 
-
--- Todo in next release
--- - people on step lists not correct
--- - Issue with raid planner error on deselect show unattuned
+-- Done in 244
+--	Added the Netherwing quest chain
+--  Updated some German/Russian translations
+--  Added a fix to the IsNext flag. People listed on step lists should now be correct
+--  expanding or collapsing part of the treeview also hides those attunements from the result view
 
 
 -------------------------------------------------------------------------
@@ -38,7 +33,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "243"  					-- change here, and in TOC x2
+local attunelocal_version = "244"  					-- change here, and in TOC x2
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -725,7 +720,69 @@ function Attune:OnEnable()
 	--Attune_CreateRepWidget()
 
 
+
+	-- Remedy can be time consuming because of the recursive loop.
+	-- Only perform when a new version of the addon is found
+	if Attune_DB.version == nil or Attune_DB.version < attunelocal_version then 
+		-- remedy IsNext
+		for it, tt in pairs(Attune_DB.toons) do
+			if tt.next ~= nil then 
+				for i, n in Attune_spairs(tt.next, function(t,a,b) 
+						local aa = Attune_split(a, "-")
+						local bb = Attune_split(b, "-")
+						local aaa = aa[1]*1000 + aa[2]
+						local bbb = bb[1]*1000 + bb[2]
+						return (bbb < aaa) 
+					end) do
+					for is, ts in pairs(Attune_Data.steps) do
+						if ts.ID_ATTUNE .. "-" .. ts.ID == i then 
+							if ts.FOLLOWS ~= "0" then 
+		
+								--this is where the remediation needs to happen
+								Attune_remedyIsNext(it, ts.ID_ATTUNE, ts.FOLLOWS)
+								
+							end
+							break
+						end
+					end
+				end
+			end
+		end
+		Attune_DB.version = attunelocal_version
+	end
+
+
 end
+
+-------------------------------------------------------------------------
+-- Remedy IsNext (some interact / kill steps remain as IsNext)
+-------------------------------------------------------------------------
+
+function Attune_remedyIsNext(who, aID, follows)
+
+	-- there can be multi-follows (for example FOLLOW=160|170)
+	-- We need to recurse both paths
+	local fIDs = Attune_split(follows, "&")
+	if string.find(follows, "|") then fIDs = Attune_split(follows, "|") end
+
+	for fi, f in pairs(fIDs) do
+		for i, s in pairs(Attune_Data.steps) do
+			if s.ID_ATTUNE == aID and s.ID == f then
+				if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
+					if Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] == 1 then
+--						print(who..": Removed "..s.ID_ATTUNE .. "-" .. s.ID)
+						Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] = nil
+					end
+					if follows ~= 0 then -- no need to recurse first level
+						Attune_remedyIsNext(who, s.ID_ATTUNE, s.FOLLOWS)
+					end
+				end
+			end
+		end
+	end
+
+end
+
 
 -------------------------------------------------------------------------
 -- EVENT: Addon is disabled
@@ -1347,6 +1404,7 @@ function Attune_CheckComplete(newComplete)
 	if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); newComplete = true;  end	-- BT Alliance
 
 	if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
+	if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
 
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
@@ -1603,7 +1661,7 @@ function Attune_Frame()
 	--attunelocal_frame.frame:SetHeight(Attune_DB.height)
 	--attunelocal_frame.frame:SetWidth(Attune_DB.width)
 
-	attunelocal_frame.frame:SetMinResize(1000, 550)
+	attunelocal_frame.frame:SetMinResize(1010, 550)
 	attunelocal_frame.frame:SetFrameStrata("HIGH")
 
 
@@ -2740,34 +2798,41 @@ function Attune_ToggleView(noToggle)
 			local expac = ""
 			for i, a in pairs(Attune_Data.attunes) do
 
-				if expac ~= a.EXPAC then
-					local gfspacer = AceGUI:Create("Label")
-					gfspacer:SetText(" ")
-					gfspacer:SetWidth(30)
-					gftitle:AddChild(gfspacer)
-					expac = a.EXPAC
-				end
+				if (TreeExpandStatus[a.EXPAC] == nil 
+				or TreeExpandStatus[a.EXPAC] == 1) 
+				and (TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == nil 
+				or TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == 1) then 
 
-				if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
-					local gficon = AceGUI:Create("Icon")
-					gficon:SetImage(a.ICON)
-					gficon:SetWidth(30)
-					gficon:SetImageSize(24, 24)
-					gficon.frame:SetScript("OnClick", function()
-						if Attune_DB.sortresult[1] == a.ID then
-							--same sort, just change order
-							Attune_DB.sortresult[2] = not Attune_DB.sortresult[2]
-						else
-							Attune_DB.sortresult[1] = a.ID
-							Attune_DB.sortresult[2] = true --desc better for attunes, but we're reversing % further down.
-						end
-						if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-						else Attune_ShowProfileList(label)	end
+
+					if expac ~= a.EXPAC.."-"..a.GROUP then
+						local gfspacer = AceGUI:Create("Label")
+						gfspacer:SetText(" ")
+						gfspacer:SetWidth(10)
+						gftitle:AddChild(gfspacer)
+						expac = a.EXPAC.."-"..a.GROUP
+					end
+
+					if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
+						local gficon = AceGUI:Create("Icon")
+						gficon:SetImage(a.ICON)
+						gficon:SetWidth(30)
+						gficon:SetImageSize(24, 24)
+						gficon.frame:SetScript("OnClick", function()
+							if Attune_DB.sortresult[1] == a.ID then
+								--same sort, just change order
+								Attune_DB.sortresult[2] = not Attune_DB.sortresult[2]
+							else
+								Attune_DB.sortresult[1] = a.ID
+								Attune_DB.sortresult[2] = true --desc better for attunes, but we're reversing % further down.
+							end
+							if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+							else Attune_ShowProfileList(label)	end
 			
-					end)
-					gficon.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(a.NAME.." - "..a.EXPAC)  end)
-					gficon.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
-					gftitle:AddChild(gficon)
+						end)
+						gficon.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(a.NAME.." - "..a.EXPAC)  end)
+						gficon.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
+						gftitle:AddChild(gficon)
+					end
 				end
 			end
 
@@ -3152,35 +3217,41 @@ function Attune_ShowResultList(title)
 						local expac = ""
 						for i, a in pairs(Attune_Data.attunes) do
 
-							-- This spacer to separate Wow classic from TBC attunes
-							if expac ~= a.EXPAC then
-								local gfspacer = AceGUI:Create("Label")
-								gfspacer:SetText(" ")
-								gfspacer:SetWidth(30)
-								gframe:AddChild(gfspacer)
-								expac = a.EXPAC
-							end
-
-							-- Only look at attunes for this toon's faction
-							if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
-
-								local gflabel = AceGUI:Create("Label")
-								if t.attuned[a.ID] >= 100 then
-									if inactive then 
-										gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\successinactive:16|t")
-									else 
-										gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\success:16|t")
-									end
-								else
-									if inactive then 
-										gflabel:SetText("|c80606060"..t.attuned[a.ID].."%|r")
-									else 
-										gflabel:SetText(t.attuned[a.ID].."%")
-									end
+							if (TreeExpandStatus[a.EXPAC] == nil 
+								or TreeExpandStatus[a.EXPAC] == 1) 
+								and (TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == nil 
+								or TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == 1) then 
+				
+								-- This spacer to separate Wow classic from TBC attunes
+								if expac ~= a.EXPAC.."-"..a.GROUP then
+									local gfspacer = AceGUI:Create("Label")
+									gfspacer:SetText(" ")
+									gfspacer:SetWidth(10)
+									gframe:AddChild(gfspacer)
+									expac = a.EXPAC.."-"..a.GROUP
 								end
-								gflabel:SetWidth(30)
-								gframe:AddChild(gflabel)
 
+								-- Only look at attunes for this toon's faction
+								if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
+
+									local gflabel = AceGUI:Create("Label")
+									if t.attuned[a.ID] >= 100 then
+										if inactive then 
+											gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\successinactive:16|t")
+										else 
+											gflabel:SetText("|TInterface\\AddOns\\Attune\\Images\\success:16|t")
+										end
+									else
+										if inactive then 
+											gflabel:SetText("|c80606060"..t.attuned[a.ID].."%|r")
+										else 
+											gflabel:SetText(t.attuned[a.ID].."%")
+										end
+									end
+									gflabel:SetWidth(30)
+									gframe:AddChild(gflabel)
+
+								end
 							end
 						end
 

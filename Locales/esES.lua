@@ -142,6 +142,9 @@ Lang["RAIDS"] = "BANDAS"
 Lang["KEYS"] = "TECLAS"
 Lang["MISC"] = "MISC"
 Lang["HEROICS"] = "HEROICAS"
+--v244
+Lang["Ally of the Netherwing"] = "Aliado del Ala Abisal"
+Lang["Netherwing_Desc"] = "El Ala Abisal es una facción de dragones ubicada en Terrallende."
 
 
 -- OPTIONS
@@ -760,7 +763,26 @@ Lang["Q1_11022"] = "Habla con Mog'dorg"			-- https://www.thegeekcrusade-serveur.
 Lang["Q2_11022"] = "Habla con Mog'dorg el Marchito. Se encuentra en lo alto de la torre al este del Anillo de Sangre, en las Montañas Filospada."
 Lang["Q1_11009"] = "El cielo de los Ogros"			-- https://www.thegeekcrusade-serveur.com/db/?quest=11009
 Lang["Q2_11009"] = "Mog'dorg el Marchito te ha pedido que hables con Chu'a'lor en Ogri'la, en las Montañas Filospada."
-	
+--v244
+Lang["Q1_10804"] = "Bondad"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10804
+Lang["Q2_10804"] = "Mordenai, de los Campos del Ala Abisal, en el Valle Sombraluna, quiere que alimentes a ocho dracos Ala Abisal maduros."
+Lang["Q1_10811"] = "Buscar a Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10811
+Lang["Q2_10811"] = "Busca a Nelthakaru, patrón de los dracos Ala Abisal."
+Lang["Q1_10814"] = "La historia de Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10814
+Lang["Q2_10814"] = "Habla con Neltharaku y escucha su historia."
+Lang["Q1_10836"] = "Infiltrarse en la Fortaleza Faucedraco"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10836
+Lang["Q2_10836"] = "Neltharaku, que sobrevuela los Campos del Ala Abisal en el Valle Sombraluna, quiere que mates a quince orcos Faucedraco."
+Lang["Q1_10837"] = "¡Al Arrecife del Ala Abisal!"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10837
+Lang["Q2_10837"] = "Neltharaku, que sobrevuela los Campos del Ala Abisal en el Valle Sombraluna, quiere que recojas doce cristales de vid abisal del Arrecife del Ala Abisal."
+Lang["Q1_10854"] = "La fuerza de Neltharaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10854
+Lang["Q2_10854"] = "Neltharaku, que sobrevuela los Campos del Ala Abisal, en el Valle Sombraluna, quiere que liberes a 5 dracos Ala Abisal esclavizados."
+Lang["Q1_10858"] = "Karynaku"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10858
+Lang["Q2_10858"] = "Busca a Karynaku en la Fortaleza Faucedraco."
+Lang["Q1_10866"] = "Zuluhed el Demente"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10866
+Lang["Q2_10866"] = "Mata a Zuluhed el Demente y consigue la llave de Zuluhed. Utiliza la llave de Zuluhed en las cadenas de Zuluhed para liberar a Karynaku."
+Lang["Q1_10870"] = "Aliado del Ala Abisal"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
+Lang["Q2_10870"] = "Que Karynaku te devuelva a Mordenai en los Campos del Ala Abisal."
+
 
 -- NPC
 Lang["N1_9196"] = "Alto Señor Omokk"	-- https://es.tbc.wowhead.com/npc=9196
@@ -918,6 +940,9 @@ Lang["N2_18528"] = "Xi'ri se encuentra localizado en la entrada del Templo Oscur
 --v243
 Lang["N1_22497"] = "V'eru"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
 Lang["N2_22497"] = "V'eru está en la misma habitación que A'dal, pero es azul. Está en el rellano superior."
+--v244
+Lang["N1_22113"] = "Mordenai"
+Lang["N2_22113"] = "Un elfo de sangre (alerta de spoiler, en realidad un dragón) que camina por los campos del Ala Abisal, al este del Sagrario de las Estrellas"
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."

@@ -40,7 +40,8 @@ Attune_Data.attunes = 	{
 	{ID="180",NAME=Lang["Mount Hyjal"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_archimonde", DESC=Lang["All_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="190",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="200",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Alliance",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
-	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
+	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"] },
+	{ID="260",NAME=Lang["Ally of the Netherwing"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_netherwhelp", DESC=Lang["Netherwing_Desc"] },
 }
 
 Attune_Data.noattunes = {
@@ -741,7 +742,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="200",ID="199",TYPE="Spacer",STEP="",LOCATION="",ID_WOWHEAD="0",ICON="",FOLLOWS="0",STAGE="200"},
 
 	{ID_ATTUNE="250",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 70",LOCATION="",ID_WOWHEAD="70",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="250",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Shattrath City Valley"],ID_WOWHEAD="22497",ICON="Interface\\AddOns\\Attune\\Images\\inv_pet_naaru",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="250",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="22497",ICON="Interface\\AddOns\\Attune\\Images\\inv_pet_naaru",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="250",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="10984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
 	{ID_ATTUNE="250",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="10983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
 	{ID_ATTUNE="250",ID="50",TYPE="Quest",STEP="",LOCATION=Lang["Blade's Edge Mountains"],ID_WOWHEAD="10995",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
@@ -752,6 +753,21 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="250",ID="100",TYPE="Quest",STEP="",LOCATION=Lang["Blade's Edge Mountain"],ID_WOWHEAD="11022",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"},
 	{ID_ATTUNE="250",ID="110",TYPE="Quest",STEP="",LOCATION=Lang["Blade's Edge Mountain"],ID_WOWHEAD="11009",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"},
 	{ID_ATTUNE="250",ID="120",TYPE="End",STEP="Attuned",LOCATION=Lang["Blade's Edge Mountain"],ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_apexis_crystal",FOLLOWS="110",STAGE="120"},
+
+	{ID_ATTUNE="260",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 70",LOCATION="",ID_WOWHEAD="70",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="260",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="22113",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_bloodelf_male",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="260",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10804",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="260",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10811",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="260",ID="50",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10814",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="260",ID="60",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10836",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="260",ID="70",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10837",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="260",ID="80",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10854",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="260",ID="90",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10858",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"},
+	{ID_ATTUNE="260",ID="100",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="260",ID="110",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10870",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"},
+	{ID_ATTUNE="260",ID="120",TYPE="End",STEP="Attuned",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_bloodelf_male",FOLLOWS="110",STAGE="120"},
+	
+
 }
 	
 -- [id] = title, minlevel, groupsize, desc
@@ -780,7 +796,8 @@ Attune_Data.quests = {
 	[10568]={68,1},			[10571]={68,1},			[10574]={68,1},			[10575]={68,1},			[10622]={68,1},			[10628]={68,1},			[10705]={68,1},
 	[10706]={69,1},			[10707]={68,5},			[10708]={70,1},			[10944]={70,1},			[10946]={70,25},		[10947]={70,25},		[10948]={70,1},
 	[10949]={70,1},			[10985]={70,1},			[10984]={70,1},			[10983]={70,1},			[10995]={70,5},			[10996]={70,5},			[10997]={70,5},
-	[10998]={70,5},			[11000]={70,5},			[11022]={70,1},			[11009]={70,1},
+	[10998]={70,5},			[11000]={70,5},			[11022]={70,1},			[11009]={70,1},			[10804]={70,1},			[10811]={70,1},			[10814]={70,1},
+	[10836]={70,1},			[10837]={70,1},			[10854]={70,1},			[10858]={70,1},			[10866]={70,5},			[10870]={70,1},
 	
 }
 
@@ -867,4 +884,5 @@ Attune_Data.npcs = {
 	[16524] = { "??", Lang["Boss"], Lang["Undead"]},
 	[22497] = { "72", Lang["Elite"], Lang["Shiny thingy"]},	
 	[22941] = { "68", "", Lang["Ogre"]},
+	[22113] = { "71", Lang["Elite"], Lang["Dragonkin (in Blood Elf form)"]},		
 }
