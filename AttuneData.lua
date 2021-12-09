@@ -40,8 +40,8 @@ Attune_Data.attunes = 	{
 	{ID="180",NAME=Lang["Mount Hyjal"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_archimonde", DESC=Lang["All_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="190",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="200",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Alliance",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
-	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"] },
-	{ID="260",NAME=Lang["Ally of the Netherwing"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_netherwhelp", DESC=Lang["Netherwing_Desc"] },
+	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"] },
+	{ID="260",NAME=Lang["Ally of the Netherwing"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_netherwhelp", DESC=Lang["Netherwing_Desc"] },
 }
 
 Attune_Data.noattunes = {
