@@ -145,6 +145,9 @@ Lang["HEROICS"] = "HEROICAS"
 --v244
 Lang["Ally of the Netherwing"] = "Aliado del Ala Abisal"
 Lang["Netherwing_Desc"] = "El Ala Abisal es una facción de dragones ubicada en Terrallende."
+--v247
+Lang["Tirisfal Glades"] = "Claros de Tirisfal"
+Lang["Scholomance"] = "Scholomance"
 
 
 -- OPTIONS
@@ -414,6 +417,9 @@ Lang["I_29905"] = "Restos del vial de Kael"			-- https://es.tbc.wowhead.com/item
 Lang["I_29906"] = "Restos del vial de Vashj"			-- https://es.tbc.wowhead.com/item=29906
 Lang["I_31307"] = "Corazón de furia"			-- https://es.tbc.wowhead.com/item=31307
 Lang["I_32649"] = "Medallón de Karabor"			-- https://es.tbc.wowhead.com/item=32649
+--v247
+Lang["Shrine of Thaurissan"] = "Santuario de Thaurissan"
+Lang["I_14610"] = "El escarabajo de Araj"
 
 
 -- QUESTS - Classic
@@ -782,6 +788,43 @@ Lang["Q1_10866"] = "Zuluhed el Demente"			-- https://www.thegeekcrusade-serveur.
 Lang["Q2_10866"] = "Mata a Zuluhed el Demente y consigue la llave de Zuluhed. Utiliza la llave de Zuluhed en las cadenas de Zuluhed para liberar a Karynaku."
 Lang["Q1_10870"] = "Aliado del Ala Abisal"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
 Lang["Q2_10870"] = "Que Karynaku te devuelva a Mordenai en los Campos del Ala Abisal."
+--v247
+Lang["Q1_3801"] = "El legado de los Hierro Negro"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3801
+Lang["Q2_3801"] = "Habla con Franclorn Forjafina si te interesa obtener una llave de la ciudad."
+Lang["Q1_3802"] = "El legado de los Hierro Negro"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3802
+Lang["Q2_3802"] = "Mata a Finoso Virunegro y recupera el gran martillo, Ferrovil. Lleva a Ferrovil al Santuario de Thaurissan y coloca el martillo en la estatua de Franclorn Forjafina."
+Lang["Q1_5096"] = "Desvío Escarlata"
+Lang["Q2_5096"] = "Adéntrate en el campamento base de la Cruzada Escarlata entre el Campo de Piedra Mácula y el Llanto de Dalson y destruye su tienda de mando."
+Lang["Q1_5098"] = "Todas las torres"
+Lang["Q2_5098"] = "Con la Antorcha de aviso, marca las torres de Andorhal. Tendrás que estar en la entrada de la torre para poder marcarla."
+Lang["Q1_838"] = "Scholomance"
+Lang["Q2_838"] = "Habla con el boticario Dithers en el Baluarte, en las Tierras de la Peste del Oeste."
+Lang["Q1_964"] = "Fragmentos esqueléticos"
+Lang["Q2_964"] = "Lleva 15 fragmentos esqueléticos al boticario Dithers en El Baluarte, en las Tierras de la Peste del Oeste."
+Lang["Q1_5514"] = "Molde rima con... ¿oro?"
+Lang["Q2_5514"] = "Lleva los Fragmentos esqueléticos imbuidos y 15 piezas de oro a Krinkle Buenacero en Gadgetzan."
+Lang["Q1_5802"] = "La forja del Penacho en Llamas"
+Lang["Q2_5802"] = "Lleva el molde para llave esqueleto y 2 barras de torio a la cima de la Cresta del Penacho en Llamas en el Cráter de Un'Goro. Utiliza el molde para llave esqueleto en el lago de lava para forjar la llave esqueleto incompleta."
+Lang["Q1_5804"] = "El escarabajo de Araj"
+Lang["Q2_5804"] = "Destruye a Araj el Invocador y lleva el Escarabeo de Araj al boticario Dithers en El Baluarte, en las Tierras de la Peste del Oeste."
+Lang["Q1_5511"] = "La llave de Scholomance"
+Lang["Q2_5511"] = "Bien, aquí estás, Y has completado la llave esqueleto. No tengo dudas de que esta llave te permitirá acceder a los confines de Scholomance."
+Lang["Q1_5092"] = "Despejando el camino"
+Lang["Q2_5092"] = "Mata 10 despellejadores esqueléticos y 10 necrófagos esclavizantes en la Colina de las Penas."
+Lang["Q1_5097"] = "Todas las torres"
+Lang["Q2_5097"] = "Con la Antorcha de aviso, marca las torres de Andorhal. Tendrás que estar en la entrada de la torre para poder marcarla."
+Lang["Q1_5533"] = "Scholomance"
+Lang["Q2_5533"] = "Habla con el alquimista Arbington en el Alto del Orvallo, en las Tierras de la Peste del Oeste."
+Lang["Q1_5537"] = "Fragmentos esqueléticos"
+Lang["Q2_5537"] = "Lleva 15 fragmentos esqueléticos al alquimista Arbington, en el Alto del Orvallo, en las Tierras de la Peste del Oeste."
+Lang["Q1_5538"] = "Molde rima con... ¿oro?"
+Lang["Q2_5538"] = "Lleva los Fragmentos esqueléticos imbuidos y 15 piezas de oro a Krinkle Buenacero en Gadgetzan."
+Lang["Q1_5801"] = "La forja del Penacho en Llamas"
+Lang["Q2_5801"] = "Lleva el molde para llave esqueleto y 2 barras de torio a la cima de la Cresta del Penacho en Llamas en el Cráter de Un'Goro. Utiliza el molde para llave esqueleto en el lago de lava para forjar la llave esqueleto incompleta."
+Lang["Q1_5803"] = "El escarabajo de Araj"
+Lang["Q2_5803"] = "Destruye a Araj el Invocador y lleva el Escarabeo de Araj al alquimista Arbington en el Alto del Orvallo, en las Tierras de la Peste del Oeste."
+Lang["Q1_5505"] = "La llave de Scholomance"
+Lang["Q2_5505"] = "Bien, aquí estás, Y has completado la llave esqueleto. No tengo dudas de que esta llave te permitirá acceder a los confines de Scholomance."
 
 
 -- NPC
@@ -943,8 +986,21 @@ Lang["N2_22497"] = "V'eru está en la misma habitación que A'dal, pero es azul.
 --v244
 Lang["N1_22113"] = "Mordenai"
 Lang["N2_22113"] = "Un elfo de sangre (alerta de spoiler, en realidad un dragón) que camina por los campos del Ala Abisal, al este del Sagrario de las Estrellas"
+--v247
+Lang["N1_8888"]  = "Franclorn Forjador"
+Lang["N2_8888"]  = "Un enano fantasma, de pie sobre su propia tumba FUERA de la mazmorra, en la estructura suspendida sobre la lava. Solo puedes interactuar con él si estás MUERTO."
+Lang["N1_9056"]  = "Finoso Virunegro"
+Lang["N2_9056"]  = "Está DENTRO de la mazmorra y patrulla el área de la cantera fuera de la cámara de Lord Incendius."
+Lang["N1_10837"] = "Sumo Ejecutor Derrington"
+Lang["N2_10837"] = "Se le puede encontrar en el Baluarte, cerca de la frontera de Tirisfal y las Tierras de la Peste del Oeste."
+Lang["N1_10838"] = "Comandante Ashlam Puñovalor"
+Lang["N2_10838"] = "Se le puede encontrar en el Campamento Viento Gélido, al sur de Andorhal en las Tierras de la Peste del Oeste."
+Lang["N1_1852"]  = "Araj el Invocador"
+Lang["N2_1852"]  = "El Lich, en medio de Andorhal"
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."
 Lang["O_2"] = "Es un pequeño punto rojo en el suelo\nen frente las puertas de Ahn'Qiraj (28.7,89.2)."
+--v247
+Lang["O_3"] = "El santuario está ubicado al final de un corredor\nque comienza en el nivel superior del Anillo de la Ley."
 

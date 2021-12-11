@@ -145,6 +145,9 @@ Lang["HEROICS"] = "Heroisch"
 --v244
 Lang["Ally of the Netherwing"] = "Verbündeter der Netherschwingen"
 Lang["Netherwing_Desc"] = "Die Netherwing ist eine Drachenfraktion in der Scherbenwelt."
+--v247
+Lang["Tirisfal Glades"] = "Tirisfal"
+Lang["Scholomance"] = "Scholomance"
 
 
 -- OPTIONS
@@ -414,6 +417,9 @@ Lang["I_29905"] = "Überreste von Kaels Phiole"			-- https://de.tbc.wowhead.com/
 Lang["I_29906"] = "Überreste von Vashjs Phiole"			-- https://de.tbc.wowhead.com/item=29906
 Lang["I_31307"] = "Herz des Zorns"			-- https://de.tbc.wowhead.com/item=31307
 Lang["I_32649"] = "Medaillon von Karabor"			-- https://de.tbc.wowhead.com/item=32649
+--v247
+Lang["Shrine of Thaurissan"] = "Schrein von Thaurissan"
+Lang["I_14610"] = "Arajs Skarabäus"
 
 
 -- QUESTS - Classic
@@ -782,6 +788,43 @@ Lang["Q1_10866"] = "Zuluhed der Geschlagene"			-- https://www.thegeekcrusade-ser
 Lang["Q2_10866"] = "Tötet Zuluhed den Geschlagenen und beschafft Euch Zuluheds Schlüssel. Benutzt Zuluheds Schlüssel, um Zuluheds Fesseln zu öffnen und Karynaku zu befreien."
 Lang["Q1_10870"] = "Verbündeter der Netherschwingen"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
 Lang["Q2_10870"] = "Lasst Euch von Karynaku zurück zu Mordenai in den Netherschwingenfeldern bringen."
+--v247
+Lang["Q1_3801"] = "Dunkeleisenerbe"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3801
+Lang["Q2_3801"] = "Sprecht mit Franclorn Forgewright, wenn Ihr daran interessiert seid, einen Schlüssel für die Hauptstadt zu erhalten."
+Lang["Q1_3802"] = "Dunkeleisenerbe"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3802
+Lang["Q2_3802"] = "Erschlagt Fineous Darkvire und bergt den großen Hammer Ironfel. Bringt Ironfel zum Schrein von Thaurissan und legt ihn auf die Statue von Franclorn Forgewright."
+Lang["Q1_5096"] = "Scharlachrote Ablenkung"
+Lang["Q2_5096"] = "Zieht zum Basislager des Scharlachroten Kreuzzugs zwischen dem Teufelssteinfeld und Dalsons Tränenfeld und zerstört sein Kommandozelt."
+Lang["Q1_5098"] = "Turm um Turm"
+Lang["Q2_5098"] = "Markiert mit der Signalfackel jeden Turm in Andorhal; Ihr müsst im Eingang jedes Turmes stehen, um ihn erfolgreich zu markieren."
+Lang["Q1_838"] = "Scholomance"
+Lang["Q2_838"] = "Sprecht mit Apotheker Dithers am Bollwerk, Westliche Pestländer."
+Lang["Q1_964"] = "Skelettfragmente"
+Lang["Q2_964"] = "Bringt 15 Skelettfragmente zu Apotheker Dithers am Bollwerk, Westliche Pestländer."
+Lang["Q1_5514"] = "Sold reimt sich auf..."
+Lang["Q2_5514"] = "Bringt die magieerfüllten Skelettfragmente sowie 15 Goldstücke zu Krinkle Goodsteel in Gadgetzan."
+Lang["Q1_5802"] = "Feuerfeder geschmiedet"
+Lang["Q2_5802"] = "Bringt die Skelettschlüsselform und 2 Barren Thorium zur Spitze des Feuerfedergrats im Un'Goro Krater. Benutzt die Skelettschlüsselform am Lavasee, um den unvollendeten Skelettschlüssel zu schmieden."
+Lang["Q1_5804"] = "Arajs Skarabäus"
+Lang["Q2_5804"] = "Vernichtet Araj den Beschwörer und bringt Arajs Skarabäus zum Apotheker Dithers im Bollwerk, in den westlichen Pestländern.	"
+Lang["Q1_5511"] = "Der Schlüssel zur Scholomance"
+Lang["Q2_5511"] = "Tja, da ist er, der fertige Skelettschlüssel. Ich bin eigentlich absolut sicher, dass dieser Schlüssel Euch Zutritt zur Scholomance verschaffen wird."
+Lang["Q1_5092"] = "Den Weg räumen"
+Lang["Q2_5092"] = "Tötet 10 Skelettschinder und 10 sabbernde Ghuls in Sorrow Hill."
+Lang["Q1_5097"] = "Turm um Turm"
+Lang["Q2_5097"] = "Markiert mit der Signalfackel jeden Turm in Andorhal; Ihr müsst im Eingang jedes Turmes stehen, um ihn erfolgreich zu markieren."
+Lang["Q1_5533"] = "Scholomance"
+Lang["Q2_5533"] = "Sprecht mit Alchimist Arbington an der Chillwindspitze, Westliche Pestländer."
+Lang["Q1_5537"] = "Skelettfragmente"
+Lang["Q2_5537"] = "Bringt 15 Skelettfragmente zu Alchimist Arbington an der Chillwindspitze, Westliche Pestländer.."
+Lang["Q1_5538"] = "Sold reimt sich auf..."
+Lang["Q2_5538"] = "Bringt die magieerfüllten Skelettfragmente sowie 15 Goldstücke zu Krinkle Goodsteel in Gadgetzan."
+Lang["Q1_5801"] = "Feuerfeder geschmiedet"
+Lang["Q2_5801"] = "Bringt die Skelettschlüsselform und 2 Barren Thorium zur Spitze des Feuerfedergrats im Un'Goro Krater. Benutzt die Skelettschlüsselform am Lavasee, um den unvollendeten Skelettschlüssel zu schmieden."
+Lang["Q1_5803"] = "Arajs Skarabäus"
+Lang["Q2_5803"] = "Zerstört Araj den Beschwörer und bringt Arajs Skarabäus zum Alchimisten Arbington an der Chillwindspitze in den westlichen Pestländern."
+Lang["Q1_5505"] = "Der Schlüssel zur Scholomance"
+Lang["Q2_5505"] = "Tja, da ist er, der fertige Skelettschlüssel. Ich bin eigentlich absolut sicher, dass dieser Schlüssel Euch Zutritt zur Scholomance verschaffen wird."
 	
 
 -- NPC
@@ -943,7 +986,21 @@ Lang["N2_22497"] = "V'eru ist im selben Raum wie A'dal, aber er ist blau. Er ist
 --v244
 Lang["N1_22113"] = "Mordenai"
 Lang["N2_22113"] = "Ein Blutelfen (Spoiler-Alarm, eigentlich ein Drache), der die Netherschwingenfelder östlich des Heiligtums der Sterne durchwandert"
+--v247
+Lang["N1_8888"]  = "Franclorn Forgewright"
+Lang["N2_8888"]  = "Ein Geisterzwerg, der auf seinem eigenen Grab AUSSERHALB des Verlieses steht, in der Struktur, die über der Lava hängt. Sie können nur mit ihm interagieren, wenn Sie tot sind."
+Lang["N1_9056"]  = "Fineous Darkvire"
+Lang["N2_9056"]  = "Er ist INNERHALB des Kerkers und patrouilliert im Steinbruchgebiet außerhalb von Lord Incendius' Kammer."
+Lang["N1_10837"] = "Hochexekutor Derrington"
+Lang["N2_10837"] = "Er befindet sich am Bollwerk, nahe der Grenze von Tirisfal und den Westlichen Pestländern"
+Lang["N1_10838"] = "Kommandant Ashlam Valorfist"
+Lang["N2_10838"] = "Er befindet sich im Chillwind Camp, südlich von Andorhal in den Westlichen Pestländern"
+Lang["N1_1852"]  = "Araj der Beschwörer"
+Lang["N2_1852"]  = "Der Lich, mitten in Andorhal"
 
 
 Lang["O_1"] = "Klicke auf Drakkisaths Brandzeichen um die Quest abzuschließen.\nEs ist der glühende Ball hinter General Drakkisath."
 Lang["O_2"] = "Es ist ein kleiner, rot glühender Punkt auf dem Boden\nVor den Toren von Ahn'Qiraj (28.7,89.2)."
+--v247
+Lang["O_3"] = "Der Schrein befindet sich am Ende eines Korridors,\nder auf der oberen Ebene des Ring of Law beginnt."
+

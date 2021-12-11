@@ -145,6 +145,9 @@ Lang["HEROICS"] = "HÉROÏQUES"
 --v244
 Lang["Ally of the Netherwing"] = "Allié de l'Aile-du-néant"
 Lang["Netherwing_Desc"] = "L'Aile-du-néant est une faction de dragons située en Outreterre."
+--v247
+Lang["Tirisfal Glades"] = "Clairières de Tirisfal"
+Lang["Scholomance"] = "Scholomance"
 
 
 -- OPTIONS
@@ -414,6 +417,9 @@ Lang["I_29905"] = "Reste de la fiole de Kael"			-- https://www.thegeekcrusade-se
 Lang["I_29906"] = "Reste de la fiole de Vashj"			-- https://www.thegeekcrusade-serveur.com/db/?item=29906
 Lang["I_31307"] = "Coeur de fureur"			-- https://www.thegeekcrusade-serveur.com/db/?item=31307
 Lang["I_32649"] = "Médaillon de Karabor"			-- https://www.thegeekcrusade-serveur.com/db/?item=32649
+--v247
+Lang["Shrine of Thaurissan"] = "Sanctuaire de Thaurissan"
+Lang["I_14610"] = "Le Scarabée d'Araj"
 
 
 -- QUESTS - Classic
@@ -782,7 +788,44 @@ Lang["Q1_10866"] = "Zuluhed le Fourbu"			-- https://www.thegeekcrusade-serveur.c
 Lang["Q2_10866"] = "Tuez Zuluhed le Fourbu et récupérez la Clé de Zuluhed. Utilisez-la sur les Chaînes de Zuluhed pour libérer Karynaku."
 Lang["Q1_10870"] = "Allié du vol du Néant"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
 Lang["Q2_10870"] = "Permettez à Karynaku de vous ramener auprès de Mordenai dans les Champs de l'Aile-du-Néant."
-	
+--v247
+Lang["Q1_3801"] = "Héritage Sombrefer"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3801
+Lang["Q2_3801"] = "Parler à Franclorn Forgewright si obtenir une clé de la Cité majeure vous intéresse."
+Lang["Q1_3802"] = "Héritage Sombrefer"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3802
+Lang["Q2_3802"] = "Tuer Fineous Darkvire et récupérer le grand marteau, Souillefer. Apporter Souillefer au sanctuaire de Thaurissan et le placer sur la statue de Franclorn Forgewright."
+Lang["Q1_5096"] = "Diversions écarlates"
+Lang["Q2_5096"] = "Se rendre au camp de base de la Croisade écarlate situé entre le Champ de Felstone et les Larmes de Dalson et détruire leur tente d’état-major."
+Lang["Q1_5098"] = "Tout au long des tours de guet"
+Lang["Q2_5098"] = "À l’aide de la Torche-balise, marquer chaque tour à Andorhal ; il faut se tenir dans l’embrasure de la porte de la tour pour pouvoir la marquer."
+Lang["Q1_838"] = "Scholomance"
+Lang["Q2_838"] = "Parler au Pharmacien Dithers à la Barricade, dans les Maleterres de l'ouest."
+Lang["Q1_964"] = "Fragments de squelette"
+Lang["Q2_964"] = "Apporter 15 Fragments de squelette au Pharmacien Dithers à la Barricade, dans les Maleterres de l'ouest."
+Lang["Q1_5514"] = "Moisissure rime avec…"
+Lang["Q2_5514"] = "Apporter les Fragments de squelette imprégnés et 15 pièces d’or à Krinkle Goodsteel à Gadgetzan."
+Lang["Q1_5802"] = "Forgée dans la Fournaise"
+Lang["Q2_5802"] = "Prendre le moule de la Clé squelette et deux barres de thorium au sommet de la crête de la Fournaise dans le cratère d'Un'Goro. Se servir du moule de la Clé squelette pour forger la Clé squelette inachevée."
+Lang["Q1_5804"] = "Le Scarabée d'Araj"
+Lang["Q2_5804"] = "Vaincre Araj l'Invocateur et apporter le Scarabée d'Araj à l’apothicaire Dithers à la Barricade, dans les Maleterres de l’ouest."
+Lang["Q1_5511"] = "La clé de Scholomance"
+Lang["Q2_5511"] = "Eh bien voilà, la Clé squelette terminée. Je suis aussi certain que possible que cette clé vous permettra d'entrer dans les confins de Scholomance."
+Lang["Q1_5092"] = "Nettoyer le passage"
+Lang["Q2_5092"] = "Tuer 10 Ecorcheurs Squelettes et 10 Goules écumantes sur la Colline des chagrins."
+Lang["Q1_5097"] = "Tout au long des tours de guet"
+Lang["Q2_5097"] = "À l’aide de la Torche-balise, marquer chaque tour à Andorhal ; il faut se tenir dans l’embrasure de la porte de la tour pour pouvoir la marquer."
+Lang["Q1_5533"] = "Scholomance"
+Lang["Q2_5533"] = "Parler à l’alchimiste Arbington à la pointe du Noroît, dans les Maleterres de l’ouest."
+Lang["Q1_5537"] = "Fragments de squelette"
+Lang["Q2_5537"] = "Apporter 15 Fragments de squelette à l’alchimiste Arbington à la pointe du Noroît, dans les Maleterres de l’ouest."
+Lang["Q1_5538"] = "Moisissure rime avec…"
+Lang["Q2_5538"] = "Apporter les Fragments de squelette imprégnés et 15 pièces d’or à Krinkle Goodsteel à Gadgetzan."
+Lang["Q1_5801"] = "Forgée dans la Fournaise"
+Lang["Q2_5801"] = "Prendre le moule de la Clé squelette et deux barres de thorium au sommet de la crête de la Fournaise dans le cratère d'Un'Goro. Se servir du moule de la Clé squelette pour forger la Clé squelette inachevée."
+Lang["Q1_5803"] = "Le Scarabée d'Araj"
+Lang["Q2_5803"] = "Vaincre Araj l'Invocateur et apporter le Scarabée d'Araj à l’alchimiste Arbington à la pointe du Noroît, dans les Maleterres de l’ouest."
+Lang["Q1_5505"] = "La clé de Scholomance"
+Lang["Q2_5505"] = "Eh bien voilà, la Clé squelette terminée. Je suis aussi certain que possible que cette clé vous permettra d'entrer dans les confins de Scholomance."
+
 
 -- NPC
 Lang["N1_9196"] = "Généralissime Omokk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9196
@@ -943,10 +986,24 @@ Lang["N2_22497"] = "V'eru est dans la même pièce qu'A'dal, mais il est bleu. I
 --v244
 Lang["N1_22113"] = "Mordenai"
 Lang["N2_22113"] = "Un elfe de sang (alerte spoiler, en fait un dragon) qui parcourt les champs de l'Aile-du-néant juste à l'est du Sanctum des étoiles"
+--v247
+Lang["N1_8888"]  = "Franclorn Forgewright"
+Lang["N2_8888"]  = "Un nain fantôme, debout sur sa propre tombe À L'EXTÉRIEUR du donjon, dans la structure suspendue au-dessus de la lave. Vous ne pouvez interagir avec lui que si vous êtes MORT."
+Lang["N1_9056"]  = "Fineous Darkvire"
+Lang["N2_9056"]  = "Il est À L'INTÉRIEUR du donjon et patrouille dans la carrière à l'extérieur de la chambre de Lord Incendius."
+Lang["N1_10837"] = "Grand exécuteur Derrington"
+Lang["N2_10837"] = "Il peut être trouvé au Rempart, près de la frontière de Tirisfal et des Maleterres de l'Ouest"
+Lang["N1_10838"] = "Commandant Ashlam Valorfist"
+Lang["N2_10838"] = "Il peut être trouvé au Chillwind Camp, juste au sud d'Andorhal dans les Maleterres de l'Ouest"
+Lang["N1_1852"]  = "Araj l'Invocateur"
+Lang["N2_1852"]  = "Le Lich, au coeur d'Andorhal"
 
 
 Lang["O_1"] = "Cliquez sur la Marque de Drakkisath pour compléter la quête.\nC'est le globe brillant qui se trouve juste drrière Drakkisath."
 Lang["O_2"] = "C'est un minuscule point rouge brillant sur le sol\nen face des portes d'Ahn'Qiraj (28.7,89.2)."
+--v247
+Lang["O_3"] = "Le sanctuaire est situé au bout d'un couloir\nqui part du niveau supérieur de l'Anneau de la Loi."
+
 
 -- à : \195\160    è : \195\168    ì : \195\172    ò : \195\178    ù : \195\185
 -- á : \195\161    é : \195\169    í : \195\173    ó : \195\179    ú : \195\186

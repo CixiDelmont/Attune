@@ -12,13 +12,17 @@
 Attune_Data.attunes = 	{
 --	{ID="0",NAME="Debug",EXPAC="Testing", GROUP='MISC', FACTION="Both",ICON="Interface\\Icons\\inv_misc_questionmark", "This is a simple debug attune, not to be used by non-developers"},
 --	{ID="1",NAME="Test multiple items",EXPAC="Testing", GROUP='MISC', FACTION="Both",ICON="Interface\\Icons\\inv_fabric_linen_01", "This is a simple debug attune, not to be used by non-developers"},
+	--vanilla
 	{ID="2",NAME=Lang["Molten Core"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_unique_sulfuras", DESC=Lang["MC_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="3",NAME=Lang["Onyxia's Lair"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_dragon_01", DESC=Lang["Ony_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="4",NAME=Lang["Onyxia's Lair"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_01", DESC=Lang["Ony_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="5",NAME=Lang["Blackwing Lair"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=Lang["BWL_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="6",NAME=Lang["Naxxramas"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_trinket_naxxramas06", DESC=Lang["All_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="10",NAME=Lang["Scepter of the Shifting Sands"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_25", DESC=Lang["AQ_Desc"]},
-
+	{ID="12",NAME=Lang["Blackrock Depths"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=Lang["OnlyOne_Desc"]},
+	{ID="14",NAME=Lang["Scholomance"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_11", DESC=Lang["OnlyOne_Desc"]},
+	{ID="15",NAME=Lang["Scholomance"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['KEYS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_11", DESC=Lang["OnlyOne_Desc"]},
+	--TBC
 	{ID="20",NAME=Lang["The Shattered Halls"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['KEYS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_kargathbladefist_01", DESC=Lang["OnlyOne_Desc"]},
 	{ID="21",NAME=Lang["The Shattered Halls"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['KEYS'], FACTION="Alliance",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_kargathbladefist_01", DESC=Lang["OnlyOne_Desc"]},
 	{ID="80",NAME=Lang["The Arcatraz"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['KEYS'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_harbinger_skyriss", DESC=Lang["OnlyOne_Desc"]},
@@ -290,6 +294,62 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="10",ID="960",TYPE="Quest",STEP="",LOCATION=Lang["Silithus"],ID_WOWHEAD="8745",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="940",STAGE="380"},
 	{ID_ATTUNE="10",ID="970",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="",ICON="Interface\\Icons\\inv_hammer_25",FOLLOWS="960",STAGE="390"},
 	
+
+
+
+
+--v247
+	{ID_ATTUNE="12",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 48",LOCATION="",ID_WOWHEAD="48",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="12",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="8888",ICON="Interface\\Icons\\achievement_character_dwarf_male",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="12",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="3801",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="12",ID="40",TYPE="Pick Up",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="3802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="12",ID="50",TYPE="Kill",STEP="",LOCATION=Lang["Blackrock Depths"],ID_WOWHEAD="9056",ICON="Interface\\Icons\\Inv_misc_head_dwarf_01",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="12",ID="60",TYPE="Click",STEP=Lang["Shrine of Thaurissan"],LOCATION=Lang["Blackrock Depths"],ID_WOWHEAD="3",ICON="Interface\\Icons\\inv_hammer_23",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="12",ID="65",TYPE="Turn In",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="3802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65"},
+	{ID_ATTUNE="12",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="65",STAGE="70"},
+
+
+	{ID_ATTUNE="14",ID="4",TYPE="Level",STEP=Lang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="4"},
+	{ID_ATTUNE="14",ID="6",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5096",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="4",STAGE="6"},
+	{ID_ATTUNE="14",ID="7",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5098",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="6",STAGE="7"},
+	{ID_ATTUNE="14",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="7",STAGE="10"},
+	{ID_ATTUNE="14",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="10837",ICON="Interface\\Icons\\inv_misc_head_undead_01",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="14",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="838",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="14",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="964",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="14",ID="50",TYPE="Pick Up",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5514",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="14",ID="60",TYPE="Turn In",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="5514",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="14",ID="70",TYPE="Pick Up",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="5802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="14",ID="80",TYPE="Turn In",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="14",ID="90",TYPE="Pick Up",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5804",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"},
+	{ID_ATTUNE="14",ID="100",TYPE="Kill",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="1852",ICON="Interface\\Icons\\spell_frost_frostarmor",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="14",ID="110",TYPE="Item",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="14610",ICON="Interface\\Icons\\spell_shadow_grimward",FOLLOWS="100",STAGE="110"},
+	{ID_ATTUNE="14",ID="120",TYPE="Turn In",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5804",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"},
+	{ID_ATTUNE="14",ID="130",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5511",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"},
+	{ID_ATTUNE="14",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_11",FOLLOWS="130",STAGE="140"},
+	
+	{ID_ATTUNE="15",ID="4",TYPE="Level",STEP=Lang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="4"},
+	{ID_ATTUNE="15",ID="6",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5092",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="4",STAGE="6"},
+	{ID_ATTUNE="15",ID="7",TYPE="Quest",STEP="",LOCATION=Lang["Tirisfal Glades"],ID_WOWHEAD="5097",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="6",STAGE="7"},
+	{ID_ATTUNE="15",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="7",STAGE="10"},
+	{ID_ATTUNE="15",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="10838",ICON="Interface\\Icons\\inv_bannerpvp_02",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="15",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5533",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="15",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5537",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="15",ID="50",TYPE="Pick Up",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5538",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="15",ID="60",TYPE="Turn In",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="5538",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="15",ID="70",TYPE="Pick Up",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="5801",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="15",ID="80",TYPE="Turn In",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5801",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="15",ID="90",TYPE="Pick Up",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5803",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"},
+	{ID_ATTUNE="15",ID="100",TYPE="Kill",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="1852",ICON="Interface\\Icons\\spell_frost_frostarmor",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="15",ID="110",TYPE="Item",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="14610",ICON="Interface\\Icons\\spell_shadow_grimward",FOLLOWS="100",STAGE="110"},
+	{ID_ATTUNE="15",ID="120",TYPE="Turn In",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5803",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"},
+	{ID_ATTUNE="15",ID="130",TYPE="Quest",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"},
+	{ID_ATTUNE="15",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_11",FOLLOWS="130",STAGE="140"},
+
+
+
+
+--TBC
+
 	{ID_ATTUNE="20",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 68",LOCATION="",ID_WOWHEAD="68",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="20",ID="20",TYPE="Kill",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="22037",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="10",STAGE="20"},
 	{ID_ATTUNE="20",ID="30",TYPE="Item",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="31241",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="20",STAGE="30"},
@@ -797,8 +857,10 @@ Attune_Data.quests = {
 	[10706]={69,1},			[10707]={68,5},			[10708]={70,1},			[10944]={70,1},			[10946]={70,25},		[10947]={70,25},		[10948]={70,1},
 	[10949]={70,1},			[10985]={70,1},			[10984]={70,1},			[10983]={70,1},			[10995]={70,5},			[10996]={70,5},			[10997]={70,5},
 	[10998]={70,5},			[11000]={70,5},			[11022]={70,1},			[11009]={70,1},			[10804]={70,1},			[10811]={70,1},			[10814]={70,1},
-	[10836]={70,1},			[10837]={70,1},			[10854]={70,1},			[10858]={70,1},			[10866]={70,5},			[10870]={70,1},
-	
+	[10836]={70,1},			[10837]={70,1},			[10854]={70,1},			[10858]={70,1},			[10866]={70,5},			[10870]={70,1},			[3801]={48,1},
+	[3802]={48, 5},			[838]={55,1},			[964]={55,1},			[5514]={55,1},			[5537]={55,1},			[5802]={55,1},			[5804]={55,3},
+	[5511]={55,1},			[5803]={55,3},			[5533]={55,1},			[5538]={55,1},			[5801]={55,1},			[5097]={50,1},			[5098]={50,1},
+	[5505]={50,1},			[5096]={50,1},			[5092]={50,1},
 }
 
 -- level, type, kind, desc
@@ -885,4 +947,9 @@ Attune_Data.npcs = {
 	[22497] = { "72", Lang["Elite"], Lang["Shiny thingy"]},	
 	[22941] = { "68", "", Lang["Ogre"]},
 	[22113] = { "71", Lang["Elite"], Lang["Dragonkin (in Blood Elf form)"]},		
+	[8888]  = { "60", Lang["Elite"], Lang["Dwarf"]}, 
+	[9056]  = { "54", Lang["Elite"], Lang["Dwarf"]},
+	[10837] = { "61", "", Lang["Undead"] },
+	[10838] = { "61", "", Lang["Human"] },
+	[1852]  = { "61", Lang["Elite"], Lang["Undead"] },
 }

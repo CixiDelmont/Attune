@@ -145,6 +145,9 @@ Lang["HEROICS"] = "HEROICS"
 --v244
 Lang["Ally of the Netherwing"] = "Ally of the Netherwing"
 Lang["Netherwing_Desc"] = "The Netherwing is a faction of dragons located in Outland."
+--v247
+Lang["Tirisfal Glades"] = "Tirisfal Glades"
+Lang["Scholomance"] = "Scholomance"
 
 
 -- OPTIONS
@@ -414,6 +417,9 @@ Lang["I_29905"] = "Kael's Vial Remnant"			-- https://www.thegeekcrusade-serveur.
 Lang["I_29906"] = "Vashj's Vial Remnant"			-- https://www.thegeekcrusade-serveur.com/db/?item=29906
 Lang["I_31307"] = "Heart of Fury"			-- https://www.thegeekcrusade-serveur.com/db/?item=31307
 Lang["I_32649"] = "Medaillon of Karabor"			-- https://www.thegeekcrusade-serveur.com/db/?item=32649
+--v247
+Lang["Shrine of Thaurissan"] = "Shrine of Thaurissan"
+Lang["I_14610"] = "Araj's Scarab"
 
 
 -- QUESTS - Classic
@@ -782,6 +788,43 @@ Lang["Q1_10866"] = "Zuluhed the Whacked"			-- https://www.thegeekcrusade-serveur
 Lang["Q2_10866"] = "Kill Zuluhed the Whacked and recover Zuluhed's Key. Use Zuluhed's Key on Zuluhed's Chains to free Karynaku."
 Lang["Q1_10870"] = "Ally of the Netherwing"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10870
 Lang["Q2_10870"] = "Let Karynaku return you to Mordenai in the Netherwing Fields."
+--v247
+Lang["Q1_3801"] = "Dark Iron Legacy"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3801
+Lang["Q2_3801"] = "Speak with Franclorn Forgewright if you are interested in obtaining a key to the city major."
+Lang["Q1_3802"] = "Dark Iron Legacy"			-- https://www.thegeekcrusade-serveur.com/db/?quest=3802
+Lang["Q2_3802"] = "Slay Fineous Darkvire and recover the great hammer, Ironfel. Take Ironfel to the Shrine of Thaurissan and place it on the statue of Franclorn Forgewright."
+Lang["Q1_5096"] = "Scarlet Diversions"
+Lang["Q2_5096"] = "Proceed to the Scarlet Crusade's base camp between Felstone Field and Dalson's Tears and destroy their command tent."
+Lang["Q1_5098"] = "All Along the Watchtowers"
+Lang["Q2_5098"] = "Using the Beacon Torch, mark each tower in Andorhal; you will need to stand in the doorway of the tower to successfully mark it."
+Lang["Q1_838"] = "Scholomance"
+Lang["Q2_838"] = "Speak with Apothecary Dithers at the Bulwark, Western Plaguelands."
+Lang["Q1_964"] = "Skeletal Fragments"
+Lang["Q2_964"] = "Bring 15 Skeletal Fragments to Apothecary Dithers at the Bulwark, Western Plaguelands."
+Lang["Q1_5514"] = "Mold Rhymes With..."
+Lang["Q2_5514"] = "Bring the Imbued Skeletal Fragments and 15 gold coins to Krinkle Goodsteel in Gadgetzan."
+Lang["Q1_5802"] = "Fire Plume Forged"
+Lang["Q2_5802"] = "Take the Skeleton Key Mold and 2 Thorium Bars to the top of Fire Plume Ridge in Un'Goro Crater. Use the Skeleton Key Mold by the lava lake to forge the Unfinished Skeleton Key."
+Lang["Q1_5804"] = "Araj's Scarab"
+Lang["Q2_5804"] = "Destroy Araj the Summoner and bring Araj's Scarab to Apothecary Dithers at the Bulwark, Western Plaguelands."
+Lang["Q1_5511"] = "The Key to Scholomance"
+Lang["Q2_5511"] = "Well, here you are - the completed Skeleton Key.  I am certain as I can be that this key will allow you within the confines of the Scholomance. "
+Lang["Q1_5092"] = "Clear the Way"
+Lang["Q2_5092"] = "Kill 10 Skeletal Flayers and 10 Slavering Ghouls in Sorrow Hill."
+Lang["Q1_5097"] = "All Along the Watchtowers"
+Lang["Q2_5097"] = "Using the Beacon Torch, mark each tower in Andorhal; you will need to stand in the doorway of the tower to successfully mark it."
+Lang["Q1_5533"] = "Scholomance"
+Lang["Q2_5533"] = "Speak with Alchemist Arbington at Chillwind Point, Western Plaguelands."
+Lang["Q1_5537"] = "Skeletal Fragments"
+Lang["Q2_5537"] = "Bring 15 Skeletal Fragments to Alchemist Arbington at Chillwind Point, Western Plaguelands."
+Lang["Q1_5538"] = "Mold Rhymes With..."
+Lang["Q2_5538"] = "Bring the Imbued Skeletal Fragments and 15 gold coins to Krinkle Goodsteel in Gadgetzan."
+Lang["Q1_5801"] = "Fire Plume Forged"
+Lang["Q2_5801"] = "Take the Skeleton Key Mold and 2 Thorium Bars to the top of Fire Plume Ridge in Un'Goro Crater. Use the Skeleton Key Mold by the lava lake to forge the Unfinished Skeleton Key."
+Lang["Q1_5803"] = "Araj's Scarab"
+Lang["Q2_5803"] = "Destroy Araj the Summoner and bring Araj's Scarab to Alchemist Arbington at Chillwind Point, Western Plaguelands."
+Lang["Q1_5505"] = "The Key to Scholomance"
+Lang["Q2_5505"] = "Well, here you are - the completed Skeleton Key.  I am certain as I can be that this key will allow you within the confines of the Scholomance. "
 	
 
 -- NPC
@@ -943,7 +986,21 @@ Lang["N2_22497"] = "V'eru is in the same room as A'dal, but he's blue. He's on t
 --v244
 Lang["N1_22113"] = "Mordenai"
 Lang["N2_22113"] = "A Blood Elf (spoiler alert, actually a dragon) who walks the Netherwing Fields just east of the Sanctum of the Stars"
+--v247
+Lang["N1_8888"]  = "Franclorn Forgewright"
+Lang["N2_8888"]  = "A ghost dwarf, standing on his own tomb OUTSIDE the dungeon, in the structure suspended above the lava. You can only interact with him if you are DEAD."
+Lang["N1_9056"]  = "Fineous Darkvire"
+Lang["N2_9056"]  = "He is INSIDE the dungeon, and patrols the quarry area outside of Lord Incendius' chamber."
+Lang["N1_10837"] = "High Executor Derrington"
+Lang["N2_10837"] = "He can be found at the Bulwark, near the border of Tirisfal and Western Plaguelands"
+Lang["N1_10838"] = "Commander Ashlam Valorfist"
+Lang["N2_10838"] = "He can be found at Chillwind Camp, just south of Andorhal in the Western Plaguelands"
+Lang["N1_1852"]  = "Araj the Summoner"
+Lang["N2_1852"]  = "The Lich, in the middle of Andorhal"
 
 
 Lang["O_1"] = "Click Drakkisath's Brand to complete the quest.\nIt's a glowing orb located behind General Drakkisath."
 Lang["O_2"] = "It's a tiny glowing red dot on the ground\nin front of the gates of Ahn'Qiraj (28.7,89.2)."
+--v247
+Lang["O_3"] = "The shrine is located at the end of a corridor\nthat starts from the upper level of the Ring of Law."
+

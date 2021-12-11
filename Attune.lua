@@ -8,11 +8,9 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 244
---	Added the Netherwing quest chain
---  Updated some German/Russian translations
---  Added a fix to the IsNext flag. People listed on step lists should now be correct
---  expanding or collapsing part of the treeview also hides those attunements from the result view
+-- Done in 247
+--	Added the BRD and Scholo key chains
+--  Updated some French translations
 
 
 -------------------------------------------------------------------------
@@ -33,7 +31,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "246"  					-- change here, and in TOC x2
+local attunelocal_version = "247"  					-- change here, and in TOC x2
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -1382,6 +1380,11 @@ function Attune_CheckComplete(newComplete)
 	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
 	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
 	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
+
+	if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
+	if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
+	if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
+
 
 	-- TBC
 	if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end		-- SH Horde
