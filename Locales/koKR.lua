@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "황천의 용군단은 아웃랜드에 위치한 드�
 --v247
 Lang["Tirisfal Glades"] = "티리스팔 숲"
 Lang["Scholomance"] = "스칼로맨스"
+--v248
+Lang["Target"] = "대상"
+Lang["SendingSurveyTo"] = "##TO## 에게 설문조사 보내기"
 
 
 -- OPTIONS

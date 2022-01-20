@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "虛空之翼是位於外域的一個龍派系。"
 --v247
 Lang["Tirisfal Glades"] = "提瑞斯法林地"
 Lang["Scholomance"] = "通灵学院"
+--v248
+Lang["Target"] = "目標"
+Lang["SendingSurveyTo"] = "向 ##TO## 發送調查"
 
 
 -- OPTIONS

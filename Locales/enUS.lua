@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "The Netherwing is a faction of dragons located in Out
 --v247
 Lang["Tirisfal Glades"] = "Tirisfal Glades"
 Lang["Scholomance"] = "Scholomance"
+--v248
+Lang["Target"] = "Target"
+Lang["SendingSurveyTo"] = "Sending survey to ##TO##"
 
 
 -- OPTIONS

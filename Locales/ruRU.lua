@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "Крылья Пустоты - это фракция �
 --v247
 Lang["Tirisfal Glades"] = "Тирисфальские леса"
 Lang["Scholomance"] = "Некроситет"
+--v248
+Lang["Target"] = "Цель"
+Lang["SendingSurveyTo"] = "Отправка опроса ##TO##"
 
 
 -- OPTIONS

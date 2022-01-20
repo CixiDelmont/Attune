@@ -8,9 +8,8 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 247
---	Added the BRD and Scholo key chains
---  Updated some French translations
+-- Done in 249
+--	ToC updated for Phase 3 of TBCC
 
 
 -------------------------------------------------------------------------
@@ -31,7 +30,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "247"  					-- change here, and in TOC x2
+local attunelocal_version = "249	"  					-- change here, and in TOC x2
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -1714,6 +1713,14 @@ function Attune_Frame()
 		attunelocal_survey_frame:SetWidth(160)
 		attunelocal_survey_frame:SetPoint("TOPLEFT", surveybutton,"BOTTOMLEFT", 0, 10)
 		attunelocal_survey_frame.frame:Hide()
+
+		local surveyTarget = AceGUI:Create("Button")
+		surveyTarget:SetText(Lang["Target"])
+		surveyTarget:SetCallback("OnClick", function()
+			attunelocal_survey_frame.frame:Hide()
+			Attune_SendRequest("Target|" .. UnitName("target"))
+		end)
+		attunelocal_survey_frame:AddChild(surveyTarget)
 
 		local surveyGuild = AceGUI:Create("Button")
 		surveyGuild:SetText(Lang["Guild"])
@@ -3561,9 +3568,18 @@ end
 -------------------------------------------------------------------------
 
 function Attune_SendRequest(what)
+
+	local IsTarget = Attune_split(what, "|")
+
 	Attune_DB.survey = {}
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingSurveyWhat"]:gsub("##WHAT##", Lang[what])) end
-	Attune:SendCommMessage(attunelocal_prefix, "SURVEY", string.upper(what), "");
+	if IsTarget[1] == "Target" then 
+		local tar = IsTarget[2] .. "-" .. attunelocal_realm
+		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingSurveyTo"]:gsub("##TO##", tar)) end
+		Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "WHISPER", tar);
+	else
+		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingSurveyWhat"]:gsub("##WHAT##", Lang[what])) end
+		Attune:SendCommMessage(attunelocal_prefix, "SURVEY", string.upper(what), "");
+	end
 
 end
 
@@ -4525,6 +4541,9 @@ function Attune_SlashCommandHandler( msg )
 		else 
 			Attune_RaidPlannerFrame()
 		end
+
+	elseif (msg ~= '') then 
+		Attune_SendRequest("Target|"..msg);
 
 	elseif attunelocal_initial == false and attunelocal_frame:IsShown() then
 		attunelocal_frame:Hide()

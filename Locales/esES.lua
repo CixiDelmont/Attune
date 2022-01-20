@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "El Ala Abisal es una facción de dragones ubicada en 
 --v247
 Lang["Tirisfal Glades"] = "Claros de Tirisfal"
 Lang["Scholomance"] = "Scholomance"
+--v248
+Lang["Target"] = "Objetivo"
+Lang["SendingSurveyTo"] = "Enviando encuesta a ##TO## "
 
 
 -- OPTIONS

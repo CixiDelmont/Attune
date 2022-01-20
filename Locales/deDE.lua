@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "Die Netherwing ist eine Drachenfraktion in der Scherb
 --v247
 Lang["Tirisfal Glades"] = "Tirisfal"
 Lang["Scholomance"] = "Scholomance"
+--v248
+Lang["Target"] = "Ziel"
+Lang["SendingSurveyTo"] = "Umfrage wird an ##TO## gesendet"
 
 
 -- OPTIONS

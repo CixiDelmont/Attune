@@ -148,6 +148,9 @@ Lang["Netherwing_Desc"] = "L'Aile-du-néant est une faction de dragons située e
 --v247
 Lang["Tirisfal Glades"] = "Clairières de Tirisfal"
 Lang["Scholomance"] = "Scholomance"
+--v248
+Lang["Target"] = "Cible"
+Lang["SendingSurveyTo"] = "Envoi d'un sondage discret à ##TO## "
 
 
 -- OPTIONS
