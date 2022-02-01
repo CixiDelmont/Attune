@@ -224,6 +224,9 @@ Lang["Heroic_Desc"] = "Todos los miembro de la banda tiene que tener la reputaci
 Lang["NB_Desc"] = "Solo un miembro de la banda debe tener la Urna ennegrecida para poder invocar a Nocturno."
 Lang["BT_Desc"] = "Todos los miembros de la banda deben tener el Medallón de Karabor para entrar en la instancia de banda."
 Lang["BM_Desc"] = "Todos los miembros del grupo deben completar la cadena de misiones para poder acceder a la instancia." 
+--v250
+Lang["Aqual Quintessence"] = "Quintaesencia de agua"
+Lang["MC2_Desc"] = "Se utiliza para convocar a Mayordomo Executus. Todos los jefes de Molten Core, excepto Lucifron y Geddon, tienen runas en el suelo que deben rociarse para que aparezca Executus." 
 
 
 -- GENERIC
@@ -423,6 +426,12 @@ Lang["I_32649"] = "Medallón de Karabor"			-- https://es.tbc.wowhead.com/item=32
 --v247
 Lang["Shrine of Thaurissan"] = "Santuario de Thaurissan"
 Lang["I_14610"] = "El escarabajo de Araj"
+--v250
+Lang["I_17332"] = "Mano de Shazzrah"
+Lang["I_17329"] = "Mano de Lucifron"
+Lang["I_17331"] = "Mano de Gehennas"
+Lang["I_17330"] = "Mano de Sulfuron"
+Lang["I_17333"] = "Quintaesencia de agua"
 
 
 -- QUESTS - Classic
@@ -828,6 +837,21 @@ Lang["Q1_5803"] = "El escarabajo de Araj"
 Lang["Q2_5803"] = "Destruye a Araj el Invocador y lleva el Escarabeo de Araj al alquimista Arbington en el Alto del Orvallo, en las Tierras de la Peste del Oeste."
 Lang["Q1_5505"] = "La llave de Scholomance"
 Lang["Q2_5505"] = "Bien, aquí estás, Y has completado la llave esqueleto. No tengo dudas de que esta llave te permitirá acceder a los confines de Scholomance."
+--v250
+Lang["Q1_6804"] = "Agua envenenada"
+Lang["Q2_6804"] = "Aplica el aspecto de Neptulon a los elementales infectados de las Tierras de la Peste del Este. Lleva 12 de sus brazales de vínculo y el aspecto de Neptulon al duque Hydraxis a Azshara."
+Lang["Q1_6805"] = "Sirocosos y reptarenas"
+Lang["Q2_6805"] = "Mata a 15 sirocosos y 15 reptarenas y ve a hablar con el duque Hydraxis en Azshara."
+Lang["Q1_6821"] = "Ojo de brasadivino"
+Lang["Q2_6821"] = "Lleva el ojo del Piroguardián brasadivino al duque Hydraxis a Azshara."
+Lang["Q1_6822"] = "El Núcleo de Magma"
+Lang["Q2_6822"] = "Mata a 1 Señor del Fuego, 1 gigante fundido, 1 canino del Núcleo y 1 marea de lava y ve a ver al duque Hydraxis a Azshara."
+Lang["Q1_6823"] = "Agente de Hydraxis"
+Lang["Q2_6823"] = "Consigue una mención de honor de los Señores del Agua y habla con el duque Hydraxis en Azshara."
+Lang["Q1_6824"] = "Las manos de los enemigos"
+Lang["Q2_6824"] = "Lleva las manos de Lucifron, Sulfuron, Gehennas y Shazzrah al duque Hydraxis a Azshara."
+Lang["Q1_7486"] = "Una recompensa de héroe"
+Lang["Q2_7486"] = "Recoge tu recompensa en el arca de Hydraxis."
 
 
 -- NPC
@@ -1000,6 +1024,17 @@ Lang["N1_10838"] = "Comandante Ashlam Puñovalor"
 Lang["N2_10838"] = "Se le puede encontrar en el Campamento Viento Gélido, al sur de Andorhal en las Tierras de la Peste del Oeste."
 Lang["N1_1852"]  = "Araj el Invocador"
 Lang["N2_1852"]  = "El Lich, en medio de Andorhal"
+--v250
+Lang["N1_13278"]  = "Duque Hydraxis"
+Lang["N2_13278"]  = "Un elemental de agua grande en una pequeña isla lejana en Azshara (79.2,73.6)"
+Lang["N1_12264"]  = "Shazzrah"
+Lang["N2_12264"]  = "Shazzrah es el quinto jefe de Núcleo de Magma."
+Lang["N1_12118"]  = "Lucifron"
+Lang["N2_12118"]  = "Lucifron es el primer jefe de Núcleo de Magma."
+Lang["N1_12259"]  = "Gehennas"
+Lang["N2_12259"]  = "Gehennas es el tercer jefe de Núcleo de Magma."
+Lang["N1_12098"]  = "Sulfuron Presagista"
+Lang["N2_12098"]  = "Sulfuron Presagista, heraldo de Ragnaros, es el octavo jefe de Núcleo de Magma."
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."

@@ -224,6 +224,9 @@ Lang["Heroic_Desc"] = "Alle Mitglieder der Gruppe müssen sowohl den Ruf als auc
 Lang["NB_Desc"] = "Nur ein Mitglied des Raids benötigt die Urne um den Schrecken der Nacht zu beschwören."
 Lang["BT_Desc"] = "Alle Mitglieder des Raids müssen das Medaillion von Karabor dabei haben um den Raid zu betreten."
 Lang["BM_Desc"] = "Alle Mitglieder der Gruppe müssen die Questkette abschließen, um in die Instanz einzusteigen." 
+--v250
+Lang["Aqual Quintessence"] = "Wässrige Quintessenz"
+Lang["MC2_Desc"] = "Wird verwendet, um Majordomus Executus zu beschwören. Jeder Boss in Molten Core außer Lucifron und Geddon hat Runen auf dem Boden, die gelöscht werden müssen, damit Executus spawnen kann." 
 
 
 -- GENERIC
@@ -423,6 +426,12 @@ Lang["I_32649"] = "Medaillon von Karabor"			-- https://de.tbc.wowhead.com/item=3
 --v247
 Lang["Shrine of Thaurissan"] = "Schrein von Thaurissan"
 Lang["I_14610"] = "Arajs Skarabäus"
+--v250
+Lang["I_17332"] = "Hand von Shazzrah"
+Lang["I_17329"] = "Hand von Lucifron"
+Lang["I_17331"] = "Hand von Gehennas"
+Lang["I_17330"] = "Hand von Sulfuron"
+Lang["I_17333"] = "Wässrige Quintessenz"
 
 
 -- QUESTS - Classic
@@ -828,7 +837,22 @@ Lang["Q1_5803"] = "Arajs Skarabäus"
 Lang["Q2_5803"] = "Zerstört Araj den Beschwörer und bringt Arajs Skarabäus zum Alchimisten Arbington an der Chillwindspitze in den westlichen Pestländern."
 Lang["Q1_5505"] = "Der Schlüssel zur Scholomance"
 Lang["Q2_5505"] = "Tja, da ist er, der fertige Skelettschlüssel. Ich bin eigentlich absolut sicher, dass dieser Schlüssel Euch Zutritt zur Scholomance verschaffen wird."
-	
+--v250
+Lang["Q1_6804"] = "Vergiftetes Wasser"
+Lang["Q2_6804"] = "Wendet den Aspekt von Neptulon auf die vergifteten Elementare der östlichen Pestländer an. Bringt 12 disharmonische Armschienen, sowie den Aspekt von Neptulon zu Fürst Hydraxis in Azshara."
+Lang["Q1_6805"] = "Stürmer und Rumpler"
+Lang["Q2_6805"] = "Tötet 15 Staubstürmer und 15 Wüstenrumpler und kehrt dann zu Fürst Hydraxis in Azshara zurück."
+Lang["Q1_6821"] = "Auge des Glutsehers"
+Lang["Q2_6821"] = "Bringt das Auge des Glutsehers zu Fürst Hydraxis in Azshara."
+Lang["Q1_6822"] = "Der geschmolzene Kern"
+Lang["Q2_6822"] = "Tötet 1 Feuerlord, 1 geschmolzenen Riesen, 1 uralten Kernhund sowie 1 Lavawoger und kehrt dann zu Fürst Hydraxis in Azshara zurück."
+Lang["Q1_6823"] = "Agent von Hydraxis"
+Lang["Q2_6823"] = "Verdient Euch eine geehrte Fraktion bei den hydraxianischen Wasserlords und sprecht dann mit Fürst Hydraxis in Azshara."
+Lang["Q1_6824"] = "Hände des Feindes"
+Lang["Q2_6824"] = "Bringt die Hände von Lucifron, Sulfuron, Gehennas und Shazzrah zu Fürst Hydraxis in Azshara."
+Lang["Q1_7486"] = "Die Belohnung eines Helden"
+Lang["Q2_7486"] = "Nehmt Eure Belohnung aus Hydraxis' Kasten."
+
 
 -- NPC
 Lang["N1_9196"] = "Hochlord Omokk"	-- https://de.tbc.wowhead.com/npc=9196
@@ -1000,6 +1024,17 @@ Lang["N1_10838"] = "Kommandant Ashlam Valorfist"
 Lang["N2_10838"] = "Er befindet sich im Chillwind Camp, südlich von Andorhal in den Westlichen Pestländern"
 Lang["N1_1852"]  = "Araj der Beschwörer"
 Lang["N2_1852"]  = "Der Lich, mitten in Andorhal"
+--v250
+Lang["N1_13278"]  = "Fürst Hydraxis"
+Lang["N2_13278"]  = "Ein großer Wasserelementar auf einer winzigen, weit entfernten Insel in Azshara (79.2,73.6)"
+Lang["N1_12264"]  = "Shazzrah"
+Lang["N2_12264"]  = "Shazzrah ist der fünfte Boss von den geschmolzenen Kern."
+Lang["N1_12118"]  = "Lucifron"
+Lang["N2_12118"]  = "Lucifron ist der erste Boss von den geschmolzenen Kern."
+Lang["N1_12259"]  = "Gehennas"
+Lang["N2_12259"]  = "Gehennas ist der dritte Boss von den geschmolzenen Kern."
+Lang["N1_12098"]  = "Sulfuronherold"
+Lang["N2_12098"]  = "Sulfuron, herold von Ragnaros, ist der achte Boss von den geschmolzenen Kern."
 
 
 Lang["O_1"] = "Klicke auf Drakkisaths Brandzeichen um die Quest abzuschließen.\nEs ist der glühende Ball hinter General Drakkisath."

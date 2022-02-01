@@ -18,6 +18,7 @@ Attune_Data.attunes = 	{
 	{ID="4",NAME=Lang["Onyxia's Lair"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_01", DESC=Lang["Ony_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="5",NAME=Lang["Blackwing Lair"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=Lang["BWL_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 	{ID="6",NAME=Lang["Naxxramas"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_trinket_naxxramas06", DESC=Lang["All_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
+	{ID="8",NAME=Lang["Aqual Quintessence"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_potion_76", DESC=Lang["MC2_Desc"]},
 	{ID="10",NAME=Lang["Scepter of the Shifting Sands"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_25", DESC=Lang["AQ_Desc"]},
 	{ID="12",NAME=Lang["Blackrock Depths"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=Lang["OnlyOne_Desc"]},
 	{ID="14",NAME=Lang["Scholomance"],EXPAC=Lang["World of Warcraft"], GROUP=Lang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_11", DESC=Lang["OnlyOne_Desc"]},
@@ -295,9 +296,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="10",ID="970",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="",ICON="Interface\\Icons\\inv_hammer_25",FOLLOWS="960",STAGE="390"},
 	
 
-
-
-
 --v247
 	{ID_ATTUNE="12",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 48",LOCATION="",ID_WOWHEAD="48",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="12",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Blackrock Mountain"],ID_WOWHEAD="8888",ICON="Interface\\Icons\\achievement_character_dwarf_male",FOLLOWS="10",STAGE="20"},
@@ -344,6 +342,31 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="15",ID="120",TYPE="Turn In",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5803",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"},
 	{ID_ATTUNE="15",ID="130",TYPE="Quest",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="5505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"},
 	{ID_ATTUNE="15",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_11",FOLLOWS="130",STAGE="140"},
+
+
+--v250
+	{ID_ATTUNE="8",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="8",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["Azshara"],ID_WOWHEAD="13278",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="8",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["Western Plaguelands"],ID_WOWHEAD="6804",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="8",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Silithus"],ID_WOWHEAD="6805",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="8",ID="50",TYPE="Quest",STEP="",LOCATION=Lang["Upper Blackrock Spire"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30&40",STAGE="40"},
+	{ID_ATTUNE="8",ID="60",TYPE="Quest",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="6822",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="50"},
+	{ID_ATTUNE="8",ID="68",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="0",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="8",ID="70",TYPE="Pick Up",STEP="",LOCATION=Lang["Azshara"],ID_WOWHEAD="6823",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="60"},
+	{ID_ATTUNE="8",ID="80",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Hydraxian Waterlords"],LOCATION="749",ID_WOWHEAD="9000",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="8",ID="90",TYPE="Turn In",STEP="",LOCATION=Lang["Azshara"],ID_WOWHEAD="6823",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70&80",STAGE="80"},
+	{ID_ATTUNE="8",ID="100",TYPE="Pick Up",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="6824",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="90"},
+	{ID_ATTUNE="8",ID="110",TYPE="Kill",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="12264",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-blue",FOLLOWS="100",STAGE="100"},
+	{ID_ATTUNE="8",ID="120",TYPE="Kill",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="12118",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-gray",FOLLOWS="100",STAGE="100"},
+	{ID_ATTUNE="8",ID="130",TYPE="Kill",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="12259",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100"},
+	{ID_ATTUNE="8",ID="140",TYPE="Kill",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="12098",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100"},
+	{ID_ATTUNE="8",ID="150",TYPE="Item",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="17332",ICON="Interface\\Icons\\inv_gauntlets_19",FOLLOWS="110",STAGE="110"},
+	{ID_ATTUNE="8",ID="160",TYPE="Item",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="17329",ICON="Interface\\Icons\\inv_gauntlets_26",FOLLOWS="120",STAGE="110"},
+	{ID_ATTUNE="8",ID="170",TYPE="Item",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="17331",ICON="Interface\\Icons\\spell_fire_immolation",FOLLOWS="130",STAGE="110"},
+	{ID_ATTUNE="8",ID="180",TYPE="Item",STEP="",LOCATION=Lang["Molten Core"],ID_WOWHEAD="17330",ICON="Interface\\Icons\\inv_gauntlets_03",FOLLOWS="140",STAGE="110"},
+	{ID_ATTUNE="8",ID="190",TYPE="Turn In",STEP="",LOCATION=Lang["Azshara"],ID_WOWHEAD="6824",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150&160&170&180",STAGE="120"},
+	{ID_ATTUNE="8",ID="200",TYPE="Quest",STEP="",LOCATION=Lang["Azshara"],ID_WOWHEAD="7486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="130"},
+	{ID_ATTUNE="8",ID="210",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_potion_76",FOLLOWS="200",STAGE="140"},
 
 
 
@@ -860,7 +883,9 @@ Attune_Data.quests = {
 	[10836]={70,1},			[10837]={70,1},			[10854]={70,1},			[10858]={70,1},			[10866]={70,5},			[10870]={70,1},			[3801]={48,1},
 	[3802]={48, 5},			[838]={55,1},			[964]={55,1},			[5514]={55,1},			[5537]={55,1},			[5802]={55,1},			[5804]={55,3},
 	[5511]={55,1},			[5803]={55,3},			[5533]={55,1},			[5538]={55,1},			[5801]={55,1},			[5097]={50,1},			[5098]={50,1},
-	[5505]={50,1},			[5096]={50,1},			[5092]={50,1},
+	[5505]={50,1},			[5096]={50,1},			[5092]={50,1},			[6804]={55,1},			[6805]={55,1},			[6821]={55,10},			[6822]={55,40},
+	[6823]={55,40},			[6824]={55,40},			[7486]={55,1},
+	
 }
 
 -- level, type, kind, desc
@@ -952,4 +977,11 @@ Attune_Data.npcs = {
 	[10837] = { "61", "", Lang["Undead"] },
 	[10838] = { "61", "", Lang["Human"] },
 	[1852]  = { "61", Lang["Elite"], Lang["Undead"] },
+	[13278] = { "60", Lang["Elite"], Lang["Elemental"]},	
+	[12264] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
+	[12118] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
+	[12259] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
+	[12098] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
 }
+
+

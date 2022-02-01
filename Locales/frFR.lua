@@ -224,6 +224,9 @@ Lang["Heroic_Desc"] = "Tous les membres du groupe doivent avoir la réputation r
 Lang["NB_Desc"] = "Un seul membre du raid a besoin d'avoir l'Urne noircie pour invoquer Plaie-de-nuit."
 Lang["BT_Desc"] = "Tous les membres du raid doivent avoir le Médaillon de Karabor pour entrer dans l'instance."
 Lang["BM_Desc"] = "Tous les membres du groupe doivent compléter les quêtes pour entrer dans l'instance." 
+--v250
+Lang["Aqual Quintessence"] = "Quintessence aquatique"
+Lang["MC2_Desc"] = "Utilisée pour invoquer Chambellan Executus. Tous les boss de Molten Core, à l'exception de Lucifron et Geddon, ont des runes au sol qui doivent être aspergées pour que Executus apparaisse." 
 
 
 -- GENERIC
@@ -362,7 +365,7 @@ Lang["Sunwell Plateau"] = "Plateau du Puits de soleil"
 -- ITEMS
 Lang["Drakkisath's Brand"] = "Marque de Drakkisath"
 Lang["Crystalline Tear"] = "Larme cristalline"
-Lang["I_18412"] = "Fragment du Magmat"			-- https://www.thegeekcrusade-serveur.com/db/?item=18412
+Lang["I_18412"] = "Fragment du Magma"			-- https://www.thegeekcrusade-serveur.com/db/?item=18412
 Lang["I_12562"] = "Importants documents Rochenoire"			-- https://www.thegeekcrusade-serveur.com/db/?item=12562
 Lang["I_16786"] = "Oeil de draconide noir"			-- https://www.thegeekcrusade-serveur.com/db/?item=16786
 Lang["I_11446"] = "Une note chiffonnée"			-- https://www.thegeekcrusade-serveur.com/db/?item=11446
@@ -423,6 +426,12 @@ Lang["I_32649"] = "Médaillon de Karabor"			-- https://www.thegeekcrusade-serveu
 --v247
 Lang["Shrine of Thaurissan"] = "Sanctuaire de Thaurissan"
 Lang["I_14610"] = "Le Scarabée d'Araj"
+--v250
+Lang["I_17332"] = "Main de Shazzrah"
+Lang["I_17329"] = "Main de Lucifron"
+Lang["I_17331"] = "Main de Gehennas"
+Lang["I_17330"] = "Main de Sulfuron"
+Lang["I_17333"] = "Quintessence aquatique"
 
 
 -- QUESTS - Classic
@@ -828,6 +837,21 @@ Lang["Q1_5803"] = "Le Scarabée d'Araj"
 Lang["Q2_5803"] = "Vaincre Araj l'Invocateur et apporter le Scarabée d'Araj à l’alchimiste Arbington à la pointe du Noroît, dans les Maleterres de l’ouest."
 Lang["Q1_5505"] = "La clé de Scholomance"
 Lang["Q2_5505"] = "Eh bien voilà, la Clé squelette terminée. Je suis aussi certain que possible que cette clé vous permettra d'entrer dans les confins de Scholomance."
+--v250
+Lang["Q1_6804"] = "Eau empoisonnée"
+Lang["Q2_6804"] = "Utiliser l’Aspect de Neptulon sur les élémentaires empoisonnés des Maleterres de l’est. Apporter 12 Bracelets discordants et l’Aspect de Neptulon au duc Hydraxis, en Azshara."
+Lang["Q1_6805"] = "Tempêtes"
+Lang["Q2_6805"] = "Tuer 15 Tempétueux de poussière et 15 Grondeurs du désert, puis retourner voir le duc Hydraxis, en Azshara."
+Lang["Q1_6821"] = "Oeil du Prophète ardent"
+Lang["Q2_6821"] = "Apporter l’Oeil du Prophète ardent au duc Hydraxis, en Azshara."
+Lang["Q1_6822"] = "Le Cœur du Magma"
+Lang["Q2_6822"] = "Tuer 1 Seigneur du feu, 1 Géant de lave, 1 Chien antique du Magma et 1 Surgisseur de lave, puis retourner voir le duc Hydraxis, à Azshara."
+Lang["Q1_6823"] = "Agent de Hydraxis"
+Lang["Q2_6823"] = "Parvenir au niveau de réputation Honoré auprès des Hydraxiens, puis parler au duc Hydraxis, en Azshara."
+Lang["Q1_6824"] = "Les mains de l'ennemi"
+Lang["Q2_6824"] = "Apporter les Mains de Lucifron, de Sulfuron, de Gehennas et de Shazzrah au duc Hydraxis, en Azshara."
+Lang["Q1_7486"] = "La récompense du héros"
+Lang["Q2_7486"] = "Allez chercher votre récompense dans le Coffre d’Hydraxis."
 
 
 -- NPC
@@ -1000,6 +1024,17 @@ Lang["N1_10838"] = "Commandant Ashlam Valorfist"
 Lang["N2_10838"] = "Il peut être trouvé au Chillwind Camp, juste au sud d'Andorhal dans les Maleterres de l'Ouest"
 Lang["N1_1852"]  = "Araj l'Invocateur"
 Lang["N2_1852"]  = "Le Lich, au coeur d'Andorhal"
+--v250
+Lang["N1_13278"]  = "Duc Hydraxis"
+Lang["N2_13278"]  = "Un grand élémentaire d'eau sur une petite île lointaine d'Azshara (79.2,73.6)"
+Lang["N1_12264"]  = "Shazzrah"
+Lang["N2_12264"]  = "Shazzrah est le 5ème boss du Coeur du Magma."
+Lang["N1_12118"]  = "Lucifron"
+Lang["N2_12118"]  = "Lucifron est le 1er boss du Coeur du Magma."
+Lang["N1_12259"]  = "Gehennas"
+Lang["N2_12259"]  = "Gehennas est le 3ème boss du Coeur du Magma."
+Lang["N1_12098"]  = "Messager Sulfuron"
+Lang["N2_12098"]  = "Sulfuron, Messager de Ragnaros, est le 8ème boss du Coeur du Magma."
 
 
 Lang["O_1"] = "Cliquez sur la Marque de Drakkisath pour compléter la quête.\nC'est le globe brillant qui se trouve juste drrière Drakkisath."

@@ -224,6 +224,9 @@ Lang["Heroic_Desc"] = "All members of the group need to have the rep and key in 
 Lang["NB_Desc"] = "Only one member of the raid group needs to have the Blackened Urn in order to summon Nightbane."
 Lang["BT_Desc"] = "All members of the raid group need to have the Medallion of Karabor in order to zone into the raid instance."
 Lang["BM_Desc"] = "All members of the group need to complete the quest chain in order to zone into the instance." 
+--v250
+Lang["Aqual Quintessence"] = "Aqual Quintessence"
+Lang["MC2_Desc"] = "Used to summon Majordomo Executus. Every boss in Molten Core except Lucifron and Geddon have runes on the ground that need to be doused for Majordomo to spawn." 
 
 
 -- GENERIC
@@ -423,6 +426,12 @@ Lang["I_32649"] = "Medaillon of Karabor"			-- https://www.thegeekcrusade-serveur
 --v247
 Lang["Shrine of Thaurissan"] = "Shrine of Thaurissan"
 Lang["I_14610"] = "Araj's Scarab"
+--v250
+Lang["I_17332"] = "Hand of Shazzrah"
+Lang["I_17329"] = "Hand of Lucifron"
+Lang["I_17331"] = "Hand of Gehennas"
+Lang["I_17330"] = "Hand of Sulfuron"
+Lang["I_17333"] = "Aqual Quintessence"
 
 
 -- QUESTS - Classic
@@ -638,7 +647,7 @@ Lang["Q2_9640"] = "Obtain Medivh's Journal and return to Kamsis at the Guardian'
 Lang["Q1_9645"] = "The Master's Terrace"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9645
 Lang["Q2_9645"] = "Go to the Master's Terrace in Karazhan and read Medivh's Journal. Return to Archmage Alturus with Medivh's Journal after completing this task."
 Lang["Q1_9680"] = "Digging Up the Past"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9680
-Lang["Q2_9680"] = "Archmage Alturus wants you to go to the mountains south of Karazhan in Deadwind Pass and retrieve a Charred Bone Fragment."
+Lang["Q2_9680"] = "Archmage Alturus wants you to go to the mountains south of Karazhan in Deadwind Pass and retrieve a Charred Bone Fragment.\n\nDon't be like Bel, get out of raid first."
 Lang["Q1_9631"] = "A Colleague's Aid"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9631
 Lang["Q2_9631"] = "Take the Charred Bone Fragment to Kalynna Lathred at Area 52 in Netherstorm."
 Lang["Q1_9637"] = "Kalynna's Request"			-- https://www.thegeekcrusade-serveur.com/db/?quest=9637
@@ -828,6 +837,21 @@ Lang["Q1_5803"] = "Araj's Scarab"
 Lang["Q2_5803"] = "Destroy Araj the Summoner and bring Araj's Scarab to Alchemist Arbington at Chillwind Point, Western Plaguelands."
 Lang["Q1_5505"] = "The Key to Scholomance"
 Lang["Q2_5505"] = "Well, here you are - the completed Skeleton Key.  I am certain as I can be that this key will allow you within the confines of the Scholomance. "
+--v250
+Lang["Q1_6804"] = "Poisoned Water"
+Lang["Q2_6804"] = "Use the Aspect of Neptulon on poisoned elementals of Eastern Plaguelands. Bring 12 Discordant Bracers and the Aspect of Neptulon to Duke Hydraxis in Azshara."
+Lang["Q1_6805"] = "Stormers and Rumblers"
+Lang["Q2_6805"] = "Kill 15 Dust Stormers and 15 Desert Rumbers and then return to Duke Hydraxis in Azshara."
+Lang["Q1_6821"] = "Eye of the Emberseer"
+Lang["Q2_6821"] = "Bring the Eye of the Emberseer to Duke Hydraxis in Azshara."
+Lang["Q1_6822"] = "The Molten Core"
+Lang["Q2_6822"] = "Kill 1 Fire Lord, 1 Molten Giant, 1 Ancient Core Hound and 1 Lava Surger, then return to Duke Hydraxis in Azshara."
+Lang["Q1_6823"] = "Agent of Hydraxis"
+Lang["Q2_6823"] = "Earn an Honored faction with the Hydraxian Waterlords, then talk to Duke Hydraxis in Azshara."
+Lang["Q1_6824"] = "Hands of the Enemy"
+Lang["Q2_6824"] = "Bring the Hands of Lucifron, Sulfuron, Gehennas and Shazzrah to Duke Hydraxis in Azshara."
+Lang["Q1_7486"] = "A Hero's Reward"
+Lang["Q2_7486"] = "Claim your reward from Hydraxis' Coffer."
 	
 
 -- NPC
@@ -1000,6 +1024,17 @@ Lang["N1_10838"] = "Commander Ashlam Valorfist"
 Lang["N2_10838"] = "He can be found at Chillwind Camp, just south of Andorhal in the Western Plaguelands"
 Lang["N1_1852"]  = "Araj the Summoner"
 Lang["N2_1852"]  = "The Lich, in the middle of Andorhal"
+--v250
+Lang["N1_13278"]  = "Duke Hydraxis"
+Lang["N2_13278"]  = "A large Water Elemental on a tiny faraway island in Azshara (79.2,73.6)"
+Lang["N1_12264"]  = "Shazzrah"
+Lang["N2_12264"]  = "Shazzrah is the fifth boss of Molten Core."
+Lang["N1_12118"]  = "Lucifron"
+Lang["N2_12118"]  = "Lucifron is the first boss of Molten Core."
+Lang["N1_12259"]  = "Gehennas"
+Lang["N2_12259"]  = "Gehennas is the third boss of Molten Core."
+Lang["N1_12098"]  = "Sulfuron Harbinger"
+Lang["N2_12098"]  = "Sulfuron Harbinger, herald of Ragnaros, is the eighth boss of the Molten Core."
 
 
 Lang["O_1"] = "Click Drakkisath's Brand to complete the quest.\nIt's a glowing orb located behind General Drakkisath."
