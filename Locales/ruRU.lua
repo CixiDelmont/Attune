@@ -405,6 +405,12 @@ Lang["I_30623"] = "Ключ Резервуара"			-- https://ru.tbc.wowhead.co
 Lang["I_30633"] = "Аукенайский ключ"			-- https://ru.tbc.wowhead.com/?item=30633
 Lang["I_30634"] = "Деформированный ключ"			-- https://ru.tbc.wowhead.com/?item=30634
 Lang["I_30635"] = "Ключ Времени"			-- https://ru.tbc.wowhead.com/?item=30635
+Lang["I_185686"] = "Ключ, выкованный в пламени"			-- https://ru.tbc.wowhead.com/?item=30637
+Lang["I_185687"] = "Ключ, выкованный в пламени"			-- https://ru.tbc.wowhead.com/?item=30622
+Lang["I_185690"] = "Ключ Резервуара"			-- https://ru.tbc.wowhead.com/?item=30623
+Lang["I_185691"] = "Аукенайский ключ"			-- https://ru.tbc.wowhead.com/?item=30633
+Lang["I_185692"] = "Деформированный ключ"			-- https://ru.tbc.wowhead.com/?item=30634
+Lang["I_185693"] = "Ключ Времени"			-- https://ru.tbc.wowhead.com/?item=30635
 Lang["I_24514"] = "Первый фрагмент ключа"			-- https://ru.tbc.wowhead.com/?item=24514
 Lang["I_24487"] = "Второй фрагмент ключа"			-- https://ru.tbc.wowhead.com/?item=24487
 Lang["I_24488"] = "Третий фрагмент ключа"			-- https://ru.tbc.wowhead.com/?item=24488

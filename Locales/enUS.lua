@@ -405,6 +405,12 @@ Lang["I_30623"] = "Reservoir Key"			-- https://www.thegeekcrusade-serveur.com/db
 Lang["I_30633"] = "Auchenai Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
 Lang["I_30634"] = "Warpforged Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
 Lang["I_30635"] = "Key of Time"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
+Lang["I_185686"] = "Flamewrought Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30637
+Lang["I_185687"] = "Flamewrought Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30622
+Lang["I_185690"] = "Reservoir Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30623
+Lang["I_185691"] = "Auchenai Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
+Lang["I_185692"] = "Warpforged Key"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
+Lang["I_185693"] = "Key of Time"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
 Lang["I_24514"] = "First Key Fragment"			-- https://www.thegeekcrusade-serveur.com/db/?item=24514
 Lang["I_24487"] = "Second Key Fragment"			-- https://www.thegeekcrusade-serveur.com/db/?item=24487
 Lang["I_24488"] = "Third Key Fragment"			-- https://www.thegeekcrusade-serveur.com/db/?item=24488

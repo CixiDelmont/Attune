@@ -405,6 +405,12 @@ Lang["I_30623"] = "蓄湖之鑰"			-- https://cn.tbc.wowhead.com/?item=30623
 Lang["I_30633"] = "奧奇奈鑰匙"			-- https://cn.tbc.wowhead.com/?item=30633
 Lang["I_30634"] = "扭曲鍛造鑰匙"			-- https://cn.tbc.wowhead.com/?item=30634
 Lang["I_30635"] = "時光之鑰"			-- https://cn.tbc.wowhead.com/?item=30635
+Lang["I_185686"] = "火鑄之鑰"			-- https://cn.tbc.wowhead.com/?item=30637
+Lang["I_185687"] = "火鑄之鑰"			-- https://cn.tbc.wowhead.com/?item=30622
+Lang["I_185690"] = "蓄湖之鑰"			-- https://cn.tbc.wowhead.com/?item=30623
+Lang["I_185691"] = "奧奇奈鑰匙"			-- https://cn.tbc.wowhead.com/?item=30633
+Lang["I_185692"] = "扭曲鍛造鑰匙"			-- https://cn.tbc.wowhead.com/?item=30634
+Lang["I_185693"] = "時光之鑰"			-- https://cn.tbc.wowhead.com/?item=30635
 Lang["I_24514"] = "第一塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24514
 Lang["I_24487"] = "第二塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24487
 Lang["I_24488"] = "第三塊鑰匙碎片"			-- https://cn.tbc.wowhead.com/?item=24488

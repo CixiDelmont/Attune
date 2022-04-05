@@ -405,6 +405,12 @@ Lang["I_30623"] = "저수지 열쇠"			-- https://www.thegeekcrusade-serveur.com
 Lang["I_30633"] = "아카나이 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
 Lang["I_30634"] = "초공간에서 버려낸 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
 Lang["I_30635"] = "시간의 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
+Lang["I_185686"] = "불꽃으로 버려낸 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30637
+Lang["I_185687"] = "불꽃으로 버려낸 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30622
+Lang["I_185690"] = "저수지 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30623
+Lang["I_185691"] = "아카나이 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
+Lang["I_185692"] = "초공간에서 버려낸 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
+Lang["I_185693"] = "시간의 열쇠"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
 Lang["I_24514"] = "첫번째 열쇠 조각"			-- https://www.thegeekcrusade-serveur.com/db/?item=24514
 Lang["I_24487"] = "두번째 열쇠 조각"			-- https://www.thegeekcrusade-serveur.com/db/?item=24487
 Lang["I_24488"] = "세번째 열쇠 조각"			-- https://www.thegeekcrusade-serveur.com/db/?item=24488

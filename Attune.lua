@@ -8,8 +8,8 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 250
---	Added the Chain for the Aqual Quintessence
+-- Done in 252
+--	adapted to phase 4 (honred keys)
 
 
 -------------------------------------------------------------------------
@@ -30,7 +30,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "251"  					-- change here, and in TOC x2
+local attunelocal_version = "252"  					-- change here, and in TOC x2
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -113,6 +113,8 @@ local attunelocal_raidsize = 0					-- selected Raid size
 local attunelocal_raidcount = 1  				-- selected raid, number of raid groups to show
 
 local attunelocal_inactivity = 60*60*24*30		-- number of seconds to account for inactivity
+
+local patch = 0
 
 
 local IsQuestFlaggedCompleted = _G.IsQuestFlaggedCompleted or C_QuestLog.IsQuestFlaggedCompleted  -- This is to handle the changes in TBC (C_QuestLog)
@@ -504,7 +506,8 @@ function Attune:OnEnable()
 	self:RegisterEvent("BAG_UPDATE")
 	self:RegisterEvent("GOSSIP_SHOW")
 	
-
+	_, _, _, patch	 = GetBuildInfo()
+	
 	if Attune_DB == nil then Attune_DB = {} end
 	if Attune_DB.width == nil then Attune_DB.width = 980 end
 	if Attune_DB.height == nil then Attune_DB.height = 550 end
@@ -608,9 +611,11 @@ function Attune:OnEnable()
 	local t = Attune_DB.toons[attunelocal_charKey]
 	local attuneSteps = {}
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE ~= "Spacer" then
-			if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
-			attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
+		if showPatchStep(s) then
+			if s.TYPE ~= "Spacer" then
+				if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
+				attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
+			end
 		end
 	end
 	for i, d in pairs(t.done) do
@@ -736,14 +741,16 @@ function Attune:OnEnable()
 							return (bbb < aaa) 
 						end) do
 						for is, ts in pairs(Attune_Data.steps) do
-							if ts.ID_ATTUNE .. "-" .. ts.ID == i then 
-								if ts.FOLLOWS ~= "0" then 
+							if showPatchStep(ts) then
+								if ts.ID_ATTUNE .. "-" .. ts.ID == i then 
+									if ts.FOLLOWS ~= "0" then 
 
-									--this is where the remediation needs to happen
-									Attune_remedyIsNext(it, ts.ID_ATTUNE, ts.FOLLOWS)
-									
+										--this is where the remediation needs to happen
+										Attune_remedyIsNext(it, ts.ID_ATTUNE, ts.FOLLOWS)
+										
+									end
+									break
 								end
-								break
 							end
 						end
 					end
@@ -769,14 +776,16 @@ function Attune_remedyIsNext(who, aID, follows)
 
 	for fi, f in pairs(fIDs) do
 		for i, s in pairs(Attune_Data.steps) do
-			if s.ID_ATTUNE == aID and s.ID == f then
-				if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
-					if Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] == 1 then
---						print(who..": Removed "..s.ID_ATTUNE .. "-" .. s.ID)
-						Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] = nil
-					end
-					if follows ~= 0 then -- no need to recurse first level
-						Attune_remedyIsNext(who, s.ID_ATTUNE, s.FOLLOWS)
+			if showPatchStep(s) then
+				if s.ID_ATTUNE == aID and s.ID == f then
+					if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
+						if Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] == 1 then
+	--						print(who..": Removed "..s.ID_ATTUNE .. "-" .. s.ID)
+							Attune_DB.toons[who].next[s.ID_ATTUNE .. "-" .. s.ID] = nil
+						end
+						if follows ~= 0 then -- no need to recurse first level
+							Attune_remedyIsNext(who, s.ID_ATTUNE, s.FOLLOWS)
+						end
 					end
 				end
 			end
@@ -850,57 +859,59 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 	if (param2 == "PARTY_KILL" and not IsInRaid()) or (param2 == "UNIT_DIED" and IsInRaid()) then
 
 		for i, s in pairs(Attune_Data.steps) do
-			if s.TYPE == "Kill" then
-				local npc_id = -1
-				if param8 ~= nil then
-					 _, _, _, _, _, npc_id = strsplit("-", param8);
-					 if npc_id == nil then npc_id = -1 end
-				else 
-					npc_id = -1
-				end
-				--print(npc_id)
-	
-				if s.ID_WOWHEAD == npc_id then
-					-- checking that predecessors are done (meaning this step is ISNext)
-					local isNext = true
-					local followOR = false
-					if s.FOLLOWS ~= "0" then
-						local fIDs = Attune_split(s.FOLLOWS, "&")
-						if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
-						if followOR then
-							isNext = false
-							for fi, f in pairs(fIDs) do
-								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
-							end
-						else
-							isNext = true
-							for fi, f in pairs(fIDs) do
-								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
+			if showPatchStep(s) then
+				if s.TYPE == "Kill" then
+					local npc_id = -1
+					if param8 ~= nil then
+						_, _, _, _, _, npc_id = strsplit("-", param8);
+						if npc_id == nil then npc_id = -1 end
+					else 
+						npc_id = -1
+					end
+					--print(npc_id)
+		
+					if s.ID_WOWHEAD == npc_id then
+						-- checking that predecessors are done (meaning this step is ISNext)
+						local isNext = true
+						local followOR = false
+						if s.FOLLOWS ~= "0" then
+							local fIDs = Attune_split(s.FOLLOWS, "&")
+							if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
+							if followOR then
+								isNext = false
+								for fi, f in pairs(fIDs) do
+									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
+								end
+							else
+								isNext = true
+								for fi, f in pairs(fIDs) do
+									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
+								end
 							end
 						end
-					end
-					
-					if isNext then
-						if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-							for k, a in pairs(Attune_Data.attunes) do
-								if a.ID == s.ID_ATTUNE then
-									if a.FACTION == faction or a.FACTION == 'Both' then
-										--mark step as done
-										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-										refreshNeeded = true
-										PlaySound(1210) --putdownring
-										-- need to refresh attune in window
-										-- fetch attune name for chat message
-										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-										Attune_SendPushInfo("TOON")
-										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-										Attune_CheckComplete(false)
-										if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-											PlaySound(5275) -- AuctionWindowClose
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+						
+						if isNext then
+							if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+								for k, a in pairs(Attune_Data.attunes) do
+									if a.ID == s.ID_ATTUNE then
+										if a.FACTION == faction or a.FACTION == 'Both' then
+											--mark step as done
+											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+											refreshNeeded = true
+											PlaySound(1210) --putdownring
+											-- need to refresh attune in window
+											-- fetch attune name for chat message
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+											Attune_SendPushInfo("TOON")
+											Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+											Attune_CheckComplete(false)
+											if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+												PlaySound(5275) -- AuctionWindowClose
+												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+											end
+											Attune_SendPushInfo("OVER")
 										end
-										Attune_SendPushInfo("OVER")
 									end
 								end
 							end
@@ -924,25 +935,27 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Level" then
-			if arg1 >= tonumber(s.ID_WOWHEAD) then
+		if showPatchStep(s) then
+			if s.TYPE == "Level" then
+				if arg1 >= tonumber(s.ID_WOWHEAD) then
 
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 
-					local faction = UnitFactionGroup("player")
-					-- check attune warning is for the right faction
-					for k, a in pairs(Attune_Data.attunes) do
-						if a.ID == s.ID_ATTUNE then
-							if a.FACTION == faction or a.FACTION == 'Both' then
-								--mark step as done
-								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								refreshNeeded = true
-								PlaySound(1210) --putdownring
-								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-								Attune_SendPushInfo("TOON")
-								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_SendPushInfo("OVER")
+						local faction = UnitFactionGroup("player")
+						-- check attune warning is for the right faction
+						for k, a in pairs(Attune_Data.attunes) do
+							if a.ID == s.ID_ATTUNE then
+								if a.FACTION == faction or a.FACTION == 'Both' then
+									--mark step as done
+									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									refreshNeeded = true
+									PlaySound(1210) --putdownring
+									-- fetch attune name for chat message
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+									Attune_SendPushInfo("TOON")
+									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+									Attune_SendPushInfo("OVER")
+								end
 							end
 						end
 					end
@@ -965,26 +978,28 @@ function Attune:QUEST_ACCEPTED(event)
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Pick Up" then
+		if showPatchStep(s) then
+			if s.TYPE == "Pick Up" then
 
-			if C_QuestLog.IsOnQuest(s.ID_WOWHEAD) then
+				if C_QuestLog.IsOnQuest(s.ID_WOWHEAD) then
 
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 
-					local faction = UnitFactionGroup("player")
-					-- check attune warning is for the right faction
-					for k, a in pairs(Attune_Data.attunes) do
-						if a.ID == s.ID_ATTUNE then
-							if a.FACTION == faction or a.FACTION == 'Both' then
-								--mark step as done
-								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								refreshNeeded = true
-								PlaySound(1210) --putdownring
-								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-								Attune_SendPushInfo("TOON")
-								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_SendPushInfo("OVER")
+						local faction = UnitFactionGroup("player")
+						-- check attune warning is for the right faction
+						for k, a in pairs(Attune_Data.attunes) do
+							if a.ID == s.ID_ATTUNE then
+								if a.FACTION == faction or a.FACTION == 'Both' then
+									--mark step as done
+									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									refreshNeeded = true
+									PlaySound(1210) --putdownring
+									-- fetch attune name for chat message
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+									Attune_SendPushInfo("TOON")
+									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+									Attune_SendPushInfo("OVER")
+								end
 							end
 						end
 					end
@@ -1006,32 +1021,34 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Quest" or s.TYPE == "Turn In" then
+		if showPatchStep(s) then
+			if s.TYPE == "Quest" or s.TYPE == "Turn In" then
 
-			if tonumber(s.ID_WOWHEAD) == arg1 then
+				if tonumber(s.ID_WOWHEAD) == arg1 then
 
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 
-					local faction = UnitFactionGroup("player")
-					-- check attune warning is for the right faction
-					for k, a in pairs(Attune_Data.attunes) do
-						if a.ID == s.ID_ATTUNE then
-							if a.FACTION == faction or a.FACTION == 'Both' then
-								--mark step as done
-								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								refreshNeeded = true
-								PlaySound(1210) --putdownring
-								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-								Attune_SendPushInfo("TOON")
-								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete(false)
-								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-									PlaySound(5275) -- AuctionWindowClose
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+						local faction = UnitFactionGroup("player")
+						-- check attune warning is for the right faction
+						for k, a in pairs(Attune_Data.attunes) do
+							if a.ID == s.ID_ATTUNE then
+								if a.FACTION == faction or a.FACTION == 'Both' then
+									--mark step as done
+									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									refreshNeeded = true
+									PlaySound(1210) --putdownring
+									-- fetch attune name for chat message
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+									Attune_SendPushInfo("TOON")
+									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+									Attune_CheckComplete(false)
+									if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+										PlaySound(5275) -- AuctionWindowClose
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+										if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+									end
+									Attune_SendPushInfo("OVER")
 								end
-								Attune_SendPushInfo("OVER")
 							end
 						end
 					end
@@ -1062,32 +1079,86 @@ function Attune:GOSSIP_SHOW(event)
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Interact" then
+		if showPatchStep(s) then
+			if s.TYPE == "Interact" then
 
-			if s.ID_WOWHEAD == npc_id then
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+				if s.ID_WOWHEAD == npc_id then
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 
-					-- checking that predecessors are done (meaning this step is ISNext)
-					local isNext = true
-					local followOR = false
-					if s.FOLLOWS ~= "0" then
-						local fIDs = Attune_split(s.FOLLOWS, "&")
-						if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
-						if followOR then
-							isNext = false
-							for fi, f in pairs(fIDs) do
-								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
+						-- checking that predecessors are done (meaning this step is ISNext)
+						local isNext = true
+						local followOR = false
+						if s.FOLLOWS ~= "0" then
+							local fIDs = Attune_split(s.FOLLOWS, "&")
+							if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
+							if followOR then
+								isNext = false
+								for fi, f in pairs(fIDs) do
+									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
+								end
+							else
+								isNext = true
+								for fi, f in pairs(fIDs) do
+									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
+								end
 							end
-						else
-							isNext = true
-							for fi, f in pairs(fIDs) do
-								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
+						end
+						
+						if isNext then
+
+							local faction = UnitFactionGroup("player")
+							-- check attune warning is for the right faction
+							for k, a in pairs(Attune_Data.attunes) do
+								if a.ID == s.ID_ATTUNE then
+									if a.FACTION == faction or a.FACTION == 'Both' then
+										--mark step as done
+										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+										refreshNeeded = true
+										PlaySound(1210) --putdownring
+										-- fetch attune name for chat message
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+										Attune_SendPushInfo("TOON")
+										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+										Attune_CheckComplete(false)
+										if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+											PlaySound(5275) -- AuctionWindowClose
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+										end
+										Attune_SendPushInfo("OVER")
+									end
+								end
 							end
 						end
 					end
-					
-					if isNext then
+				end
+			end
+		end
+	end
 
+	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
+
+end
+
+-------------------------------------------------------------------------
+-- EVENT: Looted stuff
+-------------------------------------------------------------------------
+
+function Attune:BAG_UPDATE(event)
+
+	local refreshNeeded = false
+
+	for i, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) then
+			if s.TYPE == "Item" then
+
+				local countNeeded = 1
+				if s.COUNT ~= nil then countNeeded = s.COUNT end
+
+				Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1)
+					if Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] >= countNeeded then   --check bags and bank
+
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 						local faction = UnitFactionGroup("player")
 						-- check attune warning is for the right faction
 						for k, a in pairs(Attune_Data.attunes) do
@@ -1098,7 +1169,7 @@ function Attune:GOSSIP_SHOW(event)
 									refreshNeeded = true
 									PlaySound(1210) --putdownring
 									-- fetch attune name for chat message
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 									Attune_SendPushInfo("TOON")
 									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 									Attune_CheckComplete(false)
@@ -1122,56 +1193,6 @@ function Attune:GOSSIP_SHOW(event)
 end
 
 -------------------------------------------------------------------------
--- EVENT: Looted stuff
--------------------------------------------------------------------------
-
-function Attune:BAG_UPDATE(event)
-
-	local refreshNeeded = false
-
-	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Item" then
-
-			local countNeeded = 1
-			if s.COUNT ~= nil then countNeeded = s.COUNT end
-
-			Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1)
-				if Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] >= countNeeded then   --check bags and bank
-
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					local faction = UnitFactionGroup("player")
-					-- check attune warning is for the right faction
-					for k, a in pairs(Attune_Data.attunes) do
-						if a.ID == s.ID_ATTUNE then
-							if a.FACTION == faction or a.FACTION == 'Both' then
-								--mark step as done
-								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								refreshNeeded = true
-								PlaySound(1210) --putdownring
-								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-								Attune_SendPushInfo("TOON")
-								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete(false)
-								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-									PlaySound(5275) -- AuctionWindowClose
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
-								end
-								Attune_SendPushInfo("OVER")
-							end
-						end
-					end
-				end
-			end
-		end
-	end
-
-	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
-
-end
-
--------------------------------------------------------------------------
 -- EVENT: Rep changed
 -------------------------------------------------------------------------
 
@@ -1180,47 +1201,49 @@ function Attune:UPDATE_FACTION(event)
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE == "Rep" then
+		if showPatchStep(s) then
+			if s.TYPE == "Rep" then
 
-			--loop on the all the character's factions
-			local factionIndex = 1
+				--loop on the all the character's factions
+				local factionIndex = 1
 
-			local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
-			Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = {}
-			Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue
-			Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
-			--repeat
-			--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
-			--	if (name == s.LOCATION) then
-			--		Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = earnedValue
-			--		break
-			--	end
-			--	factionIndex = factionIndex + 1
-			--until factionIndex > 200
+				local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = {}
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
+				--repeat
+				--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
+				--	if (name == s.LOCATION) then
+				--		Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = earnedValue
+				--		break
+				--	end
+				--	factionIndex = factionIndex + 1
+				--until factionIndex > 200
 
-			if Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned >= tonumber(s.ID_WOWHEAD) then
+				if Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned >= tonumber(s.ID_WOWHEAD) then
 
-				if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-					local faction = UnitFactionGroup("player")
-					-- check attune warning is for the right faction
-					for k, a in pairs(Attune_Data.attunes) do
-						if a.ID == s.ID_ATTUNE then
-							if a.FACTION == faction or a.FACTION == 'Both' then
-								--mark step as done
-								Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								refreshNeeded = true
-								PlaySound(1210) --putdownring
-								-- fetch attune name for chat message
-								if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
-								Attune_SendPushInfo("TOON")
-								Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-								Attune_CheckComplete(false)
-								if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-									PlaySound(5275) -- AuctionWindowClose
-									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-									if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+						local faction = UnitFactionGroup("player")
+						-- check attune warning is for the right faction
+						for k, a in pairs(Attune_Data.attunes) do
+							if a.ID == s.ID_ATTUNE then
+								if a.FACTION == faction or a.FACTION == 'Both' then
+									--mark step as done
+									Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									refreshNeeded = true
+									PlaySound(1210) --putdownring
+									-- fetch attune name for chat message
+									if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+									Attune_SendPushInfo("TOON")
+									Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+									Attune_CheckComplete(false)
+									if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+										PlaySound(5275) -- AuctionWindowClose
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+										if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+									end
+									Attune_SendPushInfo("OVER")
 								end
-								Attune_SendPushInfo("OVER")
 							end
 						end
 					end
@@ -1281,63 +1304,64 @@ function Attune_CheckProgress()
 			--looping through all steps
 			for i, s in pairs(Attune_Data.steps) do
 
-				if s.ID_ATTUNE == a.ID then
+				if showPatchStep(s) then
+					if s.ID_ATTUNE == a.ID then
 
-					--get REPUTATION progression
-					if s.TYPE == "Rep" then
+						--get REPUTATION progression
+						if s.TYPE == "Rep" then
 
-						--loop on the all the character's factions
-						local factionIndex = 1
-						local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
-						att.reps[s.LOCATION] = {}
-						att.reps[s.LOCATION].earned = earnedValue
-						att.reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
-						--repeat
-						--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
-						--	if (name == s.LOCATION) then
-						--		att.reps[s.LOCATION] = earnedValue
-						--		break
-						--	end
-						--	factionIndex = factionIndex + 1
-						--until factionIndex > 200
+							--loop on the all the character's factions
+							local factionIndex = 1
+							local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
+							att.reps[s.LOCATION] = {}
+							att.reps[s.LOCATION].earned = earnedValue
+							att.reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
+							--repeat
+							--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
+							--	if (name == s.LOCATION) then
+							--		att.reps[s.LOCATION] = earnedValue
+							--		break
+							--	end
+							--	factionIndex = factionIndex + 1
+							--until factionIndex > 200
 
-						if att.reps[s.LOCATION].earned >= tonumber(s.ID_WOWHEAD) then
-							text = "|TInterface\\AddOns\\Attune\\Images\\success:16|t"
-							att.done[a.ID .. "-" .. s.ID] = 1
+							if att.reps[s.LOCATION].earned >= tonumber(s.ID_WOWHEAD) then
+								text = "|TInterface\\AddOns\\Attune\\Images\\success:16|t"
+								att.done[a.ID .. "-" .. s.ID] = 1
+							end
+						end
+
+						--get QUEST accepts
+						if s.TYPE == "Pick Up" then
+							if C_QuestLog.IsOnQuest(s.ID_WOWHEAD) then
+								att.done[a.ID .. "-" .. s.ID] = 1
+							end
+						end
+
+						--get QUEST completion
+						if s.TYPE == "Quest" or s.TYPE == "Turn In" then
+							if IsQuestFlaggedCompleted(s.ID_WOWHEAD) then
+								att.done[a.ID .. "-" .. s.ID] = 1
+							end
+						end
+
+						--get ITEM possession
+						if s.TYPE == "Item" then
+							local countNeeded = 1
+							if s.COUNT ~= nil then countNeeded = s.COUNT end
+							if GetItemCount(s.ID_WOWHEAD, 1) >= countNeeded then   --check bags and bank
+								att.items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1);
+								att.done[a.ID .. "-" .. s.ID] = 1
+							end
+						end
+
+						--get LEVEL progression
+						if s.TYPE == "Level" then
+							if UnitLevel('player') >= tonumber(s.ID_WOWHEAD) then
+								att.done[a.ID .. "-" .. s.ID] = 1
+							end
 						end
 					end
-
-					--get QUEST accepts
-					if s.TYPE == "Pick Up" then
-						if C_QuestLog.IsOnQuest(s.ID_WOWHEAD) then
-							att.done[a.ID .. "-" .. s.ID] = 1
-						end
-					end
-
-					--get QUEST completion
-					if s.TYPE == "Quest" or s.TYPE == "Turn In" then
-						if IsQuestFlaggedCompleted(s.ID_WOWHEAD) then
-							att.done[a.ID .. "-" .. s.ID] = 1
-						end
-					end
-
-					--get ITEM possession
-					if s.TYPE == "Item" then
-						local countNeeded = 1
-						if s.COUNT ~= nil then countNeeded = s.COUNT end
-						if GetItemCount(s.ID_WOWHEAD, 1) >= countNeeded then   --check bags and bank
-							att.items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1);
-							att.done[a.ID .. "-" .. s.ID] = 1
-						end
-					end
-
-					--get LEVEL progression
-					if s.TYPE == "Level" then
-						if UnitLevel('player') >= tonumber(s.ID_WOWHEAD) then
-							att.done[a.ID .. "-" .. s.ID] = 1
-						end
-					end
-
 				end
 			end
 		end
@@ -1352,9 +1376,11 @@ function Attune_CheckProgress()
 	-- a third pass to mark as done all attunements used in further attunements
 	for i, s in pairs(Attune_Data.steps) do
 		--print(s.ID_ATTUNE.."-"..s.ID)
-		if s.TYPE == 'Attune' and att.attuned[s.ID_WOWHEAD] >= 100 then
-			att.done[s.ID_ATTUNE.."-"..s.ID] = 1
-		end
+		if showPatchStep(s) then
+			if s.TYPE == 'Attune' and att.attuned[s.ID_WOWHEAD] >= 100 then
+				att.done[s.ID_ATTUNE.."-"..s.ID] = 1
+			end
+		end	
 	end
 
 end
@@ -1416,9 +1442,11 @@ function Attune_CheckComplete(newComplete)
 
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
-			if att.done[s.ID_ATTUNE .. "-" .. s.ID] then
-				-- recurse into earlier steps to mark them as done too
-				Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
+			if showPatchStep(s) then
+				if att.done[s.ID_ATTUNE .. "-" .. s.ID] then
+					-- recurse into earlier steps to mark them as done too
+					Attune_recursePreviousSteps(attunelocal_charKey, s.ID_ATTUNE, s.FOLLOWS)
+				end
 			end
 		end
 	end
@@ -1436,39 +1464,41 @@ function Attune_CheckIsNext(who)
 	att.next = {}
 
 	for i, step in pairs(Attune_Data.steps) do
+		if showPatchStep(step) then
 
-		if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
+			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
-		local next = false
-		if  att.done[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
-			-- if done, then not isnext
-			next = false
-		else
-
-			local followOR = false
-			local fIDs = Attune_split(step.FOLLOWS, "&")
-			if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|"); followOR = true end
-
-			if followOR then
+			local next = false
+			if  att.done[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
+				-- if done, then not isnext
 				next = false
-				for fi, flw in pairs(fIDs) do
-					if  att.done[step.ID_ATTUNE .. "-" .. flw] then next = true end
-				end
-
 			else
-				next = true
-				for fi, flw in pairs(fIDs) do
-					if  att.done[step.ID_ATTUNE .. "-" .. flw] == nil or att.done[step.ID_ATTUNE .. "-" .. flw] == false then next = false end
-				end
-	
-			end
-			if step.FOLLOWS == "0" then next = true end
-		end
 
-		if next then
-			att.next[step.ID_ATTUNE .. "-" .. step.ID] = 1
-		else
-			att.next[step.ID_ATTUNE .. "-" .. step.ID] = nil
+				local followOR = false
+				local fIDs = Attune_split(step.FOLLOWS, "&")
+				if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|"); followOR = true end
+
+				if followOR then
+					next = false
+					for fi, flw in pairs(fIDs) do
+						if  att.done[step.ID_ATTUNE .. "-" .. flw] then next = true end
+					end
+
+				else
+					next = true
+					for fi, flw in pairs(fIDs) do
+						if  att.done[step.ID_ATTUNE .. "-" .. flw] == nil or att.done[step.ID_ATTUNE .. "-" .. flw] == false then next = false end
+					end
+		
+				end
+				if step.FOLLOWS == "0" then next = true end
+			end
+
+			if next then
+				att.next[step.ID_ATTUNE .. "-" .. step.ID] = 1
+			else
+				att.next[step.ID_ATTUNE .. "-" .. step.ID] = nil
+			end
 		end
 	end
 end
@@ -1528,14 +1558,16 @@ function Attune_recursePreviousSteps(who, aID, follows)
 
 			for fi, f in pairs(fIDs) do
 				for i, s in pairs(Attune_Data.steps) do
-					if s.ID_ATTUNE == aID and s.ID == f then
-						if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
-							if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
-								Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-								if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
-							end
-							if follows ~= 0 then -- no need to recurse first level
-								Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
+					if showPatchStep(s) then
+						if s.ID_ATTUNE == aID and s.ID == f then
+							if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
+								if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
+									Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+									if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
+								end
+								if follows ~= 0 then -- no need to recurse first level
+									Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
+								end
 							end
 						end
 					end
@@ -1939,7 +1971,9 @@ function Attune_Select(attuneId)
 	local stageSteps = {} -- steps per stage
 	for i, s in pairs(Attune_Data.steps) do
 		if s.ID_ATTUNE == attuneId then
-			stageSteps[s.STAGE] = (stageSteps[s.STAGE] or 0) + 1
+			if showPatchStep(s) then
+				stageSteps[s.STAGE] = (stageSteps[s.STAGE] or 0) + 1
+			end
 		end
 	end
 
@@ -1951,15 +1985,19 @@ function Attune_Select(attuneId)
 	local nbStep = 0
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
 		if s.ID_ATTUNE == attuneId then
-			if s.STAGE ~= curStage then
-				nbStep = 1
-				curStage = s.STAGE
-				yy = yy + (Attune_DB.mini and (attunelocal_MiniNode_VGap + attunelocal_MiniNode_Height) or (attunelocal_Node_VGap + attunelocal_Node_Height))
-			end
-			local xx = (stageSteps[s.STAGE] * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (nbStep * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (stageSteps[s.STAGE]-1) * ((Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))/2)
+			
+			if showPatchStep(s) then 
 
-			Attune_CreateNode(s, scrollframe, xx, yy)
-			nbStep = nbStep + 1
+				if s.STAGE ~= curStage then
+					nbStep = 1
+					curStage = s.STAGE
+					yy = yy + (Attune_DB.mini and (attunelocal_MiniNode_VGap + attunelocal_MiniNode_Height) or (attunelocal_Node_VGap + attunelocal_Node_Height))
+				end
+				local xx = (stageSteps[s.STAGE] * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (nbStep * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (stageSteps[s.STAGE]-1) * ((Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))/2)
+	
+				Attune_CreateNode(s, scrollframe, xx, yy)
+				nbStep = nbStep + 1
+			end
 		end
 	end
 
@@ -1982,6 +2020,21 @@ function Attune_Select(attuneId)
 
 
 end
+
+-------------------------------------------------------------------------
+
+function showPatchStep(s)
+	local showStep = false
+	if (s.VALIDFROM == nil and s.VALIDTO == nil) then 
+		showStep = true
+	else
+		if (s.VALIDFROM ~= nil and patch >= s.VALIDFROM) then showStep = true end
+		if (s.VALIDTO ~= nil and patch < s.VALIDTO) then showStep = true end
+	end
+	return showStep
+end
+
+
 
 -------------------------------------------------------------------------
 -- Create the frame for a single attune step (node)
@@ -3085,9 +3138,11 @@ function Attune_ShowResultList(title)
 	-- number of steps per attune - this is to calculate % completion
 	local attuneSteps = {}
 	for i, s in pairs(Attune_Data.steps) do
-		if s.TYPE ~= "Spacer" then
-			if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
-			attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
+		if showPatchStep(s) then
+			if s.TYPE ~= "Spacer" then
+				if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
+				attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
+			end
 		end
 	end
 
@@ -3823,9 +3878,11 @@ function Attune_HandleRequestResults(response)
 		if tag == 'SILENTDONE' then 
 			--print("Received ".. data[3] .. " from " .. player.name)
 			for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
-				if data[3] == (s.ID_ATTUNE .. "-" .. s.ID) then
-					-- recurse into earlier steps to mark them as done too
-					Attune_recursePreviousSteps(name, s.ID_ATTUNE, s.FOLLOWS)
+				if showPatchStep(s) then
+					if data[3] == (s.ID_ATTUNE .. "-" .. s.ID) then
+						-- recurse into earlier steps to mark them as done too
+						Attune_recursePreviousSteps(name, s.ID_ATTUNE, s.FOLLOWS)
+					end
 				end
 			end
 		end

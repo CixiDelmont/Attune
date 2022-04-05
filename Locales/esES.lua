@@ -405,6 +405,12 @@ Lang["I_30623"] = "Llave de depósito"			-- https://es.tbc.wowhead.com/item=3062
 Lang["I_30633"] = "Llave Auchenai"			-- https://es.tbc.wowhead.com/item=30633
 Lang["I_30634"] = "Llave forjada de distorsión"			-- https://es.tbc.wowhead.com/item=30634
 Lang["I_30635"] = "Llave del tiempo"			-- https://es.tbc.wowhead.com/item=30635
+Lang["I_185686"] = "Llave de Forjallamas"			-- https://es.tbc.wowhead.com/item=30637
+Lang["I_185687"] = "Llave de Forjallamas"			-- https://es.tbc.wowhead.com/item=30622
+Lang["I_185690"] = "Llave de depósito"			-- https://es.tbc.wowhead.com/item=30623
+Lang["I_185691"] = "Llave Auchenai"			-- https://es.tbc.wowhead.com/item=30633
+Lang["I_185692"] = "Llave forjada de distorsión"			-- https://es.tbc.wowhead.com/item=30634
+Lang["I_185693"] = "Llave del tiempo"			-- https://es.tbc.wowhead.com/item=30635
 Lang["I_24514"] = "Primer trozo de la llave"			-- https://es.tbc.wowhead.com/item=24514
 Lang["I_24487"] = "Segundo trozo de la llave"			-- https://es.tbc.wowhead.com/item=24487
 Lang["I_24488"] = "Tercer trozo de la llave"			-- https://es.tbc.wowhead.com/item=24488

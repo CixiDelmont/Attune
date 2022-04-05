@@ -405,6 +405,12 @@ Lang["I_30623"] = "水库钥匙"			-- https://cn.tbc.wowhead.com/?item=30623
 Lang["I_30633"] = "奥金尼钥匙"			-- https://cn.tbc.wowhead.com/?item=30633
 Lang["I_30634"] = "星船钥匙"			-- https://cn.tbc.wowhead.com/?item=30634
 Lang["I_30635"] = "时光之钥"			-- https://cn.tbc.wowhead.com/?item=30635
+Lang["I_185686"] = "焰铸钥匙"			-- https://cn.tbc.wowhead.com/?item=30637
+Lang["I_185687"] = "焰铸钥匙"			-- https://cn.tbc.wowhead.com/?item=30622
+Lang["I_185690"] = "水库钥匙"			-- https://cn.tbc.wowhead.com/?item=30623
+Lang["I_185691"] = "奥金尼钥匙"			-- https://cn.tbc.wowhead.com/?item=30633
+Lang["I_185692"] = "星船钥匙"			-- https://cn.tbc.wowhead.com/?item=30634
+Lang["I_185693"] = "时光之钥"			-- https://cn.tbc.wowhead.com/?item=30635
 Lang["I_24514"] = "第一块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24514
 Lang["I_24487"] = "第二块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24487
 Lang["I_24488"] = "第三块钥匙碎片"			-- https://cn.tbc.wowhead.com/?item=24488

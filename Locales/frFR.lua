@@ -405,6 +405,12 @@ Lang["I_30623"] = "Clé du réservoir"			-- https://www.thegeekcrusade-serveur.c
 Lang["I_30633"] = "Clé auchenaï"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
 Lang["I_30634"] = "Clé dimensionnelle"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
 Lang["I_30635"] = "Clé du Temps"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
+Lang["I_185686"] = "Clé en flammes forgées"			-- https://www.thegeekcrusade-serveur.com/db/?item=30637
+Lang["I_185687"] = "Clé en flammes forgées"			-- https://www.thegeekcrusade-serveur.com/db/?item=30622
+Lang["I_185690"] = "Clé du réservoir"			-- https://www.thegeekcrusade-serveur.com/db/?item=30623
+Lang["I_185691"] = "Clé auchenaï"			-- https://www.thegeekcrusade-serveur.com/db/?item=30633
+Lang["I_185692"] = "Clé dimensionnelle"			-- https://www.thegeekcrusade-serveur.com/db/?item=30634
+Lang["I_185693"] = "Clé du Temps"			-- https://www.thegeekcrusade-serveur.com/db/?item=30635
 Lang["I_24514"] = "Premier fragment de la clé"			-- https://www.thegeekcrusade-serveur.com/db/?item=24514
 Lang["I_24487"] = "Deuxième fragment de la clé"			-- https://www.thegeekcrusade-serveur.com/db/?item=24487
 Lang["I_24488"] = "Troisième fragment de la clé"			-- https://www.thegeekcrusade-serveur.com/db/?item=24488

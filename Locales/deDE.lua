@@ -405,6 +405,12 @@ Lang["I_30623"] = "Schlüssel des Kessels"			-- https://de.tbc.wowhead.com/item=
 Lang["I_30633"] = "Schlüssel der Auchenai"			-- https://de.tbc.wowhead.com/item=30633
 Lang["I_30634"] = "Warpgeschmiedeter Schlüssel"			-- https://de.tbc.wowhead.com/item=30634
 Lang["I_30635"] = "Schlüssel der Zeit"			-- https://de.tbc.wowhead.com/item=30635
+Lang["I_185686"] = "Flammengeschmiedeter Schlüssel"			-- https://de.tbc.wowhead.com/item=30637
+Lang["I_185687"] = "Flammengeschmiedeter Schlüssel"			-- https://de.tbc.wowhead.com/item=30622
+Lang["I_185690"] = "Schlüssel des Kessels"			-- https://de.tbc.wowhead.com/item=30623
+Lang["I_185691"] = "Schlüssel der Auchenai"			-- https://de.tbc.wowhead.com/item=30633
+Lang["I_185692"] = "Warpgeschmiedeter Schlüssel"			-- https://de.tbc.wowhead.com/item=30634
+Lang["I_185693"] = "Schlüssel der Zeit"			-- https://de.tbc.wowhead.com/item=30635
 Lang["I_24514"] = "Erstes Schlüsselfragment"			-- https://de.tbc.wowhead.com/item=24514
 Lang["I_24487"] = "Zweites Schlüsselfragment"			-- https://de.tbc.wowhead.com/item=24487
 Lang["I_24488"] = "Drittes Schlüsselfragment"			-- https://de.tbc.wowhead.com/item=24488
