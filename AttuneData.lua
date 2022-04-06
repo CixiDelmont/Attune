@@ -438,37 +438,37 @@ Attune_Data.steps = 	{
 	
 	{ID_ATTUNE="104",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Thrallmar"],LOCATION="947",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_token_thrallmar",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="104",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Hellfire Peninsula"],ID_WOWHEAD="30637",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="104",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Thrallmar"],LOCATION="947",ID_WOWHEAD="9000",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_token_thrallmar",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
+	{ID_ATTUNE="104",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Thrallmar"],LOCATION="947",ID_WOWHEAD="12000",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_token_thrallmar",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
 	{ID_ATTUNE="104",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Hellfire Peninsula"],ID_WOWHEAD="185686",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="104",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_token_thrallmar",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="105",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Honor Hold"],LOCATION="946",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\spell_misc_hellifrepvphonorholdfavor",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="105",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Hellfire Peninsula"],ID_WOWHEAD="30622",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="105",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Honor Hold"],LOCATION="946",ID_WOWHEAD="9000",ICON="Interface\\AddOns\\Attune\\Images\\spell_misc_hellifrepvphonorholdfavor",FOLLOWS="0",STAGE="10", VALIDFROM},
+	{ID_ATTUNE="105",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Honor Hold"],LOCATION="946",ID_WOWHEAD="12000",ICON="Interface\\AddOns\\Attune\\Images\\spell_misc_hellifrepvphonorholdfavor",FOLLOWS="0",STAGE="10", VALIDFROM},
 	{ID_ATTUNE="105",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Hellfire Peninsula"],ID_WOWHEAD="185687",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="105",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\spell_misc_hellifrepvphonorholdfavor",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="106",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Cenarion Expedition"],LOCATION="942",ID_WOWHEAD="21000",ICON="Interface\\Icons\\ability_racial_ultravision",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="106",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Zangarmarsh"],ID_WOWHEAD="30623",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="106",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Cenarion Expedition"],LOCATION="942",ID_WOWHEAD="9000",ICON="Interface\\Icons\\ability_racial_ultravision",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
+	{ID_ATTUNE="106",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Cenarion Expedition"],LOCATION="942",ID_WOWHEAD="12000",ICON="Interface\\Icons\\ability_racial_ultravision",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
 	{ID_ATTUNE="106",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Zangarmarsh"],ID_WOWHEAD="185690",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="106",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_racial_ultravision",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="107",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Lower City"],LOCATION="1011",ID_WOWHEAD="21000",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="107",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="30633",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="107",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Lower City"],LOCATION="1011",ID_WOWHEAD="9000",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
+	{ID_ATTUNE="107",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Lower City"],LOCATION="1011",ID_WOWHEAD="12000",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
 	{ID_ATTUNE="107",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="185691",ICON="Interface\\Icons\\inv_misc_key_13",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="107",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_06",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="108",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["The Sha'tar"],LOCATION="935",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="108",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="30634",ICON="Interface\\Icons\\inv_misc_key_09",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="108",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["The Sha'tar"],LOCATION="935",ID_WOWHEAD="9000",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
+	{ID_ATTUNE="108",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["The Sha'tar"],LOCATION="935",ID_WOWHEAD="12000",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="0",STAGE="10", VALIDFROM=20504},
 	{ID_ATTUNE="108",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Shattrath City"],ID_WOWHEAD="185692",ICON="Interface\\Icons\\inv_misc_key_09",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="108",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\inv_shield_30",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="109",ID="10",TYPE="Rep",STEP=Lang["Revered with"].." "..Lang["Keepers of Time"],LOCATION="989",ID_WOWHEAD="21000",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="0",STAGE="10", VALIDTO=20504},
 	{ID_ATTUNE="109",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="30635",ICON="Interface\\Icons\\inv_misc_key_04",FOLLOWS="10",STAGE="20", VALIDTO=20504},
-	{ID_ATTUNE="109",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Keepers of Time"],LOCATION="989",ID_WOWHEAD="9000",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="0",STAGE="10", VALIDFROM=20504 },
+	{ID_ATTUNE="109",ID="10",TYPE="Rep",STEP=Lang["Honored with"].." "..Lang["Keepers of Time"],LOCATION="989",ID_WOWHEAD="12000",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="0",STAGE="10", VALIDFROM=20504 },
 	{ID_ATTUNE="109",ID="20",TYPE="Item",STEP="",LOCATION=Lang["Tanaris"],ID_WOWHEAD="185693",ICON="Interface\\Icons\\inv_misc_key_04",FOLLOWS="10",STAGE="20", VALIDFROM=20504},
 	{ID_ATTUNE="109",ID="30",TYPE="End",STEP="",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\spell_holy_borrowedtime",FOLLOWS="20",STAGE="30"},
 	
