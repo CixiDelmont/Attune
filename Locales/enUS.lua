@@ -227,6 +227,11 @@ Lang["BM_Desc"] = "All members of the group need to complete the quest chain in 
 --v250
 Lang["Aqual Quintessence"] = "Aqual Quintessence"
 Lang["MC2_Desc"] = "Used to summon Majordomo Executus. Every boss in Molten Core except Lucifron and Geddon have runes on the ground that need to be doused for Majordomo to spawn." 
+--v254
+Lang["Magisters' Terrace Heroic"] = "Magisters' Terrace Heroic"
+Lang["Magisters' Terrace"] = "Magisters' Terrace"
+Lang["MgT_Desc"] = "All players need to complete the dungeon on normal mode to be able to run it in heroic mode."
+Lang["Isle of Quel'Danas"] = "Isle of Quel'Danas"
 
 
 -- GENERIC
@@ -858,6 +863,15 @@ Lang["Q1_6824"] = "Hands of the Enemy"
 Lang["Q2_6824"] = "Bring the Hands of Lucifron, Sulfuron, Gehennas and Shazzrah to Duke Hydraxis in Azshara."
 Lang["Q1_7486"] = "A Hero's Reward"
 Lang["Q2_7486"] = "Claim your reward from Hydraxis' Coffer."
+--v254
+Lang["Q1_11481"] = "Crisis at the Sunwell"
+Lang["Q2_11481"] = "Adyen the Lightwarden on the Aldor Rise in Shattrath City has requested that you travel to Sunwell Plateau and speak with Larethor."
+Lang["Q1_11488"] = "Magisters' Terrace"
+Lang["Q2_11488"] = "Exarch Larethor at the Shattered Sun Staging Area wants you to search Magisters' Terrace and find Tyrith, a blood elf spy."
+Lang["Q1_11490"] = "The Scryer's Scryer"
+Lang["Q2_11490"] = "Tyrith wants you to use the orb on the balcony in Magisters' Terrace."
+Lang["Q1_11492"] = "Hard to Kill"
+Lang["Q2_11492"] = "Kalecgos has asked you to defeat Kael'thas in Magisters' Terrace. You are to take Kael's head and report back to Larethor at the Shattered Sun Staging Area."
 	
 
 -- NPC

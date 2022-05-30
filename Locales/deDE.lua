@@ -227,6 +227,11 @@ Lang["BM_Desc"] = "Alle Mitglieder der Gruppe müssen die Questkette abschließe
 --v250
 Lang["Aqual Quintessence"] = "Wässrige Quintessenz"
 Lang["MC2_Desc"] = "Wird verwendet, um Majordomus Executus zu beschwören. Jeder Boss in Molten Core außer Lucifron und Geddon hat Runen auf dem Boden, die gelöscht werden müssen, damit Executus spawnen kann." 
+--v254
+Lang["Magisters' Terrace Heroic"] = "Terrasse der Magister Heroisch"
+Lang["Magisters' Terrace"] = "Terrasse der Magister"
+Lang["MgT_Desc"] = "Alle Spieler müssen den Dungeon im normalen Modus abschließen, um ihn im heroischen Modus ausführen zu können."
+Lang["Isle of Quel'Danas"] = "Insel von Quel'Danas"
 
 
 -- GENERIC
@@ -858,6 +863,15 @@ Lang["Q1_6824"] = "Hände des Feindes"
 Lang["Q2_6824"] = "Bringt die Hände von Lucifron, Sulfuron, Gehennas und Shazzrah zu Fürst Hydraxis in Azshara."
 Lang["Q1_7486"] = "Die Belohnung eines Helden"
 Lang["Q2_7486"] = "Nehmt Eure Belohnung aus Hydraxis' Kasten."
+--v254
+Lang["Q1_11481"] = "Krise am Sonnenbrunnen"
+Lang["Q2_11481"] = "Adyen der Lichtwächter auf der Aldorhöhe in Shattrath hat Euch gebeten, zum Sonnenbrunnenplateau zu reisen und dort mit Larethor zu sprechen."
+Lang["Q1_11488"] = "Terrasse der Magister"
+Lang["Q2_11488"] = "Exarch Larethor beim Sammelpunkt der Zerschmetterten Sonne möchte, dass Ihr die Terrasse der Magister absucht und einen Blutelfenspion namens Tyrith findet."
+Lang["Q1_11490"] = "Der Seher der Seher"
+Lang["Q2_11490"] = "Tyrith möchte, dass Ihr die Kugel auf dem Balkon in der Terrasse der Magister benutzt."
+Lang["Q1_11492"] = "Nicht totzukriegen"
+Lang["Q2_11492"] = "Kalecgos hat Euch damit beauftragt, Kael'thas in der Terrasse der Magister zu bezwingen. Ihr sollt Euch mit Kaels Kopf bei Larethor in der Terrasse der Magister melden."
 
 
 -- NPC

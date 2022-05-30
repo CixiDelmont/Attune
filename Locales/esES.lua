@@ -227,6 +227,11 @@ Lang["BM_Desc"] = "Todos los miembros del grupo deben completar la cadena de mis
 --v250
 Lang["Aqual Quintessence"] = "Quintaesencia de agua"
 Lang["MC2_Desc"] = "Se utiliza para convocar a Mayordomo Executus. Todos los jefes de Molten Core, excepto Lucifron y Geddon, tienen runas en el suelo que deben rociarse para que aparezca Executus." 
+--v254
+Lang["Magisters' Terrace Heroic"] = "Bancal del Magister Heroica"
+Lang["Magisters' Terrace"] = "Bancal del Magister"
+Lang["MgT_Desc"] = "Todos los jugadores deben completar la mazmorra en modo normal para poder ejecutarla en modo heroico."
+Lang["Isle of Quel'Danas"] = "Isla de Quel'Danas"
 
 
 -- GENERIC
@@ -858,6 +863,15 @@ Lang["Q1_6824"] = "Las manos de los enemigos"
 Lang["Q2_6824"] = "Lleva las manos de Lucifron, Sulfuron, Gehennas y Shazzrah al duque Hydraxis a Azshara."
 Lang["Q1_7486"] = "Una recompensa de héroe"
 Lang["Q2_7486"] = "Recoge tu recompensa en el arca de Hydraxis."
+--v254
+Lang["Q1_11481"] = "Crisis en La Fuente del Sol"
+Lang["Q2_11481"] = "Adyen el Celador de la Luz del Alto Aldor, en la Ciudad de Shattrath, te ha pedido que viajes hasta la Meseta de La Fuente del Sol para hablar con Larethor."
+Lang["Q1_11488"] = "El Bancal del Magister"
+Lang["Q2_11488"] = "El exarca Larethor de la Zona de escala de Sol Devastado quiere que registres el Bancal del Magister y encuentres a Tyrith, un espía elfo de sangre."
+Lang["Q1_11490"] = "El cristal del Arúspice"
+Lang["Q2_11490"] = "Tyrith quiere que uses el orbe en el balcón del Bancal del Magister."
+Lang["Q1_11492"] = "Duro de matar"
+Lang["Q2_11492"] = "Kalecgos te ha pedido que derrotes a Kael'thas en el Bancal del Magister. Coge la cabeza de Kael y preséntate ante Larethor en la Zona de escala de Sol Devastado."
 
 
 -- NPC

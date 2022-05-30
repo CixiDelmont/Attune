@@ -227,6 +227,11 @@ Lang["BM_Desc"] = "Tous les membres du groupe doivent compléter les quêtes pou
 --v250
 Lang["Aqual Quintessence"] = "Quintessence aquatique"
 Lang["MC2_Desc"] = "Utilisée pour invoquer Chambellan Executus. Tous les boss de Molten Core, à l'exception de Lucifron et Geddon, ont des runes au sol qui doivent être aspergées pour que Executus apparaisse." 
+--v254
+Lang["Magisters' Terrace Heroic"] = "Terrasse des Magistères Héroïque"
+Lang["Magisters' Terrace"] = "Terrasse des Magistères"
+Lang["MgT_Desc"] = "Tous les joueurs doivent terminer le donjon en mode normal pour pouvoir l'exécuter en mode héroïque."
+Lang["Isle of Quel'Danas"] = "Île de Quel'Danas"
 
 
 -- GENERIC
@@ -858,6 +863,15 @@ Lang["Q1_6824"] = "Les mains de l'ennemi"
 Lang["Q2_6824"] = "Apporter les Mains de Lucifron, de Sulfuron, de Gehennas et de Shazzrah au duc Hydraxis, en Azshara."
 Lang["Q1_7486"] = "La récompense du héros"
 Lang["Q2_7486"] = "Allez chercher votre récompense dans le Coffre d’Hydraxis."
+--v254
+Lang["Q1_11481"] = "Crise au Puits de soleil"
+Lang["Q2_11481"] = "Adyen le Gardelumière, de l'Éminence de l'Aldor à Shattrath, veut que vous vous rendiez au Plateau du Puits de soleil pour parler à Larethor."
+Lang["Q1_11488"] = "La terrasse des Magistères"
+Lang["Q2_11488"] = "L'exarque Larethor, de la Zone de rassemblement du Soleil brisé, vous demande d'explorer la Terrasse des magistères à la recherche de Tyrith, un espion elfe de sang."
+Lang["Q1_11490"] = "Clairvoyance pour les Clairvoyants"
+Lang["Q2_11490"] = "Tyrith veut que vous utilisiez l'orbe sur le balcon de la Terrasse des Magistères."
+Lang["Q1_11492"] = "L'increvable"
+Lang["Q2_11492"] = "Kalecgos vous a demandé de vaincre Kael'thas sur la Terrasse des Magistères. Vous devrez ramasser la tête de Kael avant de faire votre rapport à Larethor à la Zone de rassemblement du Soleil brisé."
 
 
 -- NPC
