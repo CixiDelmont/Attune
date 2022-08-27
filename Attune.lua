@@ -8,13 +8,17 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 255
---	Updated to cater for honored and revered rep keys
-
+-- Done in 256
+--  Added the Wrathgate event (Horde and Alliance)
+--	Added the Knights of the Ebon Blade phasing quests (Horde and Alliance)
+--  Fixed an issue where an Interacting or Killing step wouldn't register
+--  Updated ToC for Wrath of the Lich King	
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
 -------------------------------------------------------------------------
+
+local addonName, addon = ...
 
 Attune = LibStub("AceAddon-3.0"):NewAddon("Attune", "AceConsole-3.0", "AceEvent-3.0", "AceComm-3.0")
 Attune_Data = {};							-- Attunements / steps / tooltips
@@ -30,7 +34,7 @@ local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
 
-local attunelocal_version = "255"  					-- change here, and in TOC x2
+local attunelocal_version = tostring(GetAddOnMetadata(addonName, "Version"))
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version"	-- used for addon version check
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
@@ -505,7 +509,8 @@ function Attune:OnEnable()
 	self:RegisterEvent("UPDATE_FACTION")
 	self:RegisterEvent("BAG_UPDATE")
 	self:RegisterEvent("GOSSIP_SHOW")
-	
+	self:RegisterEvent("QUEST_DETAIL")
+		
 	_, _, _, patch	 = GetBuildInfo()
 	
 	if Attune_DB == nil then Attune_DB = {} end
@@ -870,7 +875,7 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 					end
 					--print(npc_id)
 		
-					if s.ID_WOWHEAD == npc_id then
+					if ""..s.ID_WOWHEAD == ""..npc_id then
 						-- checking that predecessors are done (meaning this step is ISNext)
 						local isNext = true
 						local followOR = false
@@ -894,6 +899,7 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 							if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 								for k, a in pairs(Attune_Data.attunes) do
 									if a.ID == s.ID_ATTUNE then
+										local faction = UnitFactionGroup("player")
 										if a.FACTION == faction or a.FACTION == 'Both' then
 											--mark step as done
 											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
@@ -1064,8 +1070,13 @@ end
 -------------------------------------------------------------------------
 -- EVENT: Interact with NPC
 -------------------------------------------------------------------------
-
+function Attune:QUEST_DETAIL(event)
+	--print("QUEST_DETAIL")
+	Attune:GOSSIP_SHOW(event)
+end
+-------------------------------------------------------------------------
 function Attune:GOSSIP_SHOW(event)
+	--print("GOSSIP")
 	--print(UnitGUID("target"))
 	local npc_id = -1
 	if UnitGUID("target") ~= nil then
@@ -1449,6 +1460,14 @@ function Attune_CheckComplete(newComplete)
 
 	if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
 	if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
+
+
+	if att.done["300-290"] and att.attuned["300"] ~= 100 	then att.done["300-300"] = 1; 	Attune_SendPushInfo("300-300"); 	att.attuned["300"] = 100; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
+	if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- WrRathgate Alliance
+
+	if att.done["340-140"] and att.attuned["340"] ~= 100 	then att.done["340-150"] = 1; 	Attune_SendPushInfo("340-150"); 	att.attuned["340"] = 100; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
+	if att.done["350-140"] and att.attuned["350"] ~= 100 	then att.done["350-150"] = 1; 	Attune_SendPushInfo("350-150"); 	att.attuned["350"] = 100; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
+
 
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
