@@ -151,6 +151,28 @@ Lang["Scholomance"] = "Scholomance"
 --v248
 Lang["Target"] = "Target"
 Lang["SendingSurveyTo"] = "Sending survey to ##TO##"
+--WOTLK
+Lang["QUEST HUBS"] = "QUEST HUBS"
+Lang["PHASES"] = "PHASES"
+Lang["Angrathar the Wrathgate"] = "Angrathar the Wrathgate"
+Lang["Unlock the Wrathgate events and the Battle for the Undercity"] = "Unlock the Wrathgate events and the Battle for the Undercity"
+Lang["Sons of Hodir"] = "Sons of Hodir"
+Lang["Unlock the Sons of Hodir quest hub"] = "Unlock the Sons of Hodir quest hub"
+Lang["Knights of the Ebon Blade"] = "Knights of the Ebon Blade"
+Lang["Unlock the Shadow Vault quest hub"] = "Unlock the Shadow Vault quest hub"
+Lang["Goblin"] = "Goblin"
+Lang["Death Knight"] = "Death Knight"
+Lang["Eye"] = "Eye"
+Lang["Abomination"] = "Abomination"
+Lang["Banshee"] = "Banshee"
+Lang["Geist"] = "Geist"
+Lang["Icecrown"] = "Icecrown"
+Lang["Dragonblight"] = "Dragonblight"
+Lang["Borean Tundra"] = "Borean Tundra"
+Lang["The Storm Peaks"] = "The Storm Peaks"
+Lang["The Eye of Eternity"] = "The Eye of Eternity"
+Lang["Sapphiron"] = "Sapphiron"
+Lang["One_Desc"] = "Only one person in the group needs to have this key."
 
 
 -- OPTIONS
@@ -443,6 +465,14 @@ Lang["I_17329"] = "Hand of Lucifron"
 Lang["I_17331"] = "Hand of Gehennas"
 Lang["I_17330"] = "Hand of Sulfuron"
 Lang["I_17333"] = "Aqual Quintessence"
+--WOTLK
+Lang["I_41556"] = "Slag Covered Metal"
+Lang["I_44569"] = "Key to the Focusing Iris"
+Lang["I_44582"] = "Key to the Focusing Iris"
+Lang["I_44577"] = "Heroic Key to the Focusing Iris"
+Lang["I_44581"] = "Heroic Key to the Focusing Iris"
+
+Lang["I_"] = ""
 
 
 -- QUESTS - Classic
@@ -872,7 +902,12 @@ Lang["Q1_11490"] = "The Scryer's Scryer"
 Lang["Q2_11490"] = "Tyrith wants you to use the orb on the balcony in Magisters' Terrace."
 Lang["Q1_11492"] = "Hard to Kill"
 Lang["Q2_11492"] = "Kalecgos has asked you to defeat Kael'thas in Magisters' Terrace. You are to take Kael's head and report back to Larethor at the Shattered Sun Staging Area."
---WOTLK
+
+
+--WOTLK QUESTS
+-- The ids are Q1_<QuestId> and Q2_<QuestId>
+-- Q1 is just the title of the quest
+-- Q2 is the description/synopsis, with some helpful comments in between \n\n|cff33ff99 and |r--WOTLK
 Lang["Q1_12892"] = "It's All Fun and Games"
 Lang["Q2_12892"] = "Destroy The Ocular and then report to Baron Sliver at The Shadow Vault."
 Lang["Q1_12887"] = "It's All Fun and Games"
@@ -1007,16 +1042,90 @@ Lang["Q1_13371"] = "The Killing Time"
 Lang["Q2_13371"] = "Use the Portal to the Undercity inside Stormwind Keep to teleport to the Undercity. Report to Broll Bearmantle when you arrive at your destination."
 Lang["Q1_13377"] = "The Battle For The Undercity"
 Lang["Q2_13377"] = "Assist King Varian Wrynn and Lady Jaina Proudmoore in bringing Grand Apothecary Putress to justice! Report to King Varian Wrynn should you succeed."
+--WOTLK Sons of Hodir
+Lang["Q1_12843"] = "They Took Our Men!"
+Lang["Q2_12843"] = "Gretchen Fizzlespark wants you to go to Sifreldar Village and rescue 5 Goblin Prisoners.\n\n|cff33ff99Go to the village at (41.4, 70.6), kill giants to get keys to the prisoners' cages scattered in the village.|r"
+Lang["Q1_12846"] = "Leave No Goblin Behind"
+Lang["Q2_12846"] = "Find the entrance to the Forlorn Mine in northern Sifreldar Village and look for clues for Zeev Fizzlespark's whereabouts.\n\n|cff33ff99The entrance of the mine is in the village at (42.1, 69.5), not under. If you see spiders you're in the wrong one:-).|r"
+Lang["Q1_12841"] = "The Crone's Bargain"
+Lang["Q2_12841"] = "Lok'lira the Crone inside the Forlorn Mine wants you to retrieve the Runes of the Yrkvinn from Overseer Syra.\n\n|cff33ff99Syra patrols the side corridors of the mine.|r"
+Lang["Q1_12905"] = "Mildred the Cruel"
+Lang["Q2_12905"] = "Speak to Mildred the Cruel inside the Forlorn Mine.\n\n|cff33ff99Mildred is on the platform as you walk further inside the mine.|r"
+Lang["Q1_12906"] = "Discipline"
+Lang["Q2_12906"] = "Mildred the Cruel at the Forlorn Mine wants you to use the Disciplining Rod on 6 Exhausted Vrykul."
+Lang["Q1_12907"] = "Examples to be Made"
+Lang["Q2_12907"] = "Mildred the Cruel at the Forlorn Mine wants you to slay Garhal.\n\n|cff33ff99He's with a couple others further down the mine, at (45.4, 69.1). The guards help you.|r"
+Lang["Q1_12908"] = "A Certain Prisoner"
+Lang["Q2_12908"] = "Take Mildred's Key to Lok'lira the Crone in the Forlorn Mine."
+Lang["Q1_12921"] = "A Change of Scenery"
+Lang["Q2_12921"] = "Reconvene with Lok'lira the Crone in Brunnhildar Village."
+Lang["Q1_12969"] = "Is That Your Goblin?"
+Lang["Q2_12969"] = "Challenge Agnetta Tyrsdottar in order to save Zeev Fizzlespark. Return to Lok'lira the Crone in Brunnhildar Village after you've succeeded."
+Lang["Q1_12970"] = "The Hyldsmeet"
+Lang["Q2_12970"] = "Listen to Lok'lira the Crone's proposal.\n\n|cff33ff99Just talk to the crone and click through the various messages.|r"
+Lang["Q1_12971"] = "Taking on All Challengers"
+Lang["Q2_12971"] = "Lok'lira the Crone in Brunnhildar Village wants you to defeat 6 Victorious Challengers.\n\n|cff33ff99Just talk to the various challengers that are not currently in a fight.|r"
+Lang["Q1_12972"] = "You'll Need a Bear"
+Lang["Q2_12972"] = "Speak to Brijana outside Brunnhildar Village.\n\n|cff33ff99Brijana is at (53.1, 65.7).|r"
+Lang["Q1_12851"] = "Bearly Hanging On"
+Lang["Q2_12851"] = "Brijana at Brunnhildar Village wants you to mount Icefang and shoot 7 Frostworgs and 15 Frost Giants in the Valley of Ancient Winters."
+Lang["Q1_12856"] = "Cold Hearted"
+Lang["Q2_12856"] = "Brijana, just east of Brunnhildar Village, wants you to fly to Dun Niffelem, then free 3 Captured Proto-Drakes and rescue 9 Brunnhildar Prisoners.\n\n|cff33ff99Fly to (64.3, 61.5) and jump on one of the Proto-Drakes chained to the ceiling. You can then 'shoot' at the iceblocked maidens to free them. Do 3 then return. Do this 3 times to get all 9.|r"
+Lang["Q1_13063"] = "Deemed Worthy"
+Lang["Q2_13063"] = "Brijana wants you to go to Brunnhildar Village and speak with Astrid Bjornrittar.\n\n|cff33ff99Astrid is inside a house at (49.7, 71.8).|r"
+Lang["Q1_12900"] = "Making a Harness"
+Lang["Q2_12900"] = "Astrid Bjornrittar in Brunnhildar Village wants you to obtain 3 Icemane Yeti Hides."
+Lang["Q1_12983"] = "The Last of Her Kind"
+Lang["Q2_12983"] = "Astrid Bjornrittar in Brunnhildar Village wants you to rescue an Icemaw Matriarch in the Hibernal Cavern.\n\n|cff33ff99The entrance to the cavern is at (55.9, 64.3). Follow the path to the right and you'll find the matriarch easily.|r"
+Lang["Q1_12996"] = "The Warm-Up"
+Lang["Q2_12996"] = "Astrid Bjornrittar in Brunnhildar Village wants you to use the Reins of the Warbear Matriarch to defeat Kirgaraak.\n\n|cff33ff99Maul (4) on cooldown, when charge is ready, do the knockback (5) and then charge (6). If the bear dies finish the mob by yourself it you can, it will still count.|r"
+Lang["Q1_12997"] = "Into the Pit"
+Lang["Q2_12997"] = "Astrid Bjornrittar, in Brunnhildar Village, wants you to use the Reins of the Warbear Matriarch inside the Pit of the Fang and defeat 6 Hyldsmeet Warbears."
+Lang["Q1_13061"] = "Prepare for Glory"
+Lang["Q2_13061"] = "Speak to Lok'lira the Crone in Brunnhildar Village."
+Lang["Q1_13062"] = "Lok'lira's Parting Gift"
+Lang["Q2_13062"] = "Speak to Gretta the Arbiter in Brunnhildar Village."
+Lang["Q1_12886"] = "The Drakkensryd"
+Lang["Q2_12886"] = "Use the Hyldnir Harpoon to defeat 10 Hyldsmeet Drakeriders at the Temple of Storms. Use the Hyldnir Harpoon on a Column Ornament to exit the Drakkensryd and speak to Thorim when you've succeeded.\n\n|cff33ff99Use the harpoon to jump onto other drakes and kill their riders. After 10 times, use the harpoon on a little lamp hanging off a column, that will take you to the platform.|r"
+Lang["Q1_13064"] = "Sibling Rivalry"
+Lang["Q2_13064"] = "Thorim wants you to listen to his story."
+Lang["Q1_12915"] = "Mending Fences"
+Lang["Q2_12915"] = "Thorim at the Temple of Storms wants you to Kill Fjorn and 5 Stormforged Iron Giants at Fjorn's Anvil, east of Dun Niffelem.\n\n|cff33ff99Fly to the Anvil at the very east of Storm Peaks (76.9, 63.2), and pick up a boulder from the floor. Use Thorim's charm on a target and let the dwarves tank it.\nNote, you'll need a new (unique) boulder for each target (so 6 minimum).|r"
+Lang["Q1_12922"] = "The Refiner's Fire"
+Lang["Q2_12922"] = "You must collect 10 Furious Sparks from the Seething Revenants at Frostfield Lake and then use the anvil at Fjorn's Anvil."
+Lang["Q1_12956"] = "A Spark of Hope"
+Lang["Q2_12956"] = "You are to bring the Refined Gleaming Ore to Thorim in the Temple of Storms."
+Lang["Q1_12924"] = "Forging an Alliance"
+Lang["Q2_12924"] = "You are to go to Dun Niffelem and ask King Jokkum to allow Thorim's armor to be reforged. After completing Jokkum's task, you are to speak with Njormeld in Dun Niffelem.\n\n|cff33ff99The king is in the center of Dun Niffelem, at (65.4, 60.1).\n\nYou however eventually turn in this quest to Njormeld at (63.2, 63.3).|r"
+Lang["Q1_13009"] = "A New Beginning"
+Lang["Q2_13009"] = "Njormeld wants you to take the Reforged Armor to Thorim at the Temple of Storms."
+Lang["Q1_13050"] = "Veranus"
+Lang["Q2_13050"] = "Thorim, at the Temple of Storms, wants you to obtain 5 Small Proto-Drake Eggs from the peaks near Brunnhildar Village.\n\n|cff33ff99There's various nests around the area, for example at (52.5, 73.4).|r"
+Lang["Q1_13051"] = "Territorial Trespass"
+Lang["Q2_13051"] = "Place the Stolen Proto-Dragon Eggs on top of the Broodmother's Nest and return to Thorim at the Temple of Storms.\n\n|cff33ff99The correct nest is at (38.7, 65.5). Put the eggs down and wait for Thorim to appear on top of Veranus.|r"
+Lang["Q1_13010"] = "Krolmir, Hammer of Storms"
+Lang["Q2_13010"] = "Thorim wants you to talk to King Jokkum in Dun Niffelem and discover what he knows of Krolmir.\n\n|cff33ff99You might be short a little bit of rep for the King to answer your question. Complete one of the two daily quests to become friendly.|r"
+Lang["Q1_12966"] = "You Can't Miss Him"
+Lang["Q2_12966"] = "King Jokkum in Dun Niffelem wants you to find Njormeld at Fjorn's Anvil."
+Lang["Q1_12967"] = "Battling the Elements"
+Lang["Q2_12967"] = "Njormeld wants you to accompany Snorri to Fjorn's anvil and help him kill 10 Seething Revenants."
+Lang["Q1_12975"] = "In Memoriam"
+Lang["Q2_12975"] = "King Jokkum in Dun Niffelem wants you to collect 8 Horn Fragments from Thunderfall.\n\n|cff33ff99They look like little grey bits in the snow at (71.6, 48.9).|r"
+Lang["Q1_12976"] = "A Monument to the Fallen"
+Lang["Q2_12976"] = "King Jokkum wants you to bring Hodir's Horn Fragments to Njormeld in Dun Niffelem."
+Lang["Q1_13011"] = "Culling Jorcuttar"
+Lang["Q2_13011"] = "King Jokkum in Dun Niffelem wants you to slay Jorcuttar in Hibernal Cavern.\n\n|cff33ff99Enter the cave and stick to the right. You can summon Jorcuttar at (54.8, 61.0). It might take a few tries to get the bear meat.|r"
+Lang["Q1_13372"] = "The Key to the Focusing Iris"
+Lang["Q2_13372"] = "Deliver the Key to the Focusing Iris to Alexstrasza the Life-Binder atop Wyrmrest Temple in the Dragonblight."
+Lang["Q1_13375"] = "The Heroic Key to the Focusing Iris"
+Lang["Q2_13375"] = "Deliver the Heroic Key to the Focusing Iris to Alexstrasza the Life-Binder atop Wyrmrest Temple in the Dragonblight."
 
-
+--  \n\n|cff33ff99 |r
 Lang["Q1_"] = ""
 Lang["Q2_"] = ""
---  \n\n|cff33ff99 |r
 
 
 
-
-	
 
 -- NPC
 Lang["N1_9196"] = "Highlord Omokk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9196
@@ -1200,7 +1309,14 @@ Lang["N2_12259"]  = "Gehennas is the third boss of Molten Core."
 Lang["N1_12098"]  = "Sulfuron Harbinger"
 Lang["N2_12098"]  = "Sulfuron Harbinger, herald of Ragnaros, is the eighth boss of the Molten Core."
 
---WOTLK
+
+
+
+--WOTLK NPCs
+--WOTLK QUESTS
+-- The ids are N1_<NPCId> and N2_<NPCId>
+-- N1 is just the name of the NPC
+-- N2 is a helpful description
 Lang["N1_29795"]  = "Koltira Deathweaver"
 Lang["N2_29795"]  = "Don't look for him on the ground. He's on the Orgrim's Hammer, flying somewhere above over the plain between Ymirheim and Syndragosa's Fall."
 Lang["N1_29799"]  = "Thassarian"
@@ -1224,7 +1340,7 @@ Lang["N2_26652"]  = "She walks around the center circle in Agmar's Hammer. She's
 Lang["N1_26505"]  = "Doctor Sintar Malefious"
 Lang["N2_26505"]  = "He's in the alchemy corner of Agmar's Hammer (36.1, 48.8)."
 Lang["N1_25257"]  = "Saurfang the Younger"
-Lang["N2_25257"]  = "He's near the Wrathgate, in the north-west corner of Dragonbligh, at (40.7, 18.1).\n\nDon't get too attached to him!"
+Lang["N2_25257"]  = "He's near the Wrathgate, in the north-west corner of Dragonblight, at (40.7, 18.1).\n\nDon't get too attached to him!"
 Lang["N1_31333"]  = "Alexstrasza the Life-Binder"
 Lang["N2_31333"]  = "She is now in dragon form, in front of the Wrathgate. Quite big, can't miss her (38.3, 19.2)."
 Lang["N1_25256"]  = "High Overlord Saurfang"
@@ -1235,15 +1351,13 @@ Lang["N1_27872"]  = "Highlord Bolvar Fordragon"
 Lang["N2_27872"]  = "Bolvar Fordragon, a true hero of the alliance, struck with a terrible fate.\n\nHe awaits it at (37.8, 23.4)."
 Lang["N1_29611"]  = "King Varian Wrynn"
 Lang["N2_29611"]  = "Doesn't look too happy.."
-
+Lang["N1_29473"]  = "Gretchen Fizzlespark"
+Lang["N2_29473"]  = "She's in the K3 Inn at (41.2, 86.1)."
+Lang["N1_15989"]  = "Sapphiron"
+Lang["N2_15989"]  = "Sapphiron is a gigantic undead frost wyrm who guards the entrance to Kel'Thuzad's inner sanctum in Naxxramas."
 
 Lang["N1_"]  = ""
 Lang["N2_"]  = ""
-
-
-
-
-
 
 
 

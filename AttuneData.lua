@@ -46,14 +46,17 @@ Attune_Data.attunes = 	{
 	{ID="180",NAME=Lang["Mount Hyjal"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_archimonde", DESC=Lang["All_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="190",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Horde",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
 	{ID="200",NAME=Lang["Black Temple"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['RAIDS'], FACTION="Alliance",ICON="Interface\\AddOns\\Attune\\Images\\achievement_boss_illidan", DESC=Lang["BT_Desc"], GROUPSIZE=25, SHOWRAIDPLANNER=2},
-	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"] },
-	{ID="260",NAME=Lang["Ally of the Netherwing"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['MISC'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_netherwhelp", DESC=Lang["Netherwing_Desc"] },
+	{ID="250",NAME=Lang["Ogri'la Quest Hub"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['QUEST HUBS'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_misc_apexis_crystal", DESC=Lang["Ogrila_Desc"] },
+	{ID="260",NAME=Lang["Ally of the Netherwing"],EXPAC=Lang["The Burning Crusade"], GROUP=Lang['QUEST HUBS'], FACTION="Both",ICON="Interface\\AddOns\\Attune\\Images\\inv_netherwhelp", DESC=Lang["Netherwing_Desc"] },
 	--WOTLK 
 	{ID="300",NAME=Lang["Angrathar the Wrathgate"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['PHASES'], FACTION="Horde",ICON="Interface\\Icons\\achievement_zone_icecrown_06", DESC=Lang["Unlock the Wrathgate events and the Battle for the Undercity"] },
 	{ID="310",NAME=Lang["Angrathar the Wrathgate"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['PHASES'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_zone_icecrown_06", DESC=Lang["Unlock the Wrathgate events and the Battle for the Undercity"] },
-	{ID="340",NAME=Lang["Knights of the Ebon Blade"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['PHASES'], FACTION="Horde",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade", DESC=Lang["Unlock the Shadow Vault quest hub"] },
-	{ID="350",NAME=Lang["Knights of the Ebon Blade"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['PHASES'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade", DESC=Lang["Unlock the Shadow Vault quest hub"] },
-		
+	{ID="330",NAME=Lang["Sons of Hodir"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['QUEST HUBS'], FACTION="Both",ICON="Interface\\Icons\\achievement_boss_hodir_01", DESC=Lang["Unlock the Sons of Hodir quest hub"] },
+	{ID="340",NAME=Lang["Knights of the Ebon Blade"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['QUEST HUBS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade", DESC=Lang["Unlock the Shadow Vault quest hub"] },
+	{ID="350",NAME=Lang["Knights of the Ebon Blade"],EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['QUEST HUBS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade", DESC=Lang["Unlock the Shadow Vault quest hub"] },
+	{ID="360",NAME=Lang["The Eye of Eternity"].." (10)",EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\achievement_boss_malygos_01", DESC=Lang["One_Desc"], },
+	{ID="370",NAME=Lang["The Eye of Eternity"].." (25)",EXPAC=Lang["Wrath of the Lich King"], GROUP=Lang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\achievement_boss_malygos_01", DESC=Lang["One_Desc"], },
+
 
 }
 
@@ -879,7 +882,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="260",ID="110",TYPE="Quest",STEP="",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="10870",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"},
 	{ID_ATTUNE="260",ID="120",TYPE="End",STEP="Attuned",LOCATION=Lang["Shadowmoon Valley"],ID_WOWHEAD="0",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_bloodelf_male",FOLLOWS="110",STAGE="120"},
 
-	
+
 	--WOTLK
 	--Wrathgate Horde
 	{ID_ATTUNE="300",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 71",LOCATION="",ID_WOWHEAD="71",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -988,6 +991,55 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="410",TYPE="End",STEP="Attuned",LOCATION=Lang["Undercity"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_zone_icecrown_06",FOLLOWS="400",STAGE="340"},
 	
 
+	{ID_ATTUNE="330",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 77",LOCATION="",ID_WOWHEAD="77",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="330",ID="20",TYPE="Interact",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="29473",ICON="Interface\\AddOns\\Attune\\Images\\achievement_femalegoblinhead",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="330",ID="30",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="330",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="330",ID="50",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="330",ID="60",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12905",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="330",ID="70",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12906",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="330",ID="80",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12907",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="330",ID="90",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12908",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"},
+	{ID_ATTUNE="330",ID="100",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="330",ID="110",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12969",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"},
+	{ID_ATTUNE="330",ID="120",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12970",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"},
+	{ID_ATTUNE="330",ID="130",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"},
+	{ID_ATTUNE="330",ID="140",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="140"},
+	{ID_ATTUNE="330",ID="150",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12851",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="150"},
+	{ID_ATTUNE="330",ID="160",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12856",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="160"},
+	{ID_ATTUNE="330",ID="170",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13063",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="170"},
+	{ID_ATTUNE="330",ID="180",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12900",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="170",STAGE="180"},
+	{ID_ATTUNE="330",ID="190",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="190"},
+	{ID_ATTUNE="330",ID="200",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12996",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="200"},
+	{ID_ATTUNE="330",ID="210",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="200",STAGE="210"},
+	{ID_ATTUNE="330",ID="220",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13061",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="220"},
+	{ID_ATTUNE="330",ID="230",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13062",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="230"},
+	{ID_ATTUNE="330",ID="240",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12886",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="240"},
+	{ID_ATTUNE="330",ID="250",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13064",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="250"},
+	{ID_ATTUNE="330",ID="260",TYPE="Pick Up",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12915",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="260"},
+	{ID_ATTUNE="330",ID="270",TYPE="Item",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="41556",ICON="Interface\\Icons\\Inv_misc_qirajicrystal_04",FOLLOWS="260",STAGE="270"},
+	{ID_ATTUNE="330",ID="285",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="270"},
+	{ID_ATTUNE="330",ID="290",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="270",STAGE="280"},
+	{ID_ATTUNE="330",ID="295",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="280"},
+	{ID_ATTUNE="330",ID="300",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12956",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="290",STAGE="290"},
+	{ID_ATTUNE="330",ID="305",TYPE="Turn In",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12915",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="290"},
+	{ID_ATTUNE="330",ID="310",TYPE="Pick Up",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300&305",STAGE="300"},
+	{ID_ATTUNE="330",ID="313",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12966",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="303"},
+	{ID_ATTUNE="330",ID="314",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="303"},
+	{ID_ATTUNE="330",ID="316",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12967",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="313",STAGE="306"},
+	{ID_ATTUNE="330",ID="317",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="306"},
+	{ID_ATTUNE="330",ID="319",TYPE="Turn In",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="316&310",STAGE="309"},
+	{ID_ATTUNE="330",ID="320",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13009",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="319",STAGE="310"},
+	{ID_ATTUNE="330",ID="330",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13050",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="320"},
+	{ID_ATTUNE="330",ID="340",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="330"},
+	{ID_ATTUNE="330",ID="350",TYPE="Pick Up",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="340"},
+	{ID_ATTUNE="330",ID="353",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="350",STAGE="343"},
+	{ID_ATTUNE="330",ID="354",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="346"},
+	{ID_ATTUNE="330",ID="356",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="12976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="353",STAGE="346"},
+	{ID_ATTUNE="330",ID="360",TYPE="Rep",STEP="Friendly with "..Lang["Sons of Hodir"],LOCATION="1119",ID_WOWHEAD="3000",ICON="Interface\\Icons\\achievement_boss_hodir_01",FOLLOWS="0",STAGE="346"},
+	{ID_ATTUNE="330",ID="370",TYPE="Quest",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13011",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="356&360",STAGE="355"},
+	{ID_ATTUNE="330",ID="380",TYPE="Turn In",STEP="",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="13010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="360"},
+	{ID_ATTUNE="330",ID="390",TYPE="End",STEP="Attuned",LOCATION=Lang["The Storm Peaks"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_boss_hodir_01",FOLLOWS="380",STAGE="370"},
 
 
 	--WOTLK Ebon Blade Horde
@@ -1034,6 +1086,25 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="350",ID="140",TYPE="Turn In",STEP="",LOCATION=Lang["Icecrown"],ID_WOWHEAD="12898",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="140"},
 	{ID_ATTUNE="350",ID="150",TYPE="End",STEP="Attuned",LOCATION=Lang["Icecrown"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_reputation_knightsoftheebonblade",FOLLOWS="140",STAGE="150"},
 	
+	
+	{ID_ATTUNE="360",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 80",LOCATION="",ID_WOWHEAD="80",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="360",ID="20",TYPE="Kill",STEP="",LOCATION=Lang["The Eye of Eternity"],ID_WOWHEAD="15989",ICON="Interface\\Icons\\achievement_boss_sapphiron_01",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="360",ID="30",TYPE="Item",STEP="",LOCATION=Lang["The Eye of Eternity"],ID_WOWHEAD="44569",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="360",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="13372",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="360",ID="48",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="360",ID="50",TYPE="Item",STEP="",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="44582",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="360",ID="55",TYPE="Attune",STEP=Lang["The Eye of Eternity"].." (25)",LOCATION="",ID_WOWHEAD="370",ICON="Interface\\Icons\\achievement_boss_malygos_01",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="360",ID="60",TYPE="End",STEP="Attuned",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_boss_malygos_01",FOLLOWS="50|55",STAGE="60"},
+		
+	{ID_ATTUNE="370",ID="10",TYPE="Level",STEP=Lang["Reach level"].." 80",LOCATION="",ID_WOWHEAD="80",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="370",ID="20",TYPE="Kill",STEP="",LOCATION=Lang["The Eye of Eternity"],ID_WOWHEAD="15989",ICON="Interface\\Icons\\achievement_boss_sapphiron_01",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="370",ID="30",TYPE="Item",STEP="",LOCATION=Lang["The Eye of Eternity"],ID_WOWHEAD="44577",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="370",ID="40",TYPE="Quest",STEP="",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="13375",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="370",ID="50",TYPE="Item",STEP="",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="44581",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="370",ID="60",TYPE="End",STEP="Attuned",LOCATION=Lang["Dragonblight"],ID_WOWHEAD="0",ICON="Interface\\Icons\\achievement_boss_malygos_01",FOLLOWS="50",STAGE="60"},
+
+	
+
 }
 	
 -- [id] = title, minlevel, groupsize, desc
@@ -1078,8 +1149,13 @@ Attune_Data.quests = {
 	[12277]={71,1},			[12325]={71,1},			[12312]={71,1},			[12319]={71,1},			[12320]={71,1},			[12321]={71,1},			[12326]={71,1},
 	[12455]={71,1},			[12457]={71,1},			[12463]={71,1},			[12465]={71,1},			[12466]={71,1},			[12467]={71,1},			[12472]={71,1},
 	[12473]={71,1},			[12474]={71,1},			[12272]={71,1},			[12495]={71,1},			[12499]={71,1},			[13347]={71,1},			[13369]={71,1},	
-	[13370]={71,1},			[13371]={71,1},			[13377]={71,1},
-	
+	[13370]={71,1},			[13371]={71,1},			[13377]={71,1},			[12843]={77,1},			[12846]={77,1},			[12841]={77,1},			[12905]={77,1},			
+	[12906]={77,1},			[12907]={77,1},			[12908]={77,1},			[12921]={77,1},			[12969]={77,1},			[12970]={77,1},			[12971]={77,1},			
+	[12972]={77,1},			[12851]={77,1},			[12856]={77,1},			[12900]={77,1},			[13063]={77,1},			[12983]={77,1},			[12996]={77,1},
+	[12997]={77,1},			[13061]={77,1},			[13062]={77,1},			[12886]={77,1},			[13064]={77,1},			[12915]={77,1},			[12922]={77,1},
+	[12956]={77,1},			[12924]={77,1},			[13009]={77,1},			[13050]={77,1},			[13051]={77,1},			[13010]={77,1},			[13057]={77,1},
+	[12966]={77,1},			[12967]={77,1},			[12975]={77,1},			[12976]={77,1},			[13559]={77,1},			[12981]={77,1},			[13011]={77,1},
+	[13372]={80,10},		[13375]={80,25},		
 }
 
 -- level, type, kind, desc
@@ -1176,11 +1252,11 @@ Attune_Data.npcs = {
 	[12118] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
 	[12259] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
 	[12098] = { "??", Lang["Boss"], Lang["Flamewaker"]},	
---wotlk
+	--wotlk
 	[29795] = { "80", Lang["Elite"], Lang["Blood Elf"]},	
 	[29799] = { "80", Lang["Elite"], Lang["Human"]},	
 	[29804] = { "80", Lang["Elite"], Lang["Blood Elf"]},	
-	[29747] = { "80", Lang["Elite"], Lang["Eye in the Sky"]},	
+	[29747] = { "80", Lang["Elite"], Lang["Eye"]},	
 	[29769] = { "80", "", Lang["Abomination"]},
 	[29770] = { "80", "", Lang["Banshee"]},
 	[29840] = { "80", "", Lang["Geist"]},
@@ -1194,7 +1270,8 @@ Attune_Data.npcs = {
 	[27136] = { "80", Lang["Elite"], Lang["Human"]},
 	[27872] = { "??", Lang["Boss"], Lang["Human"]},		
 	[29611] = { "??", Lang["Boss"], Lang["Human"]},		
-	
+	[29473] = { "78", "", Lang["Goblin"]},
+	[15989] = { "??", Lang["Boss"], Lang["Undead"].." "..Lang["Dragonkin"]}
 }
 
 

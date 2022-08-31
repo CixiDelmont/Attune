@@ -8,11 +8,13 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 256
+-- Done in 301
+--  Updated ToC for Wrath of the Lich King	
 --  Added the Wrathgate event (Horde and Alliance)
 --	Added the Knights of the Ebon Blade phasing quests (Horde and Alliance)
+--	Added the Sons of Hodir quests (Horde and Alliance)
+--  Added Eye of Eternity attunement 
 --  Fixed an issue where an Interacting or Killing step wouldn't register
---  Updated ToC for Wrath of the Lich King	
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -1463,11 +1465,13 @@ function Attune_CheckComplete(newComplete)
 
 
 	if att.done["300-290"] and att.attuned["300"] ~= 100 	then att.done["300-300"] = 1; 	Attune_SendPushInfo("300-300"); 	att.attuned["300"] = 100; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
-	if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- WrRathgate Alliance
-
+	if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- Wrathgate Alliance
+	if att.done["330-380"] and att.attuned["330"] ~= 100 	then att.done["330-390"] = 1; 	Attune_SendPushInfo("330-390"); 	att.attuned["330"] = 100; Attune_UpdateTreeGroup("330"); newComplete = true;  end	-- Sons of Hodir
 	if att.done["340-140"] and att.attuned["340"] ~= 100 	then att.done["340-150"] = 1; 	Attune_SendPushInfo("340-150"); 	att.attuned["340"] = 100; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
 	if att.done["350-140"] and att.attuned["350"] ~= 100 	then att.done["350-150"] = 1; 	Attune_SendPushInfo("350-150"); 	att.attuned["350"] = 100; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
-
+	if att.done["370-50"] and att.attuned["370"] ~= 100 	then att.done["370-60"] = 1; 	Attune_SendPushInfo("370-60"); 		att.attuned["370"] = 100; Attune_UpdateTreeGroup("370"); att.done["360-55"] = 1; newComplete = true;  end	-- Malygos 25 -- this also pushes the sub attunement in Maly 10
+	if att.done["360-55"] 									then att.done["360-50"] = 1; 	Attune_SendPushInfo("360-50"); 		newComplete = true;  end	-- Malygos 10 (granted via Malygos 25)
+	if att.done["360-50"] and att.attuned["360"] ~= 100 	then att.done["360-60"] = 1; 	Attune_SendPushInfo("360-60"); 		att.attuned["360"] = 100; Attune_UpdateTreeGroup("360"); newComplete = true;  end	-- Malygos 10 (granted via quest)
 
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
