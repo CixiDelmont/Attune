@@ -210,7 +210,11 @@ Lang["DelUnder70_TEXT"] = "Supprimer les persos <70"
 Lang["DelUnder70_DESC"] = "Supprime toutes les données recueillies sur les personnages en dessous du niveau 70."
 Lang["DelUnder70_CONF"] = "Vraiment supprimer les données des personnages en dessous du niveau 70 ?"
 Lang["DelUnder70_DONE"] = "Toutes les données des personnages en dessous du niveau 70 ont été supprimées."
-
+--302
+Lang["AnnounceAchieve_TEXT"] = "Annoncer les Hauts faits à la guilde"
+Lang["AnnounceAchieve_DESC"] = "Envoie un message au canal de guilde lorsqu'un Haut fait est achevé."
+Lang["AchieveCompleteGuild"] = "##LINK## achevé! (##POINTS## points au total)" 
+					
 
 -- TREEVIEW
 Lang["World of Warcraft"] = "World of Warcraft"

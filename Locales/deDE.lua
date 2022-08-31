@@ -210,7 +210,11 @@ Lang["DelUnder70_TEXT"] = "Lösche Spieler unter Level 70"
 Lang["DelUnder70_DESC"] = "Lösche alle Daten von Spielern unter Level  70."
 Lang["DelUnder70_CONF"] = "Wirklich ALLE Daten von Spieler unter 70 löschen?"
 Lang["DelUnder70_DONE"] = "Alle Spieler unter 70 gelöscht."
-
+--302
+Lang["AnnounceAchieve_TEXT"] = "Kündigen Sie Erfolge im Gildenchat an"
+Lang["AnnounceAchieve_DESC"] = "Kündige fertige Erfolg in der Gilde an"
+Lang["AchieveCompleteGuild"] = "##LINK## erfolgreich! (##POINTS## Gesamtpunktzahl)" 
+			
 
 -- TREEVIEW
 Lang["World of Warcraft"] = "World of Warcraft"

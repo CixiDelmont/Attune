@@ -210,7 +210,11 @@ Lang["DelUnder70_TEXT"] = "Delete characters under 70"
 Lang["DelUnder70_DESC"] = "Delete all the gathered information about players under level 70."
 Lang["DelUnder70_CONF"] = "Really delete all characters under level 70?"
 Lang["DelUnder70_DONE"] = "All results under 70 deleted."
-
+--302
+Lang["AnnounceAchieve_TEXT"] = "Announce Achievements in guild chat"
+Lang["AnnounceAchieve_DESC"] = "Send a guild message when an achievement is earned."
+Lang["AchieveCompleteGuild"] = "##LINK## complete! (##POINTS## points total)" 
+					
 
 -- TREEVIEW
 Lang["World of Warcraft"] = "World of Warcraft"

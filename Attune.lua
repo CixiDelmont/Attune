@@ -120,6 +120,8 @@ local attunelocal_raidcount = 1  				-- selected raid, number of raid groups to 
 
 local attunelocal_inactivity = 60*60*24*30		-- number of seconds to account for inactivity
 
+local attunelocal_achieveDelayDone = false		-- Wait a few seconds to avoid the barrage of achieves when one first logs in
+
 local patch = 0
 
 
@@ -208,9 +210,18 @@ local attune_options = {
 					desc = Lang["ShowOther_DESC"],
 					get = function(info) return Attune_DB.showOtherChat end,
 					set = function(info, val) Attune_DB.showOtherChat = val end,
-					width = "full",
-					order = 20,
+					width = 1.65,
+					order = 19,
 				},
+				announceAchieveCompleted = {
+					type = "toggle",
+					name = Lang["AnnounceAchieve_TEXT"],
+					desc = Lang["AnnounceAchieve_DESC"],
+					get = function(info) return Attune_DB.announceAchieveCompleted end,
+					set = function(info, val) Attune_DB.announceAchieveCompleted = val end,
+					width = 1.65,
+					order = 20,
+				},				
 				spacer2 = {
 					type = "description",
 					name = " ",
@@ -512,6 +523,8 @@ function Attune:OnEnable()
 	self:RegisterEvent("BAG_UPDATE")
 	self:RegisterEvent("GOSSIP_SHOW")
 	self:RegisterEvent("QUEST_DETAIL")
+	self:RegisterEvent("ACHIEVEMENT_EARNED")
+	
 		
 	_, _, _, patch	 = GetBuildInfo()
 	
@@ -529,6 +542,7 @@ function Attune:OnEnable()
 	if Attune_DB.showResponses == nil then Attune_DB.showResponses = true end
 	if Attune_DB.showStepReached == nil then Attune_DB.showStepReached = true end
 	if Attune_DB.announceAttuneCompleted == nil then Attune_DB.announceAttuneCompleted = true end
+	if Attune_DB.announceAchieveCompleted == nil then Attune_DB.announceAchieveCompleted = true end
 	if Attune_DB.showOtherChat == nil then Attune_DB.showOtherChat = true end
 	if Attune_DB.maxListSize == nil then Attune_DB.maxListSize = "20" end
 	if Attune_DB.logs == nil then Attune_DB.logs = {} end
@@ -651,6 +665,9 @@ function Attune:OnEnable()
 		Attune:SendCommMessage(attunelocal_versionprefix, attunelocal_version, "YELL", "");
 	end)
 
+	C_Timer.After(15, function()
+		attunelocal_achieveDelayDone = true -- after 10s the spam should have been done
+	end)
 
 	-- sending a couple version checks to make sure people update to the latest version
 
@@ -809,6 +826,21 @@ end
 function Attune:OnDisable()
 	-- Called when the addon is disabled
 	self:Print("|cffff00ff[Attune]|r "..Lang["Addon disabled"])
+end
+
+
+-------------------------------------------------------------------------
+-- EVENT: Fired when an achievement is gained
+-------------------------------------------------------------------------
+
+function Attune:ACHIEVEMENT_EARNED(event, id)
+	--send a guild message when an achievement is earned 
+	guildName, guildRankName, guildRankIndex = GetGuildInfo("player");
+	if guildName ~= nil then attunelocal_myguild = guildName end
+	print(attunelocal_myguild)
+
+	if Attune_DB.announceAchieveCompleted and attunelocal_myguild ~= "" and attunelocal_achieveDelayDone then SendChatMessage(Lang["AchieveCompleteGuild"]:gsub("##LINK##", GetAchievementLink(id)):gsub("##POINTS##", GetTotalAchievementPoints()) , "GUILD") end
+
 end
 
 -------------------------------------------------------------------------
