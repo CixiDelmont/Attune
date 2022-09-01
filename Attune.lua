@@ -8,13 +8,15 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 301
+-- Done in 303
 --  Updated ToC for Wrath of the Lich King	
 --  Added the Wrathgate event (Horde and Alliance)
 --	Added the Knights of the Ebon Blade phasing quests (Horde and Alliance)
 --	Added the Sons of Hodir quests (Horde and Alliance)
 --  Added Eye of Eternity attunement 
 --  Fixed an issue where an Interacting or Killing step wouldn't register
+--  Added a guild announcement for completed Achievements (can be disabled in the options) 
+--  Removed a silly debug print that was showing guild names
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -837,7 +839,6 @@ function Attune:ACHIEVEMENT_EARNED(event, id)
 	--send a guild message when an achievement is earned 
 	guildName, guildRankName, guildRankIndex = GetGuildInfo("player");
 	if guildName ~= nil then attunelocal_myguild = guildName end
-	print(attunelocal_myguild)
 
 	if Attune_DB.announceAchieveCompleted and attunelocal_myguild ~= "" and attunelocal_achieveDelayDone then SendChatMessage(Lang["AchieveCompleteGuild"]:gsub("##LINK##", GetAchievementLink(id)):gsub("##POINTS##", GetTotalAchievementPoints()) , "GUILD") end
 
