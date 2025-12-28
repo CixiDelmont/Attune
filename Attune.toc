@@ -1,11 +1,11 @@
-## Interface: 11507
+## Interface: 11508, 20505
+## Version: @project-version@
+## X-Curse-Project-ID: 414434
 ## Title: Attune
 ## Author: CixiDelmont
 ## Notes: Track your Attunement progression
 ## SavedVariables: Attune_DB
 ## SavedVariablesPerCharacter: AttuneLastViewed, TreeExpandStatus
-## Version: 261
-## X-Website: https://warcraftratings.com
 embeds.xml
 Locales\Locales.xml
 Attune.lua

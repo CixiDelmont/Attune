@@ -15,8 +15,7 @@ HOW TO ACTIVATE:
   Just type '/attune' in chat to display your progress. 
   If you want to share this progress with the community, click the "export" button. 
   This will open a window with an encoded string you can copy to your clipboard
-  The data can then be uploaded at https://warcraftratings.com/attune/upload for sharing/updating/etc
-
+  
   To survey the progress of your guild, click the "survey" button to collect the information.
   You will then receive progress data from any guild member with the addon.
 
