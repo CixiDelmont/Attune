@@ -9,7 +9,7 @@ end
 Lang["Credits"] = "Огромное спасибо моей гильдии |cffffd100<Calm Down>|r за их поддержку и понимание, пока я тестирую аддон, и спасибо |cffffd100Bushido @ Pyrewood Village|r за помощь на TBC!\n\nТакже большое-огромное спасибо переводчикам:\n  - Перевод на немецкий: |cffffd100Sumaya @ Razorfen DE|r\n  - Русский перевод: |cffffd100Гильдия \"Серый Марш\" @ Пламегор RU|r\n  - испанский перевод: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Упрощенный китайский перевод: |cffffd100ly395842562|r и |cffffd100Icyblade|r\n  - Традиционный китайский перевод: |cffffd100DayZ|r @ Ivus TW|r\n  - Перевод на корейский: |cffffd100Drix @ Azshara KR|r\n\n/Hug от Cixi/Gaya @ Remulos / Zuwo @ Dreamscythe"
 Lang["Mini"] = "Мин"
 Lang["Maxi"] = "Макс"
-Lang["Version"] = "Attune v##VERSION## от Zuwo@Dreamscythe"
+Lang["Version"] = "Attune v##VERSION## от Zuwo@Dreamscythe и Moond@Dreamscythe"
 Lang["Splash"] = "v##VERSION## от Zuwo@Dreamscythe. Наберите /attune для начала работы."
 Lang["Survey"] = "Отчет"
 Lang["Guild"] = "Гильдия"

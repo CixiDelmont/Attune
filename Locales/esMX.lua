@@ -9,7 +9,7 @@ end
 Lang["Credits"] = "Muchas gracias a mi hermandad |cffffd100<Calm Down>|r por su apoyo y comprensión mientras probaba el addon y mi agradecimiento a |cffffd100Bushido @ Pyrewood Village|r por la ayuda con la TBC!\n\n También, muchas, muchas, gracias a los traductores :\n  - Traducción Alemana: |cffffd100Sumaya @ Razorfen DE|r\n  - Traducción Rusa: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Traducción Española: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traducción China (simp.): |cffffd100ly395842562|r y |cffffd100Icyblade|r\n  - Traducción China (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Traducción coreana: |cffffd100Drix @ Azshara KR|r\n\n/Hug de Cixi/Gaya @ Remulos / Zuwo @ Dreamscythe"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
-Lang["Version"] = "Attune v##VERSION## de Zuwo@Dreamscythe"
+Lang["Version"] = "Attune v##VERSION## de Zuwo@Dreamscythe y Moond@Dreamscythe"
 Lang["Splash"] = "v##VERSION## de Zuwo@Dreamscythe. Escribe /attune para empezar."
 Lang["Survey"] = "Sondear"
 Lang["Guild"] = "Hermandad"

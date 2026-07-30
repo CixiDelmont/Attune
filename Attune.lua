@@ -8,7 +8,7 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 268
+-- Done in 269
 --  Fixed an issue with the attune progress calculation on Heroic keys
 
 -------------------------------------------------------------------------
@@ -28,6 +28,7 @@ local Attune_Broker = nil
 local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
+local attunelocal_settingsCategoryID = nil
 
 
 local attunelocal_game_version = WOW_PROJECT_CLASSIC -- WOW_PROJECT_MAINLINE = 1 (retail),  WOW_PROJECT_CLASSIC = 2 (vanilla classic)
@@ -486,7 +487,9 @@ local attune_options = {
 
 function Attune:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("Attune", attune_options, nil)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Attune"):SetParent(InterfaceOptionsFramePanelContainer)
+	local settingsFrame, settingsCategoryID = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Attune")
+	settingsFrame:SetParent(InterfaceOptionsFramePanelContainer)
+	attunelocal_settingsCategoryID = settingsCategoryID
 
 end
 
@@ -675,7 +678,9 @@ function Attune:OnEnable()
 			if button=="LeftButton" then
 				Attune_SlashCommandHandler("")
 			elseif button=="RightButton" then
-                Settings.OpenToCategory('Attune')
+				if attunelocal_settingsCategoryID then
+					Settings.OpenToCategory(attunelocal_settingsCategoryID)
+				end
 			end
 		end,
 		OnTooltipShow = function(tooltip)
