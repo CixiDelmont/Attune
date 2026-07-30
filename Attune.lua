@@ -1162,7 +1162,7 @@ function Attune:BAG_UPDATE(event)
 				local countNeeded = 1
 				if s.COUNT ~= nil then countNeeded = s.COUNT end
 
-				Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1)
+				Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] = GetItemCount(tonumber(s.ID_WOWHEAD), 1) or 0	-- must be a number: a numeric string is read as an item name
 					if Attune_DB.toons[attunelocal_charKey].items[s.ID_WOWHEAD] >= countNeeded then   --check bags and bank
 
 					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
@@ -1216,7 +1216,7 @@ function Attune:UPDATE_FACTION(event)
 
 				local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
 				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = {}
-				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue or 0	-- nil for a faction this toon hasn't discovered yet
 				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].name = name or AttuneLang["Unknown Reputation"]
 				--repeat
 				--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
@@ -1321,7 +1321,7 @@ function Attune_CheckProgress()
 							local factionIndex = 1
 							local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
 							att.reps[s.LOCATION] = {}
-							att.reps[s.LOCATION].earned = earnedValue
+							att.reps[s.LOCATION].earned = earnedValue or 0	-- nil for a faction this toon hasn't discovered yet
 							att.reps[s.LOCATION].name = name or AttuneLang["Unknown Reputation"]
 							--repeat
 							--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
@@ -1356,8 +1356,9 @@ function Attune_CheckProgress()
 						if s.TYPE == "Item" then
 							local countNeeded = 1
 							if s.COUNT ~= nil then countNeeded = s.COUNT end
-							if GetItemCount(s.ID_WOWHEAD, 1) >= countNeeded then   --check bags and bank
-								att.items[s.ID_WOWHEAD] = GetItemCount(s.ID_WOWHEAD, 1);
+							local itemCount = GetItemCount(tonumber(s.ID_WOWHEAD), 1) or 0	-- must be a number: a numeric string is read as an item name
+							if itemCount >= countNeeded then   --check bags and bank
+								att.items[s.ID_WOWHEAD] = itemCount;
 								att.done[a.ID .. "-" .. s.ID] = 1
 							end
 						end
