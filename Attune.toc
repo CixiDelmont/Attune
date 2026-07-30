@@ -1,5 +1,5 @@
-## Interface: 11508, 20505
-## Version: @project-version@
+## Interface: 20506
+## Version: 270
 ## X-Curse-Project-ID: 414434
 ## Title: Attune
 ## Author: CixiDelmont
