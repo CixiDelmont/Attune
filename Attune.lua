@@ -32,7 +32,7 @@ local attunelocal_settingsCategoryID = nil
 
 
 local attunelocal_game_version = WOW_PROJECT_CLASSIC -- WOW_PROJECT_MAINLINE = 1 (retail),  WOW_PROJECT_CLASSIC = 2 (vanilla classic)
-local attunelocal_version = "268"  					-- change here, and in TOC x2
+local attunelocal_version = "269"  					-- change here, and in comments above
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
 local attunelocal_versionprefix = "Attune_Version_" .. attunelocal_game_version 	-- used for addon version check (and only from this game version)
 local attunelocal_syncprefix = "Attune_Sync"		-- used for addon version check
