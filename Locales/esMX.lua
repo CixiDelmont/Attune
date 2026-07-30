@@ -1,5 +1,5 @@
 --localization file for Spanish
-local Lang = LibStub("AceLocale-3.0"):NewLocale("Attune", "esES")
+local Lang = LibStub("AceLocale-3.0"):NewLocale("Attune", "esMX")
 if (not Lang) then
 	return;
 end
