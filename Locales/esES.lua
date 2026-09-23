@@ -7,8 +7,7 @@ end
 
 -- INTERFACE
 Lang["Credits"] = "Muchas gracias a mi hermandad |cffffd100<Divine Heresy>|r por su apoyo y comprensión mientras probaba el addon y mi agradecimiento a |cffffd100Bushido @ Pyrewood Village|r por la ayuda con la TBC!\n\n También, muchas, muchas, gracias a los traductores :\n  - Traducción Alemana: |cffffd100Sumaya @ Razorfen DE|r\n  - Traducción Rusa: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Traducción Española: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traducción China (simp.): |cffffd100ly395842562|r y |cffffd100Icyblade|r\n  - Traducción China (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Traducción coreana: |cffffd100Drix @ Azshara KR|r\n\n/Hug de Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
-Lang["Mini"] = "Mini"
-Lang["Maxi"] = "Maxi"
+Lang["Zoom"] = "Zoom"
 Lang["Version"] = "Attune v##VERSION## de Cixi Delmont / Gaya Greyhoof"
 Lang["Splash"] = "v##VERSION## de Cixi Delmont / Gaya Greyhoof @ WoW:Forever. Escribe /attune para empezar."
 Lang["Survey"] = "Sondear"
@@ -1042,6 +1041,17 @@ Lang["N1_12259"]  = "Gehennas"
 Lang["N2_12259"]  = "Gehennas es el tercer jefe de Núcleo de Magma."
 Lang["N1_12098"]  = "Sulfuron Presagista"
 Lang["N2_12098"]  = "Sulfuron Presagista, heraldo de Ragnaros, es el octavo jefe de Núcleo de Magma."
+-- Ragefire Chasm / Deadmines
+Lang["N1_11519"] = "Bazzalan"
+Lang["N2_11519"] = "Bazzalan es un jefe sátiro en el saliente superior sobre Jergosh en Sima Ígnea."
+Lang["N1_11518"] = "Jergosh el Invocador"
+Lang["N2_11518"] = "Jergosh el Invocador es un jefe brujo al fondo de Sima Ígnea."
+Lang["N1_11520"] = "Taragaman el Hambriento"
+Lang["N2_11520"] = "Taragaman el Hambriento es el jefe guardia vil en el lago de lava de Sima Ígnea."
+Lang["N1_11834"] = "Maur Tótem Siniestro"
+Lang["N2_11834"] = "El cadáver de Maur Tótem Siniestro está más allá del primer jefe en Sima Ígnea, en el camino de la derecha."
+Lang["N1_639"] = "Edwin VanCleef"
+Lang["N2_639"] = "Edwin VanCleef es el jefe final de Las Minas de la Muerte, a bordo del barco pirata en la Cala Acorazada."
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."

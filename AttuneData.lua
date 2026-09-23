@@ -1,4 +1,4 @@
-﻿
+
 -- [ -> {
 -- : -> =
 -- "ID" -> ID
@@ -368,58 +368,69 @@ Attune_Data.steps = 	{
 
 
 --vForever: Ragefire Chasm (Horde)
-	-- Columns L→R (higher ID = left): Power | Slaying | Testing | Satchel | Hidden Enemies
+	-- Columns L?R (higher ID = left): Power | Slaying | Testing | Satchel | Hidden Enemies
 	{ID_ATTUNE="16",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 9",LOCATION="",ID_WOWHEAD="9",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	-- Hidden Enemies lead-in (centered alone until the branch)
-	{ID_ATTUNE="16",ID="12",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="16",ID="13",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-    {ID_ATTUNE="16",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="16",ID="140",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="16",ID="150",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-
-
-    {ID_ATTUNE="16",ID="25",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="20",STAGE="30"},
-	{ID_ATTUNE="16",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25",STAGE="40"},
-	{ID_ATTUNE="16",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="50"},
-
-	-- STAGE 60: branch pickups (IDs ascending = right→left)
-	{ID_ATTUNE="16",ID="110",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="60"},
 	
-	-- STAGE 70
-	{ID_ATTUNE="16",ID="111",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="110",STAGE="70"},
-	{ID_ATTUNE="16",ID="121",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="12",STAGE="70"},
-	{ID_ATTUNE="16",ID="131",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="16",ID="141",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="140",STAGE="70"},
-	{ID_ATTUNE="16",ID="151",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="150",STAGE="70"},
-	-- STAGE 80
-	{ID_ATTUNE="16",ID="112",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="110",STAGE="80"},
-	{ID_ATTUNE="16",ID="122",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="121",STAGE="80"},
-	{ID_ATTUNE="16",ID="132",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-	{ID_ATTUNE="16",ID="142",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="141",STAGE="80"},
-	{ID_ATTUNE="16",ID="152",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="150",STAGE="80"},
-	-- STAGE 90
-	{ID_ATTUNE="16",ID="113",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="111&112",STAGE="90"},
-	{ID_ATTUNE="16",ID="123",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="122",STAGE="90"},
-	{ID_ATTUNE="16",ID="133",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
-	{ID_ATTUNE="16",ID="143",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="142",STAGE="90"},
-	{ID_ATTUNE="16",ID="153",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="151&152",STAGE="90"},
-	-- STAGE 100
-	{ID_ATTUNE="16",ID="114",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="113",STAGE="100"},
-	{ID_ATTUNE="16",ID="124",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="123",STAGE="100"},
-	{ID_ATTUNE="16",ID="134",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
-	{ID_ATTUNE="16",ID="144",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
-	{ID_ATTUNE="16",ID="154",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
-	-- STAGE 110
-	{ID_ATTUNE="16",ID="115",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="114",STAGE="110"},
-	{ID_ATTUNE="16",ID="125",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
-	{ID_ATTUNE="16",ID="135",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
-	{ID_ATTUNE="16",ID="145",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
-	{ID_ATTUNE="16",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
-	{ID_ATTUNE="16",ID="160",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="115&124&13&143&153",STAGE="120"},
+	{ID_ATTUNE="16",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="30",TYPE="PIck Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+    {ID_ATTUNE="16",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="60",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+
+
+    {ID_ATTUNE="16",ID="70",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="20",STAGE="30"},
+    {ID_ATTUNE="16",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="16",ID="90",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="40",STAGE="30"},
+    {ID_ATTUNE="16",ID="100",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="50",STAGE="30"},
+    {ID_ATTUNE="16",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+
+    {ID_ATTUNE="16",ID="120",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="16",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="16",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="40"},
+	{ID_ATTUNE="16",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="100",STAGE="40"},
+    {ID_ATTUNE="16",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+
+    {ID_ATTUNE="16",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="16",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="16",ID="190",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"},
+    {ID_ATTUNE="16",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="16",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+
+    {ID_ATTUNE="16",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="16",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="16",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="60"},
+	{ID_ATTUNE="16",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="16",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+
+    {ID_ATTUNE="16",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+    {ID_ATTUNE="16",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="16",ID="290",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="240",STAGE="70"},
+    {ID_ATTUNE="16",ID="300",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="240",STAGE="70"},
+	{ID_ATTUNE="16",ID="310",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="60",STAGE="70"},
+    {ID_ATTUNE="16",ID="320",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="60",STAGE="70"},
+
+	
+	-- {ID_ATTUNE="16",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="80"},
+    {ID_ATTUNE="16",ID="330",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="290&300",STAGE="80"},
+	
+	
+	
+	
+    {ID_ATTUNE="16",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="90"},
+    {ID_ATTUNE="16",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="90"},
+	{ID_ATTUNE="16",ID="360",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="90"},
+    {ID_ATTUNE="16",ID="370",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="90"},
+    {ID_ATTUNE="16",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310&320",STAGE="90"},
+
+
+	{ID_ATTUNE="16",ID="390",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="340&350&360&370&380",STAGE="100"},
+
+
+
 
 
 --vForever: The Deadmines (Alliance)
-	-- Columns L→R (higher ID = left): Red Silk | Defias | Underground Assault | Memories | Oh Brother / Letter / Destruction
+	-- Columns L?R (higher ID = left): Red Silk | Defias | Underground Assault | Memories | Oh Brother / Letter / Destruction
 	{ID_ATTUNE="17",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="17",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
@@ -577,11 +588,15 @@ Attune_Data.steps = 	{
 
 --vForever dungeon attune 27
 	{ID_ATTUNE="27",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 25",LOCATION="",ID_WOWHEAD="25",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="27",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="27",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="27",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+    {ID_ATTUNE="27",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+    {ID_ATTUNE="27",ID="54",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+    {ID_ATTUNE="27",ID="56",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="27",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="27",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="30"},
+
+    {ID_ATTUNE="27",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="30"},
+	{ID_ATTUNE="27",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="30"},
+	{ID_ATTUNE="27",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="30"},
+    {ID_ATTUNE="27",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="30"},
 	{ID_ATTUNE="27",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="20&30&40&60",STAGE="40"},
 
 --vForever dungeon attune 28
@@ -926,4 +941,108 @@ Attune_Data.quests = {
 	[92401]={15,1},			[92415]={15,1},			[92421]={15,5},			[92422]={15,5},			[95189]={16,1},
 	[95195]={16,1},			[95204]={16,1},			[95216]={16,5},			[95250]={16,5},			[96393]={9,5},
 	[96394]={10,5},			[96395]={10,5},			[96403]={10,5},			[97288]={16,1},
+}
+
+
+-- level, type, kind, desc
+Attune_Data.npcs = {
+	[3296] = { "55", "", "Org Grunt"},
+	[6466] = { "12", "", "Gamon"},
+	[3100] = { "8", "",  "Elder Mottled Boar"},	
+	[9568] = { "60", AttuneLang["Elite"], AttuneLang["Dragonkin"]},
+	[9237] = { "59", AttuneLang["Elite"], AttuneLang["Troll"]},
+	[9196] = { "59", AttuneLang["Elite"], AttuneLang["Ogre"]},
+	[10429] = { "??", AttuneLang["Boss"], AttuneLang["Orc"]},
+	[8197] = { "61", AttuneLang["Elite"], AttuneLang["Dragonkin"]},
+	[10664] = { "60", AttuneLang["Elite"], AttuneLang["Dragonkin"]},
+	[12900] = { "62", AttuneLang["Elite"], AttuneLang["Dragonkin"]},
+	[12899] = { "62", AttuneLang["Elite"], AttuneLang["Dragonkin"]},
+	[10182] = { "??", AttuneLang["Elite"], AttuneLang["Half-Orc"]},
+	[10929]	= { "62", AttuneLang["Elite"], AttuneLang["Dragonkin (in Blood Elf form)"]},
+	[17804]	= { "52", "", AttuneLang["Human"]},
+	[10363]	= { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},
+	[8983]	= { "57", AttuneLang["Elite"], AttuneLang["Dwarf"]},
+	[9033]	= { "57", AttuneLang["Elite"], AttuneLang["Dwarf"]},
+	[9046]	= { "55", AttuneLang["Rare Elite"], AttuneLang["Orc"]},
+	[22037]	= { "69", "", AttuneLang["Orc"]},
+	[18733] = { "70", AttuneLang["Elite"], AttuneLang["Mechanical"]},
+	[18473] = { "69", AttuneLang["Elite"], AttuneLang["Arakkoa"]},	
+	[18472] = { "69", AttuneLang["Elite"], AttuneLang["Arakkoa"]},	
+	[20142] = { "70", AttuneLang["Elite"], AttuneLang["Dragonkin"]},	
+	[18096] = { "68", AttuneLang["Elite"], AttuneLang["Dragonkin"]},	
+	[20130] = { "70", AttuneLang["Elite"], AttuneLang["Dragonkin (in Humanoid form)"]},
+	[19880] = { "70", "", AttuneLang["Ethereal"]},	
+	[19641] = { "70", "", AttuneLang["Ethereal"]},	
+	[19220] = { "72", AttuneLang["Elite"], AttuneLang["Blood Elf"]},	
+	[17977] = { "72", AttuneLang["Elite"], AttuneLang["Elemental"]},	
+	[18481] = { "73", AttuneLang["Elite"], AttuneLang["Shiny thingy"]},	
+	[17613] = { "70", "", AttuneLang["Human"]},	
+	[18708] = { "72", AttuneLang["Elite"], AttuneLang["Elemental"]},	
+	[17797] = { "72", AttuneLang["Elite"], AttuneLang["Naga"]},
+	[20870] = { "72", AttuneLang["Elite"], AttuneLang["Demon"]},	
+	[15608] = { "??", AttuneLang["Boss"], AttuneLang["Human"]},	
+	[22421] = { "70", AttuneLang["Elite"], AttuneLang["Naga"]},	
+	[19044] = { "??", AttuneLang["Boss"], AttuneLang["Gronn"]},
+	[17225] = { "??", AttuneLang["Boss"], AttuneLang["Undead (in Dragon form)"]},	
+	[21938] = { "68", "", AttuneLang["Tauren"]},	
+	[21183] = { "70", "", AttuneLang["Orc"]},	
+	[21291] = { "70", "", AttuneLang["Orc"]},	
+	[21292] = { "70", "", AttuneLang["Orc"]},	
+	[21293] = { "70", "", AttuneLang["Orc"]},	
+	[18166] = { "??", AttuneLang["Boss"], AttuneLang["Human"]},	
+	[16808] = { "72", AttuneLang["Elite"], AttuneLang["Orc"]},	
+	[16807] = { "72", AttuneLang["Elite"], AttuneLang["Orc"]},	
+	[17798] = { "72", AttuneLang["Elite"], AttuneLang["Naga"]},	
+	[20912] = { "72", AttuneLang["Elite"], AttuneLang["Qiraji"]},	
+	[20977] = { "70", AttuneLang["Elite"], AttuneLang["Gnome"]},	
+	[21937] = { "65", "", AttuneLang["Broken"]},	
+	[17257] = { "??", AttuneLang["Boss"], AttuneLang["Demon"]},	
+	[19935] = { "70", AttuneLang["Elite"], AttuneLang["Dragonkin (in Blood Elf form)"]},	
+	[19622] = { "??", AttuneLang["Boss"], AttuneLang["Blood Elf"]},	
+	[21212] = { "??", AttuneLang["Boss"], AttuneLang["Naga"]},	
+	[21402] = { "70", "", AttuneLang["Draenei"]},	
+	[21955] = { "70", AttuneLang["Elite"], AttuneLang["Blood Elf"]},	
+	[21962] = { "70", "", AttuneLang["Broken"]},	
+	[22006] = { "70", AttuneLang["Elite"], AttuneLang["Orc"]},	
+	[22820] = { "70", "", AttuneLang["Broken"]},	
+	[21700] = { "70", AttuneLang["Elite"], AttuneLang["Broken"]},	
+	[19514] = { "??", AttuneLang["Boss"], AttuneLang["Elemental"]},	
+	[17767] = { "??", AttuneLang["Boss"], AttuneLang["Undead"]},	
+	[18528] = { "70", AttuneLang["Elite"], AttuneLang["Shiny thingy"]},	
+	[15552] = { "63", AttuneLang["Elite"], AttuneLang["Gnome"]},
+	[15554] = { "61", AttuneLang["Elite"], AttuneLang["Gorilla"]},	
+	[15571] = { "??", AttuneLang["Boss"], AttuneLang["Shark"]},	
+	[12803] = { "62", AttuneLang["Elite"], AttuneLang["Chimaera"]},	
+	[11583] = { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},	
+	[13020] = { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},	
+	[12017] = { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},	
+	[15624] = { "8", "", AttuneLang["Wisp"]},	
+	[15180] = { "60", "", AttuneLang["Night-Elf"]},	
+	[15526] = { "60", "", AttuneLang["Naga"]},	
+	[11811] = { "45", "", AttuneLang["Gnome"]},	
+	[15362] = { "??", AttuneLang["Boss"], AttuneLang["Night-Elf"]},	
+	[15481] = { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},	
+	[11502] = { "??", AttuneLang["Boss"], AttuneLang["Elemental"]},	
+	[10184] = { "??", AttuneLang["Boss"], AttuneLang["Dragonkin"]},	
+	[16524] = { "??", AttuneLang["Boss"], AttuneLang["Undead"]},
+	[22497] = { "72", AttuneLang["Elite"], AttuneLang["Shiny thingy"]},	
+	[22941] = { "68", "", AttuneLang["Ogre"]},
+	[22113] = { "71", AttuneLang["Elite"], AttuneLang["Dragonkin (in Blood Elf form)"]},		
+	[8888]  = { "60", AttuneLang["Elite"], AttuneLang["Dwarf"]}, 
+	[9056]  = { "54", AttuneLang["Elite"], AttuneLang["Dwarf"]},
+	[10837] = { "61", "", AttuneLang["Undead"] },
+	[10838] = { "61", "", AttuneLang["Human"] },
+	[1852]  = { "61", AttuneLang["Elite"], AttuneLang["Undead"] },
+	[13278] = { "60", AttuneLang["Elite"], AttuneLang["Elemental"]},	
+	[12264] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
+	[12118] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
+	[12259] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
+	[12098] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
+	-- Ragefire Chasm
+	[11520] = { "16", AttuneLang["Elite"], AttuneLang["Demon"]},		-- Taragaman the Hungerer
+	[11519] = { "16", AttuneLang["Elite"], AttuneLang["Demon"]},		-- Bazzalan
+	[11518] = { "16", AttuneLang["Elite"], AttuneLang["Orc"]},			-- Jergosh the Invoker
+	[11834] = { "14", "", AttuneLang["Tauren"]},					-- Maur Grimtotem
+	-- The Deadmines
+	[639]   = { "20", AttuneLang["Elite"], AttuneLang["Human"]},		-- Edwin VanCleef
 }

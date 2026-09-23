@@ -7,8 +7,7 @@ end
 
 -- INTERFACE
 Lang["Credits"] = "A huge thank you to my guild |cffffd100<Divine Heresy>|r for their support and understanding while I test the addon, and heaps of kudos to |cffffd100Bushido @ Pyrewood Village|r for the help on TBC!\n\n Also, many, many thanks to the translators:\n  - German translation: |cffffd100Sumaya @ Razorfen DE|r\n  - Russian translation: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Spanish translation: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Chinese translation (simp.): |cffffd100ly395842562|r and |cffffd100Icyblade|r\n  - Chinese translation (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Korean translation: |cffffd100Drix @ Azshara KR|r\n\n/Hug from Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
-Lang["Mini"] = "Mini"
-Lang["Maxi"] = "Maxi"
+Lang["Zoom"] = "Zoom"
 Lang["Version"] = "Attune v##VERSION## by Cixi Delmont / Gaya Greyhoof"
 Lang["Splash"] = "v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever. Type /attune to start."
 Lang["Survey"] = "Survey"
@@ -1525,3 +1524,200 @@ Lang["Q1_96403"] = "Important Heirlooms"
 Lang["Q2_96403"] = "Collect 8 Dwarven Heirlooms from the Hall of Thanes."
 Lang["Q1_97288"] = "Unending Torment"
 Lang["Q2_97288"] = "Deliver the Abominable Head to someone within the Undercity."
+
+
+
+
+
+-- NPC
+Lang["N1_9196"] = "Highlord Omokk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9196
+Lang["N2_9196"] = "Highlord Omokk is the first boss that will be encountered in Lower Blackrock Spire."
+Lang["N1_9237"] = "War Master Voone"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9237
+Lang["N2_9237"] = "War Master Voone is a mini-boss that will be encountered in Lower Blackrock Spire."
+Lang["N1_9568"] = "Overlord Wyrmthalak"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9568
+Lang["N2_9568"] = "Overlord Wyrmthalak is the last boss that will be encountered in Lower Blackrock Spire."
+Lang["N1_10429"] = "Warchief Rend Blackhand"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10429
+Lang["N2_10429"] = "Warchief Rend Blackhand is the sixth boss that you will encounter in Upper Blackrock Spire. Dal'rend, commonly referred to as Rend, was the ruler of the Dark Horde and the largest threat to Thrall."
+Lang["N1_10182"] = "Rexxar"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10182
+Lang["N2_10182"] = "<Champion of the Horde>\n\nPaths from south Stonetalon Mountains all the way down to North Feralas."
+Lang["N1_8197"] = "Chronalis"	-- https://www.thegeekcrusade-serveur.com/db/?npc=8197
+Lang["N2_8197"] = "Chronalis of the Bronze Dragonflight.\n\nLocated at the entrance of the Caverns of Time."
+Lang["N1_10664"] = "Scryer"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10664
+Lang["N2_10664"] = "Scryer of the Blue Dragonflight.\n\nLocated at the bottom of the Mazthoril cave."
+Lang["N1_12900"] = "Somnus"	-- https://www.thegeekcrusade-serveur.com/db/?npc=12900
+Lang["N2_12900"] = "Somnus of the Green Dragonflight.\n\nLocated on the eastern side of the Sunken Temple."
+Lang["N1_12899"] = "Axtroz"	-- https://www.thegeekcrusade-serveur.com/db/?npc=12899
+Lang["N2_12899"] = "Axtroz of the Red Dragonflight.\n\nLocated in Grim Batol, Wetlands."
+Lang["N1_10363"] = "General Drakkisath"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10363
+Lang["N2_10363"] = "General Drakkisath is the last boss that you will encounter in Upper Blackrock Spire."
+Lang["N1_8983"] = "Golem Lord Argelmach"	-- https://www.thegeekcrusade-serveur.com/db/?npc=8983
+Lang["N2_8983"] = "Golem Lord Argelmach is the ninth boss that you will encounter in Blackrock Depths."
+Lang["N1_9033"] = "General Angerforge"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9033
+Lang["N2_9033"] = "General Angerforge is the seventh boss that you will encounter in Blackrock Depths."
+Lang["N1_17804"] = "Squire Rowe"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17804
+Lang["N2_17804"] = "Located at the Stormwind gates."
+Lang["N1_10929"] = "Haleh"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10929
+Lang["N2_10929"] = "Stands on top of the Mazthoril cave, outside.\nCan be reached via the blue rune on the floor deep inside the cave."
+Lang["N1_9046"] = "Scarshield Quartermaster"	-- https://www.thegeekcrusade-serveur.com/db/?npc=9046
+Lang["N2_9046"] = "Located outside the instance, in a little alcove near the balcony entrance of Upper Blackrock Spire"
+Lang["N1_15180"] = "Baristolth of the Shifting Sands"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15180
+Lang["N2_15180"] = "Baristolth of the Shifting Sands is located at Cenarion Hold in Silithus (49.6,36.6)."
+Lang["N1_12017"] = "Broodlord Lashlayer"	-- https://www.thegeekcrusade-serveur.com/db/?npc=12017
+Lang["N2_12017"] = "Broodlord Lashlayer is the third boss in Blackwing Lair."
+Lang["N1_13020"] = "Vaelastrasz the Corrupt"	-- https://www.thegeekcrusade-serveur.com/db/?npc=13020
+Lang["N2_13020"] = "Vaelastrasz the Corrupt is the second boss in Blackwing Lair."
+Lang["N1_11583"] = "Nefarian"	-- https://www.thegeekcrusade-serveur.com/db/?npc=11583
+Lang["N2_11583"] = "Nefarian is the eighth and final boss of Blackwing Lair."
+Lang["N1_15362"] = "Malfurion Stormrage"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15362
+Lang["N2_15362"] = "He can be found in The Temple of Atal'Hakkar, and spawns once you approach the Shade of Eranikus."
+Lang["N1_15624"] = "Forest Wisp"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15624
+Lang["N2_15624"] = "This wisp can be found on Teldrassil, not far from the gates of Darnassus, at (37.6,48.0)."
+Lang["N1_15481"] = "Spirit of Azuregos"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15481
+Lang["N2_15481"] = "The spirit of Azuregos pats the southern part of Azshara, around (58.8,82.2). He likes to chat."
+Lang["N1_11811"] = "Narain Soothfancy"	-- https://www.thegeekcrusade-serveur.com/db/?npc=11811
+Lang["N2_11811"] = "Located in a little hut north of Steamwheedle Port (65.2,18.4)."
+Lang["N1_15526"] = "Meridith the Mermaiden"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15526
+Lang["N2_15526"] = "She pats the underwater area before the big trench, around (59.6,95.6). Once you complete her quest, go see her again and she will give you a swim speed buff."
+Lang["N1_15554"] = "Number Two"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15554
+Lang["N2_15554"] = "Number Two can be summoned in Winterspring, at a specific site (67.2,72.6). He can take a bit of time to spawn."
+Lang["N1_15552"] = "Doctor Weavil"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15552
+Lang["N2_15552"] = "This evil gnome can be found on Alcaz Island in Dustwallow Marsh (77.8,17.6). He is stunning!"
+Lang["N1_10184"] = "Onyxia"	-- https://www.thegeekcrusade-serveur.com/db/?npc=10184
+Lang["N2_10184"] = "When she is not being a Lady in Stormwind, Onyxia resides in her Lair, south of Dustwallow Marsh."
+Lang["N1_11502"] = "Ragnaros"	-- https://www.thegeekcrusade-serveur.com/db/?npc=11502
+Lang["N2_11502"] = "Ragnaros, the Firelord, is the tenth and final boss of Molten Core. By Fire be Purged!"
+Lang["N1_12803"] = "Lord Lakmaeran"	-- https://www.thegeekcrusade-serveur.com/db/?npc=12803
+Lang["N2_12803"] = "Located on the Isle of Dread in Feralas, just a bit north of the Chimaera area entrance (29.8,72.6)."
+Lang["N1_15571"] = "Maws"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15571
+Lang["N2_15571"] = "duunnn dunnn... duuuunnnn duun... duuunnnnnnnn dun dun dun dun dun dun dun dun dun dun dunnnnnnnnnnn dunnnn in Azshara at (65.6,54.6)"
+Lang["N1_22037"] = "Smith Gorlunk"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22037
+Lang["N2_22037"] = "Located at the forge obviously (67,36), on the northern side of the Black Temple building"
+Lang["N1_18733"] = "Fel Reaver"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18733
+Lang["N2_18733"] = "Tends to roams the western side of Hellfire Citadel."
+Lang["N1_18473"] = "Talon King Ikiss"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18473
+Lang["N2_18473"] = "Talon King Ikiss is the last boss of Sethekk Halls in Auchindoun"
+Lang["N1_20142"] = "Steward of Time"	-- https://www.thegeekcrusade-serveur.com/db/?npc=20142
+Lang["N2_20142"] = "Bronze dragon, near the hourglass in the Caverns of Time."
+Lang["N1_20130"] = "Andormu"	-- https://www.thegeekcrusade-serveur.com/db/?npc=20130
+Lang["N2_20130"] = "Looks like a little boy, near the hourglass in the Caverns of Time."
+Lang["N1_18096"] = "Epoch Hunter"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18096
+Lang["N2_18096"] = "Last boss of Caverns of Time: Old Hillsbrad Foothills, spawns in Tarren Mill when Thrall gets there."
+Lang["N1_19880"] = "Nether-Stalker Khay'ji"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19880
+Lang["N2_19880"] = "He stands next to the forge in Area 52 (32,64)"
+Lang["N1_19641"] = "Warp-Raider Nesaad"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19641
+Lang["N2_19641"] = "He is located at (28,79). Has 2 adds with him"
+Lang["N1_18481"] = "A'dal"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18481
+Lang["N2_18481"] = "A'dal is located in the middle of Shattrath City. Big yellow shiny thingy. Can't miss it, really."
+Lang["N1_19220"] = "Pathaleon the Calculator"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19220
+Lang["N2_19220"] = "Pathaleon the Calculator is the last boss of the Mechanar."
+Lang["N1_17977"] = "Warp Splinter"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17977
+Lang["N2_17977"] = "Warp Splinter is the fifth boss in The Botanica. He is a large tree elemental."
+Lang["N1_17613"] = "Archmage Alturus"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17613
+Lang["N2_17613"] = "Stands in front of the entrance of Karazhan."
+Lang["N1_18708"] = "Murmur"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18708
+Lang["N2_18708"] = "Murmur is the final boss of the Shadow Labyrinth. He is a large wind elemental."
+Lang["N1_17797"] = "Hydromancer Thespia"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17797
+Lang["N2_17797"] = "Hydromancer Thespia is the first boss of The Steamvault in Coilfang Reservoir."
+Lang["N1_20870"] = "Zereketh the Unbound"	-- https://www.thegeekcrusade-serveur.com/db/?npc=20870
+Lang["N2_20870"] = "Zereketh the Unbound is the first boss found in The Arcatraz."
+Lang["N1_15608"] = "Medhivh"	-- https://www.thegeekcrusade-serveur.com/db/?npc=15608
+Lang["N2_15608"] = "Medivh is near the portal, in the south part of the Black Morass."
+Lang["N1_16524"] = "Shade of Aran"	-- https://www.thegeekcrusade-serveur.com/db/?npc=16524
+Lang["N2_16524"] = "The crazy father of Medhivh, in Karazhan"
+Lang["N1_16807"] = "Grand Warlock Nethekurse"	-- https://www.thegeekcrusade-serveur.com/db/?npc=16807
+Lang["N2_16807"] = "Grand Warlock Nethekurse is a Fel Orc warlock and first boss in the Shattered Halls."
+Lang["N1_18472"] = "Darkweaver Syth"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18472
+Lang["N2_18472"] = "Darkweaver Syth is the first boss found in Sethekk Halls."
+Lang["N1_22421"] = "Skar'this the Heretic"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22421
+Lang["N2_22421"] = "Skar'this is only present in the HEROIC mode of Slave Pens. He is located shortly after the first boss. When you jump down into the pool of water and come out, he is on the left hand side in a cage."
+Lang["N1_19044"] = "Gruul the Dragonkiller"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19044
+Lang["N2_19044"] = "Gruul the Dragonkiller is the final boss of the raid dungeon Gruul's Lair in Blade's Edge Mountains."
+Lang["N1_17225"] = "Nightbane"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17225
+Lang["N2_17225"] = "Nightbane is a summonable Dragon boss in Karazhan. Check out his attunement for more info."
+Lang["N1_21938"] = "Earthmender Splinthoof"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21938
+Lang["N2_21938"] = "Earthmender Splinthoof is inside the small building on the highest point of Shadowmoon Village (28.6,26.6)."
+Lang["N1_21183"] = "Oronok Torn-heart"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21183
+Lang["N2_21183"] = "Oronok Torn-heart is on top of the hill at a place called Oronok's Farm (53.8,23.4), in between Coilskar Point and the Altar of Sha'tar."
+Lang["N1_21291"] = "Grom'tor, Son of Oronok"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21291
+Lang["N2_21291"] = "Located in Coilskar Point (44.6,23.6)."
+Lang["N1_21292"] = "Ar'tor, Son of Oronok"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21292
+Lang["N2_21292"] = "Located at Illidari Point (29.6,50.4), suspended in the air by red beams."
+Lang["N1_21293"] = "Borak, Son of Oronok"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21293
+Lang["N2_21293"] = "Located just north of Eclipse Point (47.6,57.2)."
+Lang["N1_18166"] = "Khadgar"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18166
+Lang["N2_18166"] = "He stands in the centre of Shattrath City, just next to A'dal, the big yellow shiny thingy."
+Lang["N1_16808"] = "Kargath Bladefist"	-- https://www.thegeekcrusade-serveur.com/db/?npc=16808
+Lang["N2_16808"] = "Warchief Kargath Bladefist is the final boss of the Shattered Halls. Spoiler alert, he has blades for fists."
+Lang["N1_17798"] = "Warlord Kalithresh"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17798
+Lang["N2_17798"] = "Warlord Kalithresh is the third and last boss of The Steamvault in Coilfang Reservoir."
+Lang["N1_20912"] = "Harbinger Skyriss"	-- https://www.thegeekcrusade-serveur.com/db/?npc=20912
+Lang["N2_20912"] = "Harbinger Skyriss is the fifth and final boss of a multi-wave encounter in The Arcatraz."
+Lang["N1_20977"] = "Millhouse Manastorm"	-- https://www.thegeekcrusade-serveur.com/db/?npc=20977
+Lang["N2_20977"] = "Millhouse Manastorm is a gnome mage found in the Harbinger Skyriss encounter in The Arcratraz. He will assist in attacking the other creatures released from the prisons."
+Lang["N1_17257"] = "Magtheridon"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17257
+Lang["N2_17257"] = "Magtheridon is being held prisonner under Hellfire Citadel, in the raid instance called Magtheridon's Lair."
+Lang["N1_21937"] = "Earthmender Sophurus"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21937
+Lang["N2_21937"] = "Earthmender Sophurus stands outside the inn at Wildhammer Stronghold (36.4,56.8)."
+Lang["N1_19935"] = "Soridormi"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19935
+Lang["N2_19935"] = "Soridormi wanders around the big hourglass inside the Caverns of Time."
+Lang["N1_19622"] = "Kael'thas Sunstrider"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19622
+Lang["N2_19622"] = "Kael'thas Sunstrider is the fourth and final boss of the raid instance the Eye."
+Lang["N1_21212"] = "Lady Vashj"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21212
+Lang["N2_21212"] = "Lady Vashj is the final encounter of the raid instance Serpentshrine Cavern in Coilfang Reservoir."
+Lang["N1_21402"] = "Anchorite Ceyla"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21402
+Lang["N2_21402"] = "Anchorite Ceyla is at the Altar of Shatar (62.6,28.4)."
+Lang["N1_21955"] = "Arcanist Thelis"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21955
+Lang["N2_21955"] = "Arcanist Thelis is inside the Sanctum of the Stars (56.2,59.6)"
+Lang["N1_21962"] = "Seer Udalo"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21962
+Lang["N2_21962"] = "He's lying dead on the small ramp before the last boss fight of The Arcatraz."
+Lang["N1_22006"] = "Shadowlord Deathwail"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22006
+Lang["N2_22006"] = "He's riding a dragon on the northern tower of the Black Temple (71.6,35.6) "
+Lang["N1_22820"] = "Seer Olum"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22820
+Lang["N2_22820"] = "Seer Olum is located in Serpentshrine Cavern, behind Fathom-Lord Karathress."
+Lang["N1_21700"] = "Akama"	-- https://www.thegeekcrusade-serveur.com/db/?npc=21700
+Lang["N2_21700"] = "Akama is located at the Warden's Cage (58.0,48.2)."
+Lang["N1_19514"] = "Al'ar"	-- https://www.thegeekcrusade-serveur.com/db/?npc=19514
+Lang["N2_19514"] = "Al'ar is the first boss of The Eye. He's a big fiery bird thing."
+Lang["N1_17767"] = "Rage Winterchill"	-- https://www.thegeekcrusade-serveur.com/db/?npc=17767
+Lang["N2_17767"] = "Rage Winterchill is the first boss in the Mount Hyjal raid instance."
+Lang["N1_18528"] = "Xi'ri"	-- https://www.thegeekcrusade-serveur.com/db/?npc=18528
+Lang["N2_18528"] = "Xi'ri is located at the entrance of the Black Temple. Big blue shiny thingy. Can't miss it either, really."
+--v243
+Lang["N1_22497"] = "V'eru"	-- https://www.thegeekcrusade-serveur.com/db/?npc=22497
+Lang["N2_22497"] = "V'eru is in the same room as A'dal, but he's blue. He's on the top landing."
+--v244
+Lang["N1_22113"] = "Mordenai"
+Lang["N2_22113"] = "A Blood Elf (spoiler alert, actually a dragon) who walks the Netherwing Fields just east of the Sanctum of the Stars"
+--v247
+Lang["N1_8888"]  = "Franclorn Forgewright"
+Lang["N2_8888"]  = "A ghost dwarf, standing on his own tomb OUTSIDE the dungeon, in the structure suspended above the lava. You can only interact with him if you are DEAD."
+Lang["N1_9056"]  = "Fineous Darkvire"
+Lang["N2_9056"]  = "He is INSIDE the dungeon, and patrols the quarry area outside of Lord Incendius' chamber."
+Lang["N1_10837"] = "High Executor Derrington"
+Lang["N2_10837"] = "He can be found at the Bulwark, near the border of Tirisfal and Western Plaguelands"
+Lang["N1_10838"] = "Commander Ashlam Valorfist"
+Lang["N2_10838"] = "He can be found at Chillwind Camp, just south of Andorhal in the Western Plaguelands"
+Lang["N1_1852"]  = "Araj the Summoner"
+Lang["N2_1852"]  = "The Lich, in the middle of Andorhal"
+--v250
+Lang["N1_13278"]  = "Duke Hydraxis"
+Lang["N2_13278"]  = "A large Water Elemental on a tiny faraway island in Azshara (79.2,73.6)"
+Lang["N1_12264"]  = "Shazzrah"
+Lang["N2_12264"]  = "Shazzrah is the fifth boss of Molten Core."
+Lang["N1_12118"]  = "Lucifron"
+Lang["N2_12118"]  = "Lucifron is the first boss of Molten Core."
+Lang["N1_12259"]  = "Gehennas"
+Lang["N2_12259"]  = "Gehennas is the third boss of Molten Core."
+Lang["N1_12098"]  = "Sulfuron Harbinger"
+Lang["N2_12098"]  = "Sulfuron Harbinger, herald of Ragnaros, is the eighth boss of the Molten Core."
+
+
+Lang["N1_"]  = ""
+Lang["N2_"]  = ""
+
+
+
+Lang["O_1"] = "Click Drakkisath's Brand to complete the quest.\nIt's a glowing orb located behind General Drakkisath."
+Lang["O_2"] = "It's a tiny glowing red dot on the ground\nin front of the gates of Ahn'Qiraj (28.7,89.2)."
+--v247
+Lang["O_3"] = "The shrine is located at the end of a corridor\nthat starts from the upper level of the Ring of Law."

@@ -7,8 +7,7 @@ end
 
 -- INTERFACE
 Lang["Credits"] = "非常感謝我的公會團員|cffffd100<Divine Heresy>|r在我測試此UI時給予的支持與理解，並感謝|cffffd100Bushido @ Pyrewood Village|r在TBC上的幫助！\n\n 另外，非常感謝翻譯人員：\n  - 德語翻譯: |cffffd100Sumaya @ Razorfen DE|r\n  - 俄語翻譯: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - 西班牙語翻譯: |cffffd100Coyu @ Pyrewood Village EU|r\n  - 簡體中文翻譯: |cffffd100ly395842562|r 和 |cffffd100Icyblade|r\n  - 繁體中文翻譯: |cffffd100DayZ 三指打天下|r 和 |cffffd100薇兒 @ Ivus TW|r\n  - 韓語翻譯: |cffffd100Drix @ Azshara KR|r\n\n/Hug 来自 Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
-Lang["Mini"] = "縮小"
-Lang["Maxi"] = "放大"
+Lang["Zoom"] = "縮放"
 Lang["Version"] = "Attune v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever"
 Lang["Splash"] = "v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever. 輸入/attune開始。"
 Lang["Survey"] = "調查"
@@ -1042,6 +1041,17 @@ Lang["N1_12259"]  = "基赫纳斯"
 Lang["N2_12259"]  = "基赫纳斯 是熔火之心的第三个boss。"
 Lang["N1_12098"]  = "S薩弗隆先驅者r"
 Lang["N2_12098"]  = "薩弗隆先驅者 是熔火之心的第八個boss。"
+-- Ragefire Chasm / Deadmines
+Lang["N1_11519"] = "巴札蘭"
+Lang["N2_11519"] = "巴札蘭是怒焰裂谷中位於耶戈什上方平台的薩特首領。"
+Lang["N1_11518"] = "祈求者耶戈什"
+Lang["N2_11518"] = "祈求者耶戈什是怒焰裂谷深處的術士首領。"
+Lang["N1_11520"] = "飢餓者塔拉加曼"
+Lang["N2_11520"] = "飢餓者塔拉加曼是怒焰裂谷熔岩湖中的地獄衛士首領。"
+Lang["N1_11834"] = "瑪爾·恐怖圖騰"
+Lang["N2_11834"] = "瑪爾·恐怖圖騰的屍體位於怒焰裂谷第一個首領之後，右側岔路上。"
+Lang["N1_639"] = "艾德溫·范克里夫"
+Lang["N2_639"] = "艾德溫·范克里夫是死亡礦坑的最終首領，位於鐵甲灣的海盜船上。"
 
 
 Lang["O_1"] = "擊殺達基薩斯將軍以完成任務。\n位於達基薩斯將軍後面的發光球。"

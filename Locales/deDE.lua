@@ -7,8 +7,7 @@ end
 
 -- INTERFACE
 Lang["Credits"] = "Ein großes DANKESCHÖN an meine Gilde |cffffd100<Divine Heresy>|r für Ihre Unterstützung bei der Entwicklung und dem Test des Addons, und danke an |cffffd100Bushido @ Pyrewood Village|r für die Hilfe bei TBC!\n\nVielen, vielen dank auch an die Übersetzer:\n  - Deutsche Übersetzung: |cffffd100Sumaya @ Razorfen DE|r\n  - Russische Übersetzung: |cffffd100Greymarch Gilde @ Flamegor RU|r\n  - Spanische Übersetzung: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Vereinfachte chinesische Übersetzung: |cffffd100ly395842562|r und |cffffd100Icyblade|r\n  - Traditionelle Chinesische Übersetzung: |cffffd100DayZ|r @ Ivus TW|r\n  - Koreanische Übersetzung: |cffffd100Drix @ Azshara KR|r\n\n/Hug von Cixi Delmont/Gaya Greyhoof @ WoW:Forever Horde"
-Lang["Mini"] = "Mini"
-Lang["Maxi"] = "Maxi"
+Lang["Zoom"] = "Zoom"
 Lang["Version"] = "Attune v##VERSION## von Cixi Delmont / Gaya Greyhoof"
 Lang["Splash"] = "v##VERSION## von Cixi Delmont / Gaya Greyhoof @ WoW:Forever. Gib /attune ein um zu starten."
 Lang["Survey"] = "Umfrage"
@@ -1042,6 +1041,17 @@ Lang["N1_12259"]  = "Gehennas"
 Lang["N2_12259"]  = "Gehennas ist der dritte Boss von den geschmolzenen Kern."
 Lang["N1_12098"]  = "Sulfuronherold"
 Lang["N2_12098"]  = "Sulfuron, herold von Ragnaros, ist der achte Boss von den geschmolzenen Kern."
+-- Ragefire Chasm / Deadmines
+Lang["N1_11519"] = "Bazzalan"
+Lang["N2_11519"] = "Bazzalan ist ein Satyr-Boss auf dem oberen Vorsprung über Jergosh im Flammenschlund."
+Lang["N1_11518"] = "Jergosh der Herbeirufer"
+Lang["N2_11518"] = "Jergosh der Herbeirufer ist ein Hexenmeister-Boss im hinteren Teil des Flammenschlunds."
+Lang["N1_11520"] = "Taragaman der Hungerleider"
+Lang["N2_11520"] = "Taragaman der Hungerleider ist der Teufelswache-Boss im Lavasee des Flammenschlunds."
+Lang["N1_11834"] = "Maur Grimmtotem"
+Lang["N2_11834"] = "Maur Grimmtotems Leichnam liegt hinter dem ersten Boss im Flammenschlund, abseits des rechten Pfades."
+Lang["N1_639"] = "Edwin van Cleef"
+Lang["N2_639"] = "Edwin van Cleef ist der Endboss der Todesminen, an Bord des Piratenschiffs in der Eisenclad-Bucht."
 
 
 Lang["O_1"] = "Klicke auf Drakkisaths Brandzeichen um die Quest abzuschließen.\nEs ist der glühende Ball hinter General Drakkisath."

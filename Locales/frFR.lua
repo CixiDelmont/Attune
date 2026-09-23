@@ -7,8 +7,7 @@ end
 
 -- INTERFACE
 Lang["Credits"] = "Un énorme MERCI à ma guilde |cffffd100<Divine Heresy>|r pour leur soutien et patience pendant les tests de l'addon, et merci à |cffffd100Bushido @ Pyrewood Village|r pour l'aide sur TBC!\n\nMerci beaucoup également aux traducteurs:\n  - Traduction allemande: |cffffd100Sumaya @ Razorfen DE|r\n  - Traduction russe: |cffffd100Guilde Greymarch @ Flamegor RU|r\n  - Traduction espagnole: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traduction chinoise (simp.): |cffffd100ly395842562|r et |cffffd100Icyblade|r\n  - Traditional chinoise (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Traduction coréenne: |cffffd100Drix @ Azshara KR|r\n\n/Hug de la part Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
-Lang["Mini"] = "Mini"
-Lang["Maxi"] = "Élargi"
+Lang["Zoom"] = "Zoom"
 Lang["Version"] = "Attune v##VERSION## par Cixi Delmont / Gaya Greyhoof @ WoW:Forever"
 Lang["Splash"] = "v##VERSION## par Cixi Delmont / Gaya Greyhoof @ WoW:Forever. Tapez /attune pour commencer."
 Lang["Survey"] = "Sondage"
@@ -1042,6 +1041,17 @@ Lang["N1_12259"]  = "Gehennas"
 Lang["N2_12259"]  = "Gehennas est le 3ème boss du Coeur du Magma."
 Lang["N1_12098"]  = "Messager Sulfuron"
 Lang["N2_12098"]  = "Sulfuron, Messager de Ragnaros, est le 8ème boss du Coeur du Magma."
+-- Ragefire Chasm / Deadmines
+Lang["N1_11519"] = "Bazzalan"
+Lang["N2_11519"] = "Bazzalan est un boss satyre sur la corniche supérieure au-dessus de Jergosh dans le Gouffre de Ragefeu."
+Lang["N1_11518"] = "Jergosh l'Invocateur"
+Lang["N2_11518"] = "Jergosh l'Invocateur est un boss démoniste au fond du Gouffre de Ragefeu."
+Lang["N1_11520"] = "Taragaman l'Affameur"
+Lang["N2_11520"] = "Taragaman l'Affameur est le boss garde funeste dans le lac de lave du Gouffre de Ragefeu."
+Lang["N1_11834"] = "Maur Totem-sinistre"
+Lang["N2_11834"] = "Le corps de Maur Totem-sinistre se trouve après le premier boss du Gouffre de Ragefeu, sur le chemin de droite."
+Lang["N1_639"] = "Edwin VanCleef"
+Lang["N2_639"] = "Edwin VanCleef est le boss final des Mortemines, à bord du navire pirate dans la Crique du Cuirassé."
 
 
 Lang["O_1"] = "Cliquez sur la Marque de Drakkisath pour compléter la quête.\nC'est le globe brillant qui se trouve juste drrière Drakkisath."

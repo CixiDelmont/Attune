@@ -76,12 +76,10 @@ local attunelocal_Node_VGap = 30
 local attunelocal_Icon_Size = 32
 local attunelocal_Line_Thickness = 6
 
-local attunelocal_MiniNode_Width = 32
-local attunelocal_MiniNode_Height = 32
-local attunelocal_MiniNode_HGap = 10
-local attunelocal_MiniNode_VGap = 6
-local attunelocal_MiniIcon_Size = 20
-local attunelocal_MiniLine_Thickness = 2
+-- Graph zoom (SetScale on the chain container)
+local attunelocal_Zoom_Min = 0.5
+local attunelocal_Zoom_Max = 1.0
+local attunelocal_Zoom_Step = 0.01
 
 -- Frame variables
 local attunelocal_frame						-- main frame
@@ -99,6 +97,10 @@ local attunelocal_resultselection = 1 		-- indicates whether to show last survey
 local attunelocal_exportselection = 0 		-- indicates what dataset to export 0:me, 1:last survey, 2:guild, 3:all, 4:all my alts
 local attunelocal_gflabel					-- table header (used to update the number of characters in list)
 local attunelocal_showResultAttunes = true 	-- indicates whether to show toon profiles or attunes
+local attunelocal_graphRoot					-- container for attune chain nodes (scaled for zoom)
+local attunelocal_graphHeight = 0			-- unscaled chain height (for live zoom scroll updates)
+local attunelocal_contentHeight = 50		-- scroll content height accounting for zoom
+local attunelocal_zoomSlider				-- fixed overlay zoom slider (not inside scroll)
 
 --local attunelocal_repWidget					-- Reputation Widget frame
 --local attunelocal_repWidget_frames = {} 	-- list of non-Ace frames for the rep widget (to reuse them later)
@@ -604,9 +606,11 @@ function Attune:OnEnable()
 	_, _, _, patch	 = GetBuildInfo()
 	
 	if Attune_DB == nil then Attune_DB = {} end
-	if Attune_DB.width == nil then Attune_DB.width = 980 end
-	if Attune_DB.height == nil then Attune_DB.height = 550 end
-	if Attune_DB.mini == nil then Attune_DB.mini = false end	-- allows to show tiny icons instead of the normal steps, and therefore see more of the attune
+	if Attune_DB.width == nil then Attune_DB.width = 1200 end
+	if Attune_DB.height == nil then Attune_DB.height = 720 end
+	if Attune_DB.zoom == nil then Attune_DB.zoom = 1.0 end	-- proportional scale of the attune chain (0.5–1.0)
+	if Attune_DB.zoom < attunelocal_Zoom_Min then Attune_DB.zoom = attunelocal_Zoom_Min end
+	if Attune_DB.zoom > attunelocal_Zoom_Max then Attune_DB.zoom = attunelocal_Zoom_Max end
 	if Attune_DB.toons == nil then Attune_DB.toons = {} end
 	if Attune_DB.toons[attunelocal_charKey] == nil then Attune_DB.toons[attunelocal_charKey] = {} end
 	if Attune_DB.survey == nil then Attune_DB.survey = {} end
@@ -743,6 +747,8 @@ function Attune:OnEnable()
 		t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
 
 	end
+	-- End step done means fully attuned (Kill/Interact may lag behind in the done map)
+	Attune_ApplyCompletedEndSteps(t)
 
 
 
@@ -1632,68 +1638,24 @@ end
 function Attune_CheckComplete(newComplete)
 	local att = Attune_DB.toons[attunelocal_charKey]
 
-	-- test
---	if att.done["0-40"] and att.attuned["0"] ~= 100 	then att.done["0-50"] = 1; 	Attune_SendPushInfo("0-50");	att.attuned["0"] = 100; Attune_UpdateTreeGroup("0"); newComplete = true; end	-- Debug
---	if att.done["1-55"] and att.attuned["1"] ~= 100 	then att.done["1-65"] = 1; 	Attune_SendPushInfo("1-65"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); newComplete = true;  end	-- Debug multi
 
 	-- WoW
-	-- if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
-	-- if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
-	-- if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
-	-- if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
-	-- if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	-- if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	-- if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	-- if att.done["8-200"] and att.attuned["8"] ~= 100 	then att.done["8-210"] = 1; Attune_SendPushInfo("8-210"); 	att.attuned["8"] = 100;	 Attune_UpdateTreeGroup("8"); newComplete = true;  end	-- MC Quintessence
-	-- if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
+	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
+	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
+	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
+	if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
+	if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	if att.done["8-200"] and att.attuned["8"] ~= 100 	then att.done["8-210"] = 1; Attune_SendPushInfo("8-210"); 	att.attuned["8"] = 100;	 Attune_UpdateTreeGroup("8"); newComplete = true;  end	-- MC Quintessence
+	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
 
-	-- if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
-	-- if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
-	-- if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
-
-
-	-- -- TBC
-	-- if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end		-- SH Horde
-	-- if att.done["21-85"] and att.attuned["21"] ~= 100 	then att.done["21-90"] = 1; 	Attune_SendPushInfo("21-90"); 	att.attuned["21"] = 100; Attune_UpdateTreeGroup("21"); newComplete = true;  end		-- SH Alliance
-	-- if att.done["30-20"] and att.attuned["30"] ~= 100 	then att.done["30-30"] = 1; 	Attune_SendPushInfo("30-30"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end		-- Shadow Lab
-	-- if att.done["40-90"] and att.attuned["40"] ~= 100 	then att.done["40-100"] = 1; 	Attune_SendPushInfo("40-100"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end		-- Black Morass
-	-- if att.done["80-160"] and att.attuned["80"] ~= 100 	then att.done["80-180"] = 1; 	Attune_SendPushInfo("80-180"); 	att.attuned["80"] = 100; Attune_UpdateTreeGroup("80"); newComplete = true;  end		-- Arcatraz
-
-	-- if att.done["104-20"] and att.attuned["104"] ~= 100 	then att.done["104-30"] = 1; 	Attune_SendPushInfo("104-30"); 	att.attuned["104"] = 100; Attune_UpdateTreeGroup("104"); newComplete = true;  end	-- Thrallmar
-	-- if att.done["105-20"] and att.attuned["105"] ~= 100 	then att.done["105-30"] = 1; 	Attune_SendPushInfo("105-30"); 	att.attuned["105"] = 100; Attune_UpdateTreeGroup("105"); newComplete = true;  end	-- HH
-	-- if att.done["106-20"] and att.attuned["106"] ~= 100 	then att.done["106-30"] = 1; 	Attune_SendPushInfo("106-30"); 	att.attuned["106"] = 100; Attune_UpdateTreeGroup("106"); newComplete = true;  end	-- CE
-	-- if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; Attune_UpdateTreeGroup("107"); newComplete = true;  end	-- Lower City
-	-- if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; Attune_UpdateTreeGroup("108"); newComplete = true;  end	-- Shatar
-	-- if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
-	-- if att.done["110-60"] and att.attuned["110"] ~= 100 	then att.done["110-70"] = 1; 	Attune_SendPushInfo("110-70"); 	att.attuned["110"] = 100; Attune_UpdateTreeGroup("110"); newComplete = true;  end	-- MgT
-
-	-- if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
-	-- if att.done["116-230"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; att.done["116-235"] = 1;	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
-	-- if att.done["118-230"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; att.done["118-235"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
-	-- if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- SSC
-	-- if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- The Eye Horde
-	-- if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); newComplete = true;  end	-- The Eye Alliance
-	-- if att.done["170-80"] and att.attuned["170"] ~= 100 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100; Attune_UpdateTreeGroup("170"); newComplete = true;  end	-- Hyjal Alliance
-	-- if att.done["180-80"] and att.attuned["180"] ~= 100 	then att.done["180-90"] = 1; 	Attune_SendPushInfo("180-90"); 		att.attuned["180"] = 100; Attune_UpdateTreeGroup("180"); newComplete = true;  end	-- Hyjal Horde
-	-- if att.done["190-260"] and att.attuned["190"] ~= 100 	then att.done["190-280"] = 1; 	Attune_SendPushInfo("190-280"); 	att.attuned["190"] = 100; Attune_UpdateTreeGroup("190"); newComplete = true;  end	-- BT Horde
-	-- if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); newComplete = true;  end	-- BT Alliance
-
-	-- if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
-	-- if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
+	if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
+	if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
+	if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
 
 
-	-- if att.done["300-290"] and att.attuned["300"] ~= 100 	then att.done["300-300"] = 1; 	Attune_SendPushInfo("300-300"); 	att.attuned["300"] = 100; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
-	-- if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- Wrathgate Alliance
-	-- if att.done["330-380"] and att.attuned["330"] ~= 100 	then att.done["330-390"] = 1; 	Attune_SendPushInfo("330-390"); 	att.attuned["330"] = 100; Attune_UpdateTreeGroup("330"); newComplete = true;  end	-- Sons of Hodir
-	-- if att.done["340-140"] and att.attuned["340"] ~= 100 	then att.done["340-150"] = 1; 	Attune_SendPushInfo("340-150"); 	att.attuned["340"] = 100; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
-	-- if att.done["350-140"] and att.attuned["350"] ~= 100 	then att.done["350-150"] = 1; 	Attune_SendPushInfo("350-150"); 	att.attuned["350"] = 100; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
-	-- if att.done["370-50"] and att.attuned["370"] ~= 100 	then att.done["370-60"] = 1; 	Attune_SendPushInfo("370-60"); 		att.attuned["370"] = 100; Attune_UpdateTreeGroup("370"); att.done["360-55"] = 1; newComplete = true;  end	-- Malygos 25 -- this also pushes the sub attunement in Maly 10
-	-- if att.done["360-55"] 									then att.done["360-50"] = 1; 	Attune_SendPushInfo("360-50"); 		newComplete = true;  end	-- Malygos 10 (granted via Malygos 25)
-	-- if att.done["360-50"] and att.attuned["360"] ~= 100 	then att.done["360-60"] = 1; 	Attune_SendPushInfo("360-60"); 		att.attuned["360"] = 100; Attune_UpdateTreeGroup("360"); newComplete = true;  end	-- Malygos 10 (granted via quest)
-
-    if att.done["501-30"] == 1  then att.done["501-20"] = 1; end
-
-    if att.done["502-70"] == 1  then att.done["502-20"] = 1; att.done["502-30"] = 1; att.done["502-40"] = 1; att.done["502-50"] = 1; att.done["502-60"] = 1; end
+    if att.done["16-340"] and att.done["16-350"] and att.done["16-360"] and att.done["16-370"] and att.done["16-380"] and att.attuned["16"] ~= 100 	then att.done["16-390"] = 1; Attune_SendPushInfo("16-390"); 	att.attuned["16"] = 100; Attune_UpdateTreeGroup("16"); newComplete = true;  end	-- rfc
 	
 
     
@@ -1708,6 +1670,19 @@ function Attune_CheckComplete(newComplete)
 		end
 	end
 	Attune_CheckIsNext(attunelocal_charKey)
+end
+
+-------------------------------------------------------------------------
+-- If the End step is done, force attuned % to 100 (overrides step-count math)
+-------------------------------------------------------------------------
+
+function Attune_ApplyCompletedEndSteps(t)
+	if t == nil or t.done == nil or t.attuned == nil then return end
+	for _, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) and s.TYPE == "End" and t.done[s.ID_ATTUNE .. "-" .. s.ID] then
+			t.attuned[s.ID_ATTUNE] = 100
+		end
+	end
 end
 
 -------------------------------------------------------------------------
@@ -2224,17 +2199,8 @@ function Attune_Select(attuneId)
 					label:SetImage(a.ICON)
 					label:SetFont(GameFontNormal:GetFont(), 24)
 					label:SetImageSize(32,32)
-					label:SetRelativeWidth(0.9)
+					label:SetFullWidth(true)
 					titlebutton:AddChild(label)
-
-					local mini = AceGUI:Create("Button")
-					mini:SetText(Attune_DB.mini and AttuneLang["Maxi"] or AttuneLang["Mini"])
-					mini:SetWidth(70)
-					mini:SetCallback("OnClick", function()
-						Attune_DB.mini = not Attune_DB.mini
-						Attune_ForceAttuneTabRefresh()
-					end)
-					titlebutton:AddChild(mini)
 
 
 				attunelocal_scroll:AddChild(titlebutton)
@@ -2266,6 +2232,18 @@ function Attune_Select(attuneId)
 	-- Hiding all non-Ace frames (all attune steps basically)
 	for i, f in pairs(attunelocal_frames) do	_G[f]:Hide()	end
 
+	-- Scaled container for the attune chain (icons, text, lines zoom together)
+	if attunelocal_graphRoot == nil then
+		attunelocal_graphRoot = CreateFrame("Frame", "Attune_GraphRoot", scrollframe)
+	else
+		attunelocal_graphRoot:SetParent(scrollframe)
+	end
+	attunelocal_graphRoot:ClearAllPoints()
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", 0, 0)
+	attunelocal_graphRoot:SetWidth(1)
+	attunelocal_graphRoot:SetHeight(1)
+	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
+	attunelocal_graphRoot:Show()
 
 	-- Count the number of steps at each stage, to know how to center the frames
 	local stageSteps = {} -- steps per stage
@@ -2280,7 +2258,7 @@ function Attune_Select(attuneId)
 
 
 	-- Create/position each step frame
-	local yy = (Attune_DB.mini and 40 or 0)  -- allow a top margin when in mini mode
+	local yy = 0
 	local curStage = 0
 	local nbStep = 0
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
@@ -2291,20 +2269,23 @@ function Attune_Select(attuneId)
 				if s.STAGE ~= curStage then
 					nbStep = 1
 					curStage = s.STAGE
-					yy = yy + (Attune_DB.mini and (attunelocal_MiniNode_VGap + attunelocal_MiniNode_Height) or (attunelocal_Node_VGap + attunelocal_Node_Height))
+					yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
 				end
-				local xx = (stageSteps[s.STAGE] * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (nbStep * (Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))) - (stageSteps[s.STAGE]-1) * ((Attune_DB.mini and (attunelocal_MiniNode_Width + attunelocal_MiniNode_HGap) or (attunelocal_Node_Width + attunelocal_Node_HGap))/2)
+				local xx = (stageSteps[s.STAGE] * (attunelocal_Node_Width + attunelocal_Node_HGap)) - (nbStep * (attunelocal_Node_Width + attunelocal_Node_HGap)) - (stageSteps[s.STAGE]-1) * ((attunelocal_Node_Width + attunelocal_Node_HGap)/2)
 	
-				Attune_CreateNode(s, scrollframe, xx, yy)
+				Attune_CreateNode(s, attunelocal_graphRoot, xx, yy)
 				nbStep = nbStep + 1
 			end
 		end
 	end
 
 	-- Ace 'mask' needed to trick the scroller into the right size, as it doesn't detect the custom frames.
+	-- Chain height is scaled so the scrollbar matches the visual (zoomed) size.
+	attunelocal_graphHeight = yy
+	attunelocal_contentHeight = (yy * Attune_DB.zoom) + 50
 	local mask = AceGUI:Create("SimpleGroup")
 	mask:SetAutoAdjustHeight(false)
-	mask:SetHeight(yy+50)
+	mask:SetHeight(attunelocal_contentHeight)
 	mask:SetFullWidth(true)
 	mask.frame:SetScript("OnEnter", function() end)
 	mask.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
@@ -2314,11 +2295,64 @@ function Attune_Select(attuneId)
 
 	-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
 	attunelocal_scroll.frame:SetScript("OnUpdate", function()
-		attunelocal_scroll:SetHeight(yy+50)
+		attunelocal_scroll:SetHeight(attunelocal_contentHeight)
 	end)
 
 
 
+end
+
+-------------------------------------------------------------------------
+-- Apply zoom to the graph container and update scroll height (no rebuild)
+-------------------------------------------------------------------------
+
+function Attune_ApplyGraphZoom(zoom)
+	if zoom < attunelocal_Zoom_Min then zoom = attunelocal_Zoom_Min end
+	if zoom > attunelocal_Zoom_Max then zoom = attunelocal_Zoom_Max end
+	Attune_DB.zoom = zoom
+	if attunelocal_graphRoot then
+		attunelocal_graphRoot:SetScale(zoom)
+	end
+	attunelocal_contentHeight = (attunelocal_graphHeight * zoom) + 50
+end
+
+-------------------------------------------------------------------------
+-- Fixed zoom slider overlay (top-right of the attune panel, does not scroll)
+-------------------------------------------------------------------------
+
+function Attune_ReleaseZoomSlider()
+	if attunelocal_zoomSlider then
+		attunelocal_zoomSlider:Release()
+		attunelocal_zoomSlider = nil
+	end
+end
+
+function Attune_CreateZoomSlider()
+	Attune_ReleaseZoomSlider()
+	local parent = attunelocal_scroll and attunelocal_scroll.frame or (attunelocal_right and attunelocal_right.frame)
+	if not parent then return end
+
+	local slider = AceGUI:Create("Slider")
+	slider:SetWidth(160)
+	slider:SetHeight(44)
+	slider:SetLabel(AttuneLang["Zoom"])
+	slider:SetIsPercent(true)
+	slider:SetSliderValues(attunelocal_Zoom_Min, attunelocal_Zoom_Max, attunelocal_Zoom_Step)
+	slider:SetValue(Attune_DB.zoom)
+	slider:SetCallback("OnValueChanged", function(slid)
+		Attune_ApplyGraphZoom(slid:GetValue())
+	end)
+
+	local f = slider.frame
+	f:SetParent(parent)
+	f:ClearAllPoints()
+	-- Outer scroll frame does not move with content; pin flush to its right edge
+	f:SetPoint("TOPRIGHT", parent, "TOPRIGHT", -26, -2)
+	f:SetFrameStrata(parent:GetFrameStrata())
+	f:SetFrameLevel((parent:GetFrameLevel() or 0) + 50)
+	f:Show()
+
+	attunelocal_zoomSlider = slider
 end
 
 -------------------------------------------------------------------------
@@ -2441,8 +2475,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 					table.insert(attunelocal_frames, "Attune_Node_"..step.ID) -- recording, to reuse
 	end
 	fnode:SetParent(parent)
-	fnode:SetWidth(Attune_DB.mini and attunelocal_MiniNode_Width or attunelocal_Node_Width)
-	fnode:SetHeight(Attune_DB.mini and attunelocal_MiniNode_Height or attunelocal_Node_Height)
+	fnode:SetWidth(attunelocal_Node_Width)
+	fnode:SetHeight(attunelocal_Node_Height)
 	fnode:SetPoint("TOP", posX, -posY)
 	fnode:SetScript("OnMouseUp", function(self, button) end)
 	fnode:SetScript("OnEnter", function()
@@ -2557,7 +2591,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			else
 				-- build tooltip
 				attunelocal_frame:SetStatusText(AttuneLang[step.STEP])
-				GameTooltip:SetText((Attune_DB.mini and step.STEP.."\n" or "") .. other)
+				GameTooltip:SetText(other)
 			end
 
 
@@ -2680,10 +2714,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 		else			icon = CreateFrame("Button", "Attune_Icon_"..step.ID)
 						table.insert(attunelocal_frames, "Attune_Icon_"..step.ID) -- recording, to reuse
 		end
-		icon:SetPoint("TOPLEFT", fnode, "TOPLEFT", Attune_DB.mini and 6 or 8, Attune_DB.mini and -6 or -8)
+		icon:SetPoint("TOPLEFT", fnode, "TOPLEFT", 8, -8)
 		icon:SetParent(fnode)
-		icon:SetWidth(Attune_DB.mini and attunelocal_MiniIcon_Size or attunelocal_Icon_Size)
-		icon:SetHeight(Attune_DB.mini and attunelocal_MiniIcon_Size or attunelocal_Icon_Size)
+		icon:SetWidth(attunelocal_Icon_Size)
+		icon:SetHeight(attunelocal_Icon_Size)
 		icon:SetNormalTexture(step.ICON)
 		icon:SetHighlightTexture(step.ICON)
 		icon:SetToplevel(true)
@@ -2692,118 +2726,117 @@ function Attune_CreateNode(step, parent, posX, posY)
 		icon:Show()
 
 
-		if not Attune_DB.mini then
-			-- step information, reuse when possible
-			local exist = false
-			for _, f in ipairs(attunelocal_frames) do if f == "Attune_Title_"..step.ID then exist = true end end
-			local ftitle
-			if exist then 	ftitle = _G["Attune_Title_"..step.ID] -- reuse
-			else			ftitle = fnode:CreateFontString("Attune_Title_"..step.ID)
-							table.insert(attunelocal_frames, "Attune_Title_"..step.ID) -- recording, to reuse
-			end
-			ftitle:SetWidth(attunelocal_Node_Width - 50)
-			ftitle:SetHeight(16)
-			ftitle:SetJustifyH("LEFT")
-			-- End node gets a bigger font
-			if step.TYPE == 'End' then
-				ftitle:SetPoint("TOPLEFT", 44, -16)
-				ftitle:SetFont(GameFontNormal:GetFont(), 12)
-				if Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100 then
-					ftitle:SetText(AttuneLang["Attuned"])
-				else
-					ftitle:SetText(AttuneLang["Not attuned"])
-				end
-			else
-				ftitle:SetPoint("TOPLEFT", 44, -8)
-				ftitle:SetFont(GameFontNormal:GetFont(), 11)
-
-				if step.TYPE == "Item" then
-					if countNeeded == 1 then
-						--ftitle:SetText(step.STEP)
-						ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD])
-					else
-						ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
-					end
-				elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
-					ftitle:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
-
-				elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
-					ftitle:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
-				else
-					ftitle:SetText(step.STEP)
-				end
-			end
-			ftitle:Show()
-
-
-			-- type and icon (level, interact, quest, kill...), reuse when possible
-			if step.TYPE ~= 'End' then
-
-				-- format depending on type
-				local type = "|cffffd100"..AttuneLang[step.TYPE].."|r"
-				if step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
-				elseif step.TYPE == "Attune" then type = "|c60808080"..AttuneLang["Attunement or key"].."|r"
-				elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
-				elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
-				end
-
-				local exist = false
-				for _, f in ipairs(attunelocal_frames) do if f == "Attune_Type_"..step.ID then exist = true end end
-				local ftype
-				if exist then 	ftype = _G["Attune_Type_"..step.ID] --reuse
-				else			ftype = fnode:CreateFontString("Attune_Type_"..step.ID)
-								table.insert(attunelocal_frames, "Attune_Type_"..step.ID) -- recording, to reuse
-				end
-				ftype:SetPoint("TOPLEFT", 44, -24)
-				ftype:SetWidth(attunelocal_Node_Width - 50)
-				ftype:SetHeight(16)
-				ftype:SetJustifyH("LEFT")
-				ftype:SetFont(GameFontNormal:GetFont(), 9)
-				ftype:SetText(type)
-				ftype:Show()
-			end
-
-
-			if countSameStep > 0 or countCompleted > 0 then
-
-				--notification text
-				local exist = false
-				for _, f in ipairs(attunelocal_frames) do if f == "Attune_NotifText_"..step.ID then exist = true end end
-				local notiftext
-				if exist then 	notiftext = _G["Attune_NotifText_"..step.ID] -- reuse
-				else			notiftext = fnode:CreateFontString("Attune_NotifText_"..step.ID)
-								table.insert(attunelocal_frames, "Attune_NotifText_"..step.ID) -- recording, to reuse
-				end
-				notiftext:SetParent(fnode)
-				notiftext:SetWidth(32)
-				notiftext:SetFont(GameFontNormal:GetFont(), 10)
-				notiftext:SetText(""..((countSameStep > 0) and countSameStep or countCompleted))
-				notiftext:Show()
-
-
-
-				--notification icon
-				local exist = false
-				for _, f in ipairs(attunelocal_frames) do if f == "Attune_Notif_"..step.ID then exist = true end end
-				local notif
-				if exist then 	notif = _G["Attune_Notif_"..step.ID] -- reuse
-				else			notif = CreateFrame("Button", "Attune_Notif_"..step.ID)
-								table.insert(attunelocal_frames, "Attune_Notif_"..step.ID) -- recording, to reuse
-				end
-				notif:SetPoint("TOPRIGHT", fnode, "TOPRIGHT", Attune_DB.mini and 6 or 8, Attune_DB.mini and -6 or 5)
-				notif:SetParent(fnode)
-				notif:SetWidth(32)
-				notif:SetHeight(16)
-				notif:SetFontString(notiftext)
-				notif:SetNormalTexture("Interface\\AddOns\\Attune\\Images\\" .. ((countSameStep > 0) and "notification" or "completion"))
-				notif:SetHighlightTexture("Interface\\AddOns\\Attune\\Images\\" .. ((countSameStep > 0) and "notification" or "completion"))
-				notif:SetToplevel(true)
-				notif:EnableMouse(false)
-				notif:Disable()
-				notif:Show()
-			end
-
+		-- step information, reuse when possible
+		local exist = false
+		for _, f in ipairs(attunelocal_frames) do if f == "Attune_Title_"..step.ID then exist = true end end
+		local ftitle
+		if exist then 	ftitle = _G["Attune_Title_"..step.ID] -- reuse
+		else			ftitle = fnode:CreateFontString("Attune_Title_"..step.ID)
+						table.insert(attunelocal_frames, "Attune_Title_"..step.ID) -- recording, to reuse
 		end
+		ftitle:SetWidth(attunelocal_Node_Width - 50)
+		ftitle:SetHeight(16)
+		ftitle:SetJustifyH("LEFT")
+		-- End node gets a bigger font
+		if step.TYPE == 'End' then
+			ftitle:SetPoint("TOPLEFT", 44, -16)
+			ftitle:SetFont(GameFontNormal:GetFont(), 12)
+			if Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100
+				or Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID] then
+				ftitle:SetText(AttuneLang["Attuned"])
+			else
+				ftitle:SetText(AttuneLang["Not attuned"])
+			end
+		else
+			ftitle:SetPoint("TOPLEFT", 44, -8)
+			ftitle:SetFont(GameFontNormal:GetFont(), 11)
+
+			if step.TYPE == "Item" then
+				if countNeeded == 1 then
+					--ftitle:SetText(step.STEP)
+					ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD])
+				else
+					ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
+				end
+			elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
+				ftitle:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
+
+			elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
+				ftitle:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
+			else
+				ftitle:SetText(step.STEP)
+			end
+		end
+		ftitle:Show()
+
+
+		-- type and icon (level, interact, quest, kill...), reuse when possible
+		if step.TYPE ~= 'End' then
+
+			-- format depending on type
+			local type = "|cffffd100"..AttuneLang[step.TYPE].."|r"
+			if step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
+			elseif step.TYPE == "Attune" then type = "|c60808080"..AttuneLang["Attunement or key"].."|r"
+			elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
+			elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
+			end
+
+			local exist = false
+			for _, f in ipairs(attunelocal_frames) do if f == "Attune_Type_"..step.ID then exist = true end end
+			local ftype
+			if exist then 	ftype = _G["Attune_Type_"..step.ID] --reuse
+			else			ftype = fnode:CreateFontString("Attune_Type_"..step.ID)
+							table.insert(attunelocal_frames, "Attune_Type_"..step.ID) -- recording, to reuse
+			end
+			ftype:SetPoint("TOPLEFT", 44, -24)
+			ftype:SetWidth(attunelocal_Node_Width - 50)
+			ftype:SetHeight(16)
+			ftype:SetJustifyH("LEFT")
+			ftype:SetFont(GameFontNormal:GetFont(), 9)
+			ftype:SetText(type)
+			ftype:Show()
+		end
+
+
+		if countSameStep > 0 or countCompleted > 0 then
+
+			--notification text
+			local exist = false
+			for _, f in ipairs(attunelocal_frames) do if f == "Attune_NotifText_"..step.ID then exist = true end end
+			local notiftext
+			if exist then 	notiftext = _G["Attune_NotifText_"..step.ID] -- reuse
+			else			notiftext = fnode:CreateFontString("Attune_NotifText_"..step.ID)
+							table.insert(attunelocal_frames, "Attune_NotifText_"..step.ID) -- recording, to reuse
+			end
+			notiftext:SetParent(fnode)
+			notiftext:SetWidth(32)
+			notiftext:SetFont(GameFontNormal:GetFont(), 10)
+			notiftext:SetText(""..((countSameStep > 0) and countSameStep or countCompleted))
+			notiftext:Show()
+
+
+
+			--notification icon
+			local exist = false
+			for _, f in ipairs(attunelocal_frames) do if f == "Attune_Notif_"..step.ID then exist = true end end
+			local notif
+			if exist then 	notif = _G["Attune_Notif_"..step.ID] -- reuse
+			else			notif = CreateFrame("Button", "Attune_Notif_"..step.ID)
+							table.insert(attunelocal_frames, "Attune_Notif_"..step.ID) -- recording, to reuse
+			end
+			notif:SetPoint("TOPRIGHT", fnode, "TOPRIGHT", 8, 5)
+			notif:SetParent(fnode)
+			notif:SetWidth(32)
+			notif:SetHeight(16)
+			notif:SetFontString(notiftext)
+			notif:SetNormalTexture("Interface\\AddOns\\Attune\\Images\\" .. ((countSameStep > 0) and "notification" or "completion"))
+			notif:SetHighlightTexture("Interface\\AddOns\\Attune\\Images\\" .. ((countSameStep > 0) and "notification" or "completion"))
+			notif:SetToplevel(true)
+			notif:EnableMouse(false)
+			notif:Disable()
+			notif:Show()
+		end
+
 	else
 		--make spacer transparent
 		fnode:SetBackdropColor(0, 0, 0, 0)
@@ -2829,7 +2862,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 			local cur, _, _, curX, curY  = _G["Attune_Node_"..step.ID]:GetPoint()
 			local prev, _, _, prevX, prevY = _G["Attune_Node_"..flw]:GetPoint()
-			local offset = ((Attune_DB.mini and attunelocal_MiniLine_Thickness or attunelocal_Line_Thickness)/2)
+			local offset = (attunelocal_Line_Thickness/2)
 
 			local line
 			if exist then 	line = _G["Attune_Line1_"..step.ID.."_"..flw] --reuse
@@ -2853,9 +2886,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
-			line:SetThickness(Attune_DB.mini and attunelocal_MiniLine_Thickness or attunelocal_Line_Thickness)
-			line:SetStartPoint("TOP", prevX - curX, prevY - curY - (Attune_DB.mini and attunelocal_MiniNode_Height or attunelocal_Node_Height))
-			line:SetEndPoint("TOP", prevX - curX, prevY - curY - (Attune_DB.mini and (attunelocal_MiniNode_Height + (attunelocal_MiniNode_VGap/2)) or (attunelocal_Node_Height + (attunelocal_Node_VGap/2))) - offset)
+			line:SetThickness(attunelocal_Line_Thickness)
+			line:SetStartPoint("TOP", prevX - curX, prevY - curY - attunelocal_Node_Height)
+			line:SetEndPoint("TOP", prevX - curX, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)) - offset)
 			line:Show()
 
 
@@ -2885,8 +2918,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
-			line:SetThickness(Attune_DB.mini and attunelocal_MiniLine_Thickness or attunelocal_Line_Thickness)
-			line:SetStartPoint("TOP", 0, prevY - curY - (Attune_DB.mini and (attunelocal_MiniNode_Height + (attunelocal_MiniNode_VGap/2)) or (attunelocal_Node_Height + (attunelocal_Node_VGap/2))) + offset)
+			line:SetThickness(attunelocal_Line_Thickness)
+			line:SetStartPoint("TOP", 0, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)) + offset)
 			line:SetEndPoint("TOP", 0, -2)
 			line:Show()
 
@@ -2918,11 +2951,11 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
-			line:SetThickness(Attune_DB.mini and attunelocal_MiniLine_Thickness or attunelocal_Line_Thickness)
+			line:SetThickness(attunelocal_Line_Thickness)
 
 			if prevX < 0 or curX < 0 then offset = -offset 	end -- need for the line thickness in corners
-			line:SetStartPoint("TOP", offset, prevY - curY - (Attune_DB.mini and (attunelocal_MiniNode_Height + (attunelocal_MiniNode_VGap/2)) or (attunelocal_Node_Height + (attunelocal_Node_VGap/2))))
-			line:SetEndPoint("TOP", prevX - curX + offset, prevY - curY - (Attune_DB.mini and (attunelocal_MiniNode_Height + (attunelocal_MiniNode_VGap/2)) or (attunelocal_Node_Height + (attunelocal_Node_VGap/2))))
+			line:SetStartPoint("TOP", offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
+			line:SetEndPoint("TOP", prevX - curX + offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
 			line:Show()
 
 
@@ -2953,9 +2986,11 @@ function Attune_ToggleView(noToggle)
 
 	if noToggle == nil then noToggle = false end
 
+	Attune_ReleaseZoomSlider()
 	attunelocal_frame:ReleaseChildren()
 	--Hiding all frames
 	for i, f in pairs(attunelocal_frames) do _G[f]:Hide() end
+	if attunelocal_graphRoot then attunelocal_graphRoot:Hide() end
 
 	if attunelocal_treeIsShown or noToggle then
 
@@ -3427,6 +3462,7 @@ function Attune_ToggleView(noToggle)
 		attunelocal_scroll:SetAutoAdjustHeight(false)
 		attunelocal_right:AddChild(attunelocal_scroll)
 
+		Attune_CreateZoomSlider()
 
 		--select default attune (or last viewed)
 		attunelocal_treeframe:SelectByPath(AttuneLastViewed)
@@ -3493,6 +3529,7 @@ function Attune_ShowResultList(title)
 					t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
 				end
 			end
+			Attune_ApplyCompletedEndSteps(t)
 		end
 	end
 
