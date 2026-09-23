@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------
 --
 --	Copyright (c) 2019-2021 by Antoine Desmarets.
---	Cixi/Gaya of Remulos Oceanic / WoW Classic Horde
+--	 Delmont/Gaya Greyhoof of Remulos Oceanic / WoW Classic Horde
 --
 --	Attune is distributed in the hope that it will be useful/entertaining
 --	but WITHOUT ANY WARRANTY

@@ -1,5 +1,5 @@
 Attune
-by Cixi@Remulos (Classic Oceanic)
+by Cixi Delmont @ WoW:Forever
 
 
 WHAT THE ADDON IS FOR:
@@ -33,6 +33,6 @@ CONTACT:
 
 May the Earth Mother protect you all.
 https://warcraftratings.com
-Cixi@Remulos (Classic Oceanic server)
+Cixi Delmont @ WoW:Forever
   
   
