@@ -368,77 +368,120 @@ Attune_Data.steps = 	{
 
 
 --vForever: Ragefire Chasm (Horde)
+	-- Columns L→R (higher ID = left): Power | Slaying | Testing | Satchel | Hidden Enemies
 	{ID_ATTUNE="16",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 9",LOCATION="",ID_WOWHEAD="9",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	-- Hidden Enemies chain (leads into RFC)
-	{ID_ATTUNE="16",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="16",ID="25",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="20",STAGE="25"},
-	{ID_ATTUNE="16",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25",STAGE="30"},
-	{ID_ATTUNE="16",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
-	{ID_ATTUNE="16",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
-	{ID_ATTUNE="16",ID="60",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="50",STAGE="60"},
-	{ID_ATTUNE="16",ID="70",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="50",STAGE="60"},
-	{ID_ATTUNE="16",ID="80",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&70",STAGE="70"},
-	{ID_ATTUNE="16",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="80"},
-	{ID_ATTUNE="16",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="90"},
-	-- Lost Satchel chain
-	{ID_ATTUNE="16",ID="110",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="16",ID="120",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="110",STAGE="60"},
-	{ID_ATTUNE="16",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="70"},
-	{ID_ATTUNE="16",ID="140",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="80"},
-	{ID_ATTUNE="16",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="90"},
-	-- Standalone RFC dungeon quests
-	{ID_ATTUNE="16",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="16",ID="170",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="16",ID="180",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="170",STAGE="60"},
-	{ID_ATTUNE="16",ID="190",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="180",STAGE="70"},
-	{ID_ATTUNE="16",ID="200",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="80"},
-	{ID_ATTUNE="16",ID="210",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="16",ID="220",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="210",STAGE="60"},
-	{ID_ATTUNE="16",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="210",STAGE="60"},
-	{ID_ATTUNE="16",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220&230",STAGE="80"},
-	{ID_ATTUNE="16",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="100&150&160&200&240",STAGE="100"},
+	-- Hidden Enemies lead-in (centered alone until the branch)
+	{ID_ATTUNE="16",ID="12",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="13",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+    {ID_ATTUNE="16",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="140",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="150",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
 
-    {ID_ATTUNE="16",ID="235",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="0",ICON="",FOLLOWS="0",STAGE="80"},
+
+    {ID_ATTUNE="16",ID="25",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="16",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25",STAGE="40"},
+	{ID_ATTUNE="16",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="50"},
+
+	-- STAGE 60: branch pickups (IDs ascending = right→left)
+	{ID_ATTUNE="16",ID="110",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="60"},
+	
+	-- STAGE 70
+	{ID_ATTUNE="16",ID="111",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="110",STAGE="70"},
+	{ID_ATTUNE="16",ID="121",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="12",STAGE="70"},
+	{ID_ATTUNE="16",ID="131",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="16",ID="141",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="140",STAGE="70"},
+	{ID_ATTUNE="16",ID="151",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="150",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="16",ID="112",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="110",STAGE="80"},
+	{ID_ATTUNE="16",ID="122",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="121",STAGE="80"},
+	{ID_ATTUNE="16",ID="132",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="16",ID="142",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="141",STAGE="80"},
+	{ID_ATTUNE="16",ID="152",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="150",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="16",ID="113",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="111&112",STAGE="90"},
+	{ID_ATTUNE="16",ID="123",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="122",STAGE="90"},
+	{ID_ATTUNE="16",ID="133",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="16",ID="143",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="142",STAGE="90"},
+	{ID_ATTUNE="16",ID="153",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="151&152",STAGE="90"},
+	-- STAGE 100
+	{ID_ATTUNE="16",ID="114",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="113",STAGE="100"},
+	{ID_ATTUNE="16",ID="124",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="123",STAGE="100"},
+	{ID_ATTUNE="16",ID="134",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	{ID_ATTUNE="16",ID="144",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	{ID_ATTUNE="16",ID="154",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	-- STAGE 110
+	{ID_ATTUNE="16",ID="115",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="114",STAGE="110"},
+	{ID_ATTUNE="16",ID="125",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="16",ID="135",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="16",ID="145",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="16",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="16",ID="160",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="115&124&13&143&153",STAGE="120"},
 
 
 --vForever: The Deadmines (Alliance)
+	-- Columns L→R (higher ID = left): Red Silk | Defias | Underground Assault | Memories | Oh Brother / Letter / Destruction
 	{ID_ATTUNE="17",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	-- The People's Militia (leads to Red Silk Bandanas)
-	{ID_ATTUNE="17",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="12",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="17",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
-	{ID_ATTUNE="17",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
-	{ID_ATTUNE="17",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
-	{ID_ATTUNE="17",ID="55",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="50",STAGE="60", COUNT=10},
-	{ID_ATTUNE="17",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="55",STAGE="70"},
-	-- The Defias Brotherhood chain (leads into Deadmines)
-	{ID_ATTUNE="17",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="65",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
-	{ID_ATTUNE="17",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="30"},
-	{ID_ATTUNE="17",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="40"},
-	{ID_ATTUNE="17",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="50"},
-	{ID_ATTUNE="17",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="60"},
-	{ID_ATTUNE="17",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="155",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="70"},
-	{ID_ATTUNE="17",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="80"},
-	{ID_ATTUNE="17",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="130",STAGE="90"},
-	{ID_ATTUNE="17",ID="145",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="140",STAGE="95"},
-	{ID_ATTUNE="17",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="145",STAGE="100"},
-	-- Speak with Shoni -> Underground Assault
-	{ID_ATTUNE="17",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2041",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="17",ID="170",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="60"},
-	{ID_ATTUNE="17",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="170",STAGE="90"},
-	{ID_ATTUNE="17",ID="190",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="100"},
-	-- Stormwind dungeon quests
-	{ID_ATTUNE="17",ID="200",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="17",ID="210",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="200",STAGE="90", COUNT=4},
-	{ID_ATTUNE="17",ID="220",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="100"},
-	{ID_ATTUNE="17",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
-	{ID_ATTUNE="17",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="230",STAGE="90"},
-	{ID_ATTUNE="17",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="100"},
-	-- The Unsent Letter (VanCleef drop)
-	{ID_ATTUNE="17",ID="260",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="2874",ICON="Interface\\Icons\\inv_letter_15",FOLLOWS="140",STAGE="95"},
-	{ID_ATTUNE="17",ID="270",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="100"},
-	-- Destruction in Deadmines (Forever-new)
-	{ID_ATTUNE="17",ID="280",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92753",ICON="Interface\\Icons\\inv_misc_bomb_02",FOLLOWS="10",STAGE="90"},
-	{ID_ATTUNE="17",ID="290",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="60&150&190&220&250&270&280",STAGE="110"},
+	-- STAGE 20
+	{ID_ATTUNE="17",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="17",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="17",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="17",ID="410",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="65",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="17",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="12",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	-- STAGE 30
+	{ID_ATTUNE="17",ID="120",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="17",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="17",ID="320",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="17",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="30"},
+	{ID_ATTUNE="17",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="510",STAGE="30"},
+	-- STAGE 40
+	{ID_ATTUNE="17",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="17",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="17",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="17",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"},
+	{ID_ATTUNE="17",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40"},
+	-- STAGE 50
+	{ID_ATTUNE="17",ID="140",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2041",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"},
+	{ID_ATTUNE="17",ID="540",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="17",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="17",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="17",ID="350",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="60"},
+	{ID_ATTUNE="17",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="60"},
+	{ID_ATTUNE="17",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="540",STAGE="60", COUNT=10},
+	-- STAGE 70
+	{ID_ATTUNE="17",ID="160",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="140",STAGE="70"},
+	{ID_ATTUNE="17",ID="260",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="240",STAGE="70", COUNT=4},
+	{ID_ATTUNE="17",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="17",ID="460",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="155",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"},
+	{ID_ATTUNE="17",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="17",ID="170",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="80"},
+	{ID_ATTUNE="17",ID="270",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="80"},
+	{ID_ATTUNE="17",ID="370",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="350",STAGE="80"},
+	{ID_ATTUNE="17",ID="470",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="80"},
+	{ID_ATTUNE="17",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="17",ID="180",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92753",ICON="Interface\\Icons\\inv_misc_bomb_02",FOLLOWS="10",STAGE="90"},
+	{ID_ATTUNE="17",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="17",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="90"},
+	{ID_ATTUNE="17",ID="480",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="470",STAGE="90"},
+	{ID_ATTUNE="17",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	-- STAGE 100
+	{ID_ATTUNE="17",ID="190",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="2874",ICON="Interface\\Icons\\inv_letter_15",FOLLOWS="480",STAGE="100"},
+	{ID_ATTUNE="17",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	{ID_ATTUNE="17",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	{ID_ATTUNE="17",ID="490",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="480",STAGE="100"},
+	{ID_ATTUNE="17",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
+	-- STAGE 110
+	{ID_ATTUNE="17",ID="195",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="110"},
+	{ID_ATTUNE="17",ID="295",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="17",ID="395",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="17",ID="495",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="490",STAGE="110"},
+	{ID_ATTUNE="17",ID="595",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="17",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="560&495&380&270&170&195&180",STAGE="120"},
 
 --vForever dungeon attune 18
 	{ID_ATTUNE="18",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
