@@ -23,6 +23,9 @@ Attune_Data.attunes = 	{
 	{ID="12",NAME=AttuneLang["Blackrock Depths"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["OnlyOne_Desc"]},
 	{ID="14",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_11", DESC=AttuneLang["OnlyOne_Desc"]},
 	{ID="15",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_11", DESC=AttuneLang["OnlyOne_Desc"]},
+	--vForever dungeon quests
+	{ID="16",NAME=AttuneLang["Ragefire Chasm"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_fire_fire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
+	{ID="17",NAME=AttuneLang["The Deadmines"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_human_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 
 }
 
@@ -331,6 +334,78 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="8",ID="210",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_potion_76",FOLLOWS="200",STAGE="140"},
 
 
+--vForever: Ragefire Chasm (Horde)
+	{ID_ATTUNE="16",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 9",LOCATION="",ID_WOWHEAD="9",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Hidden Enemies chain (leads into RFC)
+	{ID_ATTUNE="16",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="16",ID="25",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_armorkit_21",FOLLOWS="20",STAGE="25"},
+	{ID_ATTUNE="16",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25",STAGE="30"},
+	{ID_ATTUNE="16",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="16",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="16",ID="60",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="16",ID="70",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="16",ID="80",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&70",STAGE="70"},
+	{ID_ATTUNE="16",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="80"},
+	{ID_ATTUNE="16",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="90"},
+	-- Lost Satchel chain
+	{ID_ATTUNE="16",ID="110",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="16",ID="120",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="110",STAGE="60"},
+	{ID_ATTUNE="16",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="70"},
+	{ID_ATTUNE="16",ID="140",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="80"},
+	{ID_ATTUNE="16",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="90"},
+	-- Standalone RFC dungeon quests
+	{ID_ATTUNE="16",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="16",ID="170",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="16",ID="180",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="170",STAGE="60"},
+	{ID_ATTUNE="16",ID="190",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="180",STAGE="70"},
+	{ID_ATTUNE="16",ID="200",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="80"},
+	{ID_ATTUNE="16",ID="210",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="16",ID="220",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="210",STAGE="60"},
+	{ID_ATTUNE="16",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="210",STAGE="60"},
+	{ID_ATTUNE="16",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220&230",STAGE="80"},
+	{ID_ATTUNE="16",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="100&150&160&200&240",STAGE="100"},
+
+
+--vForever: The Deadmines (Alliance)
+	{ID_ATTUNE="17",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- The People's Militia (leads to Red Silk Bandanas)
+	{ID_ATTUNE="17",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="12",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="17",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="17",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="17",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="17",ID="55",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="50",STAGE="60", COUNT=10},
+	{ID_ATTUNE="17",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="55",STAGE="70"},
+	-- The Defias Brotherhood chain (leads into Deadmines)
+	{ID_ATTUNE="17",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="65",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"},
+	{ID_ATTUNE="17",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="30"},
+	{ID_ATTUNE="17",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="40"},
+	{ID_ATTUNE="17",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="50"},
+	{ID_ATTUNE="17",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="60"},
+	{ID_ATTUNE="17",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="155",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="70"},
+	{ID_ATTUNE="17",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="80"},
+	{ID_ATTUNE="17",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="130",STAGE="90"},
+	{ID_ATTUNE="17",ID="145",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="140",STAGE="95"},
+	{ID_ATTUNE="17",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="145",STAGE="100"},
+	-- Speak with Shoni -> Underground Assault
+	{ID_ATTUNE="17",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2041",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="170",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="160",STAGE="60"},
+	{ID_ATTUNE="17",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="170",STAGE="90"},
+	{ID_ATTUNE="17",ID="190",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="100"},
+	-- Stormwind dungeon quests
+	{ID_ATTUNE="17",ID="200",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="210",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="200",STAGE="90", COUNT=4},
+	{ID_ATTUNE="17",ID="220",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="100"},
+	{ID_ATTUNE="17",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"},
+	{ID_ATTUNE="17",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="230",STAGE="90"},
+	{ID_ATTUNE="17",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="100"},
+	-- The Unsent Letter (VanCleef drop)
+	{ID_ATTUNE="17",ID="260",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="2874",ICON="Interface\\Icons\\inv_letter_15",FOLLOWS="140",STAGE="95"},
+	{ID_ATTUNE="17",ID="270",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="100"},
+	-- Destruction in Deadmines (Forever-new)
+	{ID_ATTUNE="17",ID="280",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92753",ICON="Interface\\Icons\\inv_misc_bomb_02",FOLLOWS="10",STAGE="90"},
+	{ID_ATTUNE="17",ID="290",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="60&150&190&220&250&270&280",STAGE="110"},
+
+
 }
 	
 -- [id] = title, minlevel, groupsize, desc
@@ -365,6 +440,13 @@ Attune_Data.quests = {
 	[5511]={55,1},			[5803]={55,3},			[5533]={55,1},			[5538]={55,1},			[5801]={55,1},			[5097]={50,1},			[5098]={50,1},
 	[5505]={50,1},			[5096]={50,1},			[5092]={50,1},			[6804]={55,1},			[6805]={55,1},			[6821]={55,10},			[6822]={55,40},
 	[6823]={55,40},			[6824]={55,40},			[7486]={55,1},
+	-- Ragefire Chasm / Deadmines
+	[5726]={9,1},			[5727]={9,1},			[5728]={9,5},			[5729]={9,1},			[5730]={9,1},
+	[5722]={9,5},			[5723]={9,5},			[5724]={9,1},			[5725]={9,5},			[5761]={9,5},
+	[12]={9,1},				[13]={9,1},				[14]={9,1},				[65]={14,1},				[132]={14,1},
+	[135]={14,1},			[141]={14,1},			[142]={14,1},			[155]={14,1},			[166]={14,5},
+	[167]={15,5},			[168]={14,5},			[214]={14,5},			[2040]={15,5},			[2041]={15,1},
+	[373]={16,1},			[92753]={9,5},
 	
 }
 
@@ -462,6 +544,12 @@ Attune_Data.npcs = {
 	[12118] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
 	[12259] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
 	[12098] = { "??", AttuneLang["Boss"], AttuneLang["Flamewaker"]},	
+	-- Ragefire Chasm / Deadmines
+	[11519] = { "16", AttuneLang["Elite"], AttuneLang["Demon"]},	
+	[11518] = { "16", AttuneLang["Elite"], AttuneLang["Orc"]},	
+	[11520] = { "16", AttuneLang["Elite"], AttuneLang["Demon"]},	
+	[11834] = { "??", "", AttuneLang["Tauren"]},	
+	[639]   = { "20", AttuneLang["Elite"], AttuneLang["Human"]},	
 }
 
 
