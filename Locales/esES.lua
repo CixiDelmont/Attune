@@ -6,7 +6,7 @@ end
 
 
 -- INTERFACE
-Lang["Credits"] = "Muchas gracias a mi hermandad |cffffd100<Divine Heresy>|r por su apoyo y comprensión mientras probaba el addon y mi agradecimiento a |cffffd100RoadBlock|r y |cffffd100Bushido|r por la ayuda!\n\n También, muchas, muchas, gracias a los traductores :\n  - Traducción Alemana: |cffffd100Sumaya @ Razorfen DE|r\n  - Traducción Rusa: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Traducción Española: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traducción China (simp.): |cffffd100ly395842562|r y |cffffd100Icyblade|r\n  - Traducción China (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Traducción coreana: |cffffd100Drix @ Azshara KR|r\n\n/Hug de Cixi/Gaya @ Remulos Horde"
+Lang["Credits"] = "Muchas gracias a mi hermandad |cffffd100<Divine Heresy>|r por su apoyo y comprensión mientras probaba el addon y mi agradecimiento a |cffffd100Bushido @ Pyrewood Village|r por la ayuda con la TBC!\n\n También, muchas, muchas, gracias a los traductores :\n  - Traducción Alemana: |cffffd100Sumaya @ Razorfen DE|r\n  - Traducción Rusa: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Traducción Española: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Traducción China (simp.): |cffffd100ly395842562|r y |cffffd100Icyblade|r\n  - Traducción China (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Traducción coreana: |cffffd100Drix @ Azshara KR|r\n\n/Hug de Cixi/Gaya @ Remulos Horde"
 Lang["Mini"] = "Mini"
 Lang["Maxi"] = "Maxi"
 Lang["Version"] = "Attune v##VERSION## de Cixi@Remulos"
@@ -123,6 +123,7 @@ Lang["Group Number"] = "Grupo ##NUMBER##"
 Lang["Move to next group"] = "    Mover al próximo grupo"
 Lang["Remove from raid"] = "  Eliminar de la banda"
 Lang["Select a raid and click on players to add them in"] = "Selecciona una banda y clicka sobre los personajes para añadirlos"
+Lang["Planner"] = "Planificador"
 --v224
 Lang["Enter a new name for this raid group"] = "Introduce un nuevo nombre para esta banda."
 Lang["Save"] = "Info Banda"
@@ -188,16 +189,7 @@ Lang["DelUnder70_TEXT"] = "Eliminar PJs por debajo de nivel 70"
 Lang["DelUnder70_DESC"] = "Eliminar toda la información sobre Pjs por debajo de nivel 70."
 Lang["DelUnder70_CONF"] = "¿Quieres realmente eliminar TODOS los personajes por debajo de 70?"
 Lang["DelUnder70_DONE"] = "Todos los resultados por debajo de nivel 70 eliminados."
---302
-Lang["AnnounceAchieve_TEXT"] = "Anunciar logros en el chat del gremio                                    Límite:"
-Lang["AnnounceAchieve_DESC"] = "Envía un mensaje de hermandad cuando obtengas un logro."
-Lang["AchieveCompleteGuild"] = "##LINK## completada! " 
-Lang["AchieveCompletePoints"] = "(##POINTS## puntos totales)" 
-Lang["AchieveSurvey"] = "¿Te gustaría |cFFFFD100Attune|r anunciar los logros de |cFFFFD100##WHO##|r en el chat del gremio?"
---306
-Lang["showDeprecatedAttunes_TEXT"] = "Mostrar armonización en desuso"
-Lang["showDeprecatedAttunes_DESC"] = "Mantenga las armonización más antiguas (Onyxia 40, Naxxramas 40) visibles en la lista"
-					
+
 
 -- TREEVIEW
 Lang["World of Warcraft"] = "World of Warcraft"
@@ -236,11 +228,6 @@ Lang["BM_Desc"] = "Todos los miembros del grupo deben completar la cadena de mis
 --v250
 Lang["Aqual Quintessence"] = "Quintaesencia de agua"
 Lang["MC2_Desc"] = "Se utiliza para convocar a Mayordomo Executus. Todos los jefes de Molten Core, excepto Lucifron y Geddon, tienen runas en el suelo que deben rociarse para que aparezca Executus." 
---v254
-Lang["Magisters' Terrace Heroic"] = "Bancal del Magister Heroica"
-Lang["Magisters' Terrace"] = "Bancal del Magister"
-Lang["MgT_Desc"] = "Todos los jugadores deben completar la mazmorra en modo normal para poder ejecutarla en modo heroico."
-Lang["Isle of Quel'Danas"] = "Isla de Quel'Danas"
 
 
 -- GENERIC
@@ -674,8 +661,8 @@ Lang["Q1_9637"] = "La petición de Kalynna"			-- https://es.tbc.wowhead.com/ques
 Lang["Q2_9637"] = "Kalynna Lathrojo quiere recuperar el Escrito del Ocaso del brujo supremo Malbisal en Las Salas Arrasadas de la Ciudadela del Fuego Infernal y el Libro de los Nombres Olvidados de Tejeoscuro Syth en las Salas Sethekk de Auchindoun."
 Lang["Q1_9644"] = "Nocturno"			-- https://es.tbc.wowhead.com/quest=9644
 Lang["Q2_9644"] = "Ve a El Bancal del Maestro en Karazhan y usa la urna ennegrecida para invocar a Nocturno. Recupera la esencia arcana intangible del cadáver de Nocturno y llévasela al archimago Alturus."
-Lang["Q1_10901|13431"] = "La cayada de Kar'desh"			-- https://es.tbc.wowhead.com/quest=10901|13431
-Lang["Q2_10901|13431"] = "Skar'this el Herético, en El Reciento de los Esclavos heroico, en la Reserva Colmillo Torcido, quiere que le lleves el sello terráneo y el sello llameante."
+Lang["Q1_10901"] = "La cayada de Kar'desh"			-- https://es.tbc.wowhead.com/quest=10901
+Lang["Q2_10901"] = "Skar'this el Herético, en El Reciento de los Esclavos heroico, en la Reserva Colmillo Torcido, quiere que le lleves el sello terráneo y el sello llameante."
 Lang["Q1_10900"] = "La marca de Vashj"			-- https://es.tbc.wowhead.com/quest=10900
 Lang["Q2_10900"] = ""
 Lang["Q1_10681"] = "La Mano de Gul'dan"			-- https://es.tbc.wowhead.com/quest=10681
@@ -736,12 +723,12 @@ Lang["Q1_10885"] = "Prueba de los naaru: fuerza"			-- https://es.tbc.wowhead.com
 Lang["Q2_10885"] = "A'dal de la Ciudad de Shattrath quiere que recuperes el tridente de Kalithresh y la esencia de Murmullo.\n\nEsta misión debe completarse en dificultad de mazmorra heroica."
 Lang["Q1_10886"] = "Prueba de los naaru: tenacidad"			-- https://es.tbc.wowhead.com/quest=10886
 Lang["Q2_10886"] = "A'dal, de la Ciudad de Shattrath, quiere que rescates a Molino Tormenta de Maná del Arcatraz de El Castillo de la Tempestad."
-Lang["Q1_10888|13430"] = "Prueba de los naaru: Magtheridon"			-- https://es.tbc.wowhead.com/quest=10888|13430
-Lang["Q2_10888|13430"] = "A'dal en la Ciudad de Shattrath quiere que mates a Magtheridon."
+Lang["Q1_10888"] = "Prueba de los naaru: Magtheridon"			-- https://es.tbc.wowhead.com/quest=10888
+Lang["Q2_10888"] = "A'dal en la Ciudad de Shattrath quiere que mates a Magtheridon."
 Lang["Q1_10680"] = "La Mano de Gul'dan"			-- https://es.tbc.wowhead.com/quest=10680
 Lang["Q2_10680"] = "Habla con el ensalmador de la tierra Torlok en El Altar de Condenación del Valle Sombraluna."
-Lang["Q1_10445|13432"] = "Los viales de la eternidad"			-- https://es.tbc.wowhead.com/quest=10445|13432
-Lang["Q2_10445|13432"] = "Soridormi de las Cavernas del Tiempo quiere que recuperes los restos del vial de Vashj de lady Vashj en la Reserva Colmillo Torcido, y los restos del vial de Kael de Kael'thas Caminante del Sol, en El Castillo de la Tempestad."
+Lang["Q1_10445"] = "Los viales de la eternidad"			-- https://es.tbc.wowhead.com/quest=10445
+Lang["Q2_10445"] = "Soridormi de las Cavernas del Tiempo quiere que recuperes los restos del vial de Vashj de lady Vashj en la Reserva Colmillo Torcido, y los restos del vial de Kael de Kael'thas Caminante del Sol, en El Castillo de la Tempestad."
 Lang["Q1_10568"] = "Las tablillas de Baa'ri"			-- https://es.tbc.wowhead.com/quest=10568
 Lang["Q2_10568"] = "La anacoreta Ceyla del Altar de Sha'tar quiere que recojas 12 tablillas Baa'ri del suelo y de los trabajadores Lengua de Ceniza en las Ruinas de Baa'ri.\n\nCompletar misiones para los Aldor hará que disminuya tu nivel de reputación con los Arúspices."
 Lang["Q1_10683"] = "Las tablillas de Baa'ri"			-- https://es.tbc.wowhead.com/quest=10683
@@ -780,8 +767,8 @@ Lang["Q1_10948"] = "El alma rehén"			-- https://es.tbc.wowhead.com/quest=10948
 Lang["Q2_10948"] = "Viaja hasta la Ciudad de Shattrath y háblale a A'dal de lo que pide Akama."
 Lang["Q1_10949"] = "La entrada a El Templo Oscuro"			-- https://es.tbc.wowhead.com/quest=10949
 Lang["Q2_10949"] = "Viaja hasta la entrada del Templo Oscuro en el Valle Sombraluna y habla con Xi'ri."
-Lang["Q1_10985|13429"] = "Una distracción para Akama"			-- https://es.tbc.wowhead.com/quest=10985|13429
-Lang["Q2_10985|13429"] = "Asegúrate de que Akama y Maiev entran en El Templo Oscuro, en el Valle Sombraluna, cuando las fuerzas de Xi'ri creen una distracción."
+Lang["Q1_10985"] = "Una distracción para Akama"			-- https://es.tbc.wowhead.com/quest=10985
+Lang["Q2_10985"] = "Asegúrate de que Akama y Maiev entran en El Templo Oscuro, en el Valle Sombraluna, cuando las fuerzas de Xi'ri creen una distracción."
 --v243
 Lang["Q1_10984"] = "Habla con el ogro"			-- https://www.thegeekcrusade-serveur.com/db/?quest=10984
 Lang["Q2_10984"] = "Habla con Grok, el ogro, en el Bajo Arrabal de la Ciudad de Shattrath."
@@ -872,15 +859,6 @@ Lang["Q1_6824"] = "Las manos de los enemigos"
 Lang["Q2_6824"] = "Lleva las manos de Lucifron, Sulfuron, Gehennas y Shazzrah al duque Hydraxis a Azshara."
 Lang["Q1_7486"] = "Una recompensa de héroe"
 Lang["Q2_7486"] = "Recoge tu recompensa en el arca de Hydraxis."
---v254
-Lang["Q1_11481"] = "Crisis en La Fuente del Sol"
-Lang["Q2_11481"] = "Adyen el Celador de la Luz del Alto Aldor, en la Ciudad de Shattrath, te ha pedido que viajes hasta la Meseta de La Fuente del Sol para hablar con Larethor."
-Lang["Q1_11488"] = "El Bancal del Magister"
-Lang["Q2_11488"] = "El exarca Larethor de la Zona de escala de Sol Devastado quiere que registres el Bancal del Magister y encuentres a Tyrith, un espía elfo de sangre."
-Lang["Q1_11490"] = "El cristal del Arúspice"
-Lang["Q2_11490"] = "Tyrith quiere que uses el orbe en el balcón del Bancal del Magister."
-Lang["Q1_11492"] = "Duro de matar"
-Lang["Q2_11492"] = "Kalecgos te ha pedido que derrotes a Kael'thas en el Bancal del Magister. Coge la cabeza de Kael y preséntate ante Larethor en la Zona de escala de Sol Devastado."
 
 
 -- NPC

@@ -1,4 +1,4 @@
-## Interface: 50500
+## Interface: 16001
 ## Title: Attune
 ## Author: CixiDelmont
 ## Notes: Track your Attunement progression
@@ -10,3 +10,4 @@ embeds.xml
 Locales\Locales.xml
 Attune.lua
 AttuneData.lua
+

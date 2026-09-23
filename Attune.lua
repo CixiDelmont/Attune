@@ -18,10 +18,40 @@
 
 local addonName, addon = ...
 
+local GetAddOnMetadata = C_AddOns and C_AddOns.GetAddOnMetadata or GetAddOnMetadata
+local GetNumAddOns = C_AddOns.GetNumAddOns or GetNumAddOns
+local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded;
+local IsAddOnLoadOnDemand = C_AddOns.IsAddOnLoadOnDemand or IsAddOnLoadOnDemand;
+local GetAddOnInfo = C_AddOns.GetAddOnInfo or GetAddOnInfo
+local GetAddOnDependencies = C_AddOns.GetAddOnDependencies or GetAddOnDependencies
+local GetItemCount = C_Item.GetItemCount or GetItemCount
+
+-- Forever / Midnight use C_Reputation; Classic still has GetFactionInfoByID.
+local function Attune_GetFactionInfoByID(factionID)
+	factionID = tonumber(factionID)
+	if not factionID then return nil end
+	if C_Reputation and C_Reputation.GetFactionDataByID then
+		local data = C_Reputation.GetFactionDataByID(factionID)
+		if not data then return nil end
+		-- Match legacy GetFactionInfoByID return positions used by this addon (name @1, earned @6).
+		return data.name, data.description, data.reaction, data.currentReactionThreshold, data.nextReactionThreshold, data.currentStanding
+	end
+	if GetFactionInfoByID then
+		return GetFactionInfoByID(factionID)
+	end
+end
+
+-- Midnight (12.0+) and Forever/Camelot (1.60.x / Interface 16001) forbid CLEU registration.
+local attunelocal_interfaceVersion = select(4, GetBuildInfo())
+local attunelocal_hasCombatLog = not (
+	attunelocal_interfaceVersion >= 120000
+	or (attunelocal_interfaceVersion >= 16000 and attunelocal_interfaceVersion < 20000)
+)
+
 Attune = LibStub("AceAddon-3.0"):NewAddon("Attune", "AceConsole-3.0", "AceEvent-3.0", "AceComm-3.0")
 Attune_Data = {};							-- Attunements / steps / tooltips
 
-Lang = LibStub("AceLocale-3.0"):GetLocale("Attune")
+AttuneLang = LibStub("AceLocale-3.0"):GetLocale("Attune")
 
 local AceGUI = LibStub("AceGUI-3.0")
 local _G = getfenv(0)
@@ -95,7 +125,7 @@ local attunelocal_data = {}					-- data being exported to website
 local attunelocal_count = 0					-- count of toons being exported
 
 local attunelocal_charKey = UnitName("player") .. "-" .. attunelocal_realm			-- Character unique name
-local attunelocal_statusText = Lang["Version"]:gsub("##VERSION##", attunelocal_version)		-- Default status text
+local attunelocal_statusText = AttuneLang["Version"]:gsub("##VERSION##", attunelocal_version)		-- Default status text
 
 local attunelocal_refreshDone = false		-- flag to indicate when the UI refresh has been done, to avoid doing it too many times and freezing UI)
 
@@ -121,10 +151,17 @@ local attunelocal_inactivity = 60*60*24*30		-- number of seconds to account for 
 local patch = 0
 
 -- This is to work around the fact that xpcall is quite costly and drops framerate when spammed for lots of little events
--- Thanks @RoadBlock for this 
+-- Thanks @RoadBlock for this
+-- On Forever/Midnight, CLEU is forbidden; PARTY_KILL / UNIT_DIED replace kill detection.
 local cleu_parser = CreateFrame("Frame")
 cleu_parser.OnEvent = function(frame, event, ...)
-    Attune.COMBAT_LOG_EVENT_UNFILTERED(Attune,event,...)
+	if event == "COMBAT_LOG_EVENT_UNFILTERED" then
+		Attune.COMBAT_LOG_EVENT_UNFILTERED(Attune, event, ...)
+	elseif event == "PARTY_KILL" then
+		Attune:PARTY_KILL(...)
+	elseif event == "UNIT_DIED" then
+		Attune:UNIT_DIED_KILL(...)
+	end
 end
 cleu_parser:SetScript("OnEvent", cleu_parser.OnEvent)
 -- End of xpcall workaround
@@ -141,7 +178,7 @@ local attune_options = {
     args = {
         tab1 = {
             type = "group",
-            name = Lang["Settings"],
+            name = AttuneLang["Settings"],
 			width = "full",
 			order = 1,
 			args = {
@@ -154,8 +191,8 @@ local attune_options = {
 				},
 				showMinimapButton = {
 					type = "toggle",
-					name = Lang["MinimapButton_TEXT"],
-					desc = Lang["MinimapButton_DESC"],
+					name = AttuneLang["MinimapButton_TEXT"],
+					desc = AttuneLang["MinimapButton_DESC"],
 					get = function(info) return not Attune_DB.minimapbuttonpos.hide end,
 					set = function(info, val)
 							if val then attunelocal_minimapicon:Show("Attune_Broker") else attunelocal_minimapicon:Hide("Attune_Broker") end
@@ -166,8 +203,8 @@ local attune_options = {
 				},
 				autosurvey = {
 					type = "toggle",
-					name = Lang["AutoSurvey_TEXT"],
-					desc = Lang["AutoSurvey_DESC"],
+					name = AttuneLang["AutoSurvey_TEXT"],
+					desc = AttuneLang["AutoSurvey_DESC"],
 					get = function(info) return Attune_DB.autosurvey end,
 					set = function(info, val) Attune_DB.autosurvey = val end,
 					width = 2.5,
@@ -175,8 +212,8 @@ local attune_options = {
 				},
 				showSurveyed = {
 					type = "toggle",
-					name = Lang["ShowSurveyed_TEXT"],
-					desc = Lang["ShowSurveyed_DESC"],
+					name = AttuneLang["ShowSurveyed_TEXT"],
+					desc = AttuneLang["ShowSurveyed_DESC"],
 					get = function(info) return Attune_DB.showSurveyed end,
 					set = function(info, val) Attune_DB.showSurveyed = val end,
 					width = 1.65,
@@ -184,8 +221,8 @@ local attune_options = {
 				},
 				showResponses = {
 					type = "toggle",
-					name = Lang["ShowResponses_TEXT"],
-					desc = Lang["ShowResponses_DESC"],
+					name = AttuneLang["ShowResponses_TEXT"],
+					desc = AttuneLang["ShowResponses_DESC"],
 					get = function(info) return Attune_DB.showResponses end,
 					set = function(info, val) Attune_DB.showResponses = val end,
 					width = 1.65,
@@ -193,8 +230,8 @@ local attune_options = {
 				},
 				showStepReached = {
 					type = "toggle",
-					name = Lang["ShowSetMessages_TEXT"],
-					desc = Lang["ShowSetMessages_DESC"],
+					name = AttuneLang["ShowSetMessages_TEXT"],
+					desc = AttuneLang["ShowSetMessages_DESC"],
 					get = function(info) return Attune_DB.showStepReached end,
 					set = function(info, val) Attune_DB.showStepReached = val end,
 					width = 1.65,
@@ -202,8 +239,8 @@ local attune_options = {
 				},
 				announceAttuneCompleted = {
 					type = "toggle",
-					name = Lang["AnnounceToGuild_TEXT"],
-					desc = Lang["AnnounceToGuild_DESC"],
+					name = AttuneLang["AnnounceToGuild_TEXT"],
+					desc = AttuneLang["AnnounceToGuild_DESC"],
 					get = function(info) return Attune_DB.announceAttuneCompleted end,
 					set = function(info, val) Attune_DB.announceAttuneCompleted = val end,
 					width = 1.65,
@@ -211,8 +248,8 @@ local attune_options = {
 				},
 				showOtherChat = {
 					type = "toggle",
-					name = Lang["ShowOther_TEXT"],
-					desc = Lang["ShowOther_DESC"],
+					name = AttuneLang["ShowOther_TEXT"],
+					desc = AttuneLang["ShowOther_DESC"],
 					get = function(info) return Attune_DB.showOtherChat end,
 					set = function(info, val) Attune_DB.showOtherChat = val end,
 					width = 1.65,
@@ -220,8 +257,8 @@ local attune_options = {
 				},
 --[[				announceAchieveCompleted = {
 					type = "toggle",
-					name = Lang["AnnounceAchieve_TEXT"],
-					desc = Lang["AnnounceAchieve_DESC"],
+					name = AttuneLang["AnnounceAchieve_TEXT"],
+					desc = AttuneLang["AnnounceAchieve_DESC"],
 					get = function(info) return Attune_DB.toons[attunelocal_charKey].announceAchieveCompleted end,
 					set = function(info, val) Attune_DB.toons[attunelocal_charKey].announceAchieveCompleted = val end,
 					width = 2.6,
@@ -252,8 +289,8 @@ local attune_options = {
 ]]--
 				showList = {
 					type = "toggle",
-					name = Lang["ShowGuildies_TEXT"],
-					desc = Lang["ShowGuildies_DESC"],
+					name = AttuneLang["ShowGuildies_TEXT"],
+					desc = AttuneLang["ShowGuildies_DESC"],
 					get = function(info) return Attune_DB.showList end,
 					set = function(info, val) Attune_DB.showList = val end,
 					width = 2.8,
@@ -270,8 +307,8 @@ local attune_options = {
 				},
 				showListAlt = {
 					type = "toggle",
-					name = Lang["ShowAltsInstead_TEXT"],
-					desc = Lang["ShowAltsInstead_DESC"],
+					name = AttuneLang["ShowAltsInstead_TEXT"],
+					desc = AttuneLang["ShowAltsInstead_DESC"],
 					get = function(info) return Attune_DB.showListAlt end,
 					set = function(info, val) Attune_DB.showListAlt = val end,
 					width = 2.5,
@@ -279,8 +316,8 @@ local attune_options = {
 				},
 				showDeprecatedAttunes = {
 					type = "toggle",
-					name = Lang["showDeprecatedAttunes_TEXT"],
-					desc = Lang["showDeprecatedAttunes_DESC"],
+					name = AttuneLang["showDeprecatedAttunes_TEXT"],
+					desc = AttuneLang["showDeprecatedAttunes_DESC"],
 					get = function(info) return Attune_DB.showDeprecatedAttunes end,
 					set = function(info, val) Attune_DB.showDeprecatedAttunes = val; 	Attune_LoadTree(); 	Attune_ForceAttuneTabRefresh() end,
 					width = 2.5,
@@ -309,27 +346,27 @@ local attune_options = {
 				},
 				deleteAll = {
 					type = "execute",
-					name = Lang["ClearAll_TEXT"],
-					desc = Lang["ClearAll_DESC"],
+					name = AttuneLang["ClearAll_TEXT"],
+					desc = AttuneLang["ClearAll_DESC"],
 					confirm = true,
-					confirmText = Lang["ClearAll_CONF"],
+					confirmText = AttuneLang["ClearAll_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
 								Attune_DB.toons[kt] = nil
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["ClearAll_TEXT"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["ClearAll_TEXT"]) end
 					end,
 					width = 1.6,
 					order = 32,
 				},
 				deleteGuild = {
 					type = "execute",
-					name = Lang["DelNonGuildies_TEXT"],
-					desc = Lang["DelNonGuildies_DESC"],
+					name = AttuneLang["DelNonGuildies_TEXT"],
+					desc = AttuneLang["DelNonGuildies_DESC"],
 					confirm = true,
-					confirmText = Lang["DelNonGuildies_CONF"],
+					confirmText = AttuneLang["DelNonGuildies_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
@@ -340,59 +377,59 @@ local attune_options = {
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelNonGuildies_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelNonGuildies_DONE"]) end
 					end,
 					width = 1.6,
 					order = 33,
 				},
-				delete60 = {
+				delete85 = {
 					type = "execute",
-					name = Lang["DelUnder60_TEXT"],
-					desc = Lang["DelUnder60_DESC"],
+					name = AttuneLang["DelUnder85_TEXT"],
+					desc = AttuneLang["DelUnder85_DESC"],
 					confirm = true,
-					confirmText = Lang["DelUnder60_CONF"],
+					confirmText = AttuneLang["DelUnder85_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
 								if t.level ~= nil then
-									if tonumber(t.level) < 60 then
+									if tonumber(t.level) < 85 then
 										Attune_DB.toons[kt] = nil
 									end
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelUnder60_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnder85_DONE"]) end
 					end,
 					width = 1.6,
 					order = 34,
 				},
-				delete70 = {
+				delete90 = {
 					type = "execute",
-					name = Lang["DelUnder70_TEXT"],
-					desc = Lang["DelUnder70_DESC"],
+					name = AttuneLang["DelUnder90_TEXT"],
+					desc = AttuneLang["DelUnder90_DESC"],
 					confirm = true,
-					confirmText = Lang["DelUnder70_CONF"],
+					confirmText = AttuneLang["DelUnder90_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
 								if t.level ~= nil then
-									if tonumber(t.level) < 70 then
+									if tonumber(t.level) < 90 then
 										Attune_DB.toons[kt] = nil
 									end
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelUnder70_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnder90_DONE"]) end
 					end,
 					width = 1.6,
 					order = 35,
 				},
 				deleteAlts= {
 					type = "execute",
-					name = Lang["DelAlts_TEXT"],
-					desc = Lang["DelAlts_DESC"],
+					name = AttuneLang["DelAlts_TEXT"],
+					desc = AttuneLang["DelAlts_DESC"],
 					confirm = true,
-					confirmText = Lang["DelAlts_CONF"],
+					confirmText = AttuneLang["DelAlts_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
@@ -403,17 +440,17 @@ local attune_options = {
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelAlts_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelAlts_DONE"]) end
 					end,
 					width = 1.6,
 					order = 36,
 				},
 				deleteUnspecified = {
 					type = "execute",
-					name = Lang["DelUnspecified_TEXT"],
-					desc = Lang["DelUnspecified_DESC"],
+					name = AttuneLang["DelUnspecified_TEXT"],
+					desc = AttuneLang["DelUnspecified_DESC"],
 					confirm = true,
-					confirmText = Lang["DelUnspecified_CONF"],
+					confirmText = AttuneLang["DelUnspecified_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
@@ -422,17 +459,17 @@ local attune_options = {
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelUnspecified_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnspecified_DONE"]) end
 					end,
 					width = 1.6,
 					order = 37,
 				},
 				deleteInactive= {
 					type = "execute",
-					name = Lang["DelInactive_TEXT"],
-					desc = Lang["DelInactive_DESC"],
+					name = AttuneLang["DelInactive_TEXT"],
+					desc = AttuneLang["DelInactive_DESC"],
 					confirm = true,
-					confirmText = Lang["DelInactive_CONF"],
+					confirmText = AttuneLang["DelInactive_CONF"],
 					func = function(info, val)
 						for kt, t in pairs(Attune_DB.toons) do
 							if kt ~= attunelocal_charKey then
@@ -443,7 +480,7 @@ local attune_options = {
 								end
 							end
 						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["DelInactive_DONE"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelInactive_DONE"]) end
 					end,
 					width = 1.6,
 					order = 38,
@@ -461,7 +498,7 @@ local attune_options = {
 
 				credits = {
 					type = "description",
-					name = Lang["Credits"],
+					name = AttuneLang["Credits"],
 					width = "full",
 					fontSize = "medium",
 					order = 45,
@@ -507,7 +544,7 @@ local attune_options = {
 
         tab2 = {
             type = "group",
-            name = Lang["Survey Log"],
+            name = AttuneLang["Survey Log"],
 			width = "full",
 			order = 100,
 			args = {
@@ -556,8 +593,14 @@ function Attune:OnEnable()
 --	self:RegisterEvent("ACHIEVEMENT_EARNED")
 	
 	--self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-	cleu_parser:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-		
+	if attunelocal_hasCombatLog then
+		cleu_parser:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+	else
+		-- Forever / Midnight: CLEU registration is ADDON_ACTION_FORBIDDEN
+		cleu_parser:RegisterEvent("PARTY_KILL")
+		cleu_parser:RegisterEvent("UNIT_DIED")
+	end
+
 	_, _, _, patch	 = GetBuildInfo()
 	
 	if Attune_DB == nil then Attune_DB = {} end
@@ -632,7 +675,7 @@ function Attune:OnEnable()
 	if (Attune_DB.repWidget.point == nil) then Attune_DB.repWidget.point = nil; end
 ]]
 
-	if Attune_DB.showOtherChat then DEFAULT_CHAT_FRAME:AddMessage("|cffff00ff[Attune]|r "..Lang["Splash"]:gsub("##VERSION##", attunelocal_version)) end
+	if Attune_DB.showOtherChat then DEFAULT_CHAT_FRAME:AddMessage("|cffff00ff[Attune]|r "..AttuneLang["Splash"]:gsub("##VERSION##", attunelocal_version)) end
 
 
 	-- add new fields to toons data
@@ -724,7 +767,7 @@ function Attune:OnEnable()
 	if Attune_DB.autosurvey then
 		C_Timer.After(13, function()
 			if attunelocal_myguild ~= "" then 
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["StartAutoGuildSurvey"]) end
+				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["StartAutoGuildSurvey"]) end
 				Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "GUILD", ""); 
 			end
 		end)
@@ -741,8 +784,15 @@ function Attune:OnEnable()
 			if button=="LeftButton" then
 				Attune_SlashCommandHandler("")
 			elseif button=="RightButton" then
-				InterfaceOptionsFrame_Show()
-				InterfaceOptionsFrame_OpenToCategory("Attune")
+				-- InterfaceOptionsFrame_Show()
+				-- InterfaceOptionsFrame_OpenToCategory("Attune")
+                if InterfaceOptionsFrame_OpenToCategory then
+					InterfaceOptionsFrame_OpenToCategory("Attune")
+					InterfaceOptionsFrame_OpenToCategory("Attune")
+				else
+					Settings.OpenToCategory("Attune")
+				end
+
 			end
 		end,
 		OnTooltipShow = function(tooltip)
@@ -754,7 +804,7 @@ function Attune:OnEnable()
 			end
 
 			tooltip:AddLine(" ")
-			tooltip:AddLine("|cffffd100"..Lang["LeftClick"].."|r"..Lang["OpenAttune"].."\n|cffffd100"..Lang["RightClick"].."|r"..Lang["OpenSettings"], 0.2, 1, 0.2)
+			tooltip:AddLine("|cffffd100"..AttuneLang["LeftClick"].."|r"..AttuneLang["OpenAttune"].."\n|cffffd100"..AttuneLang["RightClick"].."|r"..AttuneLang["OpenSettings"], 0.2, 1, 0.2)
 		end,
 	})
 
@@ -797,9 +847,9 @@ function Attune:OnEnable()
 	C_Timer.After(10, function()
 		if not Attune_DB.toons[attunelocal_charKey].announceAchieveSurvey then
 			StaticPopupDialogs["ACHIEVEANNOUNCE_CONFIRM"] = {
-				text = Lang["\n"..Lang["AchieveSurvey"]:gsub("##WHO##", UnitName("player")).."\n\n"],
-				button1 = Lang["Yes"],
-				button2 = Lang["No"],
+				text = AttuneLang["\n"..AttuneLang["AchieveSurvey"]:gsub("##WHO##", UnitName("player")).."\n\n"],
+				button1 = AttuneLang["Yes"],
+				button2 = AttuneLang["No"],
 				timeout = 0,
 				hasEditBox = false,
 				whileDead = true,
@@ -901,7 +951,7 @@ end
 
 function Attune:OnDisable()
 	-- Called when the addon is disabled
-	self:Print("|cffff00ff[Attune]|r "..Lang["Addon disabled"])
+	self:Print("|cffff00ff[Attune]|r "..AttuneLang["Addon disabled"])
 end
 
 
@@ -924,9 +974,9 @@ function Attune:ACHIEVEMENT_EARNED(event, id)
 		and attunelocal_myguild ~= ""
 		and attunelocal_achieveDelayDone then 
 
-			local msg = "[Attune] "..Lang["AchieveCompleteGuild"]:gsub("##LINK##", GetAchievementLink(id))
+			local msg = "[Attune] "..AttuneLang["AchieveCompleteGuild"]:gsub("##LINK##", GetAchievementLink(id))
 			if categId ~= FEAT_OF_STRENGTH_CATEGID then -- don't show points for FoS
-				msg = msg .. " "..Lang["AchieveCompletePoints"]:gsub("##POINTS##", GetTotalAchievementPoints())
+				msg = msg .. " "..AttuneLang["AchieveCompletePoints"]:gsub("##POINTS##", GetTotalAchievementPoints())
 			end
 			SendChatMessage(msg , "GUILD")
 	end
@@ -948,12 +998,12 @@ function Attune:CHAT_MSG_ADDON(event, arg1, arg2, arg3, arg4)
 			attunelocal_data['_guild'] = ""
 
 			if arg2 == 'SURVEY' and arg4 ~= UnitName("player").."-"..GetRealmName() then
-				if Attune_DB.showSurveyed then print("|cffff00ff[Attune]|r "..Lang["SendingDataTo"]:gsub("##NAME##", Attune_split(arg4, "-")[1]))  end
+				if Attune_DB.showSurveyed then print("|cffff00ff[Attune]|r "..AttuneLang["SendingDataTo"]:gsub("##NAME##", Attune_split(arg4, "-")[1]))  end
 			end
 
 			-- log all surveys (silent or not) unless they were sent by us
 			if arg4 ~= UnitName("player").."-"..GetRealmName() then
-				Attune_DB.logs[time()] = Lang["ReceivedRequestFrom"]:gsub("##FROM##", arg4)
+				Attune_DB.logs[time()] = AttuneLang["ReceivedRequestFrom"]:gsub("##FROM##", arg4)
 				Attune_UpdateLogs()
 			end
 
@@ -967,7 +1017,7 @@ function Attune:CHAT_MSG_ADDON(event, arg1, arg2, arg3, arg4)
 	if arg1 == attunelocal_versionprefix then
 		if arg2 > attunelocal_version and not attunelocal_detectedNewer then
 			attunelocal_detectedNewer = true
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"].." (v"..arg2..")") end -- 	ved check with a newer version, warn the user
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["NewVersionAvailable"].." (v"..arg2..")") end -- 	ved check with a newer version, warn the user
 		end
 	end
 
@@ -978,70 +1028,62 @@ end
 -- EVENT: Detect a mob has been killed
 -------------------------------------------------------------------------
 
-function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
-	local param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16 = CombatLogGetCurrentEventInfo()
+local function Attune_NpcIdFromGUID(guid)
+	if not guid then return -1 end
+	local _, _, _, _, _, npc_id = strsplit("-", guid)
+	return npc_id or -1
+end
+
+local function Attune_ProcessKill(npc_id)
+	if npc_id == nil or npc_id == -1 then return end
 	local refreshNeeded = false
 
-	--party kill is the better option as it knows your group did the kill (your tag), but doesn't work in raid.
-	--for raids, use UNIT_DIED, as since it's a raid mob your group obviously had the tag
-	if (param2 == "PARTY_KILL" and not IsInRaid()) or (param2 == "UNIT_DIED" and IsInRaid()) then
-
-		for i, s in pairs(Attune_Data.steps) do
-			if showPatchStep(s) then
-				if s.TYPE == "Kill" then
-					local npc_id = -1
-					if param8 ~= nil then
-						_, _, _, _, _, npc_id = strsplit("-", param8);
-						if npc_id == nil then npc_id = -1 end
-					else 
-						npc_id = -1
-					end
-					--print(npc_id)
-		
-					if ""..s.ID_WOWHEAD == ""..npc_id then
-						-- checking that predecessors are done (meaning this step is ISNext)
-						local isNext = true
-						local followOR = false
-						if s.FOLLOWS ~= "0" then
-							local fIDs = Attune_split(s.FOLLOWS, "&")
-							if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
-							if followOR then
-								isNext = false
-								for fi, f in pairs(fIDs) do
-									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
-								end
-							else
-								isNext = true
-								for fi, f in pairs(fIDs) do
-									if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
-								end
+	for i, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) then
+			if s.TYPE == "Kill" then
+				if ""..s.ID_WOWHEAD == ""..npc_id then
+					-- checking that predecessors are done (meaning this step is ISNext)
+					local isNext = true
+					local followOR = false
+					if s.FOLLOWS ~= "0" then
+						local fIDs = Attune_split(s.FOLLOWS, "&")
+						if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
+						if followOR then
+							isNext = false
+							for fi, f in pairs(fIDs) do
+								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] then isNext = true end
+							end
+						else
+							isNext = true
+							for fi, f in pairs(fIDs) do
+								if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. f] == nil then isNext = false end
 							end
 						end
-						
-						if isNext then
-							if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
-								for k, a in pairs(Attune_Data.attunes) do
-									if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
-										if a.ID == s.ID_ATTUNE then
-											local faction = UnitFactionGroup("player")
-											if a.FACTION == faction or a.FACTION == 'Both' then
-												--mark step as done
-												Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-												refreshNeeded = true
-												PlaySound(1210) --putdownring
-												-- need to refresh attune in window
-												-- fetch attune name for chat message
-												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", Lang[s.TYPE]):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
-												Attune_SendPushInfo("TOON")
-												Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
-												Attune_CheckComplete(false)
-												if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
-													PlaySound(5275) -- AuctionWindowClose
-													if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-													if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
-												end
-												Attune_SendPushInfo("OVER")
+					end
+
+					if isNext then
+						if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
+							for k, a in pairs(Attune_Data.attunes) do
+								if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then
+									if a.ID == s.ID_ATTUNE then
+										local faction = UnitFactionGroup("player")
+										if a.FACTION == faction or a.FACTION == 'Both' then
+											--mark step as done
+											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+											refreshNeeded = true
+											PlaySound(1210) --putdownring
+											-- need to refresh attune in window
+											-- fetch attune name for chat message
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", AttuneLang[s.TYPE]):gsub("##STEP##", AttuneLang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+											Attune_SendPushInfo("TOON")
+											Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+											Attune_CheckComplete(false)
+											if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
+												PlaySound(5275) -- AuctionWindowClose
+												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 											end
+											Attune_SendPushInfo("OVER")
 										end
 									end
 								end
@@ -1051,10 +1093,30 @@ function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
 				end
 			end
 		end
-
-		if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
-
 	end
+
+	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
+end
+
+function Attune:COMBAT_LOG_EVENT_UNFILTERED(event, arg1, arg2, arg3, arg4)
+	local param1, param2, param3, param4, param5, param6, param7, param8, param9, param10, param11, param12, param13, param14, param15, param16 = CombatLogGetCurrentEventInfo()
+
+	--party kill is the better option as it knows your group did the kill (your tag), but doesn't work in raid.
+	--for raids, use UNIT_DIED, as since it's a raid mob your group obviously had the tag
+	if (param2 == "PARTY_KILL" and not IsInRaid()) or (param2 == "UNIT_DIED" and IsInRaid()) then
+		Attune_ProcessKill(Attune_NpcIdFromGUID(param8))
+	end
+end
+
+-- Forever / Midnight replacements for CLEU kill detection
+function Attune:PARTY_KILL(attackerGUID, targetGUID)
+	if IsInRaid() then return end
+	Attune_ProcessKill(Attune_NpcIdFromGUID(targetGUID))
+end
+
+function Attune:UNIT_DIED_KILL(unitGUID)
+	if not IsInRaid() then return end
+	Attune_ProcessKill(Attune_NpcIdFromGUID(unitGUID))
 end
 
 -------------------------------------------------------------------------
@@ -1083,7 +1145,7 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 										refreshNeeded = true
 										PlaySound(1210) --putdownring
 										-- fetch attune name for chat message
-										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 										Attune_SendPushInfo("TOON")
 										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 										Attune_SendPushInfo("OVER")
@@ -1131,7 +1193,7 @@ function Attune:QUEST_ACCEPTED(event)
 											refreshNeeded = true
 											PlaySound(1210) --putdownring
 											-- fetch attune name for chat message
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", AttuneLang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 											Attune_SendPushInfo("TOON")
 											Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 											Attune_SendPushInfo("OVER")
@@ -1180,14 +1242,14 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 											refreshNeeded = true
 											PlaySound(1210) --putdownring
 											-- fetch attune name for chat message
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", AttuneLang["Q1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 											Attune_SendPushInfo("TOON")
 											Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 											Attune_CheckComplete(false)
 											if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 												PlaySound(5275) -- AuctionWindowClose
-												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 											end
 											Attune_SendPushInfo("OVER")
 										end
@@ -1266,14 +1328,14 @@ function Attune:GOSSIP_SHOW(event)
 											refreshNeeded = true
 											PlaySound(1210) --putdownring
 											-- fetch attune name for chat message
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", AttuneLang["N1_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 											Attune_SendPushInfo("TOON")
 											Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 											Attune_CheckComplete(false)
 											if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 												PlaySound(5275) -- AuctionWindowClose
-												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+												if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+												if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 											end
 											Attune_SendPushInfo("OVER")
 										end
@@ -1330,14 +1392,14 @@ function Attune:BAG_UPDATE(event)
 										refreshNeeded = true
 										PlaySound(1210) --putdownring
 										-- fetch attune name for chat message
-										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", Lang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", AttuneLang["I_"..s.ID_WOWHEAD]):gsub("##NAME##", a.NAME)) end
 										Attune_SendPushInfo("TOON")
 										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 										Attune_CheckComplete(false)
 										if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 											PlaySound(5275) -- AuctionWindowClose
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 										end
 										Attune_SendPushInfo("OVER")
 									end
@@ -1369,10 +1431,10 @@ function Attune:UPDATE_FACTION(event)
 				--loop on the all the character's factions
 				local factionIndex = 1
 
-				local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
+				local name, _, _, _, _, earnedValue = Attune_GetFactionInfoByID(s.LOCATION)
 				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION] = {}
-				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue
-				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].earned = earnedValue or 0
+				Attune_DB.toons[attunelocal_charKey].reps[s.LOCATION].name = name or AttuneLang["Unknown Reputation"]
 				--repeat
 				--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
 				--	if (name == s.LOCATION) then
@@ -1396,14 +1458,14 @@ function Attune:UPDATE_FACTION(event)
 										refreshNeeded = true
 										PlaySound(1210) --putdownring
 										-- fetch attune name for chat message
-										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
+										if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", s.TYPE):gsub("##STEP##", s.STEP):gsub("##NAME##", a.NAME)) end
 										Attune_SendPushInfo("TOON")
 										Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 										Attune_CheckComplete(false)
 										if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 											PlaySound(5275) -- AuctionWindowClose
-											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..Lang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..Lang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+											if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+											if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
 										end
 										Attune_SendPushInfo("OVER")
 									end
@@ -1476,10 +1538,10 @@ function Attune_CheckProgress()
 
 							--loop on the all the character's factions
 							local factionIndex = 1
-							local name, _, _, _, _, earnedValue = GetFactionInfoByID(s.LOCATION)
+							local name, _, _, _, _, earnedValue = Attune_GetFactionInfoByID(s.LOCATION)
 							att.reps[s.LOCATION] = {}
-							att.reps[s.LOCATION].earned = earnedValue
-							att.reps[s.LOCATION].name = name or Lang["Unknown Reputation"]
+							att.reps[s.LOCATION].earned = earnedValue or 0
+							att.reps[s.LOCATION].name = name or AttuneLang["Unknown Reputation"]
 							--repeat
 							--	local name, _, _, _, _, earnedValue = GetFactionInfo(factionIndex)
 							--	if (name == s.LOCATION) then
@@ -1575,60 +1637,66 @@ function Attune_CheckComplete(newComplete)
 --	if att.done["1-55"] and att.attuned["1"] ~= 100 	then att.done["1-65"] = 1; 	Attune_SendPushInfo("1-65"); 	att.attuned["1"] = 100; Attune_UpdateTreeGroup("1"); newComplete = true;  end	-- Debug multi
 
 	-- WoW
-	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
-	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
-	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
-	if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
-	if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["8-200"] and att.attuned["8"] ~= 100 	then att.done["8-210"] = 1; Attune_SendPushInfo("8-210"); 	att.attuned["8"] = 100;	 Attune_UpdateTreeGroup("8"); newComplete = true;  end	-- MC Quintessence
-	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
+	-- if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
+	-- if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
+	-- if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
+	-- if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
+	-- if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	-- if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	-- if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
+	-- if att.done["8-200"] and att.attuned["8"] ~= 100 	then att.done["8-210"] = 1; Attune_SendPushInfo("8-210"); 	att.attuned["8"] = 100;	 Attune_UpdateTreeGroup("8"); newComplete = true;  end	-- MC Quintessence
+	-- if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
 
-	if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
-	if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
-	if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
-
-
-	-- TBC
-	if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end		-- SH Horde
-	if att.done["21-85"] and att.attuned["21"] ~= 100 	then att.done["21-90"] = 1; 	Attune_SendPushInfo("21-90"); 	att.attuned["21"] = 100; Attune_UpdateTreeGroup("21"); newComplete = true;  end		-- SH Alliance
-	if att.done["30-20"] and att.attuned["30"] ~= 100 	then att.done["30-30"] = 1; 	Attune_SendPushInfo("30-30"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end		-- Shadow Lab
-	if att.done["40-90"] and att.attuned["40"] ~= 100 	then att.done["40-100"] = 1; 	Attune_SendPushInfo("40-100"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end		-- Black Morass
-	if att.done["80-160"] and att.attuned["80"] ~= 100 	then att.done["80-180"] = 1; 	Attune_SendPushInfo("80-180"); 	att.attuned["80"] = 100; Attune_UpdateTreeGroup("80"); newComplete = true;  end		-- Arcatraz
-
-	if att.done["104-20"] and att.attuned["104"] ~= 100 	then att.done["104-30"] = 1; 	Attune_SendPushInfo("104-30"); 	att.attuned["104"] = 100; Attune_UpdateTreeGroup("104"); newComplete = true;  end	-- Thrallmar
-	if att.done["105-20"] and att.attuned["105"] ~= 100 	then att.done["105-30"] = 1; 	Attune_SendPushInfo("105-30"); 	att.attuned["105"] = 100; Attune_UpdateTreeGroup("105"); newComplete = true;  end	-- HH
-	if att.done["106-20"] and att.attuned["106"] ~= 100 	then att.done["106-30"] = 1; 	Attune_SendPushInfo("106-30"); 	att.attuned["106"] = 100; Attune_UpdateTreeGroup("106"); newComplete = true;  end	-- CE
-	if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; Attune_UpdateTreeGroup("107"); newComplete = true;  end	-- Lower City
-	if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; Attune_UpdateTreeGroup("108"); newComplete = true;  end	-- Shatar
-	if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
-	if att.done["110-60"] and att.attuned["110"] ~= 100 	then att.done["110-70"] = 1; 	Attune_SendPushInfo("110-70"); 	att.attuned["110"] = 100; Attune_UpdateTreeGroup("110"); newComplete = true;  end	-- MgT
-
-	if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
-	if att.done["116-230"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; att.done["116-235"] = 1;	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
-	if att.done["118-230"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; att.done["118-235"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
-	if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- SSC
-	if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- The Eye Horde
-	if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); newComplete = true;  end	-- The Eye Alliance
-	if att.done["170-80"] and att.attuned["170"] ~= 100 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100; Attune_UpdateTreeGroup("170"); newComplete = true;  end	-- Hyjal Alliance
-	if att.done["180-80"] and att.attuned["180"] ~= 100 	then att.done["180-90"] = 1; 	Attune_SendPushInfo("180-90"); 		att.attuned["180"] = 100; Attune_UpdateTreeGroup("180"); newComplete = true;  end	-- Hyjal Horde
-	if att.done["190-260"] and att.attuned["190"] ~= 100 	then att.done["190-280"] = 1; 	Attune_SendPushInfo("190-280"); 	att.attuned["190"] = 100; Attune_UpdateTreeGroup("190"); newComplete = true;  end	-- BT Horde
-	if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); newComplete = true;  end	-- BT Alliance
-
-	if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
-	if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
+	-- if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
+	-- if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
+	-- if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
 
 
-	if att.done["300-290"] and att.attuned["300"] ~= 100 	then att.done["300-300"] = 1; 	Attune_SendPushInfo("300-300"); 	att.attuned["300"] = 100; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
-	if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- Wrathgate Alliance
-	if att.done["330-380"] and att.attuned["330"] ~= 100 	then att.done["330-390"] = 1; 	Attune_SendPushInfo("330-390"); 	att.attuned["330"] = 100; Attune_UpdateTreeGroup("330"); newComplete = true;  end	-- Sons of Hodir
-	if att.done["340-140"] and att.attuned["340"] ~= 100 	then att.done["340-150"] = 1; 	Attune_SendPushInfo("340-150"); 	att.attuned["340"] = 100; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
-	if att.done["350-140"] and att.attuned["350"] ~= 100 	then att.done["350-150"] = 1; 	Attune_SendPushInfo("350-150"); 	att.attuned["350"] = 100; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
-	if att.done["370-50"] and att.attuned["370"] ~= 100 	then att.done["370-60"] = 1; 	Attune_SendPushInfo("370-60"); 		att.attuned["370"] = 100; Attune_UpdateTreeGroup("370"); att.done["360-55"] = 1; newComplete = true;  end	-- Malygos 25 -- this also pushes the sub attunement in Maly 10
-	if att.done["360-55"] 									then att.done["360-50"] = 1; 	Attune_SendPushInfo("360-50"); 		newComplete = true;  end	-- Malygos 10 (granted via Malygos 25)
-	if att.done["360-50"] and att.attuned["360"] ~= 100 	then att.done["360-60"] = 1; 	Attune_SendPushInfo("360-60"); 		att.attuned["360"] = 100; Attune_UpdateTreeGroup("360"); newComplete = true;  end	-- Malygos 10 (granted via quest)
+	-- -- TBC
+	-- if att.done["20-85"] and att.attuned["20"] ~= 100 	then att.done["20-90"] = 1; 	Attune_SendPushInfo("20-90"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end		-- SH Horde
+	-- if att.done["21-85"] and att.attuned["21"] ~= 100 	then att.done["21-90"] = 1; 	Attune_SendPushInfo("21-90"); 	att.attuned["21"] = 100; Attune_UpdateTreeGroup("21"); newComplete = true;  end		-- SH Alliance
+	-- if att.done["30-20"] and att.attuned["30"] ~= 100 	then att.done["30-30"] = 1; 	Attune_SendPushInfo("30-30"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end		-- Shadow Lab
+	-- if att.done["40-90"] and att.attuned["40"] ~= 100 	then att.done["40-100"] = 1; 	Attune_SendPushInfo("40-100"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end		-- Black Morass
+	-- if att.done["80-160"] and att.attuned["80"] ~= 100 	then att.done["80-180"] = 1; 	Attune_SendPushInfo("80-180"); 	att.attuned["80"] = 100; Attune_UpdateTreeGroup("80"); newComplete = true;  end		-- Arcatraz
 
+	-- if att.done["104-20"] and att.attuned["104"] ~= 100 	then att.done["104-30"] = 1; 	Attune_SendPushInfo("104-30"); 	att.attuned["104"] = 100; Attune_UpdateTreeGroup("104"); newComplete = true;  end	-- Thrallmar
+	-- if att.done["105-20"] and att.attuned["105"] ~= 100 	then att.done["105-30"] = 1; 	Attune_SendPushInfo("105-30"); 	att.attuned["105"] = 100; Attune_UpdateTreeGroup("105"); newComplete = true;  end	-- HH
+	-- if att.done["106-20"] and att.attuned["106"] ~= 100 	then att.done["106-30"] = 1; 	Attune_SendPushInfo("106-30"); 	att.attuned["106"] = 100; Attune_UpdateTreeGroup("106"); newComplete = true;  end	-- CE
+	-- if att.done["107-20"] and att.attuned["107"] ~= 100 	then att.done["107-30"] = 1; 	Attune_SendPushInfo("107-30"); 	att.attuned["107"] = 100; Attune_UpdateTreeGroup("107"); newComplete = true;  end	-- Lower City
+	-- if att.done["108-20"] and att.attuned["108"] ~= 100 	then att.done["108-30"] = 1; 	Attune_SendPushInfo("108-30"); 	att.attuned["108"] = 100; Attune_UpdateTreeGroup("108"); newComplete = true;  end	-- Shatar
+	-- if att.done["109-20"] and att.attuned["109"] ~= 100 	then att.done["109-30"] = 1; 	Attune_SendPushInfo("109-30"); 	att.attuned["109"] = 100; Attune_UpdateTreeGroup("109"); newComplete = true;  end	-- CoT
+	-- if att.done["110-60"] and att.attuned["110"] ~= 100 	then att.done["110-70"] = 1; 	Attune_SendPushInfo("110-70"); 	att.attuned["110"] = 100; Attune_UpdateTreeGroup("110"); newComplete = true;  end	-- MgT
+
+	-- if att.done["115-185"] and att.attuned["115"] ~= 100 	then att.done["115-190"] = 1; 	Attune_SendPushInfo("115-190"); 	att.attuned["115"] = 100; Attune_UpdateTreeGroup("115"); newComplete = true;  end	-- Kara
+	-- if att.done["116-230"] and att.attuned["116"] ~= 100 	then att.done["116-240"] = 1; att.done["116-235"] = 1;	Attune_SendPushInfo("116-240"); 	att.attuned["116"] = 100; Attune_UpdateTreeGroup("116"); newComplete = true;  end	-- Nightbane Horde
+	-- if att.done["118-230"] and att.attuned["118"] ~= 100 	then att.done["118-240"] = 1; att.done["118-235"] = 1; 	Attune_SendPushInfo("118-240"); 	att.attuned["118"] = 100; Attune_UpdateTreeGroup("118"); newComplete = true;  end	-- Nightbane Alliance
+	-- if att.done["120-95"] and att.attuned["120"] ~= 100 	then att.done["120-110"] = 1; 	Attune_SendPushInfo("120-110"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- SSC
+	-- if att.done["140-460"] and att.attuned["140"] ~= 100 	then att.done["140-480"] = 1; 	Attune_SendPushInfo("140-480"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- The Eye Horde
+	-- if att.done["160-460"] and att.attuned["160"] ~= 100 	then att.done["160-480"] = 1; 	Attune_SendPushInfo("160-480"); 	att.attuned["160"] = 100; Attune_UpdateTreeGroup("160"); newComplete = true;  end	-- The Eye Alliance
+	-- if att.done["170-80"] and att.attuned["170"] ~= 100 	then att.done["170-90"] = 1; 	Attune_SendPushInfo("170-90"); 		att.attuned["170"] = 100; Attune_UpdateTreeGroup("170"); newComplete = true;  end	-- Hyjal Alliance
+	-- if att.done["180-80"] and att.attuned["180"] ~= 100 	then att.done["180-90"] = 1; 	Attune_SendPushInfo("180-90"); 		att.attuned["180"] = 100; Attune_UpdateTreeGroup("180"); newComplete = true;  end	-- Hyjal Horde
+	-- if att.done["190-260"] and att.attuned["190"] ~= 100 	then att.done["190-280"] = 1; 	Attune_SendPushInfo("190-280"); 	att.attuned["190"] = 100; Attune_UpdateTreeGroup("190"); newComplete = true;  end	-- BT Horde
+	-- if att.done["200-260"] and att.attuned["200"] ~= 100 	then att.done["200-280"] = 1; 	Attune_SendPushInfo("200-280"); 	att.attuned["200"] = 100; Attune_UpdateTreeGroup("200"); newComplete = true;  end	-- BT Alliance
+
+	-- if att.done["250-110"] and att.attuned["250"] ~= 100 	then att.done["250-120"] = 1; 	Attune_SendPushInfo("250-120"); 	att.attuned["250"] = 100; Attune_UpdateTreeGroup("250"); newComplete = true;  end	-- Ogrila
+	-- if att.done["260-110"] and att.attuned["260"] ~= 100 	then att.done["260-120"] = 1; 	Attune_SendPushInfo("260-120"); 	att.attuned["260"] = 100; Attune_UpdateTreeGroup("260"); newComplete = true;  end	-- Netherwing
+
+
+	-- if att.done["300-290"] and att.attuned["300"] ~= 100 	then att.done["300-300"] = 1; 	Attune_SendPushInfo("300-300"); 	att.attuned["300"] = 100; Attune_UpdateTreeGroup("300"); newComplete = true;  end	-- Wrathgate Horde
+	-- if att.done["310-400"] and att.attuned["310"] ~= 100 	then att.done["310-410"] = 1; 	Attune_SendPushInfo("310-410"); 	att.attuned["310"] = 100; Attune_UpdateTreeGroup("310"); newComplete = true;  end	-- Wrathgate Alliance
+	-- if att.done["330-380"] and att.attuned["330"] ~= 100 	then att.done["330-390"] = 1; 	Attune_SendPushInfo("330-390"); 	att.attuned["330"] = 100; Attune_UpdateTreeGroup("330"); newComplete = true;  end	-- Sons of Hodir
+	-- if att.done["340-140"] and att.attuned["340"] ~= 100 	then att.done["340-150"] = 1; 	Attune_SendPushInfo("340-150"); 	att.attuned["340"] = 100; Attune_UpdateTreeGroup("340"); newComplete = true;  end	-- Ebon Blade Horde
+	-- if att.done["350-140"] and att.attuned["350"] ~= 100 	then att.done["350-150"] = 1; 	Attune_SendPushInfo("350-150"); 	att.attuned["350"] = 100; Attune_UpdateTreeGroup("350"); newComplete = true;  end	-- Ebon Blade Alliance
+	-- if att.done["370-50"] and att.attuned["370"] ~= 100 	then att.done["370-60"] = 1; 	Attune_SendPushInfo("370-60"); 		att.attuned["370"] = 100; Attune_UpdateTreeGroup("370"); att.done["360-55"] = 1; newComplete = true;  end	-- Malygos 25 -- this also pushes the sub attunement in Maly 10
+	-- if att.done["360-55"] 									then att.done["360-50"] = 1; 	Attune_SendPushInfo("360-50"); 		newComplete = true;  end	-- Malygos 10 (granted via Malygos 25)
+	-- if att.done["360-50"] and att.attuned["360"] ~= 100 	then att.done["360-60"] = 1; 	Attune_SendPushInfo("360-60"); 		att.attuned["360"] = 100; Attune_UpdateTreeGroup("360"); newComplete = true;  end	-- Malygos 10 (granted via quest)
+
+    if att.done["501-30"] == 1  then att.done["501-20"] = 1; end
+
+    if att.done["502-70"] == 1  then att.done["502-20"] = 1; att.done["502-30"] = 1; att.done["502-40"] = 1; att.done["502-50"] = 1; att.done["502-60"] = 1; end
+	
+
+    
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
 			if showPatchStep(s) then
@@ -1739,6 +1807,7 @@ end
 
 function Attune_recursePreviousSteps(who, aID, follows)
 
+    
 	if (Attune_DB.toons[who] ~= nil) then
 		if (Attune_DB.toons[who].done ~= nil) then
 
@@ -1753,6 +1822,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 						if s.ID_ATTUNE == aID and s.ID == f then
 							if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
 								if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
+                                    print(s.ID_ATTUNE .. "-" .. s.ID)
 									Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 									if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
 								end
@@ -1907,11 +1977,11 @@ function Attune_Frame()
 	local closebutton, statusbg, _, _, _, _, _ = attunelocal_frame.content.obj.frame:GetChildren()
 	statusbg:ClearAllPoints()
 	statusbg:SetPoint("BOTTOMLEFT", 15, 15)     -- taken from AceGUIContainer-Frame.lua
-	statusbg:SetPoint("BOTTOMRIGHT", -360, 15)  -- taken from AceGUIContainer-Frame.lua, modified from -132
+	statusbg:SetPoint("BOTTOMRIGHT", -280, 15)  -- taken from AceGUIContainer-Frame.lua, modified from -132
 
 	closebutton:SetWidth(80)
 	closebutton:SetScript("OnClick", function()
-		attunelocal_export_frame.frame:Hide() -- close other submenu
+		-- attunelocal_export_frame.frame:Hide() -- close other submenu
 		attunelocal_survey_frame.frame:Hide() -- close other submenu
 		attunelocal_frame:Hide()
 		Attune_SaveTreeExpandStatus()
@@ -1921,19 +1991,19 @@ function Attune_Frame()
 
 	-- SURVEY BUTTON
 	local surveybutton = CreateFrame("Button", nil, attunelocal_frame.content.obj.frame, "UIPanelButtonTemplate")
-	surveybutton:SetPoint("BOTTOMRIGHT", -276, 17)
+	surveybutton:SetPoint("BOTTOMRIGHT", -193, 17)
 	surveybutton:SetFrameStrata("DIALOG")
 	surveybutton:SetHeight(20)
 	surveybutton:SetWidth(80)
-	surveybutton:SetText(Lang["Survey"])
+	surveybutton:SetText(AttuneLang["Survey"])
 	--if attunelocal_myguild == "" then surveybutton:Disable() end
-	surveybutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(Lang["Survey_DESC"]) end)
+	surveybutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(AttuneLang["Survey_DESC"]) end)
 	surveybutton:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText) end)
 	surveybutton:SetScript("OnClick", function()
 		if attunelocal_survey_frame.frame:IsShown() then
 			attunelocal_survey_frame.frame:Hide()
 		else
-			attunelocal_export_frame.frame:Hide() -- close other submenu
+			-- attunelocal_export_frame.frame:Hide() -- close other submenu
 			attunelocal_survey_frame.frame:Show()
 		end
 	end)
@@ -1946,7 +2016,7 @@ function Attune_Frame()
 		attunelocal_survey_frame.frame:Hide()
 
 		local surveyTarget = AceGUI:Create("Button")
-		surveyTarget:SetText(Lang["Target"])
+		surveyTarget:SetText(AttuneLang["Target"])
 		surveyTarget:SetCallback("OnClick", function()
 			attunelocal_survey_frame.frame:Hide()
 			Attune_SendRequest("Target|" .. UnitName("target"))
@@ -1954,7 +2024,7 @@ function Attune_Frame()
 		attunelocal_survey_frame:AddChild(surveyTarget)
 
 		local surveyGuild = AceGUI:Create("Button")
-		surveyGuild:SetText(Lang["Guild"])
+		surveyGuild:SetText(AttuneLang["Guild"])
 		surveyGuild:SetCallback("OnClick", function()
 			attunelocal_survey_frame.frame:Hide()
 			Attune_SendRequest("Guild")
@@ -1962,7 +2032,7 @@ function Attune_Frame()
 		attunelocal_survey_frame:AddChild(surveyGuild)
 
 		local surveyParty = AceGUI:Create("Button")
-		surveyParty:SetText(Lang["Party"])
+		surveyParty:SetText(AttuneLang["Party"])
 		surveyParty:SetCallback("OnClick", function()
 			attunelocal_survey_frame.frame:Hide()
 			Attune_SendRequest("Party")
@@ -1970,7 +2040,7 @@ function Attune_Frame()
 		attunelocal_survey_frame:AddChild(surveyParty)
 
 		local surveyRaid = AceGUI:Create("Button")
-		surveyRaid:SetText(Lang["Raid"])
+		surveyRaid:SetText(AttuneLang["Raid"])
 		surveyRaid:SetCallback("OnClick", function()
 			attunelocal_survey_frame.frame:Hide()
 			Attune_SendRequest("Raid")
@@ -1978,109 +2048,141 @@ function Attune_Frame()
 		attunelocal_survey_frame:AddChild(surveyRaid)
 
 		local surveyClose = AceGUI:Create("Button")
-		surveyClose:SetText(Lang["Close"])
+		surveyClose:SetText(AttuneLang["Close"])
 		surveyClose:SetCallback("OnClick", function(slid)	attunelocal_survey_frame.frame:Hide()	end)
 		attunelocal_survey_frame:AddChild(surveyClose)
 
-	-- EXPORT BUTTON
-	local exportbutton = CreateFrame("Button", nil, attunelocal_frame.content.obj.frame, "UIPanelButtonTemplate")
-	exportbutton:SetPoint("BOTTOMRIGHT", -193, 17)
-	exportbutton:SetFrameStrata("DIALOG")
-	exportbutton:SetHeight(20)
-	exportbutton:SetWidth(80)
-	exportbutton:SetText(Lang["Export"])
-	exportbutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(Lang["Export_DESC"]) end)
-	exportbutton:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText) end)
-	exportbutton:SetScript("OnClick", function()
+	-- -- EXPORT BUTTON
+	-- local exportbutton = CreateFrame("Button", nil, attunelocal_frame.content.obj.frame, "UIPanelButtonTemplate")
+	-- exportbutton:SetPoint("BOTTOMRIGHT", -193, 17)
+	-- exportbutton:SetFrameStrata("DIALOG")
+	-- exportbutton:SetHeight(20)
+	-- exportbutton:SetWidth(80)
+	-- exportbutton:SetText(AttuneLang["Export"])
+	-- exportbutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(AttuneLang["Export_DESC"]) end)
+	-- exportbutton:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText) end)
+	-- exportbutton:SetScript("OnClick", function()
 
-		if attunelocal_export_frame.frame:IsShown() then
-			attunelocal_export_frame.frame:Hide()
-		else
-			attunelocal_survey_frame.frame:Hide() -- close other submenu
-			attunelocal_export_frame.frame:Show()
-		end
-	end)
+	-- 	if attunelocal_export_frame.frame:IsShown() then
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 	else
+	-- 		attunelocal_survey_frame.frame:Hide() -- close other submenu
+	-- 		attunelocal_export_frame.frame:Show()
+	-- 	end
+	-- end)
 
-	-- EXPORT SUB MENU
-		attunelocal_export_frame = AceGUI:Create("InlineGroup")
-		attunelocal_export_frame:SetLayout("Flow")
-		attunelocal_export_frame:SetWidth(160)
-		attunelocal_export_frame:SetPoint("TOPLEFT", exportbutton,"BOTTOMLEFT", 0, 10)
-		attunelocal_export_frame.frame:Hide()
+	-- -- EXPORT SUB MENU
+	-- 	attunelocal_export_frame = AceGUI:Create("InlineGroup")
+	-- 	attunelocal_export_frame:SetLayout("Flow")
+	-- 	attunelocal_export_frame:SetWidth(160)
+	-- 	attunelocal_export_frame:SetPoint("TOPLEFT", exportbutton,"BOTTOMLEFT", 0, 10)
+	-- 	attunelocal_export_frame.frame:Hide()
 
-		local exportThisToon = AceGUI:Create("Button")
-		exportThisToon:SetText(Lang["This Toon"])
-		exportThisToon:SetCallback("OnClick", function()
-			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 0
-			Attune_ExportToWebsite()
-		end)
-		attunelocal_export_frame:AddChild(exportThisToon)
+	-- 	local exportThisToon = AceGUI:Create("Button")
+	-- 	exportThisToon:SetText(AttuneLang["This Toon"])
+	-- 	exportThisToon:SetCallback("OnClick", function()
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 		attunelocal_exportselection = 0
+	-- 		Attune_ExportToWebsite()
+	-- 	end)
+	-- 	attunelocal_export_frame:AddChild(exportThisToon)
 
-		local exportMyData = AceGUI:Create("Button")
-		exportMyData:SetText(Lang["My Data"])
-		exportMyData:SetCallback("OnClick", function()
-			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 4
-			Attune_ExportToWebsite()
-		end)
-		attunelocal_export_frame:AddChild(exportMyData)
+	-- 	local exportMyData = AceGUI:Create("Button")
+	-- 	exportMyData:SetText(AttuneLang["My Data"])
+	-- 	exportMyData:SetCallback("OnClick", function()
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 		attunelocal_exportselection = 4
+	-- 		Attune_ExportToWebsite()
+	-- 	end)
+	-- 	attunelocal_export_frame:AddChild(exportMyData)
 
-		local exportLastSurvey = AceGUI:Create("Button")
-		exportLastSurvey:SetText(Lang["Last Survey"])
-		exportLastSurvey:SetCallback("OnClick", function()
-			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 1
-			Attune_ExportToWebsite()
-		end)
-		attunelocal_export_frame:AddChild(exportLastSurvey)
+	-- 	local exportLastSurvey = AceGUI:Create("Button")
+	-- 	exportLastSurvey:SetText(AttuneLang["Last Survey"])
+	-- 	exportLastSurvey:SetCallback("OnClick", function()
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 		attunelocal_exportselection = 1
+	-- 		Attune_ExportToWebsite()
+	-- 	end)
+	-- 	attunelocal_export_frame:AddChild(exportLastSurvey)
 
-		local exportGuildData = AceGUI:Create("Button")
-		exportGuildData:SetText(Lang["Guild Data"])
-		exportGuildData:SetCallback("OnClick", function()
-			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 2
-			Attune_ExportToWebsite()
-		end)
-		attunelocal_export_frame:AddChild(exportGuildData)
+	-- 	local exportGuildData = AceGUI:Create("Button")
+	-- 	exportGuildData:SetText(AttuneLang["Guild Data"])
+	-- 	exportGuildData:SetCallback("OnClick", function()
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 		attunelocal_exportselection = 2
+	-- 		Attune_ExportToWebsite()
+	-- 	end)
+	-- 	attunelocal_export_frame:AddChild(exportGuildData)
 
-		local exportAll = AceGUI:Create("Button")
-		exportAll:SetText(Lang["All Data"])
-		exportAll:SetCallback("OnClick", function()
-			attunelocal_export_frame.frame:Hide()
-			attunelocal_exportselection = 3
-			Attune_ExportToWebsite()
-		end)
-		attunelocal_export_frame:AddChild(exportAll)
+	-- 	local exportAll = AceGUI:Create("Button")
+	-- 	exportAll:SetText(AttuneLang["All Data"])
+	-- 	exportAll:SetCallback("OnClick", function()
+	-- 		attunelocal_export_frame.frame:Hide()
+	-- 		attunelocal_exportselection = 3
+	-- 		Attune_ExportToWebsite()
+	-- 	end)
+	-- 	attunelocal_export_frame:AddChild(exportAll)
 
-		local exportClose = AceGUI:Create("Button")
-		exportClose:SetText(Lang["Close"])
-		exportClose:SetCallback("OnClick", function()	attunelocal_export_frame.frame:Hide()	end)
-		attunelocal_export_frame:AddChild(exportClose)
+	-- 	local exportClose = AceGUI:Create("Button")
+	-- 	exportClose:SetText(AttuneLang["Close"])
+	-- 	exportClose:SetCallback("OnClick", function()	attunelocal_export_frame.frame:Hide()	end)
+	-- 	attunelocal_export_frame:AddChild(exportClose)
 
-	-- GUILD BUTTON
+	-- RESULTS BUTTON
 	local guildbutton = CreateFrame("Button", "GuildButton", attunelocal_frame.content.obj.frame, "UIPanelButtonTemplate")
 	guildbutton:SetPoint("BOTTOMRIGHT", -110, 17)
 	guildbutton:SetFrameStrata("DIALOG")
 	guildbutton:SetHeight(20)
 	guildbutton:SetWidth(80)
-	guildbutton:SetText(Lang["Results"])
+	guildbutton:SetText(AttuneLang["Results"])
 	--if attunelocal_myguild == "" then guildbutton:Disable() end
-	guildbutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(Lang["Toggle_DESC"]) end)
+	guildbutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(AttuneLang["Toggle_DESC"]) end)
 	guildbutton:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText) end)
 	guildbutton:SetScript("OnClick", function()
-		attunelocal_export_frame.frame:Hide() -- close other submenu
+		-- attunelocal_export_frame.frame:Hide() -- close other submenu
 		attunelocal_survey_frame.frame:Hide() -- close other submenu
 		Attune_ToggleView()
 
 	end)
 
+
+	-- -- PLANNER BUTTON
+	-- local plannerbutton = CreateFrame("Button", "GuildButton", attunelocal_frame.content.obj.frame, "UIPanelButtonTemplate")
+	-- plannerbutton:SetPoint("BOTTOMRIGHT", -110, 17)
+	-- plannerbutton:SetFrameStrata("DIALOG")
+	-- plannerbutton:SetHeight(20)
+	-- plannerbutton:SetWidth(80)
+	-- plannerbutton:SetText(AttuneLang["Planner"])
+	-- --if attunelocal_myguild == "" then plannerbutton:Disable() end
+	-- plannerbutton:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(AttuneLang["Open Raid Planner"]) end)
+	-- plannerbutton:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText) end)
+	-- plannerbutton:SetScript("OnClick", function()
+    --     -- close main frame
+	-- 	attunelocal_survey_frame.frame:Hide() -- close other submenu
+	-- 	attunelocal_frame:Hide()
+	-- 	Attune_SaveTreeExpandStatus()
+	-- 	Attune_Release()
+
+    --     --- open raid planner
+    --     if attunelocal_raidframe ~= nil then
+	-- 		if attunelocal_raidframe:IsShown() then 
+	-- 			attunelocal_raidframe:Hide() 
+	-- 		else
+	-- 			Attune_RaidPlannerFrame()
+	-- 		end
+	-- 	else 
+	-- 		Attune_RaidPlannerFrame()
+	-- 	end
+
+	-- end)
+
+
     -- Register the global variable `Attune_MainFrame` as a "special frame"
     -- so that it is closed when the escape key is pressed.
 	_G["Attune_MainFrame"] = attunelocal_frame.frame
     tinsert(UISpecialFrames, "Attune_MainFrame")
-	_G["Attune_ExportMenuFrame"] = attunelocal_export_frame.frame
-    tinsert(UISpecialFrames, "Attune_ExportMenuFrame")
+	-- _G["Attune_ExportMenuFrame"] = attunelocal_export_frame.frame
+    -- tinsert(UISpecialFrames, "Attune_ExportMenuFrame")
 	_G["Attune_SurveyMenuFrame"] = attunelocal_survey_frame.frame
     tinsert(UISpecialFrames, "Attune_SurveyMenuFrame")
 
@@ -2126,7 +2228,7 @@ function Attune_Select(attuneId)
 					titlebutton:AddChild(label)
 
 					local mini = AceGUI:Create("Button")
-					mini:SetText(Attune_DB.mini and Lang["Maxi"] or Lang["Mini"])
+					mini:SetText(Attune_DB.mini and AttuneLang["Maxi"] or AttuneLang["Mini"])
 					mini:SetWidth(70)
 					mini:SetCallback("OnClick", function()
 						Attune_DB.mini = not Attune_DB.mini
@@ -2307,17 +2409,17 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 	if  Attune_DB.showListAlt then
 		if listSameStep ~= "" then
-			listSameStep = "\n\n|cff00ff00"..Lang["Alts on this step"]..":|r" .. listSameStep
+			listSameStep = "\n\n|cff00ff00"..AttuneLang["Alts on this step"]..":|r" .. listSameStep
 		end
 		if listCompleted ~= "" then
-			listCompleted = "\n\n|cff00ff00"..Lang["Attuned alts"]..":|r" .. listCompleted
+			listCompleted = "\n\n|cff00ff00"..AttuneLang["Attuned alts"]..":|r" .. listCompleted
 		end
 	else
 		if listSameStep ~= "" then
-			listSameStep = "\n\n|cff00ff00"..Lang["Guild members on this step"]..":|r" .. listSameStep
+			listSameStep = "\n\n|cff00ff00"..AttuneLang["Guild members on this step"]..":|r" .. listSameStep
 		end
 		if listCompleted ~= "" then
-			listCompleted = "\n\n|cff00ff00"..Lang["Attuned guild members"]..":|r" .. listCompleted
+			listCompleted = "\n\n|cff00ff00"..AttuneLang["Attuned guild members"]..":|r" .. listCompleted
 		end
 	end
 
@@ -2351,9 +2453,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 		-- display Item link or quest tooltip on hover
 		if step.TYPE == "Item" then
 			if countNeeded == 1 then
-				attunelocal_frame:SetStatusText(Lang["I_"..step.ID_WOWHEAD])
+				attunelocal_frame:SetStatusText(AttuneLang["I_"..step.ID_WOWHEAD])
 			else
-				attunelocal_frame:SetStatusText(Lang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
+				attunelocal_frame:SetStatusText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
 			end
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
@@ -2366,13 +2468,13 @@ function Attune_CreateNode(step, parent, posX, posY)
 		elseif step.TYPE == "End" then
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
-			GameTooltip:SetText(Lang["AttuneColors"])
+			GameTooltip:SetText(AttuneLang["AttuneColors"])
 			if listCompleted ~= "" and Attune_DB.showList then GameTooltip:AddLine(listCompleted, 1, 1, 1, 1) end
 
 		elseif step.TYPE == "Level" then
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
-			GameTooltip:SetText(Lang["Minimum Level"])
+			GameTooltip:SetText(AttuneLang["Minimum Level"])
 
 		elseif step.TYPE == "Rep" then
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
@@ -2383,19 +2485,19 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 			attunelocal_frame:SetStatusText("" .. Attune_DB.toons[attunelocal_charKey].reps[step.LOCATION].name)
 			GameTooltip:SetText("" .. Attune_DB.toons[attunelocal_charKey].reps[step.LOCATION].name)
-			GameTooltip:AddLine(Lang["Current progress"]..": ".. tempRep .. "/" ..step.ID_WOWHEAD, 0.5, 0.5, 0.5, 1)
+			GameTooltip:AddLine(AttuneLang["Current progress"]..": ".. tempRep .. "/" ..step.ID_WOWHEAD, 0.5, 0.5, 0.5, 1)
 			if step.OFFSET ~= nil then
 				tempGoal = step.ID_WOWHEAD + step.OFFSET
 				tempRep = tempRep + step.OFFSET
 			end
-			GameTooltip:AddLine(Lang["Completion"]..": " .. math.floor(100*tonumber(tempRep)/tonumber(tempGoal)).."%", 0.5, 0.5, 0.5, 1)
+			GameTooltip:AddLine(AttuneLang["Completion"]..": " .. math.floor(100*tonumber(tempRep)/tonumber(tempGoal)).."%", 0.5, 0.5, 0.5, 1)
 
 			fnode:SetScript("OnMouseUp", function(self, button)
 				if button == "RightButton" then Attune_ShowWebsiteURL("faction=" .. step.LOCATION)	end
 			end)
 
 		elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
-			attunelocal_frame:SetStatusText(Lang["Q1_"..step.ID_WOWHEAD])
+			attunelocal_frame:SetStatusText(AttuneLang["Q1_"..step.ID_WOWHEAD])
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
 
@@ -2405,19 +2507,19 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 			if quest == nil then
 				-- error message if quest is not in AttuneData.lua
-				GameTooltip:SetText(Lang["Quest information not found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
+				GameTooltip:SetText(AttuneLang["Quest information not found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
 			else
 				-- build tooltip
-				GameTooltip:SetText(Lang["Q1_"..step.ID_WOWHEAD])
-				GameTooltip:AddLine(Lang["Requires level"].." "..quest[1].."\n\n", 0.5, 0.5, 0.5, 1)
+				GameTooltip:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
+				GameTooltip:AddLine(AttuneLang["Requires level"].." "..quest[1].."\n\n", 0.5, 0.5, 0.5, 1)
 				if quest[2] == 1 then
-					GameTooltip:AddLine(Lang["Solo quest"].."\n\n", 0.373, 0.729, 0.275, 1)
+					GameTooltip:AddLine(AttuneLang["Solo quest"].."\n\n", 0.373, 0.729, 0.275, 1)
 				elseif quest[2] <= 5 then
-					GameTooltip:AddLine(Lang["Party quest"]:gsub("##NB##", quest[2]).."\n\n", 0.851, 0.608, 0.0, 1)
+					GameTooltip:AddLine(AttuneLang["Party quest"]:gsub("##NB##", quest[2]).."\n\n", 0.851, 0.608, 0.0, 1)
 				else
-					GameTooltip:AddLine(Lang["Raid quest"]:gsub("##NB##", quest[2]).."\n\n", 0.857, 0.055, 0.075, 1)
+					GameTooltip:AddLine(AttuneLang["Raid quest"]:gsub("##NB##", quest[2]).."\n\n", 0.857, 0.055, 0.075, 1)
 				end
-				if Lang["Q2_"..step.ID_WOWHEAD] ~= nil then GameTooltip:AddLine(Lang["Q2_"..step.ID_WOWHEAD], 1, 1, 1, 1, true) end
+				if AttuneLang["Q2_"..step.ID_WOWHEAD] ~= nil then GameTooltip:AddLine(AttuneLang["Q2_"..step.ID_WOWHEAD], 1, 1, 1, 1, true) end
 
 				fnode:SetScript("OnMouseUp", function(self, button)
 					if button == "RightButton" then Attune_ShowWebsiteURL("quest=" .. step.ID_WOWHEAD)	end
@@ -2425,19 +2527,19 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 
 		elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
-			attunelocal_frame:SetStatusText(Lang["N1_"..step.ID_WOWHEAD])
+			attunelocal_frame:SetStatusText(AttuneLang["N1_"..step.ID_WOWHEAD])
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
 			local npc = Attune_Data.npcs[tonumber(step.ID_WOWHEAD)]
 			if npc == nil then
 				-- error message if quest is not in AttuneData.lua
-				GameTooltip:SetText(Lang["NPC Not Found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
+				GameTooltip:SetText(AttuneLang["NPC Not Found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
 			else
 				-- build tooltip
-				GameTooltip:SetText(Lang["N1_"..step.ID_WOWHEAD])
-				GameTooltip:AddLine(Lang["Level"].." "..npc[1].." "..npc[2].." "..npc[3].."\n", 0.851, 0.608, 0.0, 1)
-				if Lang["N2_"..step.ID_WOWHEAD] ~= "" then
-					GameTooltip:AddLine("\n"..Lang["N2_"..step.ID_WOWHEAD], 1, 1, 1, 1, true)
+				GameTooltip:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
+				GameTooltip:AddLine(AttuneLang["Level"].." "..npc[1].." "..npc[2].." "..npc[3].."\n", 0.851, 0.608, 0.0, 1)
+				if AttuneLang["N2_"..step.ID_WOWHEAD] ~= "" then
+					GameTooltip:AddLine("\n"..AttuneLang["N2_"..step.ID_WOWHEAD], 1, 1, 1, 1, true)
 				end
 
 				fnode:SetScript("OnMouseUp", function(self, button)
@@ -2448,13 +2550,13 @@ function Attune_CreateNode(step, parent, posX, posY)
 		elseif step.TYPE == "Click" then
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
-			local other = Lang["O_"..step.ID_WOWHEAD]
+			local other = AttuneLang["O_"..step.ID_WOWHEAD]
 			if other == nil then
 				-- error message if quest is not in AttuneData.lua
-				GameTooltip:SetText(Lang["Information not found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
+				GameTooltip:SetText(AttuneLang["Information not found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
 			else
 				-- build tooltip
-				attunelocal_frame:SetStatusText(Lang[step.STEP])
+				attunelocal_frame:SetStatusText(AttuneLang[step.STEP])
 				GameTooltip:SetText((Attune_DB.mini and step.STEP.."\n" or "") .. other)
 			end
 
@@ -2464,7 +2566,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 		elseif step.TYPE == "Attune" then
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
-			GameTooltip:SetText(Lang["Click to navigate to that attunement"])
+			GameTooltip:SetText(AttuneLang["Click to navigate to that attunement"])
 
 			if done then
 				fnode:SetBackdropColor(0.055, 0.306, 0.576, 0.7 * 1.25) -- blue, attune
@@ -2607,9 +2709,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 				ftitle:SetPoint("TOPLEFT", 44, -16)
 				ftitle:SetFont(GameFontNormal:GetFont(), 12)
 				if Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100 then
-					ftitle:SetText(Lang["Attuned"])
+					ftitle:SetText(AttuneLang["Attuned"])
 				else
-					ftitle:SetText(Lang["Not attuned"])
+					ftitle:SetText(AttuneLang["Not attuned"])
 				end
 			else
 				ftitle:SetPoint("TOPLEFT", 44, -8)
@@ -2618,15 +2720,15 @@ function Attune_CreateNode(step, parent, posX, posY)
 				if step.TYPE == "Item" then
 					if countNeeded == 1 then
 						--ftitle:SetText(step.STEP)
-						ftitle:SetText(Lang["I_"..step.ID_WOWHEAD])
+						ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD])
 					else
-						ftitle:SetText(Lang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
+						ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_DB.toons[attunelocal_charKey].items[step.ID_WOWHEAD] .. "/" .. countNeeded .. ")")
 					end
 				elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
-					ftitle:SetText(Lang["N1_"..step.ID_WOWHEAD])
+					ftitle:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
 
 				elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
-					ftitle:SetText(Lang["Q1_"..step.ID_WOWHEAD])
+					ftitle:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
 				else
 					ftitle:SetText(step.STEP)
 				end
@@ -2638,11 +2740,11 @@ function Attune_CreateNode(step, parent, posX, posY)
 			if step.TYPE ~= 'End' then
 
 				-- format depending on type
-				local type = "|cffffd100"..Lang[step.TYPE].."|r"
-				if step.TYPE == "Level" then type = "|cffffd100"..Lang["Required level"].."|r"
-				elseif step.TYPE == "Attune" then type = "|c60808080"..Lang["Attunement or key"].."|r"
-				elseif step.TYPE == "Rep" then type = "|cffffd100"..Lang["Reputation"].."|r"
-				elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. Lang["in"].." "..Lang[step.LOCATION].."|r"
+				local type = "|cffffd100"..AttuneLang[step.TYPE].."|r"
+				if step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
+				elseif step.TYPE == "Attune" then type = "|c60808080"..AttuneLang["Attunement or key"].."|r"
+				elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
+				elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
 				end
 
 				local exist = false
@@ -2857,7 +2959,7 @@ function Attune_ToggleView(noToggle)
 
 	if attunelocal_treeIsShown or noToggle then
 
-		_G["GuildButton"]:SetText(Lang["Attunes"])
+		_G["GuildButton"]:SetText(AttuneLang["Attunes"])
 
 		-- SHOW RESULT FRAME
 		PlaySound(856)  --igMainMenuOptionCheckBoxOn
@@ -2902,7 +3004,7 @@ function Attune_ToggleView(noToggle)
 ]]
 			
 			local raid = AceGUI:Create("Button")
-			raid:SetText(Lang["Open Raid Planner"])
+			raid:SetText(AttuneLang["Open Raid Planner"])
 			raid:SetCallback("OnClick", function()
 				if attunelocal_initial == false and attunelocal_frame:IsShown() then 
 					attunelocal_frame:Hide()
@@ -2917,19 +3019,19 @@ function Attune_ToggleView(noToggle)
 
 			local prof = AceGUI:Create("Button")
 			if attunelocal_showResultAttunes then
-				 prof:SetText(Lang["Show Profiles"])
+				 prof:SetText(AttuneLang["Show Profiles"])
 				 --raid:SetDisabled(true)
 				 raid.frame:Hide()
 			else 
-				prof:SetText(Lang["Show Progress"])
+				prof:SetText(AttuneLang["Show Progress"])
 				--raid:SetDisabled(false)
 				raid.frame:Show() -- only show when looking at profiles
 			end
 			prof:SetCallback("OnClick", function()
 				attunelocal_showResultAttunes = not attunelocal_showResultAttunes
 
-				if attunelocal_showResultAttunes then prof:SetText(Lang["Show Profiles"])
-				else prof:SetText(Lang["Show Progress"])
+				if attunelocal_showResultAttunes then prof:SetText(AttuneLang["Show Profiles"])
+				else prof:SetText(AttuneLang["Show Progress"])
 				end
 				Attune_ToggleView(true)
 			end)
@@ -2945,25 +3047,25 @@ function Attune_ToggleView(noToggle)
 
 		local radio1 = AceGUI:Create("CheckBox")
 		radio1:SetType("radio")
-		radio1:SetLabel(Lang["Last survey results"])
+		radio1:SetLabel(AttuneLang["Last survey results"])
 		radio1:SetValue(attunelocal_resultselection == 0)
 		radioGroup:AddChild(radio1)
 
 		local radio2 = AceGUI:Create("CheckBox")
 		radio2:SetType("radio")
-		radio2:SetLabel(Lang["Guild members"])
+		radio2:SetLabel(AttuneLang["Guild members"])
 		radio2:SetValue(attunelocal_resultselection == 1)
 		radioGroup:AddChild(radio2)
 
 		local radio3 = AceGUI:Create("CheckBox")
 		radio3:SetType("radio")
-		radio3:SetLabel(Lang["My Toons"])
+		radio3:SetLabel(AttuneLang["My Toons"])
 		radio3:SetValue(attunelocal_resultselection == 2)
 		radioGroup:AddChild(radio3)
 
 		local radio4 = AceGUI:Create("CheckBox")
 		radio4:SetType("radio")
-		radio4:SetLabel(Lang["All results"])
+		radio4:SetLabel(AttuneLang["All results"])
 		radio4:SetValue(attunelocal_resultselection == 3)
 		radioGroup:AddChild(radio4)
 
@@ -3012,8 +3114,8 @@ function Attune_ToggleView(noToggle)
 			--Slider
 			local slider = AceGUI:Create("Slider")
 			slider:SetValue(Attune_DB.minFilterValue or 1)
-			slider:SetSliderValues(1, 70, 1)
-			slider:SetLabel(Lang["Minimum level"])
+			slider:SetSliderValues(1, 90, 1)
+			slider:SetLabel(AttuneLang["Minimum level"])
 			slider:SetCallback("OnValueChanged", function(slid)
 				Attune_DB.minFilterValue = slid:GetValue()
 			end)
@@ -3029,7 +3131,7 @@ function Attune_ToggleView(noToggle)
 			syncGroup:AddChild(spacer)
 
 			local sync = AceGUI:Create("Button")
-			sync:SetText(Lang["Sync with target"])
+			sync:SetText(AttuneLang["Sync with target"])
 			sync:SetCallback("OnClick", function()
 				Attune_SendSyncRequest()
 			end)
@@ -3051,7 +3153,7 @@ function Attune_ToggleView(noToggle)
 			gftitle:SetFullWidth(true)
 
 			attunelocal_gflabel = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel:SetText(Lang["Character"])
+			attunelocal_gflabel:SetText(AttuneLang["Character"])
 			attunelocal_gflabel:SetWidth(165)
 			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel:SetCallback("OnClick", function()
@@ -3151,7 +3253,7 @@ function Attune_ToggleView(noToggle)
 
 
 			attunelocal_gflabel = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel:SetText(Lang["Character"])
+			attunelocal_gflabel:SetText(AttuneLang["Character"])
 			attunelocal_gflabel:SetWidth(200)
 			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel:SetCallback("OnClick", function()
@@ -3168,7 +3270,7 @@ function Attune_ToggleView(noToggle)
 			gftitle:AddChild(attunelocal_gflabel)
 
 			attunelocal_gflabel2 = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel2:SetText(Lang["Guild"])
+			attunelocal_gflabel2:SetText(AttuneLang["Guild"])
 			attunelocal_gflabel2:SetWidth(240)
 			attunelocal_gflabel2:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel2:SetCallback("OnClick", function()
@@ -3185,7 +3287,7 @@ function Attune_ToggleView(noToggle)
 			gftitle:AddChild(attunelocal_gflabel2)
 
 			attunelocal_gflabel3 = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel3:SetText(Lang["Status"])
+			attunelocal_gflabel3:SetText(AttuneLang["Status"])
 			attunelocal_gflabel3:SetWidth(100)
 			attunelocal_gflabel3:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel3:SetCallback("OnClick", function()
@@ -3202,7 +3304,7 @@ function Attune_ToggleView(noToggle)
 			gftitle:AddChild(attunelocal_gflabel3)
 
 			attunelocal_gflabel4 = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel4:SetText(Lang["Role"])
+			attunelocal_gflabel4:SetText(AttuneLang["Role"])
 			attunelocal_gflabel4:SetWidth(100)
 			attunelocal_gflabel4:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel4:SetCallback("OnClick", function()
@@ -3219,7 +3321,7 @@ function Attune_ToggleView(noToggle)
 			gftitle:AddChild(attunelocal_gflabel4)
 
 			attunelocal_gflabel5 = AceGUI:Create("InteractiveLabel")
-			attunelocal_gflabel5:SetText("    "..Lang["Last Surveyed"])
+			attunelocal_gflabel5:SetText("    "..AttuneLang["Last Surveyed"])
 			attunelocal_gflabel5:SetWidth(150)
 			attunelocal_gflabel5:SetFont(GameFontHighlight:GetFont(), 16)
 			attunelocal_gflabel5:SetCallback("OnClick", function()
@@ -3270,7 +3372,7 @@ function Attune_ToggleView(noToggle)
 
 	else
 
-		_G["GuildButton"]:SetText(Lang["Results"])
+		_G["GuildButton"]:SetText(AttuneLang["Results"])
 
 		-- SHOW TREE FRAME
 		attunelocal_treeIsShown = true
@@ -3355,17 +3457,17 @@ function Attune_ShowResultList(title)
 	-- adjust the title according to the selection
 	if title ~= nil then
 		local gg = attunelocal_myguild
-		if gg == "" then gg = Lang['Not in a guild'] end
+		if gg == "" then gg = AttuneLang['Not in a guild'] end
 
 		if attunelocal_resultselection == 0 then
-			title:SetText(Lang["Last survey results"])
+			title:SetText(AttuneLang["Last survey results"])
 		elseif attunelocal_resultselection == 1 then
 			title:SetText(gg)
 		elseif attunelocal_resultselection == 2 then
-			title:SetText(Lang["My Toons"])
+			title:SetText(AttuneLang["My Toons"])
 		else
 			local fact, factLoc = UnitFactionGroup("player")
-			title:SetText(Lang["All FACTION results"]:gsub("##FACTION##", factLoc ))
+			title:SetText(AttuneLang["All FACTION results"]:gsub("##FACTION##", factLoc ))
 		end
 
 	end
@@ -3562,7 +3664,7 @@ function Attune_ShowResultList(title)
 		end
 	end
 
-	attunelocal_gflabel:SetText(Lang["Characters"].." ("..count..")")
+	attunelocal_gflabel:SetText(AttuneLang["Characters"].." ("..count..")")
 	attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
 
 end
@@ -3579,17 +3681,17 @@ function Attune_ShowProfileList(title)
 	-- adjust the title according to the selection
 	if title ~= nil then
 		local gg = attunelocal_myguild
-		if gg == "" then gg = Lang['Not in a guild'] end
+		if gg == "" then gg = AttuneLang['Not in a guild'] end
 
 		if attunelocal_resultselection == 0 then
-			title:SetText(Lang["Last survey results"])
+			title:SetText(AttuneLang["Last survey results"])
 		elseif attunelocal_resultselection == 1 then
 			title:SetText(gg)
 		elseif attunelocal_resultselection == 2 then
-			title:SetText(Lang["My Toons"])
+			title:SetText(AttuneLang["My Toons"])
 		else
 			local fact, factLoc = UnitFactionGroup("player")
-			title:SetText(Lang["All FACTION results"]:gsub("##FACTION##", factLoc ))
+			title:SetText(AttuneLang["All FACTION results"]:gsub("##FACTION##", factLoc ))
 		end
 
 	end
@@ -3759,7 +3861,7 @@ function Attune_ShowProfileList(title)
 								glast:SetText("    -")
 								if inactive then glast:SetText("|c80606060    -|r") else glast:SetText("    -") end
 							else 
-								--glast:SetText("    "..Lang['Seconds ago']:gsub("##DURATION##", Attune_formatTime(time() - t.survey)) )
+								--glast:SetText("    "..AttuneLang['Seconds ago']:gsub("##DURATION##", Attune_formatTime(time() - t.survey)) )
 								glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) )
 								if inactive then glast:SetText("|c80606060    "..date("%d %b %Y at %H:%M", t.survey).."|r") else glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) ) end
 							end
@@ -3791,7 +3893,7 @@ function Attune_ShowProfileList(title)
 		end
 	end
 
-	attunelocal_gflabel:SetText(Lang["Characters"].." ("..count..")")
+	attunelocal_gflabel:SetText(AttuneLang["Characters"].." ("..count..")")
 	attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
 
 end
@@ -3802,15 +3904,15 @@ function Attune_StatusRole(keyword)
 
 	if keyword == "None" then return "-" end
 
-	if keyword == "Main" then return Lang["Main"] end
-	if keyword == "Alt" then return Lang["Alt"] end
+	if keyword == "Main" then return AttuneLang["Main"] end
+	if keyword == "Alt" then return AttuneLang["Alt"] end
 
-	if keyword == "Tank" then return Lang["Tank"] end
-	if keyword == "Healer" then return Lang["Healer"] end
-	if keyword == "Melee" then return Lang["Melee DPS"] end
-	if keyword == "Ranged" then return Lang["Ranged DPS"] end
+	if keyword == "Tank" then return AttuneLang["Tank"] end
+	if keyword == "Healer" then return AttuneLang["Healer"] end
+	if keyword == "Melee" then return AttuneLang["Melee DPS"] end
+	if keyword == "Ranged" then return AttuneLang["Ranged DPS"] end
 
-	if keyword == "Bank" then return Lang["Bank"] end
+	if keyword == "Bank" then return AttuneLang["Bank"] end
 end
 
 -------------------------------------------------------------------------
@@ -3842,10 +3944,10 @@ function Attune_SendRequest(what)
 	Attune_DB.survey = {}
 	if IsTarget[1] == "Target" then 
 		local tar = IsTarget[2] .. "-" .. attunelocal_realm
-		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingSurveyTo"]:gsub("##TO##", tar)) end
+		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingSurveyTo"]:gsub("##TO##", tar)) end
 		Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "WHISPER", tar);
 	else
-		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingSurveyWhat"]:gsub("##WHAT##", Lang[what])) end
+		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingSurveyWhat"]:gsub("##WHAT##", AttuneLang[what])) end
 		Attune:SendCommMessage(attunelocal_prefix, "SURVEY", string.upper(what), "");
 	end
 
@@ -3859,7 +3961,7 @@ end
 
 function Attune_SendSilentGuildRequest()
 	Attune_DB.survey = {}
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingGuildSilentSurvey"]) end
+	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingGuildSilentSurvey"]) end
 	if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "GUILD", ""); end
 
 end
@@ -3871,7 +3973,7 @@ end
 
 function Attune_SendSilentYellRequest()
 	Attune_DB.survey = {}
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["SendingYellSilentSurvey"]) end
+	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingYellSilentSurvey"]) end
 	Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "YELL", "");
 
 end
@@ -4067,7 +4169,7 @@ function Attune_HandleRequestResults(response)
 		if player.version ~= nil then
 			if player.version > attunelocal_version and not attunelocal_detectedNewer then
 				attunelocal_detectedNewer = true
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["NewVersionAvailable"].." (v"..player.version..")") end-- detected someone with a newer version, warn the user
+				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["NewVersionAvailable"].." (v"..player.version..")") end-- detected someone with a newer version, warn the user
 			end
 		end
 
@@ -4104,7 +4206,7 @@ function Attune_HandleRequestResults(response)
 		attunelocal_refreshDone = false
 
 		if player.name ~= UnitName("player") then
-			if tag == 'OVER' and Attune_DB.showResponses then print("|cffff00ff[Attune]|r "..Lang["ReceivedDataFromName"]:gsub("##NAME##",  player.name)) end -- received data from someone else, might as well announce it in chat
+			if tag == 'OVER' and Attune_DB.showResponses then print("|cffff00ff[Attune]|r "..AttuneLang["ReceivedDataFromName"]:gsub("##NAME##",  player.name)) end -- received data from someone else, might as well announce it in chat
 			Attune_CheckIsNext(name)
 		end
 
@@ -4184,7 +4286,7 @@ function Attune_ExportToWebsite()
 	end
 
 
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["ExportingData"]:gsub("##COUNT##", count)) end
+	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["ExportingData"]:gsub("##COUNT##", count)) end
 
 	local serattunelocal_data = Attune_serialize(attunelocal_data)
 	local ser = attunelocal_version .. "##" .. serattunelocal_data
@@ -4192,8 +4294,8 @@ function Attune_ExportToWebsite()
 	local encoded = Attune_enc(ser)
 
 	StaticPopupDialogs["EXPORT_ATTUNE_GUILD"] = {
-		text = Lang["Copy the text below, then upload it to"].."\n\nhttps://warcraftratings.com/attune/upload",
-		button1 = Lang["Close"],
+		text = AttuneLang["Copy the text below, then upload it to"].."\n\nhttps://warcraftratings.com/attune/upload",
+		button1 = AttuneLang["Close"],
 		OnShow = function (self, data)
 			self.editBox:SetText(""..encoded)
 			self.editBox:HighlightText()
@@ -4220,7 +4322,7 @@ end
 function Attune_SendSyncRequest()
 	if not UnitExists("target") then 
 		if attunelocal_frame ~= nil then
-			attunelocal_frame:SetStatusText(Lang["No Target"])
+			attunelocal_frame:SetStatusText(AttuneLang["No Target"])
 			C_Timer.After(3, function()
 				attunelocal_frame:SetStatusText(attunelocal_statusText)
 			end)
@@ -4228,14 +4330,14 @@ function Attune_SendSyncRequest()
 	else
 
 		if attunelocal_syncStatus ~= -1 then 
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Cannot sync while another sync is in progress"]) end
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Cannot sync while another sync is in progress"]) end
 		else 
 			attunelocal_syncTarget = UnitName("target") -- .. "-" .. GetRealmName()
 
 			StaticPopupDialogs["SYNC_CONFIRM"] = {
-				text = Lang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget) .. "\n\n" .. Lang["Could be slow"],
-				button1 = Lang["Accept"],
-				button2 = Lang["Reject"],
+				text = AttuneLang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget) .. "\n\n" .. AttuneLang["Could be slow"],
+				button1 = AttuneLang["Accept"],
+				button2 = AttuneLang["Reject"],
 				timeout = 0,
 				hasEditBox = false,
 				whileDead = true,
@@ -4257,7 +4359,7 @@ end
 
 function Attune_SentActualSyncRequest()
 	
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
+	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
 	attunelocal_syncStatus = 1
 	--Attune:SendCommMessage(attunelocal_syncprefix, "SYNCREQ", "WHISPER", attunelocal_syncTarget)
 
@@ -4269,9 +4371,9 @@ function Attune_SentActualSyncRequest()
 	C_Timer.After(10, function() 
 		if attunelocal_syncStatus == 1 then
 			--if attunelocal_frame ~= nil then
-			--	attunelocal_frame:SetStatusText(Lang["No Response From"]:gsub("##PLAYER##", attunelocal_syncTarget))
+			--	attunelocal_frame:SetStatusText(AttuneLang["No Response From"]:gsub("##PLAYER##", attunelocal_syncTarget))
 			--else 
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["No Response From"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
+				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["No Response From"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
 			--end
 			attunelocal_syncStatus = -1
 			attunelocal_syncTarget = nil
@@ -4290,7 +4392,7 @@ function Attune_StartSync()
 
 	attunelocal_syncStatus = 2
 	if attunelocal_syncStartTime == nil then attunelocal_syncStartTime = GetTime() end
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Request accepted, sending data to "]:gsub("##PLAYER##", attunelocal_syncTarget)) end
+	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Request accepted, sending data to "]:gsub("##PLAYER##", attunelocal_syncTarget)) end
 
 	--reuse object when possible
 	local exist = false
@@ -4325,7 +4427,7 @@ function Attune_StartSync()
 	end
 	attunelocal_syncProgressLabel:SetPoint("TOPLEFT",attunelocal_syncProgressWidget, 10, -10)
 	attunelocal_syncProgressLabel:SetFont(GameFontNormal:GetFont(), 12)
-	attunelocal_syncProgressLabel:SetText(Lang["Syncing Attune data with"]:gsub("##PLAYER##", attunelocal_syncTarget))
+	attunelocal_syncProgressLabel:SetText(AttuneLang["Syncing Attune data with"]:gsub("##PLAYER##", attunelocal_syncTarget))
 	
 
 	attunelocal_syncProgressStatusBar = nil
@@ -4374,7 +4476,7 @@ function Attune_OnChunkSent(arg, done, total)
 	if (attunelocal_syncAmountSent + attunelocal_syncAmountReceived) >= (attunelocal_syncAmountToSend + attunelocal_syncAmountToReceive) then
 		attunelocal_syncStatus = -1
 		if attunelocal_syncStartTime ~= nil then
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Sync over"]:gsub("##DURATION##", Attune_formatTime(Attune_Round(GetTime() - attunelocal_syncStartTime, 0)))) end
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Sync over"]:gsub("##DURATION##", Attune_formatTime(Attune_Round(GetTime() - attunelocal_syncStartTime, 0)))) end
 		end
 		attunelocal_syncProgressWidget:Hide()
 		attunelocal_syncStartTime = nil
@@ -4406,12 +4508,12 @@ function Attune:OnCommReceived(prefix, message, distribution, sender)
 				attunelocal_syncAmountToReceive = amount
 				attunelocal_syncAmountReceived = 0
 	
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Received request from"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
+				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Received request from"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
 				PlaySound(6675) -- BellTollTribal
 				StaticPopupDialogs["SYNC_ATTUNE"] = {
-					text = Lang["Sync Request From"]:gsub("##PLAYER##", attunelocal_syncTarget).."\n\n"..Lang["Could be slow"],
-					button1 = Lang["Accept"],
-					button2 = Lang["Reject"],
+					text = AttuneLang["Sync Request From"]:gsub("##PLAYER##", attunelocal_syncTarget).."\n\n"..AttuneLang["Could be slow"],
+					button1 = AttuneLang["Accept"],
+					button2 = AttuneLang["Reject"],
 					timeout = 9,
 					hasEditBox = false,
 					whileDead = true,
@@ -4427,7 +4529,7 @@ function Attune:OnCommReceived(prefix, message, distribution, sender)
 					OnCancel = function (_,reason)
 						attunelocal_syncStatus = -1
 						Attune:SendCommMessage(attunelocal_syncprefix, "SYNCNOK", "WHISPER", attunelocal_syncTarget)
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Request rejected"]) end
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Request rejected"]) end
 					end,
 				}
 				StaticPopup_Show ("SYNC_ATTUNE")
@@ -4440,11 +4542,11 @@ function Attune:OnCommReceived(prefix, message, distribution, sender)
 
 		elseif message == 'SYNCNOK' then
 			attunelocal_syncStatus = -1
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Request rejected"]) end
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Request rejected"]) end
 
 		elseif message == 'SYNCBUSY' then
 			attunelocal_syncStatus = -1
-			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..Lang["Busy right now"]:gsub("##PLAYER##", sender)) end
+			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Busy right now"]:gsub("##PLAYER##", sender)) end
 
 		elseif message == 'SYNCDONE' then
 			attunelocal_syncAmountReceived = amount
@@ -4781,14 +4883,14 @@ function Attune_SlashCommandHandler( msg )
 
 	if (msg == 'help' or msg == '?') then
 
-		print("|cffff00ff[Attune]|r "..Lang["Help1"])
-		print("|cffff00ff[Attune]|r "..Lang["Help2"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help1"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help2"])
 		print("|cffff00ff[Attune]|r ")
-		print("|cffff00ff[Attune]|r "..Lang["Help3"])
-		print("|cffff00ff[Attune]|r "..Lang["Help4"])
-		print("|cffff00ff[Attune]|r "..Lang["Help5"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help3"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help4"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help5"])
 		print("|cffff00ff[Attune]|r ")
-		print("|cffff00ff[Attune]|r "..Lang["Help6"])
+		print("|cffff00ff[Attune]|r "..AttuneLang["Help6"])
 
 	elseif (msg == 'survey') then
 		Attune_SendRequest("Guild");
@@ -4874,7 +4976,7 @@ function Attune_LoadRaidTree()
 	}
 	local unspecNode = {
 		value = "Unspec",
-		text =  Lang["Unspecified"],
+		text =  AttuneLang["Unspecified"],
 		children = {}
 	}
 	
@@ -4934,7 +5036,7 @@ function Attune_RaidPlannerFrame()
 
 	attunelocal_raidframe = AceGUI:Create("Frame")
 	attunelocal_raidframe:SetTitle("  Attune Raid Planner")
-	attunelocal_raidframe:SetStatusText(Lang["Select a raid and click on players to add them in"])
+	attunelocal_raidframe:SetStatusText(AttuneLang["Select a raid and click on players to add them in"])
 	attunelocal_raidframe:SetHeight(620)
 	attunelocal_raidframe:SetWidth(1020)
 	attunelocal_raidframe:SetLayout("Flow")
@@ -4999,7 +5101,7 @@ function Attune_RaidPlannerFrame()
 
 			local cb = AceGUI:Create("CheckBox")
 			cb:SetType("checkbox")
-			cb:SetLabel(Lang["Show Mains"])
+			cb:SetLabel(AttuneLang["Show Mains"])
 			cb:SetValue(Attune_DB.raidShowMains)
 			cb:SetWidth(150)
 			cb:SetCallback("OnValueChanged", function(obj, evt, val)	Attune_DB.raidShowMains = val; 	Attune_LoadRaidTree(); 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree);	Attune_RaidPlannerRoster() 	end)
@@ -5007,7 +5109,7 @@ function Attune_RaidPlannerFrame()
 
 			local cb = AceGUI:Create("CheckBox")
 			cb:SetType("checkbox")
-			cb:SetLabel(Lang["Show Unspecified"])
+			cb:SetLabel(AttuneLang["Show Unspecified"])
 			cb:SetValue(Attune_DB.raidShowUnspecified)
 			cb:SetWidth(150)
 			cb:SetCallback("OnValueChanged", function(obj, evt, val)	Attune_DB.raidShowUnspecified = val; 	Attune_LoadRaidTree(); 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree);	Attune_RaidPlannerRoster() 	end)
@@ -5015,7 +5117,7 @@ function Attune_RaidPlannerFrame()
 
 			local cb = AceGUI:Create("CheckBox")
 			cb:SetType("checkbox")
-			cb:SetLabel(Lang["Guildies only"])
+			cb:SetLabel(AttuneLang["Guildies only"])
 			cb:SetValue(Attune_DB.raidGuildOnly)
 			cb:SetWidth(150)
 			cb:SetCallback("OnValueChanged", function(obj, evt, val)	Attune_DB.raidGuildOnly = val; 	Attune_LoadRaidTree(); 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree);	Attune_RaidPlannerRoster() 	end)
@@ -5023,7 +5125,7 @@ function Attune_RaidPlannerFrame()
 
 			local cb = AceGUI:Create("CheckBox")
 			cb:SetType("checkbox")
-			cb:SetLabel(Lang["Show Alts"])
+			cb:SetLabel(AttuneLang["Show Alts"])
 			cb:SetValue(Attune_DB.raidShowAlts)
 			cb:SetWidth(150)
 			cb:SetCallback("OnValueChanged", function(obj, evt, val)	Attune_DB.raidShowAlts = val; 	Attune_LoadRaidTree(); 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree);	Attune_RaidPlannerRoster() 	end)
@@ -5031,7 +5133,7 @@ function Attune_RaidPlannerFrame()
 
 			local cb = AceGUI:Create("CheckBox")
 			cb:SetType("checkbox")
-			cb:SetLabel(Lang["Show Unattuned"])
+			cb:SetLabel(AttuneLang["Show Unattuned"])
 			cb:SetValue(Attune_DB.raidShowUnattuned)
 			cb:SetWidth(150)
 			cb:SetCallback("OnValueChanged", function(obj, evt, val)	Attune_DB.raidShowUnattuned = val; 	Attune_LoadRaidTree(); 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree);	Attune_RaidPlannerRoster() 	end)
@@ -5170,13 +5272,13 @@ function Attune_RaidPlannerRoster()
 
 
 		local inv = AceGUI:Create("Button")
-		inv:SetText(Lang["Invite"])
+		inv:SetText(AttuneLang["Invite"])
 		inv:SetWidth(70)
 		inv:SetCallback("OnClick", function() 
 			StaticPopupDialogs["INVITE_ATTUNE_RAID"] = {
-				text = Lang["Send raid invites to all listed players?"],
-				button1 = Lang["Accept"],
-				button2 = Lang["Reject"],
+				text = AttuneLang["Send raid invites to all listed players?"],
+				button1 = AttuneLang["Accept"],
+				button2 = AttuneLang["Reject"],
 				timeout = 0,
 				hasEditBox = false,
 				whileDead = true,
@@ -5196,10 +5298,10 @@ function Attune_RaidPlannerRoster()
 
 
 		local sGroup = ""
-		if attunelocal_raidcount > 1 then sGroup = " - " .. Lang["Group Number"]:gsub("##NUMBER##", i) end
+		if attunelocal_raidcount > 1 then sGroup = " - " .. AttuneLang["Group Number"]:gsub("##NUMBER##", i) end
 		
 		if Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i] == nil then 
-			Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i] = attunelocal_raidname .. " - " .. Lang["Raid spots"]:gsub("##SIZE##", attunelocal_raidsize) .. sGroup
+			Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i] = attunelocal_raidname .. " - " .. AttuneLang["Raid spots"]:gsub("##SIZE##", attunelocal_raidsize) .. sGroup
 		end
 		local label = AceGUI:Create("InteractiveLabel")
 		label:SetText(" "..Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i])
@@ -5214,10 +5316,10 @@ function Attune_RaidPlannerRoster()
 		label:SetCallback("OnLeave", function() GameTooltip:Hide() end)
 		label:SetCallback("OnClick", function() 
 			StaticPopupDialogs["RENAME_ATTUNE_RAID"] = {
-				text = Lang["Enter a new name for this raid group"],
+				text = AttuneLang["Enter a new name for this raid group"],
 				hasEditBox = true,
-				button1 = Lang["Save"],
-				button2 = Lang["Close"],
+				button1 = AttuneLang["Save"],
+				button2 = AttuneLang["Close"],
 				timeout = 0,
 				whileDead = true,
 				hideOnEscape = true,
@@ -5270,7 +5372,7 @@ function Attune_RaidPlannerRoster()
 						icon.frame:SetAlpha(1)
 						icon:SetCallback("OnEnter", function() 
 							local gg = "<"..t.guild..">"
-							if t.guild == "" then gg = Lang["Not in a guild"] end
+							if t.guild == "" then gg = AttuneLang["Not in a guild"] end
 
 							Attune_SetToolTip(icon.frame, nil, 2)
 							Attune_SetToolTip(icon.frame, t.name .. " (" .. t.level.." "..t.class:sub(1,1):upper()..t.class:sub(2):lower()..")\n|cffffffff"..gg.."|r")
@@ -5387,10 +5489,10 @@ function Attune_SetToolTip(obj, text)
 	GameTooltip:SetPoint("TOPLEFT", obj,"TOPRIGHT", 10, 0)
 
 	if text == nil then 
-		--GameTooltip:SetText(Lang["Empty"])
+		--GameTooltip:SetText(AttuneLang["Empty"])
 	else
 		GameTooltip:SetText(text)
-		GameTooltip:AddLine("\n|cffA0A0A0"..Lang["LeftClick"].." "..Lang["Move to next group"].."\n"..Lang["RightClick"].." "..Lang["Remove from raid"].."|r")
+		GameTooltip:AddLine("\n|cffA0A0A0"..AttuneLang["LeftClick"].." "..AttuneLang["Move to next group"].."\n"..AttuneLang["RightClick"].." "..AttuneLang["Remove from raid"].."|r")
 	end
 
 end
@@ -5412,7 +5514,7 @@ function Attune_FindNextRaidSpot(raidsize, t, minspot)
 						attunelocal_raidspotIcon[spot].frame:SetAlpha(1)
 						attunelocal_raidspotIcon[spot]:SetCallback("OnEnter", function() 
 							local gg = "<"..t.guild..">"
-							if t.guild == "" then gg = Lang["Not in a guild"] end
+							if t.guild == "" then gg = AttuneLang["Not in a guild"] end
 							Attune_SetToolTip(attunelocal_raidspotIcon[spot].frame, t.name .. " (" .. t.level.." "..t.class:sub(1,1):upper()..t.class:sub(2):lower()..")\n|cffffffff"..gg.."|r")
 						end)
 						placed = true
@@ -5445,8 +5547,8 @@ function Attune_ShowWebsiteURL(qstring)
 --	end
 
 	StaticPopupDialogs["ATTUNE_SHOW_URL"] = {
-		text = Lang["External link"],
-		button1 = Lang["Close"],
+		text = AttuneLang["External link"],
+		button1 = AttuneLang["Close"],
 		OnShow = function (self, data)
 			self.editBox:SetText("".. Attune_DB.websiteUrl .. "/" .. qstring)
 			self.editBox:HighlightText()
