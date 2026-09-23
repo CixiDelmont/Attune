@@ -8,6 +8,7 @@ end
 -- INTERFACE
 Lang["Credits"] = "A huge thank you to my guild |cffffd100<Divine Heresy>|r for their support and understanding while I test the addon, and heaps of kudos to |cffffd100Bushido @ Pyrewood Village|r for the help on TBC!\n\n Also, many, many thanks to the translators:\n  - German translation: |cffffd100Sumaya @ Razorfen DE|r\n  - Russian translation: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - Spanish translation: |cffffd100Coyu @ Pyrewood Village EU|r\n  - Chinese translation (simp.): |cffffd100ly395842562|r and |cffffd100Icyblade|r\n  - Chinese translation (trad.): |cffffd100DayZ|r @ Ivus TW|r\n  - Korean translation: |cffffd100Drix @ Azshara KR|r\n\n/Hug from Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
 Lang["Zoom"] = "Zoom"
+Lang["Pan_DESC"] = "Click and drag to pan the chain. Shift+mouse wheel pans horizontally."
 Lang["Version"] = "Attune v##VERSION## by Cixi Delmont / Gaya Greyhoof"
 Lang["Splash"] = "v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever. Type /attune to start."
 Lang["Survey"] = "Survey"

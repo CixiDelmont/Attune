@@ -8,6 +8,7 @@ end
 -- INTERFACE
 Lang["Credits"] = "非常感謝我的公會團員|cffffd100<Divine Heresy>|r在我測試此UI時給予的支持與理解，並感謝|cffffd100Bushido @ Pyrewood Village|r在TBC上的幫助！\n\n 另外，非常感謝翻譯人員：\n  - 德語翻譯: |cffffd100Sumaya @ Razorfen DE|r\n  - 俄語翻譯: |cffffd100Greymarch Guild @ Flamegor RU|r\n  - 西班牙語翻譯: |cffffd100Coyu @ Pyrewood Village EU|r\n  - 簡體中文翻譯: |cffffd100ly395842562|r 和 |cffffd100Icyblade|r\n  - 繁體中文翻譯: |cffffd100DayZ 三指打天下|r 和 |cffffd100薇兒 @ Ivus TW|r\n  - 韓語翻譯: |cffffd100Drix @ Azshara KR|r\n\n/Hug 来自 Cixi Delmont / Gaya Greyhoof @ WoW:Forever Horde"
 Lang["Zoom"] = "縮放"
+Lang["Pan_DESC"] = "按住拖曳可平移任務鏈。Shift+滾輪可橫向平移。"
 Lang["Version"] = "Attune v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever"
 Lang["Splash"] = "v##VERSION## by Cixi Delmont / Gaya Greyhoof @ WoW:Forever. 輸入/attune開始。"
 Lang["Survey"] = "調查"

@@ -101,6 +101,13 @@ local attunelocal_graphRoot					-- container for attune chain nodes (scaled for 
 local attunelocal_graphHeight = 0			-- unscaled chain height (for live zoom scroll updates)
 local attunelocal_contentHeight = 50		-- scroll content height accounting for zoom
 local attunelocal_zoomSlider				-- fixed overlay zoom slider (not inside scroll)
+local attunelocal_graphPanX = 0				-- horizontal pan offset (parent coords)
+local attunelocal_graphMaxExtent = 0		-- unscaled half-width of widest stage
+local attunelocal_graphMaxPanX = 0			-- max |panX| allowed at current zoom/view
+local attunelocal_graphDragging = false		-- true while click-dragging the chain
+local attunelocal_graphDragLastX = 0
+local attunelocal_graphDragLastY = 0
+local attunelocal_graphPanHooked = false	-- Shift+wheel hook installed on scrollframe
 
 --local attunelocal_repWidget					-- Reputation Widget frame
 --local attunelocal_repWidget_frames = {} 	-- list of non-Ace frames for the rep widget (to reuse them later)
@@ -1035,9 +1042,48 @@ end
 -------------------------------------------------------------------------
 
 local function Attune_NpcIdFromGUID(guid)
-	if not guid then return -1 end
+	-- Use == nil (not truthiness): secret strings error on string conversion.
+	if guid == nil then return -1 end
+
+	-- Forever/Midnight: PARTY_KILL / UNIT_DIED may pass secret GUIDs.
+	-- strsplit/tostring on secrets errors under tainted execution.
+	if issecretvalue and issecretvalue(guid) then
+		-- UnitTokenFromGUID accepts secret GUIDs when tainted; UnitCreatureID
+		-- returns a readable ID when unit identity is not restricted (e.g. open world).
+		local unit = UnitTokenFromGUID and UnitTokenFromGUID(guid)
+		if unit ~= nil and UnitCreatureID then
+			local id = UnitCreatureID(unit)
+			if id ~= nil then return id end
+		end
+		-- Some clients still resolve creature ID from a secret GUID.
+		if C_CreatureInfo and C_CreatureInfo.GetCreatureID then
+			local ok, id = pcall(C_CreatureInfo.GetCreatureID, guid)
+			if ok and id ~= nil then return id end
+		end
+		return -1
+	end
+
+	if C_CreatureInfo and C_CreatureInfo.GetCreatureID then
+		local id = C_CreatureInfo.GetCreatureID(guid)
+		if id ~= nil then return id end
+	end
+
 	local _, _, _, _, _, npc_id = strsplit("-", guid)
-	return npc_id or -1
+	return tonumber(npc_id) or -1
+end
+
+-- Resolve the NPC being talked to without converting secret GUIDs to strings.
+local function Attune_GetInteractNpcID()
+	if UnitCreatureID then
+		local id = UnitCreatureID("npc")
+		if id == nil then id = UnitCreatureID("target") end
+		if id ~= nil then return id end
+	end
+
+	local guid = UnitGUID("npc")
+	if guid == nil then guid = UnitGUID("target") end
+	if guid == nil then return -1 end
+	return Attune_NpcIdFromGUID(guid)
 end
 
 local function Attune_ProcessKill(npc_id)
@@ -1282,24 +1328,18 @@ function Attune:QUEST_DETAIL(event)
 end
 -------------------------------------------------------------------------
 function Attune:GOSSIP_SHOW(event)
-	--print("GOSSIP")
-	--print(UnitGUID("target"))
-	local npc_id = -1
-	if UnitGUID("target") ~= nil then
-		 _, _, _, _, _, npc_id = strsplit("-", UnitGUID("target") );
-		 if npc_id == nil then npc_id = -1 end
-	else 
-		npc_id = -1
-	end
-	--print(npc_id)
-	
+	-- Forever/Midnight: UnitGUID may be secret; never use it in a truthiness
+	-- check (that forces string conversion and errors when tainted).
+	local npc_id = Attune_GetInteractNpcID()
+	if npc_id == -1 then return end
+
 	local refreshNeeded = false
 
 	for i, s in pairs(Attune_Data.steps) do
 		if showPatchStep(s) then
 			if s.TYPE == "Interact" then
 
-				if s.ID_WOWHEAD == npc_id then
+				if ""..s.ID_WOWHEAD == ""..npc_id then
 					if Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] == nil then
 
 						-- checking that predecessors are done (meaning this step is ISNext)
@@ -1640,25 +1680,43 @@ function Attune_CheckComplete(newComplete)
 
 
 	-- WoW
-	if att.done["2-45"] and att.attuned["2"] ~= 100 	then att.done["2-50"] = 1; 	Attune_SendPushInfo("2-50"); 	att.attuned["2"] = 100; Attune_UpdateTreeGroup("2"); newComplete = true;  end	-- MC
-	if att.done["3-268"] and att.attuned["3"] ~= 100	then att.done["3-270"] = 1; Attune_SendPushInfo("3-270"); 	att.attuned["3"] = 100; Attune_UpdateTreeGroup("3"); newComplete = true;  end	-- Ony Horde
-	if att.done["4-265"] and att.attuned["4"] ~= 100	then att.done["4-270"] = 1; Attune_SendPushInfo("4-270"); 	att.attuned["4"] = 100; Attune_UpdateTreeGroup("4"); newComplete = true;  end	-- Ony Alliance
-	if att.done["5-65"] and att.attuned["5"] ~= 100 	then att.done["5-70"] = 1; 	Attune_SendPushInfo("5-70"); 	att.attuned["5"] = 100; Attune_UpdateTreeGroup("5"); newComplete = true;  end	-- BWL
-	if att.done["6-40"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["6-50"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["6-60"] and att.attuned["6"] ~= 100 	then att.done["6-90"] = 1; 	Attune_SendPushInfo("6-90"); 	att.attuned["6"] = 100; Attune_UpdateTreeGroup("6"); newComplete = true;  end	-- Naxx
-	if att.done["8-200"] and att.attuned["8"] ~= 100 	then att.done["8-210"] = 1; Attune_SendPushInfo("8-210"); 	att.attuned["8"] = 100;	 Attune_UpdateTreeGroup("8"); newComplete = true;  end	-- MC Quintessence
-	if att.done["10-960"] and att.attuned["10"] ~= 100 	then att.done["10-970"] = 1;Attune_SendPushInfo("10-970"); 	att.attuned["10"] = 100; Attune_UpdateTreeGroup("10"); newComplete = true;  end	-- scarab
+	if att.done["20-45"] and att.attuned["20"] ~= 100 	then att.done["20-50"] = 1; 	Attune_SendPushInfo("20-50"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end	-- MC
+	if att.done["30-268"] and att.attuned["30"] ~= 100	then att.done["30-270"] = 1; Attune_SendPushInfo("30-270"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end	-- Ony Horde
+	if att.done["40-265"] and att.attuned["40"] ~= 100	then att.done["40-270"] = 1; Attune_SendPushInfo("40-270"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end	-- Ony Alliance
+	if att.done["50-65"] and att.attuned["50"] ~= 100 	then att.done["50-70"] = 1; 	Attune_SendPushInfo("50-70"); 	att.attuned["50"] = 100; Attune_UpdateTreeGroup("50"); newComplete = true;  end	-- BWL
+	if att.done["60-40"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["60-50"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["60-60"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["80-200"] and att.attuned["80"] ~= 100 	then att.done["80-210"] = 1; Attune_SendPushInfo("80-210"); 	att.attuned["80"] = 100;	 Attune_UpdateTreeGroup("80"); newComplete = true;  end	-- MC Quintessence
+	if att.done["100-960"] and att.attuned["100"] ~= 100 	then att.done["100-970"] = 1;Attune_SendPushInfo("100-970"); 	att.attuned["100"] = 100; Attune_UpdateTreeGroup("100"); newComplete = true;  end	-- scarab
 
-	if att.done["12-65"] and att.attuned["12"] ~= 100 	then att.done["12-70"] = 1; Attune_SendPushInfo("12-70"); 	att.attuned["12"] = 100; Attune_UpdateTreeGroup("12"); newComplete = true;  end	-- brd key
-	if att.done["14-130"] and att.attuned["14"] ~= 100 	then att.done["14-140"] = 1; Attune_SendPushInfo("14-140"); 	att.attuned["14"] = 100; Attune_UpdateTreeGroup("14"); newComplete = true;  end	-- scholo Horde
-	if att.done["15-130"] and att.attuned["15"] ~= 100 	then att.done["15-140"] = 1; Attune_SendPushInfo("15-140"); 	att.attuned["15"] = 100; Attune_UpdateTreeGroup("15"); newComplete = true;  end	-- scholo Alliance
+	if att.done["120-65"] and att.attuned["120"] ~= 100 	then att.done["120-70"] = 1; Attune_SendPushInfo("120-70"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- brd key
+	if att.done["140-130"] and att.attuned["140"] ~= 100 	then att.done["140-140"] = 1; Attune_SendPushInfo("140-140"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- scholo Horde
+	if att.done["150-130"] and att.attuned["150"] ~= 100 	then att.done["150-140"] = 1; Attune_SendPushInfo("150-140"); 	att.attuned["150"] = 100; Attune_UpdateTreeGroup("150"); newComplete = true;  end	-- scholo Alliance
 
 
-    if att.done["16-340"] and att.done["16-350"] and att.done["16-360"] and att.done["16-370"] and att.done["16-380"] and att.attuned["16"] ~= 100 	then att.done["16-390"] = 1; Attune_SendPushInfo("16-390"); 	att.attuned["16"] = 100; Attune_UpdateTreeGroup("16"); newComplete = true;  end	-- rfc
-	
+	-- Generic: mark End done when all its FOLLOWS are complete
+	for _, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) and s.TYPE == "End" and (att.attuned[s.ID_ATTUNE] or 0) < 100 then
+			local allDone = true
+			if s.FOLLOWS == nil or s.FOLLOWS == "0" then
+				allDone = false
+			else
+				local fIDs = Attune_split(s.FOLLOWS, "&")
+				for _, flw in pairs(fIDs) do
+					if not att.done[s.ID_ATTUNE .. "-" .. flw] then allDone = false; break end
+				end
+			end
+			if allDone then
+				att.done[s.ID_ATTUNE .. "-" .. s.ID] = 1
+				Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
+				att.attuned[s.ID_ATTUNE] = 100
+				Attune_UpdateTreeGroup(s.ID_ATTUNE)
+				newComplete = true
+			end
+		end
+	end
 
-    
 	if newComplete then 
 		for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].ID) > tonumber(t[a].ID) end) do
 			if showPatchStep(s) then
@@ -1797,7 +1855,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 						if s.ID_ATTUNE == aID and s.ID == f then
 							if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
 								if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
-                                    print(s.ID_ATTUNE .. "-" .. s.ID)
+                                    -- print(s.ID_ATTUNE .. "-" .. s.ID)
 									Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 									if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
 								end
@@ -2238,8 +2296,9 @@ function Attune_Select(attuneId)
 	else
 		attunelocal_graphRoot:SetParent(scrollframe)
 	end
+	attunelocal_graphPanX = 0
 	attunelocal_graphRoot:ClearAllPoints()
-	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", 0, 0)
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, 0)
 	attunelocal_graphRoot:SetWidth(1)
 	attunelocal_graphRoot:SetHeight(1)
 	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
@@ -2255,7 +2314,13 @@ function Attune_Select(attuneId)
 		end
 	end
 
-
+	-- Half-width of the widest stage (node edge to center), for pan limits
+	attunelocal_graphMaxExtent = 0
+	local cell = attunelocal_Node_Width + attunelocal_Node_HGap
+	for _, count in pairs(stageSteps) do
+		local half = (count * cell - attunelocal_Node_HGap) / 2
+		if half > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = half end
+	end
 
 	-- Create/position each step frame
 	local yy = 0
@@ -2287,19 +2352,144 @@ function Attune_Select(attuneId)
 	mask:SetAutoAdjustHeight(false)
 	mask:SetHeight(attunelocal_contentHeight)
 	mask:SetFullWidth(true)
-	mask.frame:SetScript("OnEnter", function() end)
-	mask.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
+	mask.frame:EnableMouse(true)
+	mask.frame:SetScript("OnEnter", function()
+		if attunelocal_frame then attunelocal_frame:SetStatusText(AttuneLang["Pan_DESC"] or attunelocal_statusText) end
+	end)
+	mask.frame:SetScript("OnLeave", function()
+		if not attunelocal_graphDragging and attunelocal_frame then
+			attunelocal_frame:SetStatusText(attunelocal_statusText)
+		end
+	end)
+	Attune_SetupGraphPanTarget(mask.frame)
 	attunelocal_scroll:AddChild(mask)
 
-
+	Attune_UpdateGraphPanLimits()
+	Attune_HookGraphPanMouseWheel()
 
 	-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
-	attunelocal_scroll.frame:SetScript("OnUpdate", function()
+	attunelocal_scroll.frame:SetScript("OnUpdate", function(self)
 		attunelocal_scroll:SetHeight(attunelocal_contentHeight)
+		local w = attunelocal_scroll.scrollframe and attunelocal_scroll.scrollframe:GetWidth() or 0
+		if self._attuneLastPanW ~= w then
+			self._attuneLastPanW = w
+			if not attunelocal_graphDragging then
+				Attune_UpdateGraphPanLimits()
+			end
+		end
 	end)
 
 
 
+end
+
+-------------------------------------------------------------------------
+-- Horizontal pan: apply offset / clamp to view
+-------------------------------------------------------------------------
+
+function Attune_ApplyGraphPan()
+	if not attunelocal_graphRoot or not attunelocal_scroll then return end
+	local scrollframe = attunelocal_scroll.content and attunelocal_scroll.content.obj and attunelocal_scroll.content.obj.content
+	if not scrollframe then return end
+	if attunelocal_graphPanX > attunelocal_graphMaxPanX then attunelocal_graphPanX = attunelocal_graphMaxPanX end
+	if attunelocal_graphPanX < -attunelocal_graphMaxPanX then attunelocal_graphPanX = -attunelocal_graphMaxPanX end
+	attunelocal_graphRoot:ClearAllPoints()
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, 0)
+end
+
+function Attune_UpdateGraphPanLimits()
+	if not attunelocal_scroll then return end
+	local viewW = 400
+	if attunelocal_scroll.scrollframe then
+		viewW = attunelocal_scroll.scrollframe:GetWidth() or viewW
+	elseif attunelocal_scroll.frame then
+		viewW = attunelocal_scroll.frame:GetWidth() or viewW
+	end
+	local zoom = Attune_DB.zoom or 1
+	-- How far past the view edge the widest stage extends (plus a little padding)
+	attunelocal_graphMaxPanX = math.max(0, (attunelocal_graphMaxExtent * zoom) - (viewW / 2) + 60)
+	Attune_ApplyGraphPan()
+end
+
+function Attune_StartGraphPan(frame)
+	attunelocal_graphDragging = true
+	local x, y = GetCursorPosition()
+	attunelocal_graphDragLastX, attunelocal_graphDragLastY = x, y
+	if frame then
+		frame:SetScript("OnUpdate", Attune_GraphPan_OnUpdate)
+	end
+	if attunelocal_frame then
+		attunelocal_frame:SetStatusText(AttuneLang["Pan_DESC"] or attunelocal_statusText)
+	end
+end
+
+function Attune_StopGraphPan(frame)
+	attunelocal_graphDragging = false
+	if frame then
+		frame:SetScript("OnUpdate", nil)
+	end
+	if attunelocal_frame then
+		attunelocal_frame:SetStatusText(attunelocal_statusText)
+	end
+end
+
+function Attune_GraphPan_OnUpdate(frame)
+	if not attunelocal_graphDragging then return end
+	local x, y = GetCursorPosition()
+	local scale = UIParent:GetEffectiveScale()
+	local dx = (x - attunelocal_graphDragLastX) / scale
+	local dy = (y - attunelocal_graphDragLastY) / scale
+	attunelocal_graphDragLastX, attunelocal_graphDragLastY = x, y
+
+	attunelocal_graphPanX = attunelocal_graphPanX + dx
+	Attune_ApplyGraphPan()
+
+	-- Vertical: drag also moves the Ace scrollbar so the whole chain follows the cursor
+	if attunelocal_scroll and attunelocal_scroll.scrollbar and attunelocal_scroll.scrollBarShown then
+		local contentH = attunelocal_scroll.content:GetHeight() or 0
+		local viewH = attunelocal_scroll.scrollframe:GetHeight() or 1
+		local diff = contentH - viewH
+		if diff > 0 then
+			local status = attunelocal_scroll.status or attunelocal_scroll.localstatus
+			local offset = (status and status.offset or 0) + dy
+			if offset < 0 then offset = 0 end
+			if offset > diff then offset = diff end
+			local value = offset / diff * 1000
+			attunelocal_scroll.scrollbar:SetValue(value)
+		end
+	end
+end
+
+function Attune_SetupGraphPanTarget(frame, keepMouseUp)
+	if not frame then return end
+	frame:EnableMouse(true)
+	frame:RegisterForDrag("LeftButton")
+	frame:SetScript("OnDragStart", function(self)
+		Attune_StartGraphPan(self)
+	end)
+	frame:SetScript("OnDragStop", function(self)
+		Attune_StopGraphPan(self)
+	end)
+	if not keepMouseUp then
+		frame:SetScript("OnMouseUp", function(self)
+			if attunelocal_graphDragging then Attune_StopGraphPan(self) end
+		end)
+	end
+end
+
+function Attune_HookGraphPanMouseWheel()
+	if attunelocal_graphPanHooked or not attunelocal_scroll or not attunelocal_scroll.scrollframe then return end
+	local sf = attunelocal_scroll.scrollframe
+	local prev = sf:GetScript("OnMouseWheel")
+	sf:SetScript("OnMouseWheel", function(frame, delta)
+		if IsShiftKeyDown() then
+			attunelocal_graphPanX = attunelocal_graphPanX + delta * 50
+			Attune_UpdateGraphPanLimits()
+		elseif prev then
+			prev(frame, delta)
+		end
+	end)
+	attunelocal_graphPanHooked = true
 end
 
 -------------------------------------------------------------------------
@@ -2314,6 +2504,7 @@ function Attune_ApplyGraphZoom(zoom)
 		attunelocal_graphRoot:SetScale(zoom)
 	end
 	attunelocal_contentHeight = (attunelocal_graphHeight * zoom) + 50
+	Attune_UpdateGraphPanLimits()
 end
 
 -------------------------------------------------------------------------
@@ -2479,6 +2670,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 	fnode:SetHeight(attunelocal_Node_Height)
 	fnode:SetPoint("TOP", posX, -posY)
 	fnode:SetScript("OnMouseUp", function(self, button) end)
+	Attune_SetupGraphPanTarget(fnode, true)
 	fnode:SetScript("OnEnter", function()
 
 		-- put full step info in status bar
