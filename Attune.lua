@@ -99,7 +99,7 @@ local attunelocal_survey_frame				-- survey submenu frame
 local attunelocal_resultselection = 1 		-- indicates whether to show last survey results(0) or guild results(1) or all(2)
 local attunelocal_exportselection = 0 		-- indicates what dataset to export 0:me, 1:last survey, 2:guild, 3:all, 4:all my alts
 local attunelocal_gflabel					-- table header (used to update the number of characters in list)
-local attunelocal_showResultAttunes = true 	-- indicates whether to show toon profiles or attunes
+local attunelocal_showResultAttunes = true 	-- profiles UI disabled; keep true to always show attune results
 local attunelocal_graphRoot					-- container for attune chain nodes (scaled for zoom)
 local attunelocal_graphHeight = 0			-- unscaled chain height (for live zoom scroll updates)
 local attunelocal_contentHeight = 50		-- scroll content height accounting for zoom
@@ -145,6 +145,7 @@ local attunelocal_refreshDone = false		-- flag to indicate when the UI refresh h
 local attunelocal_syncTarget = nil
 local attunelocal_syncStatus = -1
 
+--[=[ Raid Planner locals disabled for now
 local attunelocal_raidframe						-- main frame
 local attunelocal_raidtree = {}					-- tree data (nodes and leaves)
 local attunelocal_raidtreeframe					-- Ace TreeGroup object for attune tab
@@ -152,10 +153,13 @@ local attunelocal_raidscroll					-- scroller inside of the raid
 local attunelocal_raidroster					-- scroller inside the raid SimpleGroup of the result tab
 --local attunelocal_raidtoonIcon = {}				-- Icon object of the toon list
 local attunelocal_raidspotIcon = {}				-- Icon object of the raid spots
+]=]
 local attunelocal_faction = ""
+--[=[ Raid Planner locals disabled for now
 local attunelocal_raidname = ""					-- selected Raid name
 local attunelocal_raidsize = 0					-- selected Raid size
 local attunelocal_raidcount = 1  				-- selected raid, number of raid groups to show
+]=]
 
 local attunelocal_inactivity = 60*60*24*30		-- number of seconds to account for inactivity
 
@@ -660,6 +664,7 @@ function Attune:OnEnable()
 	
 	
 
+	--[=[ Raid planner disabled for now
 	--raid planner
 	if Attune_DB.raidShowMains == nil then Attune_DB.raidShowMains = true end
 	if Attune_DB.raidShowAlts == nil then Attune_DB.raidShowAlts = false end
@@ -674,6 +679,8 @@ function Attune:OnEnable()
 	if Attune_DB.raidNames[attunelocal_faction] == nil then Attune_DB.raidNames[attunelocal_faction] = {} end
 	if Attune_DB.raidSelection == nil then Attune_DB.raidSelection = {} end
 	if Attune_DB.raidSelection[attunelocal_faction] == nil then Attune_DB.raidSelection[attunelocal_faction] = 115 end
+	]=]
+	attunelocal_faction = UnitFactionGroup("player")
 	--[[	local gameLocale = GetLocale()
 		if gameLocale == "enGB" then
 			gameLocale = "enUS"
@@ -3543,6 +3550,7 @@ function Attune_ToggleView(noToggle)
 			titleGroup:AddChild(spacer)
 ]]
 			
+--[=[ Open Raid Planner / Show Profiles disabled for now
 			local raid = AceGUI:Create("Button")
 			raid:SetText(AttuneLang["Open Raid Planner"])
 			raid:SetCallback("OnClick", function()
@@ -3578,6 +3586,7 @@ function Attune_ToggleView(noToggle)
 			titleGroup:AddChild(prof)
 
 
+]=]
 		attunelocal_guildframe:AddChild(titleGroup)
 
 
@@ -3615,8 +3624,9 @@ function Attune_ToggleView(noToggle)
 			radio2:SetValue(false)
 			radio3:SetValue(false)
 			radio4:SetValue(false)
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 		end)
 		radio2:SetCallback("OnValueChanged", function(obj, evt, val)
 			attunelocal_resultselection = 1
@@ -3624,8 +3634,9 @@ function Attune_ToggleView(noToggle)
 			radio2:SetValue(true)
 			radio3:SetValue(false)
 			radio4:SetValue(false)
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 		end)
 		radio3:SetCallback("OnValueChanged", function(obj, evt, val)
 			attunelocal_resultselection = 2
@@ -3633,8 +3644,9 @@ function Attune_ToggleView(noToggle)
 			radio2:SetValue(false)
 			radio3:SetValue(true)
 			radio4:SetValue(false)
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 		end)
 		radio4:SetCallback("OnValueChanged", function(obj, evt, val)
 			attunelocal_resultselection = 3
@@ -3642,8 +3654,9 @@ function Attune_ToggleView(noToggle)
 			radio2:SetValue(false)
 			radio3:SetValue(false)
 			radio4:SetValue(true)
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 		end)
 		attunelocal_guildframe:AddChild(radioGroup)
 
@@ -3654,14 +3667,15 @@ function Attune_ToggleView(noToggle)
 			--Slider
 			local slider = AceGUI:Create("Slider")
 			slider:SetValue(Attune_DB.minFilterValue or 1)
-			slider:SetSliderValues(1, 90, 1)
+			slider:SetSliderValues(1, 60, 1)
 			slider:SetLabel(AttuneLang["Minimum level"])
 			slider:SetCallback("OnValueChanged", function(slid)
 				Attune_DB.minFilterValue = slid:GetValue()
 			end)
 			slider:SetCallback("OnMouseUp", function(slid)
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			syncGroup:AddChild(slider)
 
@@ -3704,8 +3718,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = 0
 					Attune_DB.sortresult[2] = true
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel)
 
@@ -3741,8 +3756,9 @@ function Attune_ToggleView(noToggle)
 									Attune_DB.sortresult[1] = a.ID
 									Attune_DB.sortresult[2] = true --desc better for attunes, but we're reversing % further down.
 								end
-								if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-								else Attune_ShowProfileList(label)	end
+								Attune_ShowResultList(label) -- profiles disabled
+								-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+								-- else Attune_ShowProfileList(label)	end
 				
 							end)
 							gficon.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(a.NAME.." - "..a.EXPAC)  end)
@@ -3774,13 +3790,15 @@ function Attune_ToggleView(noToggle)
 			attunelocal_glist:SetAutoAdjustHeight(true)
 			attunelocal_glist:SetFullWidth(true)
 
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 
 			attunelocal_gscroll:AddChild(attunelocal_glist)
 
 			attunelocal_guildframe:AddChild(attunelocal_gscroll)
 
+--[=[ Show Profiles view disabled for now
 		else
 
 			--show profiles
@@ -3804,8 +3822,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = 0
 					Attune_DB.sortresult[2] = true
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel)
 
@@ -3821,8 +3840,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = -1
 					Attune_DB.sortresult[2] = true
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel2)
 
@@ -3838,8 +3858,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = -2
 					Attune_DB.sortresult[2] = false
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel3)
 
@@ -3855,8 +3876,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = -3
 					Attune_DB.sortresult[2] = false
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel4)
 
@@ -3872,8 +3894,9 @@ function Attune_ToggleView(noToggle)
 					Attune_DB.sortresult[1] = -4
 					Attune_DB.sortresult[2] = true
 				end
-				if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				else Attune_ShowProfileList(label)	end
+				Attune_ShowResultList(label) -- profiles disabled
+				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+				-- else Attune_ShowProfileList(label)	end
 			end)
 			gftitle:AddChild(attunelocal_gflabel5)
 
@@ -3901,12 +3924,14 @@ function Attune_ToggleView(noToggle)
 			attunelocal_glist:SetAutoAdjustHeight(true)
 			attunelocal_glist:SetFullWidth(true)
 
-			if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-			else Attune_ShowProfileList(label)	end
+			Attune_ShowResultList(label) -- profiles disabled
+			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+			-- else Attune_ShowProfileList(label)	end
 
 			attunelocal_gscroll:AddChild(attunelocal_glist)
 
 			attunelocal_guildframe:AddChild(attunelocal_gscroll)
+]=]
 
 		end
 
@@ -4197,8 +4222,9 @@ function Attune_ShowResultList(title)
 							gdel:SetWidth(50)
 							gdel:SetCallback("OnClick", function()
 								Attune_DB.toons[kt] = nil
-								if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-								else Attune_ShowProfileList(label)	end
+								Attune_ShowResultList(label) -- profiles disabled
+								-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+								-- else Attune_ShowProfileList(label)	end
 					
 							end)
 							gframe:AddChild(gdel)
@@ -4218,6 +4244,7 @@ function Attune_ShowResultList(title)
 
 end
 
+--[=[ Show Profiles list disabled for now
 -------------------------------------------------------------------------
 -- Create the Profile list shown in the Result tab
 -------------------------------------------------------------------------
@@ -4426,8 +4453,9 @@ function Attune_ShowProfileList(title)
 							gdel:SetWidth(50)
 							gdel:SetCallback("OnClick", function()
 								Attune_DB.toons[kt] = nil
-								if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-								else Attune_ShowProfileList(label)	end
+								Attune_ShowResultList(label) -- profiles disabled
+								-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
+								-- else Attune_ShowProfileList(label)	end
 
 							end)
 							gframe:AddChild(gdel)
@@ -4445,7 +4473,8 @@ function Attune_ShowProfileList(title)
 	attunelocal_gflabel:SetText(AttuneLang["Characters"].." ("..count..")")
 	attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
 
-end
+end]=]
+
 
 -------------------------------------------------------------------------
 
@@ -4735,6 +4764,8 @@ function Attune_HandleRequestResults(response)
 	elseif tag == 'DONE' or tag == 'SILENTDONE' then
 		--print("DONE " .. player.name .. ": " ..data[3])
 		attunelocal_refreshDone = false
+		-- DONE can arrive before TOON (or for a toon stub without done); ensure the table exists
+		if player.done == nil then player.done = {} end
 		player.done[data[3]] = 1 -- step
 		if tag == 'SILENTDONE' then 
 			--print("Received ".. data[3] .. " from " .. player.name)
@@ -4765,8 +4796,9 @@ function Attune_HandleRequestResults(response)
 				if not attunelocal_treeIsShown then
 					if not attunelocal_refreshDone then 
 						attunelocal_refreshDone = true
-						if attunelocal_showResultAttunes then Attune_ShowResultList()	-- update result tab if already shown
-						else Attune_ShowProfileList()	end
+						Attune_ShowResultList() -- update result tab if already shown (profiles disabled)
+						-- if attunelocal_showResultAttunes then Attune_ShowResultList()
+						-- else Attune_ShowProfileList()	end
 					end
 -- Disabling the auto-swap to results as it's confusing					
 --				else
@@ -5133,8 +5165,9 @@ function Attune:OnCommReceived(prefix, message, distribution, sender)
 			C_Timer.After(1, function()
 				if attunelocal_frame ~= nil then
 					if not attunelocal_treeIsShown then
-						if attunelocal_showResultAttunes then Attune_ShowResultList()	-- update result tab if already shown
-						else Attune_ShowProfileList()	end
+						Attune_ShowResultList() -- update result tab if already shown (profiles disabled)
+						-- if attunelocal_showResultAttunes then Attune_ShowResultList()
+						-- else Attune_ShowProfileList()	end
 					else
 						if not attunelocal_initial then
 							attunelocal_resultselection = 0
@@ -5454,7 +5487,9 @@ function Attune_SlashCommandHandler( msg )
 	elseif (msg == 'sync') then
 		Attune_SendSyncRequest()
 
-	elseif (msg == 'raid') or (msg == 'raidplanner') or (msg == 'planner')  then
+	-- Raid Planner slash command disabled for now
+	elseif false and ((msg == 'raid') or (msg == 'raidplanner') or (msg == 'planner')) then
+		--[=[
 		if attunelocal_raidframe ~= nil then
 			if attunelocal_raidframe:IsShown() then 
 				attunelocal_raidframe:Hide() 
@@ -5464,6 +5499,7 @@ function Attune_SlashCommandHandler( msg )
 		else 
 			Attune_RaidPlannerFrame()
 		end
+		]=]
 
 	elseif (msg ~= '') then 
 		Attune_SendRequest("Target|"..msg);
@@ -5498,6 +5534,7 @@ function Attune_Release()
 ]]
 end
 
+--[=[ Raid Planner disabled for now
 -------------------------------------------------------------------------
 
 function Attune_LoadRaidTree()
@@ -6087,7 +6124,8 @@ function Attune_IsRaidSelected(name)
 		if r == name then return kr end
 	end
 	return ""
-end
+end]=]
+
 
 -------------------------------------------------------------------------
 
