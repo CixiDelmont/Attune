@@ -488,33 +488,63 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="560&495&380&270&170&195&180",STAGE="120"},
 
 --vForever dungeon attune 180
-	-- Columns L→R (higher ID = left): 6981 chain | 1487 | 959 | 962 | 865 chain | 1486 | 1489 chain
+	-- Main columns L→R (higher ID = left): 1487 | 959 | oasis→1489 chain | 865 chain | 962 | 1486
+	-- Oasis prereqs: 886 (optional breadcrumb) → 870 → 877 → 880 → 1489 → 1490 → 914
+	-- SIDE (beside End): 6981 (picked up inside WC)
 	{ID_ATTUNE="180",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="180",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Glowing Shard
 	{ID_ATTUNE="180",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Eradication
 	{ID_ATTUNE="180",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
-	{ID_ATTUNE="180",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Serpentbloom
+	{ID_ATTUNE="180",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="886",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Barrens Oases
 	{ID_ATTUNE="180",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Raptor Horns
-	{ID_ATTUNE="180",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Hides
-	{ID_ATTUNE="180",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Hamuul Runetotem
+	{ID_ATTUNE="180",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Serpentbloom
+	{ID_ATTUNE="180",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Hides
 	-- STAGE 30
-	{ID_ATTUNE="180",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="3369",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: In Nightmares
 	{ID_ATTUNE="180",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="180",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="180",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="180",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="870",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Forgotten Pools
 	{ID_ATTUNE="180",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Smart Drinks
 	{ID_ATTUNE="180",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="180",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Nara Wildmane
+	{ID_ATTUNE="180",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	-- STAGE 40
-	{ID_ATTUNE="180",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="180",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="180",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="180",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="180",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="877",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Stagnant Oasis
 	{ID_ATTUNE="180",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="180",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="180",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="914",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Leaders of the Fang
-	{ID_ATTUNE="180",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="730&620&520&420&330&220&140",STAGE="50"},
+	{ID_ATTUNE="180",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	-- STAGE 50
+	{ID_ATTUNE="180",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: Altered Beings
+	{ID_ATTUNE="180",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="180",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="460",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="60"}, -- quest: Hamuul Runetotem
+	{ID_ATTUNE="180",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="180",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="470",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="70"}, -- quest: Nara Wildmane
+	{ID_ATTUNE="180",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="180",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="480",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="914",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Leaders of the Fang
+	{ID_ATTUNE="180",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="180",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Glowing Shard
+	-- {ID_ATTUNE="180",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="3369",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="90",SIDE=true}, -- quest: In Nightmares
+	{ID_ATTUNE="180",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&520&480&330&220&120&720",STAGE="90"},
 
 
 
@@ -530,7 +560,8 @@ Attune_Data.steps = 	{
 
 
 --vForever dungeon attune 460
-	-- Columns L→R (higher ID = left): 95216 | 95204 | 92422 | 92421 | 92401 | 97288
+	-- Main columns L→R (higher ID = left): 95216 | 92422 | 92421 | 92401
+	-- SIDE (beside End): 97288 Unending Torment (picked up inside)
 	{ID_ATTUNE="186",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 15",LOCATION="",ID_WOWHEAD="15",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="186",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95216",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The New Plague
@@ -538,7 +569,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="186",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92422",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Wrath of Rath'mael
 	{ID_ATTUNE="186",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92421",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Light's Justice
 	{ID_ATTUNE="186",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92401",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Frightened Request
-	{ID_ATTUNE="186",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Unending Torment
+	-- SIDE reminder (inside dungeon) — left of End
+	{ID_ATTUNE="186",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="30",SIDE=true}, -- quest: Unending Torment
 	{ID_ATTUNE="186",ID="630",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&420&320&220&120",STAGE="30"},
 
 
@@ -1146,7 +1178,8 @@ Attune_Data.quests = {
 	-- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
 	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[721]={35,5},
-	[722]={35,5},			[865]={13,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
+	[722]={35,5},			[865]={13,1},			[870]={10,1},			[877]={13,1},			[880]={16,5},
+	[886]={10,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
 	[1050]={28,5},			[1051]={25,1},			[1052]={34,1},			[1053]={34,5},			[1098]={18,5},
 	[1100]={29,1},			[1101]={29,5},			[1102]={29,5},			[1109]={30,5},			[1113]={30,1},
@@ -1184,7 +1217,8 @@ Attune_Data.quests = {
 -- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
 	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[721]={35,5},
-	[722]={35,5},			[865]={13,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
+	[722]={35,5},			[865]={13,1},			[870]={10,1},			[877]={13,1},			[880]={16,5},
+	[886]={10,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
 	[1050]={28,5},			[1051]={25,1},			[1052]={34,1},			[1053]={34,5},			[1098]={18,5},
 	[1100]={29,1},			[1101]={29,5},			[1102]={29,5},			[1109]={30,5},			[1113]={30,1},

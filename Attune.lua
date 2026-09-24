@@ -75,6 +75,9 @@ local attunelocal_Node_HGap = 10
 local attunelocal_Node_VGap = 30
 local attunelocal_Icon_Size = 32
 local attunelocal_Line_Thickness = 6
+local attunelocal_Side_Pad = 10			-- padding inside the Inside-quests box
+local attunelocal_Side_VGap = 8			-- vertical gap between stacked Inside quests
+local attunelocal_Side_BoxGap = 28		-- horizontal gap between box edge and End (for side connector)
 
 -- Graph zoom (SetScale on the chain container)
 local attunelocal_Zoom_Min = 0.5
@@ -651,7 +654,7 @@ function Attune:OnEnable()
 	if Attune_DB.minimapbuttonpos == nil then Attune_DB.minimapbuttonpos = {} end
 	if Attune_DB.minimapbuttonpos.hide == nil then Attune_DB.minimapbuttonpos.hide = false end
 	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
-	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/wotlk" end
+	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/forever" end
 	if TreeExpandStatus == nil then TreeExpandStatus = {} end
 	
 	
@@ -2289,6 +2292,8 @@ function Attune_Select(attuneId)
 
 	-- Hiding all non-Ace frames (all attune steps basically)
 	for i, f in pairs(attunelocal_frames) do	_G[f]:Hide()	end
+	if _G["Attune_SideBox"] then _G["Attune_SideBox"]:Hide() end
+	if _G["Attune_SideBoxTitle"] then _G["Attune_SideBoxTitle"]:Hide() end
 
 	-- Scaled container for the attune chain (icons, text, lines zoom together)
 	if attunelocal_graphRoot == nil then
@@ -2304,17 +2309,21 @@ function Attune_Select(attuneId)
 	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
 	attunelocal_graphRoot:Show()
 
-	-- Count the number of steps at each stage, to know how to center the frames
-	local stageSteps = {} -- steps per stage
+	-- Count steps per stage (main chain only; SIDE reminders are placed beside End)
+	local stageSteps = {}
+	local sideSteps = {}
+	local endInfo = nil
 	for i, s in pairs(Attune_Data.steps) do
-		if s.ID_ATTUNE == attuneId then
-			if showPatchStep(s) then
+		if s.ID_ATTUNE == attuneId and showPatchStep(s) then
+			if s.SIDE then
+				table.insert(sideSteps, s)
+			else
 				stageSteps[s.STAGE] = (stageSteps[s.STAGE] or 0) + 1
 			end
 		end
 	end
 
-	-- Half-width of the widest stage (node edge to center), for pan limits
+	-- Half-width of the widest main stage (for pan limits); SIDE width added later
 	attunelocal_graphMaxExtent = 0
 	local cell = attunelocal_Node_Width + attunelocal_Node_HGap
 	for _, count in pairs(stageSteps) do
@@ -2322,26 +2331,114 @@ function Attune_Select(attuneId)
 		if half > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = half end
 	end
 
-	-- Create/position each step frame
+	-- Create/position main-chain steps (defer End until SIDE nodes exist for line anchors)
 	local yy = 0
 	local curStage = 0
 	local nbStep = 0
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
-		if s.ID_ATTUNE == attuneId then
-			
-			if showPatchStep(s) then 
+		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE then
+			if s.STAGE ~= curStage then
+				nbStep = 1
+				curStage = s.STAGE
+				yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
+			end
+			local xx = (stageSteps[s.STAGE] * cell) - (nbStep * cell) - (stageSteps[s.STAGE]-1) * (cell/2)
 
-				if s.STAGE ~= curStage then
-					nbStep = 1
-					curStage = s.STAGE
-					yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
-				end
-				local xx = (stageSteps[s.STAGE] * (attunelocal_Node_Width + attunelocal_Node_HGap)) - (nbStep * (attunelocal_Node_Width + attunelocal_Node_HGap)) - (stageSteps[s.STAGE]-1) * ((attunelocal_Node_Width + attunelocal_Node_HGap)/2)
-	
+			if s.TYPE == "End" then
+				endInfo = { step = s, xx = xx, yy = yy }
+			else
 				Attune_CreateNode(s, attunelocal_graphRoot, xx, yy)
-				nbStep = nbStep + 1
+			end
+			nbStep = nbStep + 1
+		end
+	end
+
+	-- Inside-dungeon reminders: stacked in a box to the left of End, side connector into End
+	if endInfo and #sideSteps > 0 then
+		table.sort(sideSteps, function(a, b)
+			if tonumber(a.STAGE) ~= tonumber(b.STAGE) then
+				return tonumber(a.STAGE) < tonumber(b.STAGE)
+			end
+			return tonumber(a.ID) > tonumber(b.ID)
+		end)
+
+		local n = #sideSteps
+		local pad = attunelocal_Side_Pad
+		local sideVGap = attunelocal_Side_VGap
+		local boxGap = attunelocal_Side_BoxGap
+		local innerH = n * attunelocal_Node_Height + (n - 1) * sideVGap
+		local boxW = attunelocal_Node_Width + pad * 2
+		local boxH = innerH + pad * 2
+		-- Drop Complete below the main chain so the Inside box has room (title + box)
+		local endY = endInfo.yy + attunelocal_Node_VGap + attunelocal_Node_Height
+		local colX = endInfo.xx - (attunelocal_Node_Width / 2 + boxGap + pad + attunelocal_Node_Width / 2)
+		local firstY = endY
+
+		-- Backdrop box behind the Inside quests
+		local boxName = "Attune_SideBox"
+		local existBox = false
+		for _, f in ipairs(attunelocal_frames) do if f == boxName then existBox = true end end
+		local sideBox
+		if existBox then
+			sideBox = _G[boxName]
+		else
+			sideBox = CreateFrame("Frame", boxName, attunelocal_graphRoot, BackdropTemplateMixin and "BackdropTemplate" or nil)
+			table.insert(attunelocal_frames, boxName)
+		end
+		sideBox:SetParent(attunelocal_graphRoot)
+		sideBox:SetWidth(boxW)
+		sideBox:SetHeight(boxH)
+		sideBox:ClearAllPoints()
+		sideBox:SetPoint("TOP", attunelocal_graphRoot, "TOP", colX, -(firstY - pad))
+		sideBox:SetBackdrop({
+			bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+			edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+			tile = true, tileSize = 16, edgeSize = 16,
+			insets = { left = 3, right = 3, top = 3, bottom = 3 }
+		})
+		sideBox:SetBackdropColor(0.04, 0.04, 0.06, 0.55)
+		sideBox:SetBackdropBorderColor(0.55, 0.55, 0.60, 0.95)
+		sideBox:SetFrameLevel((attunelocal_graphRoot:GetFrameLevel() or 0) + 1)
+		sideBox:Show()
+
+		-- Title above the box
+		local titleName = "Attune_SideBoxTitle"
+		local existTitle = false
+		for _, f in ipairs(attunelocal_frames) do if f == titleName then existTitle = true end end
+		local sideTitle
+		if existTitle then
+			sideTitle = _G[titleName]
+		else
+			sideTitle = sideBox:CreateFontString(titleName)
+			table.insert(attunelocal_frames, titleName)
+		end
+		sideTitle:SetFont(GameFontNormal:GetFont(), 10)
+		sideTitle:SetText("|cffffd100"..(AttuneLang["Inside the dungeon"] or "Inside the dungeon").."|r")
+		sideTitle:ClearAllPoints()
+		sideTitle:SetPoint("BOTTOMLEFT", sideBox, "TOPLEFT", 6, 2)
+		sideTitle:Show()
+
+		for i, s in ipairs(sideSteps) do
+			local sy = firstY + (i - 1) * (attunelocal_Node_Height + sideVGap)
+			Attune_CreateNode(s, attunelocal_graphRoot, colX, sy)
+			local node = _G["Attune_Node_"..s.ID]
+			if node then
+				node:SetFrameLevel((sideBox:GetFrameLevel() or 0) + 2)
 			end
 		end
+
+		local sideExtent = math.abs(colX) + boxW / 2
+		if sideExtent > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = sideExtent end
+
+		local sideBottom = firstY + (n - 1) * (attunelocal_Node_Height + sideVGap) + attunelocal_Node_Height + pad
+		local endBottom = endY + attunelocal_Node_Height
+		local contentBottom = math.max(sideBottom, endBottom)
+		if contentBottom > yy then yy = contentBottom end
+
+		Attune_CreateNode(endInfo.step, attunelocal_graphRoot, endInfo.xx, endY)
+		Attune_DrawSideFeeder(endInfo.step, sideSteps, colX, boxW, endInfo.xx, endY)
+	elseif endInfo then
+		Attune_CreateNode(endInfo.step, attunelocal_graphRoot, endInfo.xx, endInfo.yy)
 	end
 
 	-- Ace 'mask' needed to trick the scroller into the right size, as it doesn't detect the custom frames.
@@ -2559,7 +2656,83 @@ function showPatchStep(s)
 	return showStep
 end
 
+-------------------------------------------------------------------------
+-- Look up a step / detect SIDE (Inside) steps
+-------------------------------------------------------------------------
 
+function Attune_FindStep(attuneId, stepId)
+	for _, s in pairs(Attune_Data.steps) do
+		if s.ID_ATTUNE == attuneId and s.ID == tostring(stepId) then
+			return s
+		end
+	end
+	return nil
+end
+
+function Attune_IsSideStep(attuneId, stepId)
+	local s = Attune_FindStep(attuneId, stepId)
+	return s ~= nil and s.SIDE
+end
+
+-------------------------------------------------------------------------
+-- Horizontal feeder from the Inside-quests box into the End node
+-------------------------------------------------------------------------
+
+function Attune_DrawSideFeeder(endStep, sideSteps, colX, boxW, endX, endY)
+	local endNode = _G["Attune_Node_"..endStep.ID]
+	if not endNode then return end
+
+	local sideFollowIds = {}
+	local fIDs = Attune_split(endStep.FOLLOWS, "&")
+	if string.find(endStep.FOLLOWS, "|") then fIDs = Attune_split(endStep.FOLLOWS, "|") end
+	for _, flw in pairs(fIDs) do
+		if Attune_IsSideStep(endStep.ID_ATTUNE, flw) then
+			table.insert(sideFollowIds, flw)
+		end
+	end
+	if #sideFollowIds == 0 then return end
+
+	local allDone, anyDone = true, false
+	for _, flw in ipairs(sideFollowIds) do
+		if Attune_DB.toons[attunelocal_charKey].done[endStep.ID_ATTUNE .. "-" .. flw] then
+			anyDone = true
+		else
+			allDone = false
+		end
+	end
+
+	local lineName = "Attune_SideFeeder_"..endStep.ID
+	local exist = false
+	for _, f in ipairs(attunelocal_frames) do if f == lineName then exist = true end end
+	local line
+	if exist then
+		line = _G[lineName]
+	else
+		line = endNode:CreateLine(lineName)
+		table.insert(attunelocal_frames, lineName)
+	end
+
+	local endDone = Attune_DB.toons[attunelocal_charKey].done[endStep.ID_ATTUNE .. "-" .. endStep.ID]
+		or ((Attune_DB.toons[attunelocal_charKey].attuned[endStep.ID_ATTUNE] or 0) >= 100)
+	if endDone and allDone then
+		line:SetColorTexture(0.388, 0.686, 0.388, 1)
+		line:SetDrawLayer("ARTWORK", 2)
+	elseif anyDone then
+		line:SetColorTexture(0.851, 0.608, 0.0, 1)
+		line:SetDrawLayer("ARTWORK", 1)
+	else
+		line:SetColorTexture(0.2, 0.2, 0.2, 1)
+		line:SetDrawLayer("ARTWORK", 0)
+	end
+	line:SetThickness(attunelocal_Line_Thickness)
+
+	-- Horizontal: box right edge → End left edge, at End vertical mid
+	local boxRightX = colX + boxW / 2
+	local midY = -attunelocal_Node_Height / 2
+	line:SetStartPoint("TOP", boxRightX - endX, midY)
+	line:SetEndPoint("TOP", -attunelocal_Node_Width / 2, midY)
+	line:Show()
+end
 
 -------------------------------------------------------------------------
 -- Create the frame for a single attune step (node)
@@ -2967,7 +3140,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 			-- format depending on type
 			local type = "|cffffd100"..AttuneLang[step.TYPE].."|r"
-			if step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
+			if step.SIDE then
+				type = "|cffffd100"..(AttuneLang["Inside"] or "Inside").."|r"
+				if step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r" end
+			elseif step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
 			elseif step.TYPE == "Attune" then type = "|c60808080"..AttuneLang["Attunement or key"].."|r"
 			elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
 			elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
@@ -3039,11 +3215,20 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 	-- Create lines between nodes
 	-- 3 lines for each connection. No diagonals are used, only horizontal or vertical, to make it easier to look at
+	-- End ← Inside (SIDE) links use a dedicated side feeder instead (see Attune_DrawSideFeeder)
 	if step.FOLLOWS ~= "0" then
 		local followOR = false;
 		local fIDs = Attune_split(step.FOLLOWS, "&")
 		if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|"); followOR = true end
 		for fi, flw in pairs(fIDs) do
+
+			-- Skip L-connectors from End to SIDE steps (horizontal feeder handles those)
+			if step.TYPE == "End" and Attune_IsSideStep(step.ID_ATTUNE, flw) then
+				for _, suffix in ipairs({ "Line1", "Line2", "Line3" }) do
+					local ln = _G["Attune_"..suffix.."_"..step.ID.."_"..flw]
+					if ln then ln:Hide() end
+				end
+			else
 
 			local linedone = Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. flw]
 
@@ -3149,6 +3334,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 			line:SetStartPoint("TOP", offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
 			line:SetEndPoint("TOP", prevX - curX + offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
 			line:Show()
+
+			end -- not SIDE→End
 
 
 		end
@@ -4526,9 +4713,10 @@ function Attune_ExportToWebsite()
 		text = AttuneLang["Copy the text below, then upload it to"].."\n\nhttps://warcraftratings.com/attune/upload",
 		button1 = AttuneLang["Close"],
 		OnShow = function (self, data)
-			self.editBox:SetText(""..encoded)
-			self.editBox:HighlightText()
-			self.editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("EXPORT_ATTUNE_GUILD") end)
+			local editBox = self.EditBox or self.editBox
+			editBox:SetText(""..encoded)
+			editBox:HighlightText()
+			editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("EXPORT_ATTUNE_GUILD") end)
 
 		end,
 		timeout = 0,
@@ -5555,13 +5743,15 @@ function Attune_RaidPlannerRoster()
 				editBoxWidth = 350,
 				preferredIndex = 3,  -- avoid some UI taint, see http://www.wowace.com/announcements/how-to-avoid-some-ui-taint/
 				OnShow = function (self, data)
-					self.editBox:SetText(""..Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i])
-					--self.editBox:HighlightText()
-					self.editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("RENAME_ATTUNE_RAID") end)
+					local editBox = self.EditBox or self.editBox
+					editBox:SetText(""..Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i])
+					--editBox:HighlightText()
+					editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("RENAME_ATTUNE_RAID") end)
 		
 				end,
 				OnAccept = function(self)
-					Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i] = self.editBox:GetText()
+					local editBox = self.EditBox or self.editBox
+					Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i] = editBox:GetText()
 					Attune_RaidPlannerRoster()
 				end,
 				OnCancel = function (_,reason)
@@ -5779,9 +5969,10 @@ function Attune_ShowWebsiteURL(qstring)
 		text = AttuneLang["External link"],
 		button1 = AttuneLang["Close"],
 		OnShow = function (self, data)
-			self.editBox:SetText("".. Attune_DB.websiteUrl .. "/" .. qstring)
-			self.editBox:HighlightText()
-			self.editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("ATTUNE_SHOW_URL") end)
+			local editBox = self.EditBox or self.editBox
+			editBox:SetText("".. Attune_DB.websiteUrl .. "/" .. qstring)
+			editBox:HighlightText()
+			editBox:SetScript("OnEscapePressed", function(self) StaticPopup_Hide ("ATTUNE_SHOW_URL") end)
 
 		end,
 		timeout = 0,
