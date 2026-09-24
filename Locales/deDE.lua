@@ -441,6 +441,22 @@ Lang["I_17329"] = "Hand von Lucifron"
 Lang["I_17331"] = "Hand von Gehennas"
 Lang["I_17330"] = "Hand von Sulfuron"
 Lang["I_17333"] = "Wässrige Quintessenz"
+-- Wailing Caverns
+Lang["I_5334"] = "99 Jahre alter Portwein"
+Lang["I_5339"] = "Schlangenflaum"
+Lang["I_6443"] = "Deviatbalg"
+Lang["I_6464"] = "Klageessenz"
+-- Shadowfang Keep
+Lang["I_5442"] = "Arugals Kopf"
+Lang["I_6283"] = "Das Buch von Ur"
+-- Blackfathom Deeps
+Lang["I_5359"] = "Lorgalis-Manuskript"
+Lang["I_5952"] = "Verderbter Hirnstamm"
+Lang["I_5879"] = "Twilightanhänger"
+Lang["I_5881"] = "Kopf von Kelris"
+Lang["I_16762"] = "Fathomkern"
+Lang["I_16784"] = "Saphir von Aku'Mai"
+Lang["I_16790"] = "Feuchte Notiz"
 
 
 -- QUESTS - Classic
@@ -1055,6 +1071,20 @@ Lang["N1_11834"] = "Maur Grimmtotem"
 Lang["N2_11834"] = "Maur Grimmtotems Leichnam liegt hinter dem ersten Boss im Flammenschlund, abseits des rechten Pfades."
 Lang["N1_639"] = "Edwin van Cleef"
 Lang["N2_639"] = "Edwin van Cleef ist der Endboss der Todesminen, an Bord des Piratenschiffs in der Eisenclad-Bucht."
+-- Shadowfang Keep
+Lang["N1_4275"] = "Erzmagier Arugal"
+Lang["N2_4275"] = "Erzmagier Arugal ist der Endboss von Burg Shadowfang, ganz oben in der Burg."
+Lang["N1_3849"] = "Todespirscher Adamant"
+Lang["N2_3849"] = "Todespirscher Adamants Leichnam liegt früh in Burg Shadowfang, in einem Nebenraum abseits des Hofwegs."
+Lang["N1_4444"] = "Todespirscher Vincent"
+Lang["N2_4444"] = "Todespirscher Vincents Leichnam befindet sich tiefer in Burg Shadowfang, in der Nähe des Speisesaals."
+-- Blackfathom Deeps
+Lang["N1_4787"] = "Argentumwache Thaelrid"
+Lang["N2_4787"] = "Argentumwache Thaelrid befindet sich in der Blackfathom-Tiefe, hinter den ersten Naga-Höhlen."
+Lang["N1_4832"] = "Twilight-Lord Kelris"
+Lang["N2_4832"] = "Twilight-Lord Kelris ist ein Boss in der Blackfathom-Tiefe, im Mondschreinsanktum."
+Lang["N1_12902"] = "Lorgus Jett"
+Lang["N2_12902"] = "Lorgus Jett ist ein Zauberer des Schattenhammers in der Blackfathom-Tiefe, auf dem Weg zum Sanktum."
 
 
 Lang["O_1"] = "Klicke auf Drakkisaths Brandzeichen um die Quest abzuschließen.\nEs ist der glühende Ball hinter General Drakkisath."

@@ -441,6 +441,22 @@ Lang["I_17329"] = "Mano de Lucifron"
 Lang["I_17331"] = "Mano de Gehennas"
 Lang["I_17330"] = "Mano de Sulfuron"
 Lang["I_17333"] = "Quintaesencia de agua"
+-- Wailing Caverns
+Lang["I_5334"] = "Puerto con 99 años de antigüedad"
+Lang["I_5339"] = "Reptilia"
+Lang["I_6443"] = "Pellejo descarriado"
+Lang["I_6464"] = "Esencia de lamentos"
+-- Shadowfang Keep
+Lang["I_5442"] = "Cabeza de Arugal"
+Lang["I_6283"] = "El libro de Ur"
+-- Blackfathom Deeps
+Lang["I_5359"] = "Manuscrito de Lorgalis"
+Lang["I_5952"] = "Bulbo raquídeo corrupto"
+Lang["I_5879"] = "Colgante del Crepúsculo"
+Lang["I_5881"] = "Cabeza de Kelris"
+Lang["I_16762"] = "Núcleo de las profundidades"
+Lang["I_16784"] = "Zafiro de Aku'Mai"
+Lang["I_16790"] = "Nota mojada"
 
 
 -- QUESTS - Classic
@@ -1055,6 +1071,20 @@ Lang["N1_11834"] = "Maur Tótem Siniestro"
 Lang["N2_11834"] = "El cadáver de Maur Tótem Siniestro está más allá del primer jefe en Sima Ígnea, en el camino de la derecha."
 Lang["N1_639"] = "Edwin VanCleef"
 Lang["N2_639"] = "Edwin VanCleef es el jefe final de Las Minas de la Muerte, a bordo del barco pirata en la Cala Acorazada."
+-- Shadowfang Keep
+Lang["N1_4275"] = "Archimago Arugal"
+Lang["N2_4275"] = "El Archimago Arugal es el jefe final del Castillo de Colmillo Oscuro, en la cima del castillo."
+Lang["N1_3849"] = "Mortacechador Adamant"
+Lang["N2_3849"] = "El cadáver del Mortacechador Adamant se encuentra al principio del Castillo de Colmillo Oscuro, en una habitación lateral del patio."
+Lang["N1_4444"] = "Mortacechador Vincent"
+Lang["N2_4444"] = "El cadáver del Mortacechador Vincent se encuentra más adentro del Castillo de Colmillo Oscuro, cerca del comedor."
+-- Blackfathom Deeps
+Lang["N1_4787"] = "Guardia Argenta Thaelrid"
+Lang["N2_4787"] = "El Guardia Argenta Thaelrid se encuentra en Cavernas de Brazanegra, más allá de las cuevas de nagas."
+Lang["N1_4832"] = "Señor Crepuscular Kelris"
+Lang["N2_4832"] = "El Señor Crepuscular Kelris es un jefe de Cavernas de Brazanegra, en el Santuario Lunar."
+Lang["N1_12902"] = "Lorgus Jett"
+Lang["N2_12902"] = "Lorgus Jett es un hechicero del Martillo Crepuscular en Cavernas de Brazanegra, en el camino hacia el Santuario."
 
 
 Lang["O_1"] = "Clicka en La marca de Drakkisath para completar la misión.\nLa orbe brillante detras del General Drakkisath."

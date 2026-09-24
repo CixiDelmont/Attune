@@ -441,6 +441,22 @@ Lang["I_17329"] = "Main de Lucifron"
 Lang["I_17331"] = "Main de Gehennas"
 Lang["I_17330"] = "Main de Sulfuron"
 Lang["I_17333"] = "Quintessence aquatique"
+-- Wailing Caverns
+Lang["I_5334"] = "Porto vieux de 99 ans"
+Lang["I_5339"] = "Fleur de serpent"
+Lang["I_6443"] = "Peau de déviant"
+Lang["I_6464"] = "Essence de lamentation"
+-- Shadowfang Keep
+Lang["I_5442"] = "Tête d'Arugal"
+Lang["I_6283"] = "Le Livre d'Ur"
+-- Blackfathom Deeps
+Lang["I_5359"] = "Manuscrit de Lorgalis"
+Lang["I_5952"] = "Souche de cerveau corrompu"
+Lang["I_5879"] = "Pendentif du crépuscule"
+Lang["I_5881"] = "Tête de Kelris"
+Lang["I_16762"] = "Noyau de la Brasse"
+Lang["I_16784"] = "Saphir d'Aku'Mai"
+Lang["I_16790"] = "Note humide"
 
 
 -- QUESTS - Classic
@@ -1055,6 +1071,20 @@ Lang["N1_11834"] = "Maur Totem-sinistre"
 Lang["N2_11834"] = "Le corps de Maur Totem-sinistre se trouve après le premier boss du Gouffre de Ragefeu, sur le chemin de droite."
 Lang["N1_639"] = "Edwin VanCleef"
 Lang["N2_639"] = "Edwin VanCleef est le boss final des Mortemines, à bord du navire pirate dans la Crique du Cuirassé."
+-- Shadowfang Keep
+Lang["N1_4275"] = "Archimage Arugal"
+Lang["N2_4275"] = "Archimage Arugal est le boss final du Donjon d'Ombrecroc, au sommet du donjon."
+Lang["N1_3849"] = "Traqueur noir Adamant"
+Lang["N2_3849"] = "Le corps du Traqueur noir Adamant se trouve au début du Donjon d'Ombrecroc, dans une pièce latérale près de la cour."
+Lang["N1_4444"] = "Traqueur noir Vincent"
+Lang["N2_4444"] = "Le corps du Traqueur noir Vincent se trouve plus loin dans le Donjon d'Ombrecroc, près de la salle à manger."
+-- Blackfathom Deeps
+Lang["N1_4787"] = "Garde d'argent Thaelrid"
+Lang["N2_4787"] = "Le Garde d'argent Thaelrid se trouve dans les Profondeurs de Brassenoire, passé les grottes peuplées de nagas."
+Lang["N1_4832"] = "Seigneur du crépuscule Kelris"
+Lang["N2_4832"] = "Le Seigneur du crépuscule Kelris est un boss des Profondeurs de Brassenoire, dans le Sanctuaire de la Lune."
+Lang["N1_12902"] = "Lorgus Jett"
+Lang["N2_12902"] = "Lorgus Jett est un lanceur de sorts du Marteau du crépuscule dans les Profondeurs de Brassenoire, sur le chemin du Sanctuaire."
 
 
 Lang["O_1"] = "Cliquez sur la Marque de Drakkisath pour compléter la quête.\nC'est le globe brillant qui se trouve juste drrière Drakkisath."

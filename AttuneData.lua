@@ -600,34 +600,54 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="190",ID="360",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150",STAGE="60"},
 
 --vForever dungeon attune 200
-	-- Columns L→R (higher ID = left): 1199 | 1275 | 1198 chain | 971
-	{ID_ATTUNE="200",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Columns L→R (higher ID = left): 1199 Twilight | 1275 Research | 971 Knowledge
+	-- SIDE (beside End): 1200 Blackfathom Villainy, 78916 Heart of the Void (from inside)
+	{ID_ATTUNE="200",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 18",LOCATION="",ID_WOWHEAD="18",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="200",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Twilight Falls
-	{ID_ATTUNE="200",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1275",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Researching the Corruption
-	{ID_ATTUNE="200",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1198",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: In Search of Thaelrid
-	{ID_ATTUNE="200",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Knowledge in the Deeps
+	{ID_ATTUNE="200",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Twilight Falls
+	{ID_ATTUNE="200",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1275",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Researching the Corruption
+	{ID_ATTUNE="200",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Knowledge in the Deeps
 	-- STAGE 30
-	{ID_ATTUNE="200",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="200",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="200",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Blackfathom Villainy
-	{ID_ATTUNE="200",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="200",ID="440",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="420&320&230&120",STAGE="40"},
+	{ID_ATTUNE="200",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5879",ICON="Interface\\Icons\\inv_jewelry_amulet_06",FOLLOWS="320",STAGE="30", COUNT=10}, -- item: Twilight Pendant
+	{ID_ATTUNE="200",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5952",ICON="Interface\\Icons\\inv_misc_organ_03",FOLLOWS="220",STAGE="30", COUNT=8}, -- item: Corrupted Brain Stem
+	{ID_ATTUNE="200",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5359",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="120",STAGE="30"}, -- item: Lorgalis Manuscript
+	-- STAGE 40
+	{ID_ATTUNE="200",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Twilight Falls
+	{ID_ATTUNE="200",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1275",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Researching the Corruption
+	{ID_ATTUNE="200",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Knowledge in the Deeps
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="200",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: Blackfathom Villainy (from Thaelrid)
+	{ID_ATTUNE="200",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78916",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: The Heart of the Void
+	{ID_ATTUNE="200",ID="350",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="340&240&140&520&510",STAGE="50"},
 
 --vForever dungeon attune 210
-	-- Columns L→R (higher ID = left): 6921 | 6561 | 6564 chain | 6562 chain
+	-- Columns L→R (higher ID = left): 6921 Amongst | 6564→6565 Allegiance | 6562→6563 Essence
+	-- SIDE (beside End): 6561 Blackfathom Villainy, 78917 Heart of the Void (from inside)
 	{ID_ATTUNE="210",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 17",LOCATION="",ID_WOWHEAD="17",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="210",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Amongst the Ruins
-	{ID_ATTUNE="210",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6561",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blackfathom Villainy
-	{ID_ATTUNE="210",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6564",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Allegiance to the Old Gods
-	{ID_ATTUNE="210",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6562",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble in the Deeps
+	{ID_ATTUNE="210",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Amongst the Ruins
+	{ID_ATTUNE="210",ID="220",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="16790",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="10",STAGE="20"}, -- item: Damp Note (starts 6564)
+	{ID_ATTUNE="210",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6562",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble in the Deeps (prequest)
 	-- STAGE 30
-	{ID_ATTUNE="210",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="210",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="210",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6565",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Allegiance to the Old Gods
-	{ID_ATTUNE="210",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6563",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: The Essence of Aku'Mai
-	{ID_ATTUNE="210",ID="440",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="420&320&230&130",STAGE="40"},
+	{ID_ATTUNE="210",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="16762",ICON="Interface\\Icons\\inv_misc_stonetablet_08",FOLLOWS="320",STAGE="30"}, -- item: Fathom Core
+	{ID_ATTUNE="210",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6564",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Allegiance to the Old Gods (turn in note)
+	{ID_ATTUNE="210",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6563",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: The Essence of Aku'Mai
+	-- STAGE 40
+	{ID_ATTUNE="210",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Amongst the Ruins
+	{ID_ATTUNE="210",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6565",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Allegiance to the Old Gods
+	{ID_ATTUNE="210",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="16784",ICON="Interface\\Icons\\inv_misc_gem_sapphire_03",FOLLOWS="130",STAGE="40", COUNT=20}, -- item: Sapphire of Aku'Mai
+	-- STAGE 50
+	{ID_ATTUNE="210",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="210",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="12902",ICON="Interface\\Icons\\spell_shadow_shadowbolt",FOLLOWS="240",STAGE="50"}, -- npc: Lorgus Jett
+	{ID_ATTUNE="210",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6563",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: The Essence of Aku'Mai
+	-- STAGE 60
+	{ID_ATTUNE="210",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="210",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6565",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: Allegiance to the Old Gods
+	{ID_ATTUNE="210",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="210",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6561",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Blackfathom Villainy (from Thaelrid)
+	{ID_ATTUNE="210",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78917",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Heart of the Void
+	{ID_ATTUNE="210",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&520&510",STAGE="70"},
 
 --vForever dungeon attune 220
 	-- Columns L→R (higher ID = left): 388 | 387 | 377 | 386 | 373 chain
@@ -1225,6 +1245,7 @@ Attune_Data.quests = {
 	[92401]={15,1},			[92415]={15,1},			[92421]={15,5},			[92422]={15,5},			[95189]={16,1},
 	[95195]={16,1},			[95204]={16,1},			[95216]={16,5},			[95250]={16,5},			[96393]={9,5},
 	[96394]={10,5},			[96395]={10,5},			[96403]={10,5},			[97288]={16,1},
+	[78916]={25,5},			[78917]={25,5},
 	
 -- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
@@ -1264,6 +1285,7 @@ Attune_Data.quests = {
 	[92401]={15,1},			[92415]={15,1},			[92421]={15,5},			[92422]={15,5},			[95189]={16,1},
 	[95195]={16,1},			[95204]={16,1},			[95216]={16,5},			[95250]={16,5},			[96393]={9,5},
 	[96394]={10,5},			[96395]={10,5},			[96403]={10,5},			[97288]={16,1},
+	[78916]={25,5},			[78917]={25,5},
 }
 
 
@@ -1372,4 +1394,8 @@ Attune_Data.npcs = {
 	[4275]  = { "26", AttuneLang["Elite"], AttuneLang["Human"]},		-- Archmage Arugal
 	[3849]  = { "18", "", AttuneLang["Undead"]},					-- Deathstalker Adamant
 	[4444]  = { "18", "", AttuneLang["Undead"]},					-- Deathstalker Vincent
+	-- Blackfathom Deeps
+	[4787]  = { "20", AttuneLang["Elite"], AttuneLang["Night-Elf"]},	-- Argent Guard Thaelrid
+	[4832]  = { "25", AttuneLang["Elite"], AttuneLang["Human"]},		-- Twilight Lord Kelris
+	[12902] = { "24", AttuneLang["Elite"], AttuneLang["Human"]},		-- Lorgus Jett
 }
