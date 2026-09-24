@@ -22,7 +22,8 @@ Attune_Data.attunes = 	{
 	{ID="220",NAME=AttuneLang["The Stockade"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="230",NAME=AttuneLang["Gnomeregan"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="240",NAME=AttuneLang["Gnomeregan"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
-	{ID="250",NAME=AttuneLang["Razorfen Kraul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterhorn_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
+	{ID="250",NAME=AttuneLang["Razorfen Kraul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_monsterhorn_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
+	{ID="251",NAME=AttuneLang["Razorfen Kraul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_monsterhorn_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="260",NAME=AttuneLang["Scarlet Monastery"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="270",NAME=AttuneLang["Scarlet Monastery"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="280",NAME=AttuneLang["Razorfen Downs"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
@@ -673,54 +674,121 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="220",ID="550",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="520&420&320&220&140",STAGE="50"},
 
 --vForever dungeon attune 230
-	-- Columns L→R (higher ID = left): 2904 | 2929 | 2924 | 2928 | 2927 chain | 2923 chain
+	-- Columns L→R (higher ID = left): 2929 Betrayal | 2924 Artificials | 2928 Gyro | 2927→2926 Gnogaine | 2923→2922 Techbot
+	-- SIDE (beside End): 80324 Mad King, 2904 A Fine Mess, 79987 Return of the Ring
 	{ID_ATTUNE="230",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="230",ID="620",TYPE="Inside",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20", SIDE=true}, -- quest: A Fine Mess
-	{ID_ATTUNE="230",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Grand Betrayal
-	{ID_ATTUNE="230",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Essential Artificials
-	{ID_ATTUNE="230",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gyrodrillmatic Excavationators
-	{ID_ATTUNE="230",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2927",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Day After
-	{ID_ATTUNE="230",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Tinkmaster Overspark
+	{ID_ATTUNE="230",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Grand Betrayal
+	{ID_ATTUNE="230",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Essential Artificials
+	{ID_ATTUNE="230",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gyrodrillmatic Excavationators
+	{ID_ATTUNE="230",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2927",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Day After (prequest)
+	{ID_ATTUNE="230",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Tinkmaster Overspark (prequest)
 	-- STAGE 30
-	{ID_ATTUNE="230",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="230",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="230",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="230",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="230",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Gnogaine
-	{ID_ATTUNE="230",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Save Techbot's Brain!
-	{ID_ATTUNE="230",ID="640",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&520&420&320&230&130",STAGE="40"},
+	{ID_ATTUNE="230",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="520",STAGE="30"}, -- npc: Mekgineer Thermaplugg
+	{ID_ATTUNE="230",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9278",ICON="Interface\\Icons\\inv_gizmo_01",FOLLOWS="420",STAGE="30", COUNT=12}, -- item: Essential Artificial
+	{ID_ATTUNE="230",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9309",ICON="Interface\\Icons\\inv_gizmo_02",FOLLOWS="320",STAGE="30", COUNT=24}, -- item: Robo-mechanical Guts
+	{ID_ATTUNE="230",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Gnogaine
+	{ID_ATTUNE="230",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Save Techbot's Brain!
+	-- STAGE 40
+	{ID_ATTUNE="230",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The Grand Betrayal
+	{ID_ATTUNE="230",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Essential Artificials
+	{ID_ATTUNE="230",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Gyrodrillmatic Excavationators
+	{ID_ATTUNE="230",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9284",ICON="Interface\\Icons\\inv_drink_01",FOLLOWS="230",STAGE="40"}, -- item: Full Leaden Collection Phial
+	{ID_ATTUNE="230",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="6231",ICON="Interface\\Icons\\inv_battery_01",FOLLOWS="130",STAGE="40"}, -- npc: Techbot
+	-- STAGE 50
+	{ID_ATTUNE="230",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="230",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="230",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="230",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Gnogaine
+	{ID_ATTUNE="230",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9277",ICON="Interface\\Icons\\inv_battery_01",FOLLOWS="140",STAGE="50"}, -- item: Techbot's Memory Core
+	-- STAGE 60
+	{ID_ATTUNE="230",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
+	{ID_ATTUNE="230",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="230",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="230",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="230",ID="160",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="60"}, -- quest: Save Techbot's Brain!
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="230",ID="640",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="80324",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Mad King
+	{ID_ATTUNE="230",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: A Fine Mess (Kernobee)
+	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="79987",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring
+	{ID_ATTUNE="230",ID="570",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&360&260&160&640&630&620",STAGE="70"},
 
 --vForever dungeon attune 240
-	-- Columns L→R (higher ID = left): 2904 | 2841 | 2842 chain
+	-- Columns L→R (higher ID = left): 2841 Rig Wars | 2842→2843 Scooty chain
+	-- SIDE (beside End): 80325 Mad King, 2904 A Fine Mess, 80140 Return of the Ring
 	{ID_ATTUNE="240",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="240",ID="320",TYPE="Inside",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20", SIDE=true}, -- quest: A Fine Mess
-	{ID_ATTUNE="240",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Rig Wars
-	{ID_ATTUNE="240",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2842",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Chief Engineer Scooty
+	{ID_ATTUNE="240",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Rig Wars
+	{ID_ATTUNE="240",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2842",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Chief Engineer Scooty (prequest)
 	-- STAGE 30
-	{ID_ATTUNE="240",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="30"},
+	{ID_ATTUNE="240",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="220",STAGE="30"}, -- npc: Mekgineer Thermaplugg
 	{ID_ATTUNE="240",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="2843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Gnomer-gooooone!
-	{ID_ATTUNE="240",ID="340",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="320&330&130",STAGE="40"},
+	-- STAGE 40
+    {ID_ATTUNE="240",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9299",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="230",STAGE="40"}, -- item: Thermaplugg's Safe Combination
+	{ID_ATTUNE="240",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},    
+	-- STAGE 50
+	{ID_ATTUNE="240",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9153",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="240",STAGE="50"}, -- item: Rig Blueprints
+	{ID_ATTUNE="240",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+    -- STAGE 60
+	{ID_ATTUNE="240",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: Rig Wars
+	{ID_ATTUNE="240",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="240",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="80325",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Mad King
+	{ID_ATTUNE="240",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: A Fine Mess (Kernobee)
+	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="80140",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring
+	{ID_ATTUNE="240",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="260&160&340&330&320",STAGE="70"},
 
---vForever dungeon attune 250
-	-- Columns L→R (higher ID = left): 1109 | 1142 | 1102 | 1100 chain | 1144 | 1221
+--vForever dungeon attune 250 (Alliance)
+	-- Columns L→R (higher ID = left): 1142 Mortality | 1100→1101 Crone | 1221 Tubers
+	-- SIDE (beside End): 1144 Willix the Importer (escort inside)
 	{ID_ATTUNE="250",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="250",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano!
-	{ID_ATTUNE="250",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mortality Wanes
-	{ID_ATTUNE="250",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Vengeful Fate
-	{ID_ATTUNE="250",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1100",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lonebrow's Journal
-	{ID_ATTUNE="250",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1144",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Willix the Importer
-	{ID_ATTUNE="250",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blueleaf Tubers
+	{ID_ATTUNE="250",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mortality Wanes (from Heralath inside)
+	{ID_ATTUNE="250",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1100",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lonebrow's Journal (prequest)
+	{ID_ATTUNE="250",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blueleaf Tubers
 	-- STAGE 30
-	{ID_ATTUNE="250",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="250",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="250",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="250",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: The Crone of the Kraul
-	{ID_ATTUNE="250",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="250",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="250",ID="640",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&520&420&330&220&120",STAGE="40"},
+	{ID_ATTUNE="250",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5825",ICON="Interface\\Icons\\inv_jewelry_necklace_01",FOLLOWS="320",STAGE="30"}, -- item: Treshala's Pendant
+	{ID_ATTUNE="250",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="1101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: The Crone of the Kraul
+	{ID_ATTUNE="250",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6}, -- item: Blueleaf Tuber
+	-- STAGE 40
+	{ID_ATTUNE="250",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Mortality Wanes
+	{ID_ATTUNE="250",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="230",STAGE="40"}, -- npc: Charlga Razorflank
+	{ID_ATTUNE="250",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Blueleaf Tubers
+	-- STAGE 50
+	{ID_ATTUNE="250",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="250",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5792",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="240",STAGE="50"}, -- item: Razorflank's Medallion
+	{ID_ATTUNE="250",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="250",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="250",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="1101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: The Crone of the Kraul
+	{ID_ATTUNE="250",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- SIDE reminder (inside dungeon) — left of End
+	{ID_ATTUNE="250",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1144",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Willix the Importer
+	{ID_ATTUNE="250",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&420",STAGE="70"},
+
+--vForever dungeon attune 251 (Horde)
+	-- Columns L→R (higher ID = left): 1109 Guano | 1102 Vengeful | 1221 Tubers
+	-- SIDE (beside End): 1144 Willix the Importer (escort inside)
+	{ID_ATTUNE="251",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="251",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano!
+	{ID_ATTUNE="251",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Vengeful Fate
+	{ID_ATTUNE="251",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blueleaf Tubers
+	-- STAGE 30
+	{ID_ATTUNE="251",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5801",ICON="Interface\\Icons\\inv_misc_slime_01",FOLLOWS="320",STAGE="30"}, -- item: Kraul Guano
+	{ID_ATTUNE="251",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="220",STAGE="30"}, -- npc: Charlga Razorflank
+	{ID_ATTUNE="251",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6}, -- item: Blueleaf Tuber
+	-- STAGE 40
+	{ID_ATTUNE="251",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Going, Going, Guano!
+	{ID_ATTUNE="251",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5793",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="230",STAGE="40"}, -- item: Razorflank's Heart
+	{ID_ATTUNE="251",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Blueleaf Tubers
+	-- STAGE 50
+	{ID_ATTUNE="251",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="251",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: A Vengeful Fate
+	{ID_ATTUNE="251",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- SIDE reminder (inside dungeon) — left of End
+	{ID_ATTUNE="251",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1144",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Willix the Importer
+	{ID_ATTUNE="251",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150&420",STAGE="60"},
 
 --vForever dungeon attune 260
 	-- Columns L→R (higher ID = left): 6141 chain | 1050
@@ -1245,7 +1313,8 @@ Attune_Data.quests = {
 	[92401]={15,1},			[92415]={15,1},			[92421]={15,5},			[92422]={15,5},			[95189]={16,1},
 	[95195]={16,1},			[95204]={16,1},			[95216]={16,5},			[95250]={16,5},			[96393]={9,5},
 	[96394]={10,5},			[96395]={10,5},			[96403]={10,5},			[97288]={16,1},
-	[78916]={25,5},			[78917]={25,5},
+	[78916]={25,5},			[78917]={25,5},			[79987]={40,5},			[80140]={40,5},
+	[80324]={40,5},			[80325]={40,5},
 	
 -- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
@@ -1286,6 +1355,7 @@ Attune_Data.quests = {
 	[95195]={16,1},			[95204]={16,1},			[95216]={16,5},			[95250]={16,5},			[96393]={9,5},
 	[96394]={10,5},			[96395]={10,5},			[96403]={10,5},			[97288]={16,1},
 	[78916]={25,5},			[78917]={25,5},
+	[79987]={40,5},			[80140]={40,5},			[80324]={40,5},			[80325]={40,5},
 }
 
 
@@ -1398,4 +1468,11 @@ Attune_Data.npcs = {
 	[4787]  = { "20", AttuneLang["Elite"], AttuneLang["Night-Elf"]},	-- Argent Guard Thaelrid
 	[4832]  = { "25", AttuneLang["Elite"], AttuneLang["Human"]},		-- Twilight Lord Kelris
 	[12902] = { "24", AttuneLang["Elite"], AttuneLang["Human"]},		-- Lorgus Jett
+	-- Gnomeregan
+	[7800]  = { "28", AttuneLang["Elite"], AttuneLang["Gnome"]},		-- Mekgineer Thermaplugg
+	[6231]  = { "26", AttuneLang["Elite"], AttuneLang["Mechanical"]},	-- Techbot
+	[7850]  = { "28", "", AttuneLang["Gnome"]},					-- Kernobee
+	-- Razorfen Kraul
+	[4421]  = { "33", AttuneLang["Elite"], AttuneLang["Quillboar"]},	-- Charlga Razorflank
+	[4508]  = { "28", "", AttuneLang["Human"]},					-- Willix the Importer
 }

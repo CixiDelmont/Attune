@@ -1,0 +1,15 @@
+---
+description: Keep all Attune locale files in sync with enUS keys
+alwaysApply: true
+---
+
+# Locale sync (required)
+
+Whenever you add or change any `Lang["..."]` entry in `Locales/enUS.lua`:
+
+1. Add the same key to **every** other locale file: `frFR`, `deDE`, `esES`, `ruRU`, `zhCN`, `zhTW`, `koKR`.
+2. Prefer a real translation when you already have one (Wowhead / existing style). Otherwise use the English `enUS` value as a temporary fallback.
+3. After locale edits, run `powershell -File sync_locales.ps1` from the addon root to backfill any missing keys, then confirm verify output shows `missing=0` for all locales.
+4. Do not leave Forever/Vanilla dungeon quest, item (`I_`), NPC (`N1_`/`N2_`), or location keys only in `enUS`.
+
+AceLocale falls back to English, but this project requires explicit keys in all language files.
