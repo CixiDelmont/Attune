@@ -467,6 +467,9 @@ Lang["I_5334"] = "99-Year-Old Port"
 Lang["I_5339"] = "Serpentbloom"
 Lang["I_6443"] = "Deviate Hide"
 Lang["I_6464"] = "Wailing Essence"
+-- Shadowfang Keep
+Lang["I_5442"] = "Head of Arugal"
+Lang["I_6283"] = "The Book of Ur"
 
 
 -- QUESTS - Classic
@@ -1137,6 +1140,12 @@ Lang["N1_11834"] = "Maur Grimtotem"
 Lang["N2_11834"] = "Maur Grimtotem's corpse lies past the first boss in Ragefire Chasm, off the right-hand path."
 Lang["N1_639"] = "Edwin VanCleef"
 Lang["N2_639"] = "Edwin VanCleef is the final boss of the Deadmines, aboard the pirate ship in Ironclad Cove."
+Lang["N1_4275"] = "Archmage Arugal"
+Lang["N2_4275"] = "Archmage Arugal is the final boss of Shadowfang Keep, found at the top of the keep."
+Lang["N1_3849"] = "Deathstalker Adamant"
+Lang["N2_3849"] = "Deathstalker Adamant's corpse lies early in Shadowfang Keep, in a side room off the courtyard path."
+Lang["N1_4444"] = "Deathstalker Vincent"
+Lang["N2_4444"] = "Deathstalker Vincent's corpse is found deeper in Shadowfang Keep, near the dining hall."
 
 
 Lang["O_1"] = "Click Drakkisath's Brand to complete the quest.\nIt's a glowing orb located behind General Drakkisath."

@@ -579,13 +579,25 @@ Attune_Data.steps = 	{
 
 
 --vForever dungeon attune 190
-	-- Columns L→R (higher ID = left): 1014 | 1098 | 1013
+	-- Columns L→R (higher ID = left): 1014 Arugal | 1098 Deathstalkers | 1013 Book of Ur
 	{ID_ATTUNE="190",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 16",LOCATION="",ID_WOWHEAD="16",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="190",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="1014",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Arugal Must Die
-	{ID_ATTUNE="190",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="1098",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deathstalkers in Shadowfang
-	{ID_ATTUNE="190",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="1013",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Book of Ur
-	{ID_ATTUNE="190",ID="330",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="320&220&120",STAGE="30"},
+	{ID_ATTUNE="190",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1014",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Arugal Must Die
+	{ID_ATTUNE="190",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1098",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deathstalkers in Shadowfang
+	{ID_ATTUNE="190",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1013",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Book of Ur
+	-- STAGE 30
+	{ID_ATTUNE="190",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4275",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="320",STAGE="30"}, -- npc: Archmage Arugal
+	{ID_ATTUNE="190",ID="230",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="3849",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="220",STAGE="30"}, -- npc: Deathstalker Adamant
+	{ID_ATTUNE="190",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6283",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="120",STAGE="30"}, -- item: The Book of Ur
+	-- STAGE 40
+	{ID_ATTUNE="190",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="5442",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="330",STAGE="40"}, -- item: Head of Arugal
+	{ID_ATTUNE="190",ID="240",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4444",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="230",STAGE="40"}, -- npc: Deathstalker Vincent
+	{ID_ATTUNE="190",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1013",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: The Book of Ur
+	-- STAGE 50
+	{ID_ATTUNE="190",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1014",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Arugal Must Die
+	{ID_ATTUNE="190",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1098",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Deathstalkers in Shadowfang
+	{ID_ATTUNE="190",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	{ID_ATTUNE="190",ID="360",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150",STAGE="60"},
 
 --vForever dungeon attune 200
 	-- Columns L→R (higher ID = left): 1199 | 1275 | 1198 chain | 971
@@ -1356,4 +1368,8 @@ Attune_Data.npcs = {
 	[11834] = { "14", "", AttuneLang["Tauren"]},					-- Maur Grimtotem
 	-- The Deadmines
 	[639]   = { "20", AttuneLang["Elite"], AttuneLang["Human"]},		-- Edwin VanCleef
+	-- Shadowfang Keep
+	[4275]  = { "26", AttuneLang["Elite"], AttuneLang["Human"]},		-- Archmage Arugal
+	[3849]  = { "18", "", AttuneLang["Undead"]},					-- Deathstalker Adamant
+	[4444]  = { "18", "", AttuneLang["Undead"]},					-- Deathstalker Vincent
 }
