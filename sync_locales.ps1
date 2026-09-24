@@ -18,6 +18,9 @@ $locales = @('frFR', 'deDE', 'esES', 'ruRU', 'zhCN', 'zhTW', 'koKR')
 foreach ($loc in $locales) {
 	$path = Join-Path $base "$loc.lua"
 	$content = [System.IO.File]::ReadAllText($path, $utf8)
+	# Drop previous sync block first, then compute missing keys from what remains
+	$content = [regex]::Replace($content, '(?s)\r?\n-- Synced from enUS.*?(?=(\r?\n-- à :)|\r?\n*\z)', '')
+
 	$have = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
 	foreach ($m in [regex]::Matches($content, 'Lang\["((?:\\.|[^"\\])*)"\]')) {
 		[void]$have.Add($m.Groups[1].Value)
@@ -41,10 +44,12 @@ foreach ($loc in $locales) {
 		}
 	}
 	Write-Host ("{0}: adding {1}" -f $loc, $added)
-	if ($added -eq 0) { continue }
+	if ($added -eq 0) {
+		[System.IO.File]::WriteAllText($path, $content, $utf8)
+		continue
+	}
 
 	$block = $sb.ToString()
-	$content = [regex]::Replace($content, '(?s)\r?\n-- Synced from enUS.*?(?=(\r?\n-- à :)|\r?\n*\z)', '')
 	if ($content -match '(?m)^-- à :') {
 		$idx = $content.IndexOf('-- à :')
 		$content = $content.Substring(0, $idx) + $block + $content.Substring($idx)
