@@ -768,7 +768,7 @@ Attune_Data.steps = 	{
 
 --vForever dungeon attune 251 (Horde)
 	-- Columns L→R (higher ID = left): 1109 Guano | 1102 Vengeful | 1221 Tubers
-	-- SIDE (beside End): 1144 Willix the Importer (escort inside)
+	-- SIDE (beside End): 6522 An Unholy Alliance (Small Scroll from Charlga), 1144 Willix the Importer
 	{ID_ATTUNE="251",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="251",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano!
@@ -786,9 +786,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="251",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="251",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: A Vengeful Fate
 	{ID_ATTUNE="251",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
-	-- SIDE reminder (inside dungeon) — left of End
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="251",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: An Unholy Alliance (Small Scroll from Charlga → RFD)
 	{ID_ATTUNE="251",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1144",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Willix the Importer
-	{ID_ATTUNE="251",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150&420",STAGE="60"},
+	{ID_ATTUNE="251",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150&430&420",STAGE="60"},
 
 --vForever dungeon attune 260
 	-- Columns L→R (higher ID = left): 6141 chain | 1050
@@ -808,19 +809,57 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="260",ID="260",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="250&120",STAGE="60"},
 
 --vForever dungeon attune 270
-	-- Columns L→R (higher ID = left): 1109 chain | 1051 | 1049 | 1048
+	-- Columns L→R (higher ID = left): 1051 Vorrel | 1109→1113 Guano/Hearts | Test of Lore chain (→1160 SM Library) | 1049 Compendium | 1048 Into SM
 	{ID_ATTUNE="270",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 25",LOCATION="",ID_WOWHEAD="25",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="270",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano!
-	{ID_ATTUNE="270",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vorrel's Revenge
+	{ID_ATTUNE="270",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vorrel's Revenge
+	{ID_ATTUNE="270",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano! (prequest)
+	{ID_ATTUNE="270",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1149",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Test of Faith
 	{ID_ATTUNE="270",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Compendium of the Fallen
 	{ID_ATTUNE="270",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Into The Scarlet Monastery
 	-- STAGE 30
+	{ID_ATTUNE="270",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="520",STAGE="30"},
 	{ID_ATTUNE="270",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Hearts of Zeal
-	{ID_ATTUNE="270",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="270",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="270",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="270",ID="440",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="430&320&220&120",STAGE="40"},
+	{ID_ATTUNE="270",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1150",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Test of Endurance
+	{ID_ATTUNE="270",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="30"},
+	{ID_ATTUNE="270",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
+	-- STAGE 40
+	{ID_ATTUNE="270",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="40"},
+	{ID_ATTUNE="270",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="40"},
+	{ID_ATTUNE="270",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Test of Strength
+	{ID_ATTUNE="270",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="230",STAGE="40"},
+	{ID_ATTUNE="270",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
+	-- STAGE 50
+	{ID_ATTUNE="270",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="270",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="270",ID="350",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="1152",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Test of Lore (find Braug)
+	{ID_ATTUNE="270",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	{ID_ATTUNE="270",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="270",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
+	{ID_ATTUNE="270",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="270",ID="360",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="1154",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="350",STAGE="60"}, -- quest: Test of Lore (Legacy of the Aspects)
+	{ID_ATTUNE="270",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="270",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="270",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
+	{ID_ATTUNE="270",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
+	{ID_ATTUNE="270",ID="370",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6627",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="360",STAGE="70"}, -- quest: Test of Lore (Braug's question)
+	{ID_ATTUNE="270",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	{ID_ATTUNE="270",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="270",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
+	{ID_ATTUNE="270",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
+	{ID_ATTUNE="270",ID="380",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1159",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="80"}, -- quest: Test of Lore (find Parqual)
+	{ID_ATTUNE="270",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="270",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="270",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="90"},
+	{ID_ATTUNE="270",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="90"},
+	{ID_ATTUNE="270",ID="390",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="380",STAGE="90"}, -- quest: Test of Lore (Beginnings of the Undead Threat)
+	{ID_ATTUNE="270",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
+	{ID_ATTUNE="270",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
+	{ID_ATTUNE="270",ID="620",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="590&490&390&290&190",STAGE="100"},
 
 --vForever dungeon attune 280
 	-- Columns L→R (higher ID = left): 3636 | 3523 chain | 6626
@@ -836,10 +875,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="280",ID="340",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="320&230&120",STAGE="40"},
 
 --vForever dungeon attune 290
-	-- Columns L→R (higher ID = left): 6522 chain | 3341 | 3523 chain | 6626
+	-- Columns L→R (higher ID = left): 6522 chain (starts in RFK) | 3341 | 3523 chain | 6626
 	{ID_ATTUNE="290",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="290",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: An Unholy Alliance
+	{ID_ATTUNE="290",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: An Unholy Alliance (Small Scroll from Charlga in RFK)
 	{ID_ATTUNE="290",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bring the End
 	{ID_ATTUNE="290",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Scourge of the Downs
 	{ID_ATTUNE="290",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
@@ -1283,9 +1322,11 @@ Attune_Data.quests = {
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
 	[1050]={28,5},			[1051]={25,1},			[1052]={34,1},			[1053]={34,5},			[1098]={18,5},
 	[1100]={29,1},			[1101]={29,5},			[1102]={29,5},			[1109]={30,5},			[1113]={30,1},
-	[1139]={35,5},			[1142]={25,5},			[1144]={22,5},			[1198]={18,1},			[1199]={20,5},
-	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1445]={38,5},
-	[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
+	[1139]={35,5},			[1142]={25,5},			[1144]={22,5},			[1149]={25,1},			[1150]={25,5},
+	[1151]={25,5},			[1152]={26,1},			[1154]={26,5},			[1159]={26,1},			[1160]={26,5},
+	[1198]={18,1},			[1199]={20,5},
+	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
+	[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
@@ -1306,7 +1347,7 @@ Attune_Data.quests = {
 	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5526]={56,5},			[5529]={55,5},
 	[5848]={52,5},			[6141]={34,1},			[6521]={28,1},			[6522]={28,1},			[6561]={18,5},
 	[6562]={17,1},			[6563]={17,1},			[6564]={17,1},			[6565]={17,5},			[6626]={28,1},
-	[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
+	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
 	[7044]={41,5},			[7046]={41,5},			[7064]={45,5},			[7065]={45,5},			[7066]={39,1},
 	[7067]={39,5},			[7068]={39,1},			[7070]={39,1},			[7441]={54,5},			[7461]={56,5},
 	[7462]={56,1},			[7481]={54,1},			[7482]={54,1},			[7488]={54,5},			[7489]={54,5},
@@ -1324,9 +1365,11 @@ Attune_Data.quests = {
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
 	[1050]={28,5},			[1051]={25,1},			[1052]={34,1},			[1053]={34,5},			[1098]={18,5},
 	[1100]={29,1},			[1101]={29,5},			[1102]={29,5},			[1109]={30,5},			[1113]={30,1},
-	[1139]={35,5},			[1142]={25,5},			[1144]={22,5},			[1198]={18,1},			[1199]={20,5},
-	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1445]={38,5},
-	[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
+	[1139]={35,5},			[1142]={25,5},			[1144]={22,5},			[1149]={25,1},			[1150]={25,5},
+	[1151]={25,5},			[1152]={26,1},			[1154]={26,5},			[1159]={26,1},			[1160]={26,5},
+	[1198]={18,1},			[1199]={20,5},
+	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
+	[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
@@ -1347,7 +1390,7 @@ Attune_Data.quests = {
 	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5526]={56,5},			[5529]={55,5},
 	[5848]={52,5},			[6141]={34,1},			[6521]={28,1},			[6522]={28,1},			[6561]={18,5},
 	[6562]={17,1},			[6563]={17,1},			[6564]={17,1},			[6565]={17,5},			[6626]={28,1},
-	[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
+	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
 	[7044]={41,5},			[7046]={41,5},			[7064]={45,5},			[7065]={45,5},			[7066]={39,1},
 	[7067]={39,5},			[7068]={39,1},			[7070]={39,1},			[7441]={54,5},			[7461]={56,5},
 	[7462]={56,1},			[7481]={54,1},			[7482]={54,1},			[7488]={54,5},			[7489]={54,5},
