@@ -372,7 +372,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="160",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 9",LOCATION="",ID_WOWHEAD="9",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	
 	{ID_ATTUNE="160",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Searching for the Lost Satchel
-	{ID_ATTUNE="160",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Testing an Enemy's Strength
+	{ID_ATTUNE="160",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Testing an Enemy's Strength
     {ID_ATTUNE="160",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Hidden Enemies
 	{ID_ATTUNE="160",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Slaying the Beast
 	{ID_ATTUNE="160",ID="60",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Power to Destroy...
@@ -384,7 +384,7 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="160",ID="100",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="50",STAGE="30"}, -- npc: Taragaman the Hungerer
     {ID_ATTUNE="160",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 
-    {ID_ATTUNE="160",ID="120",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="160",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="40"}, -- quest: Returning the Lost Satchel
     {ID_ATTUNE="160",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="160",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="40"}, -- quest: Hidden Enemies
 	{ID_ATTUNE="160",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="100",STAGE="40"}, -- item: Taragaman the Hungerer's Heart
@@ -393,7 +393,7 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="160",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
     {ID_ATTUNE="160",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="160",ID="190",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Hidden Enemies
-    {ID_ATTUNE="160",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="160",ID="200",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="50"}, -- quest: Slaying the Beast
     {ID_ATTUNE="160",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 
     {ID_ATTUNE="160",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -410,10 +410,10 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="160",ID="320",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="60",STAGE="70"}, -- item: Incantations from the Nether
 
     {ID_ATTUNE="160",ID="330",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="290&300",STAGE="80"}, -- quest: Hidden Enemies	
-    {ID_ATTUNE="160",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="90"}, -- quest: Returning the Lost Satchel
-    {ID_ATTUNE="160",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5723",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="90"}, -- quest: Testing an Enemy's Strength
-	{ID_ATTUNE="160",ID="360",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="90"}, -- quest: Hidden Enemies
-    {ID_ATTUNE="160",ID="370",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="90"}, -- quest: Slaying the Beast
+    {ID_ATTUNE="160",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="90"},
+    {ID_ATTUNE="160",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="30",STAGE="90"},
+    {ID_ATTUNE="160",ID="360",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="90"}, -- quest: Hidden Enemies
+    {ID_ATTUNE="160",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="200",STAGE="90"},
     {ID_ATTUNE="160",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="5725",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310&320",STAGE="90"}, -- quest: The Power to Destroy...
 
 	{ID_ATTUNE="160",ID="390",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_fire_fire",FOLLOWS="340&350&360&370&380",STAGE="100"},
@@ -488,63 +488,64 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="560&495&380&270&170&195&180",STAGE="120"},
 
 --vForever dungeon attune 180
-	-- Main columns L→R (higher ID = left): 1487 | 959 | oasis→1489 chain | 865 chain | 962 | 1486
+	-- Main columns L→R (higher ID = left): 1487 | 959 | oasis→1489 chain | 865→1491 | 962 | 1486
 	-- Oasis prereqs: 886 (optional breadcrumb) → 870 → 877 → 880 → 1489 → 1490 → 914
+	-- Short columns chain Spacers (FOLLOWS) so End links drop down then rejoin (no mid-tree horizontals)
 	-- SIDE (beside End): 6981 (picked up inside WC)
 	{ID_ATTUNE="180",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="180",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Eradication
-	{ID_ATTUNE="180",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="180",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
 	{ID_ATTUNE="180",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="886",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Barrens Oases
 	{ID_ATTUNE="180",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Raptor Horns
-	{ID_ATTUNE="180",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Serpentbloom
-	{ID_ATTUNE="180",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Hides
+	{ID_ATTUNE="180",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Serpentbloom
+	{ID_ATTUNE="180",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Hides
 	-- STAGE 30
-	{ID_ATTUNE="180",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="180",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="180",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="30"},
+	{ID_ATTUNE="180",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30"}, -- item: 99-Year-Old Port
 	{ID_ATTUNE="180",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="870",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Forgotten Pools
-	{ID_ATTUNE="180",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Smart Drinks
-	{ID_ATTUNE="180",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="180",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="180",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Smart Drinks
+	{ID_ATTUNE="180",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5339",ICON="Interface\\Icons\\inv_misc_herb_03",FOLLOWS="220",STAGE="30", COUNT=10}, -- item: Serpentbloom
+	{ID_ATTUNE="180",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20}, -- item: Deviate Hide
 	-- STAGE 40
-	{ID_ATTUNE="180",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="180",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="180",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
+	{ID_ATTUNE="180",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Trouble at the Docks
 	{ID_ATTUNE="180",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="877",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Stagnant Oasis
-	{ID_ATTUNE="180",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="180",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="180",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="180",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6}, -- item: Wailing Essence
+	{ID_ATTUNE="180",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Serpentbloom
+	{ID_ATTUNE="180",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Deviate Hides
 	-- STAGE 50
-	{ID_ATTUNE="180",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
-	{ID_ATTUNE="180",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
+	{ID_ATTUNE="180",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="180",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: Altered Beings
-	{ID_ATTUNE="180",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
-	{ID_ATTUNE="180",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
-	{ID_ATTUNE="180",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="180",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Smart Drinks
+	{ID_ATTUNE="180",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	{ID_ATTUNE="180",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60
-	{ID_ATTUNE="180",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
-	{ID_ATTUNE="180",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
+	{ID_ATTUNE="180",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="180",ID="460",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="60"}, -- quest: Hamuul Runetotem
-	{ID_ATTUNE="180",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
-	{ID_ATTUNE="180",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
-	{ID_ATTUNE="180",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="180",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="180",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="180",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="180",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="180",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
+	{ID_ATTUNE="180",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
 	{ID_ATTUNE="180",ID="470",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="70"}, -- quest: Nara Wildmane
-	{ID_ATTUNE="180",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="180",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="180",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="180",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
+	{ID_ATTUNE="180",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	{ID_ATTUNE="180",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
 	-- STAGE 80
-	{ID_ATTUNE="180",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-	{ID_ATTUNE="180",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
+	{ID_ATTUNE="180",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
 	{ID_ATTUNE="180",ID="480",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="914",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Leaders of the Fang
-	{ID_ATTUNE="180",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-	{ID_ATTUNE="180",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-	{ID_ATTUNE="180",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="180",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
+	{ID_ATTUNE="180",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="180",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="180",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Glowing Shard
 	-- {ID_ATTUNE="180",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="3369",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="90",SIDE=true}, -- quest: In Nightmares
-	{ID_ATTUNE="180",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&520&480&330&220&120&720",STAGE="90"},
+	{ID_ATTUNE="180",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&580&480&380&280&180&720",STAGE="90"},
 
 
 
@@ -643,7 +644,7 @@ Attune_Data.steps = 	{
 	-- Columns L→R (higher ID = left): 2904 | 2929 | 2924 | 2928 | 2927 chain | 2923 chain
 	{ID_ATTUNE="230",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Fine Mess
+	{ID_ATTUNE="230",ID="620",TYPE="Inside",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20", SIDE=true}, -- quest: A Fine Mess
 	{ID_ATTUNE="230",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Grand Betrayal
 	{ID_ATTUNE="230",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Essential Artificials
 	{ID_ATTUNE="230",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gyrodrillmatic Excavationators
@@ -662,14 +663,13 @@ Attune_Data.steps = 	{
 	-- Columns L→R (higher ID = left): 2904 | 2841 | 2842 chain
 	{ID_ATTUNE="240",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Fine Mess
+	{ID_ATTUNE="240",ID="320",TYPE="Inside",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20", SIDE=true}, -- quest: A Fine Mess
 	{ID_ATTUNE="240",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Rig Wars
 	{ID_ATTUNE="240",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2842",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Chief Engineer Scooty
 	-- STAGE 30
-	{ID_ATTUNE="240",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="240",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="240",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="30"},
 	{ID_ATTUNE="240",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="2843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Gnomer-gooooone!
-	{ID_ATTUNE="240",ID="340",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="320&220&130",STAGE="40"},
+	{ID_ATTUNE="240",ID="340",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="320&330&130",STAGE="40"},
 
 --vForever dungeon attune 250
 	-- Columns L→R (higher ID = left): 1109 | 1142 | 1102 | 1100 chain | 1144 | 1221

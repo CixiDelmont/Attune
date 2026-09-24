@@ -462,6 +462,11 @@ Lang["I_7365"] = "Gnoam Sprecklesprocket"
 Lang["I_1894"] = "Miners' Union Card"
 Lang["I_1875"] = "Thistlenettle's Badge"
 Lang["I_2874"] = "An Unsent Letter"
+-- Wailing Caverns
+Lang["I_5334"] = "99-Year-Old Port"
+Lang["I_5339"] = "Serpentbloom"
+Lang["I_6443"] = "Deviate Hide"
+Lang["I_6464"] = "Wailing Essence"
 
 
 -- QUESTS - Classic

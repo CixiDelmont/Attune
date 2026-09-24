@@ -103,6 +103,7 @@ local attunelocal_showResultAttunes = true 	-- indicates whether to show toon pr
 local attunelocal_graphRoot					-- container for attune chain nodes (scaled for zoom)
 local attunelocal_graphHeight = 0			-- unscaled chain height (for live zoom scroll updates)
 local attunelocal_contentHeight = 50		-- scroll content height accounting for zoom
+local attunelocal_graphHeaderOffset = 10    -- fixed (unscaled) px below AceGUI title/desc before graph
 local attunelocal_zoomSlider				-- fixed overlay zoom slider (not inside scroll)
 local attunelocal_graphPanX = 0				-- horizontal pan offset (parent coords)
 local attunelocal_graphMaxExtent = 0		-- unscaled half-width of widest stage
@@ -737,6 +738,11 @@ function Attune:OnEnable()
 	-- calculate how many steps this toon has done on the attune
 	local attuneDone = {}
 	local t = Attune_DB.toons[attunelocal_charKey]
+	Attune_AutoCompleteSpacers(attunelocal_charKey)
+	local spacerDone = {}
+	for _, s in pairs(Attune_Data.steps) do
+		if s.TYPE == "Spacer" then spacerDone[s.ID_ATTUNE .. "-" .. s.ID] = true end
+	end
 	local attuneSteps = {}
 	for i, s in pairs(Attune_Data.steps) do
 		if showPatchStep(s) then
@@ -747,9 +753,11 @@ function Attune:OnEnable()
 		end
 	end
 	for i, d in pairs(t.done) do
-		local Ids = Attune_split(i, "-")
-		if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
-		attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+		if not spacerDone[i] then
+			local Ids = Attune_split(i, "-")
+			if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
+			attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+		end
 	end
 	if t.attuned == nil then t.attuned = {} end
 	for i, a in pairs(Attune_Data.attunes) do
@@ -1675,12 +1683,53 @@ function Attune_CheckProgress()
 end
 
 -------------------------------------------------------------------------
+-- Auto-complete Spacer steps whose FOLLOWS are done (column drop lines)
+-------------------------------------------------------------------------
+
+function Attune_AutoCompleteSpacers(who)
+	local t = Attune_DB.toons[who]
+	if t == nil or t.done == nil then return end
+
+	-- Repeat until stable so Spacer→Spacer chains mark top-to-bottom
+	local changed = true
+	while changed do
+		changed = false
+		for _, s in pairs(Attune_Data.steps) do
+			if showPatchStep(s) and s.TYPE == "Spacer" and s.FOLLOWS ~= nil and s.FOLLOWS ~= "0" then
+				local key = s.ID_ATTUNE .. "-" .. s.ID
+				if not t.done[key] then
+					local allDone = true
+					local followOR = false
+					local fIDs = Attune_split(s.FOLLOWS, "&")
+					if string.find(s.FOLLOWS, "|") then fIDs = Attune_split(s.FOLLOWS, "|"); followOR = true end
+					if followOR then
+						allDone = false
+						for _, flw in pairs(fIDs) do
+							if t.done[s.ID_ATTUNE .. "-" .. flw] then allDone = true; break end
+						end
+					else
+						for _, flw in pairs(fIDs) do
+							if not t.done[s.ID_ATTUNE .. "-" .. flw] then allDone = false; break end
+						end
+					end
+					if allDone then
+						t.done[key] = 1
+						changed = true
+					end
+				end
+			end
+		end
+	end
+end
+
+-------------------------------------------------------------------------
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
 function Attune_CheckComplete(newComplete)
 	local att = Attune_DB.toons[attunelocal_charKey]
 
+	Attune_AutoCompleteSpacers(attunelocal_charKey)
 
 	-- WoW
 	if att.done["20-45"] and att.attuned["20"] ~= 100 	then att.done["20-50"] = 1; 	Attune_SendPushInfo("20-50"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end	-- MC
@@ -2232,6 +2281,7 @@ end
 
 function Attune_Select(attuneId)
 	PlaySound(856)  --igMainMenuOptionCheckBoxOn
+	Attune_AutoCompleteSpacers(attunelocal_charKey)
 	local scrollframe = attunelocal_scroll.content.obj.content
 
 	attunelocal_scroll:ReleaseChildren()
@@ -2290,6 +2340,28 @@ function Attune_Select(attuneId)
 	label:SetFont(GameFontHighlight:GetFont(), 20)
 	attunelocal_scroll:AddChild(label)
 
+	-- Fixed top margin: measure AceGUI header (title/desc) so graph sits below it
+	-- without that gap shrinking when SetScale zooms the chain.
+	if attunelocal_scroll.DoLayout then attunelocal_scroll:DoLayout() end
+	attunelocal_graphHeaderOffset = 80
+	do
+		local st = scrollframe:GetTop()
+		if st then
+			local maxDist = 0
+			for _, child in ipairs(attunelocal_scroll.children or {}) do
+				local f = child.frame
+				if f and f:IsShown() then
+					local b = f:GetBottom()
+					if b then
+						local d = st - b
+						if d > maxDist then maxDist = d end
+					end
+				end
+			end
+			if maxDist > 0 then attunelocal_graphHeaderOffset = maxDist + 8 end
+		end
+	end
+
 	-- Hiding all non-Ace frames (all attune steps basically)
 	for i, f in pairs(attunelocal_frames) do	_G[f]:Hide()	end
 	if _G["Attune_SideBox"] then _G["Attune_SideBox"]:Hide() end
@@ -2303,7 +2375,7 @@ function Attune_Select(attuneId)
 	end
 	attunelocal_graphPanX = 0
 	attunelocal_graphRoot:ClearAllPoints()
-	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, 0)
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, -attunelocal_graphHeaderOffset)
 	attunelocal_graphRoot:SetWidth(1)
 	attunelocal_graphRoot:SetHeight(1)
 	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
@@ -2332,15 +2404,21 @@ function Attune_Select(attuneId)
 	end
 
 	-- Create/position main-chain steps (defer End until SIDE nodes exist for line anchors)
+	-- First stage stays at yy=0: top margin is the unscaled header offset outside the zoomed graph.
 	local yy = 0
 	local curStage = 0
 	local nbStep = 0
+	local firstStage = true
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
 		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE then
 			if s.STAGE ~= curStage then
 				nbStep = 1
 				curStage = s.STAGE
-				yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
+				if firstStage then
+					firstStage = false
+				else
+					yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
+				end
 			end
 			local xx = (stageSteps[s.STAGE] * cell) - (nbStep * cell) - (stageSteps[s.STAGE]-1) * (cell/2)
 
@@ -2370,7 +2448,8 @@ function Attune_Select(attuneId)
 		local boxW = attunelocal_Node_Width + pad * 2
 		local boxH = innerH + pad * 2
 		-- Drop Complete below the main chain so the Inside box has room (title + box)
-		local endY = endInfo.yy + attunelocal_Node_VGap + attunelocal_Node_Height
+		-- local endY = endInfo.yy + attunelocal_Node_VGap + attunelocal_Node_Height
+        local endY = endInfo.yy + (attunelocal_Node_VGap + attunelocal_Node_Height) / 2
 		local colX = endInfo.xx - (attunelocal_Node_Width / 2 + boxGap + pad + attunelocal_Node_Width / 2)
 		local firstY = endY
 
@@ -2433,12 +2512,17 @@ function Attune_Select(attuneId)
 		local sideBottom = firstY + (n - 1) * (attunelocal_Node_Height + sideVGap) + attunelocal_Node_Height + pad
 		local endBottom = endY + attunelocal_Node_Height
 		local contentBottom = math.max(sideBottom, endBottom)
+		-- Spacer below Complete / Inside
+		contentBottom = contentBottom + attunelocal_Node_VGap + attunelocal_Node_Height
 		if contentBottom > yy then yy = contentBottom end
 
 		Attune_CreateNode(endInfo.step, attunelocal_graphRoot, endInfo.xx, endY)
 		Attune_DrawSideFeeder(endInfo.step, sideSteps, colX, boxW, endInfo.xx, endY)
 	elseif endInfo then
 		Attune_CreateNode(endInfo.step, attunelocal_graphRoot, endInfo.xx, endInfo.yy)
+		-- Spacer below Complete
+		local endBottom = endInfo.yy + attunelocal_Node_Height + attunelocal_Node_VGap + attunelocal_Node_Height
+		if endBottom > yy then yy = endBottom end
 	end
 
 	-- Ace 'mask' needed to trick the scroller into the right size, as it doesn't detect the custom frames.
@@ -2491,7 +2575,7 @@ function Attune_ApplyGraphPan()
 	if attunelocal_graphPanX > attunelocal_graphMaxPanX then attunelocal_graphPanX = attunelocal_graphMaxPanX end
 	if attunelocal_graphPanX < -attunelocal_graphMaxPanX then attunelocal_graphPanX = -attunelocal_graphMaxPanX end
 	attunelocal_graphRoot:ClearAllPoints()
-	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, 0)
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, -(attunelocal_graphHeaderOffset or 0))
 end
 
 function Attune_UpdateGraphPanLimits()
@@ -3209,6 +3293,48 @@ function Attune_CreateNode(step, parent, posX, posY)
 		--make spacer transparent
 		fnode:SetBackdropColor(0, 0, 0, 0)
 		fnode:SetBackdropBorderColor(1, 1, 1, 0)
+
+		-- Fill the invisible spacer with a vertical so column-drop FOLLOWS look solid (not dashed)
+		local fillName = "Attune_SpacerFill_"..step.ID
+		local fillExist = false
+		for _, f in ipairs(attunelocal_frames) do if f == fillName then fillExist = true end end
+		local fill
+		if fillExist then fill = _G[fillName]
+		else
+			fill = fnode:CreateLine(fillName)
+			table.insert(attunelocal_frames, fillName)
+		end
+		if step.FOLLOWS ~= nil and step.FOLLOWS ~= "0" then
+			local linedone = false
+			local fIDs = Attune_split(step.FOLLOWS, "&")
+			if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|") end
+			for _, flw in pairs(fIDs) do
+				if Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. flw] then linedone = true; break end
+			end
+			if done then
+				if linedone then
+					fill:SetColorTexture(0.388, 0.686, 0.388, 1) -- green
+					fill:SetDrawLayer("ARTWORK", 2)
+				else
+					fill:SetColorTexture(0.2, 0.2, 0.2, 1)
+					fill:SetDrawLayer("ARTWORK", 0)
+				end
+			else
+				if linedone then
+					fill:SetColorTexture(0.851, 0.608, 0.0, 1) -- yellow
+					fill:SetDrawLayer("ARTWORK", 1)
+				else
+					fill:SetColorTexture(0.2, 0.2, 0.2, 1)
+					fill:SetDrawLayer("ARTWORK", 0)
+				end
+			end
+			fill:SetThickness(attunelocal_Line_Thickness)
+			fill:SetStartPoint("TOP", 0, 0)
+			fill:SetEndPoint("TOP", 0, -attunelocal_Node_Height)
+			fill:Show()
+		else
+			fill:Hide()
+		end
 	end
 
 	fnode:Show()
@@ -3891,14 +4017,21 @@ function Attune_ShowResultList(title)
 
 
 	-- parse all recorded toons and get their progress
+	local spacerDone = {}
+	for _, s in pairs(Attune_Data.steps) do
+		if s.TYPE == "Spacer" then spacerDone[s.ID_ATTUNE .. "-" .. s.ID] = true end
+	end
 	for kt, t in pairs(Attune_DB.toons) do
 		-- calculate how many steps this toon has done on the attune
 		local attuneDone = {}
 		if t.done ~= nil then 
+			Attune_AutoCompleteSpacers(kt)
 			for i, d in pairs(t.done) do
-				local Ids = Attune_split(i, "-")
-				if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
-				attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+				if not spacerDone[i] then
+					local Ids = Attune_split(i, "-")
+					if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
+					attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+				end
 			end
 
 			if t.attuned == nil then t.attuned = {} end
