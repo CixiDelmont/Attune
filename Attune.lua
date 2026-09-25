@@ -1,16 +1,15 @@
 -------------------------------------------------------------------------
 --
 --	Copyright (c) 2019-2021 by Antoine Desmarets.
---	 Delmont/Gaya Greyhoof of Remulos Oceanic / WoW Classic Horde
+--	Cixi Delmont/Gaya Greyhoof of Wow Forever Horde
 --
 --	Attune is distributed in the hope that it will be useful/entertaining
---	but WITHOUT ANY WARRANTY
+--	but WITHOUT ANY WARRANTY. Use at your own risk.
 --
 -------------------------------------------------------------------------
 
--- Done in 315
---  Updated TOC file for Cata
-
+-- Done in 1.6.19
+--  Updated dungeons up to Maraudon
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -25,6 +24,7 @@ local IsAddOnLoadOnDemand = C_AddOns.IsAddOnLoadOnDemand or IsAddOnLoadOnDemand;
 local GetAddOnInfo = C_AddOns.GetAddOnInfo or GetAddOnInfo
 local GetAddOnDependencies = C_AddOns.GetAddOnDependencies or GetAddOnDependencies
 local GetItemCount = C_Item.GetItemCount or GetItemCount
+local GetItemInfo = C_Item.GetItemInfo or GetItemInfo
 
 -- Forever / Midnight use C_Reputation; Classic still has GetFactionInfoByID.
 local function Attune_GetFactionInfoByID(factionID)
@@ -61,6 +61,7 @@ local Attune_Broker = nil
 local attunelocal_minimapicon = LibStub("LibDBIcon-1.0")
 local attunelocal_brokervalue = nil
 local attunelocal_brokerlabel = nil
+local attunelocal_settingsCategoryID = nil
 
 local attunelocal_version = tostring(GetAddOnMetadata(addonName, "Version"))
 local attunelocal_prefix = "Attune_Channel"			-- used for addon chat communications
@@ -72,6 +73,15 @@ local attunelocal_detectedNewer = false;			-- flag to only warn about new versio
 local attunelocal_Node_Width = 170
 local attunelocal_Node_Height = 48
 local attunelocal_Node_HGap = 10
+
+-- HALFSIZE steps occupy half a column (layout slot and drawn width).
+local function Attune_NodeWidth(step)
+	if step and step.HALFSIZE then
+		return (attunelocal_Node_Width - attunelocal_Node_HGap) / 2
+	end
+	return attunelocal_Node_Width
+end
+
 local attunelocal_Node_VGap = 30
 local attunelocal_Icon_Size = 32
 local attunelocal_Line_Thickness = 6
@@ -322,24 +332,24 @@ local attune_options = {
 					width = 0.5,
 					order = 24,
 				},
-				showListAlt = {
-					type = "toggle",
-					name = AttuneLang["ShowAltsInstead_TEXT"],
-					desc = AttuneLang["ShowAltsInstead_DESC"],
-					get = function(info) return Attune_DB.showListAlt end,
-					set = function(info, val) Attune_DB.showListAlt = val end,
-					width = 2.5,
-					order = 26,
-				},
-				showDeprecatedAttunes = {
-					type = "toggle",
-					name = AttuneLang["showDeprecatedAttunes_TEXT"],
-					desc = AttuneLang["showDeprecatedAttunes_DESC"],
-					get = function(info) return Attune_DB.showDeprecatedAttunes end,
-					set = function(info, val) Attune_DB.showDeprecatedAttunes = val; 	Attune_LoadTree(); 	Attune_ForceAttuneTabRefresh() end,
-					width = 2.5,
-					order = 27,
-				},
+				-- showListAlt = {
+				-- 	type = "toggle",
+				-- 	name = AttuneLang["ShowAltsInstead_TEXT"],
+				-- 	desc = AttuneLang["ShowAltsInstead_DESC"],
+				-- 	get = function(info) return Attune_DB.showListAlt end,
+				-- 	set = function(info, val) Attune_DB.showListAlt = val end,
+				-- 	width = 2.5,
+				-- 	order = 26,
+				-- },
+				-- showDeprecatedAttunes = {
+				-- 	type = "toggle",
+				-- 	name = AttuneLang["showDeprecatedAttunes_TEXT"],
+				-- 	desc = AttuneLang["showDeprecatedAttunes_DESC"],
+				-- 	get = function(info) return Attune_DB.showDeprecatedAttunes end,
+				-- 	set = function(info, val) Attune_DB.showDeprecatedAttunes = val; 	Attune_LoadTree(); 	Attune_ForceAttuneTabRefresh() end,
+				-- 	width = 2.5,
+				-- 	order = 27,
+				-- },
 				websiteUrl = {
 					type = "input",
 					name = "Database Website URL",
@@ -399,110 +409,6 @@ local attune_options = {
 					width = 1.6,
 					order = 33,
 				},
-				delete85 = {
-					type = "execute",
-					name = AttuneLang["DelUnder85_TEXT"],
-					desc = AttuneLang["DelUnder85_DESC"],
-					confirm = true,
-					confirmText = AttuneLang["DelUnder85_CONF"],
-					func = function(info, val)
-						for kt, t in pairs(Attune_DB.toons) do
-							if kt ~= attunelocal_charKey then
-								if t.level ~= nil then
-									if tonumber(t.level) < 85 then
-										Attune_DB.toons[kt] = nil
-									end
-								end
-							end
-						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnder85_DONE"]) end
-					end,
-					width = 1.6,
-					order = 34,
-				},
-				delete90 = {
-					type = "execute",
-					name = AttuneLang["DelUnder90_TEXT"],
-					desc = AttuneLang["DelUnder90_DESC"],
-					confirm = true,
-					confirmText = AttuneLang["DelUnder90_CONF"],
-					func = function(info, val)
-						for kt, t in pairs(Attune_DB.toons) do
-							if kt ~= attunelocal_charKey then
-								if t.level ~= nil then
-									if tonumber(t.level) < 90 then
-										Attune_DB.toons[kt] = nil
-									end
-								end
-							end
-						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnder90_DONE"]) end
-					end,
-					width = 1.6,
-					order = 35,
-				},
-				deleteAlts= {
-					type = "execute",
-					name = AttuneLang["DelAlts_TEXT"],
-					desc = AttuneLang["DelAlts_DESC"],
-					confirm = true,
-					confirmText = AttuneLang["DelAlts_CONF"],
-					func = function(info, val)
-						for kt, t in pairs(Attune_DB.toons) do
-							if kt ~= attunelocal_charKey then
-								if t.status ~= nil then
-									if t.status == "Alt" then
-										Attune_DB.toons[kt] = nil
-									end
-								end
-							end
-						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelAlts_DONE"]) end
-					end,
-					width = 1.6,
-					order = 36,
-				},
-				deleteUnspecified = {
-					type = "execute",
-					name = AttuneLang["DelUnspecified_TEXT"],
-					desc = AttuneLang["DelUnspecified_DESC"],
-					confirm = true,
-					confirmText = AttuneLang["DelUnspecified_CONF"],
-					func = function(info, val)
-						for kt, t in pairs(Attune_DB.toons) do
-							if kt ~= attunelocal_charKey then
-								if t.status == nil or t.status == "None" then
-									Attune_DB.toons[kt] = nil
-								end
-							end
-						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelUnspecified_DONE"]) end
-					end,
-					width = 1.6,
-					order = 37,
-				},
-				deleteInactive= {
-					type = "execute",
-					name = AttuneLang["DelInactive_TEXT"],
-					desc = AttuneLang["DelInactive_DESC"],
-					confirm = true,
-					confirmText = AttuneLang["DelInactive_CONF"],
-					func = function(info, val)
-						for kt, t in pairs(Attune_DB.toons) do
-							if kt ~= attunelocal_charKey then
-								if t.status ~= nil then
-									if t.survey < time() - attunelocal_inactivity then
-										Attune_DB.toons[kt] = nil
-									end
-								end
-							end
-						end
-						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["DelInactive_DONE"]) end
-					end,
-					width = 1.6,
-					order = 38,
-				},
-
 
 	--[[
 				spacer5 = {
@@ -582,8 +488,9 @@ local attune_options = {
 
 function Attune:OnInitialize()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("Attune", attune_options, nil)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Attune"):SetParent(InterfaceOptionsFramePanelContainer)
-
+	-- Second return is the Settings category ID (numeric on modern clients).
+	local _, categoryID = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Attune")
+	attunelocal_settingsCategoryID = categoryID
 end
 
 -------------------------------------------------------------------------
@@ -736,7 +643,17 @@ function Attune:OnEnable()
 	Attune_UpdateLogs()
 	
 	--this is per character as it could cause problems with alliance vs horde last viewed (ex if last viewed is Honor Hold)
-	if AttuneLastViewed == nil then AttuneLastViewed = Attune_Data.attunes[1].EXPAC.."\001".. Attune_Data.attunes[1].GROUP.."\001"..Attune_Data.attunes[1].ID end --select first in the list by default (should be MC, same alliance/horde)
+	-- Default: first dungeon for this faction (Alliance → Hall of Thanes, Horde → Ragefire Chasm)
+	if AttuneLastViewed == nil then
+		local defaultAttune = Attune_Data.attunes[1]
+		for _, a in ipairs(Attune_Data.attunes) do
+			if a.GROUP == AttuneLang['DUNGEONS'] and (a.FACTION == attunelocal_faction or a.FACTION == "Both") then
+				defaultAttune = a
+				break
+			end
+		end
+		AttuneLastViewed = defaultAttune.EXPAC.."\001"..defaultAttune.GROUP.."\001"..defaultAttune.ID
+	end
 
 	Attune_CheckProgress() -- get your own standing
 	Attune:BAG_UPDATE(nil)
@@ -815,15 +732,14 @@ function Attune:OnEnable()
 			if button=="LeftButton" then
 				Attune_SlashCommandHandler("")
 			elseif button=="RightButton" then
-				-- InterfaceOptionsFrame_Show()
-				-- InterfaceOptionsFrame_OpenToCategory("Attune")
-                if InterfaceOptionsFrame_OpenToCategory then
+				if Settings and Settings.OpenToCategory and type(attunelocal_settingsCategoryID) == "number" then
+					Settings.OpenToCategory(attunelocal_settingsCategoryID)
+				elseif InterfaceOptionsFrame_OpenToCategory then
 					InterfaceOptionsFrame_OpenToCategory("Attune")
 					InterfaceOptionsFrame_OpenToCategory("Attune")
 				else
-					Settings.OpenToCategory("Attune")
+					LibStub("AceConfigDialog-3.0"):Open("Attune")
 				end
-
 			end
 		end,
 		OnTooltipShow = function(tooltip)
@@ -2111,7 +2027,14 @@ function Attune_Frame()
 		surveyTarget:SetText(AttuneLang["Target"])
 		surveyTarget:SetCallback("OnClick", function()
 			attunelocal_survey_frame.frame:Hide()
-			Attune_SendRequest("Target|" .. UnitName("target"))
+			if not UnitExists("target") then
+				attunelocal_frame:SetStatusText(AttuneLang["No Target"])
+				C_Timer.After(3, function()
+					attunelocal_frame:SetStatusText(attunelocal_statusText)
+				end)
+			else
+				Attune_SendRequest("Target|" .. UnitName("target"))
+			end
 		end)
 		attunelocal_survey_frame:AddChild(surveyTarget)
 
@@ -2390,6 +2313,7 @@ function Attune_Select(attuneId)
 
 	-- Count steps per stage (main chain only; SIDE reminders are placed beside End)
 	local stageSteps = {}
+	local stageWidthSum = {}
 	local sideSteps = {}
 	local endInfo = nil
 	for i, s in pairs(Attune_Data.steps) do
@@ -2398,43 +2322,50 @@ function Attune_Select(attuneId)
 				table.insert(sideSteps, s)
 			else
 				stageSteps[s.STAGE] = (stageSteps[s.STAGE] or 0) + 1
+				stageWidthSum[s.STAGE] = (stageWidthSum[s.STAGE] or 0) + Attune_NodeWidth(s)
 			end
 		end
 	end
 
 	-- Half-width of the widest main stage (for pan limits); SIDE width added later
 	attunelocal_graphMaxExtent = 0
-	local cell = attunelocal_Node_Width + attunelocal_Node_HGap
-	for _, count in pairs(stageSteps) do
-		local half = (count * cell - attunelocal_Node_HGap) / 2
+	for stage, count in pairs(stageSteps) do
+		local rowW = stageWidthSum[stage] + math.max(0, count - 1) * attunelocal_Node_HGap
+		local half = rowW / 2
 		if half > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = half end
 	end
 
 	-- Create/position main-chain steps (defer End until SIDE nodes exist for line anchors)
 	-- First stage stays at yy=0: top margin is the unscaled header offset outside the zoomed graph.
+	-- Steps are visited right-to-left; consumed walks inward from the right edge so HALFSIZE slots pack tighter.
 	local yy = 0
 	local curStage = 0
-	local nbStep = 0
+	local consumed = 0
+	local rightEdge = 0
 	local firstStage = true
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
 		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE then
 			if s.STAGE ~= curStage then
-				nbStep = 1
+				consumed = 0
 				curStage = s.STAGE
+				local count = stageSteps[s.STAGE]
+				local rowW = stageWidthSum[s.STAGE] + math.max(0, count - 1) * attunelocal_Node_HGap
+				rightEdge = rowW / 2
 				if firstStage then
 					firstStage = false
 				else
 					yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
 				end
 			end
-			local xx = (stageSteps[s.STAGE] * cell) - (nbStep * cell) - (stageSteps[s.STAGE]-1) * (cell/2)
+			local w = Attune_NodeWidth(s)
+			local xx = rightEdge - consumed - (w / 2)
+			consumed = consumed + w + attunelocal_Node_HGap
 
 			if s.TYPE == "End" then
 				endInfo = { step = s, xx = xx, yy = yy }
 			else
 				Attune_CreateNode(s, attunelocal_graphRoot, xx, yy)
 			end
-			nbStep = nbStep + 1
 		end
 	end
 
@@ -2457,7 +2388,7 @@ function Attune_Select(attuneId)
 		-- Drop Complete below the main chain so the Inside box has room (title + box)
 		-- local endY = endInfo.yy + attunelocal_Node_VGap + attunelocal_Node_Height
         local endY = endInfo.yy + (attunelocal_Node_VGap + attunelocal_Node_Height) / 2
-		local colX = endInfo.xx - (attunelocal_Node_Width / 2 + boxGap + pad + attunelocal_Node_Width / 2)
+		local colX = endInfo.xx - (Attune_NodeWidth(endInfo.step) / 2 + boxGap + pad + attunelocal_Node_Width / 2)
 		local firstY = endY
 
 		-- Backdrop box behind the Inside quests
@@ -2821,7 +2752,7 @@ function Attune_DrawSideFeeder(endStep, sideSteps, colX, boxW, endX, endY)
 	local boxRightX = colX + boxW / 2
 	local midY = -attunelocal_Node_Height / 2
 	line:SetStartPoint("TOP", boxRightX - endX, midY)
-	line:SetEndPoint("TOP", -attunelocal_Node_Width / 2, midY)
+	line:SetEndPoint("TOP", -Attune_NodeWidth(endStep) / 2, midY)
 	line:Show()
 end
 
@@ -2930,7 +2861,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 					table.insert(attunelocal_frames, "Attune_Node_"..step.ID) -- recording, to reuse
 	end
 	fnode:SetParent(parent)
-	fnode:SetWidth(attunelocal_Node_Width)
+	local nodeWidth = Attune_NodeWidth(step)
+	fnode:SetWidth(nodeWidth)
 	fnode:SetHeight(attunelocal_Node_Height)
 	fnode:SetPoint("TOP", posX, -posY)
 	fnode:SetScript("OnMouseUp", function(self, button) end)
@@ -3190,7 +3122,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 		else			ftitle = fnode:CreateFontString("Attune_Title_"..step.ID)
 						table.insert(attunelocal_frames, "Attune_Title_"..step.ID) -- recording, to reuse
 		end
-		ftitle:SetWidth(attunelocal_Node_Width - 50)
+		ftitle:SetWidth(nodeWidth - 50)
 		ftitle:SetHeight(16)
 		ftitle:SetJustifyH("LEFT")
 		-- End node gets a bigger font
@@ -3248,7 +3180,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 							table.insert(attunelocal_frames, "Attune_Type_"..step.ID) -- recording, to reuse
 			end
 			ftype:SetPoint("TOPLEFT", 44, -24)
-			ftype:SetWidth(attunelocal_Node_Width - 50)
+			ftype:SetWidth(nodeWidth - 50)
 			ftype:SetHeight(16)
 			ftype:SetJustifyH("LEFT")
 			ftype:SetFont(GameFontNormal:GetFont(), 9)
@@ -3949,6 +3881,8 @@ function Attune_ToggleView(noToggle)
 		attunelocal_treeframe:SetFullWidth(true)
 		attunelocal_treeframe:SetFullHeight(true)
 		attunelocal_treeframe:SetAutoAdjustHeight(false)
+		-- Avoid AceGUI TreeGroup tooltip SetText(..., true-as-alpha) which errors on classic beta
+		attunelocal_treeframe:EnableButtonTooltips(false)
 		attunelocal_frame:AddChild(attunelocal_treeframe)
 
 		for i, a in pairs(Attune_Data.attunes) do
