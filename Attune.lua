@@ -140,14 +140,17 @@ local attunelocal_frames = {} 				-- list of non-Ace frames (to reuse them later
 local attunelocal_initial = true			-- first run
 
 local attunelocal_myguild = ""				-- Guild of the current character
-local attunelocal_realm = GetRealmName()	-- Realm of the current character
+-- local attunelocal_realm = GetRealmName()	-- Realm of the current character
 
 local guildToonMap = {}						-- matching guild to toon
 
 local attunelocal_data = {}					-- data being exported to website
 local attunelocal_count = 0					-- count of toons being exported
 
-local attunelocal_charKey = UnitName("player") .. "-" .. attunelocal_realm			-- Character unique name
+local attunelocal_myFirst = "FirstName"
+local attunelocal_myLast = "LastName"
+local attunelocal_myFullName = attunelocal_myFirst .. " " .. attunelocal_myLast
+local attunelocal_charKey = attunelocal_myFullName --.. "-" .. attunelocal_realm			-- Character unique name
 local attunelocal_statusText = AttuneLang["Version"]:gsub("##VERSION##", attunelocal_version)		-- Default status text
 
 local attunelocal_refreshDone = false		-- flag to indicate when the UI refresh has been done, to avoid doing it too many times and freezing UI)
@@ -515,7 +518,11 @@ function Attune:OnEnable()
 	self:RegisterEvent("GOSSIP_SHOW")
 	self:RegisterEvent("QUEST_DETAIL")
 --	self:RegisterEvent("ACHIEVEMENT_EARNED")
-	
+
+    attunelocal_myFirst, attunelocal_myLast = UnitName("player")
+    attunelocal_myFullName = attunelocal_myFirst .. " " .. attunelocal_myLast
+    attunelocal_charKey = attunelocal_myFullName --.. "-" .. attunelocal_realm			-- Character unique name
+    
 	--self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	if attunelocal_hasCombatLog then
 		cleu_parser:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -794,7 +801,7 @@ function Attune:OnEnable()
 	C_Timer.After(10, function()
 		if not Attune_DB.toons[attunelocal_charKey].announceAchieveSurvey then
 			StaticPopupDialogs["ACHIEVEANNOUNCE_CONFIRM"] = {
-				text = AttuneLang["\n"..AttuneLang["AchieveSurvey"]:gsub("##WHO##", UnitName("player")).."\n\n"],
+				text = AttuneLang["\n"..AttuneLang["AchieveSurvey"]:gsub("##WHO##", attunelocal_myFullName).."\n\n"],
 				button1 = AttuneLang["Yes"],
 				button2 = AttuneLang["No"],
 				timeout = 0,
@@ -944,12 +951,12 @@ function Attune:CHAT_MSG_ADDON(event, arg1, arg2, arg3, arg4)
 			attunelocal_data['_realm'] = ""
 			attunelocal_data['_guild'] = ""
 
-			if arg2 == 'SURVEY' and arg4 ~= UnitName("player").."-"..GetRealmName() then
+			if arg2 == 'SURVEY' and arg4 ~= attunelocal_charKey then
 				if Attune_DB.showSurveyed then print("|cffff00ff[Attune]|r "..AttuneLang["SendingDataTo"]:gsub("##NAME##", Attune_split(arg4, "-")[1]))  end
 			end
 
 			-- log all surveys (silent or not) unless they were sent by us
-			if arg4 ~= UnitName("player").."-"..GetRealmName() then
+			if arg4 ~= attunelocal_charKey then
 				Attune_DB.logs[time()] = AttuneLang["ReceivedRequestFrom"]:gsub("##FROM##", arg4)
 				Attune_UpdateLogs()
 			end
@@ -2033,7 +2040,8 @@ function Attune_Frame()
 					attunelocal_frame:SetStatusText(attunelocal_statusText)
 				end)
 			else
-				Attune_SendRequest("Target|" .. UnitName("target"))
+                local targetFirst, targetLast = UnitName("target")
+				Attune_SendRequest("Target|" .. targetFirst .. " " .. targetLast)
 			end
 		end)
 		attunelocal_survey_frame:AddChild(surveyTarget)
@@ -2238,7 +2246,7 @@ function Attune_Select(attuneId)
 					local label = AceGUI:Create("Label")
 					label:SetText(a.NAME)
 					label:SetImage(a.ICON)
-					label:SetFont(GameFontNormal:GetFont(), 24)
+					label:SetFont(GameFontNormal:GetFont(), 24, "")
 					label:SetImageSize(32,32)
 					label:SetFullWidth(true)
 					titlebutton:AddChild(label)
@@ -2250,14 +2258,14 @@ function Attune_Select(attuneId)
 				local label = AceGUI:Create("Label")
 				label:SetText(" ")
 				label:SetFullWidth(true)
-				label:SetFont(GameFontHighlight:GetFont(), 20)
+				label:SetFont(GameFontHighlight:GetFont(), 20, "")
 				attunelocal_scroll:AddChild(label)
 
 				-- desc
 				local label = AceGUI:Create("Label")
 				label:SetText(a.DESC)
 				label:SetFullWidth(true)
-				label:SetFont(GameFontNormal:GetFont(), 12)
+				label:SetFont(GameFontNormal:GetFont(), 12, "")
 				attunelocal_scroll:AddChild(label)
 			end
 		end
@@ -2267,7 +2275,7 @@ function Attune_Select(attuneId)
 	local label = AceGUI:Create("Label")
 	label:SetText(" ")
 	label:SetFullWidth(true)
-	label:SetFont(GameFontHighlight:GetFont(), 20)
+	label:SetFont(GameFontHighlight:GetFont(), 20, "")
 	attunelocal_scroll:AddChild(label)
 
 	-- Fixed top margin: measure AceGUI header (title/desc) so graph sits below it
@@ -2429,7 +2437,7 @@ function Attune_Select(attuneId)
 			sideTitle = sideBox:CreateFontString(titleName)
 			table.insert(attunelocal_frames, titleName)
 		end
-		sideTitle:SetFont(GameFontNormal:GetFont(), 10)
+		sideTitle:SetFont(GameFontNormal:GetFont(), 10, "")
 		sideTitle:SetText("|cffffd100"..(AttuneLang["Inside the dungeon"] or "Inside the dungeon").."|r")
 		sideTitle:ClearAllPoints()
 		sideTitle:SetPoint("BOTTOMLEFT", sideBox, "TOPLEFT", 6, 2)
@@ -3128,7 +3136,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 		-- End node gets a bigger font
 		if step.TYPE == 'End' then
 			ftitle:SetPoint("TOPLEFT", 44, -16)
-			ftitle:SetFont(GameFontNormal:GetFont(), 12)
+			ftitle:SetFont(GameFontNormal:GetFont(), 12, "")
 			if Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100
 				or Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID] then
 				ftitle:SetText(AttuneLang["Attuned"])
@@ -3137,7 +3145,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 		else
 			ftitle:SetPoint("TOPLEFT", 44, -8)
-			ftitle:SetFont(GameFontNormal:GetFont(), 11)
+			ftitle:SetFont(GameFontNormal:GetFont(), 11, "")
 
 			if step.TYPE == "Item" then
 				if countNeeded == 1 then
@@ -3183,7 +3191,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			ftype:SetWidth(nodeWidth - 50)
 			ftype:SetHeight(16)
 			ftype:SetJustifyH("LEFT")
-			ftype:SetFont(GameFontNormal:GetFont(), 9)
+			ftype:SetFont(GameFontNormal:GetFont(), 9, "")
 			ftype:SetText(type)
 			ftype:Show()
 		end
@@ -3201,7 +3209,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 			notiftext:SetParent(fnode)
 			notiftext:SetWidth(32)
-			notiftext:SetFont(GameFontNormal:GetFont(), 10)
+			notiftext:SetFont(GameFontNormal:GetFont(), 10, "")
 			notiftext:SetText(""..((countSameStep > 0) and countSameStep or countCompleted))
 			notiftext:Show()
 
@@ -3465,7 +3473,7 @@ function Attune_ToggleView(noToggle)
 			else
 				label:SetImage("Interface\\Icons\\inv_bannerpvp_02")
 			end
-			label:SetFont(GameFontHighlight:GetFont(), 24)
+			label:SetFont(GameFontHighlight:GetFont(), 24, "")
 			label:SetImageSize(32,32)
 			label:SetFullWidth(true)
 			titleGroup:AddChild(label)
@@ -3640,8 +3648,8 @@ function Attune_ToggleView(noToggle)
 
 			attunelocal_gflabel = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel:SetText(AttuneLang["Character"])
-			attunelocal_gflabel:SetWidth(165)
-			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel:SetWidth(265)
+			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == 0 then
 					--same sort, just change order
@@ -3745,7 +3753,7 @@ function Attune_ToggleView(noToggle)
 			attunelocal_gflabel = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel:SetText(AttuneLang["Character"])
 			attunelocal_gflabel:SetWidth(200)
-			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == 0 then
 					--same sort, just change order
@@ -3763,7 +3771,7 @@ function Attune_ToggleView(noToggle)
 			attunelocal_gflabel2 = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel2:SetText(AttuneLang["Guild"])
 			attunelocal_gflabel2:SetWidth(240)
-			attunelocal_gflabel2:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel2:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel2:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == -1 then
 					--same sort, just change order
@@ -3781,7 +3789,7 @@ function Attune_ToggleView(noToggle)
 			attunelocal_gflabel3 = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel3:SetText(AttuneLang["Status"])
 			attunelocal_gflabel3:SetWidth(100)
-			attunelocal_gflabel3:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel3:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel3:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == -2 then
 					--same sort, just change order
@@ -3799,7 +3807,7 @@ function Attune_ToggleView(noToggle)
 			attunelocal_gflabel4 = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel4:SetText(AttuneLang["Role"])
 			attunelocal_gflabel4:SetWidth(100)
-			attunelocal_gflabel4:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel4:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel4:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == -3 then
 					--same sort, just change order
@@ -3817,7 +3825,7 @@ function Attune_ToggleView(noToggle)
 			attunelocal_gflabel5 = AceGUI:Create("InteractiveLabel")
 			attunelocal_gflabel5:SetText("    "..AttuneLang["Last Surveyed"])
 			attunelocal_gflabel5:SetWidth(150)
-			attunelocal_gflabel5:SetFont(GameFontHighlight:GetFont(), 16)
+			attunelocal_gflabel5:SetFont(GameFontHighlight:GetFont(), 16, "")
 			attunelocal_gflabel5:SetCallback("OnClick", function()
 				if Attune_DB.sortresult[1] == -4 then
 					--same sort, just change order
@@ -4049,14 +4057,15 @@ function Attune_ShowResultList(title)
 	 end) do
 
 		-- only look at current faction (and current realm)
-		if t.faction == UnitFactionGroup("player") and (kt == t.name.."-"..attunelocal_realm) then
+		--if t.faction == UnitFactionGroup("player") and (kt == t.name.."-"..attunelocal_realm) then  -- removing realm
+        if t.faction == UnitFactionGroup("player") and (kt == t.name) then
 
 			-- look for:
 			-- 		if attunelocal_resultselection == 0, players in the same guild, or if unguilded just this player
 			-- 		if attunelocal_resultselection == 1, players that have been put in the survey list
 			--		if attunelocal_resultselection == 2, all players recorded
 			if (attunelocal_resultselection == 0 and Attune_DB.survey[kt])
-			or (attunelocal_resultselection == 1 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == UnitName("player")))
+			or (attunelocal_resultselection == 1 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == attunelocal_myFullName))
 			or (attunelocal_resultselection == 2 and t.owner == 1) 
 			or (attunelocal_resultselection == 3) then
 
@@ -4099,8 +4108,8 @@ function Attune_ShowResultList(title)
 						-- add toon part
 							local glabel = AceGUI:Create("Label")
 							glabel:SetText("    |c80606060"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..activeName)
-							glabel:SetWidth(180)
-							glabel:SetFont(GameFontNormal:GetFont(), 12)
+							glabel:SetWidth(285)
+							glabel:SetFont(GameFontNormal:GetFont(), 12, "")
 							gframe:AddChild(glabel)
 
 
@@ -4260,7 +4269,7 @@ function Attune_ShowProfileList(title)
 			-- 		if attunelocal_resultselection == 1, players that have been put in the survey list
 			--		if attunelocal_resultselection == 2, all players recorded
 			if (attunelocal_resultselection == 0 and Attune_DB.survey[kt])
-			or (attunelocal_resultselection == 1 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == UnitName("player")))
+			or (attunelocal_resultselection == 1 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == attunelocal_myFullName))
 			or (attunelocal_resultselection == 2 and t.owner == 1) 
 			or (attunelocal_resultselection == 3) then
 
@@ -4305,13 +4314,13 @@ function Attune_ShowProfileList(title)
 							local glabel = AceGUI:Create("Label")
 							glabel:SetText("    |c80606060"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..activeName)
 							glabel:SetWidth(210)
-							glabel:SetFont(GameFontNormal:GetFont(), 12)
+							glabel:SetFont(GameFontNormal:GetFont(), 12, "")
 							gframe:AddChild(glabel)
 
 							local gguild = AceGUI:Create("Label")
 							if inactive then gguild:SetText("|c80606060"..t.guild.."|r") else gguild:SetText(t.guild) end
 							gguild:SetWidth(240)
-							gguild:SetFont(GameFontNormal:GetFont(), 12)
+							gguild:SetFont(GameFontNormal:GetFont(), 12, "")
 							gframe:AddChild(gguild)
 
 							if t.owner == 1 or (t.guild == att.guild and att.officer == "1") then 
@@ -4354,14 +4363,14 @@ function Attune_ShowProfileList(title)
 								if t.status == nil then t.status = "None" end
 								if inactive then gstatus:SetText("|c80606060"..Attune_StatusRole(t.status).."|r") else gstatus:SetText(Attune_StatusRole(t.status)) end
 								gstatus:SetWidth(100)
-								gstatus:SetFont(GameFontNormal:GetFont(), 12)
+								gstatus:SetFont(GameFontNormal:GetFont(), 12, "")
 								gframe:AddChild(gstatus)
 
 								local grole = AceGUI:Create("Label")
 								if t.role == nil then t.role = "None" end
 								if inactive then grole:SetText("|c80606060"..Attune_StatusRole(t.role).."|r") else grole:SetText(Attune_StatusRole(t.role)) end
 								grole:SetWidth(100)
-								grole:SetFont(GameFontNormal:GetFont(), 12)
+								grole:SetFont(GameFontNormal:GetFont(), 12, "")
 								gframe:AddChild(grole)
 
 							end
@@ -4376,7 +4385,7 @@ function Attune_ShowProfileList(title)
 								if inactive then glast:SetText("|c80606060    "..date("%d %b %Y at %H:%M", t.survey).."|r") else glast:SetText("    "..date("%d %b %Y at %H:%M", t.survey) ) end
 							end
 							glast:SetWidth(190)
-							glast:SetFont(GameFontNormal:GetFont(), 12)
+							glast:SetFont(GameFontNormal:GetFont(), 12, "")
 							gframe:AddChild(glast)
 
 
@@ -4455,9 +4464,10 @@ function Attune_SendRequest(what)
 
 	Attune_DB.survey = {}
 	if IsTarget[1] == "Target" then 
-		local tar = IsTarget[2] .. "-" .. attunelocal_realm
-		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingSurveyTo"]:gsub("##TO##", tar)) end
-		Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "WHISPER", tar);
+		-- local tar = IsTarget[2] .. "-" .. attunelocal_realm
+        -- print("tar", tar)
+		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingSurveyTo"]:gsub("##TO##", IsTarget[2])) end
+		Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "WHISPER", IsTarget[2]);
 	else
 		if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingSurveyWhat"]:gsub("##WHAT##", AttuneLang[what])) end
 		Attune:SendCommMessage(attunelocal_prefix, "SURVEY", string.upper(what), "");
@@ -4532,20 +4542,20 @@ function Attune_SendRequestResults(surveyRequestor)
 		else att.role = "None" end
 	end
 
-	-- Send a first response with the player metadata
-	Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|TOON|" .. meta.g  .. "|" .. meta.c .. "|" .. meta.r .. "|" .. meta.l .. "|" .. meta.o .. "|".. guildName.."|"..attunelocal_version.."|"..att.status.."|"..att.role, "WHISPER", surveyRequestor)  --the last pipe is in case the guildname is empty. still need it as blank, not nil
+	-- Send a first response with the player metadata	
+	Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|TOON|" .. meta.g  .. "|" .. meta.c .. "|" .. meta.r .. "|" .. meta.l .. "|" .. meta.o .. "|".. guildName.."|"..attunelocal_version.."|"..att.status.."|"..att.role, "WHISPER", surveyRequestor)  --the last pipe is in case the guildname is empty. still need it as blank, not nil
 
 
 	-- then send a bunch of followup whispers with the completed steps
 	for key, status in pairs(att.done) do
 		if status then --step done
-			Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|DONE|" .. key, "WHISPER", surveyRequestor)
+			Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|DONE|" .. key, "WHISPER", surveyRequestor)
 		end
 	end
 
 	-- Send a closing message after a bit (to make sure it arrives last)
 	C_Timer.After(0.250, function()
-		Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|OVER", "WHISPER", surveyRequestor)
+		Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|OVER", "WHISPER", surveyRequestor)
 	end)
 
 end
@@ -4596,17 +4606,17 @@ function Attune_SendPushInfo(step)
 		end
 
 		-- Send a first response with the player metadata
-		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|TOON|" .. meta.g  .. "|" .. meta.c .. "|" .. meta.r .. "|" .. meta.l .. "|" .. meta.o .. "|".. guildName.."|"..attunelocal_version.."|"..att.status.."|"..att.role, "GUILD") end --the last pipe is in case the guildname is empty. still need it as blank, not nil
+		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|TOON|" .. meta.g  .. "|" .. meta.c .. "|" .. meta.r .. "|" .. meta.l .. "|" .. meta.o .. "|".. guildName.."|"..attunelocal_version.."|"..att.status.."|"..att.role, "GUILD") end --the last pipe is in case the guildname is empty. still need it as blank, not nil
 
 	elseif step == "OVER" then 
 		-- Send a closing message after a bit (to make sure it arrives last)
 		C_Timer.After(0.250, function()
-			if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|SILENTOVER", "GUILD") end
+			if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|SILENTOVER", "GUILD") end
 		end)
 
 	else
 		-- then send the data for that newly completed steps
-		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, UnitName("player") .. "|SILENTDONE|" .. step, "GUILD") end
+		if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, attunelocal_myFullName .. "|SILENTDONE|" .. step, "GUILD") end
 	end
 
 end
@@ -4624,7 +4634,7 @@ function Attune_HandleRequestResults(response)
 
 	--consolidate responses
 	local data = Attune_split(response, "|")
-	local name = data[1].."-"..attunelocal_realm
+	local name = data[1]    --.."-"..attunelocal_realm
 	local tag = data[2]
 
 
@@ -4641,7 +4651,7 @@ function Attune_HandleRequestResults(response)
 	if tag == 'TOON' then
 		attunelocal_refreshDone = false
 		attunelocal_count = attunelocal_count + 1
-		player.name = data[1] -- short name
+		player.name = data[1] -- full name
 		player.gender = data[3]	--gender
 		player.class = data[4]	--class
 		player.race = data[5]	--race
@@ -4673,7 +4683,7 @@ function Attune_HandleRequestResults(response)
 			
 
 		-- check if this is the requester or someone else
-		if player.name == UnitName("player") then player.owner = 1 else player.owner = 0 end
+		if player.name == attunelocal_myFullName then player.owner = 1 else player.owner = 0 end
 
 		-- initialize the STEP container
 		if player.done == nil then	player.done = {}	end
@@ -4719,7 +4729,7 @@ function Attune_HandleRequestResults(response)
 		--print(tag.." " .. player.name)
 		attunelocal_refreshDone = false
 
-		if player.name ~= UnitName("player") then
+		if player.name ~= attunelocal_myFullName then
 			if tag == 'OVER' and Attune_DB.showResponses then print("|cffff00ff[Attune]|r "..AttuneLang["ReceivedDataFromName"]:gsub("##NAME##",  player.name)) end -- received data from someone else, might as well announce it in chat
 			Attune_CheckIsNext(name)
 		end
@@ -4755,7 +4765,7 @@ end
 function Attune_ExportToWebsite()
 
 	attunelocal_data = {}
-	attunelocal_data['_realm'] = attunelocal_realm
+	attunelocal_data['_realm'] = GetRealmName() --attunelocal_realm
 	attunelocal_data['_faction'] = UnitFactionGroup("player")
 
 	local count = 0
@@ -4764,7 +4774,8 @@ function Attune_ExportToWebsite()
 	for kt, t in pairs(Attune_DB.toons) do
 
 		-- only look at current faction and realm
-		if t.faction == UnitFactionGroup("player") and (kt == t.name.."-"..attunelocal_realm) then
+		-- if t.faction == UnitFactionGroup("player") and (kt == t.name.."-"..attunelocal_realm) then  -- removing realm
+        if t.faction == UnitFactionGroup("player") and (kt == t.name) then
 
 			-- export data:
 			-- 		if attunelocal_exportselection == 0, only this player
@@ -4772,10 +4783,10 @@ function Attune_ExportToWebsite()
 			--		if attunelocal_exportselection == 2, all players in the same guild
 			--		if attunelocal_exportselection == 3, all players recorded
 			-- 		if attunelocal_exportselection == 4, all this player's data (main and alts)
-			if (attunelocal_exportselection == 0 and kt == (UnitName("player").."-"..attunelocal_realm))
+			if (attunelocal_exportselection == 0 and kt == (attunelocal_charKey))
 			or (attunelocal_exportselection == 4 and t.owner == 1)
 			or (attunelocal_exportselection == 1 and Attune_DB.survey[kt])
-			or (attunelocal_exportselection == 2 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == UnitName("player")))
+			or (attunelocal_exportselection == 2 and ((attunelocal_myguild ~= "" and t.guild == attunelocal_myguild) or t.name == attunelocal_myFullName))
 			or (attunelocal_exportselection == 3) then
 
 				count = count + 1
@@ -4848,7 +4859,8 @@ function Attune_SendSyncRequest()
 		if attunelocal_syncStatus ~= -1 then 
 			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Cannot sync while another sync is in progress"]) end
 		else 
-			attunelocal_syncTarget = UnitName("target") -- .. "-" .. GetRealmName()
+            local targetFirst, targetLast = UnitName("target")
+			attunelocal_syncTarget = targetFirst .. " " .. targetLast -- .. "-" .. GetRealmName()
 
 			StaticPopupDialogs["SYNC_CONFIRM"] = {
 				text = AttuneLang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget) .. "\n\n" .. AttuneLang["Could be slow"],
@@ -4942,7 +4954,7 @@ function Attune_StartSync()
 					table.insert(attunelocal_syncProgress_frames, "Attune_SyncProgress_Label") -- recording, to reuse
 	end
 	attunelocal_syncProgressLabel:SetPoint("TOPLEFT",attunelocal_syncProgressWidget, 10, -10)
-	attunelocal_syncProgressLabel:SetFont(GameFontNormal:GetFont(), 12)
+	attunelocal_syncProgressLabel:SetFont(GameFontNormal:GetFont(), 12, "")
 	attunelocal_syncProgressLabel:SetText(AttuneLang["Syncing Attune data with"]:gsub("##PLAYER##", attunelocal_syncTarget))
 	
 
@@ -5448,7 +5460,7 @@ function Attune_SlashCommandHandler( msg )
 			Attune_LoadTree()
 			Attune_Frame()
 			Attune_DB.survey = {}
-			Attune_SendRequestResults(UnitName("player"));  -- Send a request to myself
+			Attune_SendRequestResults(attunelocal_myFullName);  -- Send a request to myself
 		end
 		attunelocal_frame:Show()
 
@@ -5665,7 +5677,7 @@ function Attune_RaidPlannerFrame()
 		local label = AceGUI:Create("Label")
 		label:SetText(" ")
 		label:SetFullWidth(true)
-		label:SetFont(GameFontNormal:GetFont(), 12)
+		label:SetFont(GameFontNormal:GetFont(), 12, "")
 		options:AddChild(label)
 
 	attunelocal_raidframe:AddChild(options)
@@ -5828,7 +5840,7 @@ function Attune_RaidPlannerRoster()
 		label:SetText(" "..Attune_DB.raidNames[attunelocal_faction][Attune_DB.raidSelection[attunelocal_faction]][i])
 		label:SetWidth((attunelocal_raidsize/5)*145+50-80)
 		label.frame:SetAlpha(1)
-		label:SetFont(GameFontNormal:GetFont(), 14)
+		label:SetFont(GameFontNormal:GetFont(), 14, "")
 		label:SetCallback("OnEnter", function() 
 			GameTooltip:SetOwner(label.frame,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", label.frame,"BOTTOMLEFT", 10, 0)
@@ -5908,7 +5920,7 @@ function Attune_RaidPlannerRoster()
 					end
 				end
 
-				icon:SetFont(GameFontNormal:GetFont(), 12)
+				icon:SetFont(GameFontNormal:GetFont(), 12, "")
 				icon:SetWidth(140)
 				icon:SetImageSize(32, 32)
 				party:AddChild(icon)
@@ -5957,7 +5969,7 @@ function Attune_RaidPlannerRoster()
 		local label = AceGUI:Create("Label")
 		label:SetText("\n")
 		label:SetFullWidth(true)
-		label:SetFont(GameFontNormal:GetFont(), 18)
+		label:SetFont(GameFontNormal:GetFont(), 18, "")
 		rgroup:AddChild(label)
 
 		raidscroll:AddChild(rgroup)
