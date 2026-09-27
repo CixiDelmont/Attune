@@ -8,8 +8,12 @@
 --
 -------------------------------------------------------------------------
 
--- Done in 1.6.19
+-- 1.6.19
 --  Updated dungeons up to Maraudon
+
+-- 1.6.20
+--   - Added quest giver in tooltip and map display
+--   - Changed default to not announce completion in guild chat
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -2788,11 +2792,16 @@ local function Attune_MapIdForName(name)
 	return attunelocal_mapNameCache[name]
 end
 
-local function Attune_ShowQuestGiverMap(step)
+local function Attune_QuestIdFromStep(step)
 	local questId = tonumber(step.ID_WOWHEAD)
 	if not questId and step.ID_WOWHEAD and string.find(step.ID_WOWHEAD, "|", 1, true) then
 		questId = tonumber(Attune_split(step.ID_WOWHEAD, "|")[1])
 	end
+	return questId
+end
+
+local function Attune_ShowQuestGiverMap(step)
+	local questId = Attune_QuestIdFromStep(step)
 	local loc = questId and Attune_Data.questGivers and Attune_Data.questGivers[questId]
 	local uiMapID = loc and loc[1]
 	local x, y = loc and loc[2], loc and loc[3]
@@ -2818,6 +2827,54 @@ local function Attune_ShowQuestGiverMap(step)
 			C_SuperTrack.SetSuperTrackedUserWaypoint(true)
 		end
 	end
+end
+
+local attunelocal_giverTip
+local attunelocal_giverTipGap = 6
+
+local function Attune_HideQuestGiverTip()
+	if attunelocal_giverTip then attunelocal_giverTip:Hide() end
+end
+
+local function Attune_ShowQuestGiverTip(step, anchor)
+	local questId = Attune_QuestIdFromStep(step)
+	local loc = questId and Attune_Data.questGivers and Attune_Data.questGivers[questId]
+	local name = loc and loc[4]
+	if not name or name == "" then
+		name = AttuneLang["Q1_"..step.ID_WOWHEAD]
+	end
+
+	if not attunelocal_giverTip then
+		attunelocal_giverTip = CreateFrame("GameTooltip", "AttuneGiverTip", UIParent, "GameTooltipTemplate")
+		attunelocal_giverTip:SetFrameStrata("TOOLTIP")
+	end
+
+	local tip = attunelocal_giverTip
+	local target = GameTooltip:GetWidth() or 0
+	tip:SetOwner(anchor, "ANCHOR_NONE")
+	tip:ClearLines()
+	if tip.SetMinimumWidth then tip:SetMinimumWidth(0) end
+	tip:SetText("|cffffffff"..AttuneLang["Starts at"].." |r"..(name or ""))
+	tip:AddLine(AttuneLang["Click to show map"], 0.6, 0.6, 0.6, true)
+	tip:Show()
+	-- Match the quest tooltip's outer width unless this bubble's own text is already wider.
+	-- SetMinimumWidth adds padding on top of the number you pass, so measure and correct once.
+	local natural = tip:GetWidth() or 0
+	if tip.SetMinimumWidth and target > 0 and natural > 0 and natural <= target + 1 then
+		tip:SetMinimumWidth(target)
+		tip:Show()
+		local overshoot = (tip:GetWidth() or target) - target
+		if math.abs(overshoot) > 1 then
+			tip:SetMinimumWidth(math.max(1, target - overshoot))
+			tip:Show()
+		end
+	end
+	-- Showing a second tooltip can hide the quest summary. Put it back, then stack them.
+	GameTooltip:Show()
+	tip:ClearAllPoints()
+	tip:SetPoint("TOPLEFT", anchor, "TOPRIGHT", 10, 0)
+	GameTooltip:ClearAllPoints()
+	GameTooltip:SetPoint("TOPLEFT", tip, "BOTTOMLEFT", 0, -attunelocal_giverTipGap)
 end
 
 function Attune_CreateNode(step, parent, posX, posY)
@@ -3007,9 +3064,6 @@ function Attune_CreateNode(step, parent, posX, posY)
 					if button == "RightButton" then Attune_ShowWebsiteURL("quest=" .. step.ID_WOWHEAD)	end
 				end)
 			end
-			if step.TYPE == "Quest" or step.TYPE == "Pick Up" then
-				GameTooltip:AddLine("\n"..AttuneLang["Click to show the quest giver on the map"], 0.5, 0.5, 0.5, 1)
-			end
 
 		elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
 			attunelocal_frame:SetStatusText(AttuneLang["N1_"..step.ID_WOWHEAD])
@@ -3062,12 +3116,18 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 		if listSameStep ~= "" and Attune_DB.showList then GameTooltip:AddLine(listSameStep, 1, 1, 1, 1) end
 		GameTooltip:Show()
+		if (step.TYPE == "Quest" or step.TYPE == "Pick Up") and not step.SIDE then
+			Attune_ShowQuestGiverTip(step, fnode)
+		else
+			Attune_HideQuestGiverTip()
+		end
 
 	end)
 	fnode:SetScript("OnLeave", function()
 		-- restore status text to default
 		attunelocal_frame:SetStatusText(attunelocal_statusText)
 		GameTooltip:Hide()
+		Attune_HideQuestGiverTip()
 		-- restore  transparency for clickable sub-attunes
 		if step.TYPE == "Attune" then
 			if done then
@@ -3092,7 +3152,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 	--				ChatEdit_InsertLink(format("|cffffff00|Hquest:%d:%d|h[%s]|h|r", tonumber(step.ID_WOWHEAD), 60, quest[1]));
 	--			end
 
-		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up") and (button == nil or button == "LeftButton") and not IsModifiedClick() then
+		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up") and not step.SIDE and (button == nil or button == "LeftButton") and not IsModifiedClick() then
 			Attune_ShowQuestGiverMap(step)
 
 		-- navigate to sub-attunement
