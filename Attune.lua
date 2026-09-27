@@ -549,7 +549,7 @@ function Attune:OnEnable()
 	if Attune_DB.showSurveyed == nil then Attune_DB.showSurveyed = false end
 	if Attune_DB.showResponses == nil then Attune_DB.showResponses = true end
 	if Attune_DB.showStepReached == nil then Attune_DB.showStepReached = true end
-	if Attune_DB.announceAttuneCompleted == nil then Attune_DB.announceAttuneCompleted = true end
+	if Attune_DB.announceAttuneCompleted == nil then Attune_DB.announceAttuneCompleted = false end
 	if Attune_DB.showDeprecatedAttunes == nil then Attune_DB.showDeprecatedAttunes = true end
 		
 	
@@ -2768,6 +2768,58 @@ end
 -- Create the frame for a single attune step (node)
 -------------------------------------------------------------------------
 
+local attunelocal_mapNameCache
+
+local function Attune_MapIdForName(name)
+	if not name or name == "" or not C_Map or not C_Map.GetMapChildrenInfo then return nil end
+	if not attunelocal_mapNameCache then
+		attunelocal_mapNameCache = {}
+		for _, root in ipairs({ 947, 1414, 1415, 1463, 1464 }) do
+			local children = C_Map.GetMapChildrenInfo(root, nil, true)
+			if children then
+				for _, info in ipairs(children) do
+					if info.name and not attunelocal_mapNameCache[info.name] then
+						attunelocal_mapNameCache[info.name] = info.mapID
+					end
+				end
+			end
+		end
+	end
+	return attunelocal_mapNameCache[name]
+end
+
+local function Attune_ShowQuestGiverMap(step)
+	local questId = tonumber(step.ID_WOWHEAD)
+	if not questId and step.ID_WOWHEAD and string.find(step.ID_WOWHEAD, "|", 1, true) then
+		questId = tonumber(Attune_split(step.ID_WOWHEAD, "|")[1])
+	end
+	local loc = questId and Attune_Data.questGivers and Attune_Data.questGivers[questId]
+	local uiMapID = loc and loc[1]
+	local x, y = loc and loc[2], loc and loc[3]
+	if uiMapID and C_Map and C_Map.GetMapInfo and not C_Map.GetMapInfo(uiMapID) then
+		uiMapID, x, y = nil, nil, nil
+	end
+	if not uiMapID then
+		uiMapID = Attune_MapIdForName(step.LOCATION)
+		x, y = nil, nil
+	end
+	if not uiMapID then return end
+
+	if OpenWorldMap then
+		OpenWorldMap(uiMapID)
+	elseif WorldMapFrame then
+		if not WorldMapFrame:IsShown() then ToggleWorldMap() end
+		if WorldMapFrame.SetMapID then WorldMapFrame:SetMapID(uiMapID) end
+	end
+
+	if x and y and C_Map and C_Map.SetUserWaypoint and UiMapPoint and C_Map.CanSetUserWaypointOnMap and C_Map.CanSetUserWaypointOnMap(uiMapID) then
+		C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(uiMapID, x / 100, y / 100))
+		if C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then
+			C_SuperTrack.SetSuperTrackedUserWaypoint(true)
+		end
+	end
+end
+
 function Attune_CreateNode(step, parent, posX, posY)
 	-- Generic look and feel for the node
 	local PaneBackdrop  = {
@@ -2955,6 +3007,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 					if button == "RightButton" then Attune_ShowWebsiteURL("quest=" .. step.ID_WOWHEAD)	end
 				end)
 			end
+			if step.TYPE == "Quest" or step.TYPE == "Pick Up" then
+				GameTooltip:AddLine("\n"..AttuneLang["Click to show the quest giver on the map"], 0.5, 0.5, 0.5, 1)
+			end
 
 		elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
 			attunelocal_frame:SetStatusText(AttuneLang["N1_"..step.ID_WOWHEAD])
@@ -3022,7 +3077,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			end
 		end
 	end)
-	fnode:SetScript("OnClick", function()
+	fnode:SetScript("OnClick", function(self, button)
 
 		-- shif-clicking items in chat
 		if step.TYPE == "Item" then
@@ -3036,6 +3091,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 	--			if quest and IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow() then
 	--				ChatEdit_InsertLink(format("|cffffff00|Hquest:%d:%d|h[%s]|h|r", tonumber(step.ID_WOWHEAD), 60, quest[1]));
 	--			end
+
+		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up") and (button == nil or button == "LeftButton") and not IsModifiedClick() then
+			Attune_ShowQuestGiverMap(step)
 
 		-- navigate to sub-attunement
 		elseif step.TYPE == "Attune" then

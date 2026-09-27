@@ -36,6 +36,7 @@ Lang["Guild members"] = "Membres de la guilde"
 Lang["All results"] = "Tous les résultats" 
 Lang["Minimum level"] = "Niveau minimum" 
 Lang["Click to navigate to that attunement"] = "Cliquez pour aller à cet accès"
+Lang["Click to show the quest giver on the map"] = "Cliquez pour afficher le donneur de quête sur la carte"
 Lang["Attunes"] = "Accès"
 Lang["Guild members on this step"] = "Membres de la guilde à cette étape " --space at the end on purpose, as : takes a space before AND after in french
 Lang["Attuned guild members"] = "Membres de la guilde ayant accès " --space at the end on purpose, as : takes a space before AND after in french

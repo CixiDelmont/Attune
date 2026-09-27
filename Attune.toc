@@ -22,4 +22,5 @@ embeds.xml
 Locales\Locales.xml
 Attune.lua
 AttuneData.lua
+AttuneQuestGivers.lua
 
