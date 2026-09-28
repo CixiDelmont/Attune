@@ -16,8 +16,8 @@
 --   - Changed default to not announce completion in guild chat
 
 -- 1.6.21
---   - Right-click a quest to list its reward items beside the main window
---   - Main window uses the client portrait frame; the portrait swaps between Attune and Results
+--   - Click a quest to list its reward items and map of the quest giver. Click it again to go back to the treeview
+--   - Attune now uses the Forever frame
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
