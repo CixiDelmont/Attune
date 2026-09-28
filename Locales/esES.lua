@@ -135,6 +135,7 @@ Lang["Send raid invites to all listed players?"] = "¿Enviar invitaciones de inc
 Lang["External link"] = "Enlace a una base de datos en línea"
 Lang["Quest rewards"] = "Recompensas de misión"
 Lang["No item rewards"] = "Esta misión no tiene recompensas de objeto."
+Lang["Rewards only if available"] = "Las recompensas de objeto solo se muestran para las misiones disponibles para este personaje."
 Lang["Loading rewards"] = "Cargando recompensas..."
 Lang["Show link"] = "Mostrar enlace"
 Lang["Choose one reward"] = "Elige una"

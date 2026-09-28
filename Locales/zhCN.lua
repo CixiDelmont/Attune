@@ -135,6 +135,7 @@ Lang["Send raid invites to all listed players?"] = "向所有列出的玩家发�
 Lang["External link"] = "链接到在线数据库"
 Lang["Quest rewards"] = "任务奖励"
 Lang["No item rewards"] = "此任务没有物品奖励。"
+Lang["Rewards only if available"] = "仅显示该角色可接任务的物品奖励。"
 Lang["Loading rewards"] = "正在加载奖励..."
 Lang["Show link"] = "显示链接"
 Lang["Choose one reward"] = "任选其一"

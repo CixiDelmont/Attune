@@ -663,8 +663,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="210",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="210",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6561",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Blackfathom Villainy (from Thaelrid)
-	{ID_ATTUNE="210",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78917",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Heart of the Void
-	{ID_ATTUNE="210",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&520&510",STAGE="70"},
+	-- {ID_ATTUNE="210",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78917",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Heart of the Void
+	{ID_ATTUNE="210",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&520",STAGE="70"},
 
 --vForever dungeon attune 220
 	-- Columns L→R (higher ID = left): 388 Color | 387 Quell | 373→389→391 Unsent (center) | 377 Crime | 386 What Comes

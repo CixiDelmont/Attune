@@ -135,6 +135,7 @@ Lang["Send raid invites to all listed players?"] = "나열된 모든 플레이�
 Lang["External link"] = "온라인 데이터베이스에 연결"
 Lang["Quest rewards"] = "퀘스트 보상"
 Lang["No item rewards"] = "이 퀘스트에는 아이템 보상이 없습니다."
+Lang["Rewards only if available"] = "이 캐릭터가 수락할 수 있는 퀘스트의 아이템 보상만 표시됩니다."
 Lang["Loading rewards"] = "보상 불러오는 중..."
 Lang["Show link"] = "링크 보기"
 Lang["Choose one reward"] = "하나 선택"

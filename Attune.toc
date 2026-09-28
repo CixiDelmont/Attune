@@ -16,11 +16,12 @@
 ## IconTexture: Interface\Icons\inv_scroll_03
 ## SavedVariables: Attune_DB
 ## SavedVariablesPerCharacter: AttuneLastViewed, TreeExpandStatus
-## Version: 16001-20
+## Version: 16001-21
 ## X-Website: https://warcraftratings.com
 embeds.xml
 Locales\Locales.xml
 Attune.lua
 AttuneData.lua
 AttuneQuestGivers.lua
+AttuneQuestRewards.lua
 

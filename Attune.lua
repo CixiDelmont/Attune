@@ -2066,11 +2066,10 @@ function Attune_UpdateWindowPortrait()
 	if not attunelocal_bronzeChrome then return end
 	if attunelocal_treeIsShown then
 		Attune_SetPortraitTexture(attunelocal_bronzeChrome, ATTUNE_PORTRAIT_ATTUNE)
-		Attune_SetChromeTitle(attunelocal_bronzeChrome, "Attune")
 	else
 		Attune_SetPortraitTexture(attunelocal_bronzeChrome, Attune_ResultsPortrait())
-		Attune_SetChromeTitle(attunelocal_bronzeChrome, AttuneLang["Results"])
 	end
+	Attune_SetChromeTitle(attunelocal_bronzeChrome, "Attune")
 end
 
 local function Attune_ApplyBronzeChrome(host)
@@ -2100,9 +2099,12 @@ local function Attune_ApplyBronzeChrome(host)
 			child:SetFrameLevel(top + 10)
 		end
 	end
+	-- PortraitFrameTemplate puts the border hundreds of levels above the title.
+	-- Raising the title only a little leaves the text under that border.
+	local borderLevel = (chrome.NineSlice and chrome.NineSlice:GetFrameLevel()) or top
 	Attune_RaisePiece(chrome.PortraitContainer or chrome.portrait, top + 40)
-	Attune_RaisePiece(chrome.TitleContainer, top + 40)
-	Attune_RaisePiece(chrome.CloseButton, top + 41)
+	Attune_RaisePiece(chrome.TitleContainer, borderLevel + 10)
+	Attune_RaisePiece(chrome.CloseButton, borderLevel + 11)
 
 	if chrome.TitleContainer then
 		chrome.TitleContainer:EnableMouse(true)
@@ -2164,8 +2166,9 @@ local function Attune_ApplyButtonChrome(host, onClose)
 	end
 	if chrome.PortraitContainer then chrome.PortraitContainer:Hide() end
 	if chrome.portrait and chrome.portrait.Hide then chrome.portrait:Hide() end
-	Attune_RaisePiece(chrome.TitleContainer, above + 5)
-	Attune_RaisePiece(chrome.CloseButton, above + 6)
+	local borderLevel = (chrome.NineSlice and chrome.NineSlice:GetFrameLevel()) or above
+	Attune_RaisePiece(chrome.TitleContainer, borderLevel + 10)
+	Attune_RaisePiece(chrome.CloseButton, borderLevel + 11)
 	if chrome.CloseButton and onClose then
 		chrome.CloseButton:SetScript("OnClick", onClose)
 	end
@@ -6443,7 +6446,7 @@ local function Attune_RewardQuestIDs(idWowhead)
 	return ids
 end
 
-local function Attune_AddReward(list, seen, itemID, name, texture, count, quality)
+local function Attune_AddReward(list, seen, itemID, name, texture, count, quality, choice)
 	itemID = tonumber(itemID)
 	if not itemID or itemID <= 0 then return end
 	if seen[itemID] then return end
@@ -6455,10 +6458,11 @@ local function Attune_AddReward(list, seen, itemID, name, texture, count, qualit
 		texture = texture,
 		count = tonumber(count) or 1,
 		quality = tonumber(quality),
+		choice = choice and true or nil,
 	})
 end
 
-local function Attune_ReadIndexedRewards(countFn, infoFn, questID, list, seen)
+local function Attune_ReadIndexedRewards(countFn, infoFn, questID, list, seen, choice)
 	if type(countFn) ~= "function" or type(infoFn) ~= "function" then return end
 	local ok, num = pcall(countFn, questID)
 	if not ok or type(num) ~= "number" or num <= 0 then return end
@@ -6468,11 +6472,85 @@ local function Attune_ReadIndexedRewards(countFn, infoFn, questID, list, seen)
 		if okInfo then
 			if type(name) == "table" then
 				local info = name
-				Attune_AddReward(list, seen, info.itemID or info.itemId, info.name or info.itemName, info.texture or info.icon, info.quantity or info.amount or info.numItems, info.quality)
+				Attune_AddReward(list, seen, info.itemID or info.itemId, info.name or info.itemName, info.texture or info.icon, info.quantity or info.amount or info.numItems, info.quality, choice)
 			else
-				Attune_AddReward(list, seen, itemID, name, texture, count, quality)
+				Attune_AddReward(list, seen, itemID, name, texture, count, quality, choice)
 			end
 		end
+	end
+end
+
+local function Attune_StoredItem(itemID)
+	local info = Attune_Data.rewardItems and itemID and Attune_Data.rewardItems[itemID]
+	if type(info) ~= "table" then return end
+	local name = info[1]
+	if type(name) ~= "string" or name == "" then name = nil end
+	local icon = info[2]
+	if type(icon) == "string" and icon ~= "" then
+		if not string.find(icon, "\\", 1, true) and not string.find(icon, "/", 1, true) then
+			icon = "Interface\\Icons\\" .. icon
+		end
+	else
+		icon = nil
+	end
+	local quality = tonumber(info[3])
+	if quality and quality < 0 then quality = nil end
+	return name, icon, quality
+end
+
+-- Full item link when the client has it. Otherwise the stored name, so the
+-- tooltip does not sit on "Retrieving item information" for an item the
+-- server never answers.
+local function Attune_ShowItemTooltip(owner, itemID, request)
+	if not owner or not itemID or not owner:IsShown() then return end
+	if owner.IsMouseOver and not owner:IsMouseOver() then return end
+	GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+
+	local itemName, link, itemQuality = GetItemInfo(itemID)
+	if link and pcall(GameTooltip.SetHyperlink, GameTooltip, link) then
+		GameTooltip:Show()
+		return
+	end
+
+	local storedName, _, storedQuality = Attune_StoredItem(itemID)
+	local name = (type(itemName) == "string" and itemName ~= "") and itemName or storedName
+	local quality = itemQuality or storedQuality
+	if name then
+		local r, g, b = 1, 1, 1
+		local color = ITEM_QUALITY_COLORS and quality and ITEM_QUALITY_COLORS[quality]
+		if color then r, g, b = color.r, color.g, color.b end
+		GameTooltip:SetText(name, r, g, b)
+		GameTooltip:Show()
+	elseif GameTooltip.SetItemByID and pcall(GameTooltip.SetItemByID, GameTooltip, itemID) then
+		GameTooltip:Show()
+	else
+		GameTooltip:Hide()
+	end
+
+	if request and not link and C_Item and C_Item.RequestLoadItemDataByID then
+		pcall(C_Item.RequestLoadItemDataByID, itemID)
+	end
+end
+
+local function Attune_RefreshRewardTooltip(rows)
+	for _, row in ipairs(rows or {}) do
+		if row:IsShown() and row.itemID and row.IsMouseOver and row:IsMouseOver() then
+			Attune_ShowItemTooltip(row, row.itemID, false)
+			return
+		end
+	end
+end
+
+local function Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, seenChoice)
+	local row = Attune_Data.questRewards and Attune_Data.questRewards[questID]
+	if not row then return end
+	for _, item in ipairs(row.fixed or {}) do
+		local storedName, storedIcon, storedQuality = Attune_StoredItem(item[1])
+		Attune_AddReward(fixed, seenFixed, item[1], storedName, storedIcon, item[2], storedQuality, false)
+	end
+	for _, item in ipairs(row.choice or {}) do
+		local storedName, storedIcon, storedQuality = Attune_StoredItem(item[1])
+		Attune_AddReward(choices, seenChoice, item[1], storedName, storedIcon, item[2], storedQuality, true)
 	end
 end
 
@@ -6480,12 +6558,23 @@ local function Attune_CollectQuestRewards(questIDs)
 	local fixed, choices = {}, {}
 	local seenFixed, seenChoice = {}, {}
 	for _, questID in ipairs(questIDs or {}) do
+		local beforeFixed, beforeChoice = #fixed, #choices
 		if C_QuestLog then
-			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestRewards, C_QuestLog.GetQuestRewardInfo, questID, fixed, seenFixed)
-			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestChoices or C_QuestLog.GetNumQuestLogChoices, C_QuestLog.GetQuestChoiceInfo or C_QuestLog.GetQuestLogChoiceInfo, questID, choices, seenChoice)
+			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestRewards, C_QuestLog.GetQuestRewardInfo, questID, fixed, seenFixed, false)
+			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestChoices or C_QuestLog.GetNumQuestLogChoices, C_QuestLog.GetQuestChoiceInfo or C_QuestLog.GetQuestLogChoiceInfo, questID, choices, seenChoice, true)
 		end
-		Attune_ReadIndexedRewards(GetNumQuestLogRewards, GetQuestLogRewardInfo, questID, fixed, seenFixed)
-		Attune_ReadIndexedRewards(GetNumQuestLogChoices, GetQuestLogChoiceInfo, questID, choices, seenChoice)
+		local useQuestLog = not (C_QuestLog and C_QuestLog.GetNumQuestRewards)
+		if not useQuestLog and GetQuestLogIndexByID and GetQuestLogSelection then
+			local index = GetQuestLogIndexByID(questID)
+			useQuestLog = index and index > 0 and index == GetQuestLogSelection()
+		end
+		if useQuestLog then
+			Attune_ReadIndexedRewards(GetNumQuestLogRewards, GetQuestLogRewardInfo, questID, fixed, seenFixed, false)
+			Attune_ReadIndexedRewards(GetNumQuestLogChoices, GetQuestLogChoiceInfo, questID, choices, seenChoice, true)
+		end
+		if #fixed == beforeFixed and #choices == beforeChoice then
+			Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, seenChoice)
+		end
 	end
 	return fixed, choices
 end
@@ -6508,10 +6597,7 @@ local function Attune_CreateRewardRow(parent)
 	if row.name.SetMaxLines then row.name:SetMaxLines(1) end
 	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
 	row:SetScript("OnEnter", function(self)
-		if not self.itemID then return end
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		local shown = pcall(GameTooltip.SetHyperlink, GameTooltip, "item:" .. self.itemID)
-		if shown then GameTooltip:Show() else GameTooltip:Hide() end
+		Attune_ShowItemTooltip(self, self.itemID, true)
 	end)
 	row:SetScript("OnLeave", function()
 		GameTooltip:Hide()
@@ -6733,6 +6819,7 @@ local function Attune_EnsureRewardFrame()
 			if not wanted then return end
 		end
 		Attune_FillQuestRewards(f, true)
+		Attune_RefreshRewardTooltip(f.rows)
 	end)
 	f.listener = listener
 	f:SetScript("OnShow", function(self)
@@ -6933,13 +7020,20 @@ local function Attune_DetailRewardRow(parent)
 	row.category:SetTextColor(0.55, 0.55, 0.55)
 	if row.category.SetMaxLines then row.category:SetMaxLines(1) end
 	row:SetScript("OnEnter", function(self)
-		if not self.itemID then return end
-		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-		local shown = pcall(GameTooltip.SetHyperlink, GameTooltip, "item:" .. self.itemID)
-		if shown then GameTooltip:Show() else GameTooltip:Hide() end
+		Attune_ShowItemTooltip(self, self.itemID, true)
 	end)
 	row:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	return row
+end
+
+local function Attune_QuestRewardsKnown(panel)
+	local ids = panel and panel.step and Attune_RewardQuestIDs(panel.step.ID_WOWHEAD) or {}
+	for _, questID in ipairs(ids) do
+		if panel.questLoaded and panel.questLoaded[questID] then return true end
+		if Attune_Data.questRewards and Attune_Data.questRewards[questID] ~= nil then return true end
+		if C_QuestLog and C_QuestLog.IsOnQuest and C_QuestLog.IsOnQuest(questID) then return true end
+	end
+	return false
 end
 
 local function Attune_LayoutQuestDetail(panel)
@@ -6948,7 +7042,7 @@ local function Attune_LayoutQuestDetail(panel)
 	local height = panel:GetHeight()
 	if width < 40 or height < 40 then return end
 
-	local header = 40
+	local header = 50
 	local sep = 10
 	local margin = 10
 	local mapSize = width - (margin * 2)
@@ -6983,40 +7077,84 @@ local function Attune_LayoutQuestDetail(panel)
 	for _, row in ipairs(panel.rows) do row:Hide() end
 	if #items == 0 then
 		panel.empty:Show()
-		panel.empty:SetText(panel.rewardsFinal and AttuneLang["No item rewards"] or AttuneLang["Loading rewards"])
-		panel.rewardChild:SetHeight(28)
+		local known = Attune_QuestRewardsKnown(panel)
+		local msg
+		if not panel.rewardsFinal and not known then
+			msg = AttuneLang["Loading rewards"]
+		elseif known then
+			msg = AttuneLang["No item rewards"]
+		else
+			msg = AttuneLang["Rewards only if available"]
+		end
+		panel.empty:SetText(msg)
+		panel.rewardChild:SetHeight(known and 28 or 48)
 	else
 		panel.empty:Hide()
 		local y = 6
-		for i, entry in ipairs(items) do
-			local row = panel.rows[i]
+		local shown = 0
+		for _, entry in ipairs(items) do
+			local name, quality, texture = entry.name, entry.quality, entry.texture
+			local itemName, _, itemQuality, _, _, itemType, itemSubType, _, itemEquipSlot, itemTexture, _, classID, subClassID = GetItemInfo(entry.itemID)
+			if itemName and itemName ~= "" then
+				name, quality, texture = itemName, itemQuality, itemTexture or texture
+			else
+				local storedName, storedIcon, storedQuality = Attune_StoredItem(entry.itemID)
+				if storedName then name = storedName end
+				if storedIcon and not texture then texture = storedIcon end
+				if storedQuality and not quality then quality = storedQuality end
+			end
+			if GetItemInfoInstant and ((not itemType or itemType == "") or not itemEquipSlot or itemEquipSlot == "") then
+				local _, instantType, instantSubType, instantEquip, _, instantClass, instantSubClass = GetItemInfoInstant(entry.itemID)
+				if not itemType or itemType == "" then itemType, itemSubType = instantType, instantSubType end
+				if (not itemEquipSlot or itemEquipSlot == "") and instantEquip and instantEquip ~= "" then itemEquipSlot = instantEquip end
+				if not classID then classID = instantClass end
+				if not subClassID then subClassID = instantSubClass end
+			end
+			if not name or name == "" then
+				if C_Item and C_Item.RequestLoadItemDataByID then
+					pcall(C_Item.RequestLoadItemDataByID, entry.itemID)
+				end
+			end
+			if not name or name == "" then
+				-- Wowhead has no name for this reward slot, and the client has not cached it.
+			else
+			shown = shown + 1
+			local row = panel.rows[shown]
 			if not row then
 				row = Attune_DetailRewardRow(panel.rewardChild)
-				panel.rows[i] = row
+				panel.rows[shown] = row
 			end
 			row:ClearAllPoints()
 			row:SetPoint("TOPLEFT", 4, -y)
 			row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
 			row.itemID = entry.itemID
-			local name, quality, texture = entry.name, entry.quality, entry.texture
-			local itemName, _, itemQuality, _, _, itemType, itemSubType, _, _, itemTexture = GetItemInfo(entry.itemID)
-			if itemName and itemName ~= "" then
-				name, quality, texture = itemName, itemQuality, itemTexture or texture
-			end
-			if (not itemType or itemType == "") and GetItemInfoInstant then
-				local _, instantType, instantSubType = GetItemInfoInstant(entry.itemID)
-				itemType, itemSubType = instantType, instantSubType
-			end
-			if (not itemName or itemName == "") and C_Item and C_Item.RequestLoadItemDataByID then
-				pcall(C_Item.RequestLoadItemDataByID, entry.itemID)
-			end
 			row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
-			local text = name or "..."
+			local text = name
 			if entry.count and entry.count > 1 then text = text .. " x" .. entry.count end
-			if entry.choice then text = text .. " (" .. AttuneLang["Choose one reward"] .. ")" end
+			-- if entry.choice then text = text .. " (" .. AttuneLang["Choose one reward"] .. ")" end
 			row.name:SetText(text)
+			local slotLabel = nil
+			if type(itemEquipSlot) == "string" and itemEquipSlot ~= "" and itemEquipSlot ~= "INVTYPE_NON_EQUIP_IGNORE" then
+				local label = _G[itemEquipSlot]
+				if type(label) == "string" and label ~= "" then slotLabel = label end
+			end
+			local isWeapon = classID == 2 or itemType == "Weapon"
+			local isArmor = classID == 4 or itemType == "Armor"
+			local isMisc = itemSubType == "Misc" or itemSubType == "Miscellaneous" or (isArmor and subClassID == 0)
 			local category = ""
-			if itemType and itemType ~= "" and itemSubType and itemSubType ~= "" and itemSubType ~= itemType then
+			if isWeapon then
+				category = itemSubType or ""
+			elseif isMisc then
+				category = slotLabel or ""
+			elseif isArmor then
+				if itemSubType and itemSubType ~= "" and slotLabel then
+					category = itemSubType .. " - " .. slotLabel
+				elseif slotLabel then
+					category = slotLabel
+				else
+					category = itemSubType or ""
+				end
+			elseif itemType and itemType ~= "" and itemSubType and itemSubType ~= "" and itemSubType ~= itemType then
 				category = itemType .. " - " .. itemSubType
 			elseif itemType and itemType ~= "" then
 				category = itemType
@@ -7040,9 +7178,16 @@ local function Attune_LayoutQuestDetail(panel)
 			end
 			row:Show()
 			y = y + 42
+			end
 		end
-		panel.rewardChild:SetWidth(math.max(width - 24, 20))
-		panel.rewardChild:SetHeight(math.max(y, 1))
+		if shown == 0 then
+			panel.empty:Show()
+			panel.empty:SetText(AttuneLang["No item rewards"])
+			panel.rewardChild:SetHeight(28)
+		else
+			panel.rewardChild:SetWidth(math.max(width - 24, 20))
+			panel.rewardChild:SetHeight(math.max(y, 1))
+		end
 	end
 
 	local uiMapID, x, y, giver = Attune_DetailGiver(panel.step)
@@ -7075,7 +7220,18 @@ local function Attune_EnsureQuestDetail()
 	panel.title:SetPoint("TOPLEFT", 14, -14)
 	panel.title:SetPoint("RIGHT", panel, "RIGHT", -36, 0)
 	panel.title:SetJustifyH("LEFT")
+    panel.title:SetFont(GameFontNormal:GetFont(), 16, "")
 	panel.title:SetWordWrap(false)
+
+	panel.subtitle = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+	panel.subtitle:SetPoint("TOPLEFT", 14, -36)
+	panel.subtitle:SetPoint("RIGHT", panel, "RIGHT", -36, 0)
+	panel.subtitle:SetJustifyH("LEFT")
+    panel.subtitle:SetFont(GameFontNormal:GetFont(), 12, "")
+	panel.subtitle:SetWordWrap(false)
+    panel.subtitle:SetText("Quest rewards")
+    panel.subtitle:SetTextColor(0.55, 0.55, 0.55)
+
 
 	local close = CreateFrame("Button", nil, panel, "UIPanelCloseButton")
 	close:SetPoint("TOPRIGHT", 4, 4)
@@ -7097,7 +7253,7 @@ local function Attune_EnsureQuestDetail()
 	scroll:SetScrollChild(child)
 	panel.rewardChild = child
 	panel.empty = child:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-	panel.empty:SetPoint("TOPLEFT", 6, -8)
+	panel.empty:SetPoint("TOPLEFT", 6, -20)
 	panel.empty:SetPoint("RIGHT", child, "RIGHT", -8, 0)
 	panel.empty:SetJustifyH("LEFT")
 	panel.empty:SetWordWrap(true)
@@ -7169,7 +7325,22 @@ local function Attune_EnsureQuestDetail()
 	art:SetScript("OnMouseWheel", function(_, delta) Attune_NudgeMapZoom(delta) end)
 
 	local listener = CreateFrame("Frame", nil, panel)
-	listener:SetScript("OnEvent", function()
+	listener:SetScript("OnEvent", function(_, event, arg1, arg2)
+		if event == "GET_ITEM_INFO_RECEIVED" then
+			if not panel:IsShown() then return end
+			local wanted = false
+			for _, row in ipairs(panel.rows) do
+				if row.itemID == arg1 then wanted = true break end
+			end
+			if not wanted then return end
+			Attune_LayoutQuestDetail(panel)
+			Attune_RefreshRewardTooltip(panel.rows)
+			return
+		end
+		if event == "QUEST_DATA_LOAD_RESULT" and arg1 and arg2 then
+			panel.questLoaded = panel.questLoaded or {}
+			panel.questLoaded[arg1] = true
+		end
 		if panel:IsShown() then Attune_LayoutQuestDetail(panel) end
 	end)
 	panel:SetScript("OnShow", function(self)
@@ -7221,6 +7392,7 @@ function Attune_ShowQuestDetail(step)
 	panel.key = key
 	panel.step = step
 	panel.rewardsFinal = false
+	panel.questLoaded = {}
 	if panel.map then panel.map.zoom = 1 end
 	panel:SetParent(tree)
 	panel:ClearAllPoints()

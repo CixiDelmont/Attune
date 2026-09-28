@@ -135,6 +135,7 @@ Lang["Send raid invites to all listed players?"] = "Send raid invites to all lis
 Lang["External link"] = "Link to an online database"
 Lang["Quest rewards"] = "Quest rewards"
 Lang["No item rewards"] = "This quest has no item rewards."
+Lang["Rewards only if available"] = "Item rewards are listed only for quests available to this character."
 Lang["Loading rewards"] = "Loading rewards..."
 Lang["Show link"] = "Show link"
 Lang["Choose one reward"] = "Choose one"

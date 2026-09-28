@@ -135,6 +135,7 @@ Lang["Send raid invites to all listed players?"] = "Raid-Einladungen an alle auf
 Lang["External link"] = "Link zu einer Online-Datenbank"
 Lang["Quest rewards"] = "Questbelohnungen"
 Lang["No item rewards"] = "Diese Quest hat keine Gegenstandsbelohnungen."
+Lang["Rewards only if available"] = "Gegenstandbelohnungen werden nur für Quests angezeigt, die diesem Charakter zur Verfügung stehen."
 Lang["Loading rewards"] = "Belohnungen werden geladen..."
 Lang["Show link"] = "Link anzeigen"
 Lang["Choose one reward"] = "Eines wählen"
