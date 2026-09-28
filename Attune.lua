@@ -15,6 +15,10 @@
 --   - Added quest giver in tooltip and map display
 --   - Changed default to not announce completion in guild chat
 
+-- 1.6.21
+--   - Right-click a quest to list its reward items beside the main window
+--   - Main window uses the client portrait frame; the portrait swaps between Attune and Results
+
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
 -------------------------------------------------------------------------
@@ -58,6 +62,22 @@ Attune_Data = {};							-- Attunements / steps / tooltips
 AttuneLang = LibStub("AceLocale-3.0"):GetLocale("Attune")
 
 local AceGUI = LibStub("AceGUI-3.0")
+do
+	-- Darker TreeGroup panes. AceGUI sets these in the widget constructor; override after create so Libs stay stock.
+	local AceGUI_Create = AceGUI.Create
+	function AceGUI:Create(widgetType)
+		local widget = AceGUI_Create(self, widgetType)
+		if widgetType == "TreeGroup" then
+			if widget.treeframe then
+				widget.treeframe:SetBackdropColor(0, 0, 0, 0.5)
+			end
+			if widget.border then
+				widget.border:SetBackdropColor(0, 0, 0, 0.5)
+			end
+		end
+		return widget
+	end
+end
 local _G = getfenv(0)
 
 local attunelocal_ldb = LibStub("LibDataBroker-1.1")
@@ -1951,6 +1971,188 @@ end
 
 
 -------------------------------------------------------------------------
+-- Client bronze portrait frame (same template as Cooking / profession windows)
+-------------------------------------------------------------------------
+
+local attunelocal_bronzeChrome
+local ATTUNE_PORTRAIT_ATTUNE = "Interface\\Icons\\INV_Scroll_03"
+
+local function Attune_ResultsPortrait()
+	if UnitFactionGroup("player") == "Horde" then
+		return "Interface\\Icons\\INV_BannerPVP_01"
+	end
+	return "Interface\\Icons\\INV_BannerPVP_02"
+end
+
+local function Attune_SetPortraitTexture(chrome, texture)
+	if not chrome or not texture then return end
+	if chrome.SetPortraitToAsset then
+		chrome:SetPortraitToAsset(texture)
+		return
+	end
+	if chrome.SetPortraitTextureRaw then
+		chrome:SetPortraitTextureRaw(texture)
+		return
+	end
+	local candidates = {
+		chrome.PortraitContainer and chrome.PortraitContainer.portrait,
+		chrome.portrait and (chrome.portrait.portrait or chrome.portrait),
+		chrome.Portrait,
+	}
+	for _, tex in ipairs(candidates) do
+		if tex and tex.SetTexture then
+			if SetPortraitToTexture then
+				pcall(SetPortraitToTexture, tex, texture)
+			else
+				tex:SetTexture(texture)
+			end
+			return
+		end
+	end
+end
+
+local function Attune_SetChromeTitle(chrome, text)
+	if not chrome then return end
+	if chrome.SetTitle then
+		chrome:SetTitle(text)
+		return
+	end
+	if chrome.TitleContainer and chrome.TitleContainer.TitleText then
+		chrome.TitleContainer.TitleText:SetText(text)
+	elseif chrome.TitleText and chrome.TitleText.SetText then
+		chrome.TitleText:SetText(text)
+	end
+end
+
+local function Attune_HideLegacyArt(frame)
+	if frame.SetBackdrop then
+		pcall(frame.SetBackdrop, frame, nil)
+	end
+	local regions = { frame:GetRegions() }
+	for _, region in ipairs(regions) do
+		if region.GetObjectType and region:GetObjectType() == "Texture" then
+			region:Hide()
+		end
+	end
+end
+
+local function Attune_RaisePiece(piece, level)
+	if piece and piece.SetFrameLevel then
+		piece:SetFrameLevel(level)
+	end
+end
+
+function Attune_UpdateWindowPortrait()
+	if not attunelocal_bronzeChrome then return end
+	if attunelocal_treeIsShown then
+		Attune_SetPortraitTexture(attunelocal_bronzeChrome, ATTUNE_PORTRAIT_ATTUNE)
+		Attune_SetChromeTitle(attunelocal_bronzeChrome, "Attune")
+	else
+		Attune_SetPortraitTexture(attunelocal_bronzeChrome, Attune_ResultsPortrait())
+		Attune_SetChromeTitle(attunelocal_bronzeChrome, AttuneLang["Results"])
+	end
+end
+
+local function Attune_ApplyBronzeChrome(host)
+	if not host or attunelocal_bronzeChrome then return end
+	local ok, chrome = pcall(CreateFrame, "Frame", "AttuneBronzeChrome", host, "PortraitFrameTemplate")
+	if not ok or type(chrome) ~= "table" then return end
+
+	chrome:SetAllPoints(host)
+	chrome:SetMovable(false)
+	chrome:SetScript("OnMouseDown", nil)
+	chrome:SetScript("OnDragStart", nil)
+	chrome:SetFrameStrata(host:GetFrameStrata())
+	chrome:SetFrameLevel(host:GetFrameLevel() + 1)
+	Attune_HideLegacyArt(host)
+
+	if attunelocal_frame and attunelocal_frame.titletext then
+		local oldTitle = attunelocal_frame.titletext:GetParent()
+		if oldTitle then oldTitle:Hide() end
+	end
+	if attunelocal_frame and attunelocal_frame.titlebg then
+		attunelocal_frame.titlebg:Hide()
+	end
+
+	local top = chrome:GetFrameLevel() or 1
+	for _, child in ipairs({ host:GetChildren() }) do
+		if child ~= chrome and child.SetFrameLevel then
+			child:SetFrameLevel(top + 10)
+		end
+	end
+	Attune_RaisePiece(chrome.PortraitContainer or chrome.portrait, top + 40)
+	Attune_RaisePiece(chrome.TitleContainer, top + 40)
+	Attune_RaisePiece(chrome.CloseButton, top + 41)
+
+	if chrome.TitleContainer then
+		chrome.TitleContainer:EnableMouse(true)
+		chrome.TitleContainer:SetScript("OnMouseDown", function()
+			host:StartMoving()
+		end)
+		chrome.TitleContainer:SetScript("OnMouseUp", function()
+			host:StopMovingOrSizing()
+			local widget = attunelocal_frame
+			if widget then
+				local status = widget.status or widget.localstatus
+				if status then
+					status.top = host:GetTop()
+					status.left = host:GetLeft()
+				end
+			end
+		end)
+	end
+
+	if chrome.CloseButton then
+		chrome.CloseButton:SetScript("OnClick", function()
+			if attunelocal_survey_frame and attunelocal_survey_frame.frame then
+				attunelocal_survey_frame.frame:Hide()
+			end
+			attunelocal_frame:Hide()
+			Attune_SaveTreeExpandStatus()
+			Attune_Release()
+		end)
+	end
+
+	attunelocal_bronzeChrome = chrome
+	if attunelocal_frame and attunelocal_frame.content then
+		attunelocal_frame.content:SetPoint("TOPLEFT", host, "TOPLEFT", 16, -58)
+	end
+	local portraitPiece = chrome.PortraitContainer or chrome.portrait
+	if portraitPiece and portraitPiece.EnableMouse then
+		portraitPiece:EnableMouse(false)
+	end
+end
+
+-- Bronze border for the quest-reward panel. No portrait: that icon belongs to the main window.
+local function Attune_ApplyButtonChrome(host, onClose)
+	local ok, chrome = pcall(CreateFrame, "Frame", nil, host, "ButtonFrameTemplate")
+	if not ok or type(chrome) ~= "table" then return nil end
+
+	chrome:SetAllPoints(host)
+	chrome:SetMovable(false)
+	chrome:SetScript("OnMouseDown", nil)
+	chrome:SetScript("OnDragStart", nil)
+	chrome:SetFrameStrata(host:GetFrameStrata())
+	chrome:SetFrameLevel(host:GetFrameLevel() + 1)
+	Attune_HideLegacyArt(host)
+
+	local above = (chrome:GetFrameLevel() or 1) + 10
+	for _, child in ipairs({ host:GetChildren() }) do
+		if child ~= chrome and child.SetFrameLevel then
+			child:SetFrameLevel(above)
+		end
+	end
+	if chrome.PortraitContainer then chrome.PortraitContainer:Hide() end
+	if chrome.portrait and chrome.portrait.Hide then chrome.portrait:Hide() end
+	Attune_RaisePiece(chrome.TitleContainer, above + 5)
+	Attune_RaisePiece(chrome.CloseButton, above + 6)
+	if chrome.CloseButton and onClose then
+		chrome.CloseButton:SetScript("OnClick", onClose)
+	end
+	return chrome
+end
+
+-------------------------------------------------------------------------
 -- Create the Main UI Frame
 -------------------------------------------------------------------------
 
@@ -2213,6 +2415,7 @@ function Attune_Frame()
 	_G["Attune_SurveyMenuFrame"] = attunelocal_survey_frame.frame
     tinsert(UISpecialFrames, "Attune_SurveyMenuFrame")
 
+	Attune_ApplyBronzeChrome(attunelocal_frame.frame)
 	Attune_ToggleView()
 
 end
@@ -3059,11 +3262,15 @@ function Attune_CreateNode(step, parent, posX, posY)
 					GameTooltip:AddLine(AttuneLang["Raid quest"]:gsub("##NB##", quest[2]).."\n\n", 0.857, 0.055, 0.075, 1)
 				end
 				if AttuneLang["Q2_"..step.ID_WOWHEAD] ~= nil then GameTooltip:AddLine(AttuneLang["Q2_"..step.ID_WOWHEAD], 1, 1, 1, 1, true) end
-
-				fnode:SetScript("OnMouseUp", function(self, button)
-					if button == "RightButton" then Attune_ShowWebsiteURL("quest=" .. step.ID_WOWHEAD)	end
-				end)
 			end
+
+			fnode:SetScript("OnMouseUp", function(self, button)
+				if button == "RightButton" then
+					GameTooltip:Hide()
+					Attune_HideQuestGiverTip()
+					Attune_ShowQuestRewards(step)
+				end
+			end)
 
 		elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
 			attunelocal_frame:SetStatusText(AttuneLang["N1_"..step.ID_WOWHEAD])
@@ -3569,6 +3776,7 @@ function Attune_ToggleView(noToggle)
 		-- SHOW RESULT FRAME
 		PlaySound(856)  --igMainMenuOptionCheckBoxOn
 		attunelocal_treeIsShown = false
+		Attune_UpdateWindowPortrait()
 
 		attunelocal_guildframe = AceGUI:Create("SimpleGroup")
 		attunelocal_guildframe:SetLayout("Flow")
@@ -3999,6 +4207,7 @@ function Attune_ToggleView(noToggle)
 
 		-- SHOW TREE FRAME
 		attunelocal_treeIsShown = true
+		Attune_UpdateWindowPortrait()
 
 		-- create the tree
 		attunelocal_treeframe = AceGUI:Create("TreeGroup")
@@ -6190,6 +6399,380 @@ function Attune_IsRaidSelected(name)
 	return ""
 end]=]
 
+
+-------------------------------------------------------------------------
+
+local attunelocal_rewardFrame
+local ATTUNE_REWARD_WIDTH = 300
+
+local function Attune_RewardQuestIDs(idWowhead)
+	local ids = {}
+	local raw = tostring(idWowhead or "")
+	if string.find(raw, "|", 1, true) then
+		for _, part in pairs(Attune_split(raw, "|")) do
+			local n = tonumber(part)
+			if n then table.insert(ids, n) end
+		end
+	else
+		local n = tonumber(raw)
+		if n then table.insert(ids, n) end
+	end
+	return ids
+end
+
+local function Attune_AddReward(list, seen, itemID, name, texture, count, quality)
+	itemID = tonumber(itemID)
+	if not itemID or itemID <= 0 then return end
+	if seen[itemID] then return end
+	seen[itemID] = true
+	if type(name) ~= "string" or name == "" then name = nil end
+	table.insert(list, {
+		itemID = itemID,
+		name = name,
+		texture = texture,
+		count = tonumber(count) or 1,
+		quality = tonumber(quality),
+	})
+end
+
+local function Attune_ReadIndexedRewards(countFn, infoFn, questID, list, seen)
+	if type(countFn) ~= "function" or type(infoFn) ~= "function" then return end
+	local ok, num = pcall(countFn, questID)
+	if not ok or type(num) ~= "number" or num <= 0 then return end
+	if num > 40 then num = 40 end
+	for i = 1, num do
+		local okInfo, name, texture, count, quality, _, itemID = pcall(infoFn, i, questID)
+		if okInfo then
+			if type(name) == "table" then
+				local info = name
+				Attune_AddReward(list, seen, info.itemID or info.itemId, info.name or info.itemName, info.texture or info.icon, info.quantity or info.amount or info.numItems, info.quality)
+			else
+				Attune_AddReward(list, seen, itemID, name, texture, count, quality)
+			end
+		end
+	end
+end
+
+local function Attune_CollectQuestRewards(questIDs)
+	local fixed, choices = {}, {}
+	local seenFixed, seenChoice = {}, {}
+	for _, questID in ipairs(questIDs or {}) do
+		if C_QuestLog then
+			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestRewards, C_QuestLog.GetQuestRewardInfo, questID, fixed, seenFixed)
+			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestChoices or C_QuestLog.GetNumQuestLogChoices, C_QuestLog.GetQuestChoiceInfo or C_QuestLog.GetQuestLogChoiceInfo, questID, choices, seenChoice)
+		end
+		Attune_ReadIndexedRewards(GetNumQuestLogRewards, GetQuestLogRewardInfo, questID, fixed, seenFixed)
+		Attune_ReadIndexedRewards(GetNumQuestLogChoices, GetQuestLogChoiceInfo, questID, choices, seenChoice)
+	end
+	return fixed, choices
+end
+
+local function Attune_CreateRewardRow(parent)
+	local row = CreateFrame("Button", nil, parent)
+	row:SetHeight(36)
+	row.icon = row:CreateTexture(nil, "ARTWORK")
+	row.icon:SetSize(32, 32)
+	row.icon:SetPoint("LEFT", 2, 0)
+	row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+	row.count = row:CreateFontString(nil, "OVERLAY", "NumberFontNormalSmall")
+	row.count:SetPoint("BOTTOMRIGHT", row.icon, "BOTTOMRIGHT", -1, 2)
+	row.count:SetJustifyH("RIGHT")
+	row.name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+	row.name:SetPoint("LEFT", row.icon, "RIGHT", 8, 0)
+	row.name:SetPoint("RIGHT", row, "RIGHT", -4, 0)
+	row.name:SetJustifyH("LEFT")
+	row.name:SetWordWrap(false)
+	if row.name.SetMaxLines then row.name:SetMaxLines(1) end
+	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
+	row:SetScript("OnEnter", function(self)
+		if not self.itemID then return end
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		local shown = pcall(GameTooltip.SetHyperlink, GameTooltip, "item:" .. self.itemID)
+		if shown then GameTooltip:Show() else GameTooltip:Hide() end
+	end)
+	row:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
+	return row
+end
+
+local function Attune_HideRewardRows(frame)
+	for _, row in ipairs(frame.rows) do
+		row.itemID = nil
+		row:Hide()
+	end
+	for _, header in ipairs(frame.headers) do header:Hide() end
+end
+
+local function Attune_RewardHeader(frame, index, text, y)
+	local header = frame.headers[index]
+	if not header then
+		header = frame.content:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+		header:SetJustifyH("LEFT")
+		frame.headers[index] = header
+	end
+	header:ClearAllPoints()
+	header:SetPoint("TOPLEFT", 4, -y)
+	header:SetPoint("RIGHT", frame.content, "RIGHT", -4, 0)
+	header:SetText(text)
+	header:Show()
+end
+
+local function Attune_PaintRewardItem(frame, entry, y)
+	local index = frame.rowUsed + 1
+	frame.rowUsed = index
+	local row = frame.rows[index]
+	if not row then
+		row = Attune_CreateRewardRow(frame.content)
+		frame.rows[index] = row
+	end
+	row:ClearAllPoints()
+	row:SetPoint("TOPLEFT", 0, -y)
+	row:SetPoint("RIGHT", frame.content, "RIGHT", 0, 0)
+
+	row.itemID = entry.itemID
+	local name = entry.name
+	local quality = entry.quality
+	local texture = entry.texture
+	local itemName, _, itemQuality, _, _, _, _, _, _, itemTexture = GetItemInfo(entry.itemID)
+	if (not itemName or itemName == "") and C_Item and C_Item.RequestLoadItemDataByID then
+		pcall(C_Item.RequestLoadItemDataByID, entry.itemID)
+	end
+	if itemName and itemName ~= "" then
+		name = itemName
+		quality = itemQuality
+		texture = itemTexture or texture
+	end
+	if not name or name == "" then name = "..." end
+
+	row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
+	row.name:SetText(name)
+	local color = ITEM_QUALITY_COLORS and quality and ITEM_QUALITY_COLORS[quality]
+	if color then
+		row.name:SetTextColor(color.r, color.g, color.b)
+	else
+		row.name:SetTextColor(1, 1, 1)
+	end
+	if entry.count and entry.count > 1 then
+		row.count:SetText(entry.count)
+		row.count:Show()
+	else
+		row.count:Hide()
+	end
+	row:Show()
+end
+
+local function Attune_FillQuestRewards(frame, final, resetScroll)
+	if not frame or not frame:IsShown() then return end
+	local width = frame.scroll:GetWidth()
+	if not width or width < 40 then width = ATTUNE_REWARD_WIDTH - 52 end
+	frame.content:SetWidth(width)
+
+	local fixed, choices = Attune_CollectQuestRewards(frame.questIDs)
+	Attune_HideRewardRows(frame)
+	frame.rowUsed = 0
+
+	if #fixed == 0 and #choices == 0 then
+		frame.scroll:Hide()
+		frame.empty:Show()
+		frame.empty:SetText(final and AttuneLang["No item rewards"] or AttuneLang["Loading rewards"])
+		frame.content:SetHeight(1)
+		return
+	end
+
+	frame.empty:Hide()
+	frame.scroll:Show()
+
+	local y = 2
+	local headerIndex = 0
+	for _, entry in ipairs(fixed) do
+		Attune_PaintRewardItem(frame, entry, y)
+		y = y + 40
+	end
+	if #choices > 0 then
+		if #fixed > 0 then y = y + 6 end
+		headerIndex = headerIndex + 1
+		Attune_RewardHeader(frame, headerIndex, AttuneLang["Choose one reward"], y)
+		y = y + 18
+		for _, entry in ipairs(choices) do
+			Attune_PaintRewardItem(frame, entry, y)
+			y = y + 40
+		end
+	end
+
+	frame.content:SetHeight(math.max(y, 1))
+	if resetScroll then frame.scroll:SetVerticalScroll(0) end
+end
+
+local function Attune_FitRewardFrame(side)
+	local parent = side:GetParent()
+	if not parent or not parent:IsShown() then return end
+	local right = parent:GetRight()
+	local screen = UIParent:GetWidth()
+	if not right or not screen then return end
+	local overflow = (right + side:GetWidth()) - screen
+	if overflow > 4 then
+		local left = parent:GetLeft() - overflow - 12
+		local bottom = parent:GetBottom()
+		if not left or not bottom then return end
+		if left < 0 then left = 0 end
+		parent:ClearAllPoints()
+		parent:SetPoint("BOTTOMLEFT", UIParent, "BOTTOMLEFT", left, bottom)
+	end
+end
+
+local function Attune_EnsureRewardFrame()
+	if attunelocal_rewardFrame then return attunelocal_rewardFrame end
+	local parent = attunelocal_frame and attunelocal_frame.frame
+	if not parent then return nil end
+
+	local f = CreateFrame("Frame", "AttuneQuestRewardFrame", parent, BackdropTemplateMixin and "BackdropTemplate" or nil)
+	f:SetWidth(ATTUNE_REWARD_WIDTH)
+	f:SetPoint("TOPLEFT", parent, "TOPRIGHT", -6, 0)
+	f:SetPoint("BOTTOMLEFT", parent, "BOTTOMRIGHT", -6, 0)
+	f:SetBackdrop({
+		bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+		edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+		tile = true, tileSize = 32, edgeSize = 32,
+		insets = { left = 8, right = 8, top = 8, bottom = 8 },
+	})
+	f:SetBackdropColor(0, 0, 0, 1)
+	f:EnableMouse(true)
+	f:SetFrameStrata(parent:GetFrameStrata())
+	f:SetFrameLevel((parent:GetFrameLevel() or 0) + 20)
+
+	local close = CreateFrame("Button", nil, f, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", 4, 4)
+	close:SetScript("OnClick", function() f:Hide() end)
+
+	local title = f:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+	title:SetPoint("TOPLEFT", 18, -16)
+	title:SetPoint("RIGHT", close, "LEFT", -4, 0)
+	title:SetHeight(36)
+	title:SetJustifyH("LEFT")
+	title:SetJustifyV("MIDDLE")
+	title:SetWordWrap(true)
+	f.title = title
+
+	local urlBtn = CreateFrame("Button", nil, f, "UIPanelButtonTemplate")
+	urlBtn:SetHeight(22)
+	urlBtn:SetPoint("BOTTOMLEFT", 16, 16)
+	urlBtn:SetPoint("BOTTOMRIGHT", -16, 16)
+	urlBtn:SetText(AttuneLang["Show link"])
+	urlBtn:SetScript("OnClick", function()
+		if f.qstring then Attune_ShowWebsiteURL(f.qstring) end
+	end)
+	f.urlBtn = urlBtn
+
+	local empty = f:CreateFontString(nil, "OVERLAY", "GameFontDisable")
+	empty:SetPoint("TOPLEFT", 20, -64)
+	empty:SetPoint("RIGHT", f, "RIGHT", -20, 0)
+	empty:SetJustifyH("CENTER")
+	empty:SetWordWrap(true)
+	f.empty = empty
+
+	local scroll = CreateFrame("ScrollFrame", "AttuneQuestRewardScroll", f, "UIPanelScrollFrameTemplate")
+	scroll:SetPoint("TOPLEFT", 16, -56)
+	scroll:SetPoint("BOTTOMRIGHT", -32, 46)
+	scroll:EnableMouseWheel(true)
+	scroll:SetScript("OnMouseWheel", function(self, delta)
+		local range = self:GetVerticalScrollRange() or 0
+		if range <= 0 then return end
+		local nextScroll = self:GetVerticalScroll() - (delta * 40)
+		if nextScroll < 0 then nextScroll = 0 end
+		if nextScroll > range then nextScroll = range end
+		self:SetVerticalScroll(nextScroll)
+	end)
+	f.scroll = scroll
+
+	local content = CreateFrame("Frame", nil, scroll)
+	content:SetSize(ATTUNE_REWARD_WIDTH - 52, 1)
+	scroll:SetScrollChild(content)
+	f.content = content
+	f.rows = {}
+	f.headers = {}
+	f.questIDs = {}
+
+	local listener = CreateFrame("Frame", nil, f)
+	listener:SetScript("OnEvent", function(_, event, arg1)
+		if not f:IsShown() then return end
+		if event == "QUEST_DATA_LOAD_RESULT" then
+			local wanted = false
+			for _, qid in ipairs(f.questIDs) do
+				if qid == arg1 then wanted = true break end
+			end
+			if not wanted then return end
+		elseif event == "GET_ITEM_INFO_RECEIVED" then
+			local wanted = false
+			for _, row in ipairs(f.rows) do
+				if row.itemID == arg1 then wanted = true break end
+			end
+			if not wanted then return end
+		end
+		Attune_FillQuestRewards(f, true)
+	end)
+	f.listener = listener
+	f:SetScript("OnShow", function(self)
+		self.listener:RegisterEvent("QUEST_DATA_LOAD_RESULT")
+		self.listener:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+	end)
+	f:SetScript("OnHide", function(self)
+		self.listener:UnregisterEvent("QUEST_DATA_LOAD_RESULT")
+		self.listener:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+		GameTooltip:Hide()
+	end)
+
+	parent:HookScript("OnHide", function()
+		f:Hide()
+	end)
+
+	f.bronze = Attune_ApplyButtonChrome(f, function() f:Hide() end)
+	if f.bronze and close then
+		close:Hide()
+	end
+
+	f:Hide()
+	attunelocal_rewardFrame = f
+	return f
+end
+
+function Attune_ShowQuestRewards(step)
+	if not step or not attunelocal_frame or not attunelocal_frame.frame then return end
+	local f = Attune_EnsureRewardFrame()
+	if not f then return end
+
+	f.questIDs = Attune_RewardQuestIDs(step.ID_WOWHEAD)
+	f.qstring = "quest=" .. step.ID_WOWHEAD
+	f.token = (f.token or 0) + 1
+	local title = AttuneLang["Q1_" .. step.ID_WOWHEAD]
+	if not title or title == "" then title = AttuneLang["Quest rewards"] end
+	if f.bronze then
+		Attune_SetChromeTitle(f.bronze, title)
+		f.title:Hide()
+	else
+		f.title:SetText(title)
+		f.title:Show()
+	end
+	f.urlBtn:SetText(AttuneLang["Show link"])
+	f:Show()
+	Attune_FitRewardFrame(f)
+
+	if C_QuestLog and C_QuestLog.RequestLoadQuestByID then
+		for _, questID in ipairs(f.questIDs) do
+			pcall(C_QuestLog.RequestLoadQuestByID, questID)
+		end
+	end
+
+	Attune_FillQuestRewards(f, false, true)
+	local token = f.token
+	if C_Timer and C_Timer.After then
+		C_Timer.After(0.4, function()
+			if f:IsShown() and f.token == token then
+				Attune_FillQuestRewards(f, true, false)
+			end
+		end)
+	end
+end
 
 -------------------------------------------------------------------------
 
