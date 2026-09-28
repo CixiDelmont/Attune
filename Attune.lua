@@ -74,6 +74,26 @@ do
 			if widget.border then
 				widget.border:SetBackdropColor(0, 0, 0, 0.5)
 			end
+			-- 20% wider than AceGUI's 175px default. Kept here so Libs stay stock.
+			widget:SetTreeWidth(210)
+			-- local refresh = widget.RefreshTree
+			-- function widget:RefreshTree(...)
+			-- 	refresh(self, ...)
+			-- 	for _, button in ipairs(self.buttons) do
+			-- 		if button:IsShown() then
+			-- 			-- local font, size, flags = button.text:GetFont()
+			-- 			-- if font and size then
+			-- 			-- 	button.text:SetFont(font, size, flags)
+			-- 			-- end
+			-- 			button.text:SetHeight(16)
+			-- 			button:SetHeight(20)
+			-- 		end
+			-- 	end
+			-- 	if self.treeframe and self.treeframe.attuneDetailOpen then
+			-- 		for _, button in ipairs(self.buttons) do button:Hide() end
+			-- 		if self.scrollbar then self.scrollbar:Hide() end
+			-- 	end
+			-- end
 		end
 		return widget
 	end
@@ -3268,7 +3288,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 				if button == "RightButton" then
 					GameTooltip:Hide()
 					Attune_HideQuestGiverTip()
-					Attune_ShowQuestRewards(step)
+					Attune_ShowWebsiteURL("quest=" .. step.ID_WOWHEAD)
 				end
 			end)
 
@@ -3359,8 +3379,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 	--				ChatEdit_InsertLink(format("|cffffff00|Hquest:%d:%d|h[%s]|h|r", tonumber(step.ID_WOWHEAD), 60, quest[1]));
 	--			end
 
-		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up") and not step.SIDE and (button == nil or button == "LeftButton") and not IsModifiedClick() then
-			Attune_ShowQuestGiverMap(step)
+		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In") and (button == nil or button == "LeftButton") and not IsModifiedClick() then
+			GameTooltip:Hide()
+			Attune_HideQuestGiverTip()
+			Attune_ShowQuestDetail(step)
 
 		-- navigate to sub-attunement
 		elseif step.TYPE == "Attune" then
@@ -3760,6 +3782,7 @@ end
 function Attune_ToggleView(noToggle)
 
 	Attune_SaveTreeExpandStatus()
+	if Attune_HideQuestDetail then Attune_HideQuestDetail() end
 
 	if noToggle == nil then noToggle = false end
 
@@ -6808,3 +6831,423 @@ end
 
 SlashCmdList["Attune"] = Attune_SlashCommandHandler
 SLASH_Attune1 = "/attune"
+
+-------------------------------------------------------------------------
+-- Quest detail replaces the tree list: rewards on top, map square below
+-------------------------------------------------------------------------
+
+local attunelocal_questDetail
+
+local function Attune_QuestDetailKey(step)
+	return tostring(step.ID_ATTUNE) .. "-" .. tostring(step.ID) .. "-" .. tostring(step.ID_WOWHEAD)
+end
+
+local function Attune_DetailGiver(step)
+	local questId = Attune_QuestIdFromStep(step)
+	local loc = questId and Attune_Data.questGivers and Attune_Data.questGivers[questId]
+	if not loc then return nil, nil, nil, nil end
+	local uiMapID, x, y, name = loc[1], loc[2], loc[3], loc[4]
+	if uiMapID and C_Map and C_Map.GetMapInfo and not C_Map.GetMapInfo(uiMapID) then
+		return nil, nil, nil, name
+	end
+	return uiMapID, x, y, name
+end
+
+local function Attune_FillDetailMap(clip, uiMapID, x, y)
+	clip.tiles = clip.tiles or {}
+	for _, tex in ipairs(clip.tiles) do tex:Hide() end
+	clip.pin:Hide()
+	clip.empty:Hide()
+	if not uiMapID or not x or not y or not C_Map or not C_Map.GetMapArtLayers or not C_Map.GetMapArtLayerTextures then
+		clip.empty:Show()
+		return
+	end
+	local layers = C_Map.GetMapArtLayers(uiMapID)
+	if layers and layers.layerWidth then layers = { layers } end
+	local layer = layers and layers[#layers]
+	local textures = layer and C_Map.GetMapArtLayerTextures(uiMapID, #layers)
+	if not layer or not textures or #textures == 0 or not layer.tileWidth or layer.tileWidth <= 0 then
+		clip.empty:Show()
+		return
+	end
+	local tileW, tileH = layer.tileWidth, layer.tileHeight
+	local mapW, mapH = layer.layerWidth, layer.layerHeight
+	local cols = math.ceil(mapW / tileW)
+	local rows = math.ceil(mapH / tileH)
+	local side = clip:GetWidth()
+	if side < 8 then return end
+	local view = math.min(mapW, mapH) * (0.35 / (clip.zoom or 1))
+	if view < 1 then view = math.min(mapW, mapH) end
+	local scale = side / view
+	local gx = (x / 100) * mapW
+	local gy = (y / 100) * mapH
+	local left = gx - (view / 2)
+	local top = gy - (view / 2)
+	local n, i = 0, 0
+	for row = 0, rows - 1 do
+		for col = 0, cols - 1 do
+			i = i + 1
+			local file = textures[i]
+			if file then
+				n = n + 1
+				local tex = clip.tiles[n]
+				if not tex then
+					tex = clip:CreateTexture(nil, "ARTWORK")
+					clip.tiles[n] = tex
+				end
+				tex:SetTexture(file)
+				local tw = math.min(tileW, mapW - col * tileW)
+				local th = math.min(tileH, mapH - row * tileH)
+				tex:SetSize(tw * scale, th * scale)
+				tex:SetTexCoord(0, tw / tileW, 0, th / tileH)
+				tex:ClearAllPoints()
+				tex:SetPoint("TOPLEFT", clip, "TOPLEFT", (col * tileW - left) * scale, -((row * tileH - top) * scale))
+				tex:Show()
+			end
+		end
+	end
+	for k = n + 1, #clip.tiles do clip.tiles[k]:Hide() end
+	clip.pin:Show()
+	clip.pin:ClearAllPoints()
+	clip.pin:SetPoint("CENTER", clip, "CENTER", 0, 0)
+end
+
+local function Attune_DetailRewardRow(parent)
+	local row = CreateFrame("Button", nil, parent)
+	row:SetHeight(36)
+	row.icon = row:CreateTexture(nil, "ARTWORK")
+	row.icon:SetSize(attunelocal_Icon_Size, attunelocal_Icon_Size)
+	row.icon:SetPoint("LEFT", 2, 0)
+	row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
+	row.name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	row.name:SetPoint("BOTTOMLEFT", row.icon, "RIGHT", 6, 1)
+	row.name:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+	row.name:SetJustifyH("LEFT")
+	row.name:SetWordWrap(false)
+	if row.name.SetMaxLines then row.name:SetMaxLines(1) end
+	row.category = row:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+	row.category:SetPoint("TOPLEFT", row.icon, "RIGHT", 6, -1)
+	row.category:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+	row.category:SetJustifyH("LEFT")
+	row.category:SetWordWrap(false)
+	row.category:SetTextColor(0.55, 0.55, 0.55)
+	if row.category.SetMaxLines then row.category:SetMaxLines(1) end
+	row:SetScript("OnEnter", function(self)
+		if not self.itemID then return end
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		local shown = pcall(GameTooltip.SetHyperlink, GameTooltip, "item:" .. self.itemID)
+		if shown then GameTooltip:Show() else GameTooltip:Hide() end
+	end)
+	row:SetScript("OnLeave", function() GameTooltip:Hide() end)
+	return row
+end
+
+local function Attune_LayoutQuestDetail(panel)
+	if not panel or not panel:IsShown() or not panel.step then return end
+	local width = panel:GetWidth()
+	local height = panel:GetHeight()
+	if width < 40 or height < 40 then return end
+
+	local header = 40
+	local sep = 10
+	local margin = 10
+	local mapSize = width - (margin * 2)
+	local rewardsH = height - header - sep - mapSize - margin
+	if rewardsH < 28 then
+		mapSize = math.max(64, height - header - sep - margin - 28)
+		rewardsH = height - header - sep - mapSize - margin
+	end
+
+	panel.rewardScroll:ClearAllPoints()
+	panel.rewardScroll:SetPoint("TOPLEFT", 10, -(header + 6))
+	panel.rewardScroll:SetPoint("TOPRIGHT", -12, -(header + 6))
+	panel.rewardScroll:SetHeight(math.max(rewardsH - 8, 1))
+
+	panel.separator:ClearAllPoints()
+	panel.separator:SetPoint("TOPLEFT", 8, -(header + rewardsH))
+	panel.separator:SetPoint("TOPRIGHT", -8, -(header + rewardsH))
+
+	panel.map:ClearAllPoints()
+	panel.map:SetSize(mapSize, mapSize)
+	panel.map:SetPoint("BOTTOM", panel, "BOTTOM", 0, margin)
+
+	local questName = AttuneLang["Q1_" .. panel.step.ID_WOWHEAD]
+	if not questName or questName == "" then questName = AttuneLang["Quest rewards"] end
+	panel.title:SetText(questName)
+
+	local fixed, choices = Attune_CollectQuestRewards(Attune_RewardQuestIDs(panel.step.ID_WOWHEAD))
+	local items = {}
+	for _, entry in ipairs(fixed) do items[#items + 1] = entry end
+	for _, entry in ipairs(choices) do items[#items + 1] = entry end
+
+	for _, row in ipairs(panel.rows) do row:Hide() end
+	if #items == 0 then
+		panel.empty:Show()
+		panel.empty:SetText(panel.rewardsFinal and AttuneLang["No item rewards"] or AttuneLang["Loading rewards"])
+		panel.rewardChild:SetHeight(28)
+	else
+		panel.empty:Hide()
+		local y = 6
+		for i, entry in ipairs(items) do
+			local row = panel.rows[i]
+			if not row then
+				row = Attune_DetailRewardRow(panel.rewardChild)
+				panel.rows[i] = row
+			end
+			row:ClearAllPoints()
+			row:SetPoint("TOPLEFT", 4, -y)
+			row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
+			row.itemID = entry.itemID
+			local name, quality, texture = entry.name, entry.quality, entry.texture
+			local itemName, _, itemQuality, _, _, itemType, itemSubType, _, _, itemTexture = GetItemInfo(entry.itemID)
+			if itemName and itemName ~= "" then
+				name, quality, texture = itemName, itemQuality, itemTexture or texture
+			end
+			if (not itemType or itemType == "") and GetItemInfoInstant then
+				local _, instantType, instantSubType = GetItemInfoInstant(entry.itemID)
+				itemType, itemSubType = instantType, instantSubType
+			end
+			if (not itemName or itemName == "") and C_Item and C_Item.RequestLoadItemDataByID then
+				pcall(C_Item.RequestLoadItemDataByID, entry.itemID)
+			end
+			row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
+			local text = name or "..."
+			if entry.count and entry.count > 1 then text = text .. " x" .. entry.count end
+			if entry.choice then text = text .. " (" .. AttuneLang["Choose one reward"] .. ")" end
+			row.name:SetText(text)
+			local category = ""
+			if itemType and itemType ~= "" and itemSubType and itemSubType ~= "" and itemSubType ~= itemType then
+				category = itemType .. " - " .. itemSubType
+			elseif itemType and itemType ~= "" then
+				category = itemType
+			elseif itemSubType and itemSubType ~= "" then
+				category = itemSubType
+			end
+			row.category:SetText(category)
+			if category == "" then row.category:Hide() else row.category:Show() end
+			row.name:ClearAllPoints()
+			row.name:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+			if category == "" then
+				row.name:SetPoint("LEFT", row.icon, "RIGHT", 6, 0)
+			else
+				row.name:SetPoint("BOTTOMLEFT", row.icon, "RIGHT", 6, 1)
+			end
+			local color = ITEM_QUALITY_COLORS and quality and ITEM_QUALITY_COLORS[quality]
+			if color then
+				row.name:SetTextColor(color.r, color.g, color.b)
+			else
+				row.name:SetTextColor(1, 1, 1)
+			end
+			row:Show()
+			y = y + 42
+		end
+		panel.rewardChild:SetWidth(math.max(width - 24, 20))
+		panel.rewardChild:SetHeight(math.max(y, 1))
+	end
+
+	local uiMapID, x, y, giver = Attune_DetailGiver(panel.step)
+	if giver and giver ~= "" then
+		panel.giver:SetText(AttuneLang["Starts at"] .. " " .. giver)
+		panel.giver:Show()
+	else
+		panel.giver:Hide()
+	end
+	panel.map.art.zoom = panel.map.zoom or 1
+	Attune_FillDetailMap(panel.map.art, uiMapID, x, y)
+end
+
+local function Attune_EnsureQuestDetail()
+	if attunelocal_questDetail then return attunelocal_questDetail end
+	local panel = CreateFrame("Frame", "AttuneQuestDetail", UIParent, BackdropTemplateMixin and "BackdropTemplate" or nil)
+	panel:EnableMouse(true)
+	panel:SetFrameStrata("HIGH")
+	panel:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		tile = true, tileSize = 16, edgeSize = 12,
+		insets = { left = 3, right = 3, top = 3, bottom = 3 },
+	})
+	panel:SetBackdropColor(0.07, 0.07, 0.07, 1)
+	panel:SetBackdropBorderColor(0.45, 0.38, 0.2, 1)
+	panel.rows = {}
+
+	panel.title = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+	panel.title:SetPoint("TOPLEFT", 14, -14)
+	panel.title:SetPoint("RIGHT", panel, "RIGHT", -36, 0)
+	panel.title:SetJustifyH("LEFT")
+	panel.title:SetWordWrap(false)
+
+	local close = CreateFrame("Button", nil, panel, "UIPanelCloseButton")
+	close:SetPoint("TOPRIGHT", 4, 4)
+	close:SetScript("OnClick", function() Attune_HideQuestDetail() end)
+
+	local scroll = CreateFrame("ScrollFrame", nil, panel)
+	scroll:EnableMouseWheel(true)
+	scroll:SetScript("OnMouseWheel", function(self, delta)
+		local range = self:GetVerticalScrollRange() or 0
+		if range <= 0 then return end
+		local nextScroll = self:GetVerticalScroll() - (delta * 24)
+		if nextScroll < 0 then nextScroll = 0 end
+		if nextScroll > range then nextScroll = range end
+		self:SetVerticalScroll(nextScroll)
+	end)
+	panel.rewardScroll = scroll
+	local child = CreateFrame("Frame", nil, scroll)
+	child:SetSize(100, 20)
+	scroll:SetScrollChild(child)
+	panel.rewardChild = child
+	panel.empty = child:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+	panel.empty:SetPoint("TOPLEFT", 6, -8)
+	panel.empty:SetPoint("RIGHT", child, "RIGHT", -8, 0)
+	panel.empty:SetJustifyH("LEFT")
+	panel.empty:SetWordWrap(true)
+
+	panel.separator = panel:CreateTexture(nil, "ARTWORK")
+	panel.separator:SetHeight(2)
+	panel.separator:SetColorTexture(0.72, 0.58, 0.28, 0.9)
+
+	local map = CreateFrame("Frame", nil, panel, BackdropTemplateMixin and "BackdropTemplate" or nil)
+	map:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		tile = true, tileSize = 16, edgeSize = 12,
+		insets = { left = 3, right = 3, top = 3, bottom = 3 },
+	})
+	map:SetBackdropColor(0, 0, 0, 1)
+	map:SetBackdropBorderColor(0.75, 0.6, 0.28, 1)
+	panel.map = map
+	local art = CreateFrame("Frame", nil, map)
+	art:SetPoint("TOPLEFT", 5, -5)
+	art:SetPoint("BOTTOMRIGHT", -5, 5)
+	if art.SetClipsChildren then art:SetClipsChildren(true) end
+	map.art = art
+	map.empty = art:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+	map.empty:SetPoint("CENTER")
+	map.empty:SetText(AttuneLang["Quest information not found"])
+	map.empty:Hide()
+	map.pin = art:CreateTexture(nil, "OVERLAY")
+	map.pin:SetSize(22, 22)
+	local pinned = false
+	if map.pin.SetAtlas then
+		pcall(map.pin.SetAtlas, map.pin, "Waypoint-MapPin-Tracked")
+		pinned = map.pin.GetAtlas and map.pin:GetAtlas() == "Waypoint-MapPin-Tracked"
+	end
+	if not pinned then
+		map.pin:SetTexture("Interface\\Minimap\\Tracking\\QuestBlob")
+	end
+	-- FillDetailMap parents tiles and the pin to the clipped art frame.
+	art.pin = map.pin
+	art.empty = map.empty
+	panel.giver = map:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	panel.giver:SetPoint("BOTTOMLEFT", 8, 8)
+	panel.giver:SetPoint("BOTTOMRIGHT", -58, 8)
+	panel.giver:SetJustifyH("CENTER")
+	panel.giver:SetWordWrap(false)
+
+	local function Attune_NudgeMapZoom(delta)
+		local zoom = map.zoom or 1
+		if delta > 0 then zoom = zoom * 1.35 else zoom = zoom / 1.35 end
+		if zoom < 0.35 then zoom = 0.35 end
+		if zoom > 8 then zoom = 8 end
+		map.zoom = zoom
+		if map.art then map.art.zoom = zoom end
+		if panel:IsShown() then Attune_LayoutQuestDetail(panel) end
+	end
+	local zoomOut = CreateFrame("Button", nil, map, "UIPanelButtonTemplate")
+	zoomOut:SetSize(22, 20)
+	zoomOut:SetPoint("BOTTOMRIGHT", -6, 6)
+	zoomOut:SetText("-")
+	zoomOut:SetScript("OnClick", function() Attune_NudgeMapZoom(-1) end)
+	local zoomIn = CreateFrame("Button", nil, map, "UIPanelButtonTemplate")
+	zoomIn:SetSize(22, 20)
+	zoomIn:SetPoint("RIGHT", zoomOut, "LEFT", -2, 0)
+	zoomIn:SetText("+")
+	zoomIn:SetScript("OnClick", function() Attune_NudgeMapZoom(1) end)
+	zoomIn:SetFrameLevel(art:GetFrameLevel() + 5)
+	zoomOut:SetFrameLevel(art:GetFrameLevel() + 5)
+	art:EnableMouseWheel(true)
+	art:SetScript("OnMouseWheel", function(_, delta) Attune_NudgeMapZoom(delta) end)
+
+	local listener = CreateFrame("Frame", nil, panel)
+	listener:SetScript("OnEvent", function()
+		if panel:IsShown() then Attune_LayoutQuestDetail(panel) end
+	end)
+	panel:SetScript("OnShow", function(self)
+		listener:RegisterEvent("QUEST_DATA_LOAD_RESULT")
+		listener:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+	end)
+	panel:SetScript("OnHide", function()
+		listener:UnregisterEvent("QUEST_DATA_LOAD_RESULT")
+		listener:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+	end)
+	panel:SetScript("OnSizeChanged", function(self)
+		if self:IsShown() and not self.layingOut then
+			self.layingOut = true
+			Attune_LayoutQuestDetail(self)
+			self.layingOut = false
+		end
+	end)
+
+	panel:Hide()
+	attunelocal_questDetail = panel
+	return panel
+end
+
+function Attune_HideQuestDetail()
+	local widget = attunelocal_treeframe
+	if widget and widget.treeframe then
+		widget.treeframe.attuneDetailOpen = nil
+	end
+	if attunelocal_questDetail then
+		attunelocal_questDetail:Hide()
+		attunelocal_questDetail.key = nil
+		attunelocal_questDetail.step = nil
+	end
+	if widget and widget.RefreshTree and widget.treeframe and widget.treeframe:IsShown() then
+		widget:RefreshTree()
+	end
+end
+
+function Attune_ShowQuestDetail(step)
+	if not step or not attunelocal_treeframe or not attunelocal_treeframe.treeframe then return end
+	local tree = attunelocal_treeframe.treeframe
+	local panel = Attune_EnsureQuestDetail()
+	local key = Attune_QuestDetailKey(step)
+	if panel:IsShown() and panel.key == key then
+		Attune_HideQuestDetail()
+		return
+	end
+	if attunelocal_rewardFrame then attunelocal_rewardFrame:Hide() end
+	panel.key = key
+	panel.step = step
+	panel.rewardsFinal = false
+	if panel.map then panel.map.zoom = 1 end
+	panel:SetParent(tree)
+	panel:ClearAllPoints()
+	panel:SetAllPoints(tree)
+	panel:SetFrameStrata(tree:GetFrameStrata() or "HIGH")
+	panel:SetFrameLevel((tree:GetFrameLevel() or 1) + 50)
+	tree.attuneDetailOpen = true
+	for _, button in ipairs(attunelocal_treeframe.buttons or {}) do
+		button:Hide()
+	end
+	if attunelocal_treeframe.scrollbar then attunelocal_treeframe.scrollbar:Hide() end
+	panel:Show()
+	Attune_LayoutQuestDetail(panel)
+
+	if C_QuestLog and C_QuestLog.RequestLoadQuestByID then
+		for _, questID in ipairs(Attune_RewardQuestIDs(step.ID_WOWHEAD)) do
+			pcall(C_QuestLog.RequestLoadQuestByID, questID)
+		end
+	end
+	local token = key
+	if C_Timer and C_Timer.After then
+		C_Timer.After(0.4, function()
+			if panel:IsShown() and panel.key == token then
+				panel.rewardsFinal = true
+				Attune_LayoutQuestDetail(panel)
+			end
+		end)
+	end
+end
+
