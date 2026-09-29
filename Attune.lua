@@ -22,6 +22,10 @@
 -- 1.6.22
 --   - Added option to use full map in quest details
 --   - Added missing Wailing Caverns quests for Alliance
+--   - Added dungeon art as background
+--   - Added level range for dungeons
+
+
 
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
@@ -2517,7 +2521,7 @@ local ATTUNE_DUNGEON_ART = {
 	["140"] = 131868, -- Scholomance (key)
 	["150"] = 131868,
 }
-local ATTUNE_DUNGEON_ART_ALPHA = 0.06
+local ATTUNE_DUNGEON_ART_ALPHA = 0.08
 
 local function Attune_LayoutDungeonArt()
 	local tex = attunelocal_dungeonArt
@@ -3100,7 +3104,7 @@ function Attune_DrawSideFeeder(endStep, sideSteps, colX, boxW, endX, endY)
 		line:SetColorTexture(0.851, 0.608, 0.0, 1)
 		line:SetDrawLayer("ARTWORK", 1)
 	else
-		line:SetColorTexture(0.2, 0.2, 0.2, 1)
+		line:SetColorTexture(0.45, 0.45, 0.45, 1)
 		line:SetDrawLayer("ARTWORK", 0)
 	end
 	line:SetThickness(attunelocal_Line_Thickness)
@@ -3744,7 +3748,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					fill:SetColorTexture(0.388, 0.686, 0.388, 1) -- green
 					fill:SetDrawLayer("ARTWORK", 2)
 				else
-					fill:SetColorTexture(0.2, 0.2, 0.2, 1)
+					fill:SetColorTexture(0.45, 0.45, 0.45, 1)
 					fill:SetDrawLayer("ARTWORK", 0)
 				end
 			else
@@ -3752,7 +3756,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					fill:SetColorTexture(0.851, 0.608, 0.0, 1) -- yellow
 					fill:SetDrawLayer("ARTWORK", 1)
 				else
-					fill:SetColorTexture(0.2, 0.2, 0.2, 1)
+					fill:SetColorTexture(0.45, 0.45, 0.45, 1)
 					fill:SetDrawLayer("ARTWORK", 0)
 				end
 			end
@@ -3805,7 +3809,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.388, 0.686, 0.388, 1) -- green
 					line:SetDrawLayer("ARTWORK",2)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			else
@@ -3813,7 +3817,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.851, 0.608, 0.0, 1) -- yellow
 					line:SetDrawLayer("ARTWORK",1)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
@@ -3837,7 +3841,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.388, 0.686, 0.388, 1) -- green
 					line:SetDrawLayer("ARTWORK",2)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			else
@@ -3845,7 +3849,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.851, 0.608, 0.0, 1) -- yellow
 					line:SetDrawLayer("ARTWORK",1)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
@@ -3870,7 +3874,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.388, 0.686, 0.388, 1) -- green
 					line:SetDrawLayer("ARTWORK",2)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			else
@@ -3878,7 +3882,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					line:SetColorTexture(0.851, 0.608, 0.0, 1) -- yellow
 					line:SetDrawLayer("ARTWORK",1)
 				else
-					line:SetColorTexture(0.2, 0.2, 0.2, 1)
+					line:SetColorTexture(0.45, 0.45, 0.45, 1)
 					line:SetDrawLayer("ARTWORK",0)
 				end
 			end
