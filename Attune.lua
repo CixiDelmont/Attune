@@ -19,6 +19,10 @@
 --   - Click a quest to list its reward items and map of the quest giver. Click it again to go back to the treeview
 --   - Attune now uses the Forever frame
 
+-- 1.6.22
+--   - Added option to use full map in quest details
+--   - Added missing Wailing Caverns quests for Alliance
+
 -------------------------------------------------------------------------
 -- ADDON VARIABLES
 -------------------------------------------------------------------------

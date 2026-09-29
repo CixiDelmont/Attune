@@ -15,7 +15,8 @@ Attune_Data.attunes = 	{
 	{ID="163",NAME=AttuneLang["The Hall of Thanes"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="166",NAME=AttuneLang["The Hall of Thanes"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="170",NAME=AttuneLang["The Deadmines"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_human_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
-	{ID="180",NAME=AttuneLang["Wailing Caverns"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_druid_aquaticform", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
+	{ID="177",NAME=AttuneLang["Wailing Caverns"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_aquaticform", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
+    {ID="180",NAME=AttuneLang["Wailing Caverns"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_druid_aquaticform", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
     {ID="183",NAME=AttuneLang["Ruins of Lordaeron"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="186",NAME=AttuneLang["Ruins of Lordaeron"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
 	{ID="190",NAME=AttuneLang["Shadowfang Keep"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_monsterfang_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5},
@@ -503,6 +504,39 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: The Unsent Letter (Inside — letter from VanCleef)
 	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="595&495&395&295&195&105&610",STAGE="120"},
 
+
+
+--vForever dungeon attune 177
+	-- Oasis prereqs: 886 (optional breadcrumb) → 870 → 877 → 880 → 1489 → 1490 → 914
+	-- Short columns chain Spacers (FOLLOWS) so End links drop down then rejoin (no mid-tree horizontals)
+	-- SIDE (beside End): 6981 (picked up inside WC)
+	{ID_ATTUNE="177",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="177",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Eradication
+	{ID_ATTUNE="177",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="177",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Raptor Horns
+	{ID_ATTUNE="177",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Deviate Hides
+	-- STAGE 30
+	{ID_ATTUNE="177",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="30"},
+	{ID_ATTUNE="177",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30"}, -- item: 99-Year-Old Port
+	{ID_ATTUNE="177",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Smart Drinks
+	{ID_ATTUNE="177",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20}, -- item: Deviate Hide
+	-- STAGE 40
+	{ID_ATTUNE="177",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
+	{ID_ATTUNE="177",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="177",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6}, -- item: Wailing Essence
+	{ID_ATTUNE="177",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Deviate Hides
+	-- STAGE 50
+	{ID_ATTUNE="177",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
+	{ID_ATTUNE="177",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="177",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Smart Drinks
+	{ID_ATTUNE="177",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="177",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Glowing Shard
+	{ID_ATTUNE="177",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="650&550&350&150&720",STAGE="90"},
+
+
+
 --vForever dungeon attune 180
 	-- Main columns L→R (higher ID = left): 1487 | 959 | oasis→1489 chain | 865→1491 | 962 | 1486
 	-- Oasis prereqs: 886 (optional breadcrumb) → 870 → 877 → 880 → 1489 → 1490 → 914
@@ -560,7 +594,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="180",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="180",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Glowing Shard
-	-- {ID_ATTUNE="180",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="3369",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="90",SIDE=true}, -- quest: In Nightmares
 	{ID_ATTUNE="180",ID="750",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&580&480&380&280&180&720",STAGE="90"},
 
 
