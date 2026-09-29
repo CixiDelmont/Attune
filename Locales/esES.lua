@@ -165,6 +165,8 @@ Lang["SendingSurveyTo"] = "Enviando encuesta a ##TO## "
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "Mostrar el icono en el Minimap"
 Lang["MinimapButton_DESC"] = "Mostrar un botón de acceso rápido en el Minimapa a la interfaz u opciones."
+Lang["FullMap_TEXT"] = "Usar el mapa completo para quienes dan misiones"
+Lang["FullMap_DESC"] = "Al hacer clic en una misión, abre el mapa del mundo en el lugar de quien da la misión en lugar de mostrar un mapa en el panel lateral. Las recompensas ocupan entonces todo el panel."
 Lang["AutoSurvey_TEXT"] = "Ejecutar sondeo automático de la hermandad al conectar"
 Lang["AutoSurvey_DESC"] = "Siempre que conectes al juego, el addon realizará un sondeo a la hermandad."
 Lang["ShowSurveyed_TEXT"] = "Mostrar mensaje si he sido sondeado"

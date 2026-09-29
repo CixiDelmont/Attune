@@ -165,6 +165,8 @@ Lang["SendingSurveyTo"] = "##TO## 에게 설문조사 보내기"
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "미니맵 버튼 활성화"
 Lang["MinimapButton_DESC"] = "미니맵에 Attune애드온 버튼을 활성화합니다."
+Lang["FullMap_TEXT"] = "퀘스트 제공자 위치에 전체 지도 사용"
+Lang["FullMap_DESC"] = "퀘스트를 클릭하면 측면 패널에 지도를 표시하는 대신 세계 지도에서 퀘스트 제공자 위치를 엽니다. 퀘스트 보상은 측면 패널 끝까지 표시됩니다."
 Lang["AutoSurvey_TEXT"] = "로그인 시 자동 길드조회"
 Lang["AutoSurvey_DESC"] = "로그인하면 항상 자동으로 길드를 조회합니다."
 Lang["ShowSurveyed_TEXT"] = "나에게 조회 시 알림"

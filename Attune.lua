@@ -284,6 +284,18 @@ local attune_options = {
 					width = 2.5,
 					order = 6,
 				},
+				useFullMap = {
+					type = "toggle",
+					name = AttuneLang["FullMap_TEXT"],
+					desc = AttuneLang["FullMap_DESC"],
+					get = function(info) return Attune_DB.useFullMap end,
+					set = function(info, val)
+						Attune_DB.useFullMap = val
+						if Attune_RefreshQuestMapMode then Attune_RefreshQuestMapMode() end
+					end,
+					width = 2.5,
+					order = 7,
+				},
 				showSurveyed = {
 					type = "toggle",
 					name = AttuneLang["ShowSurveyed_TEXT"],
@@ -617,6 +629,7 @@ function Attune:OnEnable()
 	if Attune_DB.minimapbuttonpos == nil then Attune_DB.minimapbuttonpos = {} end
 	if Attune_DB.minimapbuttonpos.hide == nil then Attune_DB.minimapbuttonpos.hide = false end
 	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
+	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
 	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/forever" end
 	if TreeExpandStatus == nil then TreeExpandStatus = {} end
 	
@@ -3026,6 +3039,16 @@ local function Attune_QuestIdFromStep(step)
 	return questId
 end
 
+local attunelocal_openedQuestMap
+
+local function Attune_CloseQuestGiverMap()
+	if not attunelocal_openedQuestMap then return end
+	attunelocal_openedQuestMap = nil
+	if WorldMapFrame and WorldMapFrame:IsShown() then
+		if ToggleWorldMap then ToggleWorldMap() else WorldMapFrame:Hide() end
+	end
+end
+
 local function Attune_ShowQuestGiverMap(step)
 	local questId = Attune_QuestIdFromStep(step)
 	local loc = questId and Attune_Data.questGivers and Attune_Data.questGivers[questId]
@@ -3040,12 +3063,14 @@ local function Attune_ShowQuestGiverMap(step)
 	end
 	if not uiMapID then return end
 
+	local wasShown = WorldMapFrame and WorldMapFrame:IsShown()
 	if OpenWorldMap then
 		OpenWorldMap(uiMapID)
 	elseif WorldMapFrame then
-		if not WorldMapFrame:IsShown() then ToggleWorldMap() end
+		if not wasShown then ToggleWorldMap() end
 		if WorldMapFrame.SetMapID then WorldMapFrame:SetMapID(uiMapID) end
 	end
+	if not wasShown then attunelocal_openedQuestMap = true end
 
 	if x and y and C_Map and C_Map.SetUserWaypoint and UiMapPoint and C_Map.CanSetUserWaypointOnMap and C_Map.CanSetUserWaypointOnMap(uiMapID) then
 		C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(uiMapID, x / 100, y / 100))
@@ -6940,10 +6965,50 @@ local function Attune_DetailGiver(step)
 	return uiMapID, x, y, name
 end
 
+-- Shift-click shares this pin the same way the world map pin does: chat link plus clipboard.
+local function Attune_ShareDetailPin(uiMapID, x, y)
+	if not uiMapID or not x or not y or not (C_Map and C_Map.SetUserWaypoint and C_Map.GetUserWaypointHyperlink and UiMapPoint) then return end
+	if C_Map.CanSetUserWaypointOnMap and not C_Map.CanSetUserWaypointOnMap(uiMapID) then return end
+
+	local previous = C_Map.GetUserWaypoint and C_Map.GetUserWaypoint()
+	local wasTracking = C_SuperTrack and C_SuperTrack.IsSuperTrackingUserWaypoint and C_SuperTrack.IsSuperTrackingUserWaypoint()
+
+	C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(uiMapID, x / 100, y / 100))
+	local link = C_Map.GetUserWaypointHyperlink()
+	local waypoint = C_Map.GetUserWaypoint and C_Map.GetUserWaypoint()
+
+	if link then
+		if ChatFrameUtil and ChatFrameUtil.InsertLink then
+			ChatFrameUtil.InsertLink(link)
+		elseif ChatEdit_InsertLink then
+			ChatEdit_InsertLink(link)
+		end
+	end
+
+	if waypoint and waypoint.position and CopyToClipboard then
+		local cmd = (SLASH_MAPPIN1 or "/pin") .. string.format(" %d %.1f %.1f", waypoint.uiMapID, waypoint.position.x * 100, waypoint.position.y * 100)
+		CopyToClipboard(cmd)
+	end
+
+	if previous then
+		C_Map.SetUserWaypoint(previous)
+		if wasTracking and C_SuperTrack and C_SuperTrack.SetSuperTrackedUserWaypoint then
+			C_SuperTrack.SetSuperTrackedUserWaypoint(true)
+		end
+	elseif C_Map.ClearUserWaypoint then
+		C_Map.ClearUserWaypoint()
+	end
+
+	if PlaySound and SOUNDKIT and SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE then
+		PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE)
+	end
+end
+
 local function Attune_FillDetailMap(clip, uiMapID, x, y)
 	clip.tiles = clip.tiles or {}
 	for _, tex in ipairs(clip.tiles) do tex:Hide() end
 	clip.pin:Hide()
+	clip.pin.uiMapID, clip.pin.pinX, clip.pin.pinY = nil, nil, nil
 	clip.empty:Hide()
 	if not uiMapID or not x or not y or not C_Map or not C_Map.GetMapArtLayers or not C_Map.GetMapArtLayerTextures then
 		clip.empty:Show()
@@ -6994,6 +7059,7 @@ local function Attune_FillDetailMap(clip, uiMapID, x, y)
 		end
 	end
 	for k = n + 1, #clip.tiles do clip.tiles[k]:Hide() end
+	clip.pin.uiMapID, clip.pin.pinX, clip.pin.pinY = uiMapID, x, y
 	clip.pin:Show()
 	clip.pin:ClearAllPoints()
 	clip.pin:SetPoint("CENTER", clip, "CENTER", 0, 0)
@@ -7045,11 +7111,21 @@ local function Attune_LayoutQuestDetail(panel)
 	local header = 50
 	local sep = 10
 	local margin = 10
-	local mapSize = width - (margin * 2)
-	local rewardsH = height - header - sep - mapSize - margin
-	if rewardsH < 28 then
-		mapSize = math.max(64, height - header - sep - margin - 28)
+	local useFullMap = Attune_DB and Attune_DB.useFullMap
+	local mapSize, rewardsH
+	if useFullMap then
+		panel.map:Hide()
+		panel.separator:Hide()
+		rewardsH = height - header - margin
+	else
+		panel.map:Show()
+		panel.separator:Show()
+		mapSize = width - (margin * 2)
 		rewardsH = height - header - sep - mapSize - margin
+		if rewardsH < 28 then
+			mapSize = math.max(64, height - header - sep - margin - 28)
+			rewardsH = height - header - sep - mapSize - margin
+		end
 	end
 
 	panel.rewardScroll:ClearAllPoints()
@@ -7057,13 +7133,15 @@ local function Attune_LayoutQuestDetail(panel)
 	panel.rewardScroll:SetPoint("TOPRIGHT", -12, -(header + 6))
 	panel.rewardScroll:SetHeight(math.max(rewardsH - 8, 1))
 
-	panel.separator:ClearAllPoints()
-	panel.separator:SetPoint("TOPLEFT", 8, -(header + rewardsH))
-	panel.separator:SetPoint("TOPRIGHT", -8, -(header + rewardsH))
+	if not useFullMap then
+		panel.separator:ClearAllPoints()
+		panel.separator:SetPoint("TOPLEFT", 8, -(header + rewardsH))
+		panel.separator:SetPoint("TOPRIGHT", -8, -(header + rewardsH))
 
-	panel.map:ClearAllPoints()
-	panel.map:SetSize(mapSize, mapSize)
-	panel.map:SetPoint("BOTTOM", panel, "BOTTOM", 0, margin)
+		panel.map:ClearAllPoints()
+		panel.map:SetSize(mapSize, mapSize)
+		panel.map:SetPoint("BOTTOM", panel, "BOTTOM", 0, margin)
+	end
 
 	local questName = AttuneLang["Q1_" .. panel.step.ID_WOWHEAD]
 	if not questName or questName == "" then questName = AttuneLang["Quest rewards"] end
@@ -7190,15 +7268,17 @@ local function Attune_LayoutQuestDetail(panel)
 		end
 	end
 
-	local uiMapID, x, y, giver = Attune_DetailGiver(panel.step)
-	if giver and giver ~= "" then
-		panel.giver:SetText(AttuneLang["Starts at"] .. " " .. giver)
-		panel.giver:Show()
-	else
-		panel.giver:Hide()
+	if not (Attune_DB and Attune_DB.useFullMap) then
+		local uiMapID, x, y, giver = Attune_DetailGiver(panel.step)
+		if giver and giver ~= "" then
+			panel.giver:SetText(AttuneLang["Starts at"] .. " " .. giver)
+			panel.giver:Show()
+		else
+			panel.giver:Hide()
+		end
+		panel.map.art.zoom = panel.map.zoom or 1
+		Attune_FillDetailMap(panel.map.art, uiMapID, x, y)
 	end
-	panel.map.art.zoom = panel.map.zoom or 1
-	Attune_FillDetailMap(panel.map.art, uiMapID, x, y)
 end
 
 local function Attune_EnsureQuestDetail()
@@ -7281,16 +7361,45 @@ local function Attune_EnsureQuestDetail()
 	map.empty:SetPoint("CENTER")
 	map.empty:SetText(AttuneLang["Quest information not found"])
 	map.empty:Hide()
-	map.pin = art:CreateTexture(nil, "OVERLAY")
+	map.pin = CreateFrame("Button", nil, art)
 	map.pin:SetSize(22, 22)
+	map.pin:SetFrameLevel((art:GetFrameLevel() or 0) + 6)
+	map.pin:EnableMouse(true)
+	map.pin:RegisterForClicks("LeftButtonUp")
+	map.pin:SetHitRectInsets(-8, -8, -8, -8)
+	map.pin.icon = map.pin:CreateTexture(nil, "OVERLAY")
+	map.pin.icon:SetAllPoints()
 	local pinned = false
-	if map.pin.SetAtlas then
-		pcall(map.pin.SetAtlas, map.pin, "Waypoint-MapPin-Tracked")
-		pinned = map.pin.GetAtlas and map.pin:GetAtlas() == "Waypoint-MapPin-Tracked"
+	if map.pin.icon.SetAtlas then
+		pcall(map.pin.icon.SetAtlas, map.pin.icon, "Waypoint-MapPin-Tracked")
+		pinned = map.pin.icon.GetAtlas and map.pin.icon:GetAtlas() == "Waypoint-MapPin-Tracked"
 	end
 	if not pinned then
-		map.pin:SetTexture("Interface\\Minimap\\Tracking\\QuestBlob")
+		map.pin.icon:SetTexture("Interface\\Minimap\\Tracking\\QuestBlob")
 	end
+	map.pin:SetScript("OnClick", function(self)
+		if IsModifiedClick("CHATLINK") then
+			Attune_ShareDetailPin(self.uiMapID, self.pinX, self.pinY)
+		end
+	end)
+	map.pin:SetScript("OnEnter", function(self)
+		if not self.uiMapID then return end
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT", -16, -4)
+		local title = MAP_PIN_SHARING or "Map Pin"
+		if GameTooltip_SetTitle then
+			GameTooltip_SetTitle(GameTooltip, title)
+			if MAP_PIN_SHARING_TOOLTIP and GameTooltip_AddNormalLine then
+				GameTooltip_AddNormalLine(GameTooltip, MAP_PIN_SHARING_TOOLTIP)
+			end
+		else
+			GameTooltip:SetText(title)
+			if MAP_PIN_SHARING_TOOLTIP then
+				GameTooltip:AddLine(MAP_PIN_SHARING_TOOLTIP, 1, 1, 1, true)
+			end
+		end
+		GameTooltip:Show()
+	end)
+	map.pin:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	-- FillDetailMap parents tiles and the pin to the clipped art frame.
 	art.pin = map.pin
 	art.empty = map.empty
@@ -7323,6 +7432,8 @@ local function Attune_EnsureQuestDetail()
 	zoomOut:SetFrameLevel(art:GetFrameLevel() + 5)
 	art:EnableMouseWheel(true)
 	art:SetScript("OnMouseWheel", function(_, delta) Attune_NudgeMapZoom(delta) end)
+	map.pin:EnableMouseWheel(true)
+	map.pin:SetScript("OnMouseWheel", function(_, delta) Attune_NudgeMapZoom(delta) end)
 
 	local listener = CreateFrame("Frame", nil, panel)
 	listener:SetScript("OnEvent", function(_, event, arg1, arg2)
@@ -7374,6 +7485,7 @@ function Attune_HideQuestDetail()
 		attunelocal_questDetail.key = nil
 		attunelocal_questDetail.step = nil
 	end
+	Attune_CloseQuestGiverMap()
 	if widget and widget.RefreshTree and widget.treeframe and widget.treeframe:IsShown() then
 		widget:RefreshTree()
 	end
@@ -7406,6 +7518,9 @@ function Attune_ShowQuestDetail(step)
 	if attunelocal_treeframe.scrollbar then attunelocal_treeframe.scrollbar:Hide() end
 	panel:Show()
 	Attune_LayoutQuestDetail(panel)
+	if Attune_DB and Attune_DB.useFullMap then
+		Attune_ShowQuestGiverMap(step)
+	end
 
 	if C_QuestLog and C_QuestLog.RequestLoadQuestByID then
 		for _, questID in ipairs(Attune_RewardQuestIDs(step.ID_WOWHEAD)) do
@@ -7420,6 +7535,17 @@ function Attune_ShowQuestDetail(step)
 				Attune_LayoutQuestDetail(panel)
 			end
 		end)
+	end
+end
+
+function Attune_RefreshQuestMapMode()
+	local panel = attunelocal_questDetail
+	if not panel or not panel:IsShown() or not panel.step then return end
+	Attune_LayoutQuestDetail(panel)
+	if Attune_DB and Attune_DB.useFullMap then
+		Attune_ShowQuestGiverMap(panel.step)
+	else
+		Attune_CloseQuestGiverMap()
 	end
 end
 

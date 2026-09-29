@@ -166,6 +166,8 @@ Lang["SendingSurveyTo"] = "Sending survey to ##TO##"
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "Show the Minimap button"
 Lang["MinimapButton_DESC"] = "Display a Minimap button to quickly access the addon interface or options."
+Lang["FullMap_TEXT"] = "Use full map for quest giver locations"
+Lang["FullMap_DESC"] = "When you click a quest, open the world map at the quest giver instead of showing a map in the side panel. Quest rewards then fill the side panel."
 Lang["AutoSurvey_TEXT"] = "Run an automatic guild survey on logon"
 Lang["AutoSurvey_DESC"] = "Whenever you log into the game, the addon will perform a guild survey."
 Lang["ShowSurveyed_TEXT"] = "Show when I've been surveyed"

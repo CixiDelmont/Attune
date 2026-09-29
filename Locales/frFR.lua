@@ -165,6 +165,8 @@ Lang["SendingSurveyTo"] = "Envoi d'un sondage discret à ##TO## "
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "Afficher le bouton de la mini-carte"
 Lang["MinimapButton_DESC"] = "Ajoute un bouton sur la mini-carte pour accéder rapidement à l'addon ou à ses options."
+Lang["FullMap_TEXT"] = "Utiliser la carte complète pour les donneurs de quête"
+Lang["FullMap_DESC"] = "Lorsque vous cliquez sur une quête, ouvre la carte du monde à l'emplacement du donneur de quête au lieu d'afficher une carte dans le panneau latéral. Les récompenses occupent alors tout le panneau."
 Lang["AutoSurvey_TEXT"] = "Sonder automatiquement au démarrage"
 Lang["AutoSurvey_DESC"] = "Lorsque vous vous connecterez, l'addon effectuera un sondage auprès de votre guilde."
 Lang["ShowSurveyed_TEXT"] = "Indiquer quand vous avez été sondé"

@@ -165,6 +165,8 @@ Lang["SendingSurveyTo"] = "Umfrage wird an ##TO## gesendet"
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "Minimapknopf anzeigen"
 Lang["MinimapButton_DESC"] = "Zeige den Minimapknopf an um schnell auf Attune zugreifen zu können."
+Lang["FullMap_TEXT"] = "Vollständige Karte für Questgeber verwenden"
+Lang["FullMap_DESC"] = "Beim Klick auf eine Quest wird die Weltkarte beim Questgeber geöffnet, statt eine Karte im Seitenbereich anzuzeigen. Die Questbelohnungen füllen dann den Seitenbereich."
 Lang["AutoSurvey_TEXT"] = "Automatische Gildenumfrage bei Login"
 Lang["AutoSurvey_DESC"] = "Bei jedem Login führt das Addon eine automatische Gildenumfrage durch."
 Lang["ShowSurveyed_TEXT"] = "Zeige Umfragen an"

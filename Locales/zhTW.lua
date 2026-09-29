@@ -165,6 +165,8 @@ Lang["SendingSurveyTo"] = "向 ##TO## 發送調查"
 -- OPTIONS
 Lang["MinimapButton_TEXT"] = "顯示小地圖按鈕"
 Lang["MinimapButton_DESC"] = "顯示小地圖按鈕可快速訪問插件介面或選項。"
+Lang["FullMap_TEXT"] = "使用完整地圖顯示任務給予者位置"
+Lang["FullMap_DESC"] = "點擊任務時開啟世界地圖並定位到任務給予者，而不是在側邊欄顯示地圖。任務獎勵會延伸至側邊欄底部。"
 Lang["AutoSurvey_TEXT"] = "對登入玩家進行公會自動調查"
 Lang["AutoSurvey_DESC"] = "每當您登入遊戲時，插件都會進行公會調查。"
 Lang["ShowSurveyed_TEXT"] = "在接受調查時顯示"
