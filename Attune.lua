@@ -25,6 +25,9 @@
 --   - Added dungeon art as background
 --   - Added level range for dungeons
 
+-- 1.6.23
+--   - Added Placeholders for upcoming dungeons
+
 
 
 -------------------------------------------------------------------------
@@ -175,6 +178,7 @@ local attunelocal_graphDragging = false		-- true while click-dragging the chain
 local attunelocal_graphDragLastX = 0
 local attunelocal_graphDragLastY = 0
 local attunelocal_graphPanHooked = false	-- Shift+wheel hook installed on scrollframe
+local attunelocal_wipFrame					-- centered "work in progress" overlay for empty trees
 
 --local attunelocal_repWidget					-- Reputation Widget frame
 --local attunelocal_repWidget_frames = {} 	-- list of non-Ace frames for the rep widget (to reuse them later)
@@ -759,7 +763,11 @@ function Attune:OnEnable()
 	if t.attuned == nil then t.attuned = {} end
 	for i, a in pairs(Attune_Data.attunes) do
 		if attuneDone[a.ID] == nil then attuneDone[a.ID] = 0 end
-		t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
+		if (attuneSteps[a.ID] or 0) > 0 then
+			t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
+		else
+			t.attuned[a.ID] = 0
+		end
 
 	end
 	-- End step done means fully attuned (Kill/Interact may lag behind in the done map)
@@ -1941,6 +1949,12 @@ function Attune_LoadTree()
 	local expacNode = {}
 	local groupNode = {}
 	local groupAllDone = true
+	local attunesWithSteps = {}
+	for _, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) then
+			attunesWithSteps[s.ID_ATTUNE] = true
+		end
+	end
 
 	for i, a in pairs(Attune_Data.attunes) do
 		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
@@ -1983,7 +1997,10 @@ function Attune_LoadTree()
 
 				local text = Attune_DisplayName(a)
 				local icon = a.ICON
-				if Attune_DB.toons[attunelocal_charKey].attuned ~= nil then
+				if not attunesWithSteps[a.ID] then
+					text = "|cff808080"..text.."|r"
+					groupAllDone = false
+				elseif Attune_DB.toons[attunelocal_charKey].attuned ~= nil then
 					if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 						text = "|cff00ff00"..text.."|r"
 						icon = "Interface\\AddOns\\Attune\\Images\\success"
@@ -2569,6 +2586,43 @@ local function Attune_ShowDungeonArt(attuneId)
 	Attune_LayoutDungeonArt()
 end
 
+local function Attune_ShowWorkInProgress(show)
+	if not show then
+		if attunelocal_wipFrame then
+			attunelocal_wipFrame:Hide()
+			attunelocal_wipFrame:SetParent(nil)
+		end
+		return
+	end
+	local parent = attunelocal_scroll and attunelocal_scroll.frame
+	if not parent then return end
+	if not attunelocal_wipFrame then
+		local holder = CreateFrame("Frame", nil, parent)
+		holder:SetAllPoints(parent)
+		holder:EnableMouse(false)
+		local fs = holder:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+		fs:SetPoint("CENTER", holder, "CENTER", 0, 0)
+		fs:SetJustifyH("CENTER")
+		fs:SetFont(GameFontNormal:GetFont(), 22, "")
+		fs:SetTextColor(1, 0.82, 0)
+		fs:SetShadowColor(0, 0, 0, 1)
+		fs:SetShadowOffset(1, -1)
+		holder.text = fs
+		attunelocal_wipFrame = holder
+	end
+	if attunelocal_wipFrame:GetParent() ~= parent then
+		attunelocal_wipFrame:SetParent(parent)
+		attunelocal_wipFrame:SetAllPoints(parent)
+	end
+	attunelocal_wipFrame:SetFrameLevel((parent:GetFrameLevel() or 0) + 30)
+	attunelocal_wipFrame.text:SetText(AttuneLang["Work in progress"] or "Work in progress")
+	if show then
+		attunelocal_wipFrame:Show()
+	else
+		attunelocal_wipFrame:Hide()
+	end
+end
+
 function Attune_Select(attuneId)
 	PlaySound(856)  --igMainMenuOptionCheckBoxOn
 	Attune_ShowDungeonArt(attuneId)
@@ -2695,6 +2749,14 @@ function Attune_Select(attuneId)
 		local half = rowW / 2
 		if half > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = half end
 	end
+
+	if next(stageSteps) == nil then
+		attunelocal_graphRoot:Hide()
+		Attune_ShowWorkInProgress(true)
+		attunelocal_scroll.frame:SetScript("OnUpdate", nil)
+		return
+	end
+	Attune_ShowWorkInProgress(false)
 
 	-- Create/position main-chain steps (defer End until SIDE nodes exist for line anchors)
 	-- First stage stays at yy=0: top margin is the unscaled header offset outside the zoomed graph.
@@ -3926,6 +3988,7 @@ function Attune_ToggleView(noToggle)
 
 	Attune_ReleaseZoomSlider()
 	Attune_HideDungeonArt()
+	Attune_ShowWorkInProgress(false)
 	attunelocal_frame:ReleaseChildren()
 	--Hiding all frames
 	for i, f in pairs(attunelocal_frames) do _G[f]:Hide() end
@@ -4494,7 +4557,11 @@ function Attune_ShowResultList(title)
 			for i, a in pairs(Attune_Data.attunes) do
 				if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 					if attuneDone[a.ID] == nil then attuneDone[a.ID] = 0 end
-					t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
+					if (attuneSteps[a.ID] or 0) > 0 then
+						t.attuned[a.ID] = math.floor(100*(attuneDone[a.ID]/attuneSteps[a.ID]))
+					else
+						t.attuned[a.ID] = 0
+					end
 				end
 			end
 			Attune_ApplyCompletedEndSteps(t)
