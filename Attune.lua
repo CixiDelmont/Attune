@@ -150,6 +150,7 @@ local attunelocal_guildframe				-- Ace SimpleGroup object for result tab
 local attunelocal_treeIsShown = false		-- indicates whether we're on the tree view or result view
 local attunelocal_right						-- right panel of the TreeGroup object
 local attunelocal_scroll					-- scroller inside of the TreeGroup right panel
+local attunelocal_dungeonArt				-- loading-screen art behind the dungeon view
 local attunelocal_gscroll					-- scroller inside the SimpleGroup of the result tab
 local attunelocal_glist						-- individual rows of data inside the result tab
 local attunelocal_export_frame				-- export submenu frame
@@ -1915,6 +1916,17 @@ function Attune_recursePreviousSteps(who, aID, follows)
 end
 
 -------------------------------------------------------------------------
+-- Display name, with the level range when the entry defines one
+-------------------------------------------------------------------------
+
+local function Attune_DisplayName(a)
+	if a.LEVELS and a.LEVELS ~= "" then
+		return a.NAME .. " (" .. a.LEVELS .. ")"
+	end
+	return a.NAME
+end
+
+-------------------------------------------------------------------------
 -- Load the data into the TreeGroup object (nodes/leaves)
 -------------------------------------------------------------------------
 
@@ -1965,7 +1977,7 @@ function Attune_LoadTree()
 
 			if a.FACTION == UnitFactionGroup("player") or a.FACTION == 'Both' then
 
-				local text = a.NAME
+				local text = Attune_DisplayName(a)
 				local icon = a.ICON
 				if Attune_DB.toons[attunelocal_charKey].attuned ~= nil then
 					if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
@@ -2464,8 +2476,98 @@ end
 -- Display the attune after it being selected in tree
 -------------------------------------------------------------------------
 
+-- Classic instance loading screens (Interface\Glues\LoadingScreens), file data IDs.
+-- Hall of Thanes has no screen of its own; Deeprun Tram is the underground Ironforge art.
+-- Ruins of Lordaeron uses the Blizzard loading screen of those ruins.
+local ATTUNE_DUNGEON_ART = {
+	["160"] = 131862, -- Ragefire Chasm
+	["163"] = 131834, -- Hall of Thanes
+	["166"] = 131834,
+	["170"] = 131833, -- The Deadmines
+	["177"] = 131882, -- Wailing Caverns
+	["180"] = 131882,
+	["183"] = 131867, -- Ruins of Lordaeron
+	["186"] = 131867,
+	["190"] = 131869, -- Shadowfang Keep
+	["200"] = 131823, -- Blackfathom Deeps
+	["210"] = 131823,
+	["220"] = 131870, -- The Stockade
+	["230"] = 131841, -- Gnomeregan
+	["240"] = 131841,
+	["250"] = 131865, -- Razorfen Kraul
+	["251"] = 131865,
+	["260"] = 131852, -- Scarlet Monastery
+	["270"] = 131852,
+	["280"] = 131864, -- Razorfen Downs
+	["290"] = 131864,
+	["300"] = 131850, -- Maraudon
+	["310"] = 131850,
+	["320"] = 131876, -- Uldaman
+	["330"] = 131876,
+	["340"] = 131835, -- Dire Maul
+	["350"] = 131885, -- Zul'Farrak
+	["360"] = 131871, -- Stratholme
+	["370"] = 131872, -- Temple of Atal'Hakkar
+	["380"] = 131872,
+	["390"] = 131824, -- Blackrock Depths
+	["400"] = 131824,
+	["410"] = 131868, -- Scholomance
+	["420"] = 131868,
+	["120"] = 131824, -- Blackrock Depths (key)
+	["140"] = 131868, -- Scholomance (key)
+	["150"] = 131868,
+}
+local ATTUNE_DUNGEON_ART_ALPHA = 0.06
+
+local function Attune_LayoutDungeonArt()
+	local tex = attunelocal_dungeonArt
+	local parent = tex and tex:GetParent()
+	if not tex or not parent or not tex:IsShown() then return end
+	tex:ClearAllPoints()
+	tex:SetAllPoints(parent)
+	-- Crop the top and bottom 20%, then stretch the middle 60% over the panel.
+	tex:SetTexCoord(0, 1, 0.22, 0.80)
+end
+
+local function Attune_HideDungeonArt()
+	if not attunelocal_dungeonArt then return end
+	attunelocal_dungeonArt:Hide()
+	attunelocal_dungeonArt:SetTexture(nil)
+end
+
+local function Attune_ShowDungeonArt(attuneId)
+	-- Outer widget frame, not the ScrollFrame: art stays put and is not clipped with the quest list.
+	local parent = attunelocal_scroll and attunelocal_scroll.frame
+	if not parent then return end
+	if not attunelocal_dungeonArt or attunelocal_dungeonArt:GetParent() ~= parent then
+		Attune_HideDungeonArt()
+		local tex = parent:CreateTexture(nil, "BACKGROUND")
+		tex:SetAlpha(ATTUNE_DUNGEON_ART_ALPHA)
+		tex:Hide()
+		attunelocal_dungeonArt = tex
+		if not parent.attuneArtSized then
+			local prev = parent:GetScript("OnSizeChanged")
+			parent:SetScript("OnSizeChanged", function(self, ...)
+				if prev then prev(self, ...) end
+				Attune_LayoutDungeonArt()
+			end)
+			parent.attuneArtSized = true
+		end
+	end
+	local fdid = ATTUNE_DUNGEON_ART[tostring(attuneId)]
+	if not fdid then
+		attunelocal_dungeonArt:Hide()
+		return
+	end
+	attunelocal_dungeonArt:SetTexture(fdid)
+	attunelocal_dungeonArt:SetAlpha(ATTUNE_DUNGEON_ART_ALPHA)
+	attunelocal_dungeonArt:Show()
+	Attune_LayoutDungeonArt()
+end
+
 function Attune_Select(attuneId)
 	PlaySound(856)  --igMainMenuOptionCheckBoxOn
+	Attune_ShowDungeonArt(attuneId)
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 	local scrollframe = attunelocal_scroll.content.obj.content
 
@@ -2491,7 +2593,7 @@ function Attune_Select(attuneId)
 				titlebutton:SetFullWidth(true)
 
 					local label = AceGUI:Create("Label")
-					label:SetText(a.NAME)
+					label:SetText(Attune_DisplayName(a))
 					label:SetImage(a.ICON)
 					label:SetFont(GameFontNormal:GetFont(), 24, "")
 					label:SetImageSize(32,32)
@@ -3819,6 +3921,7 @@ function Attune_ToggleView(noToggle)
 	if noToggle == nil then noToggle = false end
 
 	Attune_ReleaseZoomSlider()
+	Attune_HideDungeonArt()
 	attunelocal_frame:ReleaseChildren()
 	--Hiding all frames
 	for i, f in pairs(attunelocal_frames) do _G[f]:Hide() end
