@@ -18,8 +18,16 @@ $locales = @('frFR', 'deDE', 'esES', 'ruRU', 'zhCN', 'zhTW', 'koKR')
 foreach ($loc in $locales) {
 	$path = Join-Path $base "$loc.lua"
 	$content = [System.IO.File]::ReadAllText($path, $utf8)
+	# Keep already-filled values from the sync block so a re-run does not put English back.
+	$kept = New-Object 'System.Collections.Generic.Dictionary[string,string]'
+	$blockMatch = [regex]::Match($content, '(?s)\r?\n-- Synced from (?:enUS|Wowhead).*?(?=(\r?\n-- à :)|\r?\n*\z)')
+	if ($blockMatch.Success) {
+		foreach ($m in [regex]::Matches($blockMatch.Value, 'Lang\["((?:\\.|[^"\\])*)"\]\s*=\s*"((?:\\.|[^"\\])*)"')) {
+			$kept[$m.Groups[1].Value] = $m.Groups[2].Value
+		}
+	}
 	# Drop previous sync block first, then compute missing keys from what remains
-	$content = [regex]::Replace($content, '(?s)\r?\n-- Synced from enUS.*?(?=(\r?\n-- à :)|\r?\n*\z)', '')
+	$content = [regex]::Replace($content, '(?s)\r?\n-- Synced from (?:enUS|Wowhead).*?(?=(\r?\n-- à :)|\r?\n*\z)', '')
 
 	$have = New-Object 'System.Collections.Generic.HashSet[string]' ([StringComparer]::Ordinal)
 	foreach ($m in [regex]::Matches($content, 'Lang\["((?:\\.|[^"\\])*)"\]')) {
@@ -28,7 +36,7 @@ foreach ($loc in $locales) {
 
 	$sb = New-Object System.Text.StringBuilder
 	[void]$sb.AppendLine('')
-	[void]$sb.AppendLine('-- Synced from enUS (missing keys - English fallback until translated)')
+	[void]$sb.AppendLine('-- Synced from Wowhead Forever')
 	$added = 0
 	$sorted = New-Object System.Collections.Generic.List[string]
 	foreach ($k in $enVals.Keys) { $sorted.Add($k) }
@@ -38,7 +46,8 @@ foreach ($loc in $locales) {
 			[void]$sb.Append('Lang["')
 			[void]$sb.Append($k)
 			[void]$sb.Append('"] = "')
-			[void]$sb.Append($enVals[$k])
+			if ($kept.ContainsKey($k)) { [void]$sb.Append($kept[$k]) }
+			else { [void]$sb.Append($enVals[$k]) }
 			[void]$sb.AppendLine('"')
 			$added++
 		}
