@@ -687,7 +687,7 @@ Attune_Data.steps = 	{
 
 --vForever dungeon attune 210
 	-- Columns L→R (higher ID = left): 6921 Amongst | 6564→6565 Allegiance | 6562→6563 Essence
-	-- SIDE (beside End): 6561 Blackfathom Villainy, 78917 Heart of the Void (from inside)
+	-- SIDE (beside End): 6561 Blackfathom Villainy, 6922 Baron Aquanis (from inside)
 	{ID_ATTUNE="210",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 17",LOCATION="",ID_WOWHEAD="17",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="210",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Amongst the Ruins
@@ -711,8 +711,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="210",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="210",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6561",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Blackfathom Villainy (from Thaelrid)
+	{ID_ATTUNE="210",ID="500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Baron Aquanis (Strange Water Globe)
 	-- {ID_ATTUNE="210",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78917",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Heart of the Void
-	{ID_ATTUNE="210",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&520",STAGE="70"},
+	{ID_ATTUNE="210",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&520&500",STAGE="70"},
 
 --vForever dungeon attune 220
 	-- Columns L→R (higher ID = left): 388 Color | 387 Quell | 373→389→391 Unsent (center) | 377 Crime | 386 What Comes
@@ -2166,7 +2167,7 @@ Attune_Data.quests = {
 	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5526]={56,5},			[5529]={55,5},
 	[5848]={52,5},			[6141]={34,1},			[6521]={28,1},			[6522]={28,1},			[6561]={18,5},
 	[6562]={17,1},			[6563]={17,1},			[6564]={17,1},			[6565]={17,5},			[6626]={28,1},
-	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
+	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6922]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
 	[7044]={41,5},			[7046]={41,5},			[7064]={45,5},			[7065]={45,5},			[7066]={39,1},
 	[7067]={39,5},			[7068]={39,1},			[7070]={39,1},			[7441]={54,5},			[7461]={56,5},
 	[7462]={56,1},			[7481]={54,1},			[7482]={54,1},			[7488]={54,5},			[7489]={54,5},
@@ -2210,7 +2211,7 @@ Attune_Data.quests = {
 	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5526]={56,5},			[5529]={55,5},
 	[5848]={52,5},			[6141]={34,1},			[6521]={28,1},			[6522]={28,1},			[6561]={18,5},
 	[6562]={17,1},			[6563]={17,1},			[6564]={17,1},			[6565]={17,5},			[6626]={28,1},
-	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
+	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6922]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
 	[7044]={41,5},			[7046]={41,5},			[7064]={45,5},			[7065]={45,5},			[7066]={39,1},
 	[7067]={39,5},			[7068]={39,1},			[7070]={39,1},			[7441]={54,5},			[7461]={56,5},
 	[7462]={56,1},			[7481]={54,1},			[7482]={54,1},			[7488]={54,5},			[7489]={54,5},

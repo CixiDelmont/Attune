@@ -3778,7 +3778,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 			else
 				-- build tooltip
 				GameTooltip:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
-				GameTooltip:AddLine(AttuneLang["Requires level"].." "..quest[1].."\n\n", 0.5, 0.5, 0.5, 1)
+				local reqLevel = tonumber(quest[1]) or 0
+				local lr, lg, lb = 0.5, 0.5, 0.5
+				if UnitLevel("player") < reqLevel then lr, lg, lb = 1, 0.055, 0.075 end
+				GameTooltip:AddLine(AttuneLang["Requires level"].." "..quest[1].."\n\n", lr, lg, lb, 1)
 				if quest[2] == 1 then
 					GameTooltip:AddLine(AttuneLang["Solo quest"].."\n\n", 0.373, 0.729, 0.275, 1)
 				elseif quest[2] <= 5 then

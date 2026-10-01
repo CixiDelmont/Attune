@@ -298,6 +298,7 @@ Attune_Data.questGivers = {
 	[4342] = {1427, 27.1, 72.5, "Kharan Mighthammer"}, -- Kharan Mighthammer (entrance)
 	[5724] = {1454, 53.0, 48.9, "Maur Grimtotem"}, -- Maur Grimtotem (entrance)
 	[6561] = {1439, 33.5, 93.5, "Argent Guard Thaelrid"}, -- Argent Guard Thaelrid (entrance)
+	[6922] = {1439, 33.5, 93.5, "Strange Water Globe"}, -- Strange Water Globe (entrance)
 	[6981] = {1413, 46.0, 36.3, "Glowing Shard"}, -- Glowing Shard (entrance)
 	[7044] = {1443, 29.3, 62.5, "Cavindra"}, -- Cavindra (entrance)
 	[7046] = {1443, 29.3, 62.5, "Celebras the Redeemed"}, -- Celebras the Redeemed (entrance)
