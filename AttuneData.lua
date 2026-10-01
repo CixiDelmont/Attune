@@ -37,7 +37,8 @@ Attune_Data.attunes = 	{
 	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-52"},
     -- {ID="320",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
 	-- {ID="330",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
-	-- {ID="350",NAME=AttuneLang["Zul'Farrak"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
+	{ID="350",NAME=AttuneLang["Zul'Farrak"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
+	{ID="351",NAME=AttuneLang["Zul'Farrak"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
     {ID="355",NAME=AttuneLang["Alcaz Prison"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="300",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="310",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
@@ -1309,64 +1310,107 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="340",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	{ID_ATTUNE="340",ID="770",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="760&440&340",STAGE="70"},
 
---vForever dungeon attune 350
-	-- Columns L→R: 2936 Spider God | 2991 Nekrum | 2770 Gahz'rilla | 3527 Mosh'aru | 2768 Rod | 2846 Tiara | 3042 Temper | 2865 Scarabs
+--vForever dungeon attune 350 (Alliance)
+	-- Columns L→R: 2768 Rod | 2991 Nekrum | 2770 Gahz'rilla | 3520→3527 Mosh'aru | 2846 Tiara | 3042 Temper | 2865 Scarabs
+	-- Row 40 is only the two Mosh'aru tablets. Item turn-ins are row 50.
 	{ID_ATTUNE="350",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="350",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2936",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Spider God
-	{ID_ATTUNE="350",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="2991",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Nekrum's Medallion
-	{ID_ATTUNE="350",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gahz'rilla
-	{ID_ATTUNE="350",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Prophecy of Mosh'aru
-	{ID_ATTUNE="350",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Divino-matic Rod
+	{ID_ATTUNE="350",ID="920",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Divino-matic Rod
+	{ID_ATTUNE="350",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="2991",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Nekrum's Medallion
+	{ID_ATTUNE="350",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gahz'rilla
+	{ID_ATTUNE="350",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
 	{ID_ATTUNE="350",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="2846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Tiara of the Deep
 	{ID_ATTUNE="350",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Troll Temper
 	{ID_ATTUNE="350",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Scarab Shells
 	-- STAGE 30
-	{ID_ATTUNE="350",ID="830",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="2936",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="30"}, -- quest: The Spider God (read Tablet of Theka)
-	{ID_ATTUNE="350",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="7797",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="720",STAGE="30"}, -- npc: Nekrum Gutchewer
-	{ID_ATTUNE="350",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="7273",ICON="Interface\\Icons\\inv_misc_monsterscales_03",FOLLOWS="620",STAGE="30"}, -- npc: Gahz'rilla
-	{ID_ATTUNE="350",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="7272",ICON="Interface\\Icons\\inv_misc_head_troll_02",FOLLOWS="520",STAGE="30"}, -- npc: Theka the Martyr
-	{ID_ATTUNE="350",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8625",ICON="Interface\\Icons\\inv_wand_07",FOLLOWS="420",STAGE="30"}, -- item: Divino-matic Rod (Sergeant Bly)
-	{ID_ATTUNE="350",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="7795",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="320",STAGE="30"}, -- npc: Hydromancer Velratha
+	{ID_ATTUNE="350",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30"}, -- item: Divino-matic Rod (Sergeant Bly)
+	{ID_ATTUNE="350",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9471",ICON="Interface\\Icons\\inv_jewelry_amulet_01",FOLLOWS="820",STAGE="30"}, -- item: Nekrum's Medallion
+	{ID_ATTUNE="350",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30"}, -- item: Gahz'rilla's Electrified Scale
+	{ID_ATTUNE="350",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="350",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30"}, -- item: Tiara of the Deep
 	{ID_ATTUNE="350",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20}, -- item: Troll Temper
 	{ID_ATTUNE="350",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5}, -- item: Uncracked Scarab Shell
-	-- STAGE 40
-	{ID_ATTUNE="350",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2936",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40"}, -- quest: The Spider God
-	{ID_ATTUNE="350",ID="740",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9471",ICON="Interface\\Icons\\inv_jewelry_amulet_01",FOLLOWS="730",STAGE="40"}, -- item: Nekrum's Medallion
-	{ID_ATTUNE="350",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="630",STAGE="40"}, -- item: Gahz'rilla's Electrified Scale
-	{ID_ATTUNE="350",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8623",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="530",STAGE="40"}, -- item: First Mosh'aru Tablet
-	{ID_ATTUNE="350",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Divino-matic Rod
-	{ID_ATTUNE="350",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8622",ICON="Interface\\Icons\\inv_jewelry_crown_01",FOLLOWS="330",STAGE="40"}, -- item: Tiara of the Deep
-	{ID_ATTUNE="350",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Troll Temper
-	{ID_ATTUNE="350",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Scarab Shells
-	-- STAGE 50
-	{ID_ATTUNE="350",ID="850",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="840",STAGE="50"},
-	{ID_ATTUNE="350",ID="750",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="2991",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="50"}, -- quest: Nekrum's Medallion
-	{ID_ATTUNE="350",ID="650",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50"}, -- quest: Gahz'rilla
-	{ID_ATTUNE="350",ID="550",TYPE="Kill",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="7795",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="540",STAGE="50"}, -- npc: Hydromancer Velratha (Second Tablet)
-	{ID_ATTUNE="350",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
-	{ID_ATTUNE="350",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="2846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Tiara of the Deep
-	{ID_ATTUNE="350",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
-	{ID_ATTUNE="350",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- STAGE 40 (Mosh'aru tablets only)
+	-- {ID_ATTUNE="350",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="350",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40"}, -- item: First Mosh'aru Tablet
+	{ID_ATTUNE="350",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40"}, -- item: Second Mosh'aru Tablet
+    -- STAGE 50 (item turn-ins)
+	{ID_ATTUNE="350",ID="950",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="50"}, -- quest: Divino-matic Rod
+	{ID_ATTUNE="350",ID="850",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="2991",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="50"}, -- quest: Nekrum's Medallion
+	{ID_ATTUNE="350",ID="750",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="50"}, -- quest: Gahz'rilla
+	{ID_ATTUNE="350",ID="650",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640&540",STAGE="50"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="350",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="2846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="50"}, -- quest: Tiara of the Deep
+	{ID_ATTUNE="350",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50"}, -- quest: Troll Temper
+	{ID_ATTUNE="350",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50"}, -- quest: Scarab Shells
+	{ID_ATTUNE="350",ID="1000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="950&850&750&650&350&250&150",STAGE="60"},
+
+
+--vForever dungeon attune 351 (Horde)
+	-- Columns L→R: 2768 Rod | 2770 Gahz'rilla | 3520→3527 Mosh'aru | 2933→2936 Spider God (longest) | 2846 Tiara | 3042 Temper | 2865 Scarabs
+	-- Row 40 is only the two Mosh'aru tablets. Item turn-ins are row 50.
+	{ID_ATTUNE="351",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="351",ID="920",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Divino-matic Rod
+	{ID_ATTUNE="351",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Gahz'rilla
+	{ID_ATTUNE="351",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
+	{ID_ATTUNE="351",ID="420",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="9321",ICON="Interface\\Icons\\inv_potion_19",FOLLOWS="10",STAGE="20"}, -- item: Venom Bottle (starts Venom Bottles)
+	{ID_ATTUNE="351",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="2846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Tiara of the Deep
+	{ID_ATTUNE="351",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Troll Temper
+	{ID_ATTUNE="351",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Scarab Shells
+	-- STAGE 30
+	{ID_ATTUNE="351",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30"}, -- item: Divino-matic Rod (Sergeant Bly)
+	{ID_ATTUNE="351",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30"}, -- item: Gahz'rilla's Electrified Scale
+	{ID_ATTUNE="351",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="351",ID="430",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="2933",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Venom Bottles
+	{ID_ATTUNE="351",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30"}, -- item: Tiara of the Deep
+	{ID_ATTUNE="351",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20}, -- item: Troll Temper
+	{ID_ATTUNE="351",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5}, -- item: Uncracked Scarab Shell
+	-- STAGE 40 (Mosh'aru tablets only)
+    {ID_ATTUNE="351",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40"}, -- item: First Mosh'aru Tablet
+	{ID_ATTUNE="351",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40"}, -- item: Second Mosh'aru Tablet
+    {ID_ATTUNE="351",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="351",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    -- STAGE 50 (item turn-ins)
+	{ID_ATTUNE="351",ID="950",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="50"}, -- quest: Divino-matic Rod
+	{ID_ATTUNE="351",ID="750",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="2770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="50"}, -- quest: Gahz'rilla
+	{ID_ATTUNE="351",ID="650",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640&540",STAGE="50"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="351",ID="450",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="2934",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: Undamaged Venom Sac
+	{ID_ATTUNE="351",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="2846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="50"}, -- quest: Tiara of the Deep
+	{ID_ATTUNE="351",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50"}, -- quest: Troll Temper
+	{ID_ATTUNE="351",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50"}, -- quest: Scarab Shells
 	-- STAGE 60
-	{ID_ATTUNE="350",ID="860",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="60"},
-	{ID_ATTUNE="350",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
-	{ID_ATTUNE="350",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
-	{ID_ATTUNE="350",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8624",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="550",STAGE="60"}, -- item: Second Mosh'aru Tablet
-	{ID_ATTUNE="350",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-	{ID_ATTUNE="350",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
-	{ID_ATTUNE="350",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
-	{ID_ATTUNE="350",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	{ID_ATTUNE="351",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="60"},
+	{ID_ATTUNE="351",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
+	{ID_ATTUNE="351",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
+	{ID_ATTUNE="351",ID="460",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="9322",ICON="Interface\\Icons\\inv_misc_organ_02",FOLLOWS="450",STAGE="60"}, -- item: Undamaged Venom Sac
+	{ID_ATTUNE="351",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="351",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="351",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="350",ID="870",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="860",STAGE="70"},
-	{ID_ATTUNE="350",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
-	{ID_ATTUNE="350",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
-	{ID_ATTUNE="350",ID="570",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="70"}, -- quest: The Prophecy of Mosh'aru
-	{ID_ATTUNE="350",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
-	{ID_ATTUNE="350",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
-	{ID_ATTUNE="350",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
-	{ID_ATTUNE="350",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
-	{ID_ATTUNE="350",ID="880",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="840&750&650&570&440&350&240&140",STAGE="80"},
+	{ID_ATTUNE="351",ID="970",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="960",STAGE="70"},
+	{ID_ATTUNE="351",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
+	{ID_ATTUNE="351",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
+	{ID_ATTUNE="351",ID="470",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="2934",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="70"}, -- quest: Undamaged Venom Sac
+	{ID_ATTUNE="351",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
+	{ID_ATTUNE="351",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	{ID_ATTUNE="351",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="351",ID="980",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="970",STAGE="80"},
+	{ID_ATTUNE="351",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
+	{ID_ATTUNE="351",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
+	{ID_ATTUNE="351",ID="480",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2935",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Consult Master Gadrin
+	{ID_ATTUNE="351",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
+	{ID_ATTUNE="351",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="351",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="351",ID="990",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="980",STAGE="90"},
+	{ID_ATTUNE="351",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="90"},
+	{ID_ATTUNE="351",ID="690",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="680",STAGE="90"},
+	{ID_ATTUNE="351",ID="490",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="2936",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="480",STAGE="90"}, -- quest: The Spider God
+	{ID_ATTUNE="351",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="90"},
+	{ID_ATTUNE="351",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
+	{ID_ATTUNE="351",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
+	{ID_ATTUNE="351",ID="1000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="990&790&690&490&390&290&190",STAGE="100"},
 
 --vForever dungeon attune 360
 	-- Columns L→R: 5463 Menethil | 5848 Painting | 5243 Holy Water | 5212→5213 Flesh | 5251→5263 Archivist (longest) | 5214 Grimm | 5282 Souls
@@ -2108,9 +2152,9 @@ Attune_Data.quests = {
 	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
-	[2929]={25,5},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
+	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
 	[3369]={15,1},			[3373]={48,5},			[3380]={46,1},			[3444]={46,1},			[3445]={46,1},
-	[3446]={46,5},			[3447]={46,5},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
+	[3446]={46,5},			[3447]={46,5},			[3520]={40,1},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
 	[3528]={40,5},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
 	[4001]={48,1},			[4002]={48,1},			[4003]={48,5},			[4004]={48,1},			[4024]={52,5},
 	[4063]={52,5},			[4081]={48,5},			[4082]={50,5},			[4123]={50,5},			[4126]={50,5},
@@ -2152,9 +2196,9 @@ Attune_Data.quests = {
 	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
-	[2929]={25,5},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
+	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
 	[3369]={15,1},			[3373]={48,5},			[3380]={46,1},			[3444]={46,1},			[3445]={46,1},
-	[3446]={46,5},			[3447]={46,5},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
+	[3446]={46,5},			[3447]={46,5},			[3520]={40,1},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
 	[3528]={40,5},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
 	[4001]={48,1},			[4002]={48,1},			[4003]={48,5},			[4004]={48,1},			[4024]={52,5},
 	[4063]={52,5},			[4081]={48,5},			[4082]={50,5},			[4123]={50,5},			[4126]={50,5},

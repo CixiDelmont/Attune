@@ -2527,6 +2527,7 @@ local ATTUNE_DUNGEON_ART = {
 	["330"] = 131876,
 	["340"] = 131835, -- Dire Maul
 	["350"] = 131885, -- Zul'Farrak
+	["351"] = 131885,
 	["360"] = 131871, -- Stratholme
 	["370"] = 131872, -- Temple of Atal'Hakkar
 	["380"] = 131872,
