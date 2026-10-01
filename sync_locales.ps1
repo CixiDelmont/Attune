@@ -28,7 +28,7 @@ foreach ($loc in $locales) {
 
 	$sb = New-Object System.Text.StringBuilder
 	[void]$sb.AppendLine('')
-	[void]$sb.AppendLine('-- Synced from enUS (missing keys — English fallback until translated)')
+	[void]$sb.AppendLine('-- Synced from enUS (missing keys - English fallback until translated)')
 	$added = 0
 	$sorted = New-Object System.Collections.Generic.List[string]
 	foreach ($k in $enVals.Keys) { $sorted.Add($k) }

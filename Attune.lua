@@ -7,29 +7,31 @@
 --	but WITHOUT ANY WARRANTY. Use at your own risk.
 --
 -------------------------------------------------------------------------
-
--- 1.6.19
---  Updated dungeons up to Maraudon
-
--- 1.6.20
---   - Added quest giver in tooltip and map display
---   - Changed default to not announce completion in guild chat
-
--- 1.6.21
---   - Click a quest to list its reward items and map of the quest giver. Click it again to go back to the treeview
---   - Attune now uses the Forever frame
-
+--
+-- 1.6.23
+--   - Added Placeholders for upcoming dungeons
+--   - Changed step colors for quests and items: yellow if you have the quest or some of the required items, green is you have all the required items or have completed the quest, grey otherwise
+--   - Added Zul'Farrak quests
+--   - Added The Temple of Atal'Hakkar quests
+--   - if you are not at the minimum level for a quest, the quest level text will show in red
+--
 -- 1.6.22
 --   - Added option to use full map in quest details
 --   - Added missing Wailing Caverns quests for Alliance
 --   - Added dungeon art as background
 --   - Added level range for dungeons
-
--- 1.6.23
---   - Added Placeholders for upcoming dungeons
---   - Changed step colors for quests and items: yellow if you have the quest or some of the required items, green is you have all the required items or have completed the quest, grey otherwise
---   - Added Zul'Farrak quests
---   - if you are not at the minimum level for a quest, the quest level text will show in red
+--
+-- 1.6.21
+--   - Click a quest to list its reward items and map of the quest giver. Click it again to go back to the treeview
+--   - Attune now uses the Forever frame
+--
+-- 1.6.20
+--   - Added quest giver in tooltip and map display
+--   - Changed default to not announce completion in guild chat
+--
+-- 1.6.19
+--  Updated dungeons up to Maraudon
+--
 
 
 

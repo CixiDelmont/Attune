@@ -42,8 +42,8 @@ Attune_Data.attunes = 	{
     {ID="355",NAME=AttuneLang["Alcaz Prison"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="300",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="310",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	-- {ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
-	-- {ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
+	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
+	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
     -- {ID="390",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
 	-- {ID="400",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
     {ID="405",NAME=AttuneLang["Blackmaw Hold"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
@@ -1491,70 +1491,116 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="810",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="730&640&540&470&400&240&130",STAGE="110"},
 
 --vForever dungeon attune 370
-	-- Columns L→R: 3373 Eranikus | 3528 Hakkar | 3445→3446 Sunken Temple (longest) | 3447 Circle | 1446 Jammal'an | 1475 Tablets
+	-- Columns L→R: 1475 Tablets | 1446 Jammal'an | 3520→3528 Hakkar (longest) | 3445→3446 Sunken Temple | 3447 Circle
+	-- SIDE: 3373 Essence of Eranikus (Inside)
 	{ID_ATTUNE="370",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 38",LOCATION="",ID_WOWHEAD="38",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="370",ID="620",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10454",ICON="Interface\\Icons\\inv_stone_04",FOLLOWS="10",STAGE="20"}, -- item: Essence of Eranikus (starts 3373)
-	{ID_ATTUNE="370",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The God Hakkar
-	{ID_ATTUNE="370",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Sunken Temple
-	{ID_ATTUNE="370",ID="320",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
-	{ID_ATTUNE="370",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Jammal'an the Prophet
-	{ID_ATTUNE="370",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1475",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Into The Temple of Atal'Hakkar
+	{ID_ATTUNE="370",ID="900",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1475",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Into The Temple of Atal'Hakkar
+	{ID_ATTUNE="370",ID="700",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Jammal'an the Prophet
+	{ID_ATTUNE="370",ID="500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
+	{ID_ATTUNE="370",ID="300",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Sunken Temple
+	{ID_ATTUNE="370",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	-- STAGE 30
-	{ID_ATTUNE="370",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: The Essence of Eranikus
-	{ID_ATTUNE="370",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10465",ICON="Interface\\Icons\\inv_egg_03",FOLLOWS="520",STAGE="30"}, -- item: Egg of Hakkar (filled)
-	{ID_ATTUNE="370",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Stone Circle
-	{ID_ATTUNE="370",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="320",STAGE="30"},
-	{ID_ATTUNE="370",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="5710",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="220",STAGE="30"}, -- npc: Jammal'an the Prophet
-	{ID_ATTUNE="370",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6288",ICON="Interface\\Icons\\inv_misc_stonetablet_04",FOLLOWS="120",STAGE="30",COUNT=10}, -- item: Atal'ai Tablet
+	{ID_ATTUNE="370",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6288",ICON="Interface\\Icons\\inv_misc_stonetablet_04",FOLLOWS="900",STAGE="30",COUNT=10}, -- item: Atal'ai Tablet
+	{ID_ATTUNE="370",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="700",STAGE="30"}, -- item: Head of Jammal'an
+	{ID_ATTUNE="370",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="500",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="370",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300",STAGE="30"}, -- quest: The Stone Circle
+	{ID_ATTUNE="370",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	-- STAGE 40
-	{ID_ATTUNE="370",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: The Essence of Eranikus
-	{ID_ATTUNE="370",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The God Hakkar
-	{ID_ATTUNE="370",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Into the Depths
-	{ID_ATTUNE="370",ID="340",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Secret of the Circle
-	{ID_ATTUNE="370",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_02",FOLLOWS="230",STAGE="40"}, -- item: Head of Jammal'an
-	{ID_ATTUNE="370",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1475",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Into The Temple of Atal'Hakkar
+	{ID_ATTUNE="370",ID="920",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1475",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Into The Temple of Atal'Hakkar
+	{ID_ATTUNE="370",ID="720",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40"}, -- quest: Jammal'an the Prophet
+	{ID_ATTUNE="370",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="510",STAGE="40"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="370",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="40"}, -- quest: Into the Depths
+	{ID_ATTUNE="370",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="40"}, -- quest: Secret of the Circle
 	-- STAGE 50
-	{ID_ATTUNE="370",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
-	{ID_ATTUNE="370",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
-	{ID_ATTUNE="370",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: Into the Depths
-	{ID_ATTUNE="370",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Secret of the Circle
-	{ID_ATTUNE="370",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Jammal'an the Prophet
-	{ID_ATTUNE="370",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
-	{ID_ATTUNE="370",ID="660",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="640&540&450&350&250&140",STAGE="60"},
+	{ID_ATTUNE="370",ID="930",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="920",STAGE="50"},
+	{ID_ATTUNE="370",ID="730",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="720",STAGE="50"},
+	{ID_ATTUNE="370",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="12402",ICON="Interface\\Icons\\inv_egg_03",FOLLOWS="520",STAGE="50"}, -- item: Ancient Egg
+	{ID_ATTUNE="370",ID="330",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="50"}, -- quest: Into the Depths
+	{ID_ATTUNE="370",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="50"}, -- quest: Secret of the Circle
+	-- STAGE 60
+	{ID_ATTUNE="370",ID="940",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="930",STAGE="60"},
+	{ID_ATTUNE="370",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="60"},
+	{ID_ATTUNE="370",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="60"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="370",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="60"},
+	{ID_ATTUNE="370",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="370",ID="950",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="940",STAGE="70"},
+	{ID_ATTUNE="370",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="70"},
+	{ID_ATTUNE="370",ID="550",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="540",STAGE="70"}, -- quest: The God Hakkar
+	{ID_ATTUNE="370",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="70"},
+	{ID_ATTUNE="370",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="370",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="80"},
+	{ID_ATTUNE="370",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="80"},
+	{ID_ATTUNE="370",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80"}, -- item: Filled Egg of Hakkar
+	{ID_ATTUNE="370",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="80"},
+	{ID_ATTUNE="370",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="370",ID="970",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="960",STAGE="90"},
+	{ID_ATTUNE="370",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="90"},
+	{ID_ATTUNE="370",ID="570",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="90"}, -- quest: The God Hakkar
+	{ID_ATTUNE="370",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="90"},
+	{ID_ATTUNE="370",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="90"},
+	-- SIDE (inside dungeon)
+	{ID_ATTUNE="370",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: The Essence of Eranikus (Inside)
+	{ID_ATTUNE="370",ID="1200",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="970&770&570&370&170&1100",STAGE="100"},
 
 --vForever dungeon attune 380
-	-- Columns L→R: 3373 Eranikus | 3528 Hakkar | 3380→3446 Sunken Temple (longest) | 3447 Circle | 1446 Jammal'an | 1445 Fetishes
+	-- Columns L→R: 1446 Jammal'an | 1424→1445 Temple (long) | 3520→3528 Hakkar (longest) | 3380→3446 Sunken Temple | 3447 Circle
+	-- SIDE: 3373 Essence of Eranikus (Inside)
 	{ID_ATTUNE="380",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 38",LOCATION="",ID_WOWHEAD="38",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="380",ID="620",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10454",ICON="Interface\\Icons\\inv_stone_04",FOLLOWS="10",STAGE="20"}, -- item: Essence of Eranikus (starts 3373)
-	{ID_ATTUNE="380",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The God Hakkar
-	{ID_ATTUNE="380",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3380",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Sunken Temple
-	{ID_ATTUNE="380",ID="320",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
-	{ID_ATTUNE="380",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Jammal'an the Prophet
-	{ID_ATTUNE="380",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Temple of Atal'Hakkar
+	{ID_ATTUNE="380",ID="900",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Jammal'an the Prophet
+	{ID_ATTUNE="380",ID="700",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1424",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Pool of Tears
+	{ID_ATTUNE="380",ID="500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
+	{ID_ATTUNE="380",ID="300",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3380",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Sunken Temple
+	{ID_ATTUNE="380",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	-- STAGE 30
-	{ID_ATTUNE="380",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: The Essence of Eranikus
-	{ID_ATTUNE="380",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10465",ICON="Interface\\Icons\\inv_egg_03",FOLLOWS="520",STAGE="30"}, -- item: Egg of Hakkar (filled)
-	{ID_ATTUNE="380",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Stone Circle
-	{ID_ATTUNE="380",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="320",STAGE="30"},
-	{ID_ATTUNE="380",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="5710",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="220",STAGE="30"}, -- npc: Jammal'an the Prophet
-	{ID_ATTUNE="380",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6188",ICON="Interface\\Icons\\inv_misc_idol_01",FOLLOWS="120",STAGE="30",COUNT=20}, -- item: Fetish of Hakkar
+	{ID_ATTUNE="380",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="900",STAGE="30"}, -- item: Head of Jammal'an
+	{ID_ATTUNE="380",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="6175",ICON="Interface\\Icons\\inv_misc_idol_03",FOLLOWS="700",STAGE="30",COUNT=10}, -- item: Atal'ai Artifact
+	{ID_ATTUNE="380",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="500",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="380",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300",STAGE="30"}, -- quest: The Stone Circle
+	{ID_ATTUNE="380",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	-- STAGE 40
-	{ID_ATTUNE="380",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: The Essence of Eranikus
-	{ID_ATTUNE="380",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The God Hakkar
-	{ID_ATTUNE="380",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Into the Depths
-	{ID_ATTUNE="380",ID="340",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Secret of the Circle
-	{ID_ATTUNE="380",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_02",FOLLOWS="230",STAGE="40"}, -- item: Head of Jammal'an
-	{ID_ATTUNE="380",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: The Temple of Atal'Hakkar
+	{ID_ATTUNE="380",ID="920",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Jammal'an the Prophet
+	{ID_ATTUNE="380",ID="720",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1424",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40"}, -- quest: Pool of Tears
+	{ID_ATTUNE="380",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="510",STAGE="40"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="380",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="40"}, -- quest: Into the Depths
+	{ID_ATTUNE="380",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="40"}, -- quest: Secret of the Circle
 	-- STAGE 50
-	{ID_ATTUNE="380",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
-	{ID_ATTUNE="380",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
-	{ID_ATTUNE="380",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: Into the Depths
-	{ID_ATTUNE="380",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Secret of the Circle
-	{ID_ATTUNE="380",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Jammal'an the Prophet
-	{ID_ATTUNE="380",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
-	{ID_ATTUNE="380",ID="660",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="640&540&450&350&250&140",STAGE="60"},
+	{ID_ATTUNE="380",ID="930",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="920",STAGE="50"},
+	{ID_ATTUNE="380",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="1429",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="50"}, -- quest: The Atal'ai Exile
+	{ID_ATTUNE="380",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="12402",ICON="Interface\\Icons\\inv_egg_03",FOLLOWS="520",STAGE="50"}, -- item: Ancient Egg
+	{ID_ATTUNE="380",ID="330",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3446",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="50"}, -- quest: Into the Depths
+	{ID_ATTUNE="380",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="50"}, -- quest: Secret of the Circle
+	-- STAGE 60
+	{ID_ATTUNE="380",ID="940",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="930",STAGE="60"},
+	{ID_ATTUNE="380",ID="740",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="60"}, -- quest: Return to Fel'Zerul
+	{ID_ATTUNE="380",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="60"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="380",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="60"},
+	{ID_ATTUNE="380",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="380",ID="950",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="940",STAGE="70"},
+	{ID_ATTUNE="380",ID="750",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="70"}, -- quest: The Temple of Atal'Hakkar
+	{ID_ATTUNE="380",ID="550",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="540",STAGE="70"}, -- quest: The God Hakkar
+	{ID_ATTUNE="380",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="70"},
+	{ID_ATTUNE="380",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="380",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="80"},
+	{ID_ATTUNE="380",ID="760",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6181",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="750",STAGE="80",COUNT=20}, -- item: Fetish of Hakkar
+	{ID_ATTUNE="380",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80"}, -- item: Filled Egg of Hakkar
+	{ID_ATTUNE="380",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="80"},
+	{ID_ATTUNE="380",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="380",ID="970",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="960",STAGE="90"},
+	{ID_ATTUNE="380",ID="770",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="1445",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="90"}, -- quest: The Temple of Atal'Hakkar
+	{ID_ATTUNE="380",ID="570",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="90"}, -- quest: The God Hakkar
+	{ID_ATTUNE="380",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="90"},
+	{ID_ATTUNE="380",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="90"},
+	-- SIDE (inside dungeon)
+	{ID_ATTUNE="380",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: The Essence of Eranikus (Inside)
+	{ID_ATTUNE="380",ID="1200",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="970&770&570&370&170&1100",STAGE="100"},
 
 --vForever dungeon attune 390
 	-- Columns L→R: 4024 Bael'Gar | 4341→4363 Kharan/Princess (longest) | 4201 Love Potion | 4123 Heart | 4136 Ribbly | 4126 Thunderbrew | 4286 Fanny Packs | 4262→4263 Incendius
@@ -2146,7 +2192,7 @@ Attune_Data.quests = {
 	[1151]={25,5},			[1152]={26,1},			[1154]={26,5},			[1159]={26,1},			[1160]={26,5},
 	[1198]={18,1},			[1199]={20,5},
 	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
-	[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
+	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
@@ -2156,7 +2202,7 @@ Attune_Data.quests = {
 	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
 	[3369]={15,1},			[3373]={48,5},			[3380]={46,1},			[3444]={46,1},			[3445]={46,1},
 	[3446]={46,5},			[3447]={46,5},			[3520]={40,1},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
-	[3528]={40,5},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
+	[3528]={40,5},			[4787]={40,1},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
 	[4001]={48,1},			[4002]={48,1},			[4003]={48,5},			[4004]={48,1},			[4024]={52,5},
 	[4063]={52,5},			[4081]={48,5},			[4082]={50,5},			[4123]={50,5},			[4126]={50,5},
 	[4134]={50,5},			[4136]={48,5},			[4201]={50,5},			[4262]={48,1},			[4263]={48,5},
@@ -2190,7 +2236,7 @@ Attune_Data.quests = {
 	[1151]={25,5},			[1152]={26,1},			[1154]={26,5},			[1159]={26,1},			[1160]={26,5},
 	[1198]={18,1},			[1199]={20,5},
 	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
-	[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
+	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
@@ -2200,7 +2246,7 @@ Attune_Data.quests = {
 	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
 	[3369]={15,1},			[3373]={48,5},			[3380]={46,1},			[3444]={46,1},			[3445]={46,1},
 	[3446]={46,5},			[3447]={46,5},			[3520]={40,1},			[3523]={32,5},			[3525]={32,5},			[3527]={40,5},
-	[3528]={40,5},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
+	[3528]={40,5},			[4787]={40,1},			[3636]={39,5},			[3906]={48,1},			[3907]={48,5},			[3981]={48,5},
 	[4001]={48,1},			[4002]={48,1},			[4003]={48,5},			[4004]={48,1},			[4024]={52,5},
 	[4063]={52,5},			[4081]={48,5},			[4082]={50,5},			[4123]={50,5},			[4126]={50,5},
 	[4134]={50,5},			[4136]={48,5},			[4201]={50,5},			[4262]={48,1},			[4263]={48,5},
