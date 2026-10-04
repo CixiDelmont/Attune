@@ -8,6 +8,10 @@
 --
 -------------------------------------------------------------------------
 --
+--
+-- 1.6.24
+--   - Added Uldaman quests
+--
 -- 1.6.23
 --   - Added Placeholders for upcoming dungeons
 --   - Changed step colors for quests and items: yellow if you have the quest or some of the required items, green is you have all the required items or have completed the quest, grey otherwise
@@ -2522,6 +2526,8 @@ local ATTUNE_DUNGEON_ART = {
 	["183"] = 131867, -- Ruins of Lordaeron
 	["186"] = 131867,
 	["190"] = 131869, -- Shadowfang Keep
+	["195"] = 7963777, -- Excavation Site: Wetlands (Forever)
+	["196"] = 7963777,
 	["200"] = 131823, -- Blackfathom Deeps
 	["210"] = 131823,
 	["220"] = 131870, -- The Stockade
