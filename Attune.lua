@@ -82,42 +82,19 @@ Attune_Data = {};							-- Attunements / steps / tooltips
 AttuneLang = LibStub("AceLocale-3.0"):GetLocale("Attune")
 
 local AceGUI = LibStub("AceGUI-3.0")
-do
-	-- Darker TreeGroup panes. AceGUI sets these in the widget constructor; override after create so Libs stay stock.
-	local AceGUI_Create = AceGUI.Create
-	function AceGUI:Create(widgetType)
-		local widget = AceGUI_Create(self, widgetType)
-		if widgetType == "TreeGroup" then
-			if widget.treeframe then
-				widget.treeframe:SetBackdropColor(0, 0, 0, 0.5)
-			end
-			if widget.border then
-				widget.border:SetBackdropColor(0, 0, 0, 0.5)
-			end
-			-- 20% wider than AceGUI's 175px default. Kept here so Libs stay stock.
-			widget:SetTreeWidth(210)
-			-- local refresh = widget.RefreshTree
-			-- function widget:RefreshTree(...)
-			-- 	refresh(self, ...)
-			-- 	for _, button in ipairs(self.buttons) do
-			-- 		if button:IsShown() then
-			-- 			-- local font, size, flags = button.text:GetFont()
-			-- 			-- if font and size then
-			-- 			-- 	button.text:SetFont(font, size, flags)
-			-- 			-- end
-			-- 			button.text:SetHeight(16)
-			-- 			button:SetHeight(20)
-			-- 		end
-			-- 	end
-			-- 	if self.treeframe and self.treeframe.attuneDetailOpen then
-			-- 		for _, button in ipairs(self.buttons) do button:Hide() end
-			-- 		if self.scrollbar then self.scrollbar:Hide() end
-			-- 	end
-			-- end
-		end
-		return widget
+
+-- Style Attune's own TreeGroup only (never patch shared AceGUI:Create).
+local function Attune_StyleTreeGroup(widget)
+	if widget.treeframe then
+		widget.treeframe:SetBackdropColor(0, 0, 0, 0.5)
 	end
+	if widget.border then
+		widget.border:SetBackdropColor(0, 0, 0, 0.5)
+	end
+	-- 20% wider than AceGUI's 175px default; keep resizable (second arg) so the drag handle stays enabled.
+	widget:SetTreeWidth(210)
 end
+
 local _G = getfenv(0)
 
 local attunelocal_ldb = LibStub("LibDataBroker-1.1")
@@ -4708,6 +4685,7 @@ function Attune_ToggleView(noToggle)
 
 		-- create the tree
 		attunelocal_treeframe = AceGUI:Create("TreeGroup")
+		Attune_StyleTreeGroup(attunelocal_treeframe)
 		attunelocal_treeframe:SetTree(attunelocal_tree)
 		attunelocal_treeframe:SetLayout("Fill")
 		attunelocal_treeframe:SetFullWidth(true)
@@ -6514,6 +6492,7 @@ function Attune_RaidPlannerFrame()
 	Attune_LoadRaidTree()
 
 	attunelocal_raidtreeframe = AceGUI:Create("TreeGroup")
+	Attune_StyleTreeGroup(attunelocal_raidtreeframe)
 	attunelocal_raidtreeframe:SetTree(attunelocal_raidtree)
 	attunelocal_raidtreeframe:SetLayout("Fill")
 	attunelocal_raidtreeframe:SetFullWidth(true)
