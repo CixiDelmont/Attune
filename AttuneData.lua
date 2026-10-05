@@ -1167,61 +1167,59 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="780",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="770&670&570&370&270&170&820&810",STAGE="80"},
 
 --vForever dungeon attune 320
-	-- Columns L→R: 2200 Necklace (longest) | 17 Fungus | 1360 Treasures | 2398→2240 Dwarves | 721→1139 Tablets | 2418 Stones
-	-- SIDE (beside End): 2278 The Platinum Discs (Inside)
+	-- Columns L→R: 2398→2240 Dwarves | 1139 Tablets | 2500→17 Fungus | 720→722 Hope/Amulet | 2418 Stones | 1360 Treasures | 709 Solution
+	-- Row 30 is only Dentrium ‖ An'Alleum. Other chains skip this row.
+	-- SIDE (beside End): 2198 The Shattered Necklace (Inside), 2278 The Platinum Discs (Inside)
 	{ID_ATTUNE="320",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="320",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Back to Uldaman
-	{ID_ATTUNE="320",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Uldaman Reagent Run
-	{ID_ATTUNE="320",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Reclaimed Treasures
-	{ID_ATTUNE="320",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2398",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Lost Dwarves
-	{ID_ATTUNE="320",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="721",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Sign of Hope
-	{ID_ATTUNE="320",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Power Stones
-	-- STAGE 30
-	{ID_ATTUNE="320",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2201",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Find the Gems
-	{ID_ATTUNE="320",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="520",STAGE="30",COUNT=12}, -- item: Magenta Fungus Cap
-	{ID_ATTUNE="320",ID="430",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Reclaimed Treasures
-	{ID_ATTUNE="320",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2240",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: The Hidden Chamber
-	{ID_ATTUNE="320",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4635",ICON="Interface\\Icons\\inv_jewelry_amulet_03",FOLLOWS="220",STAGE="30"}, -- item: Hammertoe's Amulet
-	{ID_ATTUNE="320",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8009",ICON="Interface\\Icons\\inv_misc_gem_diamond_01",FOLLOWS="120",STAGE="30",COUNT=8}, -- item: Dentrium Power Stone
+	{ID_ATTUNE="320",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2398",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Lost Dwarves
+	{ID_ATTUNE="320",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1139",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Lost Tablets of Will
+	{ID_ATTUNE="320",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="2500",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Badlands Reagent Run (prereq)
+	{ID_ATTUNE="320",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="720",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Sign of Hope (prereq)
+	{ID_ATTUNE="320",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Power Stones
+	{ID_ATTUNE="320",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="320",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Solution to Doom
+	-- STAGE 30 (Power Stones only — other chains skip this row)
+    {ID_ATTUNE="320",ID="355",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="320",ID="345",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="320",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8052",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: An'Alleum Power Stone
+	{ID_ATTUNE="320",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8009",ICON="Interface\\Icons\\inv_misc_gem_diamond_01",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: Dentrium Power Stone
 	-- STAGE 40
-	{ID_ATTUNE="320",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7740",ICON="Interface\\Icons\\inv_jewelry_necklace_02",FOLLOWS="630",STAGE="40"}, -- item: Shattered Necklace gems (ruby/sapphire/topaz)
-	{ID_ATTUNE="320",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Uldaman Reagent Run
-	{ID_ATTUNE="320",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="40"},
-	{ID_ATTUNE="320",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
-	{ID_ATTUNE="320",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Amulet of Secrets
-	{ID_ATTUNE="320",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8052",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="130",STAGE="40",COUNT=8}, -- item: An'Alleum Power Stone
+	{ID_ATTUNE="320",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2240",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="40"}, -- quest: The Hidden Chamber
+	{ID_ATTUNE="320",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="5824",ICON="Interface\\Icons\\inv_misc_rune_01",FOLLOWS="620",STAGE="40"}, -- item: Tablet of Will
+	{ID_ATTUNE="320",ID="530",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40"}, -- quest: Uldaman Reagent Run
+	{ID_ATTUNE="320",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="721",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"}, -- quest: A Sign of Hope
+	{ID_ATTUNE="320",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40"}, -- quest: Power Stones
+	{ID_ATTUNE="320",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8027",ICON="Interface\\Icons\\inv_drink_03",FOLLOWS="220",STAGE="40"}, -- item: Krom Stoutarm's Treasure
+	{ID_ATTUNE="320",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40"}, -- item: Tablet of Ryun'eh
 	-- STAGE 50
-	{ID_ATTUNE="320",ID="650",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50"}, -- quest: Restoring the Necklace
-	{ID_ATTUNE="320",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
-	{ID_ATTUNE="320",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
-	{ID_ATTUNE="320",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
-	{ID_ATTUNE="320",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="5824",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="240",STAGE="50"}, -- item: Tablet of Will
-	{ID_ATTUNE="320",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Power Stones
+	{ID_ATTUNE="320",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="50"},
+	{ID_ATTUNE="320",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1139",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="50"}, -- quest: The Lost Tablets of Will
+	{ID_ATTUNE="320",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="530",STAGE="50",COUNT=12}, -- item: Magenta Fungus Cap
+	{ID_ATTUNE="320",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: Amulet of Secrets
+	{ID_ATTUNE="320",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="50"},
+	{ID_ATTUNE="320",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="320",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50"}, -- quest: Solution to Doom
 	-- STAGE 60
-	{ID_ATTUNE="320",ID="660",TYPE="Kill",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2748",ICON="Interface\\Icons\\inv_misc_head_stone_01",FOLLOWS="650",STAGE="60"}, -- npc: Archaedas
-	{ID_ATTUNE="320",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
-	{ID_ATTUNE="320",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-	{ID_ATTUNE="320",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
-	{ID_ATTUNE="320",ID="260",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1139",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: The Lost Tablets of Will
-	{ID_ATTUNE="320",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	{ID_ATTUNE="320",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="60"},
+	{ID_ATTUNE="320",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="60"},
+	{ID_ATTUNE="320",ID="550",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="540",STAGE="60"}, -- quest: Uldaman Reagent Run
+	{ID_ATTUNE="320",ID="450",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4635",ICON="Interface\\Icons\\inv_jewelry_amulet_03",FOLLOWS="440",STAGE="60"}, -- item: Hammertoe's Amulet
+	{ID_ATTUNE="320",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="60"},
+	{ID_ATTUNE="320",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="60"},
+	{ID_ATTUNE="320",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="320",ID="670",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7672",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="660",STAGE="70"}, -- item: Obsidian Power Source
-	{ID_ATTUNE="320",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
-	{ID_ATTUNE="320",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
-	{ID_ATTUNE="320",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
-	{ID_ATTUNE="320",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
-	{ID_ATTUNE="320",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
-	-- STAGE 80
-	{ID_ATTUNE="320",ID="680",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="670",STAGE="80"}, -- quest: Restoring the Necklace
-	{ID_ATTUNE="320",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
-	{ID_ATTUNE="320",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
-	{ID_ATTUNE="320",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
-	{ID_ATTUNE="320",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
-	{ID_ATTUNE="320",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
-	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="320",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Platinum Discs (Inside)
-	{ID_ATTUNE="320",ID="690",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&540&430&330&260&150&720",STAGE="90"},
+	{ID_ATTUNE="320",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="70"},
+	{ID_ATTUNE="320",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="70"},
+	{ID_ATTUNE="320",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="70"},
+	{ID_ATTUNE="320",ID="460",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"}, -- quest: Amulet of Secrets
+	{ID_ATTUNE="320",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="70"},
+	{ID_ATTUNE="320",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="70"},
+	{ID_ATTUNE="320",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="320",ID="810",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2198",ICON="Interface\\Icons\\inv_jewelry_necklace_02",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: The Shattered Necklace (Inside)
+	{ID_ATTUNE="320",ID="800",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: The Platinum Discs (Inside)
+	{ID_ATTUNE="320",ID="780",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="760&660&560&460&380&260&160&810&800",STAGE="80"},
 
 --vForever dungeon attune 330
 	-- Columns L→R: 2342 Treasures | 2258→2202 Fungus | 2418 Stones | 2283 Necklace | 709 Tablet
@@ -2236,7 +2234,7 @@ Attune_Data.quests = {
 	[92753]={18,5},
 	-- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
-	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[721]={35,5},
+	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[720]={35,1},			[721]={35,5},
 	[722]={35,5},			[865]={13,1},			[870]={10,1},			[877]={13,1},			[880]={16,5},
 	[886]={10,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
@@ -2247,10 +2245,10 @@ Attune_Data.quests = {
 	[1198]={18,1},			[1199]={20,5},
 	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
 	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
-	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
+	[1490]={10,1},			[1491]={13,5},			[2198]={37,1},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2258]={39,1},			[2283]={37,5},			[2284]={37,5},			[2318]={37,1},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
-	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
+	[2418]={30,5},			[2500]={39,1},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
 	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
@@ -2280,7 +2278,7 @@ Attune_Data.quests = {
 	
 -- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
-	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[721]={35,5},
+	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[720]={35,1},			[721]={35,5},
 	[722]={35,5},			[865]={13,1},			[870]={10,1},			[877]={13,1},			[880]={16,5},
 	[886]={10,1},			[914]={10,5},			[959]={14,1},			[962]={14,5},
 	[971]={10,5},			[1013]={16,5},			[1014]={18,5},			[1048]={33,5},			[1049]={28,5},
@@ -2291,10 +2289,10 @@ Attune_Data.quests = {
 	[1198]={18,1},			[1199]={20,5},
 	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
 	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
-	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
+	[1490]={10,1},			[1491]={13,5},			[2198]={37,1},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2258]={39,1},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2283]={37,5},			[2284]={37,5},			[2318]={37,1},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
-	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
+	[2418]={30,5},			[2500]={39,1},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
 	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
