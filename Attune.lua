@@ -10,7 +10,8 @@
 --
 --
 -- 1.6.24
---   - Added Uldaman quests
+--   - Added Excavation Site: Wetlands quests
+--   - Fixed an issue where Attune was interfering with the treeview in other addons
 --
 -- 1.6.23
 --   - Added Placeholders for upcoming dungeons
@@ -7012,7 +7013,6 @@ local function Attune_CollectQuestRewards(questIDs)
 	local fixed, choices = {}, {}
 	local seenFixed, seenChoice = {}, {}
 	for _, questID in ipairs(questIDs or {}) do
-		local beforeFixed, beforeChoice = #fixed, #choices
 		if C_QuestLog then
 			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestRewards, C_QuestLog.GetQuestRewardInfo, questID, fixed, seenFixed, false)
 			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestChoices or C_QuestLog.GetNumQuestLogChoices, C_QuestLog.GetQuestChoiceInfo or C_QuestLog.GetQuestLogChoiceInfo, questID, choices, seenChoice, true)
@@ -7026,9 +7026,9 @@ local function Attune_CollectQuestRewards(questIDs)
 			Attune_ReadIndexedRewards(GetNumQuestLogRewards, GetQuestLogRewardInfo, questID, fixed, seenFixed, false)
 			Attune_ReadIndexedRewards(GetNumQuestLogChoices, GetQuestLogChoiceInfo, questID, choices, seenChoice, true)
 		end
-		if #fixed == beforeFixed and #choices == beforeChoice then
-			Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, seenChoice)
-		end
+		-- Always merge static rows; seen* skips duplicates. Live Forever data often
+		-- returns only choice rewards and omits fixed ones (e.g. Changing Tastes).
+		Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, seenChoice)
 	end
 	return fixed, choices
 end

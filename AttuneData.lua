@@ -36,8 +36,8 @@ Attune_Data.attunes = 	{
 	{ID="280",NAME=AttuneLang["Razorfen Downs"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="38-41"},
 	{ID="290",NAME=AttuneLang["Razorfen Downs"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-41"},
 	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-52"},
-    -- {ID="320",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
-	-- {ID="330",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
+    {ID="320",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
+	{ID="330",NAME=AttuneLang["Uldaman"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
 	{ID="350",NAME=AttuneLang["Zul'Farrak"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
 	{ID="351",NAME=AttuneLang["Zul'Farrak"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
     {ID="355",NAME=AttuneLang["Alcaz Prison"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
@@ -1224,52 +1224,47 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="320",ID="690",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&540&430&330&260&150&720",STAGE="90"},
 
 --vForever dungeon attune 330
-	-- Columns L→R: 2283 Necklace (longest) | 2202 Fungus | 2418 Stones | 2342 Treasures | 709 Tablet
-	-- Row 30 is only Dentrium ‖ An'Alleum. Other chains skip that row. Power Stones turn-in is row 40.
-	-- SIDE (beside End): 2278 The Platinum Discs (Inside)
+	-- Columns L→R: 2342 Treasures | 2258→2202 Fungus | 2418 Stones | 2283 Necklace | 709 Tablet
+	-- Row 30 is only Dentrium ‖ An'Alleum. Other chains skip that row.
+	-- SIDE (beside End): 2318 Translating the Journal (Inside), 2278 The Platinum Discs (Inside)
 	{ID_ATTUNE="330",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="330",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2283",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Necklace Recovery
-	{ID_ATTUNE="330",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Uldaman Reagent Run
+	{ID_ATTUNE="330",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="330",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2258",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Badlands Reagent Run (prereq)
 	{ID_ATTUNE="330",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Power Stones
-	{ID_ATTUNE="330",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="330",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2283",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Necklace Recovery
 	{ID_ATTUNE="330",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Solution to Doom
 	-- STAGE 30 (Power Stones only — other chains skip this row)
 	{ID_ATTUNE="330",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8052",ICON="Interface\\Icons\\inv_battery_01",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: An'Alleum Power Stone
 	{ID_ATTUNE="330",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8009",ICON="Interface\\Icons\\inv_battery_02",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: Dentrium Power Stone
 	-- STAGE 40
-	{ID_ATTUNE="330",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2284",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40"}, -- quest: Necklace Recovery, Take 2
-	{ID_ATTUNE="330",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="420",STAGE="40",COUNT=12}, -- item: Magenta Fungus Cap
+	{ID_ATTUNE="330",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8026",ICON="Interface\\Icons\\inv_box_01",FOLLOWS="520",STAGE="40"}, -- item: Garrett Family Treasure
+	{ID_ATTUNE="330",ID="430",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"}, -- quest: Uldaman Reagent Run
 	{ID_ATTUNE="330",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40"}, -- quest: Power Stones
-	{ID_ATTUNE="330",ID="230",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="40"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="330",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2284",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="40"}, -- quest: Necklace Recovery, Take 2
 	{ID_ATTUNE="330",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40"}, -- item: Tablet of Ryun'eh
 	-- STAGE 50
-	{ID_ATTUNE="330",ID="540",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="50"}, -- quest: Find the Gems and Power Source
-	{ID_ATTUNE="330",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: Uldaman Reagent Run
+	{ID_ATTUNE="330",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="50"}, -- quest: Reclaimed Treasures
+	{ID_ATTUNE="330",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="430",STAGE="50",COUNT=12}, -- item: Magenta Fungus Cap
 	{ID_ATTUNE="330",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="50"},
-	{ID_ATTUNE="330",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="230",STAGE="50"},
+	{ID_ATTUNE="330",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50"}, -- quest: Find the Gems and Power Source
 	{ID_ATTUNE="330",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50"}, -- quest: Solution to Doom
 	-- STAGE 60
-	{ID_ATTUNE="330",ID="550",TYPE="Kill",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2748",ICON="Interface\\Icons\\inv_misc_head_stone_01",FOLLOWS="540",STAGE="60"}, -- npc: Archaedas
-	{ID_ATTUNE="330",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="60"},
+	{ID_ATTUNE="330",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="60"},
+	{ID_ATTUNE="330",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="60"}, -- quest: Uldaman Reagent Run
 	{ID_ATTUNE="330",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="60"},
-	{ID_ATTUNE="330",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="60"},
+	{ID_ATTUNE="330",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7672",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="240",STAGE="60"}, -- item: Shattered Necklace Power Source
 	{ID_ATTUNE="330",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="330",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7672",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="550",STAGE="70"}, -- item: Obsidian Power Source
+	{ID_ATTUNE="330",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="70"},
 	{ID_ATTUNE="330",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="70"},
 	{ID_ATTUNE="330",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="70"},
-	{ID_ATTUNE="330",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="70"},
+	{ID_ATTUNE="330",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="70"}, -- quest: Find the Gems and Power Source
 	{ID_ATTUNE="330",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
-	-- STAGE 80
-	{ID_ATTUNE="330",ID="570",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="80"}, -- quest: Find the Gems and Power Source
-	{ID_ATTUNE="330",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="80"},
-	{ID_ATTUNE="330",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="80"},
-	{ID_ATTUNE="330",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="80"},
-	{ID_ATTUNE="330",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="80"},
-	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="330",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: The Platinum Discs (Inside)
-	{ID_ATTUNE="330",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="570&470&390&270&170&620",STAGE="90"},
+	-- SIDE reminders (inside dungeon) — left of End
+	{ID_ATTUNE="330",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2318",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Translating the Journal (Inside)
+	{ID_ATTUNE="330",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: The Platinum Discs (Inside)
+	{ID_ATTUNE="330",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&380&260&160&620&610",STAGE="80"},
 
 --vForever dungeon attune 340
 	-- Columns L→R: 7461→7462 Madness (longest) | 7481 Elven (H) | 7482 Elven (A) | 5526 Felvine | 7441 Pusillin | 7489 Web (H) | 7488 Web (A)
@@ -2254,7 +2249,7 @@ Attune_Data.quests = {
 	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
-	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
+	[2258]={39,1},			[2283]={37,5},			[2284]={37,5},			[2318]={37,1},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
 	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
@@ -2297,8 +2292,8 @@ Attune_Data.quests = {
 	[1200]={18,5},			[1221]={20,5},			[1275]={18,5},			[1360]={33,5},			[1394]={26,1},
 	[1424]={38,1},			[1429]={38,1},			[1444]={38,1},			[1445]={38,5},			[1446]={38,5},			[1475]={38,5},			[1486]={13,5},			[1487]={15,5},			[1489]={10,1},
 	[1490]={10,1},			[1491]={13,5},			[2200]={37,5},			[2201]={37,5},			[2202]={36,5},
-	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
-	[2283]={37,5},			[2284]={37,5},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
+	[2204]={37,5},			[2240]={35,5},			[2258]={39,1},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
+	[2283]={37,5},			[2284]={37,5},			[2318]={37,1},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
 	[2418]={30,5},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
 	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
