@@ -25,7 +25,8 @@ Attune_Data.attunes = 	{
     {ID="200",NAME=AttuneLang["Blackfathom Deeps"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="25-28"},
 	{ID="210",NAME=AttuneLang["Blackfathom Deeps"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="25-28"},
 	{ID="220",NAME=AttuneLang["The Stockade"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="26-29"},
-	{ID="225",NAME=AttuneLang["City of Dalaran"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="28-32"},
+	{ID="225",NAME=AttuneLang["City of Dalaran"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="28-32"},
+	{ID="226",NAME=AttuneLang["City of Dalaran"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="28-32"},
     {ID="250",NAME=AttuneLang["Razorfen Kraul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_monsterhorn_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-33"},
 	{ID="251",NAME=AttuneLang["Razorfen Kraul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_monsterhorn_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-33"},
 	{ID="230",NAME=AttuneLang["Gnomeregan"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="31-34"},
@@ -45,10 +46,11 @@ Attune_Data.attunes = 	{
 	{ID="310",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
 	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
-    -- {ID="390",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
-	-- {ID="400",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
+    {ID="390",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
+	{ID="400",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
     {ID="405",NAME=AttuneLang["Blackmaw Hold"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
-    -- {ID="340",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="340",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="341",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
     {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
 	-- {ID="410",NAME=AttuneLang["Scholomance Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
@@ -73,6 +75,8 @@ Attune_Data.attunes = 	{
     -- misc
 	{ID="80",NAME=AttuneLang["Aqual Quintessence"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_potion_76", DESC=AttuneLang["MC2_Desc"]},
 	{ID="100",NAME=AttuneLang["Scepter of the Shifting Sands"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_25", DESC=AttuneLang["AQ_Desc"]},
+	{ID="90",NAME=AttuneLang["Cozy Sleeping Bag"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments", DESC=AttuneLang["CSB_Desc"]},
+	{ID="95",NAME=AttuneLang["Cozy Sleeping Bag"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments", DESC=AttuneLang["CSB_Desc"]},
 	
 
 }
@@ -754,6 +758,68 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="220",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&360&260&160",STAGE="80"},
 
 
+--vForever dungeon attune 225 (Alliance City of Dalaran)
+	-- Columns L→R: 92456 Green Sample | 92489 Power Overwhelming | 92432→92458 Alarming Request → Heart
+	{ID_ATTUNE="225",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="225",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92456",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Green Sample
+	{ID_ATTUNE="225",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Power Overwhelming
+	{ID_ATTUNE="225",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="92432",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: An Alarming Request
+	-- STAGE 30
+	{ID_ATTUNE="225",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251983",ICON="Interface\\Icons\\inv_misc_herb_fellotus",FOLLOWS="320",STAGE="30"}, -- item: Fel Infused Blossom
+	{ID_ATTUNE="225",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="246016",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="220",STAGE="30"}, -- npc: Arcanic Enigma
+	{ID_ATTUNE="225",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="92458",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Heart of Disruption
+	-- STAGE 40
+	{ID_ATTUNE="225",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92456",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: A Green Sample
+	{ID_ATTUNE="225",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Power Overwhelming
+	{ID_ATTUNE="225",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\jewelcrafting_uncut-epic-gem_color1",FOLLOWS="130",STAGE="40"}, -- item: Arcane Mote
+	-- STAGE 50
+	{ID_ATTUNE="225",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="225",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	{ID_ATTUNE="225",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="92458",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Heart of Disruption
+	{ID_ATTUNE="225",ID="400",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150",STAGE="60"},
+
+
+--vForever dungeon attune 226 (Horde City of Dalaran)
+	-- Columns L→R: 96988 Source | 96986 Grave Knight | 544→545 Prison | 93680 Key | 96987 Education
+	-- 545 and Key meet at Blood in the Streets → Heart of Disruption.
+	{ID_ATTUNE="226",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="226",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="96988",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Source of Power
+	{ID_ATTUNE="226",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="96986",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Grave Knight
+	{ID_ATTUNE="226",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="544",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Prison Break In
+	{ID_ATTUNE="226",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="93680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Key to the City
+	{ID_ATTUNE="226",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="96987",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Opportunistic Education
+	-- STAGE 30
+	{ID_ATTUNE="226",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="275997",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="620",STAGE="30", COUNT=6}, -- item: Cracked Sentry Core
+	{ID_ATTUNE="226",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="247126",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="520",STAGE="30"}, -- npc: Atrexis the Grave Knight
+	{ID_ATTUNE="226",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="545",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Dalaran Patrols
+	{ID_ATTUNE="226",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="279469",ICON="Interface\\Icons\\inv_misc_key_03",FOLLOWS="320",STAGE="30"}, -- item: Grimy Key
+	{ID_ATTUNE="226",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="275996",ICON="Interface\\Icons\\inv_misc_book_03",FOLLOWS="120",STAGE="30"}, -- item: The Founding of Dalaran
+	-- STAGE 40
+	{ID_ATTUNE="226",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="96988",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Source of Power
+	{ID_ATTUNE="226",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="96986",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The Grave Knight
+	{ID_ATTUNE="226",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="40"},
+	{ID_ATTUNE="226",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="93680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Key to the City
+	{ID_ATTUNE="226",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="96987",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Opportunistic Education
+	-- STAGE 50
+	{ID_ATTUNE="226",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="226",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="92434",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440&340",STAGE="50"}, -- quest: Blood in the Streets
+	-- STAGE 60
+    {ID_ATTUNE="226",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="226",ID="460",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="96984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="60"}, -- quest: Heart of Disruption
+	-- STAGE 70
+    {ID_ATTUNE="226",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="226",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\jewelcrafting_uncut-epic-gem_color1",FOLLOWS="460",STAGE="70"}, -- item: Arcane Mote	
+	-- STAGE 80
+	{ID_ATTUNE="226",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
+	{ID_ATTUNE="226",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
+	{ID_ATTUNE="226",ID="480",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="96984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Heart of Disruption
+	{ID_ATTUNE="226",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="226",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
+	{ID_ATTUNE="226",ID="7000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&580&480&180",STAGE="90"},
+
+
 --vForever dungeon attune 230
 	-- Columns L→R (higher ID = left): 2929 Betrayal | 2924 Artificials | 2928 Gyro | 2927→2926 Gnogaine | 2923→2922 Techbot
 	-- SIDE (beside End): 80324 Mad King, 2904 A Fine Mess, 79987 Return of the Ring
@@ -1308,6 +1374,53 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="340",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="340",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	{ID_ATTUNE="340",ID="770",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="760&440&340",STAGE="70"},
+
+
+--vForever dungeon attune 340
+	-- Columns L→R: 7461→7462 Madness (longest) | 7481 Elven (H) | 7482 Elven (A) | 5526 Felvine | 7441 Pusillin | 7489 Web (H) | 7488 Web (A)
+	{ID_ATTUNE="341",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 54",LOCATION="",ID_WOWHEAD="54",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="341",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7461",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Madness Within
+	{ID_ATTUNE="341",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7481",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Elven Legends
+	{ID_ATTUNE="341",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7482",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Elven Legends
+	{ID_ATTUNE="341",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Shards of the Felvine
+	{ID_ATTUNE="341",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7441",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Pusillin and the Elder Azj'Tordin
+	{ID_ATTUNE="341",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lethtendris's Web
+	{ID_ATTUNE="341",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lethtendris's Web
+	-- STAGE 30
+	{ID_ATTUNE="341",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="11496",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="720",STAGE="30"}, -- npc: Immol'thar
+	{ID_ATTUNE="341",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7481",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Elven Legends
+	{ID_ATTUNE="341",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7482",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Elven Legends
+	{ID_ATTUNE="341",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18502",ICON="Interface\\Icons\\inv_misc_herb_08",FOLLOWS="420",STAGE="30"}, -- item: Felvine Shard
+	{ID_ATTUNE="341",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18240",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="320",STAGE="30"}, -- item: Nostro's Compendium / Book of Incantations
+	{ID_ATTUNE="341",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="14327",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="220",STAGE="30"}, -- npc: Lethtendris
+	{ID_ATTUNE="341",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="14327",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="120",STAGE="30"}, -- npc: Lethtendris
+	-- STAGE 40
+	{ID_ATTUNE="341",ID="740",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="11486",ICON="Interface\\Icons\\inv_misc_head_elf_02",FOLLOWS="730",STAGE="40"}, -- npc: Prince Tortheldrin
+	{ID_ATTUNE="341",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
+	{ID_ATTUNE="341",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="40"},
+	{ID_ATTUNE="341",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Shards of the Felvine
+	{ID_ATTUNE="341",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7441",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Pusillin and the Elder Azj'Tordin
+	{ID_ATTUNE="341",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="230",STAGE="40"}, -- item: Lethtendris's Web
+	{ID_ATTUNE="341",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="130",STAGE="40"}, -- item: Lethtendris's Web
+	-- STAGE 50
+	{ID_ATTUNE="341",ID="750",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7462",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="50"}, -- quest: The Treasure of the Shen'dralar
+	{ID_ATTUNE="341",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
+	{ID_ATTUNE="341",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="341,ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="341",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="341",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Lethtendris's Web
+	{ID_ATTUNE="341",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Lethtendris's Web
+	-- STAGE 60
+	{ID_ATTUNE="341",ID="760",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7462",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="750",STAGE="60"}, -- quest: The Treasure of the Shen'dralar
+	{ID_ATTUNE="341",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
+	{ID_ATTUNE="341",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
+	{ID_ATTUNE="341",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="341",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="341",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="341",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	{ID_ATTUNE="341",ID="770",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="760&440&340",STAGE="70"},
+
 
 --vForever dungeon attune 350 (Alliance)
 	-- Columns L→R: 2768 Rod | 2991 Nekrum | 2770 Gahz'rilla | 3520→3527 Mosh'aru | 2846 Tiara | 3042 Temper | 2865 Scarabs
@@ -1873,21 +1986,21 @@ Attune_Data.steps = 	{
 
 
 --vForever dungeon attune 195 (Alliance Excavation Site: Wetlands)
-	-- Columns L→R: 95647→95809 Thicket | 469→98815 Hides | Greenwarden→95646 Horrors (longest) | 95772→95795 Songblade
+	-- Columns L→R: 95737→95647→95809 Thicket | 469→98815 Hides | Greenwarden→95646 Horrors (longest) | 95772→95795 Songblade
 	-- SIDE (beside End): 95810 Lost Relic Carry (Inside — Titan Relic from Relic Guardian; Prehistoric Prism follows in-game)
 	{ID_ATTUNE="195",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="195",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lost in the Thicket Things
+	{ID_ATTUNE="195",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="95737",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Seeking Caitlin (prereq)
 	{ID_ATTUNE="195",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="469",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Daily Delivery
 	{ID_ATTUNE="195",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Greenwarden
 	{ID_ATTUNE="195",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="95772",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Songblade Search
 	-- STAGE 30
-	{ID_ATTUNE="195",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95809",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: Heartwoven
+	{ID_ATTUNE="195",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: Lost in the Thicket Things
 	{ID_ATTUNE="195",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="98815",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Highland Hides
 	{ID_ATTUNE="195",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="276",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Tramping Paws
 	{ID_ATTUNE="195",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="95795",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Fallen in the Fen
 	-- STAGE 40
-	{ID_ATTUNE="195",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="40"},
+	{ID_ATTUNE="195",ID="740",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95809",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40"}, -- quest: Heartwoven
 	{ID_ATTUNE="195",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="284845",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_05",FOLLOWS="630",STAGE="40",COUNT=4}, -- item: Thicket Raptor Hide
 	{ID_ATTUNE="195",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="277",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Fire Taboo
 	{ID_ATTUNE="195",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
@@ -2189,6 +2302,38 @@ Attune_Data.steps = 	{
 -- 	{ID_ATTUNE="366",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 -- 	{ID_ATTUNE="366",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 -- 	{ID_ATTUNE="366",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&360&260&160",STAGE="70"},
+
+	-- Cozy Sleeping Bag (Horde). Alliance (95) swaps the first two zones.
+	{ID_ATTUNE="90",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="90",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="79007",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: ... and that note you found (Burned-Out Remains)
+	{ID_ATTUNE="90",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="79007",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: ... and that note you found (Nailed Plank)
+	{ID_ATTUNE="90",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="79192",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- quest: Stepping Stones (Nailed Plank)
+	{ID_ATTUNE="90",ID="50",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79192",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- quest: Stepping Stones (Pocket Litter)
+	{ID_ATTUNE="90",ID="60",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- quest: Scramble (Pocket Litter)
+	{ID_ATTUNE="90",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- quest: Scramble (Mound of Dirt)
+	{ID_ATTUNE="90",ID="80",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- quest: Wet Job (Mound of Dirt)
+	{ID_ATTUNE="90",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="79974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- quest: Wet Job (Carved Figurine)
+	{ID_ATTUNE="90",ID="100",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="79975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- quest: Eagle's Fist (Carved Figurine)
+	{ID_ATTUNE="90",ID="110",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- quest: Eagle's Fist (Messenger Bag)
+	{ID_ATTUNE="90",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- quest: This Must Be The Place (Messenger Bag)
+	{ID_ATTUNE="90",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"}, -- quest: This Must Be The Place (Hastily Rolled-Up Satchel)
+	{ID_ATTUNE="90",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments",FOLLOWS="130",STAGE="140"},
+
+	-- Cozy Sleeping Bag (Alliance): Westfall first, then The Barrens
+	{ID_ATTUNE="95",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="95",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="79008",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: ... and that note you found (Burned-Out Remains)
+	{ID_ATTUNE="95",ID="30",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="79008",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: ... and that note you found (Burned-Out Remains)
+	{ID_ATTUNE="95",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="79192",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- quest: Stepping Stones (Nailed Plank)
+	{ID_ATTUNE="95",ID="50",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79192",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- quest: Stepping Stones (Pocket Litter)
+	{ID_ATTUNE="95",ID="60",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- quest: Scramble (Pocket Litter)
+	{ID_ATTUNE="95",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- quest: Scramble (Mound of Dirt)
+	{ID_ATTUNE="95",ID="80",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="79974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- quest: Wet Job (Mound of Dirt)
+	{ID_ATTUNE="95",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="79974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- quest: Wet Job (Carved Figurine)
+	{ID_ATTUNE="95",ID="100",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="79975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- quest: Eagle's Fist (Carved Figurine)
+	{ID_ATTUNE="95",ID="110",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- quest: Eagle's Fist (Messenger Bag)
+	{ID_ATTUNE="95",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- quest: This Must Be The Place (Messenger Bag)
+	{ID_ATTUNE="95",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"}, -- quest: This Must Be The Place (Hastily Rolled-Up Satchel)
+	{ID_ATTUNE="95",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments",FOLLOWS="130",STAGE="140"},
 }
 	
 -- [id] = title, minlevel, groupsize, desc
@@ -2327,8 +2472,17 @@ Attune_Data.quests = {
 	-- Excavation Site: Wetlands (Forever)
 	[275]={20,1},			[276]={20,1},			[277]={20,1},			[463]={20,1},			[469]={18,1},
 	[95646]={24,5},			[95647]={24,5},			[95663]={24,1},			[95664]={24,5},
-	[95682]={24,5},			[95697]={24,5},			[95772]={24,5},			[95795]={24,1},
+	[95682]={24,5},			[95697]={24,5},			[95737]={24,1},			[95772]={24,5},			[95795]={24,1},
 	[95809]={24,1},			[95810]={24,5},			[98815]={24,5},
+	-- Cozy Sleeping Bag
+	[79007]={14,1},			[79008]={14,1},			[79192]={14,1},			[79980]={14,1},
+	[79974]={14,1},			[79975]={14,1},			[79976]={14,1},
+	-- City of Dalaran (Alliance)
+	[92432]={30,1},			[92456]={24,5},			[92458]={24,5},			[92489]={24,5},
+	-- City of Dalaran (Horde)
+	[544]={30,1},			[545]={30,1},
+	[93680]={30,1},			[92434]={30,1},			[96984]={24,5},			[96986]={24,5},
+	[96987]={24,5},			[96988]={24,5},
 }
 
 
@@ -2490,4 +2644,6 @@ Attune_Data.npcs = {
 	[260325] = { "27", AttuneLang["Elite"], AttuneLang["Beast"]}, -- Shadetooth
 	[260808] = { "28", AttuneLang["Elite"], AttuneLang["Elemental"]}, -- Highland Horror
 	[260326] = { "29", AttuneLang["Boss"], AttuneLang["Elemental"]}, -- Relic Guardian
+	[247126] = { "32", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Atrexis the Grave Knight
+	[246016] = { "??", AttuneLang["Elite"], AttuneLang["Elemental"]}, -- Arcanic Enigma
 }

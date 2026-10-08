@@ -233,6 +233,17 @@ Attune_Data.questRewards = {
 	[95697] = { fixed = {{250185, 1}, {250077, 5}}, choice = {{280766, 1}, {280805, 1}} },
 	[96395] = { choice = {{279899, 1}, {279900, 1}} },
 	[96403] = { choice = {{279898, 1}, {280096, 1}} },
+	-- Cozy Sleeping Bag. Eagle's Fist (79975) has no item rewards.
+	[79007] = { fixed = {{2459, 1}, {3388, 1}} },
+	[79008] = { fixed = {{2459, 1}, {3388, 1}} },
+	[79192] = { fixed = {{1652, 1}, {4470, 1}, {4471, 1}, {221498, 1}}, choice = {{2901, 1}, {3334, 1}} },
+	[79974] = { fixed = {{5432, 1}, {20709, 1}} },
+	[79976] = { fixed = {{211527, 1}, {216619, 1}} },
+	[79980] = { fixed = {{3464, 1}, {3465, 1}, {216619, 1}}, choice = {{3463, 1}, {217314, 1}, {217315, 1}} },
+	-- City of Dalaran (Alliance). An Alarming Request (92432) has no item rewards.
+	[92456] = { choice = {{279835, 1}, {279836, 1}} },
+	[92458] = { choice = {{279839, 1}, {279840, 1}, {279841, 1}} },
+	[92489] = { choice = {{251962, 1}, {279849, 1}} },
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -384,4 +395,30 @@ Attune_Data.rewardItems = {
 	[280096] = {"Tomb Robber's Gloves", "inv_gauntlets_18", 3},
 	[280766] = {"Satchel of Potions", "inv_misc_bag_08", 3},
 	[280805] = {"Serrated Raptor Claw", "inv_weapon_shortblade_16", 3},
+	-- Cozy Sleeping Bag
+	[1652] = {"Sturdy Lunchbox", "inv_box_01", 1},
+	[2459] = {"Swiftness Potion", "inv_potion_95", 1},
+	[2901] = {"Mining Pick", "inv_pick_02", 1},
+	[3334] = {"Farmer's Shovel", "inv_misc_shovel_01", 1},
+	[3388] = {"Lesser Troll's Blood Elixir", "inv_potion_79", 1},
+	[3463] = {"Silver Star", "ability_upgrademoonglaive", 2},
+	[3464] = {"Feathered Arrow", "inv_ammo_arrow_02", 2},
+	[3465] = {"Exploding Shot", "inv_ammo_bullet_02", 2},
+	[4470] = {"Simple Wood", "inv_tradeskillitem_01", 1},
+	[4471] = {"Flint and Tinder", "inv_stone_11", 1},
+	[5432] = {"Hickory Pipe", "inv_misc_pipe_01", 0},
+	[20709] = {"Rumsey Rum Light", "inv_drink_08", 1},
+	[211527] = {"Cozy Sleeping Bag", "inv_misc_bag_bigbagofenchantments", 3},
+	[216619] = {"Student Fodder", "inv_misc_food_pinenut", 2},
+	[217314] = {"Moonsight Rifle", "inv_weapon_rifle_06", 2},
+	[217315] = {"Precision Bow", "inv_weapon_bow_04", 2},
+	[221498] = {"Old Toolbox", "inv_box_02", 1},
+	-- City of Dalaran (Alliance)
+	[251962] = {"Violet Sash", "inv_belt_04", 3},
+	[279835] = {"Vine Pruner's Cloak", "inv_misc_cape_13", 3},
+	[279836] = {"Thorn Protecting Girdle", "inv_belt_12", 3},
+	[279839] = {"Spellguard Pauldrons", "inv_shoulder_12", 3},
+	[279840] = {"Renewing Footpads", "inv_boots_03", 3},
+	[279841] = {"Defender of Dalaran", "inv_hammer_04", 3},
+	[279849] = {"Runebound Gloves", "inv_gauntlets_15", 3},
 }
