@@ -8,37 +8,40 @@
 --
 -------------------------------------------------------------------------
 --
---
--- 1.6.25
+-- 16001-26
+--   - Fixed an issue with displaying City of Dalaran
+--   - Added the Dire Maul quests
+--  
+-- 16001-25
 --   - Added City of Dalaran quests
 --   - Added Lazy Sleeping Bag quests
 --
--- 1.6.24
+-- 16001-24
 --   - Added Excavation Site: Wetlands quests
 --   - Fixed an issue where Attune was interfering with the treeview in other addons
 --
--- 1.6.23
+-- 16001-23
 --   - Added Placeholders for upcoming dungeons
 --   - Changed step colors for quests and items: yellow if you have the quest or some of the required items, green is you have all the required items or have completed the quest, grey otherwise
 --   - Added Zul'Farrak quests
 --   - Added The Temple of Atal'Hakkar quests
 --   - if you are not at the minimum level for a quest, the quest level text will show in red
 --
--- 1.6.22
+-- 16001-22
 --   - Added option to use full map in quest details
 --   - Added missing Wailing Caverns quests for Alliance
 --   - Added dungeon art as background
 --   - Added level range for dungeons
 --
--- 1.6.21
+-- 16001-21
 --   - Click a quest to list its reward items and map of the quest giver. Click it again to go back to the treeview
 --   - Attune now uses the Forever frame
 --
--- 1.6.20
+-- 16001-20
 --   - Added quest giver in tooltip and map display
 --   - Changed default to not announce completion in guild chat
 --
--- 1.6.19
+-- 16001-19
 --  Updated dungeons up to Maraudon
 --
 
