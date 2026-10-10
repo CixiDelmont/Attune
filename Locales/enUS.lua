@@ -1037,6 +1037,8 @@ Lang["Q1_92752"] = "Explosive Consultation"
 Lang["Q2_92752"] = "Return to Alba Fairmoon in Westfall with the Extra-Destructive Explosives."
 Lang["Q1_92753"] = "Destruction in Deadmines"
 Lang["Q2_92753"] = "Find the forge hidden in the Deadmines, and plant the Extra-Destructive Explosives nearby. Then, meet up with Alba Fairmoon at the Deadmines exit."
+Lang["Q1_92819"] = "Destruction in Deadmines"
+Lang["Q2_92819"] = "Use the detonator."
 	
 
 -- NPC

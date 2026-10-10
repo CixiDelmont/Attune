@@ -46,15 +46,15 @@ Attune_Data.attunes = 	{
 	{ID="310",NAME=AttuneLang["Maraudon"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
 	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
-    {ID="390",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
-	{ID="400",NAME=AttuneLang["Blackrock Depths Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
+    {ID="390",NAME=AttuneLang["Blackrock Depths"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
+	{ID="400",NAME=AttuneLang["Blackrock Depths"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
     {ID="405",NAME=AttuneLang["Blackmaw Hold"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="340",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="341",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
     {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
-	-- {ID="410",NAME=AttuneLang["Scholomance Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-	-- {ID="420",NAME=AttuneLang["Scholomance Quests"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+	-- {ID="410",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+	-- {ID="420",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="415",NAME=AttuneLang["The Shapers Terrace"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     -- {ID="360",NAME=AttuneLang["Stratholme"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
     {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
@@ -462,77 +462,97 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="170",ID="510",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Collecting Memories
-	{ID_ATTUNE="170",ID="410",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="12",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The People's Militia
+	-- {ID_ATTUNE="170",ID="410",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="12",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The People's Militia
+    {ID_ATTUNE="170",ID="410",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="170",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="65",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="210",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Testing the Wells (Toxic Soil)
 	{ID_ATTUNE="170",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2041",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Speak with Shoni
 	{ID_ATTUNE="170",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Oh Brother...
 	-- STAGE 30
 	{ID_ATTUNE="170",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="510",STAGE="30", COUNT=4}, -- item: Miners' Union Card
-	{ID_ATTUNE="170",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="30"}, -- quest: The People's Militia
+	-- {ID_ATTUNE="170",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="30"}, -- quest: The People's Militia
+    {ID_ATTUNE="170",ID="420",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="170",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="30"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92744",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="30"}, -- quest: Murloc Gills
 	{ID_ATTUNE="170",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="30"}, -- quest: Underground Assault
 	{ID_ATTUNE="170",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="20",STAGE="30"}, -- item: Thistlenettle's Badge
 	-- STAGE 40
 	{ID_ATTUNE="170",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40"}, -- quest: Collecting Memories
-	{ID_ATTUNE="170",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"}, -- quest: The People's Militia
+	-- {ID_ATTUNE="170",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"}, -- quest: The People's Militia
+    {ID_ATTUNE="170",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="170",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="40"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92745",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="40"}, -- quest: The State of the Mines
 	{ID_ATTUNE="170",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="120",STAGE="40"}, -- item: Gnoam Sprecklesprocket
 	{ID_ATTUNE="170",ID="40",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- quest: Oh Brother...
 	-- STAGE 50
 	{ID_ATTUNE="170",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="50"},
-	{ID_ATTUNE="170",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: Red Silk Bandanas
+    {ID_ATTUNE="170",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	-- {ID_ATTUNE="170",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: Red Silk Bandanas
 	{ID_ATTUNE="170",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="50"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92747",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50"}, -- quest: Moonbrook Espionage
 	{ID_ATTUNE="170",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50"}, -- quest: Underground Assault
 	{ID_ATTUNE="170",ID="50",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="40",STAGE="50"},
 	-- STAGE 60
 	{ID_ATTUNE="170",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="60"},
-	{ID_ATTUNE="170",ID="450",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="440",STAGE="60", COUNT=10}, -- item: Red Silk Bandana
+    {ID_ATTUNE="170",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	-- {ID_ATTUNE="170",ID="450",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="440",STAGE="60", COUNT=10}, -- item: Red Silk Bandana
 	{ID_ATTUNE="170",ID="350",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="60"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="250",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92748",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="60"}, -- quest: Explosive Consultation
 	{ID_ATTUNE="170",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="60"},
 	{ID_ATTUNE="170",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
 	-- STAGE 70
 	{ID_ATTUNE="170",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="70"},
-	{ID_ATTUNE="170",ID="460",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"}, -- quest: Red Silk Bandanas
+    {ID_ATTUNE="170",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	-- {ID_ATTUNE="170",ID="460",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"}, -- quest: Red Silk Bandanas
 	{ID_ATTUNE="170",ID="360",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="155",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="350",STAGE="70"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="260",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92749",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="70"}, -- quest: A Dynamite Plan
 	{ID_ATTUNE="170",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
 	{ID_ATTUNE="170",ID="70",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="60",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="170",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="80"},
-	{ID_ATTUNE="170",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="80"},
+	-- {ID_ATTUNE="170",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="80"},
+    {ID_ATTUNE="170",ID="470",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="360",STAGE="80"}, -- quest: Red Silk Bandanas
 	{ID_ATTUNE="170",ID="370",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="360",STAGE="80"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="270",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92750",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="80"}, -- quest: Detonation at a Distance
 	{ID_ATTUNE="170",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="80"},
 	{ID_ATTUNE="170",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="70",STAGE="80"},
 	-- STAGE 90
 	{ID_ATTUNE="170",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="90"},
-	{ID_ATTUNE="170",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="90"},
-	{ID_ATTUNE="170",ID="380",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90"}, -- npc: Edwin VanCleef
+	-- {ID_ATTUNE="170",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="90"},
+    {ID_ATTUNE="170",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="470",STAGE="90", COUNT=10}, -- item: Red Silk Bandana
+	-- {ID_ATTUNE="170",ID="380",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90"}, -- npc: Edwin VanCleef
+    {ID_ATTUNE="170",ID="380",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90"}, -- item: Head of VanCleef
 	{ID_ATTUNE="170",ID="280",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92751",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="270",STAGE="90"}, -- quest: Detonation at a Distance
 	{ID_ATTUNE="170",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="90"},
 	{ID_ATTUNE="170",ID="90",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="80",STAGE="90"},
 	-- STAGE 100
 	{ID_ATTUNE="170",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="100"},
-	{ID_ATTUNE="170",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="100"},
-	{ID_ATTUNE="170",ID="390",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="380",STAGE="100"}, -- item: Head of VanCleef
+	-- {ID_ATTUNE="170",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="100"},
+    {ID_ATTUNE="170",ID="490",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="480",STAGE="100"}, -- quest: Red Silk Bandanas
+    {ID_ATTUNE="170",ID="390",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="380",STAGE="100"}, -- quest: The Defias Brotherhood    
+	-- {ID_ATTUNE="170",ID="390",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="380",STAGE="100"}, -- item: Head of VanCleef
 	{ID_ATTUNE="170",ID="290",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92752",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="280",STAGE="100"}, -- quest: Explosive Consultation (return to Alba)
 	{ID_ATTUNE="170",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="100"},
 	{ID_ATTUNE="170",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="90",STAGE="100"},
 	-- STAGE 110
 	{ID_ATTUNE="170",ID="595",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="110"},
 	{ID_ATTUNE="170",ID="495",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="490",STAGE="110"},
-	{ID_ATTUNE="170",ID="395",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="390",STAGE="110"}, -- quest: The Defias Brotherhood
-	{ID_ATTUNE="170",ID="295",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92753",ICON="Interface\\Icons\\inv_misc_bomb_02",FOLLOWS="290",STAGE="110"}, -- quest: Destruction in Deadmines
+	-- {ID_ATTUNE="170",ID="395",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="390",STAGE="110"}, -- quest: The Defias Brotherhood
+    {ID_ATTUNE="170",ID="395",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="110"},
+	{ID_ATTUNE="170",ID="295",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92753",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="290",STAGE="110"}, -- quest: Destruction in Deadmines
 	{ID_ATTUNE="170",ID="195",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="190",STAGE="110"},
 	{ID_ATTUNE="170",ID="105",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="100",STAGE="110"},
+    -- STAGE 120
+	{ID_ATTUNE="170",ID="598",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="595",STAGE="115"},
+	{ID_ATTUNE="170",ID="498",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="495",STAGE="115"},
+	-- {ID_ATTUNE="170",ID="395",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="166",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="390",STAGE="110"}, -- quest: The Defias Brotherhood
+    {ID_ATTUNE="170",ID="398",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="395",STAGE="115"},
+	{ID_ATTUNE="170",ID="298",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="92819",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="295",STAGE="115"}, -- quest: Destruction in Deadmines
+	{ID_ATTUNE="170",ID="198",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="195",STAGE="115"},
+	{ID_ATTUNE="170",ID="108",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="105",STAGE="115"},
 	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="170",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: The Unsent Letter (Inside — letter from VanCleef)
-	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="595&495&395&295&195&105&610",STAGE="120"},
+	{ID_ATTUNE="170",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="115",SIDE=true}, -- quest: The Unsent Letter (Inside — letter from VanCleef)
+	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="598&498&398&298&198&108&610",STAGE="120"},
 
 
 
@@ -2349,7 +2369,7 @@ Attune_Data.quests = {
 	[167]={15,5},			[168]={14,5},			[214]={14,5},			[2040]={15,5},			[2041]={15,1},
 	[373]={16,1},			[92742]={14,1},			[92744]={14,1},			[92745]={15,1},			[92747]={16,1},
 	[92748]={16,1},			[92749]={16,1},			[92750]={17,1},			[92751]={17,1},			[92752]={17,1},
-	[92753]={18,5},
+	[92753]={18,5},			[92819]={18,5},
 	-- Forever dungeon quests
 	[17]={38,5},			[261]={34,1},			[377]={22,5},			[386]={22,5},			[387]={22,5},
 	[388]={22,5},			[389]={16,1},			[391]={16,5},			[709]={30,5},			[720]={35,1},			[721]={35,5},
