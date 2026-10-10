@@ -23,5 +23,6 @@ Locales\Locales.xml
 Attune.lua
 AttuneData.lua
 AttuneQuestGivers.lua
+AttuneClassQuests.lua
 AttuneQuestRewards.lua
 

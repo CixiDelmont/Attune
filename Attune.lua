@@ -8,6 +8,9 @@
 --
 -------------------------------------------------------------------------
 --
+-- 16001-27
+--   - Added the Dalaran Sewer Key (Horde)
+--
 -- 16001-26
 --   - Fixed an issue with displaying City of Dalaran
 --   - Added the Dire Maul quests
@@ -302,6 +305,21 @@ local attune_options = {
 					end,
 					width = 2.5,
 					order = 7,
+				},
+				showAllClassQuests = {
+					type = "toggle",
+					name = AttuneLang["ShowAllClassQuests_TEXT"],
+					desc = AttuneLang["ShowAllClassQuests_DESC"],
+					get = function(info) return Attune_DB.showAllClassQuests end,
+					set = function(info, val)
+						Attune_DB.showAllClassQuests = val
+						Attune_LoadTree()
+						if attunelocal_treeframe then
+							attunelocal_treeframe:SetTree(attunelocal_tree)
+						end
+					end,
+					width = 2.5,
+					order = 8,
 				},
 				showSurveyed = {
 					type = "toggle",
@@ -637,6 +655,7 @@ function Attune:OnEnable()
 	if Attune_DB.minimapbuttonpos.hide == nil then Attune_DB.minimapbuttonpos.hide = false end
 	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
 	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
+	if Attune_DB.showAllClassQuests == nil then Attune_DB.showAllClassQuests = false end
 	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/forever" end
 	if TreeExpandStatus == nil then TreeExpandStatus = {} end
 	
@@ -1764,6 +1783,13 @@ function Attune_CheckComplete(newComplete)
 					if not att.done[s.ID_ATTUNE .. "-" .. flw] then allDone = false; break end
 				end
 			end
+			if s.FOLLOWS ~= nil and string.find(s.FOLLOWS, "|", 1, true) then
+				local anyDone = false
+				for _, flw in pairs(Attune_split(s.FOLLOWS, "|")) do
+					if att.done[s.ID_ATTUNE .. "-" .. flw] then anyDone = true; break end
+				end
+				allDone = anyDone
+			end
 			if allDone then
 				att.done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 				Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
@@ -1943,6 +1969,20 @@ end
 -- Load the data into the TreeGroup object (nodes/leaves)
 -------------------------------------------------------------------------
 
+-- Class quests are shown for the player's class unless "See class quests for all classes" is on.
+local function Attune_ClassQuestVisible(a)
+	if a.CLASS == nil or a.CLASS == "" then return true end
+	if Attune_DB.showAllClassQuests then return true end
+	local _, classFile = UnitClass("player")
+	return classFile ~= nil and a.CLASS == classFile
+end
+
+local function Attune_CommitGroup(expacNode, groupNode, groupAllDone)
+	if groupNode == nil or groupNode.children == nil or #groupNode.children == 0 then return end
+	if groupAllDone then groupNode.text = "|cff00ff00"..groupNode.text.."|r" end
+	table.insert(expacNode.children, groupNode)
+end
+
 function Attune_LoadTree()
 	attunelocal_tree = {}
 	local expac = ""
@@ -1958,14 +1998,13 @@ function Attune_LoadTree()
 	end
 
 	for i, a in pairs(Attune_Data.attunes) do
-		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
+		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) and Attune_ClassQuestVisible(a) then 
 
 			--Group Level
 			if group ~= a.GROUP or expac ~= a.EXPAC then 
 
 				if group ~= "" then
-					if groupAllDone then groupNode.text = "|cff00ff00"..groupNode.text.."|r"; end
-					table.insert(expacNode.children, groupNode)
+					Attune_CommitGroup(expacNode, groupNode, groupAllDone)
 				end
 
 				--Top level
@@ -2024,7 +2063,7 @@ function Attune_LoadTree()
 		end
 	end
 	--table.insert(groupNode.children, attuneNode)
-	table.insert(expacNode.children, groupNode)
+	Attune_CommitGroup(expacNode, groupNode, groupAllDone)
 	table.insert(attunelocal_tree, expacNode)
 
 end
