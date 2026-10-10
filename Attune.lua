@@ -94,6 +94,28 @@ AttuneLang = LibStub("AceLocale-3.0"):GetLocale("Attune")
 
 local AceGUI = LibStub("AceGUI-3.0")
 
+-- Clicking a category name toggles it the same way the +/- button does.
+-- Leaf rows keep AceGUI's select-on-click behavior.
+local function Attune_HookTreeButton(button)
+	if button.attuneClickHooked then return end
+	button.attuneClickHooked = true
+	local originalOnClick = button:GetScript("OnClick")
+	button:SetScript("OnClick", function(frame, mouseButton)
+		local line = frame.treeline
+		if line and line.hasChildren then
+			local self = frame.obj
+			local status = (self.status or self.localstatus).groups
+			status[frame.uniquevalue] = not status[frame.uniquevalue]
+			self:RefreshTree()
+			AceGUI:ClearFocus()
+			return
+		end
+		if originalOnClick then
+			originalOnClick(frame, mouseButton)
+		end
+	end)
+end
+
 -- Style Attune's own TreeGroup only (never patch shared AceGUI:Create).
 local function Attune_StyleTreeGroup(widget)
 	if widget.treeframe then
@@ -104,6 +126,16 @@ local function Attune_StyleTreeGroup(widget)
 	end
 	-- 20% wider than AceGUI's 175px default; keep resizable (second arg) so the drag handle stays enabled.
 	widget:SetTreeWidth(210)
+
+	local createButton = widget.CreateButton
+	widget.CreateButton = function(self, ...)
+		local button = createButton(self, ...)
+		Attune_HookTreeButton(button)
+		return button
+	end
+	for _, button in ipairs(widget.buttons or {}) do
+		Attune_HookTreeButton(button)
+	end
 end
 
 local _G = getfenv(0)
@@ -1969,6 +2001,11 @@ end
 -------------------------------------------------------------------------
 -- Load the data into the TreeGroup object (nodes/leaves)
 -------------------------------------------------------------------------
+
+-- Class quests stay in the tree. The Results grid does not list them.
+local function Attune_IsClassQuest(a)
+	return a.CLASS ~= nil and a.CLASS ~= ""
+end
 
 -- Class quests are shown for the player's class unless "See class quests for all classes" is on.
 local function Attune_ClassQuestVisible(a)
@@ -4593,7 +4630,7 @@ function Attune_ToggleView(noToggle)
 
 			local expac = ""
 			for i, a in pairs(Attune_Data.attunes) do
-				if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
+				if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) and not Attune_IsClassQuest(a) then 
 
 					if (TreeExpandStatus[a.EXPAC] == nil 
 					or TreeExpandStatus[a.EXPAC] == 1) 
@@ -5048,7 +5085,7 @@ function Attune_ShowResultList(title)
 						-- Go through each Attune and create the corresponding % label for this toon
 						local expac = ""
 						for i, a in pairs(Attune_Data.attunes) do
-							if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
+							if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) and not Attune_IsClassQuest(a) then 
 
 								if (TreeExpandStatus[a.EXPAC] == nil 
 									or TreeExpandStatus[a.EXPAC] == 1) 

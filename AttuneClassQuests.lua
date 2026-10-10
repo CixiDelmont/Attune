@@ -277,12 +277,15 @@ local classSteps = {
 	{ID_ATTUNE="5297",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5297",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98393",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Great Cat Spirit
 	{ID_ATTUNE="5297",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5297",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Windborne Cat Spirit
 	{ID_ATTUNE="5297",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98396",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Great Cat Spirit
-	{ID_ATTUNE="5297",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40",STAGE="45"}, -- Relic of the Fang
-	{ID_ATTUNE="5297",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280679",ICON="Interface\\Icons\\inv_misc_monsterclaw_01",FOLLOWS="40",STAGE="45"}, -- Relic of the Claw
-	{ID_ATTUNE="5297",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280680",ICON="Interface\\Icons\\ability_druid_eclipse",FOLLOWS="40",STAGE="45"}, -- Relic of the Silent Shadow
+	{ID_ATTUNE="5297",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Great Windborne Cat Spirit
+	{ID_ATTUNE="5297",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Fang
+	{ID_ATTUNE="5297",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280679",ICON="Interface\\Icons\\inv_misc_monsterclaw_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Claw
+	{ID_ATTUNE="5297",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280680",ICON="Interface\\Icons\\ability_druid_eclipse",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Silent Shadow
 	{ID_ATTUNE="5297",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98731",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Blessings of the Great Cat Spirit
-	{ID_ATTUNE="5297",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98397",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- To Darnassus
+	{ID_ATTUNE="5297",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98738",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Blessings of the Great Windborne Cat Spirit
+	{ID_ATTUNE="5297",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98397",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50|51",STAGE="60"}, -- To Darnassus
 	{ID_ATTUNE="5297",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_catform",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5298",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
