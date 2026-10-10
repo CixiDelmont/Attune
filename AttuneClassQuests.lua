@@ -7,12 +7,13 @@ local classAttunes = {
 	-- {ID="5102",NAME="Verdant Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
 	{ID="5103",NAME="Bear Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5104",NAME="Bear Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5105",NAME="Cure Poison",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="14"},
-	{ID="5106",NAME="Cure Poison",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="14"},
-	{ID="5107",NAME="Aquatic Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="16"},
-	{ID="5108",NAME="Aquatic Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="16"},
-    
-	{ID="5109",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
+	{ID="5105",NAME="Cure Poison",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_nullifypoison", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="14"},
+	{ID="5106",NAME="Cure Poison",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_nullifypoison", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="14"},
+	{ID="5107",NAME="Aquatic Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_aquaticform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="16"},
+	{ID="5108",NAME="Aquatic Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_aquaticform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="16"},
+	{ID="5297",NAME="Cat Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_catform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5298",NAME="Cat Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_catform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5109",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_creature_poison_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	-- {ID="5295",NAME="The Emerald Dream...",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
 
 	-- {ID="5110",NAME="Etched Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
@@ -273,12 +274,39 @@ local classSteps = {
 	{ID_ATTUNE="5108",ID="50",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="31",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46",STAGE="50"}, -- Aquatic Form
 	{ID_ATTUNE="5108",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="50",STAGE="60"},
 
+	{ID_ATTUNE="5297",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5297",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98393",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5297",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5297",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98396",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5297",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40",STAGE="45"}, -- Relic of the Fang
+	{ID_ATTUNE="5297",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280679",ICON="Interface\\Icons\\inv_misc_monsterclaw_01",FOLLOWS="40",STAGE="45"}, -- Relic of the Claw
+	{ID_ATTUNE="5297",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280680",ICON="Interface\\Icons\\ability_druid_eclipse",FOLLOWS="40",STAGE="45"}, -- Relic of the Silent Shadow
+	{ID_ATTUNE="5297",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98731",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Blessings of the Great Cat Spirit
+	{ID_ATTUNE="5297",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98397",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- To Darnassus
+	{ID_ATTUNE="5297",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_catform",FOLLOWS="60",STAGE="70"},
+
+	{ID_ATTUNE="5298",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5298",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="98340",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5298",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98405",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5298",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Windborne Cat Spirit
+	{ID_ATTUNE="5298",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Great Cat Spirit
+	{ID_ATTUNE="5298",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Great Windborne Cat Spirit
+	{ID_ATTUNE="5298",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Fang
+	{ID_ATTUNE="5298",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280679",ICON="Interface\\Icons\\inv_misc_monsterclaw_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Claw
+	{ID_ATTUNE="5298",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280680",ICON="Interface\\Icons\\ability_druid_eclipse",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Silent Shadow
+	{ID_ATTUNE="5298",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98739",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Blessings of the Great Cat Spirit
+	{ID_ATTUNE="5298",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98738",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Blessings of the Great Windborne Cat Spirit
+	{ID_ATTUNE="5298",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="98362",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50|51",STAGE="60"}, -- To Thunder Bluff
+	{ID_ATTUNE="5298",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_catform",FOLLOWS="60",STAGE="70"},
+
 	{ID_ATTUNE="5109",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5109",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9063",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Torwa Pathfinder
 	{ID_ATTUNE="5109",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9052",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bloodpetal Poison
 	{ID_ATTUNE="5109",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Toxic Test
-	{ID_ATTUNE="5109",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- A Better Ingredient
-	{ID_ATTUNE="5109",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="50",STAGE="60"},
+    {ID_ATTUNE="5109",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- A Better Ingredient
+	{ID_ATTUNE="5109",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="22444",ICON="Interface\\Icons\\ability_creature_poison_04",FOLLOWS="50",STAGE="60"}, -- Putrid Vine
+	{ID_ATTUNE="5109",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- A Better Ingredient
+	{ID_ATTUNE="5109",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5295",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5295",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Emerald Dream...
@@ -1405,7 +1433,20 @@ local classQuestInfo = {
 	[9063]={50,1},
 	[9052]={50,1},
 	[9051]={50,1},
-	[9053]={50,1},
+	[9053]={50,5},
+	[98393]={20,1},
+	[98394]={20,1},
+	[98396]={20,1},
+	[98731]={20,1},
+	[98397]={20,1},
+	[98340]={20,1},
+	[98405]={20,1},
+	[98341]={20,1},
+	[98342]={20,1},
+	[98404]={20,1},
+	[98739]={20,1},
+	[98738]={20,1},
+	[98362]={20,1},
 	[3092]={1,1},
 	[3087]={1,1},
 	[3108]={1,1},
@@ -1944,6 +1985,19 @@ local classQuestGivers = {
 	[9052] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
 	[9051] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
 	[9053] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
+	[98393] = {1457, 35.4, 8.4, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
+	[98394] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
+	[98396] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
+	[98731] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
+	[98397] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
+	[98340] = {1456, 76.5, 27.2, "Turak Runetotem"}, -- Turak Runetotem
+	[98405] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
+	[98341] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
+	[98342] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
+	[98404] = {1450, 44.0, 73.4, "Avatar of Saeyleenan"}, -- Avatar of Saeyleenan
+	[98739] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
+	[98738] = {1450, 44.0, 73.4, "Avatar of Saeyleenan"}, -- Avatar of Saeyleenan
+	[98362] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
 	[3087] = {1411, nil, nil, "Gornek"}, -- Gornek
 	[3108] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
 	[3117] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
