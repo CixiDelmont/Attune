@@ -10,6 +10,11 @@
 --
 -- 16001-27
 --   - Added the Dalaran Sewer Key (Horde)
+--   - Added Blackrock Depths quests
+--   - Started on Class Quests. Druid class quests added.
+--   - Fixed issues with displaying counts
+--   - Menu categories now clickable to expand/collapse
+--   - Option to display class quests of all classes 
 --
 -- 16001-26
 --   - Fixed an issue with displaying City of Dalaran
@@ -3870,7 +3875,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			if countNeeded == 1 then
 				attunelocal_frame:SetStatusText(AttuneLang["I_"..step.ID_WOWHEAD])
 			else
-				attunelocal_frame:SetStatusText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_OwnedItemCount(step.ID_WOWHEAD) .. "/" .. countNeeded .. ")")
+				attunelocal_frame:SetStatusText(Attune_OwnedItemCount(step.ID_WOWHEAD) .. "/" .. countNeeded .. " " .. AttuneLang["I_"..step.ID_WOWHEAD])
 			end
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
@@ -4042,10 +4047,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 		-- navigate to sub-attunement
 		elseif step.TYPE == "Attune" then
-			--call sub attune
+			-- Open the linked attunement (ID_WOWHEAD), which may sit in another group
 			for i, a in pairs(Attune_Data.attunes) do
-				if (a.ID == step.ID_ATTUNE) then
-					attunelocal_treeframe:SelectByPath(a.EXPAC.."\001".. a.GROUP.."\001"..step.ID_WOWHEAD)
+				if a.ID == step.ID_WOWHEAD then
+					attunelocal_treeframe:SelectByPath(a.EXPAC.."\001".. a.GROUP.."\001"..a.ID)
 					break
 				end
 			end
@@ -4163,7 +4168,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 					--ftitle:SetText(step.STEP)
 					ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD])
 				else
-					ftitle:SetText(AttuneLang["I_"..step.ID_WOWHEAD] .. " (" .. Attune_OwnedItemCount(step.ID_WOWHEAD) .. "/" .. countNeeded .. ")")
+					ftitle:SetText(Attune_OwnedItemCount(step.ID_WOWHEAD) .. "/" .. countNeeded .. " " .. AttuneLang["I_"..step.ID_WOWHEAD])
 				end
 			elseif step.TYPE == "Kill" or step.TYPE == "Interact" then
 				ftitle:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
