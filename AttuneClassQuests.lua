@@ -16,16 +16,14 @@ local classAttunes = {
 	{ID="5109",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_creature_poison_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	-- {ID="5295",NAME="The Emerald Dream...",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
 
-	-- -- {ID="5110",NAME="Etched Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5111",NAME="Etched Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5112",NAME="Etched Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5113",NAME="Etched Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5114",NAME="Etched Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5115",NAME="Training the Beast",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5116",NAME="Training the Beast (The Hunter's Path)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5117",NAME="Training the Beast",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5118",NAME="Training the Beast (The Hunter's Path)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5119",NAME="The Green Drake",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
+	-- {ID="5110",NAME="Etched Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+	-- {ID="5111",NAME="Etched Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+	-- {ID="5112",NAME="Etched Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+	-- {ID="5113",NAME="Etched Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+	-- {ID="5114",NAME="Etched Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+	{ID="5115",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5117",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5119",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	-- {ID="5120",NAME="A Proper String",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	-- {ID="5121",NAME="An Introduction",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
@@ -335,44 +333,58 @@ local classSteps = {
 	{ID_ATTUNE="5114",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5115",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Dwarf: The Hunter's Path (any one) → Grif Wildheart in Kharanos
 	{ID_ATTUNE="5115",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6074",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
 	{ID_ATTUNE="5115",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6075",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
 	{ID_ATTUNE="5115",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6076",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5115",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6064",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast
-	{ID_ATTUNE="5115",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6084",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Taming the Beast
-	{ID_ATTUNE="5115",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6085",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Taming the Beast
-	{ID_ATTUNE="5115",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6086",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Training the Beast
-	{ID_ATTUNE="5115",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="60",STAGE="70"},
-
-	{ID_ATTUNE="5116",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5116",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6071",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5116",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6072",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5116",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6073",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5116",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6063",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast
-	{ID_ATTUNE="5116",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Taming the Beast
-	{ID_ATTUNE="5116",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Taming the Beast
-	{ID_ATTUNE="5116",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6103",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Training the Beast
-	{ID_ATTUNE="5116",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="60",STAGE="70"},
+	-- Night elf: The Hunter's Path (any one) → Dazalar in Dolanaar
+	{ID_ATTUNE="5115",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6071",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6072",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6073",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6064",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23|22|21|20",STAGE="30"}, -- Taming the Beast (Large Crag Boar)
+    {ID_ATTUNE="5115",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="5115",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5115",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6063",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23|22|21|20",STAGE="30"}, -- Taming the Beast (Webwood Lurker)
+	{ID_ATTUNE="5115",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6084",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33|30",STAGE="40"}, -- Taming the Beast (Snow Leopard)
+    {ID_ATTUNE="5115",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="5115",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="5115",ID="43",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33|30",STAGE="40"}, -- Taming the Beast (Nightsaber Stalker)
+	{ID_ATTUNE="5115",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6085",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="43|40",STAGE="50"}, -- Taming the Beast (Ice Claw Bear)
+    {ID_ATTUNE="5115",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="5115",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5115",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="43|40",STAGE="50"}, -- Taming the Beast (Strigid Screecher)
+	{ID_ATTUNE="5115",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="6086",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53|50",STAGE="60"}, -- Training the Beast (Belia Thundergranite)
+    {ID_ATTUNE="5115",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="5115",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5115",ID="63",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="6103",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53|50",STAGE="60"}, -- Training the Beast (Jocaste)
+	{ID_ATTUNE="5115",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="63|60",STAGE="70"},
 
 	{ID_ATTUNE="5117",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5117",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="21",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="22",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="30",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6061",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast
-	{ID_ATTUNE="5117",ID="40",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6087",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Taming the Beast
-	{ID_ATTUNE="5117",ID="50",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6088",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Taming the Beast
-	{ID_ATTUNE="5117",ID="60",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Training the Beast
-	{ID_ATTUNE="5117",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="60",STAGE="70"},
-
-	{ID_ATTUNE="5118",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5118",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6068",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5118",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5118",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5118",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6062",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast
-	{ID_ATTUNE="5118",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Taming the Beast
-	{ID_ATTUNE="5118",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6082",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Taming the Beast
-	{ID_ATTUNE="5118",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Training the Beast
-	{ID_ATTUNE="5118",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="60",STAGE="70"},
+	-- Tauren: The Hunter's Path (any one) → Yaw Sharpmane in Bloodhoof Village
+	{ID_ATTUNE="5117",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	-- Orc/Troll: The Hunter's Path (any one) → Thotar at Razor Hill
+	{ID_ATTUNE="5117",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6068",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6061",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast (Adult Plainstrider)
+    {ID_ATTUNE="5117",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="5117",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5117",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6062",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23",STAGE="30"}, -- Taming the Beast (Dire Mottled Boar)
+	{ID_ATTUNE="5117",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6087",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Taming the Beast (Prairie Stalker)
+    {ID_ATTUNE="5117",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="5117",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5117",ID="43",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33",STAGE="40"}, -- Taming the Beast (Surf Crawler)
+	{ID_ATTUNE="5117",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6088",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Taming the Beast (Swoop)
+    {ID_ATTUNE="5117",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="5117",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5117",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6082",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="43",STAGE="50"}, -- Taming the Beast (Armored Scorpid)
+	{ID_ATTUNE="5117",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="6089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Training the Beast (Holt Thunderhorn)
+    {ID_ATTUNE="5117",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="5117",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5117",ID="63",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="6081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53",STAGE="60"}, -- Training the Beast (Ormak Grimshot)
+	{ID_ATTUNE="5117",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="63|60",STAGE="70"},
 
 	{ID_ATTUNE="5119",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5119",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Charm
@@ -2001,27 +2013,34 @@ local classQuestGivers = {
 	[3108] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
 	[3117] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
 	[3082] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[6074] = {1426, nil, nil, "Thorgas Grimson"}, -- Thorgas Grimson
-	[6075] = {1426, nil, nil, "Regnus Thundergranite"}, -- Regnus Thundergranite
-	[6076] = {1426, nil, nil, "Einris Brightspear"}, -- Einris Brightspear
-	[6064] = {1426, nil, nil, "Grif Wildheart"}, -- Grif Wildheart
-	[6084] = {1426, nil, nil, "Grif Wildheart"}, -- Grif Wildheart
-	[6085] = {1426, nil, nil, "Grif Wildheart"}, -- Grif Wildheart
-	[6086] = {1426, nil, nil, "Grif Wildheart"}, -- Grif Wildheart
-	[6071] = {1438, nil, nil, "Jocaste"}, -- Jocaste
-	[6072] = {1438, nil, nil, "Ayanna Everstride"}, -- Ayanna Everstride
-	[6073] = {1438, nil, nil, "Dorion"}, -- Dorion
-	[6063] = {1438, nil, nil, "Dazalar"}, -- Dazalar
-	[6101] = {1438, nil, nil, "Dazalar"}, -- Dazalar
-	[6102] = {1438, nil, nil, "Dazalar"}, -- Dazalar
-	[6103] = {1438, nil, nil, "Dazalar"}, -- Dazalar
-	[6068] = {1411, nil, nil, "Jen'shan"}, -- Jen'shan
-	[6069] = {1411, nil, nil, "Sian'dur"}, -- Sian'dur
-	[6070] = {1411, nil, nil, "Sian'dur"}, -- Sian'dur
-	[6062] = {1411, nil, nil, "Thotar"}, -- Thotar
-	[6083] = {1411, nil, nil, "Thotar"}, -- Thotar
-	[6082] = {1411, nil, nil, "Thotar"}, -- Thotar
-	[6081] = {1447, nil, nil, "Thotar"}, -- Thotar
+	[6074] = {1426, 29.2, 67.5, "Thorgas Grimson"}, -- Thorgas Grimson, Coldridge Valley
+	[6075] = {1455, 69.9, 82.9, "Regnus Thundergranite"}, -- Regnus Thundergranite, Ironforge
+	[6076] = {1453, 67.3, 36.2, "Einris Brightspear"}, -- Einris Brightspear, Stormwind
+	[6064] = {1426, 45.8, 53.0, "Grif Wildheart"}, -- Grif Wildheart, Kharanos
+	[6084] = {1426, 45.8, 53.0, "Grif Wildheart"}, -- Grif Wildheart, Kharanos
+	[6085] = {1426, 45.8, 53.0, "Grif Wildheart"}, -- Grif Wildheart, Kharanos
+	[6086] = {1455, 70.9, 85.8, "Belia Thundergranite"}, -- Belia Thundergranite, Ironforge
+	[6071] = {1457, 40.4, 8.6, "Jocaste"}, -- Jocaste, Darnassus
+	[6072] = {1438, 58.7, 40.5, "Ayanna Everstride"}, -- Ayanna Everstride, Shadowglen
+	[6073] = {1457, 42.2, 7.3, "Dorion"}, -- Dorion, Darnassus
+	[6063] = {1438, 56.7, 59.5, "Dazalar"}, -- Dazalar, Dolanaar
+	[6101] = {1438, 56.7, 59.5, "Dazalar"}, -- Dazalar, Dolanaar
+	[6102] = {1438, 56.7, 59.5, "Dazalar"}, -- Dazalar, Dolanaar
+	[6103] = {1457, 40.4, 8.6, "Jocaste"}, -- Jocaste, Darnassus
+	[6065] = {1456, 58.5, 88.3, "Kary Thunderhorn"}, -- Kary Thunderhorn, Thunder Bluff
+	[6066] = {1412, 44.0, 76.3, "Lanka Farshot"}, -- Lanka Farshot, Mulgore
+	[6067] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
+	[6061] = {1412, 46.9, 59.6, "Yaw Sharpmane"}, -- Yaw Sharpmane, Bloodhoof Village
+	[6087] = {1412, 46.9, 59.6, "Yaw Sharpmane"}, -- Yaw Sharpmane, Bloodhoof Village
+	[6088] = {1412, 46.9, 59.6, "Yaw Sharpmane"}, -- Yaw Sharpmane, Bloodhoof Village
+	[6089] = {1412, 46.9, 59.6, "Yaw Sharpmane"}, -- Yaw Sharpmane, Bloodhoof Village
+	[6068] = {1411, 42.8, 69.3, "Jen'shan"}, -- Jen'shan, Valley of Trials
+	[6069] = {1454, 68.0, 17.8, "Sian'dur"}, -- Sian'dur, Orgrimmar
+	[6070] = {1454, 68.0, 17.8, "Sian'dur"}, -- Sian'dur, Orgrimmar
+	[6062] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
+	[6083] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
+	[6082] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
+	[6081] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
 	[8151] = {1447, nil, nil, "Kary Thunderhorn"}, -- Kary Thunderhorn
 	[8153] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
 	[8231] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc

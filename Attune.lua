@@ -2614,6 +2614,7 @@ local ATTUNE_DUNGEON_ART = {
 	["350"] = 131885, -- Zul'Farrak
 	["351"] = 131885,
 	["360"] = 131871, -- Stratholme
+	["361"] = 131871,
 	["370"] = 131872, -- Temple of Atal'Hakkar
 	["380"] = 131872,
 	["390"] = 131824, -- Blackrock Depths
