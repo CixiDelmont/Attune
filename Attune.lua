@@ -8,6 +8,11 @@
 --
 -------------------------------------------------------------------------
 --
+-- 16001-28
+--   - Scholomance quests added.
+--   - Stratholme quests added.
+--   - Hunter class quests added.
+--
 -- 16001-27
 --   - Added the Dalaran Sewer Key (Horde)
 --   - Added Blackrock Depths quests
@@ -1152,6 +1157,60 @@ local function Attune_GetInteractNpcID()
 	return Attune_NpcIdFromGUID(guid)
 end
 
+-- Class file for a class-quest chain (DRUID, MAGE, ...), or nil for a normal attunement.
+local function Attune_AttuneClass(attuneId)
+	for _, a in pairs(Attune_Data.attunes) do
+		if a.ID == attuneId then
+			if a.CLASS ~= nil and a.CLASS ~= "" then return a.CLASS end
+			return nil
+		end
+	end
+	return nil
+end
+
+-- Class used when deciding whether this character may complete a class quest.
+local function Attune_ProgressClass(t)
+	if t ~= nil and attunelocal_charKey ~= nil and t == Attune_DB.toons[attunelocal_charKey] then
+		local _, classFile = UnitClass("player")
+		if classFile then return classFile end
+	end
+	if t ~= nil and t.class ~= nil and t.class ~= "" and t.class ~= "UNKNOWN" then
+		return string.upper(t.class)
+	end
+	return nil
+end
+
+-- Normal attunements are always tracked. Class quests only for that class.
+local function Attune_MayRecordAttuneProgress(t, attuneId)
+	local required = Attune_AttuneClass(attuneId)
+	if required == nil then return true end
+	local classFile = Attune_ProgressClass(t)
+	return classFile ~= nil and classFile == required
+end
+
+local function Attune_ClearAttuneProgress(att, attuneId)
+	if att == nil or attuneId == nil then return end
+	local prefix = tostring(attuneId) .. "-"
+	local plen = #prefix
+	if att.done then
+		for key in pairs(att.done) do
+			if type(key) == "string" and key:sub(1, plen) == prefix then
+				att.done[key] = nil
+			end
+		end
+	end
+	if att.next then
+		for key in pairs(att.next) do
+			if type(key) == "string" and key:sub(1, plen) == prefix then
+				att.next[key] = nil
+			end
+		end
+	end
+	if att.attuned then
+		att.attuned[attuneId] = 0
+	end
+end
+
 local function Attune_ProcessKill(npc_id)
 	if npc_id == nil or npc_id == -1 then return end
 	local refreshNeeded = false
@@ -1185,7 +1244,7 @@ local function Attune_ProcessKill(npc_id)
 								if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then
 									if a.ID == s.ID_ATTUNE then
 										local faction = UnitFactionGroup("player")
-										if a.FACTION == faction or a.FACTION == 'Both' then
+										if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 											--mark step as done
 											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 											refreshNeeded = true
@@ -1257,7 +1316,7 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 						for k, a in pairs(Attune_Data.attunes) do
 							if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 								if a.ID == s.ID_ATTUNE then
-									if a.FACTION == faction or a.FACTION == 'Both' then
+									if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 										--mark step as done
 										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 										refreshNeeded = true
@@ -1305,7 +1364,7 @@ function Attune:QUEST_ACCEPTED(event)
 							for k, a in pairs(Attune_Data.attunes) do
 								if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 									if a.ID == s.ID_ATTUNE then
-										if a.FACTION == faction or a.FACTION == 'Both' then
+										if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 											--mark step as done
 											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 											refreshNeeded = true
@@ -1354,7 +1413,7 @@ function Attune:QUEST_TURNED_IN(event, arg1)
 							for k, a in pairs(Attune_Data.attunes) do
 								if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 									if a.ID == s.ID_ATTUNE then
-										if a.FACTION == faction or a.FACTION == 'Both' then
+										if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 											--mark step as done
 											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 											refreshNeeded = true
@@ -1434,7 +1493,7 @@ function Attune:GOSSIP_SHOW(event)
 							for k, a in pairs(Attune_Data.attunes) do
 								if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 									if a.ID == s.ID_ATTUNE then
-										if a.FACTION == faction or a.FACTION == 'Both' then
+										if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 											--mark step as done
 											Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 											refreshNeeded = true
@@ -1498,7 +1557,7 @@ function Attune:BAG_UPDATE(event)
 						for k, a in pairs(Attune_Data.attunes) do
 							if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 								if a.ID == s.ID_ATTUNE then
-									if a.FACTION == faction or a.FACTION == 'Both' then
+									if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 										--mark step as done
 										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 										refreshNeeded = true
@@ -1564,7 +1623,7 @@ function Attune:UPDATE_FACTION(event)
 						for k, a in pairs(Attune_Data.attunes) do
 							if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
 								if a.ID == s.ID_ATTUNE then
-									if a.FACTION == faction or a.FACTION == 'Both' then
+									if (a.FACTION == faction or a.FACTION == 'Both') and Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 										--mark step as done
 										Attune_DB.toons[attunelocal_charKey].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 										refreshNeeded = true
@@ -1638,6 +1697,11 @@ function Attune_CheckProgress()
 	for i, a in pairs(Attune_Data.attunes) do
 
 		if a.FACTION == faction or a.FACTION == 'Both' and (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
+
+			-- Another class's quest chain is not this character's progress.
+			if not Attune_MayRecordAttuneProgress(att, a.ID) then
+				Attune_ClearAttuneProgress(att, a.ID)
+			else
 
 			--looping through all steps
 			for i, s in pairs(Attune_Data.steps) do
@@ -1723,6 +1787,7 @@ function Attune_CheckProgress()
 					end
 				end
 			end
+			end
 		end
 	end
 
@@ -1736,7 +1801,7 @@ function Attune_CheckProgress()
 	for i, s in pairs(Attune_Data.steps) do
 		--print(s.ID_ATTUNE.."-"..s.ID)
 		if showPatchStep(s) then
-			if s.TYPE == 'Attune' and att.attuned[s.ID_WOWHEAD] >= 100 then
+			if s.TYPE == 'Attune' and att.attuned[s.ID_WOWHEAD] >= 100 and Attune_MayRecordAttuneProgress(att, s.ID_ATTUNE) then
 				att.done[s.ID_ATTUNE.."-"..s.ID] = 1
 			end
 		end	
@@ -1757,7 +1822,7 @@ function Attune_AutoCompleteSpacers(who)
 	while changed do
 		changed = false
 		for _, s in pairs(Attune_Data.steps) do
-			if showPatchStep(s) and s.TYPE == "Spacer" and s.FOLLOWS ~= nil and s.FOLLOWS ~= "0" then
+			if showPatchStep(s) and s.TYPE == "Spacer" and s.FOLLOWS ~= nil and s.FOLLOWS ~= "0" and Attune_MayRecordAttuneProgress(t, s.ID_ATTUNE) then
 				local key = s.ID_ATTUNE .. "-" .. s.ID
 				if not t.done[key] then
 					local allDone = true
@@ -1811,7 +1876,7 @@ function Attune_CheckComplete(newComplete)
 
 	-- Generic: mark End done when all its FOLLOWS are complete
 	for _, s in pairs(Attune_Data.steps) do
-		if showPatchStep(s) and s.TYPE == "End" and (att.attuned[s.ID_ATTUNE] or 0) < 100 then
+		if showPatchStep(s) and s.TYPE == "End" and (att.attuned[s.ID_ATTUNE] or 0) < 100 and Attune_MayRecordAttuneProgress(att, s.ID_ATTUNE) then
 			local allDone = true
 			if s.FOLLOWS == nil or s.FOLLOWS == "0" then
 				allDone = false
@@ -1858,7 +1923,7 @@ end
 function Attune_ApplyCompletedEndSteps(t)
 	if t == nil or t.done == nil or t.attuned == nil then return end
 	for _, s in pairs(Attune_Data.steps) do
-		if showPatchStep(s) and s.TYPE == "End" and t.done[s.ID_ATTUNE .. "-" .. s.ID] then
+		if showPatchStep(s) and s.TYPE == "End" and t.done[s.ID_ATTUNE .. "-" .. s.ID] and Attune_MayRecordAttuneProgress(t, s.ID_ATTUNE) then
 			t.attuned[s.ID_ATTUNE] = 100
 		end
 	end
@@ -1875,7 +1940,7 @@ function Attune_CheckIsNext(who)
 	att.next = {}
 
 	for i, step in pairs(Attune_Data.steps) do
-		if showPatchStep(step) then
+		if showPatchStep(step) and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
 			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
@@ -1973,7 +2038,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 			for fi, f in pairs(fIDs) do
 				for i, s in pairs(Attune_Data.steps) do
 					if showPatchStep(s) then
-						if s.ID_ATTUNE == aID and s.ID == f then
+						if s.ID_ATTUNE == aID and s.ID == f and Attune_MayRecordAttuneProgress(Attune_DB.toons[who], aID) then
 							if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
 								if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
                                     -- print(s.ID_ATTUNE .. "-" .. s.ID)
@@ -2082,6 +2147,8 @@ function Attune_LoadTree()
 				local icon = a.ICON
 				if not attunesWithSteps[a.ID] then
 					text = "|cff808080"..text.."|r"
+					groupAllDone = false
+				elseif not Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], a.ID) then
 					groupAllDone = false
 				elseif Attune_DB.toons[attunelocal_charKey].attuned ~= nil then
 					if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
@@ -3704,6 +3771,10 @@ end
 -- complete, ready: ready includes a yellow in-progress step (items in hand, quest not turned in)
 local function Attune_StepLineState(step, seen)
 	if step == nil then return false, false end
+	-- Another class's chain has no progress for this character.
+	if not Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], step.ID_ATTUNE) then
+		return false, false
+	end
 	seen = seen or {}
 	if seen[step.ID] then return false, false end
 	seen[step.ID] = true
@@ -3774,6 +3845,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 	local listCompleted = ""
 	local dots1 = false
 	local dots2 = false
+	-- On class quests, badges and the "on this step" list only count that class.
+	local requiredClass = Attune_AttuneClass(step.ID_ATTUNE)
 	--calculate guildmembers on this stage
 	for kt, t in Attune_spairs(Attune_DB.toons, function(t,a,b) return b > a end) do
 
@@ -3785,6 +3858,11 @@ function Attune_CreateNode(step, parent, posX, posY)
 		else
 			--show guildies
 			if t.guild == attunelocal_myguild then filter = true end
+		end
+
+		if filter and requiredClass then
+			local toonClass = t.class and string.upper(t.class) or ""
+			if toonClass ~= requiredClass then filter = false end
 		end
 
 		if filter then
@@ -3846,7 +3924,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 	-- check whether the step has been done
 	if Attune_DB.toons[attunelocal_charKey].done == nil then Attune_DB.toons[attunelocal_charKey].done = {}  end
-	local done = Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID]
+	local tracksProgress = Attune_MayRecordAttuneProgress(Attune_DB.toons[attunelocal_charKey], step.ID_ATTUNE)
+	local done = tracksProgress and Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID]
 
 	local countNeeded = 1
 	if step.COUNT ~= nil then countNeeded = step.COUNT end
@@ -4071,7 +4150,14 @@ function Attune_CreateNode(step, parent, posX, posY)
 		elseif step.TYPE == "Item" then
 			tone = Attune_ItemCellTone(step, countNeeded)
 		end
-		if tone then
+		if not tracksProgress then
+			fnode:SetBackdropColor(0.1, 0.1, 0.1, 0.5) -- gray; not this class
+			fnode:SetBackdropBorderColor(0.4, 0.4, 0.4)
+			if step.TYPE == "Attune" or step.TYPE == "End" then
+				fnode:SetBackdropColor(0.557, 0.055, 0.075, 0.7) -- red, attune
+				fnode:SetBackdropBorderColor(1, 1, 1)
+			end
+		elseif tone then
 			Attune_SetNodeTone(fnode, tone)
 		elseif done then
 			if step.TYPE == "Attune" or step.TYPE == "End" then
@@ -4154,8 +4240,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 		if step.TYPE == 'End' then
 			ftitle:SetPoint("TOPLEFT", 44, -16)
 			ftitle:SetFont(GameFontNormal:GetFont(), 12, "")
-			if Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100
-				or Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID] then
+			if tracksProgress and (Attune_DB.toons[attunelocal_charKey].attuned[step.ID_ATTUNE] >= 100
+				or Attune_DB.toons[attunelocal_charKey].done[step.ID_ATTUNE .. "-" .. step.ID]) then
 				ftitle:SetText(AttuneLang["Attuned"])
 			else
 				ftitle:SetText(AttuneLang["Not attuned"])
