@@ -53,8 +53,8 @@ Attune_Data.attunes = 	{
     {ID="341",NAME=AttuneLang["Dire Maul"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
     {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
-	-- {ID="410",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-	-- {ID="420",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+	{ID="410",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+	{ID="420",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="415",NAME=AttuneLang["The Shapers Terrace"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="360",NAME=AttuneLang["Stratholme"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
     {ID="361",NAME=AttuneLang["Stratholme"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
@@ -2070,94 +2070,146 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="400",ID="1100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="1390&1290&1090&990&890&690&590&490&390&290&1400",STAGE="100"},
 
 --vForever dungeon attune 410
-	-- Columns L→R: 5466 Ras | 5382→5384 Krastinov (longest) | 5343→5344 Barov | 5529 Hatchlings
+	-- Columns L→R: 5522→5531→4771 Dawn's Gambit | 5466 Ras | 5382→5384 Krastinov | blank | 5343→5344 Barov | blank | 5529 Hatchlings
+	-- Stage 35 is only the four Barov deeds, with a blank column on each side
 	{ID_ATTUNE="410",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 52",LOCATION="",ID_WOWHEAD="52",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="410",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Leonid Barthalomew
 	{ID_ATTUNE="410",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Lich, Ras Frostwhisper
-	{ID_ATTUNE="410",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5382",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Doctor Theolen Krastinov, the Butcher
+	{ID_ATTUNE="410",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5382",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Doctor Theolen Krastinov, the Butcher
+	{ID_ATTUNE="410",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="410",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Barov Family Fortune
-	{ID_ATTUNE="410",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Plagued Hatchlings
+	{ID_ATTUNE="410",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="410",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Plagued Hatchlings
 	-- STAGE 30
-	{ID_ATTUNE="410",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10508",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="420",STAGE="30"}, -- npc: Ras Frostwhisper
-	{ID_ATTUNE="410",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="11261",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="320",STAGE="30"}, -- npc: Doctor Theolen Krastinov
-	{ID_ATTUNE="410",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="220",STAGE="30"}, -- item: Barov deeds (x4)
-	{ID_ATTUNE="410",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Plagued Hatchlings
+	{ID_ATTUNE="410",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Betina Bigglezink
+	{ID_ATTUNE="410",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30"}, -- item: Human Head of Ras Frostwhisper
+	{ID_ATTUNE="410",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Krastinov's Bag of Horrors
+    {ID_ATTUNE="410",ID="313",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="410",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="410",ID="213",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="410",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
+    -- STAGE 32
+    {ID_ATTUNE="410",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="4771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="32"}, -- quest: Dawn's Gambit
+    {ID_ATTUNE="410",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="32"}, -- quest: The Lich, Ras Frostwhisper
+    {ID_ATTUNE="410",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="410",ID="311",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
+    {ID_ATTUNE="410",ID="229",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="32"},
+    {ID_ATTUNE="410",ID="211",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
+    {ID_ATTUNE="410",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="32"},
+    -- STAGE 35 (Barov deeds only)   
+    {ID_ATTUNE="410",ID="512",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
+    {ID_ATTUNE="410",ID="245",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
+	{ID_ATTUNE="410",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Caer Darrow
+	{ID_ATTUNE="410",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Brill
+	{ID_ATTUNE="410",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Tarren Mill
+	{ID_ATTUNE="410",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Southshore
 	-- STAGE 40
-	{ID_ATTUNE="410",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_human_02",FOLLOWS="430",STAGE="40"}, -- item: Human Head of Ras Frostwhisper
-	{ID_ATTUNE="410",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Krastinov's Bag of Horrors
-	{ID_ATTUNE="410",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="5344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: The Last Barov
-	{ID_ATTUNE="410",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
+    {ID_ATTUNE="410",ID="535",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="40"},
+	{ID_ATTUNE="410",ID="435",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="40"},
+	{ID_ATTUNE="410",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="40"}, -- quest: Krastinov's Bag of Horrors
+	{ID_ATTUNE="410",ID="312",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="410",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="234&233&232&231",STAGE="40"}, -- quest: Barov Family Fortune
+	{ID_ATTUNE="410",ID="212",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="410",ID="135",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- STAGE 50
-	{ID_ATTUNE="410",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: The Lich, Ras Frostwhisper
-	{ID_ATTUNE="410",ID="350",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10503",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="340",STAGE="50"}, -- npc: Jandice Barov
-	{ID_ATTUNE="410",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
-	{ID_ATTUNE="410",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
-	-- STAGE 60
+    {ID_ATTUNE="410",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="535",STAGE="50"},
+	{ID_ATTUNE="410",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="435",STAGE="50"},
+    {ID_ATTUNE="410",ID="360",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="350",STAGE="50"}, -- quest: Kirtonos the Herald
+	{ID_ATTUNE="410",ID="314",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="410",ID="250",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="5344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: The Last Barov
+	{ID_ATTUNE="410",ID="214",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="410",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="135",STAGE="50"},
+    -- STAGE 60
+    {ID_ATTUNE="410",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="410",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-	{ID_ATTUNE="410",ID="360",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="350",STAGE="60"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="410",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60"}, -- npc: Kirtonos the Herald
+	{ID_ATTUNE="410",ID="315",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="410",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="410",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="410",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
-	-- STAGE 70
-	{ID_ATTUNE="410",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
-	{ID_ATTUNE="410",ID="370",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="360",STAGE="70"}, -- quest: Kirtonos the Herald
-	{ID_ATTUNE="410",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
-	{ID_ATTUNE="410",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
 	-- STAGE 80
-	{ID_ATTUNE="410",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
-	{ID_ATTUNE="410",ID="380",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="370",STAGE="80"}, -- npc: Kirtonos the Herald
-	{ID_ATTUNE="410",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
-	{ID_ATTUNE="410",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
-	-- STAGE 90
-	{ID_ATTUNE="410",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="90"},
-	{ID_ATTUNE="410",ID="390",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="380",STAGE="90"}, -- quest: Kirtonos the Herald
-	{ID_ATTUNE="410",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
-	{ID_ATTUNE="410",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
-	{ID_ATTUNE="410",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="450&390&240&130",STAGE="100"},
+	{ID_ATTUNE="410",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="80"},
+    {ID_ATTUNE="410",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="80"},
+	{ID_ATTUNE="410",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="80"}, -- quest: Kirtonos the Herald
+	{ID_ATTUNE="410",ID="317",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="410",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="80"},
+	{ID_ATTUNE="410",ID="217",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="410",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="80"},
+
+    {ID_ATTUNE="410",ID="490",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5582",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="90", SIDE=true}, -- quest: healthy-dragon-scale
+	{ID_ATTUNE="410",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="580&490&480&380&280&180",STAGE="90"},
 
 --vForever dungeon attune 420
-	-- Columns L→R: 5466 Ras | 5382→5384 Krastinov (longest) | 5341→5342 Barov | 5529 Hatchlings
+	-- Columns L→R: 5522→5531→4771 Dawn's Gambit | 5466 Ras | 5382→5384 Krastinov | blank | 5341→5342 Barov | blank | 5529 Hatchlings
+	-- Stage 35 is only the four Barov deeds, with a blank column on each side
 	{ID_ATTUNE="420",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 52",LOCATION="",ID_WOWHEAD="52",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="420",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Leonid Barthalomew
 	{ID_ATTUNE="420",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Lich, Ras Frostwhisper
-	{ID_ATTUNE="420",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5382",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Doctor Theolen Krastinov, the Butcher
+	{ID_ATTUNE="420",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5382",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Doctor Theolen Krastinov, the Butcher
+	{ID_ATTUNE="420",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="420",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Barov Family Fortune
-	{ID_ATTUNE="420",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Plagued Hatchlings
+	{ID_ATTUNE="420",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="420",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Plagued Hatchlings
 	-- STAGE 30
-	{ID_ATTUNE="420",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10508",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="420",STAGE="30"}, -- npc: Ras Frostwhisper
-	{ID_ATTUNE="420",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="11261",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="320",STAGE="30"}, -- npc: Doctor Theolen Krastinov
-	{ID_ATTUNE="420",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="220",STAGE="30"}, -- item: Barov deeds (x4)
-	{ID_ATTUNE="420",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Plagued Hatchlings
+	{ID_ATTUNE="420",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Betina Bigglezink
+	{ID_ATTUNE="420",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30"}, -- item: Human Head of Ras Frostwhisper
+	{ID_ATTUNE="420",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Krastinov's Bag of Horrors
+    {ID_ATTUNE="420",ID="313",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+    {ID_ATTUNE="420",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="420",ID="213",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="420",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
+    -- STAGE 32
+    {ID_ATTUNE="420",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="4771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="32"}, -- quest: Dawn's Gambit
+    {ID_ATTUNE="420",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="32"}, -- quest: The Lich, Ras Frostwhisper
+    {ID_ATTUNE="420",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="420",ID="311",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
+    {ID_ATTUNE="420",ID="229",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="32"},
+    {ID_ATTUNE="420",ID="211",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
+    {ID_ATTUNE="420",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="32"},
+    -- STAGE 35 (Barov deeds only)   
+    {ID_ATTUNE="420",ID="512",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
+    {ID_ATTUNE="420",ID="245",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
+	{ID_ATTUNE="420",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Caer Darrow
+	{ID_ATTUNE="420",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Brill
+	{ID_ATTUNE="420",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Tarren Mill
+	{ID_ATTUNE="420",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Southshore
 	-- STAGE 40
-	{ID_ATTUNE="420",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_human_02",FOLLOWS="430",STAGE="40"}, -- item: Human Head of Ras Frostwhisper
-	{ID_ATTUNE="420",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Krastinov's Bag of Horrors
-	{ID_ATTUNE="420",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: The Last Barov
-	{ID_ATTUNE="420",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
+    {ID_ATTUNE="420",ID="535",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="40"},
+	{ID_ATTUNE="420",ID="435",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="40"},
+	{ID_ATTUNE="420",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="40"}, -- quest: Krastinov's Bag of Horrors
+	{ID_ATTUNE="420",ID="312",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+    {ID_ATTUNE="420",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="234&233&232&231",STAGE="40"}, -- quest: Barov Family Fortune
+	{ID_ATTUNE="420",ID="212",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="420",ID="135",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- STAGE 50
-	{ID_ATTUNE="420",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: The Lich, Ras Frostwhisper
-	{ID_ATTUNE="420",ID="350",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10503",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="340",STAGE="50"}, -- npc: Jandice Barov
-	{ID_ATTUNE="420",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
-	{ID_ATTUNE="420",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
-	-- STAGE 60
+    {ID_ATTUNE="420",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="535",STAGE="50"},
+	{ID_ATTUNE="420",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="435",STAGE="50"},
+    {ID_ATTUNE="420",ID="360",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="350",STAGE="50"}, -- quest: Kirtonos the Herald
+	{ID_ATTUNE="420",ID="314",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="420",ID="250",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="5342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: The Last Barov
+	{ID_ATTUNE="420",ID="214",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="420",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="135",STAGE="50"},
+    -- STAGE 60
+    {ID_ATTUNE="420",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="420",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-	{ID_ATTUNE="420",ID="360",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="350",STAGE="60"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="420",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60"}, -- npc: Kirtonos the Herald
+	{ID_ATTUNE="420",ID="315",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="420",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="420",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="420",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
-	-- STAGE 70
-	{ID_ATTUNE="420",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
-	{ID_ATTUNE="420",ID="370",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="360",STAGE="70"}, -- quest: Kirtonos the Herald
-	{ID_ATTUNE="420",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
-	{ID_ATTUNE="420",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
 	-- STAGE 80
-	{ID_ATTUNE="420",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
-	{ID_ATTUNE="420",ID="380",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="370",STAGE="80"}, -- npc: Kirtonos the Herald
-	{ID_ATTUNE="420",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
-	{ID_ATTUNE="420",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
-	-- STAGE 90
-	{ID_ATTUNE="420",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="90"},
-	{ID_ATTUNE="420",ID="390",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="380",STAGE="90"}, -- quest: Kirtonos the Herald
-	{ID_ATTUNE="420",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
-	{ID_ATTUNE="420",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
-	{ID_ATTUNE="420",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="450&390&240&130",STAGE="100"},
+	{ID_ATTUNE="420",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="80"},
+    {ID_ATTUNE="420",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="80"},
+	{ID_ATTUNE="420",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5384",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="80"}, -- quest: Kirtonos the Herald
+	{ID_ATTUNE="420",ID="317",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="420",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="80"},
+	{ID_ATTUNE="420",ID="217",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="420",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="80"},
+
+    {ID_ATTUNE="420",ID="490",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5582",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="90", SIDE=true}, -- quest: healthy-dragon-scale
+	{ID_ATTUNE="420",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="580&490&480&380&280&180",STAGE="90"},
 
 --vForever dungeon attune 163 (Alliance Hall of Thanes)
 	-- Columns L→R: 96394 Restless Dead | 96393 Durgen | 96403 Heirlooms
@@ -2620,8 +2672,9 @@ Attune_Data.quests = {
 	[5461]={60,1},			[5462]={60,1},			[5742]={52,1},			[5781]={56,1},			[5845]={56,1},			[5846]={57,1},
 	[5961]={56,1},			[6022]={58,1},			[6042]={56,1},			[6133]={60,5},			[6135]={60,5},			[6136]={60,5},
 	[6144]={60,1},			[6163]={60,5},			[5341]={52,5},
-	[5342]={52,1},			[5343]={52,5},			[5344]={52,1},			[5382]={55,5},			[5384]={55,5},
-	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5526]={56,5},			[5529]={55,5},
+	[5342]={52,1},			[5343]={52,5},			[5344]={52,1},			[5382]={55,5},			[5384]={55,5},          [5582]={55,5},
+	[5463]={57,5},			[5466]={57,5},			[5515]={55,5},			[5522]={57,1},			[5526]={56,5},			[5529]={55,5},
+	[5531]={57,1},			[4771]={57,5},
 	[5848]={52,5},			[6141]={34,1},			[6521]={28,1},			[6522]={28,1},			[6561]={18,5},
 	[6562]={17,1},			[6563]={17,1},			[6564]={17,1},			[6565]={17,5},			[6626]={28,1},
 	[6627]={26,1},			[6628]={26,1},			[6921]={21,5},			[6922]={21,5},			[6981]={15,5},			[7028]={41,5},			[7029]={41,5},			[7041]={41,5},
@@ -2798,11 +2851,8 @@ Attune_Data.npcs = {
 	[9543] = { "53", AttuneLang["Elite"], AttuneLang["Gnome"]}, -- Ribbly Screwspigot
 	[10439] = { "61", AttuneLang["Boss"], AttuneLang["Undead"]}, -- Ramstein the Gorger
 	[10440] = { "62", AttuneLang["Boss"], AttuneLang["Undead"]}, -- Baron Rivendare
-	[10503] = { "61", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Jandice Barov
 	[10506] = { "60", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Kirtonos the Herald
-	[10508] = { "60", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Ras Frostwhisper
 	[10811] = { "60", AttuneLang["Elite"], AttuneLang["Human"]}, -- Archivist Galford
-	[11261] = { "60", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Doctor Theolen Krastinov
 	[11486] = { "60", AttuneLang["Elite"], AttuneLang["Night-Elf"]}, -- Prince Tortheldrin
 	[11496] = { "??", AttuneLang["Boss"], AttuneLang["Demon"]}, -- Immol'thar
 	[14327] = { "57", AttuneLang["Elite"], AttuneLang["Demon"]}, -- Lethtendris

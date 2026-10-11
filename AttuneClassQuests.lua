@@ -23,9 +23,8 @@ local classAttunes = {
 	-- {ID="5114",NAME="Etched Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
 	{ID="5115",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5117",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5119",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
-	-- {ID="5120",NAME="A Proper String",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
-	-- {ID="5121",NAME="An Introduction",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+	{ID="5119",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterfang_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
+	{ID="5120",NAME="Rhok'delar, Longbow of the Ancient Keepers",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- {ID="5122",NAME="Glyphic Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
 	-- -- {ID="5123",NAME="Glyphic Memorandum",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
@@ -390,19 +389,51 @@ local classSteps = {
 	{ID_ATTUNE="5119",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Charm
 	{ID_ATTUNE="5119",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8153",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Courser Antlers
 	{ID_ATTUNE="5119",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8231",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Wavethrashing
-	{ID_ATTUNE="5119",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Green Drake
-	{ID_ATTUNE="5119",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5119",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Green Drake
+	{ID_ATTUNE="5119",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20019",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="50",STAGE="60"}, -- Took of Morphaz
+	{ID_ATTUNE="5119",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Green Drake
+	{ID_ATTUNE="5119",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5120",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5120",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7632",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Ancient Leaf
-	{ID_ATTUNE="5120",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7634",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Ancient Sinew Wrapped Lamina
-	{ID_ATTUNE="5120",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7635",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- A Proper String
-	{ID_ATTUNE="5120",ID="32",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Stave of the Ancients
-	{ID_ATTUNE="5120",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="32&31&30",STAGE="40"},
+	{ID_ATTUNE="5120",ID="20",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="18703",ICON="Interface\\Icons\\spell_nature_resistnature",FOLLOWS="10",STAGE="20"}, -- item: Ancient Petrified Leaf
+	{ID_ATTUNE="5120",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7632",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Ancient Leaf
+	{ID_ATTUNE="5120",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7633",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- An Introduction
+	-- Columns left to right (higher ID = left): Lamina | blank | Stave | blank | A Proper String
+	{ID_ATTUNE="5120",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7635",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- A Proper String
+	{ID_ATTUNE="5120",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5120",ID="52",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Stave of the Ancients
+	{ID_ATTUNE="5120",ID="53",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5120",ID="54",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7634",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Ancient Sinew Wrapped Lamina
 
-	{ID_ATTUNE="5121",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5121",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="7633",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- An Introduction
-	{ID_ATTUNE="5121",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="20",STAGE="30"},
+    {ID_ATTUNE="5120",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["Onyxia's Lair"],ID_WOWHEAD="18705",ICON="Interface\\Icons\\spell_holy_dispelmagic",FOLLOWS="50",STAGE="60"}, -- item: Mature Black Dragon Sinew
+	{ID_ATTUNE="5120",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5120",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="52",STAGE="60"},
+	{ID_ATTUNE="5120",ID="63",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5120",ID="64",TYPE="Item",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="18704",ICON="Interface\\Icons\\inv_misc_bandage_04",FOLLOWS="54",STAGE="60"}, -- item: Mature Blue Dragon Sinew
+
+    {ID_ATTUNE="5120",ID="80",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7635",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65"}, -- A Proper String
+	{ID_ATTUNE="5120",ID="81",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+    {ID_ATTUNE="5120",ID="82",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="62",STAGE="65"},
+	-- {ID_ATTUNE="5120",ID="82",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73&72&71&70",STAGE="80"}, -- Stave of the Ancients
+	{ID_ATTUNE="5120",ID="83",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+	{ID_ATTUNE="5120",ID="84",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7634",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="64",STAGE="65"}, -- Ancient Sinew Wrapped Lamina
+	
+	-- Four heads on one row (higher ID = left): Simone, Klinfran, Solenor, Artorius
+	{ID_ATTUNE="5120",ID="70",TYPE="Item",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="18955",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="82",STAGE="70"}, -- item: Artorius's Head
+	{ID_ATTUNE="5120",ID="71",TYPE="Item",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="18954",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="82",STAGE="70"}, -- item: Solenor's Head
+	{ID_ATTUNE="5120",ID="72",TYPE="Item",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="18953",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="82",STAGE="70"}, -- item: Klinfran's Head
+	{ID_ATTUNE="5120",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="18952",ICON="Interface\\Icons\\spell_shadow_summonsuccubus",FOLLOWS="82",STAGE="70"}, -- item: Simone's Head
+
+    -- {ID_ATTUNE="5120",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7635",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="80"}, -- A Proper String
+    {ID_ATTUNE="5120",ID="90",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="80",STAGE="80"},
+	{ID_ATTUNE="5120",ID="91",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="5120",ID="92",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73&72&71&70",STAGE="80"}, -- Stave of the Ancients
+	{ID_ATTUNE="5120",ID="93",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+    {ID_ATTUNE="5120",ID="94",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="84",STAGE="80"},
+	-- {ID_ATTUNE="5120",ID="94",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7634",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="64",STAGE="80"}, -- Ancient Sinew Wrapped Lamina
+	{ID_ATTUNE="5120",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_weapon_bow_07",FOLLOWS="94&92&90",STAGE="90"},
+
+
 
 	{ID_ATTUNE="5122",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 1",LOCATION="",ID_WOWHEAD="1",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5122",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="3104",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Glyphic Letter
@@ -2045,10 +2076,11 @@ local classQuestGivers = {
 	[8153] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
 	[8231] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
 	[8232] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
+	[7632] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
 	[7634] = {1448, nil, nil, "Hastat the Ancient"}, -- Hastat the Ancient
 	[7635] = {1448, nil, nil, "Stoma the Ancient"}, -- Stoma the Ancient
 	[7636] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
-	[7633] = {1439, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
+	[7633] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
 	[3104] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
 	[3114] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
 	[3098] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
