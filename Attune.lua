@@ -19,6 +19,7 @@
 --   - Started on Class Quests. Druid class quests added.
 --   - Fixed issues with displaying counts
 --   - Menu categories now clickable to expand/collapse
+--   - Menu expand/collapse state is kept across reloads
 --   - Option to display class quests of all classes 
 --
 -- 16001-26
@@ -118,10 +119,33 @@ local function Attune_HookTreeButton(button)
 			status[frame.uniquevalue] = not status[frame.uniquevalue]
 			self:RefreshTree()
 			AceGUI:ClearFocus()
+			Attune_SaveTreeExpandStatus()
 			return
 		end
 		if originalOnClick then
 			originalOnClick(frame, mouseButton)
+		end
+	end)
+
+	-- +/- uses its own click handler, and a double-click toggles as well.
+	if button.toggle and not button.toggle.attuneClickHooked then
+		button.toggle.attuneClickHooked = true
+		local originalToggle = button.toggle:GetScript("OnClick")
+		button.toggle:SetScript("OnClick", function(frame, mouseButton)
+			if originalToggle then
+				originalToggle(frame, mouseButton)
+			end
+			Attune_SaveTreeExpandStatus()
+		end)
+	end
+	local originalDouble = button:GetScript("OnDoubleClick")
+	button:SetScript("OnDoubleClick", function(frame, mouseButton)
+		if originalDouble then
+			originalDouble(frame, mouseButton)
+		end
+		local line = frame.treeline
+		if line and line.hasChildren then
+			Attune_SaveTreeExpandStatus()
 		end
 	end)
 end
@@ -634,6 +658,7 @@ function Attune:OnEnable()
 	Attune:RegisterComm(attunelocal_syncprefix)
 
 	self:RegisterEvent("CHAT_MSG_ADDON")
+	self:RegisterEvent("PLAYER_LOGOUT")
 	self:RegisterEvent("PLAYER_LEVEL_UP")
 	self:RegisterEvent("QUEST_ACCEPTED")
 	self:RegisterEvent("QUEST_TURNED_IN")
@@ -2182,11 +2207,20 @@ end
 -------------------------------------------------------------------------
 
 function Attune_SaveTreeExpandStatus()
-	if attunelocal_treeframe ~= nil then 
-		for lineId, expanded in pairs(attunelocal_treeframe.localstatus.groups) do
-			if expanded then TreeExpandStatus[lineId] = 1 else TreeExpandStatus[lineId] = 0 end
-		end
+	local tree = attunelocal_treeframe
+	-- A released TreeGroup goes back into AceGUI's pool. Skip it so a reload
+	-- cannot copy another tree's groups over this character's saved state.
+	if tree == nil or tree.tree ~= attunelocal_tree then return end
+	local groups = (tree.status or tree.localstatus).groups
+	if groups == nil then return end
+	if TreeExpandStatus == nil then TreeExpandStatus = {} end
+	for lineId, expanded in pairs(groups) do
+		if expanded then TreeExpandStatus[lineId] = 1 else TreeExpandStatus[lineId] = 0 end
 	end
+end
+
+function Attune:PLAYER_LOGOUT()
+	Attune_SaveTreeExpandStatus()
 end
 
 
@@ -2415,6 +2449,12 @@ function Attune_Frame()
 		attunelocal_frame.frame:SetMinResize(1010, 550)
 	end
 	attunelocal_frame.frame:SetFrameStrata("HIGH")
+	-- Escape hides this frame through UISpecialFrames and does not run the Close button.
+	attunelocal_frame.frame:HookScript("OnHide", function()
+		Attune_SaveTreeExpandStatus()
+		-- Quest loot and the quest-giver map sit on top of the tree. Dismiss them with the window.
+		if Attune_HideQuestDetail then Attune_HideQuestDetail() end
+	end)
 
 
 	-- Hacking into the Ace3 frame to reduce the size of the statusbox, to allow us room for other buttons

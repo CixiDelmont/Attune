@@ -1,0 +1,23 @@
+---
+description: Record quest givers, rewards, and Wowhead translations for every quest
+alwaysApply: true
+---
+
+# Quest data (required)
+
+When you add or change a quest on an attunement, look it up on Wowhead first (`/forever/` for Forever quests, Classic otherwise). Do all of the following in the same change:
+
+1. **Quest giver** in `classQuestGivers`: UI map id, x, y, and the start NPC. If several NPCs start the same quest id, store the main one and name the others in a comment.
+2. **Rewards** in `AttuneQuestRewards.lua`:
+   - `questRewards[questId]` uses `choice` or `fixed` entries of `{itemId, count}`.
+   - A breadcrumb with no items still gets `{}`, so the quest is marked as checked.
+   - Every new item goes in `rewardItems` as `{English name, icon, quality}`. The client localizes the tooltip when it knows the item.
+3. **Locales.** Add `Q1_` / `Q2_` and any new location key to `enUS`, `frFR`, `deDE`, `esES`, `ruRU`, `zhCN`, `zhTW`, and `koKR`. Use that language's Wowhead text. Keep English only when Wowhead has no translation.
+
+```lua
+-- classQuestGivers
+[1861] = {1453, 38.6, 79.4, "Jennea Cannon"},
+-- questRewards / rewardItems
+[1861] = { choice = {{7508, 1}, {9513, 1}} },
+[7508] = {"Ley Orb", "inv_misc_orb_01", 2},
+```

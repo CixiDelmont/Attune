@@ -3,8 +3,7 @@
 -- Chain order and objectives: CMaNGOS classic-db 1.12.1.
 
 local classAttunes = {
-	-- {ID="5101",NAME="Verdant Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5102",NAME="Verdant Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- DRUID
 	{ID="5103",NAME="Bear Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5104",NAME="Bear Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5105",NAME="Cure Poison",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_nullifypoison", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="14"},
@@ -14,39 +13,26 @@ local classAttunes = {
 	{ID="5297",NAME="Cat Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_catform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5298",NAME="Cat Form",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Horde",ICON="Interface\\Icons\\ability_druid_catform", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5109",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_creature_poison_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
-	-- {ID="5295",NAME="The Emerald Dream...",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_DRUID"], CLASS="DRUID", FACTION="Both",ICON="Interface\\Icons\\ability_druid_maul", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
 
-	-- {ID="5110",NAME="Etched Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5111",NAME="Etched Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5112",NAME="Etched Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5113",NAME="Etched Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5114",NAME="Etched Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- HUNTER
 	{ID="5115",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Alliance",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5117",NAME="Taming",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Horde",ICON="Interface\\Icons\\inv_weapon_bow_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5119",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterfang_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	{ID="5120",NAME="Rhok'delar, Longbow of the Ancient Keepers",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_HUNTER"], CLASS="HUNTER", FACTION="Both",ICON="Interface\\Icons\\inv_weapon_bow_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
-    -- -- {ID="5122",NAME="Glyphic Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5123",NAME="Glyphic Memorandum",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5124",NAME="Glyphic Scroll",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5125",NAME="Glyphic Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5126",NAME="Mage Training",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5127",NAME="Ju-Ju Heaps",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5128",NAME="Mage-tastic Gizmonitor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5129",NAME="Mirror Lake",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5130",NAME="The Balnir Farmstead",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5131",NAME="Manaweave Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="15-16"},
-	-- {ID="5132",NAME="Spellfire Robes",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="15-16"},
-	-- {ID="5133",NAME="Astral Knot Garment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="26-28"},
-	-- {ID="5134",NAME="Nether-lace Garment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="26"},
-	-- {ID="5135",NAME="Items of Power",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
-	-- {ID="5136",NAME="Mage's Wand",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
-	-- {ID="5137",NAME="Celestial Power",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
-	-- {ID="5138",NAME="Destroy Morphaz",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
-	-- {ID="5139",NAME="Fragmented Magic",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+    -- MAGE
+	{ID="5128",NAME="Spell Focus",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5127",NAME="Spell Focus",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_staff_13", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5131",NAME="Manaweave Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_chest_cloth_36", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="15-16"},
+	{ID="5132",NAME="Spellfire Robes",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_cloth_18", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="15-16"},
+	{ID="5133",NAME="Astral Knot Garment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Alliance",ICON="Interface\\Icons\\inv_chest_cloth_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="26-28"},
+	{ID="5134",NAME="Nether-lace Garment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_cloth_20", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="26"},
+	{ID="5136",NAME="Mage's Wand",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_wand_09", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
+	{ID="5137",NAME="Celestial Power",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_orb_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
+	{ID="5138",NAME="Sunken Temple Class Quest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_topaz_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
+	{ID="5139",NAME="Polymorph: Pig",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
-    -- -- {ID="5140",NAME="Consecrated Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5141",NAME="Consecrated Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- -- PALADIN
 	-- {ID="5142",NAME="The Symbol of Life",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
 	-- {ID="5143",NAME="The Symbol of Life (1789)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
 	-- {ID="5144",NAME="The Tome of Divinity",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12-13"},
@@ -64,11 +50,7 @@ local classAttunes = {
 	-- {ID="5156",NAME="Grimand's Finest Work",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	-- {ID="5157",NAME="Lord Grayson Shadowbreaker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
-    -- -- {ID="5158",NAME="Hallowed Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5159",NAME="Hallowed Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5160",NAME="Hallowed Scroll",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5161",NAME="Hallowed Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5162",NAME="Hallowed Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- -- PRIEST
 	-- {ID="5163",NAME="Priest Training",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
 	-- {ID="5164",NAME="Garments of Darkness",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="5"},
 	-- {ID="5165",NAME="Garments of Spirituality",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="5"},
@@ -113,13 +95,7 @@ local classAttunes = {
 	-- {ID="5204",NAME="A Warning",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Both",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	-- {ID="5205",NAME="The Balance of Light and Shadow",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Both",ICON="Interface\\Icons\\spell_holy_wordfortitude", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 
-    -- -- {ID="5206",NAME="Encrypted Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-    -- -- {ID="5207",NAME="Encrypted Memorandum",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5208",NAME="Encrypted Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Horde",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5209",NAME="Encrypted Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5210",NAME="Encrypted Scroll",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Horde",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5211",NAME="Encrypted Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5212",NAME="Encrypted Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Horde",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- -- ROGUE
 	-- {ID="5213",NAME="Destiny Calls",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	-- {ID="5214",NAME="Onin's Report",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Alliance",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	-- {ID="5215",NAME="Rokar's Test",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
@@ -136,9 +112,7 @@ local classAttunes = {
 	-- {ID="5226",NAME="Junkboxes Needed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-60"},
 	-- {ID="5227",NAME="The Azure Key",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\ability_stealth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	
-    -- -- {ID="5228",NAME="Rune-Inscribed Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5229",NAME="Rune-Inscribed Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5230",NAME="Rune-Inscribed Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- -- SHAMAN
 	-- {ID="5231",NAME="Earth Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
 	-- {ID="5232",NAME="Earth Sapta (Call of Earth)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
 	-- {ID="5233",NAME="Fire Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-13"},
@@ -151,50 +125,34 @@ local classAttunes = {
 	-- {ID="5240",NAME="The Darkreaver Menace",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	-- {ID="5241",NAME="The Darkreaver Menace (Material Assistance)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	
-    -- -- {ID="5242",NAME="Beginnings",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1-4"},
-	-- -- {ID="5243",NAME="Piercing the Veil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1-3"},
-	-- -- {ID="5244",NAME="Tainted Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5245",NAME="Tainted Memorandum",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5246",NAME="Tainted Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5247",NAME="Tainted Scroll",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5248",NAME="The Stolen Tome",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1-4"},
-	-- -- {ID="5249",NAME="Vile Familiars",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1-4"},
-	-- -- {ID="5250",NAME="Warlock Training",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5251",NAME="Windows to the Source",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- {ID="5252",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	-- {ID="5253",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
-	-- {ID="5255",NAME="Hearts of the Lovers",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5256",NAME="Love Hurts",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5257",NAME="The Binding (Gakin's Summons)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5258",NAME="The Binding (65603)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5259",NAME="The Binding (65604)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5260",NAME="The Binding (65597)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5261",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5262",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5263",NAME="The Orb of Soran'ruk",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
-	-- {ID="5264",NAME="What Is Love?",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5265",NAME="Wish You Were Here",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	-- {ID="5266",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	-- {ID="5267",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	-- {ID="5268",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
-	-- {ID="5269",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
-	-- {ID="5270",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
-	-- {ID="5271",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
-	-- {ID="5272",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	-- {ID="5273",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	-- {ID="5274",NAME="Kroshius' Infernal Core",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-55"},
-	-- {ID="5275",NAME="Trolls of a Feather",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
-	-- {ID="5276",NAME="Dreadsteed of Xoroth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
-	-- {ID="5277",NAME="Suppression",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+    -- -- WARLOCK
+	{ID="5252",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5253",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
+	{ID="5255",NAME="Hearts of the Lovers",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5256",NAME="Love Hurts",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5257",NAME="The Binding (Gakin's Summons)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5258",NAME="The Binding (65603)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5259",NAME="The Binding (65604)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5260",NAME="The Binding (65597)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5261",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5262",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5263",NAME="The Orb of Soran'ruk",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
+	{ID="5264",NAME="What Is Love?",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5265",NAME="Wish You Were Here",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5266",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5267",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5268",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
+	{ID="5269",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
+	{ID="5270",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
+	{ID="5271",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
+	{ID="5272",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5273",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5274",NAME="Kroshius' Infernal Core",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-55"},
+	{ID="5275",NAME="Trolls of a Feather",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
+	{ID="5276",NAME="Dreadsteed of Xoroth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+	{ID="5277",NAME="Suppression",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
-    -- -- {ID="5278",NAME="Simple Letter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5279",NAME="Simple Memorandum",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5280",NAME="Simple Note",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5281",NAME="Simple Parchment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5282",NAME="Simple Rune",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5283",NAME="Simple Scroll",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5284",NAME="Simple Sigil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
-	-- -- {ID="5285",NAME="Simple Tablet",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
+    -- -- WARRIOR
 	-- {ID="5286",NAME="Dead-tooth Jack",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	-- {ID="5287",NAME="Forged Steel",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	-- {ID="5288",NAME="Grey Iron Weapons",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
@@ -455,65 +413,58 @@ local classSteps = {
 	{ID_ATTUNE="5126",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Warsong Gulch"],ID_WOWHEAD="8328",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Mage Training
 	{ID_ATTUNE="5126",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="20",STAGE="30"},
 
-	{ID_ATTUNE="5127",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5127",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1883",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Un'thuwa
-	{ID_ATTUNE="5127",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1884",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Ju-Ju Heaps
-	{ID_ATTUNE="5127",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="30",STAGE="40"},
-
 	{ID_ATTUNE="5128",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5128",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1879",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Bink
-	{ID_ATTUNE="5128",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Mage-tastic Gizmonitor
-	{ID_ATTUNE="5128",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="5128",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1860",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Jennea
+	{ID_ATTUNE="5128",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1879",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Bink
+	{ID_ATTUNE="5128",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="93791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Belann
+	{ID_ATTUNE="5128",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1861",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Mirror Lake
+	{ID_ATTUNE="5128",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Mage-tastic Gizmonitor
+	{ID_ATTUNE="5128",ID="32",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="93797",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22",STAGE="30"}, -- Boughs in the Wind
+	{ID_ATTUNE="5128",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="32|31|30",STAGE="40"},
 
-	{ID_ATTUNE="5129",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5129",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1860",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Jennea
-	{ID_ATTUNE="5129",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1861",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Mirror Lake
-	{ID_ATTUNE="5129",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="30",STAGE="40"},
-
-	{ID_ATTUNE="5130",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5130",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1881",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Anastasia
-	{ID_ATTUNE="5130",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1882",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Balnir Farmstead
-	{ID_ATTUNE="5130",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="5127",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5127",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1881",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true }, -- Speak with Anastasia
+	{ID_ATTUNE="5127",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1883",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Speak with Un'thuwa
+	{ID_ATTUNE="5127",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1882",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Balnir Farmstead
+	{ID_ATTUNE="5127",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1884",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Ju-Ju Heaps
+	{ID_ATTUNE="5127",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="31|30",STAGE="40"},
 
 	{ID_ATTUNE="5131",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 15",LOCATION="",ID_WOWHEAD="15",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5131",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1919",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Report to Jennea
 	{ID_ATTUNE="5131",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1920",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Investigate the Blue Recluse
 	{ID_ATTUNE="5131",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Gathering Materials
 	{ID_ATTUNE="5131",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1941",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Manaweave Robe
-	{ID_ATTUNE="5131",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5131",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_36",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5132",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 15",LOCATION="",ID_WOWHEAD="15",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5132",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Report to Anastasia
 	{ID_ATTUNE="5132",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1960",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Investigate the Alchemist Shop
 	{ID_ATTUNE="5132",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Gathering Materials
 	{ID_ATTUNE="5132",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Spellfire Robes
-	{ID_ATTUNE="5132",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5132",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_18",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5133",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 26",LOCATION="",ID_WOWHEAD="26",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5133",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1939",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- High Sorcerer Andromath
 	{ID_ATTUNE="5133",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1938",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Ur's Treatise on Shadow Magic
 	{ID_ATTUNE="5133",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1940",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Pristine Spider Silk
 	{ID_ATTUNE="5133",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1942",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Astral Knot Garment
-	{ID_ATTUNE="5133",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5133",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_04",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5134",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 26",LOCATION="",ID_WOWHEAD="26",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5134",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1943",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Deino
 	{ID_ATTUNE="5134",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1944",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Waters of Xavian
 	{ID_ATTUNE="5134",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1945",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Laughing Sisters
 	{ID_ATTUNE="5134",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1946",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Nether-lace Garment
-	{ID_ATTUNE="5134",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="50",STAGE="60"},
-
-	{ID_ATTUNE="5135",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5135",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1948",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Items of Power
-	{ID_ATTUNE="5135",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5134",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_20",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5136",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5136",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1947",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Journey to the Marsh
-	{ID_ATTUNE="5136",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Hidden Secrets
-	{ID_ATTUNE="5136",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1950",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Get the Scoop
-	{ID_ATTUNE="5136",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Rituals of Power
-	{ID_ATTUNE="5136",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1952",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Mage's Wand
-	{ID_ATTUNE="5136",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5136",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1948",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Items of Power
+	{ID_ATTUNE="5136",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Hidden Secrets
+	{ID_ATTUNE="5136",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1950",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Get the Scoop
+	{ID_ATTUNE="5136",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Rituals of Power
+	{ID_ATTUNE="5136",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1952",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Mage's Wand
+	{ID_ATTUNE="5136",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_wand_09",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5137",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 35",LOCATION="",ID_WOWHEAD="35",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5137",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1953",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Return to the Marsh
@@ -522,19 +473,21 @@ local classSteps = {
 	{ID_ATTUNE="5137",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1956",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Power in Uldaman
 	{ID_ATTUNE="5137",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1957",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Mana Surges
 	{ID_ATTUNE="5137",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1958",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Celestial Power
-	{ID_ATTUNE="5137",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="5137",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5138",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5138",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8250",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Magecraft
 	{ID_ATTUNE="5138",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8251",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Magic Dust
 	{ID_ATTUNE="5138",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8252",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Siren's Coral
-	{ID_ATTUNE="5138",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Destroy Morphaz
-	{ID_ATTUNE="5138",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5138",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Destroy Morphaz
+	{ID_ATTUNE="5138",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20085",ICON="Interface\\Icons\\inv_misc_gem_topaz_03",FOLLOWS="50",STAGE="60"}, -- Arcane Shard
+	{ID_ATTUNE="5138",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Destroy Morphaz
+	{ID_ATTUNE="5138",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_topaz_03",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5139",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5139",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="9362",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Warlord Krellian
 	{ID_ATTUNE="5139",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="9364",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Fragmented Magic
-	{ID_ATTUNE="5139",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="5139",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_magic_polymorphpig",FOLLOWS="30",STAGE="40"},
 
 	{ID_ATTUNE="5140",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 1",LOCATION="",ID_WOWHEAD="1",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5140",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="3101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Consecrated Letter
@@ -1114,10 +1067,10 @@ local classSteps = {
 	{ID_ATTUNE="5253",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5253",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1478",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Halgar's Summons
 	{ID_ATTUNE="5253",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Gan'rul's Summons
-	{ID_ATTUNE="5253",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1473",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Creature of the Void
-	{ID_ATTUNE="5253",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Creature of the Void
-	{ID_ATTUNE="5253",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1471",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31|30",STAGE="40"}, -- The Binding
-	{ID_ATTUNE="5253",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1504",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31|30",STAGE="40"}, -- The Binding
+	{ID_ATTUNE="5253",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1473",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Creature of the Void
+	{ID_ATTUNE="5253",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Creature of the Void
+	{ID_ATTUNE="5253",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1471",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Binding
+	{ID_ATTUNE="5253",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1504",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Binding
 	{ID_ATTUNE="5253",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="41|40",STAGE="50"},
 
 	{ID_ATTUNE="5255",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1544,6 +1497,8 @@ local classQuestInfo = {
 	[1861]={10,1},
 	[1881]={10,1},
 	[1882]={10,1},
+	[93791]={10,1},
+	[93797]={10,1},
 	[1919]={15,1},
 	[1920]={15,1},
 	[1921]={15,1},
@@ -2085,14 +2040,16 @@ local classQuestGivers = {
 	[3114] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
 	[3098] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
 	[3086] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[1883] = {1411, nil, nil, "Uthel'nay"}, -- Uthel'nay
-	[1884] = {1411, nil, nil, "Un'Thuwa"}, -- Un'Thuwa
-	[1879] = {1426, nil, nil, "Magis Sparkmantle"}, -- Magis Sparkmantle
-	[1880] = {1426, nil, nil, "Bink"}, -- Bink
-	[1860] = {1429, nil, nil, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt
-	[1861] = {1453, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
-	[1881] = {1420, nil, nil, "Cain Firesong"}, -- Cain Firesong
-	[1882] = {1420, nil, nil, "Anastasia Hartwell"}, -- Anastasia Hartwell
+	[1883] = {1454, 39, 86, "Uthel'nay"}, -- Uthel'nay, Orgrimmar (also Thurston Xane, Thunder Bluff 25, 20.6)
+	[1884] = {1411, 56.2, 75, "Un'Thuwa"}, -- Un'Thuwa, Sen'jin Village
+	[1879] = {1426, 47.4, 52, "Magis Sparkmantle"}, -- Magis Sparkmantle, Kharanos
+	[1880] = {1455, 27, 8.2, "Bink"}, -- Bink, Ironforge
+	[1860] = {1429, 43.2, 66.2, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt, Goldshire
+	[1861] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind
+	[1881] = {1420, 61.8, 52.4, "Cain Firesong"}, -- Cain Firesong, Brill
+	[1882] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
+	[93791] = {2991, 65.8, 80.4, "Anathamaas Aetherwind"}, -- Anathamaas Aetherwind, Valanaar
+	[93797] = {2991, 62.8, 77.4, "Belann Windwood"}, -- Belann Windwood, Valanaar
 	[1919] = {1429, nil, nil, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt
 	[1920] = {1453, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
 	[1921] = {1429, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
@@ -2109,7 +2066,7 @@ local classQuestGivers = {
 	[1944] = {1411, nil, nil, "Deino"}, -- Deino
 	[1945] = {1413, nil, nil, "Deino"}, -- Deino
 	[1946] = {1413, nil, nil, "Kil'hala"}, -- Kil'hala
-	[1948] = {1445, nil, nil, "Tabetha"}, -- Tabetha
+	[1948] = {1445, 46.0, 57.0, "Tabetha"}, -- Tabetha, Dustwallow Marsh
 	[1947] = {1445, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
 	[1949] = {1441, nil, nil, "Tabetha"}, -- Tabetha
 	[1950] = {1441, nil, nil, "Magus Tirth"}, -- Magus Tirth
