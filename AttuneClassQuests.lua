@@ -126,27 +126,22 @@ local classAttunes = {
 	-- {ID="5241",NAME="The Darkreaver Menace (Material Assistance)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	
     -- -- WARLOCK
-	{ID="5252",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5253",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
-	{ID="5255",NAME="Hearts of the Lovers",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5256",NAME="Love Hurts",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5252",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5253",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
 	{ID="5257",NAME="The Binding (Gakin's Summons)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5258",NAME="The Binding (65603)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5259",NAME="The Binding (65604)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5260",NAME="The Binding (65597)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5261",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5262",NAME="The Binding (Devourer of Souls)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5263",NAME="The Orb of Soran'ruk",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
+	{ID="5261",NAME="Succubus",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_summonsuccubus", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5259",NAME="Incubus",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\ability_warlock_incubus", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5263",NAME="The Orb of Soran'ruk",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\inv_misc_orb_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
 	{ID="5264",NAME="What Is Love?",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5265",NAME="Wish You Were Here",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5266",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	{ID="5267",NAME="The Binding (Seeking Strahad)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5266",NAME="Felhunter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_summonfelhunter", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5267",NAME="Felhunter",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_summonfelhunter", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
 	{ID="5268",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
-	{ID="5269",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
-	{ID="5270",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
-	{ID="5271",NAME="Shard of a Felhound",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
-	{ID="5272",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	{ID="5273",NAME="Summon Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5269",NAME="The Completed Robe",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_cloth_25", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="31-38"},
+	{ID="5270",NAME="The Orb of Dar'Orahil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_orb_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
+	{ID="5271",NAME="The Orb of Dar'Orahil",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\inv_misc_orb_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35-40"},
+	{ID="5272",NAME="Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_swiftness", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5273",NAME="Felsteed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_swiftness", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
 	{ID="5274",NAME="Kroshius' Infernal Core",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-55"},
 	{ID="5275",NAME="Trolls of a Feather",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50-52"},
 	{ID="5276",NAME="Dreadsteed of Xoroth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_metamorphosis", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
@@ -175,9 +170,9 @@ local classSteps = {
 	{ID_ATTUNE="5102",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5103",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5103",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
-	{ID_ATTUNE="5103",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
-	{ID_ATTUNE="5103",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5925",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
+	{ID_ATTUNE="5103",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5103",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5103",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5925",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5103",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20|22",STAGE="30"}, -- Moonglade
 	{ID_ATTUNE="5103",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Great Bear Spirit
 	{ID_ATTUNE="5103",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5931",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Darnassus
@@ -185,9 +180,9 @@ local classSteps = {
 	{ID_ATTUNE="5103",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5104",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5104",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
-	{ID_ATTUNE="5104",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5927",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
-	{ID_ATTUNE="5104",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="5928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Heeding the Call
+	{ID_ATTUNE="5104",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5104",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5927",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5104",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="5928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5104",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Moonglade
 	{ID_ATTUNE="5104",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5930",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Great Bear Spirit
 	{ID_ATTUNE="5104",ID="50",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="5932",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Thunder Bluff
@@ -230,8 +225,8 @@ local classSteps = {
 
 	{ID_ATTUNE="5297",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5297",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="98393",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Great Cat Spirit
-	{ID_ATTUNE="5297",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Cat Spirit
-	{ID_ATTUNE="5297",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Windborne Cat Spirit
+	{ID_ATTUNE="5297",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30", OR=true}, -- The Great Cat Spirit
+	{ID_ATTUNE="5297",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30", OR=true}, -- The Great Windborne Cat Spirit
 	{ID_ATTUNE="5297",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98396",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Great Cat Spirit
 	{ID_ATTUNE="5297",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Great Windborne Cat Spirit
 	{ID_ATTUNE="5297",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Fang
@@ -244,8 +239,8 @@ local classSteps = {
 
 	{ID_ATTUNE="5298",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5298",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="98340",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Great Cat Spirit
-	{ID_ATTUNE="5298",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98405",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Cat Spirit
-	{ID_ATTUNE="5298",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Great Windborne Cat Spirit
+	{ID_ATTUNE="5298",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98405",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30", OR=true}, -- The Great Cat Spirit
+	{ID_ATTUNE="5298",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30", OR=true}, -- The Great Windborne Cat Spirit
 	{ID_ATTUNE="5298",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Great Cat Spirit
 	{ID_ATTUNE="5298",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="98404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Great Windborne Cat Spirit
 	{ID_ATTUNE="5298",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="280502",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="40|41",STAGE="45"}, -- Relic of the Fang
@@ -291,13 +286,13 @@ local classSteps = {
 
 	{ID_ATTUNE="5115",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- Dwarf: The Hunter's Path (any one) → Grif Wildheart in Kharanos
-	{ID_ATTUNE="5115",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6074",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5115",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6075",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5115",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6076",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6074",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6075",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6076",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
 	-- Night elf: The Hunter's Path (any one) → Dazalar in Dolanaar
-	{ID_ATTUNE="5115",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6071",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5115",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6072",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5115",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6073",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6071",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6072",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5115",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6073",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
 	{ID_ATTUNE="5115",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="6064",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23|22|21|20",STAGE="30"}, -- Taming the Beast (Large Crag Boar)
     {ID_ATTUNE="5115",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="5115",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
@@ -318,13 +313,13 @@ local classSteps = {
 
 	{ID_ATTUNE="5117",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- Tauren: The Hunter's Path (any one) → Yaw Sharpmane in Bloodhoof Village
-	{ID_ATTUNE="5117",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
 	-- Orc/Troll: The Hunter's Path (any one) → Thotar at Razor Hill
-	{ID_ATTUNE="5117",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6068",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
-	{ID_ATTUNE="5117",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6068",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
+	{ID_ATTUNE="5117",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="6070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Hunter's Path
 	{ID_ATTUNE="5117",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="6061",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Taming the Beast (Adult Plainstrider)
     {ID_ATTUNE="5117",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="5117",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
@@ -414,17 +409,17 @@ local classSteps = {
 	{ID_ATTUNE="5126",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5128",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5128",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1860",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Jennea
-	{ID_ATTUNE="5128",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1879",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Bink
-	{ID_ATTUNE="5128",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="93791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Belann
+	{ID_ATTUNE="5128",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1860",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",OR=true}, -- Speak with Jennea
+	{ID_ATTUNE="5128",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1879",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",OR=true}, -- Speak with Bink
+	{ID_ATTUNE="5128",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="93791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",OR=true}, -- Speak with Belann
 	{ID_ATTUNE="5128",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1861",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Mirror Lake
 	{ID_ATTUNE="5128",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Mage-tastic Gizmonitor
 	{ID_ATTUNE="5128",ID="32",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="93797",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22",STAGE="30"}, -- Boughs in the Wind
 	{ID_ATTUNE="5128",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="32|31|30",STAGE="40"},
 
 	{ID_ATTUNE="5127",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5127",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1881",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true }, -- Speak with Anastasia
-	{ID_ATTUNE="5127",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1883",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Speak with Un'thuwa
+	{ID_ATTUNE="5127",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1881",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",OR=true}, -- Speak with Anastasia
+	{ID_ATTUNE="5127",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1883",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",OR=true}, -- Speak with Un'thuwa
 	{ID_ATTUNE="5127",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1882",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Balnir Farmstead
 	{ID_ATTUNE="5127",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1884",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Ju-Ju Heaps
 	{ID_ATTUNE="5127",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_staff_13",FOLLOWS="31|30",STAGE="40"},
@@ -528,15 +523,15 @@ local classSteps = {
 	{ID_ATTUNE="5145",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="90",STAGE="100"},
 
 	{ID_ATTUNE="5146",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5146",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="2998",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Tome of Divinity
-	{ID_ATTUNE="5146",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="3681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Tome of Divinity
+	{ID_ATTUNE="5146",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="2998",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5146",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="3681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
 	{ID_ATTUNE="5146",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1641",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20|21",STAGE="30"}, -- The Tome of Divinity
 	{ID_ATTUNE="5146",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="30",STAGE="40"},
 
 	{ID_ATTUNE="5147",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5147",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Tome of Divinity
-	{ID_ATTUNE="5147",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2999",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Tome of Divinity
-	{ID_ATTUNE="5147",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="3000",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Tome of Divinity
+	{ID_ATTUNE="5147",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5147",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2999",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5147",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="3000",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
 	{ID_ATTUNE="5147",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- The Tome of Divinity
 	{ID_ATTUNE="5147",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="30",STAGE="40"},
 
@@ -700,12 +695,12 @@ local classSteps = {
 	{ID_ATTUNE="5180",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_wordfortitude",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5181",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5181",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5628",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
-	{ID_ATTUNE="5181",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5629",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
-	{ID_ATTUNE="5181",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5630",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
-	{ID_ATTUNE="5181",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
-	{ID_ATTUNE="5181",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5632",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
-	{ID_ATTUNE="5181",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5633",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Returning Home
+	{ID_ATTUNE="5181",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5628",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
+	{ID_ATTUNE="5181",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5629",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
+	{ID_ATTUNE="5181",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5630",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
+	{ID_ATTUNE="5181",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
+	{ID_ATTUNE="5181",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5632",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
+	{ID_ATTUNE="5181",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5633",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Returning Home
 	{ID_ATTUNE="5181",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5627",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23|25|24|22|21|20",STAGE="30"}, -- Stars of Elune
 	{ID_ATTUNE="5181",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_wordfortitude",FOLLOWS="30",STAGE="40"},
 
@@ -885,8 +880,8 @@ local classSteps = {
 	{ID_ATTUNE="5220",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5221",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 16",LOCATION="",ID_WOWHEAD="16",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5221",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2378",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Find the Shattered Hand
-	{ID_ATTUNE="5221",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2380",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- To Orgrimmar!
+	{ID_ATTUNE="5221",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2378",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Find the Shattered Hand
+	{ID_ATTUNE="5221",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2380",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- To Orgrimmar!
 	{ID_ATTUNE="5221",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2379",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Zando'zan
 	{ID_ATTUNE="5221",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="2382",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Wrenix of Ratchet
 	{ID_ATTUNE="5221",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="2381",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Plundering the Plunderers
@@ -956,10 +951,10 @@ local classSteps = {
 	{ID_ATTUNE="5232",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="40&41",STAGE="50"},
 
 	{ID_ATTUNE="5233",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5233",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Fire
-	{ID_ATTUNE="5233",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Fire
-	{ID_ATTUNE="5233",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="2983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Fire
-	{ID_ATTUNE="5233",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Fire
+	{ID_ATTUNE="5233",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Fire
+	{ID_ATTUNE="5233",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Fire
+	{ID_ATTUNE="5233",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="2983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Fire
+	{ID_ATTUNE="5233",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Fire
 	{ID_ATTUNE="5233",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1524",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20|22|23",STAGE="30"}, -- Call of Fire
 	{ID_ATTUNE="5233",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1525",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Fire
 	{ID_ATTUNE="5233",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Fire
@@ -968,10 +963,10 @@ local classSteps = {
 	{ID_ATTUNE="5233",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="61&60",STAGE="70"},
 
 	{ID_ATTUNE="5234",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5234",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Water
-	{ID_ATTUNE="5234",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Water
-	{ID_ATTUNE="5234",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2985",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Water
-	{ID_ATTUNE="5234",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2986",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Water
+	{ID_ATTUNE="5234",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Water
+	{ID_ATTUNE="5234",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Water
+	{ID_ATTUNE="5234",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2985",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Water
+	{ID_ATTUNE="5234",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2986",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Water
 	{ID_ATTUNE="5234",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1530",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20|23|22",STAGE="30"}, -- Call of Water
 	{ID_ATTUNE="5234",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1535",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Water
 	{ID_ATTUNE="5234",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1536",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Water
@@ -1058,28 +1053,20 @@ local classSteps = {
 	{ID_ATTUNE="5251",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5252",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5252",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1685",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Gakin's Summons
-	{ID_ATTUNE="5252",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1715",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Slaughtered Lamb
+	{ID_ATTUNE="5252",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1685",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Gakin's Summons
+	{ID_ATTUNE="5252",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1715",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Slaughtered Lamb
 	{ID_ATTUNE="5252",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1688",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Surena Caledon
 	{ID_ATTUNE="5252",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1689",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Binding
-	{ID_ATTUNE="5252",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="5252",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="40",STAGE="50"},
 
 	{ID_ATTUNE="5253",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5253",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1478",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Halgar's Summons
-	{ID_ATTUNE="5253",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Gan'rul's Summons
+	{ID_ATTUNE="5253",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1478",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Halgar's Summons
+	{ID_ATTUNE="5253",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Gan'rul's Summons
 	{ID_ATTUNE="5253",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1473",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Creature of the Void
 	{ID_ATTUNE="5253",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Creature of the Void
 	{ID_ATTUNE="5253",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1471",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Binding
 	{ID_ATTUNE="5253",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1504",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Binding
-	{ID_ATTUNE="5253",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="41|40",STAGE="50"},
-
-	{ID_ATTUNE="5255",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5255",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65593",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Hearts of the Lovers
-	{ID_ATTUNE="5255",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5256",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5256",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Love Hurts
-	{ID_ATTUNE="5256",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5253",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker",FOLLOWS="41|40",STAGE="50"},
 
 	{ID_ATTUNE="5257",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5257",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1717",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Gakin's Summons
@@ -1092,42 +1079,46 @@ local classSteps = {
 	{ID_ATTUNE="5258",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65603",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Binding
 	{ID_ATTUNE="5258",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
 
+	-- Either chain summons the incubus. Undercity is the short path; Orgrimmar continues one step further.
 	{ID_ATTUNE="5259",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5259",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Binding
-	{ID_ATTUNE="5259",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5260",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5260",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65597",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Binding
-	{ID_ATTUNE="5260",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5259",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="65593",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Hearts of the Lovers
+	{ID_ATTUNE="5259",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="65601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Love Hurts
+	{ID_ATTUNE="5259",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="65597",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Binding
+	{ID_ATTUNE="5259",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="65610",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Wish You Were Here
+	{ID_ATTUNE="5259",ID="40",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="30",STAGE="40"},
+	{ID_ATTUNE="5259",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="65604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- The Binding
+	{ID_ATTUNE="5259",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warlock_incubus",FOLLOWS="40|41",STAGE="50"},
 
 	{ID_ATTUNE="5261",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5261",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1472",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Devourer of Souls
+	-- Undead (right) or Orc/Troll (left). Either chain's The Binding completes the attunement.
+	{ID_ATTUNE="5261",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1472",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Devourer of Souls
+	{ID_ATTUNE="5261",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1507",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Devourer of Souls
 	{ID_ATTUNE="5261",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1476",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Hearts of the Pure
+	{ID_ATTUNE="5261",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1508",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Blind Cazul
 	{ID_ATTUNE="5261",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1474",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Binding
-	{ID_ATTUNE="5261",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="40",STAGE="50"},
-
-	{ID_ATTUNE="5262",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5262",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1507",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Devourer of Souls
-	{ID_ATTUNE="5262",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1508",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Blind Cazul
-	{ID_ATTUNE="5262",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1509",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- News of Dogran
-	{ID_ATTUNE="5262",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="1510",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- News of Dogran
-	{ID_ATTUNE="5262",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1511",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Ken'zigla's Draught
-	{ID_ATTUNE="5262",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Dogran's Captivity
-	{ID_ATTUNE="5262",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1512",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Love's Gift
-	{ID_ATTUNE="5262",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1513",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- The Binding
-	{ID_ATTUNE="5262",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="5261",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1509",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- News of Dogran
+	{ID_ATTUNE="5261",ID="50",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="5261",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="1510",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="41",STAGE="50"}, -- News of Dogran
+	{ID_ATTUNE="5261",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5261",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1511",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51",STAGE="60"}, -- Ken'zigla's Draught
+	{ID_ATTUNE="5261",ID="70",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5261",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61",STAGE="70"}, -- Dogran's Captivity
+	{ID_ATTUNE="5261",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="5261",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1512",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- Love's Gift
+	{ID_ATTUNE="5261",ID="90",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="80",STAGE="90"},
+	{ID_ATTUNE="5261",ID="91",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="1513",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="81",STAGE="90"}, -- The Binding
+	{ID_ATTUNE="5261",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_summonsuccubus",FOLLOWS="90|91",STAGE="100"},
 
 	{ID_ATTUNE="5263",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5263",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1740",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Orb of Soran'ruk
-	{ID_ATTUNE="5263",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5263",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1740",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Orb of Soran'ruk
+	{ID_ATTUNE="5263",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="6914",ICON="Interface\\Icons\\inv_misc_orb_04",FOLLOWS="20",STAGE="30", COUNT=3}, -- Soran'ruk Fragment
+	{ID_ATTUNE="5263",ID="31",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6915",ICON="Interface\\Icons\\inv_misc_orb_01",FOLLOWS="20",STAGE="30"}, -- Large Soran'ruk Fragment
+	{ID_ATTUNE="5263",ID="40",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1740",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30&31",STAGE="40"}, -- The Orb of Soran'ruk
+	{ID_ATTUNE="5263",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="40",STAGE="50"},
 
 	{ID_ATTUNE="5264",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5264",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- What Is Love?
 	{ID_ATTUNE="5264",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5265",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5265",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="65610",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Wish You Were Here
-	{ID_ATTUNE="5265",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5266",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5266",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1798",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Seeking Strahad
@@ -1135,74 +1126,76 @@ local classSteps = {
 	{ID_ATTUNE="5266",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Tome of the Cabal
 	{ID_ATTUNE="5266",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1804",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Tome of the Cabal
 	{ID_ATTUNE="5266",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1795",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Binding
-	{ID_ATTUNE="5266",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5266",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5267",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5267",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2996",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Seeking Strahad
-	{ID_ATTUNE="5267",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="3001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Seeking Strahad
+	{ID_ATTUNE="5267",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="2996",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Seeking Strahad
+	{ID_ATTUNE="5267",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="3001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Seeking Strahad
 	{ID_ATTUNE="5267",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1801",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Tome of the Cabal
 	{ID_ATTUNE="5267",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1803",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Tome of the Cabal
 	{ID_ATTUNE="5267",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1805",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Tome of the Cabal
 	{ID_ATTUNE="5267",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1795",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Binding
-	{ID_ATTUNE="5267",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5267",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5268",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 31",LOCATION="",ID_WOWHEAD="31",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5268",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4737",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- In Search of Menara Voidrender
-	{ID_ATTUNE="5268",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4738",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- In Search of Menara Voidrender
+	{ID_ATTUNE="5268",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4736",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- In Search of Menara Voidrender
+	{ID_ATTUNE="5268",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4738",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- In Search of Menara Voidrender
 	{ID_ATTUNE="5268",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1796",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5268",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="4781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5268",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4782",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5268",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4783",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5268",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4784",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Components for the Enchanted Gold Bloodrobe
-	{ID_ATTUNE="5268",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="4785",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Fine Gold Thread
 	{ID_ATTUNE="5268",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Completed Robe
-	{ID_ATTUNE="5268",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="80&71",STAGE="90"},
+	{ID_ATTUNE="5268",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_25",FOLLOWS="80",STAGE="90"},
 
 	{ID_ATTUNE="5269",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 31",LOCATION="",ID_WOWHEAD="31",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5269",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4736",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- In Search of Menara Voidrender
-	{ID_ATTUNE="5269",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4739",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- In Search of Menara Voidrender
+	{ID_ATTUNE="5269",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4737",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- In Search of Menara Voidrender
+	{ID_ATTUNE="5269",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4739",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- In Search of Menara Voidrender
 	{ID_ATTUNE="5269",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1796",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5269",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="4781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5269",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4782",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5269",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4783",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Components for the Enchanted Gold Bloodrobe
 	{ID_ATTUNE="5269",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4784",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Components for the Enchanted Gold Bloodrobe
-	{ID_ATTUNE="5269",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="4785",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Fine Gold Thread
-	{ID_ATTUNE="5269",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Completed Robe
-	{ID_ATTUNE="5269",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="80&71",STAGE="90"},
+		{ID_ATTUNE="5269",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Completed Robe
+	{ID_ATTUNE="5269",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_cloth_25",FOLLOWS="80",STAGE="90"},
 
 	{ID_ATTUNE="5270",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 35",LOCATION="",ID_WOWHEAD="35",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5270",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4965",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Knowledge of the Orb of Orahil
-	{ID_ATTUNE="5270",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4967",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Knowledge of the Orb of Orahil
+	{ID_ATTUNE="5270",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4965",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Knowledge of the Orb of Orahil
+	{ID_ATTUNE="5270",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4967",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Knowledge of the Orb of Orahil
 	{ID_ATTUNE="5270",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1799",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Fragments of the Orb of Orahil
-	{ID_ATTUNE="5270",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Cleansing of the Orb of Orahil
-	{ID_ATTUNE="5270",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Shard of a Felhound
-	{ID_ATTUNE="5270",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4963",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Shard of an Infernal
-	{ID_ATTUNE="5270",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Returning the Cleansed Orb
+	{ID_ATTUNE="5270",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40", OR=true}, -- Shard of a Felhound
+	{ID_ATTUNE="5270",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4963",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40", OR=true}, -- Shard of an Infernal
+	{ID_ATTUNE="5270",ID="45",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="45"}, -- Cleansing of the Orb of Orahil
+	{ID_ATTUNE="5270",ID="46",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="45"}, -- Cleansing of the Orb of Orahil
+    {ID_ATTUNE="5270",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45",STAGE="50"}, -- Returning the Cleansed Orb
+    {ID_ATTUNE="5270",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="46",STAGE="50"}, -- Returning the Cleansed Orb
 	{ID_ATTUNE="5270",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4964",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Completed Orb of Dar'Orahil
-	{ID_ATTUNE="5270",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Completed Orb of Noh'Orahil
+	{ID_ATTUNE="5270",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51",STAGE="60"}, -- The Completed Orb of Noh'Orahil
 	{ID_ATTUNE="5270",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="61&42&60&41",STAGE="70"},
 
 	{ID_ATTUNE="5271",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 35",LOCATION="",ID_WOWHEAD="35",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5271",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Knowledge of the Orb of Orahil
-	{ID_ATTUNE="5271",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4969",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Knowledge of the Orb of Orahil
+	{ID_ATTUNE="5271",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Knowledge of the Orb of Orahil
+	{ID_ATTUNE="5271",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4969",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Knowledge of the Orb of Orahil
 	{ID_ATTUNE="5271",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="1799",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Fragments of the Orb of Orahil
-	{ID_ATTUNE="5271",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Cleansing of the Orb of Orahil
-	{ID_ATTUNE="5271",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Shard of a Felhound
-	{ID_ATTUNE="5271",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4963",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Shard of an Infernal
-	{ID_ATTUNE="5271",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Returning the Cleansed Orb
+	{ID_ATTUNE="5271",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40", OR=true}, -- Shard of a Felhound
+	{ID_ATTUNE="5271",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4963",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40", OR=true}, -- Shard of an Inferna
+    {ID_ATTUNE="5271",ID="45",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="41",STAGE="45"}, -- Cleansing of the Orb of Orahill
+    {ID_ATTUNE="5271",ID="46",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="4961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="42",STAGE="45"}, -- Cleansing of the Orb of Orahill
+	{ID_ATTUNE="5271",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45",STAGE="50"}, -- Returning the Cleansed Orb
+	{ID_ATTUNE="5271",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="46",STAGE="50"}, -- Returning the Cleansed Orb
 	{ID_ATTUNE="5271",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4964",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Completed Orb of Dar'Orahil
-	{ID_ATTUNE="5271",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Completed Orb of Noh'Orahil
-	{ID_ATTUNE="5271",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="61&42&60&41",STAGE="70"},
+	{ID_ATTUNE="5271",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="4975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51",STAGE="60"}, -- The Completed Orb of Noh'Orahil
+	{ID_ATTUNE="5271",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="61|60",STAGE="70"},
 
 	{ID_ATTUNE="5272",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5272",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Summon Felsteed
-	{ID_ATTUNE="5272",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Summon Felsteed
+	{ID_ATTUNE="5272",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Summon Felsteed
+	{ID_ATTUNE="5272",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Summon Felsteed
 	{ID_ATTUNE="5272",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Summon Felsteed
 	{ID_ATTUNE="5272",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="30",STAGE="40"},
 
 	{ID_ATTUNE="5273",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5273",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="3631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Summon Felsteed
-	{ID_ATTUNE="5273",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Summon Felsteed
+	{ID_ATTUNE="5273",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="3631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Summon Felsteed
+	{ID_ATTUNE="5273",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Summon Felsteed
 	{ID_ATTUNE="5273",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="4490",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20|21",STAGE="30"}, -- Summon Felsteed
 	{ID_ATTUNE="5273",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="30",STAGE="40"},
 
@@ -1213,8 +1206,8 @@ local classSteps = {
 	{ID_ATTUNE="5274",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="40",STAGE="50"},
 
 	{ID_ATTUNE="5275",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5275",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8419",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- An Imp's Request
-	{ID_ATTUNE="5275",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8420",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Hot and Itchy
+	{ID_ATTUNE="5275",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8419",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- An Imp's Request
+	{ID_ATTUNE="5275",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8420",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Hot and Itchy
 	{ID_ATTUNE="5275",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8421",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- The Wrong Stuff
 	{ID_ATTUNE="5275",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8422",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Trolls of a Feather
 	{ID_ATTUNE="5275",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="40",STAGE="50"},
@@ -2303,6 +2296,11 @@ local classQuestGivers = {
 	[1506] = {1454, nil, nil, "Ophek"}, -- Ophek
 	[1501] = {1454, nil, nil, "Gan'rul Bloodeye"}, -- Gan'rul Bloodeye
 	[1504] = {1454, nil, nil, "Gan'rul Bloodeye"}, -- Gan'rul Bloodeye
+	[65593] = {1458, 85, 14.8, "Godrick Farsan"}, -- Godrick Farsan, Undercity
+	[65597] = {1458, 85, 25.6, "Carendin Halgar"}, -- Carendin Halgar, Undercity
+	[65601] = {1454, 47.2, 46.6, "Cazul"}, -- Cazul, Orgrimmar
+	[65610] = {1454, 63.4, 50, "Magar"}, -- Magar, Orgrimmar
+	[65604] = {1454, 48.2, 45.6, "Gan'rul Bloodeye"}, -- Gan'rul Bloodeye, Orgrimmar
 	[1717] = {1429, nil, nil, "Lago Blackwrench"}, -- Lago Blackwrench
 	[1716] = {1413, nil, nil, "Gakin the Darkbinder"}, -- Gakin the Darkbinder
 	[1738] = {1429, nil, nil, "Takar the Seer"}, -- Takar the Seer
@@ -2318,7 +2316,7 @@ local classQuestGivers = {
 	[1515] = {1413, nil, nil, "Grunt Logmar"}, -- Grunt Logmar
 	[1512] = {1454, nil, nil, "Grunt Dogran"}, -- Grunt Dogran
 	[1513] = {1454, nil, nil, "Gan'rul Bloodeye"}, -- Gan'rul Bloodeye
-	[1740] = {1413, nil, nil, "Doan Karhan"}, -- Doan Karhan
+	[1740] = {1413, 49.2, 57.2, "Doan Karhan"}, -- Doan Karhan
 	[1798] = {1411, nil, nil, "Gakin the Darkbinder"}, -- Gakin the Darkbinder
 	[1758] = {1426, nil, nil, "Strahad Farsan"}, -- Strahad Farsan
 	[1802] = {1455, nil, nil, "Krom Stoutarm"}, -- Krom Stoutarm

@@ -178,9 +178,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="50",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="65",STAGE="70"},
 
 	{ID_ATTUNE="60",ID="5",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="5"},
-	{ID_ATTUNE="60",ID="10",TYPE="Rep",STEP=AttuneLang["Honored with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="9000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10"},
-	{ID_ATTUNE="60",ID="20",TYPE="Rep",STEP=AttuneLang["Revered with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="21000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10"},
-	{ID_ATTUNE="60",ID="30",TYPE="Rep",STEP=AttuneLang["Exalted with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="42000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10"},
+	{ID_ATTUNE="60",ID="10",TYPE="Rep",STEP=AttuneLang["Honored with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="9000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10", OR=true},
+	{ID_ATTUNE="60",ID="20",TYPE="Rep",STEP=AttuneLang["Revered with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="21000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10", OR=true},
+	{ID_ATTUNE="60",ID="30",TYPE="Rep",STEP=AttuneLang["Exalted with"].." "..AttuneLang["Argent Dawn"],LOCATION="529",ID_WOWHEAD="42000",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="5",STAGE="10", OR=true},
 	{ID_ATTUNE="60",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="9121",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Dread Citadel - Naxxramas
 	{ID_ATTUNE="60",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="9122",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="20"}, -- quest: The Dread Citadel - Naxxramas
 	{ID_ATTUNE="60",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="9123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="20"}, -- quest: The Dread Citadel - Naxxramas

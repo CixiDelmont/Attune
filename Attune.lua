@@ -8,6 +8,10 @@
 --
 -------------------------------------------------------------------------
 --
+-- 16001-29
+--   - Mage class quests added.
+--   - Warlock class quests added.
+--
 -- 16001-28
 --   - Scholomance quests added.
 --   - Stratholme quests added.
@@ -201,7 +205,6 @@ local function Attune_NodeWidth(step)
 end
 
 local attunelocal_Node_VGap = 30
-local attunelocal_OrExtra = 44			-- extra gap between steps joined by "|" so an OR label fits
 local attunelocal_Icon_Size = 32
 local attunelocal_Line_Thickness = 6
 local attunelocal_Side_Pad = 10			-- padding inside the Inside-quests box
@@ -2936,47 +2939,10 @@ function Attune_Select(attuneId)
 		end
 	end
 
-	-- Step ids that appear together in a "|" FOLLOWS are alternatives (any one is enough).
-	local orPair = {}
-	local function orKey(a, b)
-		if tonumber(a) > tonumber(b) then a, b = b, a end
-		return tostring(a).."|"..tostring(b)
-	end
-	for _, s in pairs(Attune_Data.steps) do
-		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE and s.FOLLOWS and string.find(s.FOLLOWS, "|", 1, true) then
-			local ids = Attune_split(s.FOLLOWS, "|")
-			for i = 1, #ids do
-				for j = i + 1, #ids do
-					orPair[orKey(ids[i], ids[j])] = true
-				end
-			end
-		end
-	end
-	local stageOrExtra = {}
-	local stageOrder = {}
-	for _, s in pairs(Attune_Data.steps) do
-		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE then
-			local list = stageOrder[s.STAGE]
-			if list == nil then
-				list = {}
-				stageOrder[s.STAGE] = list
-			end
-			table.insert(list, s)
-		end
-	end
-	for stage, list in pairs(stageOrder) do
-		table.sort(list, function(a, b) return tonumber(a.ID) > tonumber(b.ID) end)
-		local gaps = 0
-		for i = 1, #list - 1 do
-			if orPair[orKey(list[i].ID, list[i + 1].ID)] then gaps = gaps + 1 end
-		end
-		stageOrExtra[stage] = gaps * attunelocal_OrExtra
-	end
-
 	-- Half-width of the widest main stage (for pan limits); SIDE width added later
 	attunelocal_graphMaxExtent = 0
 	for stage, count in pairs(stageSteps) do
-		local rowW = stageWidthSum[stage] + math.max(0, count - 1) * attunelocal_Node_HGap + (stageOrExtra[stage] or 0)
+		local rowW = stageWidthSum[stage] + math.max(0, count - 1) * attunelocal_Node_HGap
 		local half = rowW / 2
 		if half > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = half end
 	end
@@ -2997,20 +2963,19 @@ function Attune_Select(attuneId)
 	local consumed = 0
 	local rightEdge = 0
 	local firstStage = true
-	local prevOnRow = nil
 	local rowPlaced = {}
 	local orLabels = {}
+	-- OR sits in the existing gap between neighboring steps on this stage that both have OR=true.
 	local function flushOrRow()
 		for i = 1, #rowPlaced - 1 do
 			local rightN = rowPlaced[i]
 			local leftN = rowPlaced[i + 1]
-			if orPair[orKey(rightN.id, leftN.id)] then
+			if rightN.orChoice and leftN.orChoice then
 				local midX = ((rightN.x - rightN.w / 2) + (leftN.x + leftN.w / 2)) / 2
 				orLabels[#orLabels + 1] = { x = midX, y = rightN.y }
 			end
 		end
 		rowPlaced = {}
-		prevOnRow = nil
 	end
 	for i, s in Attune_spairs(Attune_Data.steps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
 		if s.ID_ATTUNE == attuneId and showPatchStep(s) and not s.SIDE then
@@ -3019,7 +2984,7 @@ function Attune_Select(attuneId)
 				consumed = 0
 				curStage = s.STAGE
 				local count = stageSteps[s.STAGE]
-				local rowW = stageWidthSum[s.STAGE] + math.max(0, count - 1) * attunelocal_Node_HGap + (stageOrExtra[s.STAGE] or 0)
+				local rowW = stageWidthSum[s.STAGE] + math.max(0, count - 1) * attunelocal_Node_HGap
 				rightEdge = rowW / 2
 				if firstStage then
 					firstStage = false
@@ -3027,14 +2992,10 @@ function Attune_Select(attuneId)
 					yy = yy + attunelocal_Node_VGap + attunelocal_Node_Height
 				end
 			end
-			if prevOnRow and orPair[orKey(prevOnRow.ID, s.ID)] then
-				consumed = consumed + attunelocal_OrExtra
-			end
 			local w = Attune_NodeWidth(s)
 			local xx = rightEdge - consumed - (w / 2)
 			consumed = consumed + w + attunelocal_Node_HGap
-			rowPlaced[#rowPlaced + 1] = { id = s.ID, x = xx, w = w, y = yy }
-			prevOnRow = s
+			rowPlaced[#rowPlaced + 1] = { id = s.ID, x = xx, w = w, y = yy, orChoice = s.OR and true or false }
 
 			if s.TYPE == "End" then
 				endInfo = { step = s, xx = xx, yy = yy }
@@ -3049,19 +3010,57 @@ function Attune_Select(attuneId)
 		local name = "Attune_OrLabel_"..i
 		local exist = false
 		for _, f in ipairs(attunelocal_frames) do if f == name then exist = true end end
-		local label
+		local holder
 		if exist then
-			label = _G[name]
+			holder = _G[name]
 		else
-			label = attunelocal_graphRoot:CreateFontString(name)
+			holder = CreateFrame("Frame", name, attunelocal_graphRoot)
+			holder:EnableMouse(false)
+			-- Above step frames and their toplevel icons.
+			holder:SetToplevel(true)
+			local function circleTex(layer)
+				local tex = holder:CreateTexture(nil, layer)
+				tex:SetTexture("Interface\\Buttons\\WHITE8X8")
+				if tex.AddMaskTexture then
+					local mask = holder:CreateMaskTexture()
+					mask:SetTexture("Interface\\CHARACTERFRAME\\TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE", "CLAMPTOBLACKADDITIVE")
+					tex:AddMaskTexture(mask)
+					tex.circleMask = mask
+				else
+					tex:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
+				end
+				return tex
+			end
+			holder.ring = circleTex("BACKGROUND")
+			holder.ring:SetVertexColor(1, 0.82, 0, 0.65)
+			holder.fill = circleTex("BORDER")
+			holder.fill:SetVertexColor(0.06, 0.05, 0.04, 1)
+			holder.label = holder:CreateFontString(nil, "OVERLAY")
+			holder.label:SetPoint("CENTER", 2, 0)
+			holder.label:SetJustifyH("CENTER")
+			holder.label:SetJustifyV("MIDDLE")
 			table.insert(attunelocal_frames, name)
 		end
-		label:SetParent(attunelocal_graphRoot)
-		label:SetFont(GameFontNormal:GetFont(), 10, "OUTLINE")
-		label:SetText("|cffffd100"..(AttuneLang["OR"] or "OR").."|r")
-		label:ClearAllPoints()
-		label:SetPoint("CENTER", attunelocal_graphRoot, "TOP", spot.x, -(spot.y + attunelocal_Node_Height / 2))
-		label:Show()
+		holder:SetParent(attunelocal_graphRoot)
+		holder:SetFrameLevel((attunelocal_graphRoot:GetFrameLevel() or 0) + 40)
+		holder.label:SetFont(GameFontNormal:GetFont(), 8, "OUTLINE")
+		holder.label:SetText("|cffffd100"..(AttuneLang["OR"] or "OR").."|r")
+		holder:Show()
+		local textW = holder.label:GetStringWidth() or 0
+		local textH = holder.label:GetStringHeight() or 0
+		local diameter = math.max(20, math.ceil(math.max(textW, textH) + 10))
+		holder:SetSize(diameter, diameter)
+		holder.ring:ClearAllPoints()
+		holder.ring:SetPoint("CENTER")
+		holder.ring:SetSize(diameter, diameter)
+		if holder.ring.circleMask then holder.ring.circleMask:SetAllPoints(holder.ring) end
+		local inner = math.max(4, diameter - 4)
+		holder.fill:ClearAllPoints()
+		holder.fill:SetPoint("CENTER")
+		holder.fill:SetSize(inner, inner)
+		if holder.fill.circleMask then holder.fill.circleMask:SetAllPoints(holder.fill) end
+		holder:ClearAllPoints()
+		holder:SetPoint("CENTER", attunelocal_graphRoot, "TOP", spot.x, -(spot.y + attunelocal_Node_Height / 2))
 	end
 
 	-- Inside-dungeon reminders: stacked in a box to the left of End, side connector into End

@@ -1165,6 +1165,8 @@ Lang["I_18954"] = "索伦诺尔的头颅"
 Lang["I_18955"] = "阿托留斯的头颅"
 Lang["I_20019"] = "摩弗拉斯之牙"
 Lang["I_20085"] = "奥术碎片"
+Lang["I_6914"] = "索兰鲁克宝珠的碎片"
+Lang["I_6915"] = "索兰鲁克宝珠的大碎片"
 
 -- Synced from Wowhead Forever
 Lang["Arathi Highlands"] = "Arathi Highlands"

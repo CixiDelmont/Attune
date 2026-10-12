@@ -1165,6 +1165,8 @@ Lang["I_18954"] = "Solenors Kopf"
 Lang["I_18955"] = "Artorius' Kopf"
 Lang["I_20019"] = "Morphaz' Zahn"
 Lang["I_20085"] = "Arkaner Splitter"
+Lang["I_6914"] = "Fragment von Soran'ruk"
+Lang["I_6915"] = "Großes Fragment von Soran'ruk"
 
 -- Synced from Wowhead Forever
 Lang["Arathi Highlands"] = "Arathi Highlands"

@@ -1165,6 +1165,8 @@ Lang["I_18954"] = "Tête de Solenor"
 Lang["I_18955"] = "Tête d'Artorius"
 Lang["I_20019"] = "Dent de Morphaz"
 Lang["I_20085"] = "Fragment d'arcane"
+Lang["I_6914"] = "Fragment de Soran'ruk"
+Lang["I_6915"] = "Grand fragment de Soran'ruk"
 
 -- Synced from Wowhead Forever
 Lang["Arathi Highlands"] = "Arathi Highlands"

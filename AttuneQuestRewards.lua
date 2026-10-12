@@ -404,6 +404,13 @@ Attune_Data.questRewards = {
 	[8253] = { choice = {{20035, 1}, {20037, 1}, {20036, 1}} },
 	[9362] = {},
 	[9364] = {},
+	-- Horde warlock incubus. Either chain. Breadcrumbs have no item rewards. Summon Incubus is a spell.
+	[65593] = {},
+	[65597] = { fixed = {{22243, 1}} },
+	[65601] = {},
+	[65604] = { fixed = {{22243, 1}} },
+	[65610] = {},
+	[1740] = { choice = {{6898, 1}, {15109, 1}} },
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -595,6 +602,9 @@ Attune_Data.rewardItems = {
 	[18714] = {"Ancient Sinew Wrapped Lamina", "inv_misc_quiver_03", 4},
 	[18724] = {"Enchanted Black Dragon Sinew", "spell_holy_dispelmagic", 4},
 	[263411] = {"Idol of Shifting Tides", "inv_relics_idolofrejuvenation", 2},
+	[22243] = {"Small Soul Pouch", "inv_misc_bag_09_black", 1},
+	[6898] = {"Orb of Soran'ruk", "inv_misc_orb_03", 2},
+	[15109] = {"Staff of Soran'ruk", "inv_staff_09", 2},
 	-- Mage level 10 spell focus
 	[7507] = {"Arcane Orb", "inv_misc_orb_01", 2},
 	[7508] = {"Ley Orb", "inv_misc_orb_01", 2},

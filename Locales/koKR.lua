@@ -1165,6 +1165,8 @@ Lang["I_18954"] = "솔레노르의 혼"
 Lang["I_18955"] = "아토리우스의 혼"
 Lang["I_20019"] = "몰파즈의 이빨"
 Lang["I_20085"] = "신비의 결정"
+Lang["I_6914"] = "소랜루크 조각"
+Lang["I_6915"] = "큰 소랜루크 조각"
 
 -- Synced from Wowhead Forever
 Lang["Arathi Highlands"] = "Arathi Highlands"
