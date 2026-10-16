@@ -1,0 +1,16 @@
+---
+description: Never modify files under Libs
+alwaysApply: true
+---
+
+# Do not edit Libs
+
+Never modify, reformat, or patch files under `Libs/`. That folder is vendored library code (Ace3, LibStub, and the rest).
+
+Work around a library from Attune's own files instead. Hook or wrap the behavior in `Attune.lua` for widgets this addon creates. Leave the shared library functions and files as they shipped.
+
+```lua
+-- BAD: editing Libs/AceGUI-3.0/.../AceGUIContainer-Frame.lua
+-- GOOD: adjust the widget after Attune creates it, in Attune.lua
+local widget = Attune_AceCreate("Frame")
+```
