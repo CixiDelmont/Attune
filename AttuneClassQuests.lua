@@ -33,17 +33,9 @@ local classAttunes = {
 	{ID="5139",NAME="Polymorph: Pig",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- PALADIN
-	{ID="5142",NAME="The Symbol of Life",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Both",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
-	{ID="5143",NAME="The Symbol of Life (1789)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
-	{ID="5144",NAME="The Tome of Divinity",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12-13"},
-	{ID="5145",NAME="The Tome of Divinity (1642)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12-13"},
-	{ID="5146",NAME="The Tome of Divinity (Tome of Divinity)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
-	{ID="5147",NAME="The Tome of Divinity (Tome of Divinity)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
-	{ID="5148",NAME="Bailor's Ore Shipment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-22"},
-	{ID="5149",NAME="Seeking the Kor Gem",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
-	{ID="5150",NAME="The Tome of Valor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5151",NAME="The Tome of Valor (1793)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5152",NAME="The Tome of Nobility",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5144",NAME="Redemption",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_resurrection", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12-13"},
+	{ID="5149",NAME="Verigan's Fist",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
+	{ID="5152",NAME="The Tome of Nobility",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
 	{ID="5153",NAME="The Tome of Nobility (1661)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
 	{ID="5154",NAME="The Tome of Nobility (4486)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
 	{ID="5155",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
@@ -405,71 +397,86 @@ local classSteps = {
 
 
     -- PALADIN
+	-- Dwarf | Human (any one)
 	{ID_ATTUNE="5142",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5142",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1790",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Symbol of Life
-	{ID_ATTUNE="5142",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5142",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1790",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Symbol of Life
+	{ID_ATTUNE="5142",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Symbol of Life
+	{ID_ATTUNE="5142",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="21|20",STAGE="30"},
 
-	{ID_ATTUNE="5143",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5143",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Symbol of Life
-	{ID_ATTUNE="5143",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
+	-- Dwarf (left) or Human (right). Either chain teaches Redemption.
+	-- 1642 needs quest 1641 and the Tome it rewards (6775). 1646 needs quest 1645 and item 6916.
 	{ID_ATTUNE="5144",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5144",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1646",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1648",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1778",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1779",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="1783",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1784",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1785",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="90",STAGE="100"},
+	{ID_ATTUNE="5144",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="2998",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="3681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="22",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="5144",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="3000",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="24",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2999",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1641",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5144",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5144",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23",STAGE="30"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="6775",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="30",STAGE="40"}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5144",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5144",ID="43",TYPE="Item",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="6916",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="33",STAGE="40"}, -- Tome of Divinity
+	{ID_ATTUNE="5144",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1642",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30&40",STAGE="50"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5144",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5144",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1646",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33&43",STAGE="50"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5144",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5144",ID="63",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53",STAGE="60"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="5144",ID="72",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="5144",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1648",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="63",STAGE="70"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1780",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="81",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="5144",ID="82",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="5144",ID="83",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1778",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73",STAGE="80"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="91",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="5144",ID="92",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="5144",ID="93",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1779",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83",STAGE="90"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="101",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1790",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Symbol of Life
+	{ID_ATTUNE="5144",ID="102",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="100"}, -- The Symbol of Life
+	{ID_ATTUNE="5144",ID="103",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1783",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="100"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100&101",STAGE="110"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="111",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="5144",ID="112",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
+	{ID_ATTUNE="5144",ID="113",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1784",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="103&102",STAGE="110"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="121",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="120"},
+	{ID_ATTUNE="5144",ID="122",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="120"},
+	{ID_ATTUNE="5144",ID="123",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1785",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="113",STAGE="120"}, -- The Tome of Divinity
+	{ID_ATTUNE="5144",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="120|123",STAGE="130"},
 
-	{ID_ATTUNE="5145",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5145",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1642",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1780",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- The Tome of Divinity
-	{ID_ATTUNE="5145",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="90",STAGE="100"},
-
-	{ID_ATTUNE="5146",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5146",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="2998",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
-	{ID_ATTUNE="5146",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="3681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
-	{ID_ATTUNE="5146",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1641",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20|21",STAGE="30"}, -- The Tome of Divinity
-	{ID_ATTUNE="5146",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="30",STAGE="40"},
-
-	{ID_ATTUNE="5147",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5147",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
-	{ID_ATTUNE="5147",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2999",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
-	{ID_ATTUNE="5147",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="3000",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Tome of Divinity
-	{ID_ATTUNE="5147",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- The Tome of Divinity
-	{ID_ATTUNE="5147",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="30",STAGE="40"},
-
-	{ID_ATTUNE="5148",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5148",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="1655",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Bailor's Ore Shipment
-	{ID_ATTUNE="5148",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
+	-- 1793 or 1794, then 1649 > 1650 > 1651 > 1652 > 1653.
+	-- Pick up 1654, gather its four materials, turn it in, then 1806.
+	-- Left to right on the materials: ore quest, Kor gem quest, smithing hammer, whitestone lumber.
 	{ID_ATTUNE="5149",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5149",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1649",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Valor
+	{ID_ATTUNE="5149",ID="15",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1793",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="15", OR=true}, -- The Tome of Valor
+	{ID_ATTUNE="5149",ID="16",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1794",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="15", OR=true}, -- The Tome of Valor
+	{ID_ATTUNE="5149",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1649",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="16|15",STAGE="20"}, -- The Tome of Valor
 	{ID_ATTUNE="5149",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1650",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Tome of Valor
 	{ID_ATTUNE="5149",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1651",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Tome of Valor
-	{ID_ATTUNE="5149",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1652",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Tome of Valor
+	{ID_ATTUNE="5149",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1652",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Tome of Valor
 	{ID_ATTUNE="5149",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1653",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Test of Righteousness
-	{ID_ATTUNE="5149",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1442",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Seeking the Kor Gem
-	{ID_ATTUNE="5149",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Test of Righteousness
-	{ID_ATTUNE="5149",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1806",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- The Test of Righteousness
-	{ID_ATTUNE="5149",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="80&70",STAGE="90"},
-
-	{ID_ATTUNE="5150",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5150",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1794",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Valor
-	{ID_ATTUNE="5150",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5151",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5151",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1793",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Valor
-	{ID_ATTUNE="5151",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5149",ID="65",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65"}, -- The Test of Righteousness
+	{ID_ATTUNE="5149",ID="70",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="65",STAGE="70"}, -- Whitestone Oak Lumber
+	{ID_ATTUNE="5149",ID="71",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6895",ICON="Interface\\Icons\\inv_hammer_09",FOLLOWS="65",STAGE="70"}, -- Jordan's Smithing Hammer
+	{ID_ATTUNE="5149",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1442",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70"}, -- Seeking the Kor Gem
+	{ID_ATTUNE="5149",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="1655",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70"}, -- Bailor's Ore Shipment
+	{ID_ATTUNE="5149",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="70",STAGE="80"},
+	{ID_ATTUNE="5149",ID="81",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="71",STAGE="80"},
+	{ID_ATTUNE="5149",ID="82",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="7083",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="72",STAGE="80"}, -- Purified Kor Gem
+	{ID_ATTUNE="5149",ID="83",TYPE="Item",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="6993",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="73",STAGE="80"}, -- Jordan's Refined Ore Shipment
+	{ID_ATTUNE="5149",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&82&81&80",STAGE="90"}, -- The Test of Righteousness
+	{ID_ATTUNE="5149",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1806",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Test of Righteousness
+	{ID_ATTUNE="5149",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_hammer_05",FOLLOWS="100",STAGE="110"},
 
 	{ID_ATTUNE="5152",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5152",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="4485",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Nobility
@@ -1800,39 +1807,42 @@ local classQuestGivers = {
 	[9364] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
 	[3101] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
 	[3107] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[1790] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[1789] = {1426, nil, nil, "Tiza Battleforge"}, -- Tiza Battleforge
-	[1647] = {1426, nil, nil, "Tiza Battleforge"}, -- Tiza Battleforge
-	[1648] = {1455, nil, nil, "John Turner"}, -- John Turner
-	[1778] = {1426, nil, nil, "John Turner"}, -- John Turner
-	[1779] = {1426, nil, nil, "Tiza Battleforge"}, -- Tiza Battleforge
-	[1783] = {1432, nil, nil, "Muiredon Battleforge"}, -- Muiredon Battleforge
-	[1784] = {1426, nil, nil, "Narm Faulk"}, -- Narm Faulk
-	[1785] = {1426, nil, nil, "Muiredon Battleforge"}, -- Muiredon Battleforge
-	[1643] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[1644] = {1453, nil, nil, "Stephanie Turner"}, -- Stephanie Turner
-	[1780] = {1429, nil, nil, "Stephanie Turner"}, -- Stephanie Turner
-	[1781] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[1786] = {1429, nil, nil, "Gazin Tenorm"}, -- Gazin Tenorm
-	[1787] = {1429, nil, nil, "Henze Faulk"}, -- Henze Faulk
-	[1788] = {1429, nil, nil, "Gazin Tenorm"}, -- Gazin Tenorm
-	[2998] = {1429, nil, nil, "Brother Wilhelm"}, -- Brother Wilhelm
-	[3681] = {1429, nil, nil, "Brandur Ironhammer"}, -- Brandur Ironhammer
-	[1641] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[2997] = {1426, nil, nil, "Azar Stronghammer"}, -- Azar Stronghammer
-	[2999] = {1426, nil, nil, "Brandur Ironhammer"}, -- Brandur Ironhammer
-	[3000] = {1426, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[1645] = {1426, nil, nil, "Tiza Battleforge"}, -- Tiza Battleforge
-	[1655] = {1432, nil, nil, "Bailor Stonehand"}, -- Bailor Stonehand
-	[1650] = {1436, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[1651] = {1436, nil, nil, "Daphne Stilwell"}, -- Daphne Stilwell
-	[1652] = {1429, nil, nil, "Daphne Stilwell"}, -- Daphne Stilwell
-	[1653] = {1426, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[1442] = {1439, nil, nil, "Thundris Windweaver"}, -- Thundris Windweaver
-	[1654] = {1455, nil, nil, "Jordan Stilwell"}, -- Jordan Stilwell
-	[1806] = {1426, nil, nil, "Jordan Stilwell"}, -- Jordan Stilwell
-	[1794] = {1426, nil, nil, "Brandur Ironhammer"}, -- Brandur Ironhammer
-	[1793] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
+	[1790] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
+	[1789] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
+	[1642] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- started by item 6775; speak to Duthorian Rall
+	[1646] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- started by item 6916; speak to Tiza Battleforge
+	[1647] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge
+	[1648] = {1455, 22.6, 55.2, "John Turner"}, -- John Turner, Ironforge Commons
+	[1778] = {1455, 22.6, 55.2, "John Turner"}, -- John Turner
+	[1779] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge
+	[1783] = {1455, 23.6, 8.6, "Muiredon Battleforge"}, -- Muiredon Battleforge
+	[1784] = {1426, 78.2, 58.0, "Narm Faulk"}, -- Narm Faulk, Helm's Bed Lake
+	[1785] = {1455, 23.6, 8.6, "Muiredon Battleforge"}, -- Muiredon Battleforge
+	[1643] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall
+	[1644] = {1453, 57.0, 61.6, "Stephanie Turner"}, -- Stephanie Turner, Trade District
+	[1780] = {1453, 57.0, 61.6, "Stephanie Turner"}, -- Stephanie Turner
+	[1781] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall
+	[1786] = {1453, 38.6, 26.6, "Gazin Tenorm"}, -- Gazin Tenorm
+	[1787] = {1429, 72.6, 51.6, "Henze Faulk"}, -- Henze Faulk, Stone Cairn Lake
+	[1788] = {1453, 38.6, 26.6, "Gazin Tenorm"}, -- Gazin Tenorm
+	[2998] = {1429, 41.0, 66.0, "Brother Wilhelm"}, -- Brother Wilhelm, Goldshire
+	[3681] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
+	[1641] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall
+	[2997] = {1426, 47.6, 52.0, "Azar Stronghammer"}, -- Azar Stronghammer, Kharanos
+	[2999] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
+	[3000] = {1453, 37.4, 32.8, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
+	[1645] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge
+	[1649] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light. Wowhead lists him as the end.
+	[1650] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall
+	[1651] = {1436, 42.2, 88.6, "Daphne Stilwell"}, -- Daphne Stilwell, Westfall. Also pinned at 41.4, 88.4.
+	[1652] = {1436, 42.2, 88.6, "Daphne Stilwell"}, -- Daphne Stilwell
+	[1653] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall
+	[1655] = {1432, 36.0, 45.0, "Bailor Stonehand"}, -- Bailor Stonehand, Thelsamar
+	[1442] = {1439, 37.4, 40.2, "Thundris Windweaver"}, -- Thundris Windweaver, Auberdine
+	[1654] = {1426, 52.6, 36.8, "Jordan Stilwell"}, -- Jordan Stilwell, outside the Ironforge gates. Also pinned at 52.4, 36.8.
+	[1806] = {1426, 52.6, 36.8, "Jordan Stilwell"}, -- Jordan Stilwell
+	[1793] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
+	[1794] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
 	[4485] = {1429, nil, nil, "Arthur the Faithful"}, -- Arthur the Faithful
 	[1661] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
 	[4486] = {1429, nil, nil, "Brandur Ironhammer"}, -- Brandur Ironhammer
