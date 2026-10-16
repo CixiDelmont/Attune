@@ -33,14 +33,13 @@ local classAttunes = {
 	{ID="5139",NAME="Polymorph: Pig",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- PALADIN
-	{ID="5144",NAME="Redemption",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_resurrection", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12-13"},
-	{ID="5149",NAME="Verigan's Fist",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-25"},
-	{ID="5152",NAME="The Tome of Nobility",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	{ID="5153",NAME="The Tome of Nobility (1661)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	{ID="5154",NAME="The Tome of Nobility (4486)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
-	{ID="5155",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
-	{ID="5156",NAME="Grimand's Finest Work",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
-	{ID="5157",NAME="Lord Grayson Shadowbreaker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_sealofmight", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+	{ID="5144",NAME="Redemption",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_resurrection", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
+	{ID="5145",NAME="Redemption",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\spell_holy_resurrection", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
+	{ID="5149",NAME="Verigan's Fist",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5158",NAME="Wolfsbane",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\inv_sword_25", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5152",NAME="Warhorse",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_swiftness", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5155",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_feather_14", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	{ID="5156",NAME="Charger",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\ability_mount_charger", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- PRIEST
 	{ID="5164",NAME="Garments of the priest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_cloth_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="5"},
@@ -70,17 +69,17 @@ local classAttunes = {
 	{ID="5227",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	
     -- -- SHAMAN
-	{ID="5231",NAME="Earth Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
-	{ID="5232",NAME="Earth Sapta (Call of Earth)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
-	{ID="5233",NAME="Fire Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-13"},
-	{ID="5234",NAME="Call of Water",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-23"},
-	{ID="5235",NAME="Call of Air",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	{ID="5236",NAME="Call of Air (1531)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	{ID="5237",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
-	{ID="5238",NAME="A More Fitting Reward",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
-	{ID="5239",NAME="Again Into the Great Ossuary",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
-	{ID="5240",NAME="The Darkreaver Menace",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
-	{ID="5241",NAME="The Darkreaver Menace (Material Assistance)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
+	-- {ID="5231",NAME="Earth Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
+	-- {ID="5232",NAME="Earth Sapta (Call of Earth)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
+	-- {ID="5233",NAME="Fire Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-13"},
+	-- {ID="5234",NAME="Call of Water",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-23"},
+	-- {ID="5235",NAME="Call of Air",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	-- {ID="5236",NAME="Call of Air (1531)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	-- {ID="5237",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	-- {ID="5238",NAME="A More Fitting Reward",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
+	-- -- {ID="5239",NAME="Again Into the Great Ossuary",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
+	-- {ID="5240",NAME="The Darkreaver Menace",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
+	-- {ID="5241",NAME="The Darkreaver Menace (Material Assistance)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	
     -- -- WARLOCK
 	{ID="5252",NAME="Voidwalker",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_summonvoidwalker", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
@@ -104,16 +103,16 @@ local classAttunes = {
 	{ID="5277",NAME=AttuneLang["Doomguard"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_antimagicshell", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- WARRIOR
-	{ID="5286",NAME="Dead-tooth Jack",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5287",NAME="Forged Steel",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5288",NAME="Grey Iron Weapons",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
-	{ID="5289",NAME="Heirloom Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
-	{ID="5290",NAME="Weapons of Elunite",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5291",NAME="Brutal Helm",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-30"},
-	{ID="5292",NAME="Mathiel's Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-30"},
-	{ID="5293",NAME="Whirlwind Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
-	{ID="5294",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
-	{ID="5296",NAME="Codex of Defense",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
+	-- {ID="5286",NAME="Dead-tooth Jack",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	-- {ID="5287",NAME="Forged Steel",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	-- {ID="5288",NAME="Grey Iron Weapons",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
+	-- {ID="5289",NAME="Heirloom Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-11"},
+	-- {ID="5290",NAME="Weapons of Elunite",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	-- {ID="5291",NAME="Brutal Helm",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-30"},
+	-- {ID="5292",NAME="Mathiel's Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-30"},
+	-- {ID="5293",NAME="Whirlwind Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
+	-- {ID="5294",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	-- {ID="5296",NAME="Codex of Defense",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
 }
 
 local classSteps = {
@@ -454,6 +453,16 @@ local classSteps = {
 	{ID_ATTUNE="5144",ID="123",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1785",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="113",STAGE="120"}, -- The Tome of Divinity
 	{ID_ATTUNE="5144",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="120|123",STAGE="130"},
 
+	-- Forsaken. 94434 through 94441 teaches Redemption.
+	{ID_ATTUNE="5145",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 12",LOCATION="",ID_WOWHEAD="12",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5145",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="94434",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94435",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94436",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94438",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94440",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94441",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- A Lesson in Divinity
+	{ID_ATTUNE="5145",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="70",STAGE="80"},
+
 	-- 1793 or 1794, then 1649 > 1650 > 1651 > 1652 > 1653.
 	-- Pick up 1654, gather its four materials, turn it in, then 1806.
 	-- Left to right on the materials: ore quest, Kor gem quest, smithing hammer, whitestone lumber.
@@ -478,45 +487,58 @@ local classSteps = {
 	{ID_ATTUNE="5149",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1806",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Test of Righteousness
 	{ID_ATTUNE="5149",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_hammer_05",FOLLOWS="100",STAGE="110"},
 
+	-- Horde mirror of Verigan's Fist. Known swaps only; the tome steps and the ore shipment have no Horde quest yet.
+	-- 91858 > 95034 > pick up 95036, then lumber, silver ingot, and the Kor gem, turn in, 95126, 95140.
+	{ID_ATTUNE="5158",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 18",LOCATION="",ID_WOWHEAD="18",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5158",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="91858",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Diplomatic Incident
+	{ID_ATTUNE="5158",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95034",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Debt
+	{ID_ATTUNE="5158",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- A Moon-Kissed Blade
+	{ID_ATTUNE="5158",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="40",STAGE="50"}, -- Whitestone Oak Lumber
+	{ID_ATTUNE="5158",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="267361",ICON="Interface\\Icons\\inv_ingot_ghostiron",FOLLOWS="40",STAGE="50"}, -- Enchanted Silver Ingot
+	{ID_ATTUNE="5158",ID="52",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="95042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Seeking the Kor Gem
+	{ID_ATTUNE="5158",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5158",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="51",STAGE="60"},
+	{ID_ATTUNE="5158",ID="62",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="272448",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="52",STAGE="60"}, -- Purified Kor Gem
+	{ID_ATTUNE="5158",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62&61&60",STAGE="70"}, -- A Moon-Kissed Blade
+	{ID_ATTUNE="5158",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95126",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- The Moonsilver Blade
+	{ID_ATTUNE="5158",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95140",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- Old Fire-Eye
+	{ID_ATTUNE="5158",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_sword_25",FOLLOWS="90",STAGE="100"},
+
+	-- Tiza or Brandur, then Duthorian teaches Summon Warhorse.
 	{ID_ATTUNE="5152",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5152",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="4485",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Nobility
-	{ID_ATTUNE="5152",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5153",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5153",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1661",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Nobility
-	{ID_ATTUNE="5153",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
-	{ID_ATTUNE="5154",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5154",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="4486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Tome of Nobility
-	{ID_ATTUNE="5154",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5152",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4485",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Tome of Nobility
+	{ID_ATTUNE="5152",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Tome of Nobility
+	{ID_ATTUNE="5152",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1661",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- The Tome of Nobility
+	{ID_ATTUNE="5152",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_swiftness",FOLLOWS="30",STAGE="40"},
 
 	{ID_ATTUNE="5155",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5155",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8415",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Chillwind Point
 	{ID_ATTUNE="5155",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8414",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Dispelling Evil
 	{ID_ATTUNE="5155",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8416",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Inert Scourgestones
-	{ID_ATTUNE="5155",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Forging the Mightstone
-	{ID_ATTUNE="5155",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5155",ID="45",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="45"}, -- Forging the Mightstone
+	{ID_ATTUNE="5155",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="45",STAGE="50", COUNT=2}, -- Green Voodoo Feather
+	{ID_ATTUNE="5155",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="45",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5155",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="45",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5155",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Forging the Mightstone
+	{ID_ATTUNE="5155",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5156",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5156",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Lord Grayson Shadowbreaker
-	{ID_ATTUNE="5156",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="7637",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Emphasis on Sacrifice
+	{ID_ATTUNE="5156",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Lord Grayson Shadowbreaker
+	{ID_ATTUNE="5156",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7670",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Lord Grayson Shadowbreaker
+	{ID_ATTUNE="5156",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="7637",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- Emphasis on Sacrifice
 	{ID_ATTUNE="5156",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7639",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- To Show Due Judgment
 	{ID_ATTUNE="5156",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7640",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Exorcising Terrordale
 	{ID_ATTUNE="5156",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7641",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Work of Grimand Elmore
 	{ID_ATTUNE="5156",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7642",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Collection of Goods
-	{ID_ATTUNE="5156",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Ancient Equine Spirit
+    {ID_ATTUNE="5156",ID="79",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
 	{ID_ATTUNE="5156",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7648",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Grimand's Finest Work
-	{ID_ATTUNE="5156",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- Blessed Arcanite Barding
-	{ID_ATTUNE="5156",ID="91",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="7645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- Manna-Enriched Horse Feed
+	{ID_ATTUNE="5156",ID="83",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="7645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80"}, -- Manna-Enriched Horse Feed
+    {ID_ATTUNE="5156",ID="85",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&81",STAGE="87"}, -- Ancient Equine1Spirit
+	{ID_ATTUNE="5156",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="85",STAGE="90"}, -- Blessed Arcanite Barding
 	{ID_ATTUNE="5156",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7646",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Divination Scryer
 	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- Judgment and Redemption
-	{ID_ATTUNE="5156",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- Again Into the Great Ossuary
-	{ID_ATTUNE="5156",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="120&81&91",STAGE="130"},
-
-	{ID_ATTUNE="5157",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5157",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7670",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Lord Grayson Shadowbreaker
-	{ID_ATTUNE="5157",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_holy_sealofmight",FOLLOWS="20",STAGE="30"},
-
+	-- {ID_ATTUNE="5156",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- Again Into the Great Ossuary
+	{ID_ATTUNE="5156",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_charger",FOLLOWS="110",STAGE="130"},
 
     -- PRIEST
 	{ID_ATTUNE="5164",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 5",LOCATION="",ID_WOWHEAD="5",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -793,9 +815,9 @@ local classSteps = {
 	{ID_ATTUNE="5238",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="8259",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A More Fitting Reward
 	{ID_ATTUNE="5238",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
 
-	{ID_ATTUNE="5239",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5239",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="7669",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Again Into the Great Ossuary
-	{ID_ATTUNE="5239",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
+	-- {ID_ATTUNE="5239",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- {ID_ATTUNE="5239",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="7669",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Again Into the Great Ossuary
+	-- {ID_ATTUNE="5239",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5240",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5240",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="7668",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Darkreaver Menace
@@ -1292,6 +1314,18 @@ local classQuestInfo = {
 	[1806]={20,1},
 	[1794]={20,1},
 	[1793]={20,1},
+	[94434]={12,1},
+	[94435]={12,1},
+	[94436]={12,1},
+	[94438]={12,1},
+	[94440]={12,1},
+	[94441]={12,1},
+	[91858]={18,1},
+	[95034]={18,1},
+	[95036]={20,1},
+	[95042]={20,1},
+	[95126]={20,1},
+	[95140]={20,1},
 	[4485]={40,1},
 	[1661]={40,1},
 	[4486]={40,1},
@@ -1841,16 +1875,29 @@ local classQuestGivers = {
 	[1442] = {1439, 37.4, 40.2, "Thundris Windweaver"}, -- Thundris Windweaver, Auberdine
 	[1654] = {1426, 52.6, 36.8, "Jordan Stilwell"}, -- Jordan Stilwell, outside the Ironforge gates. Also pinned at 52.4, 36.8.
 	[1806] = {1426, 52.6, 36.8, "Jordan Stilwell"}, -- Jordan Stilwell
+	[91858] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr, Tirisfal Glades
+	[94434] = {1458, 65.4, 37.8, "Tanis Alderwood"}, -- Tanis Alderwood, Undercity. Also pinned nearby in the Trade Quarter.
+	[94435] = {1458, 65.4, 37.8, "Tanis Alderwood"}, -- Tanis Alderwood
+	[94436] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr, Bandarion Keep
+	[94438] = {1420, 22.0, 44.4, "Deathguard Billmuth"}, -- Deathguard Billmuth, Bandarion Keep
+	[94440] = {1420, 86.6, 47.6, "Deathguard Falgan"}, -- Deathguard Falgan, Venomweb Vale. Also pinned at 86.4, 47.8 and 86.6, 47.4.
+	[94441] = {1420, 22.0, 44.4, "Deathguard Billmuth"}, -- Deathguard Billmuth
+	[95034] = {1421, 43.2, 41.0, "Lumina Windsinger"}, -- Lumina Windsinger, the Sepulcher
+	[95036] = {1421, 43.2, 41.0, "Lumina Windsinger"}, -- Lumina Windsinger. Turn in to Trevan Rol at 43.4, 41.0.
+	[95042] = {1440, 11.8, 34.6, "Ulric Frostveil"}, -- Ulric Frostveil, Zoram Strand. Also pinned at 11.8, 34.4.
+	[95126] = {1424, 60.6, 26.0, "Ott"}, -- Ott, Hillsbrad Foothills. Also pinned at 60.4, 26.0.
+	[95140] = {1421, 43.2, 41.0, "Lumina Windsinger"}, -- Lumina Windsinger, the Sepulcher
 	[1793] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
 	[1794] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
-	[4485] = {1429, nil, nil, "Arthur the Faithful"}, -- Arthur the Faithful
-	[1661] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
-	[4486] = {1429, nil, nil, "Brandur Ironhammer"}, -- Brandur Ironhammer
+	[4485] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
+	[4486] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
+	[1661] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
 	[8415] = {1424, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
 	[8414] = {1422, nil, nil, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist
 	[8416] = {1422, nil, nil, "High Priest Thel'danis"}, -- High Priest Thel'danis
-	[8418] = {1422, nil, nil, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist
-	[7638] = {1429, nil, nil, "Duthorian Rall"}, -- Duthorian Rall
+	[8418] = {1422, 42.8, 84.0, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist, Chillwind Camp
+	[7638] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
+	[7670] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
 	[7637] = {1426, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
 	[7639] = {1453, nil, nil, "High Priest Rohan"}, -- High Priest Rohan
 	[7640] = {1429, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker

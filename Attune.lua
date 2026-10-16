@@ -11,6 +11,7 @@
 -- 16001-30
 --   - Priest class quests added.
 --   - Rogue class quests added.
+--   - Paladin class quests added.
 -- 
 -- 16001-29
 --   - Mage class quests added.

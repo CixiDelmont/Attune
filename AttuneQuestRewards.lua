@@ -585,6 +585,28 @@ Attune_Data.questRewards = {
 	[1655] = { fixed = {{6993, 1}} },
 	[1442] = { fixed = {{7083, 1}} },
 	[1806] = { fixed = {{6953, 1}} },
+	-- Horde Wolfsbane. 95042 rewards the Kor gem used to turn in 95036.
+	[91858] = {},
+	[95034] = {},
+	[95036] = {},
+	[95042] = { fixed = {{272448, 1}} },
+	[95126] = { fixed = {{268484, 1}} },
+	[95140] = { fixed = {{267369, 1}} },
+	-- Horde Redemption. 94435 rewards the Symbol of Life used to resurrect Deathguard Falgan.
+	[94434] = {},
+	[94435] = { fixed = {{6866, 1}} },
+	[94436] = {},
+	[94438] = {},
+	[94440] = {},
+	[94441] = {},
+	-- The Tome of Nobility. 1661 teaches Summon Warhorse.
+	[4485] = {},
+	[4486] = {},
+	[1661] = {},
+	-- Forging the Mightstone. The feathers are objectives; these are the turn-in rewards.
+	[8418] = { choice = {{20504, 1}, {20512, 1}, {20505, 1}}, fixed = {{20620, 1}} },
+	[7638] = {},
+	[7670] = {},
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -835,4 +857,15 @@ Attune_Data.rewardItems = {
 	[9607] = {"Bastion of Stormwind", "inv_shield_06", 2},
 	[6953] = {"Verigan's Fist", "inv_hammer_05", 3},
 	[6776] = {"Tome of Valor", "inv_misc_book_07", 1},
+	[267361] = {"Enchanted Silver Ingot", "inv_ingot_ghostiron", 1},
+	[272448] = {"Purified Kor Gem", "inv_misc_gem_sapphire_02", 1},
+	[268484] = {"Moonsilver Blade", "inv_sword_25", 2},
+	[267369] = {"Wolfsbane", "inv_sword_25", 3},
+	[20606] = {"Amber Voodoo Feather", "inv_feather_14", 1},
+	[20607] = {"Blue Voodoo Feather", "inv_feather_13", 1},
+	[20608] = {"Green Voodoo Feather", "inv_feather_12", 1},
+	[20620] = {"Holy Mightstone", "inv_stone_15", 1},
+	[20504] = {"Lightforged Blade", "inv_sword_39", 3},
+	[20512] = {"Sanctified Orb", "inv_misc_gem_pearl_04", 3},
+	[20505] = {"Chivalrous Signet", "inv_jewelry_ring_43", 3},
 }
