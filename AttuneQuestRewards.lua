@@ -587,9 +587,16 @@ Attune_Data.questRewards = {
 	[1806] = { fixed = {{6953, 1}} },
 	-- Horde Wolfsbane. 95042 rewards the Kor gem used to turn in 95036.
 	[91858] = {},
+	[91859] = {},
+	[91860] = {},
+	[91861] = {},
+	[91862] = {},
+	[96204] = {},
 	[95034] = {},
 	[95036] = {},
 	[95042] = { fixed = {{272448, 1}} },
+	[95111] = {},
+	[95125] = {},
 	[95126] = { fixed = {{268484, 1}} },
 	[95140] = { fixed = {{267369, 1}} },
 	-- Horde Redemption. 94435 rewards the Symbol of Life used to resurrect Deathguard Falgan.

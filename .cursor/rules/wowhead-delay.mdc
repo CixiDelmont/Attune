@@ -1,0 +1,17 @@
+---
+description: Pause between Wowhead requests so lookups are not blocked
+alwaysApply: true
+---
+
+# Wowhead request delay
+
+When looking up quests, items, or NPCs on wowhead.com, leave a gap between requests so CloudFront does not block the session.
+
+- Send one request at a time. Do not fetch several Wowhead pages in parallel.
+- Wait at least 2 seconds after each response before the next request. This includes browser navigations, `curl`, and `fetch`.
+- If a page comes back as 403, empty, or "request could not be satisfied", stop. Wait longer, then retry that one page. Do not hammer the site.
+
+```powershell
+curl.exe -sL -A "Mozilla/5.0" "https://www.wowhead.com/forever/quest=95111" -o "$env:TEMP\wh.html"
+Start-Sleep -Seconds 2
+```
