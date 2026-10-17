@@ -10,14 +10,19 @@ When you add or change a quest on an attunement, look it up on Wowhead first (`/
 1. **Quest giver** in `classQuestGivers`: UI map id, x, y, and the start NPC. If several NPCs start the same quest id, store the main one and name the others in a comment.
 2. **Rewards** in `AttuneQuestRewards.lua`:
    - `questRewards[questId]` uses `choice` or `fixed` entries of `{itemId, count}`.
-   - A breadcrumb with no items still gets `{}`, so the quest is marked as checked.
+   - Taught abilities go in `spells` as a list of spell ids. A quest can have items and spells.
+   - A breadcrumb with no items or spells still gets `{}`, so the quest is marked as checked.
    - Every new item goes in `rewardItems` as `{English name, icon, quality}`. The client localizes the tooltip when it knows the item.
+   - Every new spell goes in `rewardSpells` as `{English name, icon}`. The client localizes the tooltip when it knows the spell.
+   - If the Forever page lists no rewards, or a reward link looks corrupted, look up the same id on `/classic/`.
 3. **Locales.** Add `Q1_` / `Q2_` and any new location key to `enUS`, `frFR`, `deDE`, `esES`, `ruRU`, `zhCN`, `zhTW`, and `koKR`. Use that language's Wowhead text. Keep English only when Wowhead has no translation.
 
 ```lua
 -- classQuestGivers
 [1861] = {1453, 38.6, 79.4, "Jennea Cannon"},
--- questRewards / rewardItems
+-- questRewards / rewardItems / rewardSpells
 [1861] = { choice = {{7508, 1}, {9513, 1}} },
+[1719] = { spells = {2458} },
 [7508] = {"Ley Orb", "inv_misc_orb_01", 2},
+[2458] = {"Berserker Stance", "ability_racial_avatar"},
 ```

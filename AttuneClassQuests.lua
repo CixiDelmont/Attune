@@ -109,9 +109,9 @@ local classAttunes = {
 	{ID="5290",NAME="Weapons of Elunite",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
 	{ID="5291",NAME="Brutal Gear",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_chain_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5292",NAME="Mathiel's Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5293",NAME="Whirlwind Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	{ID="5294",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
-	{ID="5296",NAME="Codex of Defense",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
+	{ID="5293",NAME="Whirlwind Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_skyreach_four_wind", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5294",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\inv_feather_14", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	-- {ID="5296",NAME="Codex of Defense",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
 }
 
 local classSteps = {
@@ -1126,15 +1126,48 @@ local classSteps = {
 	{ID_ATTUNE="5293",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5293",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1718",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Islander
 	{ID_ATTUNE="5293",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1719",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Affray
-	{ID_ATTUNE="5293",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Windwatcher
-	{ID_ATTUNE="5293",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1712",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Cyclonian
-	{ID_ATTUNE="5293",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="3357",ICON="Interface\\Icons\\inv_misc_root_02",FOLLOWS="50",STAGE="55", COUNT=8}, -- Liferoot
-	{ID_ATTUNE="5293",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="3901",ICON="Interface\\Icons\\inv_misc_bone_06",FOLLOWS="50",STAGE="55", COUNT=30}, -- Bloodscalp Tusk
-	{ID_ATTUNE="5293",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="6851",ICON="Interface\\Icons\\inv_stone_01",FOLLOWS="50",STAGE="55"}, -- Essence of the Exile
-	{ID_ATTUNE="5293",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1713",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53",STAGE="60"}, -- The Summoning
-	{ID_ATTUNE="5293",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1714",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Essence of the Exile
-	{ID_ATTUNE="5293",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1792",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Whirlwind Weapon
-	{ID_ATTUNE="5293",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="61&70",STAGE="80"},
+	
+    -- {ID_ATTUNE="5293",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Windwatcher
+	-- Essence of the Exile stays on the left. One empty column, then liferoot and the tusks on the same row as the essence item.
+	-- {ID_ATTUNE="5293",ID="45",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1712",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="45"}, -- Cyclonian
+	-- {ID_ATTUNE="5293",ID="40",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="5293",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5293",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	-- {ID_ATTUNE="5293",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    {ID_ATTUNE="5293",ID="44",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="50"}, -- The Windwatcher
+	{ID_ATTUNE="5293",ID="46",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5293",ID="48",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1714",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50"}, -- Essence of the Exile
+	-- {ID_ATTUNE="5293",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+    -- {ID_ATTUNE="5293",ID="50",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+
+	{ID_ATTUNE="5293",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="55"},
+	{ID_ATTUNE="5293",ID="50",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="55"},
+	{ID_ATTUNE="5293",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="55"},
+    {ID_ATTUNE="5293",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="55"},
+	{ID_ATTUNE="5293",ID="59",TYPE="Item",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="4480",ICON="Interface\\Icons\\inv_jewelry_talisman_02",FOLLOWS="48",STAGE="55", COUNT=8}, -- Thundering Charm
+	{ID_ATTUNE="5293",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="4479",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="48",STAGE="55", COUNT=8}, -- Burning Charm
+	{ID_ATTUNE="5293",ID="61",TYPE="Item",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="4481",ICON="Interface\\Icons\\inv_jewelry_talisman_05",FOLLOWS="48",STAGE="55", COUNT=8}, -- Cresting Charm
+    
+	-- {ID_ATTUNE="5293",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5293",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="5293",ID="63",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="5293",ID="64",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1712",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="44",STAGE="60"}, -- Cyclonian
+    {ID_ATTUNE="5293",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+    {ID_ATTUNE="5293",ID="66",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1714",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61&60&59",STAGE="60"}, -- Essence of the Exile
+    -- {ID_ATTUNE="5293",ID="67",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	-- {ID_ATTUNE="5293",ID="67",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+
+    {ID_ATTUNE="5293",ID="68",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+	{ID_ATTUNE="5293",ID="69",TYPE="Item",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="3357",ICON="Interface\\Icons\\inv_misc_root_02",FOLLOWS="64",STAGE="65", COUNT=8}, -- Liferoot
+	{ID_ATTUNE="5293",ID="70",TYPE="Item",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="3901",ICON="Interface\\Icons\\inv_misc_bone_06",FOLLOWS="64",STAGE="65", COUNT=30}, -- Bloodscalp Tusk
+	-- {ID_ATTUNE="5293",ID="70",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+	{ID_ATTUNE="5293",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+	{ID_ATTUNE="5293",ID="72",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="6851",ICON="Interface\\Icons\\inv_stone_01",FOLLOWS="66&64",STAGE="65"}, -- Essence of the Exile
+	-- {ID_ATTUNE="5293",ID="73",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="65"},
+	{ID_ATTUNE="5293",ID="80",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1712",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="72&69&70",STAGE="70"}, -- Cyclonian
+	{ID_ATTUNE="5293",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1713",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="80"}, -- The Summoning
+	{ID_ATTUNE="5293",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="1792",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="90"}, -- Whirlwind Weapon
+	{ID_ATTUNE="5293",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_skyreach_four_wind",FOLLOWS="100",STAGE="100"},
 
 	{ID_ATTUNE="5294",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5294",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8417",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Troubled Spirit
@@ -1144,7 +1177,7 @@ local classSteps = {
 	{ID_ATTUNE="5294",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_11",FOLLOWS="40",STAGE="45", COUNT=2}, -- Blue Voodoo Feather
 	{ID_ATTUNE="5294",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_08",FOLLOWS="40",STAGE="45", COUNT=2}, -- Green Voodoo Feather
 	{ID_ATTUNE="5294",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Voodoo Feathers
-	{ID_ATTUNE="5294",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="5294",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5296",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5296",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7499",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Codex of Defense
@@ -2254,10 +2287,10 @@ local classQuestGivers = {
 	[1718] = {1411, nil, nil, "Torm Ragetotem"}, -- Torm Ragetotem
 	[1719] = {1411, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod
 	[1791] = {1424, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod
-	[1712] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
-	[1713] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
-	[1714] = {1424, nil, nil, "Bath'rah's Cauldron"}, -- Bath'rah's Cauldron
-	[1792] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
+	[1712] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
+	[1713] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
+	[1714] = {1416, 79.3, 66.8, "Bath'rah's Cauldron"}, -- Bath'rah's Cauldron, Alterac Mountains
+	[1792] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
 	[8417] = {1435, nil, nil, "Torm Ragetotem"}, -- Torm Ragetotem
 	[8423] = {1435, nil, nil, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde
 	[8424] = {1435, nil, nil, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde

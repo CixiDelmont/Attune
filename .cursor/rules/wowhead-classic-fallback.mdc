@@ -1,0 +1,17 @@
+---
+description: Fall back to the Classic Wowhead page when a Forever reward is missing or broken
+alwaysApply: true
+---
+
+# Wowhead classic fallback
+
+Look up Forever quests, items, and spells on `/forever/` first. If that page lists no rewards, or a reward link looks corrupted (empty page, broken item, missing name or icon), look up the same id on `/classic/`.
+
+```
+https://www.wowhead.com/forever/item=18466   →  no rewards or corrupted
+https://www.wowhead.com/classic/item=18466   →  use this
+```
+
+- Same id, same kind of page: `quest`, `item`, or `spell`.
+- Use the Classic page for the reward name, icon, quality, and counts.
+- Still wait at least 2 seconds between Wowhead requests.

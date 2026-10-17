@@ -7,7 +7,10 @@
 --	but WITHOUT ANY WARRANTY. Use at your own risk.
 --
 -------------------------------------------------------------------------
--- 
+-- 16001-31
+--   - Warrior class quests added.
+--   - Shaman class quests added.
+--
 -- 16001-30
 --   - Priest class quests added.
 --   - Rogue class quests added.
@@ -7312,6 +7315,71 @@ local function Attune_StoredItem(itemID)
 	return name, icon, quality
 end
 
+-- One local for the spell-reward helpers. The main chunk is already near Lua's 200-local limit.
+local spellReward = {}
+
+function spellReward.Stored(spellID)
+	local info = Attune_Data.rewardSpells and spellID and Attune_Data.rewardSpells[spellID]
+	if type(info) ~= "table" then return end
+	local name = info[1]
+	if type(name) ~= "string" or name == "" then name = nil end
+	local icon = info[2]
+	if type(icon) == "string" and icon ~= "" then
+		if not string.find(icon, "\\", 1, true) and not string.find(icon, "/", 1, true) then
+			icon = "Interface\\Icons\\" .. icon
+		end
+	else
+		icon = nil
+	end
+	return name, icon
+end
+
+-- Client name and icon when the spell is cached. Stored data fills the gap.
+function spellReward.Client(spellID)
+	if C_Spell and C_Spell.GetSpellInfo then
+		local ok, info = pcall(C_Spell.GetSpellInfo, spellID)
+		if ok and type(info) == "table" and type(info.name) == "string" and info.name ~= "" then
+			return info.name, info.iconID or info.originalIconID or info.icon
+		end
+	end
+	if GetSpellInfo then
+		local ok, name, _, icon = pcall(GetSpellInfo, spellID)
+		if ok and type(name) == "string" and name ~= "" then
+			return name, icon
+		end
+	end
+end
+
+function spellReward.Resolve(spellID)
+	local name, icon = spellReward.Client(spellID)
+	local storedName, storedIcon = spellReward.Stored(spellID)
+	if not name or name == "" then name = storedName end
+	if not icon then icon = storedIcon end
+	return name, icon
+end
+
+function spellReward.Subtext(spellID)
+	local text
+	if C_Spell and C_Spell.GetSpellSubtext then
+		local ok, sub = pcall(C_Spell.GetSpellSubtext, spellID)
+		if ok then text = sub end
+	end
+	if (type(text) ~= "string" or text == "") and GetSpellSubtext then
+		local ok, sub = pcall(GetSpellSubtext, spellID)
+		if ok then text = sub end
+	end
+	if type(text) ~= "string" then return "" end
+	if strtrim then text = strtrim(text) end
+	return text or ""
+end
+
+function spellReward.Header()
+	if type(REWARD_SPELL) == "string" and REWARD_SPELL ~= "" then
+		return REWARD_SPELL
+	end
+	return "You will learn:"
+end
+
 -- Full item link when the client has it. Otherwise the stored name, so the
 -- tooltip does not sit on "Retrieving item information" for an item the
 -- server never answers.
@@ -7346,11 +7414,44 @@ local function Attune_ShowItemTooltip(owner, itemID, request)
 	end
 end
 
+-- Spell tooltip when the client knows it. Otherwise the stored name, so the
+-- line does not sit on a retrieving message for a spell the server never sends.
+function spellReward.ShowTooltip(owner, spellID, request)
+	if not owner or not spellID or not owner:IsShown() then return end
+	if owner.IsMouseOver and not owner:IsMouseOver() then return end
+	GameTooltip:SetOwner(owner, "ANCHOR_RIGHT")
+
+	local clientName = spellReward.Client(spellID)
+	if clientName and GameTooltip.SetSpellByID and pcall(GameTooltip.SetSpellByID, GameTooltip, spellID) then
+		if not GameTooltip.NumLines or GameTooltip:NumLines() > 0 then
+			GameTooltip:Show()
+			return
+		end
+	end
+
+	local name = clientName or select(1, spellReward.Stored(spellID))
+	if name then
+		GameTooltip:SetText(name, 1, 1, 1)
+		GameTooltip:Show()
+	else
+		GameTooltip:Hide()
+	end
+
+	if request and not clientName and C_Spell and C_Spell.RequestLoadSpellData then
+		pcall(C_Spell.RequestLoadSpellData, spellID)
+	end
+end
+
 local function Attune_RefreshRewardTooltip(rows)
 	for _, row in ipairs(rows or {}) do
-		if row:IsShown() and row.itemID and row.IsMouseOver and row:IsMouseOver() then
-			Attune_ShowItemTooltip(row, row.itemID, false)
-			return
+		if row:IsShown() and row.IsMouseOver and row:IsMouseOver() then
+			if row.spellID then
+				spellReward.ShowTooltip(row, row.spellID, false)
+				return
+			elseif row.itemID then
+				Attune_ShowItemTooltip(row, row.itemID, false)
+				return
+			end
 		end
 	end
 end
@@ -7368,9 +7469,72 @@ local function Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, se
 	end
 end
 
+function spellReward.Add(list, seen, spellID, name, texture)
+	if type(spellID) == "table" then
+		local info = spellID
+		spellID = info.spellID or info.spellId or info.id
+		if type(name) ~= "string" or name == "" then name = info.name end
+		if not texture then texture = info.texture or info.icon end
+	end
+	spellID = tonumber(spellID)
+	if not spellID or spellID <= 0 or seen[spellID] then return end
+	seen[spellID] = true
+	local storedName, storedIcon = spellReward.Stored(spellID)
+	if type(name) ~= "string" or name == "" then name = storedName end
+	if not texture then texture = storedIcon end
+	table.insert(list, {
+		spellID = spellID,
+		name = name,
+		texture = texture,
+	})
+end
+
+function spellReward.AppendStored(questID, spells, seen)
+	local row = Attune_Data.questRewards and Attune_Data.questRewards[questID]
+	if not row then return end
+	for _, spellID in ipairs(row.spells or {}) do
+		spellReward.Add(spells, seen, spellID)
+	end
+end
+
+function spellReward.AppendLive(questID, spells, seen)
+	if C_QuestInfoSystem and C_QuestInfoSystem.GetQuestRewardSpells then
+		local ok, ids = pcall(C_QuestInfoSystem.GetQuestRewardSpells, questID)
+		if ok and type(ids) == "table" then
+			for _, spellID in ipairs(ids) do
+				local name, texture
+				if type(spellID) ~= "table" and C_QuestInfoSystem.GetQuestRewardSpellInfo then
+					local okInfo, info = pcall(C_QuestInfoSystem.GetQuestRewardSpellInfo, questID, spellID)
+					if okInfo and type(info) == "table" then
+						name, texture = info.name, info.texture
+					end
+				end
+				spellReward.Add(spells, seen, spellID, name, texture)
+			end
+		end
+	end
+	-- These log functions describe the selected quest only. Skip them unless this quest is that selection.
+	if not (GetNumQuestLogRewardSpells and GetQuestLogRewardSpell and GetQuestLogIndexByID and GetQuestLogSelection) then return end
+	local index = GetQuestLogIndexByID(questID)
+	if not index or index <= 0 or index ~= GetQuestLogSelection() then return end
+	local ok, num = pcall(GetNumQuestLogRewardSpells)
+	if not ok or type(num) ~= "number" or num <= 0 then return end
+	if num > 20 then num = 20 end
+	for i = 1, num do
+		local okInfo, texture, name, _, _, _, _, _, _, spellID = pcall(GetQuestLogRewardSpell, i)
+		if okInfo then
+			if type(texture) == "table" then
+				spellReward.Add(spells, seen, texture, name)
+			else
+				spellReward.Add(spells, seen, spellID, name, texture)
+			end
+		end
+	end
+end
+
 local function Attune_CollectQuestRewards(questIDs)
-	local fixed, choices = {}, {}
-	local seenFixed, seenChoice = {}, {}
+	local fixed, choices, spells = {}, {}, {}
+	local seenFixed, seenChoice, seenSpells = {}, {}, {}
 	for _, questID in ipairs(questIDs or {}) do
 		if C_QuestLog then
 			Attune_ReadIndexedRewards(C_QuestLog.GetNumQuestRewards, C_QuestLog.GetQuestRewardInfo, questID, fixed, seenFixed, false)
@@ -7387,9 +7551,11 @@ local function Attune_CollectQuestRewards(questIDs)
 		end
 		-- Always merge static rows; seen* skips duplicates. Live Forever data often
 		-- returns only choice rewards and omits fixed ones (e.g. Changing Tastes).
+		spellReward.AppendLive(questID, spells, seenSpells)
 		Attune_AppendStoredRewards(questID, fixed, choices, seenFixed, seenChoice)
+		spellReward.AppendStored(questID, spells, seenSpells)
 	end
-	return fixed, choices
+	return fixed, choices, spells
 end
 
 -- XP from the quest log only (no static table). Returns nil when unavailable.
@@ -7468,7 +7634,11 @@ local function Attune_CreateRewardRow(parent)
 	if row.name.SetMaxLines then row.name:SetMaxLines(1) end
 	row:SetHighlightTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight", "ADD")
 	row:SetScript("OnEnter", function(self)
-		Attune_ShowItemTooltip(self, self.itemID, true)
+		if self.spellID then
+			spellReward.ShowTooltip(self, self.spellID, true)
+		else
+			Attune_ShowItemTooltip(self, self.itemID, true)
+		end
 	end)
 	row:SetScript("OnLeave", function()
 		GameTooltip:Hide()
@@ -7479,6 +7649,7 @@ end
 local function Attune_HideRewardRows(frame)
 	for _, row in ipairs(frame.rows) do
 		row.itemID = nil
+		row.spellID = nil
 		row:Hide()
 	end
 	for _, header in ipairs(frame.headers) do header:Hide() end
@@ -7511,6 +7682,7 @@ local function Attune_PaintRewardItem(frame, entry, y)
 	row:SetPoint("RIGHT", frame.content, "RIGHT", 0, 0)
 
 	row.itemID = entry.itemID
+	row.spellID = nil
 	local name = entry.name
 	local quality = entry.quality
 	local texture = entry.texture
@@ -7542,17 +7714,46 @@ local function Attune_PaintRewardItem(frame, entry, y)
 	row:Show()
 end
 
+function spellReward.Paint(frame, entry, y)
+	local index = frame.rowUsed + 1
+	frame.rowUsed = index
+	local row = frame.rows[index]
+	if not row then
+		row = Attune_CreateRewardRow(frame.content)
+		frame.rows[index] = row
+	end
+	row:ClearAllPoints()
+	row:SetPoint("TOPLEFT", 0, -y)
+	row:SetPoint("RIGHT", frame.content, "RIGHT", 0, 0)
+
+	row.itemID = nil
+	row.spellID = entry.spellID
+	local name, texture = spellReward.Resolve(entry.spellID)
+	if not name or name == "" then name = entry.name end
+	if not texture then texture = entry.texture end
+	if not name or name == "" then name = "..." end
+	if not spellReward.Client(entry.spellID) and C_Spell and C_Spell.RequestLoadSpellData then
+		pcall(C_Spell.RequestLoadSpellData, entry.spellID)
+	end
+
+	row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
+	row.name:SetText(name)
+	row.name:SetTextColor(1, 1, 1)
+	row.count:Hide()
+	row:Show()
+end
+
 local function Attune_FillQuestRewards(frame, final, resetScroll)
 	if not frame or not frame:IsShown() then return end
 	local width = frame.scroll:GetWidth()
 	if not width or width < 40 then width = ATTUNE_REWARD_WIDTH - 52 end
 	frame.content:SetWidth(width)
 
-	local fixed, choices = Attune_CollectQuestRewards(frame.questIDs)
+	local fixed, choices, spells = Attune_CollectQuestRewards(frame.questIDs)
 	Attune_HideRewardRows(frame)
 	frame.rowUsed = 0
 
-	if #fixed == 0 and #choices == 0 then
+	if #fixed == 0 and #choices == 0 and #spells == 0 then
 		frame.scroll:Hide()
 		frame.empty:Show()
 		frame.empty:SetText(final and AttuneLang["No item rewards"] or AttuneLang["Loading rewards"])
@@ -7576,6 +7777,16 @@ local function Attune_FillQuestRewards(frame, final, resetScroll)
 		y = y + 18
 		for _, entry in ipairs(choices) do
 			Attune_PaintRewardItem(frame, entry, y)
+			y = y + 40
+		end
+	end
+	if #spells > 0 then
+		if #fixed > 0 or #choices > 0 then y = y + 6 end
+		headerIndex = headerIndex + 1
+		Attune_RewardHeader(frame, headerIndex, spellReward.Header(), y)
+		y = y + 18
+		for _, entry in ipairs(spells) do
+			spellReward.Paint(frame, entry, y)
 			y = y + 40
 		end
 	end
@@ -7688,6 +7899,12 @@ local function Attune_EnsureRewardFrame()
 				if row.itemID == arg1 then wanted = true break end
 			end
 			if not wanted then return end
+		elseif event == "SPELL_DATA_LOAD_RESULT" then
+			local wanted = false
+			for _, row in ipairs(f.rows) do
+				if row.spellID == arg1 then wanted = true break end
+			end
+			if not wanted then return end
 		end
 		Attune_FillQuestRewards(f, true)
 		Attune_RefreshRewardTooltip(f.rows)
@@ -7696,10 +7913,12 @@ local function Attune_EnsureRewardFrame()
 	f:SetScript("OnShow", function(self)
 		self.listener:RegisterEvent("QUEST_DATA_LOAD_RESULT")
 		self.listener:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+		pcall(self.listener.RegisterEvent, self.listener, "SPELL_DATA_LOAD_RESULT")
 	end)
 	f:SetScript("OnHide", function(self)
 		self.listener:UnregisterEvent("QUEST_DATA_LOAD_RESULT")
 		self.listener:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+		pcall(self.listener.UnregisterEvent, self.listener, "SPELL_DATA_LOAD_RESULT")
 		GameTooltip:Hide()
 	end)
 
@@ -7932,10 +8151,69 @@ local function Attune_DetailRewardRow(parent)
 	row.category:SetTextColor(0.55, 0.55, 0.55)
 	if row.category.SetMaxLines then row.category:SetMaxLines(1) end
 	row:SetScript("OnEnter", function(self)
-		Attune_ShowItemTooltip(self, self.itemID, true)
+		if self.spellID then
+			spellReward.ShowTooltip(self, self.spellID, true)
+		else
+			Attune_ShowItemTooltip(self, self.itemID, true)
+		end
 	end)
 	row:SetScript("OnLeave", function() GameTooltip:Hide() end)
 	return row
+end
+
+function spellReward.HideDetailHeaders(panel)
+	for _, header in ipairs(panel.headers or {}) do header:Hide() end
+end
+
+function spellReward.DetailHeader(panel, index, text, y)
+	panel.headers = panel.headers or {}
+	local header = panel.headers[index]
+	if not header then
+		header = panel.rewardChild:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+		header:SetJustifyH("LEFT")
+		panel.headers[index] = header
+	end
+	header:ClearAllPoints()
+	header:SetPoint("TOPLEFT", 6, -y)
+	header:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
+	header:SetText(text)
+	header:Show()
+end
+
+function spellReward.ShowDetail(panel, entry, y, shown)
+	shown = shown + 1
+	local row = panel.rows[shown]
+	if not row then
+		row = Attune_DetailRewardRow(panel.rewardChild)
+		panel.rows[shown] = row
+	end
+	row:ClearAllPoints()
+	row:SetPoint("TOPLEFT", 4, -y)
+	row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
+	row.itemID = nil
+	row.spellID = entry.spellID
+	local name, texture = spellReward.Resolve(entry.spellID)
+	if not name or name == "" then name = entry.name end
+	if not texture then texture = entry.texture end
+	if not name or name == "" then name = "..." end
+	if not spellReward.Client(entry.spellID) and C_Spell and C_Spell.RequestLoadSpellData then
+		pcall(C_Spell.RequestLoadSpellData, entry.spellID)
+	end
+	row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
+	row.name:SetText(name)
+	row.name:SetTextColor(1, 1, 1)
+	local subtext = spellReward.Subtext(entry.spellID)
+	row.category:SetText(subtext)
+	if subtext == "" then row.category:Hide() else row.category:Show() end
+	row.name:ClearAllPoints()
+	row.name:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+	if subtext == "" then
+		row.name:SetPoint("LEFT", row.icon, "RIGHT", 6, 0)
+	else
+		row.name:SetPoint("BOTTOMLEFT", row.icon, "RIGHT", 6, 1)
+	end
+	row:Show()
+	return y + 42, shown
 end
 
 local function Attune_QuestRewardsKnown(panel)
@@ -7994,7 +8272,8 @@ local function Attune_LayoutQuestDetail(panel)
 	panel.title:SetText(questName)
 
 	local questIDs = Attune_RewardQuestIDs(panel.step.ID_WOWHEAD)
-	local fixed, choices = Attune_CollectQuestRewards(questIDs)
+	local fixed, choices, spells = Attune_CollectQuestRewards(questIDs)
+	spells = spells or {}
 	local items = {}
 	for _, entry in ipairs(fixed) do items[#items + 1] = entry end
 	for _, entry in ipairs(choices) do items[#items + 1] = entry end
@@ -8018,8 +8297,13 @@ local function Attune_LayoutQuestDetail(panel)
 		end
 	end
 
-	for _, row in ipairs(panel.rows) do row:Hide() end
-	if #items == 0 then
+	for _, row in ipairs(panel.rows) do
+		row.itemID = nil
+		row.spellID = nil
+		row:Hide()
+	end
+	spellReward.HideDetailHeaders(panel)
+	if #items == 0 and #spells == 0 then
 		panel.empty:Show()
 		local known = Attune_QuestRewardsKnown(panel)
 		local msg
@@ -8074,6 +8358,7 @@ local function Attune_LayoutQuestDetail(panel)
 			row:SetPoint("TOPLEFT", 4, -y)
 			row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
 			row.itemID = entry.itemID
+			row.spellID = nil
 			row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
 			local text = name
 			if entry.count and entry.count > 1 then text = text .. " x" .. entry.count end
@@ -8124,6 +8409,14 @@ local function Attune_LayoutQuestDetail(panel)
 			end
 			row:Show()
 			y = y + 42
+			end
+		end
+		if #spells > 0 then
+			if shown > 0 then y = y + 4 end
+			spellReward.DetailHeader(panel, 1, spellReward.Header(), y)
+			y = y + 18
+			for _, entry in ipairs(spells) do
+				y, shown = spellReward.ShowDetail(panel, entry, y, shown)
 			end
 		end
 		if shown == 0 then
@@ -8309,11 +8602,14 @@ local function Attune_EnsureQuestDetail()
 
 	local listener = CreateFrame("Frame", nil, panel)
 	listener:SetScript("OnEvent", function(_, event, arg1, arg2)
-		if event == "GET_ITEM_INFO_RECEIVED" then
+		if event == "GET_ITEM_INFO_RECEIVED" or event == "SPELL_DATA_LOAD_RESULT" then
 			if not panel:IsShown() then return end
 			local wanted = false
 			for _, row in ipairs(panel.rows) do
-				if row.itemID == arg1 then wanted = true break end
+				if (event == "GET_ITEM_INFO_RECEIVED" and row.itemID == arg1) or (event == "SPELL_DATA_LOAD_RESULT" and row.spellID == arg1) then
+					wanted = true
+					break
+				end
 			end
 			if not wanted then return end
 			Attune_LayoutQuestDetail(panel)
@@ -8332,6 +8628,7 @@ local function Attune_EnsureQuestDetail()
 	panel:SetScript("OnShow", function(self)
 		listener:RegisterEvent("QUEST_DATA_LOAD_RESULT")
 		listener:RegisterEvent("GET_ITEM_INFO_RECEIVED")
+		pcall(listener.RegisterEvent, listener, "SPELL_DATA_LOAD_RESULT")
 		listener:RegisterEvent("QUEST_LOG_UPDATE")
 		listener:RegisterEvent("QUEST_ACCEPTED")
 		listener:RegisterEvent("QUEST_REMOVED")
@@ -8340,6 +8637,7 @@ local function Attune_EnsureQuestDetail()
 	panel:SetScript("OnHide", function()
 		listener:UnregisterEvent("QUEST_DATA_LOAD_RESULT")
 		listener:UnregisterEvent("GET_ITEM_INFO_RECEIVED")
+		pcall(listener.UnregisterEvent, listener, "SPELL_DATA_LOAD_RESULT")
 		listener:UnregisterEvent("QUEST_LOG_UPDATE")
 		listener:UnregisterEvent("QUEST_ACCEPTED")
 		listener:UnregisterEvent("QUEST_REMOVED")
