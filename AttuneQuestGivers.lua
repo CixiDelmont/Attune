@@ -403,6 +403,7 @@ Attune_Data.questGivers = {
 	[93680] = {1424, 61.6, 20.8, "Magus Wordeen Voidglare"}, -- Magus Wordeen Voidglare (Hillsbrad Foothills)
 	[92434] = {1424, 61.6, 20.8, "Magus Wordeen Voidglare"}, -- Magus Wordeen Voidglare (Hillsbrad Foothills); turn in to Image of Archmage Modera
 	[96984] = {1421, 68.6, 45.2, "Image of Archmage Modera"}, -- Image of Archmage Modera (Silverpine Forest)
+	[97287] = {1424, 61.6, 20.8, "Magus Wordeen Voidglare"}, -- Magus Wordeen Voidglare (Hillsbrad Foothills); turn in to Archmage Celindra
 	[96986] = {1424, 62.6, 20.6, "Melisara"}, -- Melisara (Hillsbrad Foothills)
 	[96987] = {1421, 68.6, 45.2, "Rexxie Copperclutch"}, -- Rexxie Copperclutch (near the sewer entrance)
 	[96988] = {1458, 46.6, 74.4, "Doctor Martin Felben"}, -- Doctor Martin Felben (Undercity)
@@ -411,4 +412,5 @@ Attune_Data.questGivers = {
 	[92489] = {1453, 37.6, 81.6, "High Sorcerer Andromath"}, -- High Sorcerer Andromath (Stormwind City)
 	[92432] = {1424, 48.3, 60.1, "Emissary Jacques"}, -- Emissary Jacques (Hillsbrad Foothills); turn in to Image of Archmage Modera
 	[92458] = {1421, 68.6, 45.2, "Image of Archmage Modera"}, -- Image of Archmage Modera (Silverpine Forest)
+	[92459] = {1421, 68.6, 45.2, "Image of Archmage Modera"}, -- Image of Archmage Modera (Silverpine Forest); turn in to Archmage Celindra (City of Dalaran, Alterac Mountains 14.2, 60)
 }

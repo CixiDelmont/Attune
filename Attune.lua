@@ -8,6 +8,11 @@
 --
 -------------------------------------------------------------------------
 -- 16001-31
+--   - Added the Scarlet Key.
+--   - Added the Tome of Dalaran.
+--   - Added the Scarlet Key quests.
+--   - Added the Dalaran Sewer Key quest for Alliance.
+--   - Fixed missing quests in Horde Paladin class quests.
 --   - Warrior class quests added.
 --   - Shaman class quests added.
 --
@@ -4144,9 +4149,17 @@ function Attune_CreateNode(step, parent, posX, posY)
 			GameTooltip:SetOwner(fnode,"ANCHOR_NONE")
 			GameTooltip:SetPoint("TOPLEFT", fnode,"TOPRIGHT", 10, 0)
 			local npc = Attune_Data.npcs[tonumber(step.ID_WOWHEAD)]
-			if npc == nil then
+			local named = AttuneLang["N1_"..step.ID_WOWHEAD]
+			local hasName = named ~= nil and named ~= "" and named ~= ("N1_"..step.ID_WOWHEAD)
+			if npc == nil and not hasName then
 				-- error message if quest is not in AttuneData.lua
 				GameTooltip:SetText(AttuneLang["NPC Not Found"].." (ID "..step.ID_WOWHEAD..")", 1, 0.5, 0.5, 1)
+			elseif npc == nil then
+				GameTooltip:SetText(named)
+				local note = AttuneLang["N2_"..step.ID_WOWHEAD]
+				if note ~= nil and note ~= "" and note ~= ("N2_"..step.ID_WOWHEAD) then
+					GameTooltip:AddLine("\n"..note, 1, 1, 1, 1, true)
+				end
 			else
 				-- build tooltip
 				GameTooltip:SetText(AttuneLang["N1_"..step.ID_WOWHEAD])
@@ -8088,9 +8101,66 @@ local function Attune_ShareDetailPin(uiMapID, x, y)
 	end
 end
 
+-- Explored ground is a second set of tiles on top of the base map. The world map
+-- draws these from C_MapExplorationInfo; without them the embed stays the blank base.
+local function Attune_FillExploredOverlays(clip, uiMapID, tileW, tileH, left, top, scale)
+	clip.explored = clip.explored or {}
+	local n = 0
+	local exploredMapTextures = C_MapExplorationInfo and C_MapExplorationInfo.GetExploredMapTextures and C_MapExplorationInfo.GetExploredMapTextures(uiMapID)
+	if exploredMapTextures and tileW > 0 and tileH > 0 then
+		for _, explored in ipairs(exploredMapTextures) do
+			local files = explored.fileDataIDs
+			local texW, texH = explored.textureWidth, explored.textureHeight
+			if files and texW and texH and texW > 0 and texH > 0 and not explored.isShownByMouseOver then
+				local cols = math.ceil(texW / tileW)
+				local rows = math.ceil(texH / tileH)
+				local subLevel = explored.isDrawOnTopLayer and 2 or 1
+				for row = 1, rows do
+					local drawH = (row < rows) and tileH or (texH - tileH * (rows - 1))
+					if drawH <= 0 then drawH = tileH end
+					local fileH = (row < rows) and tileH or 16
+					if row == rows then
+						while fileH < drawH do fileH = fileH * 2 end
+					end
+					for col = 1, cols do
+						local file = files[(row - 1) * cols + col]
+						if file then
+							local drawW = (col < cols) and tileW or (texW - tileW * (cols - 1))
+							if drawW <= 0 then drawW = tileW end
+							local fileW = (col < cols) and tileW or 16
+							if col == cols then
+								while fileW < drawW do fileW = fileW * 2 end
+							end
+							n = n + 1
+							local tex = clip.explored[n]
+							if not tex then
+								tex = clip:CreateTexture(nil, "ARTWORK")
+								clip.explored[n] = tex
+							end
+							tex:SetTexture(file, nil, nil, "TRILINEAR")
+							tex:SetSize(drawW * scale, drawH * scale)
+							tex:SetTexCoord(0, drawW / fileW, 0, drawH / fileH)
+							tex:ClearAllPoints()
+							local canvasX = (explored.offsetX or 0) + tileW * (col - 1)
+							local canvasY = (explored.offsetY or 0) + tileH * (row - 1)
+							tex:SetPoint("TOPLEFT", clip, "TOPLEFT", (canvasX - left) * scale, -((canvasY - top) * scale))
+							tex:SetDrawLayer("ARTWORK", subLevel)
+							tex:Show()
+						end
+					end
+				end
+			end
+		end
+	end
+	for i = n + 1, #clip.explored do clip.explored[i]:Hide() end
+end
+
 local function Attune_FillDetailMap(clip, uiMapID, x, y)
 	clip.tiles = clip.tiles or {}
 	for _, tex in ipairs(clip.tiles) do tex:Hide() end
+	if clip.explored then
+		for _, tex in ipairs(clip.explored) do tex:Hide() end
+	end
 	clip.pin:Hide()
 	clip.pin.uiMapID, clip.pin.pinX, clip.pin.pinY = nil, nil, nil
 	clip.empty:Hide()
@@ -8143,6 +8213,7 @@ local function Attune_FillDetailMap(clip, uiMapID, x, y)
 		end
 	end
 	for k = n + 1, #clip.tiles do clip.tiles[k]:Hide() end
+	Attune_FillExploredOverlays(clip, uiMapID, tileW, tileH, left, top, scale)
 	clip.pin.uiMapID, clip.pin.pinX, clip.pin.pinY = uiMapID, x, y
 	clip.pin:Show()
 	clip.pin:ClearAllPoints()
@@ -8653,6 +8724,7 @@ local function Attune_EnsureQuestDetail()
 		listener:RegisterEvent("QUEST_ACCEPTED")
 		listener:RegisterEvent("QUEST_REMOVED")
 		listener:RegisterEvent("UNIT_QUEST_LOG_CHANGED")
+		pcall(listener.RegisterEvent, listener, "MAP_EXPLORATION_UPDATED")
 	end)
 	panel:SetScript("OnHide", function()
 		listener:UnregisterEvent("QUEST_DATA_LOAD_RESULT")
@@ -8662,6 +8734,7 @@ local function Attune_EnsureQuestDetail()
 		listener:UnregisterEvent("QUEST_ACCEPTED")
 		listener:UnregisterEvent("QUEST_REMOVED")
 		listener:UnregisterEvent("UNIT_QUEST_LOG_CHANGED")
+		pcall(listener.UnregisterEvent, listener, "MAP_EXPLORATION_UPDATED")
 	end)
 	panel:SetScript("OnSizeChanged", function(self)
 		if self:IsShown() and not self.layingOut then

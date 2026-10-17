@@ -69,15 +69,19 @@ local classAttunes = {
 	{ID="5227",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	
     -- -- SHAMAN
-	-- {ID="5231",NAME="Earth Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
-	-- {ID="5232",NAME="Earth Sapta (Call of Earth)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
-	-- {ID="5233",NAME="Fire Sapta",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-13"},
-	-- {ID="5234",NAME="Call of Water",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-23"},
-	-- {ID="5235",NAME="Call of Air",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	-- {ID="5236",NAME="Call of Air (1531)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
-	-- {ID="5237",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	{ID="5231",NAME="Call of Earth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_earth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
+	{ID="5242",NAME="Call of Earth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_elemental_primal_earth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
+	{ID="5233",NAME="Call of Fire",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_fire", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-13"},
+	{ID="5243",NAME="Call of Fire",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_elemental_primal_fire", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10-14"},
+	{ID="5234",NAME="Call of Water",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_water", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-23"},
+	{ID="5244",NAME="Call of Water",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_elemental_primal_water", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20-23"},
+	{ID="5235",NAME="Call of Air",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_air", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
+	{ID="5245",NAME="Call of Air",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_elemental_primal_air", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30-40"},
+	-- {ID="5236",NAME="Call of Air (1531)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_air", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
+	{ID="5239",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_feather_14", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+    {ID="5237",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_feather_14", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	-- {ID="5238",NAME="A More Fitting Reward",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
-	-- -- {ID="5239",NAME="Again Into the Great Ossuary",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
+	-- {ID="5239",NAME="Again Into the Great Ossuary",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	-- {ID="5240",NAME="The Darkreaver Menace",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	-- {ID="5241",NAME="The Darkreaver Menace (Material Assistance)",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_lightning", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="58-60"},
 	
@@ -130,7 +134,7 @@ local classSteps = {
 	{ID_ATTUNE="5104",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="5928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5104",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Moonglade
 	{ID_ATTUNE="5104",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5930",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Great Bear Spirit
-	{ID_ATTUNE="5104",ID="50",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="5932",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Thunder Bluff
+	{ID_ATTUNE="5104",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5932",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Thunder Bluff
 	{ID_ATTUNE="5104",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="6002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Body and Heart
 	{ID_ATTUNE="5104",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60",STAGE="70"},
 
@@ -147,11 +151,11 @@ local classSteps = {
 	{ID_ATTUNE="5106",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6127",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Principal Source
 	{ID_ATTUNE="5106",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6128",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Gathering the Cure
 	{ID_ATTUNE="5106",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="6129",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Curing the Sick
-	{ID_ATTUNE="5106",ID="60",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="6130",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Power over Poison
+	{ID_ATTUNE="5106",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="6130",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Power over Poison
 	{ID_ATTUNE="5106",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5107",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 16",LOCATION="",ID_WOWHEAD="16",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5107",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="27",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Lesson to Learn
+	{ID_ATTUNE="5107",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="26",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Lesson to Learn
 	{ID_ATTUNE="5107",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="29",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Trial of the Lake
 	{ID_ATTUNE="5107",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="272",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Trial of the Sea Lion
 	{ID_ATTUNE="5107",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="15883",ICON="Interface\\Icons\\inv_jewelry_talisman_08",FOLLOWS="40",STAGE="45"}, -- Half Pendant of Aquatic Agility
@@ -160,12 +164,12 @@ local classSteps = {
 	{ID_ATTUNE="5107",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5108",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 16",LOCATION="",ID_WOWHEAD="16",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5108",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="26",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Lesson to Learn
+	{ID_ATTUNE="5108",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="27",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Lesson to Learn
 	{ID_ATTUNE="5108",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="28",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Trial of the Lake
 	{ID_ATTUNE="5108",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="30",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Trial of the Sea Lion
 	{ID_ATTUNE="5108",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="15883",ICON="Interface\\Icons\\inv_jewelry_talisman_08",FOLLOWS="40",STAGE="45"}, -- Half Pendant of Aquatic Agility
 	{ID_ATTUNE="5108",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="15882",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="40",STAGE="45"}, -- Half Pendant of Aquatic Endurance
-	{ID_ATTUNE="5108",ID="50",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="31",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46",STAGE="50"}, -- Aquatic Form
+	{ID_ATTUNE="5108",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="31",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46",STAGE="50"}, -- Aquatic Form
 	{ID_ATTUNE="5108",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5297",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -540,7 +544,7 @@ local classSteps = {
     {ID_ATTUNE="5156",ID="85",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&81",STAGE="87"}, -- Ancient Equine1Spirit
 	{ID_ATTUNE="5156",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="85",STAGE="90"}, -- Blessed Arcanite Barding
 	{ID_ATTUNE="5156",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7646",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Divination Scryer
-	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- Judgment and Redemption
+	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- Judgment and Redemption
 	-- {ID_ATTUNE="5156",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- Again Into the Great Ossuary
 	{ID_ATTUNE="5156",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_charger",FOLLOWS="110",STAGE="130"},
 
@@ -757,19 +761,32 @@ local classSteps = {
 
 
     -- SHAMAN
+	-- Earth Sapta: orc/troll (Durotar) or tauren (Mulgore)
 	{ID_ATTUNE="5231",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 4",LOCATION="",ID_WOWHEAD="4",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5231",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1516",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Earth
+	{ID_ATTUNE="5231",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1516",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Earth
+	{ID_ATTUNE="5231",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="1519",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Earth
 	{ID_ATTUNE="5231",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1517",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Call of Earth
-	{ID_ATTUNE="5231",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Earth Sapta
+	-- {ID_ATTUNE="5231",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	-- {ID_ATTUNE="5231",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5231",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="1520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Call of Earth
+	-- {ID_ATTUNE="5231",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Earth Sapta
 	{ID_ATTUNE="5231",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1518",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Earth
-	{ID_ATTUNE="5231",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="41&40",STAGE="50"},
+	-- {ID_ATTUNE="5231",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	-- {ID_ATTUNE="5231",ID="43",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	-- {ID_ATTUNE="5231",ID="44",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="1462",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33",STAGE="40"}, -- Earth Sapta
+	{ID_ATTUNE="5231",ID="45",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="1521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33",STAGE="40"}, -- Call of Earth
+	{ID_ATTUNE="5231",ID="50",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="41",STAGE="50"},
+	-- {ID_ATTUNE="5231",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	-- {ID_ATTUNE="5231",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5231",ID="53",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="45",STAGE="50"},
+	{ID_ATTUNE="5231",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_earth",FOLLOWS="50|53",STAGE="60"},
 
-	{ID_ATTUNE="5232",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 4",LOCATION="",ID_WOWHEAD="4",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5232",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1519",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Earth
-	{ID_ATTUNE="5232",ID="30",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Call of Earth
-	{ID_ATTUNE="5232",ID="40",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1462",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Earth Sapta
-	{ID_ATTUNE="5232",ID="41",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Earth
-	{ID_ATTUNE="5232",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="40&41",STAGE="50"},
+	{ID_ATTUNE="5242",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 4",LOCATION="",ID_WOWHEAD="4",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5242",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="96243",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Earth
+	{ID_ATTUNE="5242",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="94373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Call of Earth
+	{ID_ATTUNE="5242",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="94374",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Earth
+	{ID_ATTUNE="5242",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="94375",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Earth
+	{ID_ATTUNE="5242",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_earth",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5233",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5233",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Fire
@@ -779,9 +796,17 @@ local classSteps = {
 	{ID_ATTUNE="5233",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1524",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20|22|23",STAGE="30"}, -- Call of Fire
 	{ID_ATTUNE="5233",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1525",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Fire
 	{ID_ATTUNE="5233",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Fire
-	{ID_ATTUNE="5233",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1464",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Fire Sapta
+	-- {ID_ATTUNE="5233",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1464",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Fire Sapta
 	{ID_ATTUNE="5233",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Call of Fire
-	{ID_ATTUNE="5233",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="61&60",STAGE="70"},
+	{ID_ATTUNE="5233",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_fire",FOLLOWS="61",STAGE="70"},
+
+	{ID_ATTUNE="5243",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5243",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="94449",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Fire
+	{ID_ATTUNE="5243",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="94465",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Call of Fire
+	{ID_ATTUNE="5243",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="94466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Fire
+	{ID_ATTUNE="5243",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="94467",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Fire
+	{ID_ATTUNE="5243",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="94468",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Call of Fire
+	{ID_ATTUNE="5243",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_fire",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5234",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5234",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Water
@@ -796,24 +821,64 @@ local classSteps = {
 	{ID_ATTUNE="5234",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="63",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Call of Water
 	{ID_ATTUNE="5234",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="100",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- Call of Water
 	{ID_ATTUNE="5234",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="96",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- Call of Water
-	{ID_ATTUNE="5234",ID="101",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1103",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- Call of Water
-	{ID_ATTUNE="5234",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="101",STAGE="110"}, -- Water Sapta
-	{ID_ATTUNE="5234",ID="120",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="100|110",STAGE="120"},
+	-- {ID_ATTUNE="5234",ID="101",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1103",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- Call of Water
+	-- {ID_ATTUNE="5234",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="101",STAGE="110"}, -- Water Sapta
+	{ID_ATTUNE="5234",ID="120",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_water",FOLLOWS="100",STAGE="120"},
+
+	{ID_ATTUNE="5244",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5244",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="94495",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="94497",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="94499",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="94500",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="94501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="94502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="94503",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="94505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="80",STAGE="90"}, -- Call of Water
+	{ID_ATTUNE="5244",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_water",FOLLOWS="90",STAGE="100"},
 
 	{ID_ATTUNE="5235",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5235",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1532",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Air
-	{ID_ATTUNE="5235",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5235",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1532",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Air
+    {ID_ATTUNE="5235",ID="25",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Air
+	{ID_ATTUNE="5235",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="79360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20|25",STAGE="30"}, -- Elemental Aid
+	{ID_ATTUNE="5235",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="79364",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Eyes on the Sky
+	{ID_ATTUNE="5235",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="79361",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Storm, Earth, and Fire
+	{ID_ATTUNE="5235",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="79366",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Heed My Call
+	{ID_ATTUNE="5235",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="79442",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Tempest's Weapons
+	{ID_ATTUNE="5235",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_air",FOLLOWS="70",STAGE="80"},
+
+	{ID_ATTUNE="5245",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5245",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="94789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Air
+	{ID_ATTUNE="5245",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="96264",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Elemental Aid
+	{ID_ATTUNE="5245",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79358",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Storm, Earth, and Fire
+	{ID_ATTUNE="5245",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="96135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Heed My Call
+	{ID_ATTUNE="5245",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="96016",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Tempest's Weapons
+	{ID_ATTUNE="5245",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_air",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5236",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5236",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Call of Air
-	{ID_ATTUNE="5236",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
+	{ID_ATTUNE="5236",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_elemental_primal_air",FOLLOWS="20",STAGE="30"},
+
+	{ID_ATTUNE="5239",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- {ID_ATTUNE="5239,ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8410",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Elemental Mastery
+	{ID_ATTUNE="5239",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8411",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Mastering the Elements
+	{ID_ATTUNE="5239",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8412",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Spirit Totem
+	{ID_ATTUNE="5239",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Da Voodoo
+	{ID_ATTUNE="5239",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2}, -- Green Voodoo Feather
+	{ID_ATTUNE="5239",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5239",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5239",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Da Voodoo
+	{ID_ATTUNE="5239",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5237",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5237",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8410",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Elemental Mastery
 	{ID_ATTUNE="5237",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8411",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Mastering the Elements
 	{ID_ATTUNE="5237",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8412",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21&20",STAGE="30"}, -- Spirit Totem
-	{ID_ATTUNE="5237",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Da Voodoo
-	{ID_ATTUNE="5237",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="40",STAGE="50"},
+	{ID_ATTUNE="5237",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Da Voodoo
+	{ID_ATTUNE="5237",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2}, -- Green Voodoo Feather
+	{ID_ATTUNE="5237",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5237",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5237",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Da Voodoo
+	{ID_ATTUNE="5237",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5238",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5238",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="8259",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A More Fitting Reward
@@ -824,7 +889,7 @@ local classSteps = {
 	-- {ID_ATTUNE="5239",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5240",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5240",ID="20",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="7668",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Darkreaver Menace
+	{ID_ATTUNE="5240",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="7668",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Darkreaver Menace
 	{ID_ATTUNE="5240",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_lightning",FOLLOWS="20",STAGE="30"},
 
 	{ID_ATTUNE="5241",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1008,7 +1073,7 @@ local classSteps = {
 	{ID_ATTUNE="5276",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7630",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Arcanite
     {ID_ATTUNE="5276",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
     {ID_ATTUNE="5276",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="53",STAGE="60"},
-	{ID_ATTUNE="5276",ID="70",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="7631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&65",STAGE="70"}, -- Dreadsteed of Xoroth
+	{ID_ATTUNE="5276",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&65",STAGE="70"}, -- Dreadsteed of Xoroth
 	{ID_ATTUNE="5276",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_dreadsteed",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5277",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1083,15 +1148,15 @@ local classSteps = {
 	{ID_ATTUNE="5291",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55"}, -- Vial of Phlogiston
     {ID_ATTUNE="5291",ID="57",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1838",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="57"}, -- Brutal Armor
 	{ID_ATTUNE="5291",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1839",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Ula'elek and the Brutal Gauntlets
-	{ID_ATTUNE="5291",ID="61",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1840",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Orm Stonehoof and the Brutal Helm
+	{ID_ATTUNE="5291",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1840",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Orm Stonehoof and the Brutal Helm
 	{ID_ATTUNE="5291",ID="62",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Velora Nitely and the Brutal Legguards
 	{ID_ATTUNE="5291",ID="63",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1848",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Brutal Hauberk
 	{ID_ATTUNE="5291",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1842",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Satyr Hooves
-	{ID_ATTUNE="5291",ID="71",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1844",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61",STAGE="70"}, -- Chimaeric Horn
+	{ID_ATTUNE="5291",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1844",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61",STAGE="70"}, -- Chimaeric Horn
 	{ID_ATTUNE="5291",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1846",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="70"}, -- Dragonmaw Shinbones
     {ID_ATTUNE="5291",ID="73",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="63",STAGE="70"},
 	{ID_ATTUNE="5291",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Brutal Gauntlets
-	{ID_ATTUNE="5291",ID="81",TYPE="Quest",STEP="",LOCATION="",ID_WOWHEAD="1845",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- Brutal Helm
+	{ID_ATTUNE="5291",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1845",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- Brutal Helm
 	{ID_ATTUNE="5291",ID="82",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1847",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="72",STAGE="80"}, -- Brutal Legguards
     {ID_ATTUNE="5291",ID="83",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="73",STAGE="80"},
 	{ID_ATTUNE="5291",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_chest_chain_07",FOLLOWS="80&83&82&81",STAGE="90"},
@@ -1556,6 +1621,33 @@ local classQuestInfo = {
 	[972]={20,1},
 	[1532]={30,1},
 	[1531]={30,1},
+	[94789]={30,1},
+	[96264]={33,1},
+	[79358]={40,1},
+	[96135]={40,1},
+	[96016]={40,1},
+	[79360]={33,1},
+	[79364]={33,1},
+	[79361]={40,1},
+	[79366]={40,1},
+	[79442]={40,1},
+	[96243]={10,1},
+	[94373]={4,1},
+	[94374]={4,1},
+	[94375]={4,1},
+	[94449]={10,1},
+	[94465]={11,1},
+	[94466]={14,1},
+	[94467]={14,1},
+	[94468]={14,1},
+	[94495]={22,1},
+	[94497]={22,1},
+	[94499]={22,1},
+	[94500]={23,1},
+	[94501]={23,1},
+	[94502]={23,1},
+	[94503]={23,1},
+	[94505]={23,1},
 	[8410]={50,1},
 	[8411]={50,1},
 	[8412]={50,1},
@@ -1760,40 +1852,40 @@ local classQuestInfo = {
 }
 
 local classQuestGivers = {
-	[3120] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
-	[5923] = {1438, nil, nil, "Kal"}, -- Kal
-	[5924] = {1438, nil, nil, "Fylerian Nightwing"}, -- Fylerian Nightwing
-	[5925] = {1438, nil, nil, "Denatharion"}, -- Denatharion
-	[5921] = {1450, nil, nil, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
-	[5929] = {1450, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[5931] = {1438, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[6001] = {1438, nil, nil, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
+	[3120] = {1438, 58.6, 44.2, "Conservator Ilthalaine"}, -- Conservator Ilthalaine, Teldrassil
+	[5923] = {1457, 34.8, 7.8, "Denatharion"}, -- Denatharion, Darnassus
+	[5924] = {1453, 21.4, 51.4, "Theridran"}, -- Theridran, Stormwind City
+	[5925] = {1438, 56, 61.6, "Kal"}, -- Kal, Teldrassil
+	[5921] = {1457, 35.2, 8, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker, Darnassus
+	[5929] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[5931] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6001] = {1457, 35.2, 8, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker, Darnassus
 	[5926] = {1456, 45.8, 64.4, "Innkeeper Pala"}, -- Innkeeper Pala
 	[5927] = {1454, 54.1, 68.4, "Innkeeper Gryshka"}, -- Innkeeper Gryshka
 	[5928] = {1412, 48.5, 59.6, "Gennia Runetotem"}, -- Gennia Runetotem
-	[5922] = {1450, nil, nil, "Turak Runetotem"}, -- Turak Runetotem
-	[5930] = {1450, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[6002] = {1456, nil, nil, "Turak Runetotem"}, -- Turak Runetotem
-	[6121] = {1450, nil, nil, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
-	[6122] = {1439, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[6123] = {1439, nil, nil, "Alanndarian Nightsong"}, -- Alanndarian Nightsong
-	[6124] = {1450, nil, nil, "Alanndarian Nightsong"}, -- Alanndarian Nightsong
-	[6125] = {1438, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[6126] = {1450, nil, nil, "Turak Runetotem"}, -- Turak Runetotem
-	[6127] = {1413, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[6128] = {1413, nil, nil, "Tonga Runetotem"}, -- Tonga Runetotem
-	[6129] = {1450, nil, nil, "Tonga Runetotem"}, -- Tonga Runetotem
-	[27] = {1450, nil, nil, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
-	[29] = {1450, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[272] = {1450, nil, nil, "Tajarri"}, -- Tajarri
-	[5061] = {1438, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[26] = {1450, nil, nil, "Turak Runetotem"}, -- Turak Runetotem
-	[28] = {1450, nil, nil, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[30] = {1450, nil, nil, "Tajarri"}, -- Tajarri
-	[9063] = {1449, nil, nil, "Turak Runetotem"}, -- Turak Runetotem
-	[9052] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
-	[9051] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
-	[9053] = {1449, nil, nil, "Torwa Pathfinder"}, -- Torwa Pathfinder
+	[5922] = {1456, 76.4, 27.6, "Turak Runetotem"}, -- Turak Runetotem, Thunder Bluff
+	[5930] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6002] = {1456, 76.4, 27.6, "Turak Runetotem"}, -- Turak Runetotem, Thunder Bluff
+	[6121] = {1457, 35.2, 8, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker, Darnassus
+	[6122] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6123] = {1439, 37.6, 40.6, "Alanndarian Nightsong"}, -- Alanndarian Nightsong, Darkshore
+	[6124] = {1439, 37.6, 40.6, "Alanndarian Nightsong"}, -- Alanndarian Nightsong, Darkshore
+	[6125] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6126] = {1456, 76.4, 27.6, "Turak Runetotem"}, -- Turak Runetotem, Thunder Bluff
+	[6127] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6128] = {1413, 52.2, 31.8, "Tonga Runetotem"}, -- Tonga Runetotem, The Barrens
+	[6129] = {1413, 52.2, 31.8, "Tonga Runetotem"}, -- Tonga Runetotem, The Barrens
+	[27] = {1456, 76.4, 27.6, "Turak Runetotem"}, -- Turak Runetotem, Thunder Bluff
+	[29] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[272] = {1450, 36.4, 40.2, "Tajarri"}, -- Tajarri, Moonglade
+	[5061] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[26] = {1457, 35.2, 8, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker, Darnassus
+	[28] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[30] = {1450, 36.4, 40.2, "Tajarri"}, -- Tajarri, Moonglade
+	[9063] = {1456, 76.4, 27.6, "Turak Runetotem"}, -- Turak Runetotem, Thunder Bluff (also Loganaar, Moonglade 52.4, 40.4; Theridran, Stormwind City 21.4, 51.4; Mathrengyl Bearwalker, Darnassus 35.2, 8)
+	[9052] = {1449, 71.6, 76, "Torwa Pathfinder"}, -- Torwa Pathfinder, Un'Goro Crater
+	[9051] = {1449, 71.6, 76, "Torwa Pathfinder"}, -- Torwa Pathfinder, Un'Goro Crater
+	[9053] = {1449, 71.6, 76, "Torwa Pathfinder"}, -- Torwa Pathfinder, Un'Goro Crater
 	[98393] = {1457, 35.4, 8.4, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker
 	[98394] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
 	[98396] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
@@ -1807,10 +1899,10 @@ local classQuestGivers = {
 	[98739] = {1450, 54.6, 75.0, "Great Cat Spirit"}, -- Great Cat Spirit
 	[98738] = {1450, 44.0, 73.4, "Avatar of Saeyleenan"}, -- Avatar of Saeyleenan
 	[98362] = {1450, 56.2, 30.6, "Dendrite Starblaze"}, -- Dendrite Starblaze
-	[3087] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[3108] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3117] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
-	[3082] = {1411, nil, nil, "Gornek"}, -- Gornek
+	[3087] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[3108] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3117] = {1438, 58.6, 44.2, "Conservator Ilthalaine"}, -- Conservator Ilthalaine, Teldrassil
+	[3082] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
 	[6074] = {1426, 29.2, 67.5, "Thorgas Grimson"}, -- Thorgas Grimson, Coldridge Valley
 	[6075] = {1455, 69.9, 82.9, "Regnus Thundergranite"}, -- Regnus Thundergranite, Ironforge
 	[6076] = {1453, 67.3, 36.2, "Einris Brightspear"}, -- Einris Brightspear, Stormwind
@@ -1839,19 +1931,19 @@ local classQuestGivers = {
 	[6083] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
 	[6082] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
 	[6081] = {1411, 51.9, 43.5, "Thotar"}, -- Thotar, Razor Hill
-	[8151] = {1447, nil, nil, "Kary Thunderhorn"}, -- Kary Thunderhorn
-	[8153] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
-	[8231] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
-	[8232] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
-	[7632] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
-	[7634] = {1448, nil, nil, "Hastat the Ancient"}, -- Hastat the Ancient
-	[7635] = {1448, nil, nil, "Stoma the Ancient"}, -- Stoma the Ancient
-	[7636] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
-	[7633] = {1448, nil, nil, "Vartrus the Ancient"}, -- Vartrus the Ancient
-	[3104] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3114] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3098] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
-	[3086] = {1411, nil, nil, "Gornek"}, -- Gornek
+	[8151] = {1453, 62, 15, "Ulfir Ironbeard"}, -- Ulfir Ironbeard, Stormwind City (also Olmin Burningbeard, Ironforge 70.6, 83.8; Ormak Grimshot, Orgrimmar 66.2, 18.2; Holt Thunderhorn, Thunder Bluff 57.4, 89.2; Dorion, Darnassus 42.2, 7.6)
+	[8153] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara
+	[8231] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara
+	[8232] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara
+	[7632] = {1448, 48.8, 24.2, "Vartrus the Ancient"}, -- started by The Ancient Leaf; speak to Vartrus the Ancient, Felwood
+	[7634] = {1448, 48.2, 24.2, "Hastat the Ancient"}, -- Hastat the Ancient, Felwood
+	[7635] = {1448, 48.6, 23.2, "Stoma the Ancient"}, -- Stoma the Ancient, Felwood
+	[7636] = {1448, 48.8, 24.2, "Vartrus the Ancient"}, -- Vartrus the Ancient, Felwood
+	[7633] = {1448, 48.8, 24.2, "Vartrus the Ancient"}, -- Vartrus the Ancient, Felwood
+	[3104] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3114] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3098] = {1420, 30.8, 66.2, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis, Tirisfal Glades
+	[3086] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
 	[1883] = {1454, 39, 86, "Uthel'nay"}, -- Uthel'nay, Orgrimmar (also Thurston Xane, Thunder Bluff 25, 20.6)
 	[1884] = {1411, 56.2, 75, "Un'Thuwa"}, -- Un'Thuwa, Sen'jin Village
 	[1879] = {1426, 47.4, 52, "Magis Sparkmantle"}, -- Magis Sparkmantle, Kharanos
@@ -1862,42 +1954,42 @@ local classQuestGivers = {
 	[1882] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
 	[93791] = {2991, 65.8, 80.4, "Anathamaas Aetherwind"}, -- Anathamaas Aetherwind, Valanaar
 	[93797] = {2991, 62.8, 77.4, "Belann Windwood"}, -- Belann Windwood, Valanaar
-	[1919] = {1429, nil, nil, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt
-	[1920] = {1453, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
-	[1921] = {1429, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
-	[1941] = {1429, nil, nil, "Wynne Larson"}, -- Wynne Larson
-	[1959] = {1420, nil, nil, "Uthel'nay"}, -- Uthel'nay
-	[1960] = {1458, nil, nil, "Anastasia Hartwell"}, -- Anastasia Hartwell
-	[1961] = {1420, nil, nil, "Anastasia Hartwell"}, -- Anastasia Hartwell
-	[1962] = {1420, nil, nil, "Josef Gregorian"}, -- Josef Gregorian
-	[1939] = {1429, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
-	[1938] = {1429, nil, nil, "High Sorcerer Andromath"}, -- High Sorcerer Andromath
-	[1940] = {1429, nil, nil, "High Sorcerer Andromath"}, -- High Sorcerer Andromath
-	[1942] = {1429, nil, nil, "Wynne Larson"}, -- Wynne Larson
-	[1943] = {1411, nil, nil, "Anastasia Hartwell"}, -- Anastasia Hartwell
-	[1944] = {1411, nil, nil, "Deino"}, -- Deino
-	[1945] = {1413, nil, nil, "Deino"}, -- Deino
-	[1946] = {1413, nil, nil, "Kil'hala"}, -- Kil'hala
+	[1919] = {1429, 43.2, 66.2, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt, Elwynn Forest (also Dink, Ironforge 26.8, 8.4)
+	[1920] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City
+	[1921] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City
+	[1941] = {1453, 41.6, 76.6, "Wynne Larson"}, -- Wynne Larson, Stormwind City
+	[1959] = {1454, 39, 86, "Uthel'nay"}, -- Uthel'nay, Orgrimmar (also Cain Firesong, Tirisfal Glades 61.8, 52.4; Thurston Xane, Thunder Bluff 25, 20.6)
+	[1960] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
+	[1961] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
+	[1962] = {1458, 70.2, 30.2, "Rhiannon Davis"}, -- Rhiannon Davis, Undercity
+	[1939] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City (also Bink, Ironforge 27, 8.2)
+	[1938] = {1453, 37.6, 81.6, "High Sorcerer Andromath"}, -- High Sorcerer Andromath, Stormwind City
+	[1940] = {1453, 37.6, 81.6, "High Sorcerer Andromath"}, -- High Sorcerer Andromath, Stormwind City
+	[1942] = {1453, 41.6, 76.6, "Wynne Larson"}, -- Wynne Larson, Stormwind City
+	[1943] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
+	[1944] = {1454, 38.4, 85.8, "Deino"}, -- Deino, Orgrimmar
+	[1945] = {1454, 38.4, 85.8, "Deino"}, -- Deino, Orgrimmar
+	[1946] = {1413, 52.2, 31.6, "Kil'hala"}, -- Kil'hala, The Barrens
 	[1948] = {1445, 46.0, 57.0, "Tabetha"}, -- Tabetha, Dustwallow Marsh
-	[1947] = {1445, nil, nil, "Jennea Cannon"}, -- Jennea Cannon
-	[1949] = {1441, nil, nil, "Tabetha"}, -- Tabetha
-	[1950] = {1441, nil, nil, "Magus Tirth"}, -- Magus Tirth
-	[1951] = {1445, nil, nil, "Magus Tirth"}, -- Magus Tirth
-	[1952] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[1953] = {1445, nil, nil, "Anastasia Hartwell"}, -- Anastasia Hartwell
-	[1954] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[1955] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[1956] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[1957] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[1958] = {1445, nil, nil, "Tabetha"}, -- Tabetha
-	[8250] = {1447, nil, nil, "Thurston Xane"}, -- Thurston Xane
-	[8251] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
-	[8252] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
-	[8253] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
-	[9362] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
-	[9364] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
-	[3101] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3107] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
+	[1947] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City (also Anastasia Hartwell, Undercity 85, 10.2; Bink, Ironforge 27, 8.2; Deino, Orgrimmar 38.4, 85.8; Ursyn Ghull, Thunder Bluff 25.6, 14.6)
+	[1949] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1950] = {1441, 78.2, 75.8, "Magus Tirth"}, -- Magus Tirth, Thousand Needles
+	[1951] = {1441, 78.2, 75.8, "Magus Tirth"}, -- Magus Tirth, Thousand Needles
+	[1952] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1953] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity (also Jennea Cannon, Stormwind City 38.6, 79.4; Bink, Ironforge 27, 8.2; Deino, Orgrimmar 38.4, 85.8; Ursyn Ghull, Thunder Bluff 25.6, 14.6)
+	[1954] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1955] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1956] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1957] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[1958] = {1445, 46, 57, "Tabetha"}, -- Tabetha, Dustwallow Marsh
+	[8250] = {1458, 85.4, 13.8, "Pierce Shackleton"}, -- Pierce Shackleton, Undercity (also Maginor Dumas, Stormwind City 38, 81.6; Dink, Ironforge 26.8, 8.4; Uthel'nay, Orgrimmar 39, 86; Archmage Shymm, Thunder Bluff 22.6, 14.8)
+	[8251] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
+	[8252] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
+	[8253] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
+	[9362] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
+	[9364] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
+	[3101] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3107] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
 	[1790] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
 	[1789] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
 	[1642] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- started by item 6775; speak to Duthorian Rall
@@ -1956,28 +2048,28 @@ local classQuestGivers = {
 	[4485] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
 	[4486] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
 	[1661] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
-	[8415] = {1424, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[8414] = {1422, nil, nil, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist
-	[8416] = {1422, nil, nil, "High Priest Thel'danis"}, -- High Priest Thel'danis
+	[8415] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City (also Brandur Ironhammer, Ironforge 23.4, 6.2)
+	[8414] = {1422, 42.8, 84, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist, Western Plaguelands
+	[8416] = {1422, 52, 82.8, "High Priest Thel'danis"}, -- High Priest Thel'danis, Western Plaguelands
 	[8418] = {1422, 42.8, 84.0, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist, Chillwind Camp
 	[7638] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
 	[7670] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
-	[7637] = {1426, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[7639] = {1453, nil, nil, "High Priest Rohan"}, -- High Priest Rohan
-	[7640] = {1429, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[7641] = {1429, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[7642] = {1429, nil, nil, "Grimand Elmore"}, -- Grimand Elmore
-	[7643] = {1444, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[7648] = {1429, nil, nil, "Grimand Elmore"}, -- Grimand Elmore
-	[7644] = {1429, nil, nil, "Ancient Equine Spirit"}, -- Ancient Equine Spirit
-	[7645] = {1424, nil, nil, "Merideth Carlson"}, -- Merideth Carlson
-	[7646] = {1429, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[7666] = {1429, nil, nil, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker
-	[3103] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3110] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3097] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
-	[3119] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
-	[3085] = {1411, nil, nil, "Gornek"}, -- Gornek
+	[7637] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7639] = {1455, 25, 8.4, "High Priest Rohan"}, -- High Priest Rohan, Ironforge
+	[7640] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7641] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7642] = {1453, 51.6, 12.2, "Grimand Elmore"}, -- Grimand Elmore, Stormwind City
+	[7643] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7648] = {1453, 51.6, 12.2, "Grimand Elmore"}, -- Grimand Elmore, Stormwind City
+	[7644] = {234, nil, nil, "Ancient Equine Spirit"}, -- Ancient Equine Spirit, Dire Maul. Wowhead lists no coordinates.
+	[7645] = {1424, 52, 55.6, "Merideth Carlson"}, -- Merideth Carlson, Hillsbrad Foothills
+	[7646] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7666] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[3103] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3110] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3097] = {1420, 30.8, 66.2, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis, Tirisfal Glades
+	[3119] = {1438, 58.6, 44.2, "Conservator Ilthalaine"}, -- Conservator Ilthalaine, Teldrassil
+	[3085] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
 	[5651] = {1420, 31, 66, "Dark Cleric Duesten"}, -- Dark Cleric Duesten, Deathknell
 	[5650] = {1420, 61.6, 52.2, "Dark Cleric Beryl"}, -- Dark Cleric Beryl, Brill
 	[5649] = {1411, 42.4, 68.8, "Ken'jai"}, -- Ken'jai, Sen'jin Village
@@ -2000,13 +2092,13 @@ local classQuestGivers = {
 	[5654] = {1411, 54.2, 42.8, "Tai'jin"}, -- Tai'jin, Razor Hill
 	[5657] = {1458, 49.2, 18.2, "Aelthalyste"}, -- Aelthalyste, Undercity
 	[5656] = {1458, 49.4, 15.4, "Father Lankester"}, -- Father Lankester, Undercity. Wowhead pins only the turn-in.
-	[5628] = {1438, nil, nil, "Priestess Josetta"}, -- Priestess Josetta
-	[5629] = {1438, nil, nil, "Laurna Morninglight"}, -- Laurna Morninglight
-	[5630] = {1438, nil, nil, "Maxan Anvol"}, -- Maxan Anvol
-	[5631] = {1438, nil, nil, "Brother Joshua"}, -- Brother Joshua
-	[5632] = {1438, nil, nil, "Nara Meideros"}, -- Nara Meideros
-	[5633] = {1438, nil, nil, "Braenna Flintcrag"}, -- Braenna Flintcrag
-	[5627] = {1438, nil, nil, "Priestess Alathea"}, -- Priestess Alathea
+	[5628] = {1429, 43.4, 65.6, "Priestess Josetta"}, -- Priestess Josetta, Elwynn Forest
+	[5629] = {1438, 55.6, 56.8, "Laurna Morninglight"}, -- Laurna Morninglight, Teldrassil
+	[5630] = {1426, 47.2, 52.2, "Maxan Anvol"}, -- Maxan Anvol, Dun Morogh
+	[5631] = {1453, 38.8, 26.8, "Brother Joshua"}, -- Brother Joshua, Stormwind City
+	[5632] = {1453, 20.8, 50.2, "Nara Meideros"}, -- Nara Meideros, Stormwind City
+	[5633] = {1455, 24.6, 9.2, "Braenna Flintcrag"}, -- Braenna Flintcrag, Ironforge
+	[5627] = {1457, 39.2, 81, "Priestess Alathea"}, -- Priestess Alathea, Darnassus
 	[5658] = {1458, 49.2, 18.2, "Aelthalyste"}, -- Aelthalyste, Undercity
 	[5661] = {1412, 47, 58.8, "Var'jun"}, -- Var'jun, Bloodhoof Village
 	[5660] = {1411, 54.2, 42.8, "Tai'jin"}, -- Tai'jin, Razor Hill
@@ -2028,111 +2120,142 @@ local classQuestGivers = {
 	[5680] = {1454, 35.6, 87.6, "Ur'kyo"}, -- Ur'kyo, Orgrimmar
 	[5643] = {1458, 49.2, 18.2, "Aelthalyste"}, -- Aelthalyste, Undercity
 	[5642] = {1456, 25.4, 15.4, "Miles Welsh"}, -- Miles Welsh, Thunder Bluff
-	[8254] = {1447, nil, nil, "High Priestess Laurena"}, -- High Priestess Laurena
-	[8255] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
-	[8256] = {1447, nil, nil, "Ogtinc"}, -- Ogtinc
+	[8254] = {1453, 38.8, 26.8, "Brother Joshua"}, -- Brother Joshua, Stormwind City (also High Priest Rohan, Ironforge 25, 8.4; Ur'kyo, Orgrimmar 35.6, 87.6)
+	[8255] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara
+	[8256] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara
 	[8257] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc, Azshara. Turn in to Greta Mosshoof, Felwood 51.2, 82.2.
 	[7621] = {1423, 20.8, 18.4, "Eris Havenfire"}, -- Eris Havenfire, Eastern Plaguelands
 	[7622] = {1423, 20.8, 18.4, "Eris Havenfire"}, -- Eris Havenfire, Eastern Plaguelands
-	[3102] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3113] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3088] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[3109] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3096] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
-	[3118] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
-	[3083] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[2241] = {1438, nil, nil, "Jannok Breezesong"}, -- Jannok Breezesong
-	[2242] = {1438, nil, nil, "Syurna"}, -- Syurna
-	[2218] = {1426, nil, nil, "Hogral Bakkan"}, -- Hogral Bakkan
-	[2238] = {1426, nil, nil, "Hulfdan Blackbeard"}, -- Hulfdan Blackbeard
-	[2239] = {1426, nil, nil, "Onin MacHammar"}, -- Onin MacHammar
-	[2205] = {1429, nil, nil, "Keryn Sylvius"}, -- Keryn Sylvius
-	[2206] = {1429, nil, nil, "Master Mathias Shaw"}, -- Master Mathias Shaw
-	[1885] = {1458, nil, nil, "Marion Call"}, -- Marion Call
-	[1886] = {1424, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[1898] = {1420, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[1899] = {1424, nil, nil, "Andron Gant"}, -- Andron Gant
-	[1978] = {1420, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[1859] = {1454, nil, nil, "Kaplak"}, -- Kaplak
-	[1963] = {1411, nil, nil, "Therzok"}, -- Therzok
-	[1858] = {1454, nil, nil, "Therzok"}, -- Therzok
-	[2259] = {1438, nil, nil, "Jannok Breezesong"}, -- Jannok Breezesong
-	[2299] = {1426, nil, nil, "Hogral Bakkan"}, -- Hogral Bakkan
-	[2300] = {1429, nil, nil, "Keryn Sylvius"}, -- Keryn Sylvius
-	[2260] = {1429, nil, nil, "Erion Shadewhisper"}, -- Erion Shadewhisper
-	[2298] = {1429, nil, nil, "Hulfdan Blackbeard"}, -- Hulfdan Blackbeard
-	[2281] = {1433, nil, nil, "Renzik \"The Shiv\""}, -- Renzik \"The Shiv\"
-	[2282] = {1433, nil, nil, "Lucius"}, -- Lucius
-	[2378] = {1411, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[2380] = {1411, nil, nil, "Kaplak"}, -- Kaplak
-	[2379] = {1411, nil, nil, "Shenthul"}, -- Shenthul
-	[2382] = {1413, nil, nil, "Zando'zan"}, -- Zando'zan
-	[2381] = {1413, nil, nil, "Wrenix the Wretched"}, -- Wrenix the Wretched
-	[1998] = {1424, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[1999] = {1424, nil, nil, "Mennet Carkad"}, -- Mennet Carkad
-	[2460] = {1454, nil, nil, "Shenthul"}, -- Shenthul
-	[2458] = {1411, nil, nil, "Shenthul"}, -- Shenthul
-	[2478] = {1411, nil, nil, "Taskmaster Fizzule"}, -- Taskmaster Fizzule
-	[2479] = {1424, nil, nil, "Shenthul"}, -- Shenthul
-	[2480] = {1424, nil, nil, "Serge Hinott"}, -- Serge Hinott
-	[2360] = {1436, nil, nil, "Master Mathias Shaw"}, -- Master Mathias Shaw
-	[2359] = {1429, nil, nil, "Agent Kearnen"}, -- Agent Kearnen
-	[2607] = {1429, nil, nil, "Master Mathias Shaw"}, -- Master Mathias Shaw
-	[2608] = {1453, nil, nil, "Doc Mixilpixil"}, -- Doc Mixilpixil
-	[2609] = {1453, nil, nil, "Doc Mixilpixil"}, -- Doc Mixilpixil
+	[3102] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3113] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3088] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[3109] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3096] = {1420, 30.8, 66.2, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis, Tirisfal Glades
+	[3118] = {1438, 58.6, 44.2, "Conservator Ilthalaine"}, -- Conservator Ilthalaine, Teldrassil
+	[3083] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[2241] = {1438, 56.2, 60, "Jannok Breezesong"}, -- Jannok Breezesong, Teldrassil
+	[2242] = {1457, 36.8, 21.8, "Syurna"}, -- Syurna, Darnassus
+	[2218] = {1426, 47.6, 52.6, "Hogral Bakkan"}, -- Hogral Bakkan, Dun Morogh
+	[2238] = {1455, 51.6, 14.8, "Hulfdan Blackbeard"}, -- Hulfdan Blackbeard, Ironforge
+	[2239] = {1426, 25.2, 44.4, "Onin MacHammar"}, -- Onin MacHammar, Dun Morogh
+	[2205] = {1429, 43.8, 65.8, "Keryn Sylvius"}, -- Keryn Sylvius, Elwynn Forest
+	[2206] = {1453, 75.8, 59.8, "Master Mathias Shaw"}, -- Master Mathias Shaw, Stormwind City
+	[1885] = {1420, 61.6, 52, "Marion Call"}, -- Marion Call, Tirisfal Glades
+	[1886] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[1898] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[1899] = {1458, 54.6, 75.6, "Andron Gant"}, -- Andron Gant, Undercity
+	[1978] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[1859] = {1411, 52, 43.6, "Kaplak"}, -- Kaplak, Durotar
+	[1963] = {1454, 42.8, 53.4, "Therzok"}, -- Therzok, Orgrimmar
+	[1858] = {1454, 42.8, 53.4, "Therzok"}, -- Therzok, Orgrimmar
+	[2259] = {1438, 56.2, 60, "Jannok Breezesong"}, -- Jannok Breezesong, Teldrassil
+	[2299] = {1426, 47.6, 52.6, "Hogral Bakkan"}, -- Hogral Bakkan, Dun Morogh
+	[2300] = {1429, 43.8, 65.8, "Keryn Sylvius"}, -- Keryn Sylvius, Elwynn Forest
+	[2260] = {1457, 34.6, 25.6, "Erion Shadewhisper"}, -- Erion Shadewhisper, Darnassus
+	[2298] = {1455, 51.6, 14.8, "Hulfdan Blackbeard"}, -- Hulfdan Blackbeard, Ironforge
+	[2281] = {1453, 75.8, 60.2, "Renzik \"The Shiv\""}, -- Renzik "The Shiv", Stormwind City
+	[2282] = {1433, 28.2, 52.2, "Lucius"}, -- Lucius, Redridge Mountains
+	[2378] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[2380] = {1411, 52, 43.6, "Kaplak"}, -- Kaplak, Durotar
+	[2379] = {1454, 43, 53.4, "Shenthul"}, -- Shenthul, Orgrimmar
+	[2382] = {1454, 42.8, 53, "Zando'zan"}, -- Zando'zan, Orgrimmar
+	[2381] = {1413, 63, 36.4, "Wrenix the Wretched"}, -- Wrenix the Wretched, The Barrens
+	[1998] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[1999] = {1458, 83.2, 69, "Mennet Carkad"}, -- Mennet Carkad, Undercity
+	[2460] = {1454, 43, 53.4, "Shenthul"}, -- Shenthul, Orgrimmar
+	[2458] = {1454, 43, 53.4, "Shenthul"}, -- Shenthul, Orgrimmar
+	[2478] = {1413, 55.4, 5.6, "Taskmaster Fizzule"}, -- Taskmaster Fizzule, The Barrens
+	[2479] = {1454, 43, 53.4, "Shenthul"}, -- Shenthul, Orgrimmar
+	[2480] = {1424, 61.6, 19.2, "Serge Hinott"}, -- Serge Hinott, Hillsbrad Foothills
+	[2360] = {1453, 75.8, 59.8, "Master Mathias Shaw"}, -- Master Mathias Shaw, Stormwind City
+	[2359] = {1436, 68.4, 70, "Agent Kearnen"}, -- Agent Kearnen, Westfall
+	[2607] = {1453, 75.8, 59.8, "Master Mathias Shaw"}, -- Master Mathias Shaw, Stormwind City
+	[2608] = {1453, 78, 59, "Doc Mixilpixil"}, -- Doc Mixilpixil, Stormwind City
+	[2609] = {1453, 78, 59, "Doc Mixilpixil"}, -- Doc Mixilpixil, Stormwind City
 	[6681] = {1416, 84.4, 80.2, "Fahrad"}, -- Begins from the Elegant Letter. Turn in to Fahrad, Alterac Mountains.
-	[6701] = {1424, nil, nil, "Ravenholdt Guard"}, -- Ravenholdt Guard
+	[6701] = {1416, 84.4, 79.4, "Ravenholdt Guard"}, -- Ravenholdt Guard, Alterac Mountains (also Ravenholdt Guard, Hillsbrad Foothills 77.6, 20)
 	[8249] = {1416, 84.4, 80.2, "Fahrad"}, -- Fahrad, Alterac Mountains
-	[8233] = {1424, nil, nil, "Ormok"}, -- Ormok
-	[8234] = {1447, nil, nil, "Lord Jorach Ravenholdt"}, -- Lord Jorach Ravenholdt
-	[8235] = {1447, nil, nil, "Archmage Xylem"}, -- Archmage Xylem
+	[8233] = {1454, 44, 54.4, "Ormok"}, -- Ormok, Orgrimmar (also Miles Dexter, Undercity 85, 71.2; Osborne the Night Man, Stormwind City 74.4, 52.8; Hulfdan Blackbeard, Ironforge 51.6, 14.8; Syurna, Darnassus 36.8, 21.8)
+	[8234] = {1416, 86, 79, "Lord Jorach Ravenholdt"}, -- Lord Jorach Ravenholdt, Alterac Mountains
+	[8235] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara
 	[8236] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara. Turn in to Lord Jorach Ravenholdt, Alterac Mountains 86, 79.
-	[3089] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[3084] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[1516] = {1411, nil, nil, "Canaga Earthcaller"}, -- Canaga Earthcaller
-	[1517] = {1411, nil, nil, "Canaga Earthcaller"}, -- Canaga Earthcaller
-	[1463] = {1411, nil, nil, "Canaga Earthcaller"}, -- Canaga Earthcaller
-	[1518] = {1411, nil, nil, "Minor Manifestation of Earth"}, -- Minor Manifestation of Earth
-	[1522] = {1411, nil, nil, "Searn Firewarder"}, -- Searn Firewarder
-	[1523] = {1411, nil, nil, "Beram Skychaser"}, -- Beram Skychaser
-	[2983] = {1413, nil, nil, "Swart"}, -- Swart
-	[2984] = {1411, nil, nil, "Narm Skychaser"}, -- Narm Skychaser
-	[1524] = {1411, nil, nil, "Kranal Fiss"}, -- Kranal Fiss
-	[1525] = {1411, nil, nil, "Telf Joolam"}, -- Telf Joolam
-	[1526] = {1411, nil, nil, "Telf Joolam"}, -- Telf Joolam
-	[1464] = {1411, nil, nil, "Telf Joolam"}, -- Telf Joolam
-	[1527] = {1413, nil, nil, "Brazier of the Dormant Flame"}, -- Brazier of the Dormant Flame
-	[1528] = {1411, nil, nil, "Searn Firewarder"}, -- Searn Firewarder
-	[1529] = {1411, nil, nil, "Xanis Flameweaver"}, -- Xanis Flameweaver
-	[2985] = {1411, nil, nil, "Swart"}, -- Swart
-	[2986] = {1411, nil, nil, "Narm Skychaser"}, -- Narm Skychaser
-	[1530] = {1445, nil, nil, "Islen Waterseer"}, -- Islen Waterseer
-	[1535] = {1413, nil, nil, "Brine"}, -- Brine
-	[1536] = {1413, nil, nil, "Brine"}, -- Brine
-	[1534] = {1413, nil, nil, "Brine"}, -- Brine
-	[220] = {1411, nil, nil, "Brine"}, -- Brine
-	[63] = {1421, nil, nil, "Islen Waterseer"}, -- Islen Waterseer
-	[100] = {1421, nil, nil, "Brazier of Everfount"}, -- Brazier of Everfount
-	[96] = {1411, nil, nil, "Minor Manifestation of Water"}, -- Minor Manifestation of Water
-	[1103] = {1421, nil, nil, "Tiev Mordune"}, -- Tiev Mordune
-	[972] = {1411, nil, nil, "Islen Waterseer"}, -- Islen Waterseer
-	[1532] = {1441, nil, nil, "Xanis Flameweaver"}, -- Xanis Flameweaver
-	[1531] = {1441, nil, nil, "Searn Firewarder"}, -- Searn Firewarder
-	[8410] = {1424, nil, nil, "Haromm"}, -- Haromm
-	[8411] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
-	[8412] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
-	[8413] = {1424, nil, nil, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher
-	[7667] = {1454, nil, nil, "Sagorne Creststrider"}, -- Sagorne Creststrider
-	[8258] = {1454, nil, nil, "Sagorne Creststrider"}, -- Sagorne Creststrider
-	[1599] = {1426, nil, nil, "Alamar Grimm"}, -- Alamar Grimm
-	[1470] = {1420, nil, nil, "Venya Marthand"}, -- Venya Marthand
-	[3105] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3115] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3090] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[3099] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
-	[1598] = {1429, nil, nil, "Drusilla La Salle"}, -- Drusilla La Salle
-	[1485] = {1411, nil, nil, "Ruzan"}, -- Ruzan
-	[1499] = {1411, nil, nil, "Ruzan"}, -- Ruzan
+	[3089] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[3084] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[1516] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar
+	[1517] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar
+	[1463] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar
+	[1518] = {1411, 44, 76, "Minor Manifestation of Earth"}, -- Minor Manifestation of Earth, Durotar (also Minor Manifestation of Earth, Mulgore 53.8, 80.4)
+	[1519] = {1412, 44.8, 76.2, "Seer Ravenfeather"}, -- Seer Ravenfeather, Mulgore
+	[1520] = {1412, 44.8, 76.2, "Seer Ravenfeather"}, -- Seer Ravenfeather, Mulgore
+	[1462] = {1412, 44.8, 76.2, "Seer Ravenfeather"}, -- Seer Ravenfeather, Mulgore
+	[1521] = {1412, 53.8, 80.4, "Minor Manifestation of Earth"}, -- Minor Manifestation of Earth, Mulgore (also Minor Manifestation of Earth, Durotar 44, 76)
+	[1522] = {1454, 37.8, 37.4, "Searn Firewarder"}, -- Searn Firewarder, Orgrimmar
+	[1523] = {1456, 25.2, 21, "Xanis Flameweaver"}, -- Xanis Flameweaver, Thunder Bluff
+	[2983] = {1411, 54.4, 42.6, "Swart"}, -- Swart, Durotar
+	[2984] = {1412, 48.4, 59.2, "Narm Skychaser"}, -- Narm Skychaser, Mulgore
+	[1524] = {1413, 55.8, 20, "Kranal Fiss"}, -- Kranal Fiss, The Barrens
+	[1525] = {1411, 38.6, 58.8, "Telf Joolam"}, -- Telf Joolam, Durotar
+	[1526] = {1411, 38.6, 58.8, "Telf Joolam"}, -- Telf Joolam, Durotar
+	[1464] = {1411, 38.6, 58.8, "Telf Joolam"}, -- Telf Joolam, Durotar
+	[1527] = {1411, 38.9, 58.2, "Brazier of the Dormant Flame"}, -- Brazier of the Dormant Flame, Durotar
+	[1528] = {1454, 37.8, 37.4, "Searn Firewarder"}, -- Searn Firewarder, Orgrimmar
+	[1529] = {1456, 25.2, 21, "Xanis Flameweaver"}, -- Xanis Flameweaver, Thunder Bluff
+	[2985] = {1411, 54.4, 42.6, "Swart"}, -- Swart, Durotar
+	[2986] = {1412, 48.4, 59.2, "Narm Skychaser"}, -- Narm Skychaser, Mulgore
+	[1530] = {1413, 65.8, 43.8, "Islen Waterseer"}, -- Islen Waterseer, The Barrens
+	[1535] = {1413, 43.4, 77.4, "Brine"}, -- Brine, The Barrens
+	[1536] = {1413, 43.4, 77.4, "Brine"}, -- Brine, The Barrens
+	[1534] = {1413, 43.4, 77.4, "Brine"}, -- Brine, The Barrens
+	[220] = {1413, 43.4, 77.4, "Brine"}, -- Brine, The Barrens
+	[63] = {1413, 65.8, 43.8, "Islen Waterseer"}, -- Islen Waterseer, The Barrens
+	[100] = {1421, 38.2, 44.5, "Brazier of Everfount"}, -- Brazier of Everfount, Silverpine Forest
+	[96] = {1421, 38.6, 44.6, "Minor Manifestation of Water"}, -- Minor Manifestation of Water, Silverpine Forest
+	[1103] = {1421, 37.4, 44, "Tiev Mordune"}, -- Tiev Mordune, Silverpine Forest
+	[972] = {1413, 65.8, 43.8, "Islen Waterseer"}, -- Islen Waterseer, The Barrens
+	[1532] = {1456, 25.2, 21, "Xanis Flameweaver"}, -- Xanis Flameweaver, Thunder Bluff
+	[1531] = {1454, 37.8, 37.4, "Searn Firewarder"}, -- Searn Firewarder, Orgrimmar
+	[94789] = {1455, 47.4, 13.6, "Eldrun Stormbreaker"}, -- Eldrun Stormbreaker, Ironforge
+	[96264] = {1417, 59.8, 27.6, "Veyric Thunderhame"}, -- Veyric Thunderhame, Arathi Highlands
+	[79358] = {1417, 59.8, 27.6, "Veyric Thunderhame"}, -- Veyric Thunderhame, Arathi Highlands
+	[96135] = {1417, 59.8, 27.6, "Veyric Thunderhame"}, -- Veyric Thunderhame, Arathi Highlands
+	[96016] = {1417, 59.8, 27.6, "Veyric Thunderhame"}, -- Veyric Thunderhame, Arathi Highlands. Turn in to Bath'rah the Windwatcher, Alterac Mountains 80.4, 66.8.
+	[79360] = {1441, 53.6, 42.8, "Prate Cloudseer"}, -- Prate Cloudseer, Thousand Needles (also Rau Cliffrunner, Thousand Needles 46, 51.6). Ends at Rau Cliffrunner and Bath'rah the Windwatcher, Alterac Mountains 80.4, 66.8.
+	[79364] = {1441, 46, 51.6, "Rau Cliffrunner"}, -- Rau Cliffrunner, Thousand Needles (also Bath'rah the Windwatcher, Alterac Mountains 80.4, 66.8). Ends at Prate Cloudseer, Thousand Needles 53.6, 42.8.
+	[79361] = {1441, 53.6, 42.8, "Prate Cloudseer"}, -- Prate Cloudseer, Thousand Needles (also Bath'rah the Windwatcher, Alterac Mountains 80.4, 66.8)
+	[79366] = {1441, 53.6, 42.8, "Prate Cloudseer"}, -- Prate Cloudseer, Thousand Needles (also Rau Cliffrunner, Thousand Needles 46, 51.6). Turn in to Rau Cliffrunner.
+	[79442] = {1441, 46, 51.6, "Rau Cliffrunner"}, -- Rau Cliffrunner, Thousand Needles. Turn in to Bath'rah the Windwatcher, Alterac Mountains 80.4, 66.8.
+	[96243] = {1426, 47.4, 52, "Ingrid Dunwald"}, -- Ingrid Dunwald, Dun Morogh. Also starts from Eldrun Stormbreaker, Ironforge 47.4, 13.6.
+	[94373] = {1426, 28.7, 66.1, "Teo Hammerstorm"}, -- Teo Hammerstorm, Anvilmar
+	[94374] = {1426, 28.7, 66.1, "Teo Hammerstorm"}, -- Teo Hammerstorm, Anvilmar
+	[94375] = {1426, 24.8, 61.8, "Minor Manifestation of Earth"}, -- Minor Manifestation of Earth, Dun Morogh. Same NPC also stands in Durotar and Mulgore.
+	[94449] = {1426, 47.4, 52, "Ingrid Dunwald"}, -- Ingrid Dunwald, Dun Morogh. Also starts from Eldrun Stormbreaker, Ironforge 47.4, 13.6.
+	[94465] = {1426, 87.6, 43.6, "Bruegs Kindleborn"}, -- Bruegs Kindleborn, Dun Morogh
+	[94466] = {1432, 32, 66, "Braldir Ashmantle"}, -- Braldir Ashmantle, Loch Modan
+	[94467] = {1432, 32, 66, "Braldir Ashmantle"}, -- Braldir Ashmantle, Loch Modan
+	[94468] = {1432, 31.9, 64.5, "Brazier of the Dormant Flame"}, -- Brazier of the Dormant Flame, Loch Modan. Same object also stands in Durotar.
+	[94495] = {1432, 41.8, 19, "Norric Lochthane"}, -- Norric Lochthane, Loch Modan
+	[94497] = {1437, 65.6, 76.4, "Hervdana Saegrund"}, -- Hervdana Saegrund, Wetlands
+	[94499] = {1437, 65.6, 76.4, "Hervdana Saegrund"}, -- Hervdana Saegrund, Wetlands
+	[94500] = {1437, 65.6, 76.4, "Hervdana Saegrund"}, -- Hervdana Saegrund, Wetlands
+	[94501] = {1437, 65.6, 76.4, "Hervdana Saegrund"}, -- Hervdana Saegrund, Wetlands
+	[94502] = {1432, 41.8, 19, "Norric Lochthane"}, -- Norric Lochthane, Loch Modan
+	[94503] = {1436, 45.6, 59.9, "Forgotten Shrine"}, -- Forgotten Shrine, Westfall
+	[94505] = {1436, 45.6, 59.9, "Minor Manifestation of Water"}, -- Minor Manifestation of Water, Westfall. Wowhead also pins this NPC in Silverpine Forest at 38.6, 44.6.
+	[8410] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar (also Beram Skychaser, Thunder Bluff 22.2, 19)
+	[8411] = {1416, 80.4, 66.8, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
+	[8412] = {1416, 80.4, 66.8, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
+	[8413] = {1416, 80.4, 66.8, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
+	[7667] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar
+	[8258] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar
+	[1599] = {1426, 28.6, 66.2, "Alamar Grimm"}, -- Alamar Grimm, Dun Morogh
+	[1470] = {1420, 31, 66.2, "Venya Marthand"}, -- Venya Marthand, Tirisfal Glades
+	[3105] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3115] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3090] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[3099] = {1420, 30.8, 66.2, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis, Tirisfal Glades
+	[1598] = {1429, 49.8, 42.6, "Drusilla La Salle"}, -- Drusilla La Salle, Elwynn Forest
+	[1485] = {1411, 42.6, 69, "Ruzan"}, -- Ruzan, Durotar
+	[1499] = {1411, 42.6, 69, "Ruzan"}, -- Ruzan, Durotar
 	[1685] = {1429, 44.4, 66.2, "Remen Marcot"}, -- Remen Marcot, Elwynn Forest
 	[1715] = {1455, 47.6, 9.6, "Lago Blackwrench"}, -- Lago Blackwrench, Ironforge
 	[1688] = {1453, 25.4, 78.4, "Gakin the Darkbinder"}, -- Gakin the Darkbinder, Stormwind City
@@ -2181,11 +2304,11 @@ local classQuestGivers = {
 	[4782] = {1434, 28.6, 76.8, "Xizk Goodstitch"}, -- Xizk Goodstitch, Stranglethorn Vale
 	[4783] = {1413, 62.4, 35.4, "Menara Voidrender"}, -- Menara Voidrender, The Barrens
 	[4784] = {1413, 62.4, 35.4, "Menara Voidrender"}, -- Menara Voidrender, The Barrens
-	[4785] = {1434, nil, nil, "Xizk Goodstitch"}, -- Xizk Goodstitch
+	[4785] = {1434, 28.6, 76.8, "Xizk Goodstitch"}, -- Xizk Goodstitch, Stranglethorn Vale
 	[4786] = {1413, 62.4, 35.4, "Menara Voidrender"}, -- Menara Voidrender, The Barrens
 	[4736] = {1455, 50.2, 6, "Briarthorn"}, -- Briarthorn, Ironforge
 	[4739] = {1458, 86, 15.6, "Kaal Soulreaper"}, -- Kaal Soulreaper, Undercity
-	[4785] = {1434, nil, nil, "Xizk Goodstitch"}, -- Xizk Goodstitch
+	[4785] = {1434, 28.6, 76.8, "Xizk Goodstitch"}, -- Xizk Goodstitch, Stranglethorn Vale
 	[4965] = {1455, 50.2, 6, "Briarthorn"}, -- Briarthorn, Ironforge
 	[4967] = {1454, 48.4, 45.6, "Zevrost"}, -- Zevrost, Orgrimmar
 	[1799] = {1413, 62.4, 35.4, "Menara Voidrender"}, -- Menara Voidrender, The Barrens
@@ -2226,74 +2349,96 @@ local classQuestGivers = {
 	[65602] = {1413, 49.2, 57, "Takar the Seer"}, -- Takar the Seer, The Barrens
 	[65603] = {1453, 25.4, 78.4, "Gakin the Darkbinder"}, -- Gakin the Darkbinder, Stormwind City
 	[7631] = {1428, 12.6, 31.6, "Mor'zul Bloodbringer"}, -- Mor'zul Bloodbringer, Burning Steppes
-	[3100] = {1429, nil, nil, "Marshal McBride"}, -- Marshal McBride
-	[3112] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[2383] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[3106] = {1426, nil, nil, "Sten Stoutarm"}, -- Sten Stoutarm
-	[3095] = {1420, nil, nil, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis
-	[3116] = {1438, nil, nil, "Conservator Ilthalaine"}, -- Conservator Ilthalaine
-	[3065] = {1411, nil, nil, "Gornek"}, -- Gornek
-	[1638] = {1429, nil, nil, "Lyria Du Lac"}, -- Lyria Du Lac
-	[1639] = {1429, nil, nil, "Harry Burlguard"}, -- Harry Burlguard
-	[1640] = {1453, nil, nil, "Bartleby"}, -- Bartleby
-	[1665] = {1429, nil, nil, "Bartleby"}, -- Bartleby
-	[1666] = {1429, nil, nil, "Harry Burlguard"}, -- Harry Burlguard
-	[1667] = {1429, nil, nil, "Marshal Haggard"}, -- Marshal Haggard
-	[1505] = {1411, nil, nil, "Krang Stonehoof"}, -- Krang Stonehoof
-	[1498] = {1411, nil, nil, "Uzzek"}, -- Uzzek
-	[1502] = {1411, nil, nil, "Uzzek"}, -- Uzzek
-	[1503] = {1411, nil, nil, "Thun'grim Firegaze"}, -- Thun'grim Firegaze
-	[1679] = {1426, nil, nil, "Granis Swiftaxe"}, -- Granis Swiftaxe
-	[1678] = {1426, nil, nil, "Muren Stormpike"}, -- Muren Stormpike
-	[1680] = {1426, nil, nil, "Muren Stormpike"}, -- Muren Stormpike
-	[1681] = {1426, nil, nil, "Tormus Deepforge"}, -- Tormus Deepforge
-	[1682] = {1426, nil, nil, "Tormus Deepforge"}, -- Tormus Deepforge
-	[1818] = {1420, nil, nil, "Austil de Mon"}, -- Austil de Mon
-	[1819] = {1420, nil, nil, "Deathguard Dillinger"}, -- Deathguard Dillinger
-	[1820] = {1420, nil, nil, "Deathguard Dillinger"}, -- Deathguard Dillinger
-	[1821] = {1420, nil, nil, "Coleman Farthing"}, -- Coleman Farthing
-	[1822] = {1420, nil, nil, "Coleman Farthing"}, -- Coleman Farthing
-	[1684] = {1438, nil, nil, "Moon Priestess Amara"}, -- Moon Priestess Amara
-	[1683] = {1438, nil, nil, "Elanaria"}, -- Elanaria
-	[1686] = {1438, nil, nil, "Elanaria"}, -- Elanaria
-	[1692] = {1438, nil, nil, "Elanaria"}, -- Elanaria
-	[1693] = {1438, nil, nil, "Mathiel"}, -- Mathiel
-	[1823] = {1413, nil, nil, "Sorek"}, -- Sorek
-	[1824] = {1413, nil, nil, "Ruga Ragetotem"}, -- Ruga Ragetotem
-	[1825] = {1411, nil, nil, "Ruga Ragetotem"}, -- Ruga Ragetotem
-	[1838] = {1411, nil, nil, "Thun'grim Firegaze"}, -- Thun'grim Firegaze
-	[1839] = {1411, nil, nil, "Thun'grim Firegaze"}, -- Thun'grim Firegaze
-	[1841] = {1420, nil, nil, "Thun'grim Firegaze"}, -- Thun'grim Firegaze
-	[1848] = {1411, nil, nil, "Thun'grim Firegaze"}, -- Thun'grim Firegaze
-	[1842] = {1411, nil, nil, "Ula'elek"}, -- Ula'elek
-	[1846] = {1420, nil, nil, "Velora Nitely"}, -- Velora Nitely
-	[1843] = {1411, nil, nil, "Ula'elek"}, -- Ula'elek
-	[1847] = {1420, nil, nil, "Velora Nitely"}, -- Velora Nitely
-	[1698] = {1433, nil, nil, "Wu Shen"}, -- Wu Shen
-	[1699] = {1433, nil, nil, "Yorus Barleybrew"}, -- Yorus Barleybrew
-	[1702] = {1429, nil, nil, "Yorus Barleybrew"}, -- Yorus Barleybrew
-	[1701] = {1429, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
-	[1700] = {1429, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
-	[1703] = {1438, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
-	[1704] = {1426, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
-	[1705] = {1429, nil, nil, "Grimand Elmore"}, -- Grimand Elmore
-	[1708] = {1426, nil, nil, "Klockmort Spannerspan"}, -- Klockmort Spannerspan
-	[1710] = {1438, nil, nil, "Mathiel"}, -- Mathiel
-	[1706] = {1429, nil, nil, "Grimand Elmore"}, -- Grimand Elmore
-	[1709] = {1426, nil, nil, "Klockmort Spannerspan"}, -- Klockmort Spannerspan
-	[1711] = {1438, nil, nil, "Mathiel"}, -- Mathiel
-	[1782] = {1429, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
-	[1718] = {1411, nil, nil, "Torm Ragetotem"}, -- Torm Ragetotem
-	[1719] = {1411, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod
-	[1791] = {1424, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod
+	[3100] = {1429, 48.8, 41.6, "Marshal McBride"}, -- Marshal McBride, Elwynn Forest
+	[3112] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[2383] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[3106] = {1426, 29.8, 71.2, "Sten Stoutarm"}, -- Sten Stoutarm, Dun Morogh
+	[3095] = {1420, 30.8, 66.2, "Shadow Priest Sarvis"}, -- Shadow Priest Sarvis, Tirisfal Glades
+	[3116] = {1438, 58.6, 44.2, "Conservator Ilthalaine"}, -- Conservator Ilthalaine, Teldrassil
+	[3065] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[1638] = {1429, 41, 65.8, "Lyria Du Lac"}, -- Lyria Du Lac, Elwynn Forest (also Ilsa Corbin, Stormwind City 78.6, 45.6)
+	[1639] = {1453, 74, 37.2, "Harry Burlguard"}, -- Harry Burlguard, Stormwind City
+	[1640] = {1453, 73.8, 36.6, "Bartleby"}, -- Bartleby, Stormwind City
+	[1665] = {1453, 73.8, 36.6, "Bartleby"}, -- Bartleby, Stormwind City
+	[1666] = {1453, 74, 37.2, "Harry Burlguard"}, -- Harry Burlguard, Stormwind City
+	[1667] = {1429, 84.6, 69.4, "Marshal Haggard"}, -- Marshal Haggard, Elwynn Forest
+	[1505] = {1412, 49.4, 60.4, "Krang Stonehoof"}, -- Krang Stonehoof, Mulgore (also Tarshaw Jaggedscar, Durotar 54.2, 42.4; Sorek, Orgrimmar 80.2, 32.4)
+	[1498] = {1413, 61.4, 21, "Uzzek"}, -- Uzzek, The Barrens
+	[1502] = {1413, 61.4, 21, "Uzzek"}, -- Uzzek, The Barrens
+	[1503] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1679] = {1426, 47.2, 52.6, "Granis Swiftaxe"}, -- Granis Swiftaxe, Dun Morogh
+	[1678] = {1455, 70.6, 90.4, "Muren Stormpike"}, -- Muren Stormpike, Ironforge
+	[1680] = {1455, 70.6, 90.4, "Muren Stormpike"}, -- Muren Stormpike, Ironforge
+	[1681] = {1455, 48.6, 43, "Tormus Deepforge"}, -- Tormus Deepforge, Ironforge
+	[1682] = {1455, 48.6, 43, "Tormus Deepforge"}, -- Tormus Deepforge, Ironforge
+	[1818] = {1420, 61.8, 52.4, "Austil de Mon"}, -- Austil de Mon, Tirisfal Glades
+	[1819] = {1420, 58.2, 51.4, "Deathguard Dillinger"}, -- Deathguard Dillinger, Tirisfal Glades
+	[1820] = {1420, 58.2, 51.4, "Deathguard Dillinger"}, -- Deathguard Dillinger, Tirisfal Glades
+	[1821] = {1420, 61.8, 52.4, "Coleman Farthing"}, -- Coleman Farthing, Tirisfal Glades
+	[1822] = {1420, 61.8, 52.4, "Coleman Farthing"}, -- Coleman Farthing, Tirisfal Glades
+	[1684] = {1438, 55.6, 58.4, "Moon Priestess Amara"}, -- Moon Priestess Amara, Teldrassil (also Kyra Windblade, Teldrassil 56.2, 59.2)
+	[1683] = {1457, 57.4, 34.8, "Elanaria"}, -- Elanaria, Darnassus
+	[1686] = {1457, 57.4, 34.8, "Elanaria"}, -- Elanaria, Darnassus
+	[1692] = {1457, 57.4, 34.8, "Elanaria"}, -- Elanaria, Darnassus
+	[1693] = {1457, 59.2, 45.4, "Mathiel"}, -- Mathiel, Darnassus
+	[1823] = {1454, 80.2, 32.4, "Sorek"}, -- Sorek, Orgrimmar (also Baltus Fowler, Undercity 47.2, 17; Torm Ragetotem, Thunder Bluff 57.6, 87.2)
+	[1824] = {1413, 44.6, 59.4, "Ruga Ragetotem"}, -- Ruga Ragetotem, The Barrens
+	[1825] = {1413, 44.6, 59.4, "Ruga Ragetotem"}, -- Ruga Ragetotem, The Barrens
+	[1838] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1839] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1841] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1848] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1842] = {1411, 56.2, 74.4, "Ula'elek"}, -- Ula'elek, Durotar
+	[1846] = {1458, 62.4, 39.2, "Velora Nitely"}, -- Velora Nitely, Undercity
+	[1843] = {1411, 56.2, 74.4, "Ula'elek"}, -- Ula'elek, Durotar
+	[1847] = {1458, 62.4, 39.2, "Velora Nitely"}, -- Velora Nitely, Undercity
+	[1698] = {1453, 78.8, 45.6, "Wu Shen"}, -- Wu Shen, Stormwind City (also Kelv Sternhammer, Ironforge 70, 90.6; Darnath Bladesinger, Darnassus 58.6, 35.4)
+	[1699] = {1433, 26.6, 44.8, "Yorus Barleybrew"}, -- Yorus Barleybrew, Redridge Mountains
+	[1702] = {1433, 26.6, 44.8, "Yorus Barleybrew"}, -- Yorus Barleybrew, Redridge Mountains
+	[1701] = {1453, 58, 16.8, "Furen Longbeard"}, -- Furen Longbeard, Stormwind City
+	[1700] = {1453, 58, 16.8, "Furen Longbeard"}, -- Furen Longbeard, Stormwind City
+	[1703] = {1453, 58, 16.8, "Furen Longbeard"}, -- Furen Longbeard, Stormwind City
+	[1704] = {1453, 58, 16.8, "Furen Longbeard"}, -- Furen Longbeard, Stormwind City
+	[1705] = {1453, 51.6, 12.2, "Grimand Elmore"}, -- Grimand Elmore, Stormwind City
+	[1708] = {1455, 68.2, 46.2, "Klockmort Spannerspan"}, -- Klockmort Spannerspan, Ironforge
+	[1710] = {1457, 59.2, 45.4, "Mathiel"}, -- Mathiel, Darnassus
+	[1706] = {1453, 51.6, 12.2, "Grimand Elmore"}, -- Grimand Elmore, Stormwind City
+	[1709] = {1455, 68.2, 46.2, "Klockmort Spannerspan"}, -- Klockmort Spannerspan, Ironforge
+	[1711] = {1457, 59.2, 45.4, "Mathiel"}, -- Mathiel, Darnassus
+	[1782] = {1453, 58, 16.8, "Furen Longbeard"}, -- Furen Longbeard, Stormwind City
+	[1718] = {1456, 57.6, 87.2, "Torm Ragetotem"}, -- Torm Ragetotem, Thunder Bluff (also Baltus Fowler, Undercity 47.2, 17; Wu Shen, Stormwind City 78.8, 45.6; Kelv Sternhammer, Ironforge 70, 90.6; Sorek, Orgrimmar 80.2, 32.4)
+	[1719] = {1413, 68.6, 49, "Klannoc Macleod"}, -- Klannoc Macleod, The Barrens
+	[1791] = {1413, 68.6, 49, "Klannoc Macleod"}, -- Klannoc Macleod, The Barrens
 	[1712] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
 	[1713] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
 	[1714] = {1416, 79.3, 66.8, "Bath'rah's Cauldron"}, -- Bath'rah's Cauldron, Alterac Mountains
 	[1792] = {1416, 80.5, 66.9, "Bath'rah the Windwatcher"}, -- Bath'rah the Windwatcher, Alterac Mountains
-	[8417] = {1435, nil, nil, "Torm Ragetotem"}, -- Torm Ragetotem
-	[8423] = {1435, nil, nil, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde
-	[8424] = {1435, nil, nil, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde
-	[8425] = {1435, nil, nil, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde
+	[8417] = {1458, 47.2, 15, "Christoph Walker"}, -- Christoph Walker, Undercity (also Wu Shen, Stormwind City 78.8, 45.6; Kelv Sternhammer, Ironforge 70, 90.6; Sorek, Orgrimmar 80.2, 32.4; Darnath Bladesinger, Darnassus 58.6, 35.4)
+	[8423] = {1435, 34.2, 66, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde, Swamp of Sorrows
+	[8424] = {1435, 34.2, 66, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde, Swamp of Sorrows
+	[8425] = {1435, 34.2, 66, "Fallen Hero of the Horde"}, -- Fallen Hero of the Horde, Swamp of Sorrows
+	[31] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[1840] = {1413, 57.2, 30.2, "Thun'grim Firegaze"}, -- Thun'grim Firegaze, The Barrens
+	[1844] = {1456, 39, 55.8, "Orm Stonehoof"}, -- Orm Stonehoof, Thunder Bluff
+	[1845] = {1456, 39, 55.8, "Orm Stonehoof"}, -- Orm Stonehoof, Thunder Bluff
+	[2018] = {1411, 55.4, 34, "Rokar Bladeshadow"}, -- Rokar Bladeshadow, Durotar. The quest page has no pin; this is his NPC location.
+	[2019] = {1411, 55.4, 34, "Rokar Bladeshadow"}, -- Rokar Bladeshadow, Durotar. The quest page has no pin; this is his NPC location.
+	[3091] = {1412, 44.8, 77.2, "Grull Hawkwind"}, -- Grull Hawkwind, Mulgore
+	[3092] = {1412, 44.8, 77.2, "Grull Hawkwind"}, -- Grull Hawkwind, Mulgore
+	[3093] = {1412, 44.8, 77.2, "Grull Hawkwind"}, -- Grull Hawkwind, Mulgore
+	[3094] = {1412, 44.8, 77.2, "Grull Hawkwind"}, -- Grull Hawkwind, Mulgore
+	[5932] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[6130] = {1450, 56.2, 30.4, "Dendrite Starblaze"}, -- Dendrite Starblaze, Moonglade
+	[7499] = {234, nil, nil, "Lorekeeper Kildrath"}, -- Lorekeeper Kildrath, Dire Maul. Wowhead lists no coordinates.
+	[7506] = {234, nil, nil, "Lorekeeper Javon"}, -- Lorekeeper Javon, Dire Maul. Wowhead lists no coordinates.
+	[7647] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City
+	[7668] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar
+	[7669] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar
+	[8259] = {1454, 38.6, 36.2, "Sagorne Creststrider"}, -- Sagorne Creststrider, Orgrimmar
+	[8328] = {1941, 38.2, 20.8, "Magistrix Erona"}, -- Magistrix Erona, Eversong Woods
+	[8344] = {1941, 38.8, 21.4, "Summoner Teli'Larien"}, -- Summoner Teli'Larien, Eversong Woods
+	[8563] = {1941, 38.2, 20.8, "Magistrix Erona"}, -- Magistrix Erona, Eversong Woods
+	[8564] = {1941, 38.2, 20.8, "Magistrix Erona"}, -- Magistrix Erona, Eversong Woods
 }
 
 local insertAt = #Attune_Data.attunes + 1

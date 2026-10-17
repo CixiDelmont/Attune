@@ -60,9 +60,12 @@ Attune_Data.attunes = 	{
     {ID="361",NAME=AttuneLang["Stratholme"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
     {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="366",NAME=AttuneLang["Upper Blackrock Spire"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-
+    
     -- keys
-	{ID="155",NAME=AttuneLang["Dalaran Sewer Key"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_03", DESC=AttuneLang["Dal_Desc"]},
+	{ID="159",NAME=AttuneLang["Tome of Dalaran"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_book_04", DESC=AttuneLang["TD_Desc"]},
+	{ID="154",NAME=AttuneLang["Dalaran Sewer Key"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_02", DESC=AttuneLang["Dal_Desc"]},
+    {ID="155",NAME=AttuneLang["Dalaran Sewer Key"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_02", DESC=AttuneLang["Dal_Desc"]},
+	{ID="125",NAME=AttuneLang["Scarlet Key"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_01", DESC=AttuneLang["SK_Desc"]},
 	{ID="120",NAME=AttuneLang["Blackrock Depths"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["OnlyOne_Desc"]},
 	{ID="140",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_11", DESC=AttuneLang["OnlyOne_Desc"]},
 	{ID="150",NAME=AttuneLang["Scholomance"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_11", DESC=AttuneLang["OnlyOne_Desc"]},
@@ -75,10 +78,10 @@ Attune_Data.attunes = 	{
 	{ID="60",NAME=AttuneLang["Naxxramas"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['RAIDS'], FACTION="Both",ICON="Interface\\Icons\\inv_trinket_naxxramas06", DESC=AttuneLang["All_Desc"], GROUPSIZE=40, SHOWRAIDPLANNER=1},
 
     -- misc
-	{ID="80",NAME=AttuneLang["Aqual Quintessence"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_potion_76", DESC=AttuneLang["MC2_Desc"]},
-	{ID="100",NAME=AttuneLang["Scepter of the Shifting Sands"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_25", DESC=AttuneLang["AQ_Desc"]},
 	{ID="90",NAME=AttuneLang["Cozy Sleeping Bag"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments", DESC=AttuneLang["CSB_Desc"]},
 	{ID="95",NAME=AttuneLang["Cozy Sleeping Bag"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments", DESC=AttuneLang["CSB_Desc"]},
+	{ID="80",NAME=AttuneLang["Aqual Quintessence"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_potion_76", DESC=AttuneLang["MC2_Desc"]},
+	{ID="100",NAME=AttuneLang["Scepter of the Shifting Sands"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['MISC'], FACTION="Both",ICON="Interface\\Icons\\inv_hammer_25", DESC=AttuneLang["AQ_Desc"]},
 	
 
 }
@@ -362,19 +365,40 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="150",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"}, -- quest: The Key to Scholomance
 	{ID_ATTUNE="150",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_11",FOLLOWS="130",STAGE="140"},
 
+-- Alliance Dalaran Sewer Key (154): City of Dalaran chain through Blood in the Streets, then the key item
+    {ID_ATTUNE="154",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+    {ID_ATTUNE="154",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="92432",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: an-alarming-request
+    {ID_ATTUNE="154",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="92458",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: heart-of-disruption
+    {ID_ATTUNE="154",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="277507",ICON="Interface\\Icons\\inv_misc_key_02",FOLLOWS="30",STAGE="40"}, -- item: Dalaran Sewer Key
+    -- {ID_ATTUNE="154",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="92459",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- quest: Friend of the Kirin Tor
+    {ID_ATTUNE="154",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_02",FOLLOWS="40",STAGE="60"},
+
 -- Horde Dalaran Sewer Key (155): City of Dalaran chain through Blood in the Streets, then the key item
 	{ID_ATTUNE="155",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="155",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="544",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Prison Break In
 	{ID_ATTUNE="155",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="93680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Key to the City
 	{ID_ATTUNE="155",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="545",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Dalaran Patrols
-	{ID_ATTUNE="155",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="279469",ICON="Interface\\Icons\\inv_misc_key_03",FOLLOWS="320",STAGE="30"}, -- item: Grimy Key
+	{ID_ATTUNE="155",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="279469",ICON="Interface\\Icons\\inv_misc_key_02",FOLLOWS="320",STAGE="30"}, -- item: Grimy Key
 	{ID_ATTUNE="155",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="40"},
 	{ID_ATTUNE="155",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="93680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Key to the City
 	{ID_ATTUNE="155",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="92434",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440&340",STAGE="50"}, -- quest: Blood in the Streets
-	{ID_ATTUNE="155",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="277507",ICON="Interface\\Icons\\inv_misc_key_03",FOLLOWS="450",STAGE="60"}, -- item: Dalaran Sewer Key
-	{ID_ATTUNE="155",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_03",FOLLOWS="470",STAGE="70"},
+	{ID_ATTUNE="155",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="277507",ICON="Interface\\Icons\\inv_misc_key_02",FOLLOWS="450",STAGE="60"}, -- item: Dalaran Sewer Key
+	{ID_ATTUNE="155",ID="500",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_02",FOLLOWS="470",STAGE="70"},
 
+-- Scarlet Key (125): both factions. Kill Arcanist Doan, then loot The Scarlet Key from Doan's Strongbox.
+	{ID_ATTUNE="125",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 25",LOCATION="",ID_WOWHEAD="25",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="125",ID="20",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="6487",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="10",STAGE="20"}, -- npc: Arcanist Doan
+	{ID_ATTUNE="125",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="7146",ICON="Interface\\Icons\\inv_misc_key_01",FOLLOWS="20",STAGE="30"}, -- item: The Scarlet Key
+	{ID_ATTUNE="125",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_01",FOLLOWS="30",STAGE="40"},
 
+-- Tome of Dalaran (159): both factions. Black Tome is on the table behind Arugal. Use it at the Ambermill Leyline Focus.
+	{ID_ATTUNE="159",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 23",LOCATION="",ID_WOWHEAD="23",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="159",ID="20",TYPE="Kill",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4275",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="10",STAGE="20"}, -- npc: Archmage Arugal
+	{ID_ATTUNE="159",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="276561",ICON="Interface\\Icons\\inv_misc_book_04",FOLLOWS="20",STAGE="30"}, -- item: Black Tome (table behind Arugal)
+	{ID_ATTUNE="159",ID="40",TYPE="Interact",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="ambermill",ICON="Interface\\Icons\\spell_arcane_starfire",FOLLOWS="30",STAGE="40"}, -- Ambermill Leyline Focus (63.4, 64.3); use the Black Tome
+	{ID_ATTUNE="159",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="275989",ICON="Interface\\Icons\\inv_misc_book_04",FOLLOWS="40",STAGE="50"}, -- item: Tome of Dalaran
+	{ID_ATTUNE="159",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_04",FOLLOWS="50",STAGE="60"},
+    
 --v250
 	{ID_ATTUNE="80",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="80",ID="20",TYPE="Interact",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="13278",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="10",STAGE="20"}, -- npc: Duke Hydraxis
@@ -816,7 +840,7 @@ Attune_Data.steps = 	{
 
 --vForever dungeon attune 226 (Horde City of Dalaran)
 	-- Columns L→R: 96988 Source | 96986 Grave Knight | 544→545 Prison | 93680 Key
-	-- 545 and Key meet at Blood in the Streets → Heart of Disruption.
+	-- 545 and Key meet at Blood in the Streets → Heart of Disruption → Shrewd Negotiations.
 	-- SIDE (beside End): 96987 Opportunistic Education (Inside)
 	{ID_ATTUNE="226",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
@@ -846,10 +870,16 @@ Attune_Data.steps = 	{
 	-- STAGE 80
 	{ID_ATTUNE="226",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="80"},
 	{ID_ATTUNE="226",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="80"},
-	{ID_ATTUNE="226",ID="480",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="96984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Heart of Disruption
+    {ID_ATTUNE="226",ID="480",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="96984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="470",STAGE="80"}, -- quest: Heart of Disruption
 	{ID_ATTUNE="226",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="226",ID="690",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="680",STAGE="90"},
+	{ID_ATTUNE="226",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="90"},
+    {ID_ATTUNE="226",ID="490",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="97287",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="480",STAGE="90"}, -- quest: Shrewd Negotiations
+    {ID_ATTUNE="226",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+
 	{ID_ATTUNE="226",ID="190",TYPE="Quest",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="96987",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: Opportunistic Education (Inside)
-	{ID_ATTUNE="226",ID="7000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="680&580&480&190",STAGE="90"},
+	{ID_ATTUNE="226",ID="7000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="690&590&490&190",STAGE="100"},
 
 
 --vForever dungeon attune 230
@@ -2701,11 +2731,11 @@ Attune_Data.quests = {
 	[79007]={14,1},			[79008]={14,1},			[79192]={14,1},			[79980]={14,1},
 	[79974]={14,1},			[79975]={14,1},			[79976]={14,1},
 	-- City of Dalaran (Alliance)
-	[92432]={30,1},			[92456]={24,5},			[92458]={24,5},			[92489]={24,5},
+	[92432]={30,1},			[92456]={24,5},			[92458]={24,5},			[92459]={24,1},			[92489]={24,5},
 	-- City of Dalaran (Horde)
 	[544]={30,1},			[545]={30,1},
 	[93680]={30,1},			[92434]={30,1},			[96984]={24,5},			[96986]={24,5},
-	[96987]={24,5},			[96988]={24,5},
+	[96987]={24,5},			[96988]={24,5},			[97287]={24,1},
 }
 
 
@@ -2830,6 +2860,7 @@ Attune_Data.npcs = {
 	[3975] = { "40", AttuneLang["Elite"], AttuneLang["Human"]}, -- Herod
 	[3976] = { "42", AttuneLang["Elite"], AttuneLang["Human"]}, -- Scarlet Commander Mograine
 	[3977] = { "42", AttuneLang["Elite"], AttuneLang["Human"]}, -- High Inquisitor Whitemane
+    [6487] = { "37", AttuneLang["Elite"], AttuneLang["Human"]}, -- Arcanist Doan
 	-- Razorfen Downs / Maraudon / Hall of Thanes
 	[7358] = { "41", AttuneLang["Boss"], AttuneLang["Undead"]}, -- Amnennar the Coldbringer
 	[12865] = { "35", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Ambassador Malcin
