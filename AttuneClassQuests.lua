@@ -103,12 +103,10 @@ local classAttunes = {
 	{ID="5277",NAME=AttuneLang["Doomguard"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARLOCK"], CLASS="WARLOCK", FACTION="Both",ICON="Interface\\Icons\\spell_shadow_antimagicshell", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- WARRIOR
-	{ID="5286",NAME="Dead-tooth Jack",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5287",NAME="Forged Steel",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\inv_sword_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5288",NAME="Grey Iron Weapons",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5290",NAME="Weapons of Elunite",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
-	{ID="5291",NAME="Brutal Gear",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_chain_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
-	{ID="5292",NAME="Mathiel's Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5287",NAME="Defensive Stance",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\ability_warrior_defensivestance", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5288",NAME="Defensive Stance",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_defensivestance", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
+	{ID="5291",NAME="Brutal Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_chain_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
+	{ID="5292",NAME="Fire Hardened Armor",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Alliance",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5293",NAME="Whirlwind Weapon",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_skyreach_four_wind", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="30"},
 	{ID="5294",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\inv_feather_14", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	-- {ID="5296",NAME="Codex of Defense",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_WARRIOR"], CLASS="WARRIOR", FACTION="Both",ICON="Interface\\Icons\\ability_warrior_savageblow", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=5, LEVELS="60"},
@@ -1021,15 +1019,6 @@ local classSteps = {
 
 
     -- WARRIOR
-	{ID_ATTUNE="5286",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5286",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Warrior's Training
-	{ID_ATTUNE="5286",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1639",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bartleby the Drunk
-	{ID_ATTUNE="5286",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1640",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Beat Bartleby
-	{ID_ATTUNE="5286",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1665",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Bartleby's Mug
-	{ID_ATTUNE="5286",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Marshal Haggard
-	{ID_ATTUNE="5286",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1667",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Dead-tooth Jack
-	{ID_ATTUNE="5286",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="70",STAGE="80"},
-
 	-- Orc (right) or Undead (left). Either chain completes Forged Steel.
 	{ID_ATTUNE="5287",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5287",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Veteran Uzzek
@@ -1057,25 +1046,31 @@ local classSteps = {
 	{ID_ATTUNE="5287",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="5287",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1822",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="64&63&62&61",STAGE="70"}, -- Heirloom Weapon
 	{ID_ATTUNE="5287",ID="74",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="5287",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_sword_04",FOLLOWS="70|73",STAGE="80"},
+	{ID_ATTUNE="5287",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|73",STAGE="80"},
 
+	-- Human (right), Dwarf (middle), or Night Elf (left). Any chain completes Grey Iron Weapons.
 	{ID_ATTUNE="5288",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5288",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1679",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Muren Stormpike
-	{ID_ATTUNE="5288",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1678",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Vejrek
-	{ID_ATTUNE="5288",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Tormus Deepforge
-	{ID_ATTUNE="5288",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Ironband's Compound
-	{ID_ATTUNE="5288",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1682",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Grey Iron Weapons
-	{ID_ATTUNE="5288",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="60",STAGE="70"},
-
-	{ID_ATTUNE="5290",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5290",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1684",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Elanaria
-	{ID_ATTUNE="5290",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1683",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Vorlus Vilehoof
-	{ID_ATTUNE="5290",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1686",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Shade of Elura
-	{ID_ATTUNE="5290",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6808",ICON="Interface\\Icons\\inv_ore_iron_01",FOLLOWS="40",STAGE="45", COUNT=8}, -- Elunite Ore
-	{ID_ATTUNE="5290",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6809",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="40",STAGE="45"}, -- Elura's Medallion
-	{ID_ATTUNE="5290",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1692",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46",STAGE="50"}, -- Smith Mathiel
-	{ID_ATTUNE="5290",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1693",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Weapons of Elunite
-	{ID_ATTUNE="5290",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5288",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- A Warrior's Training
+	{ID_ATTUNE="5288",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1679",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Muren Stormpike
+	{ID_ATTUNE="5288",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1684",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Elanaria
+	{ID_ATTUNE="5288",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1639",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bartleby the Drunk
+	{ID_ATTUNE="5288",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1678",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Vejrek
+	{ID_ATTUNE="5288",ID="32",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1683",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22",STAGE="30"}, -- Vorlus Vilehoof
+	{ID_ATTUNE="5288",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1640",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Beat Bartleby
+	{ID_ATTUNE="5288",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- Tormus Deepforge
+	{ID_ATTUNE="5288",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1686",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="32",STAGE="40"}, -- The Shade of Elura
+    {ID_ATTUNE="5288",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5288",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1665",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Bartleby's Mug
+	{ID_ATTUNE="5288",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="41",STAGE="50"}, -- Ironband's Compound
+	{ID_ATTUNE="5288",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6809",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="42",STAGE="50"}, -- Elura's Medallion
+	{ID_ATTUNE="5288",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6808",ICON="Interface\\Icons\\inv_ore_iron_01",FOLLOWS="42",STAGE="50", COUNT=8}, -- Elunite Ore
+	{ID_ATTUNE="5288",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Marshal Haggard
+	{ID_ATTUNE="5288",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1682",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51",STAGE="60"}, -- Grey Iron Weapons
+	{ID_ATTUNE="5288",ID="62",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1692",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53&52",STAGE="60"}, -- Smith Mathiel
+	{ID_ATTUNE="5288",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1667",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Dead-tooth Jack
+	{ID_ATTUNE="5288",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="61",STAGE="70"},
+	{ID_ATTUNE="5288",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1693",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="70"}, -- Weapons of Elunite
+	{ID_ATTUNE="5288",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|71|72",STAGE="80"},
 
 	{ID_ATTUNE="5291",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5291",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1823",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Ruga
@@ -1105,23 +1100,25 @@ local classSteps = {
 	{ID_ATTUNE="5292",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="1698",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Yorus Barleybrew
 	{ID_ATTUNE="5292",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="1699",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Rethban Gauntlet
 	{ID_ATTUNE="5292",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1702",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Shieldsmith
-	{ID_ATTUNE="5292",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Fire Hardened Mail
+	{ID_ATTUNE="5292",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Fire Hardened Mail
 	{ID_ATTUNE="5292",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="6838",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="50",STAGE="55", COUNT=50}, -- Scorched Spider Fang
-	{ID_ATTUNE="5292",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6839",ICON="Interface\\Icons\\inv_misc_monstertail_02",FOLLOWS="50",STAGE="55", COUNT=12}, -- Charred Horn
-	{ID_ATTUNE="5292",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6840",ICON="Interface\\Icons\\inv_misc_monstertail_02",FOLLOWS="50",STAGE="55"}, -- Galvanized Horn
-	{ID_ATTUNE="5292",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_27",FOLLOWS="50",STAGE="55"}, -- Vial of Phlogiston
-	{ID_ATTUNE="5292",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1700",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="60"}, -- Grimand Elmore
-	{ID_ATTUNE="5292",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1703",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="60"}, -- Mathiel
-	{ID_ATTUNE="5292",ID="62",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1704",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="60"}, -- Klockmort Spannerspan
-	{ID_ATTUNE="5292",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1705",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Burning Blood
-	{ID_ATTUNE="5292",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Duskwood"],ID_WOWHEAD="6844",ICON="Interface\\Icons\\inv_drink_02",FOLLOWS="70",STAGE="75", COUNT=20}, -- Burning Blood
-	{ID_ATTUNE="5292",ID="74",TYPE="Item",STEP="",LOCATION=AttuneLang["Duskwood"],ID_WOWHEAD="6845",ICON="Interface\\Icons\\inv_ore_mithril_01",FOLLOWS="70",STAGE="75"}, -- Burning Rock
-	{ID_ATTUNE="5292",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1708",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="70"}, -- Iron Coral
-	{ID_ATTUNE="5292",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1710",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61",STAGE="70"}, -- Sunscorched Shells
-	{ID_ATTUNE="5292",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1706",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73&74",STAGE="80"}, -- Grimand's Armor
-	{ID_ATTUNE="5292",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- Klockmort's Creation
+	{ID_ATTUNE="5292",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6839",ICON="Interface\\Icons\\inv_misc_horn_01",FOLLOWS="50",STAGE="55", COUNT=12}, -- Charred Horn
+	{ID_ATTUNE="5292",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6840",ICON="Interface\\Icons\\inv_misc_horn_02",FOLLOWS="50",STAGE="55"}, -- Galvanized Horn
+	{ID_ATTUNE="5292",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55"}, -- Vial of Phlogiston
+	{ID_ATTUNE="5292",ID="57",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="57"}, -- Fire Hardened Mail
+	{ID_ATTUNE="5292",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1704",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Klockmort Spannerspan
+	{ID_ATTUNE="5292",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1700",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Grimand Elmore
+	{ID_ATTUNE="5292",ID="62",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1703",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Mathiel
+	{ID_ATTUNE="5292",ID="63",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1782",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Furen's Armor
+	{ID_ATTUNE="5292",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1708",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Iron Coral
+	{ID_ATTUNE="5292",ID="71",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1705",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="61",STAGE="70"}, -- Burning Blood
+	{ID_ATTUNE="5292",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1710",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="70"}, -- Sunscorched Shells
+	{ID_ATTUNE="5292",ID="73",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="63",STAGE="70"},
+	{ID_ATTUNE="5292",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Klockmort's Creation
+	{ID_ATTUNE="5292",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1706",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="71",STAGE="80"}, -- Grimand's Armor
 	{ID_ATTUNE="5292",ID="82",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1711",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="72",STAGE="80"}, -- Mathiel's Armor
-	{ID_ATTUNE="5292",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="81&82&80",STAGE="90"},
+	{ID_ATTUNE="5292",ID="83",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="73",STAGE="80"},
+	{ID_ATTUNE="5292",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="80&83&82&81",STAGE="90"},
 
 	{ID_ATTUNE="5293",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5293",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1718",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Islander
@@ -1747,6 +1744,7 @@ local classQuestInfo = {
 	[1706]={20,1},
 	[1709]={20,1},
 	[1711]={20,1},
+	[1782]={20,1},
 	[1718]={30,1},
 	[1719]={30,1},
 	[1791]={30,1},
@@ -2284,6 +2282,7 @@ local classQuestGivers = {
 	[1706] = {1429, nil, nil, "Grimand Elmore"}, -- Grimand Elmore
 	[1709] = {1426, nil, nil, "Klockmort Spannerspan"}, -- Klockmort Spannerspan
 	[1711] = {1438, nil, nil, "Mathiel"}, -- Mathiel
+	[1782] = {1429, nil, nil, "Furen Longbeard"}, -- Furen Longbeard
 	[1718] = {1411, nil, nil, "Torm Ragetotem"}, -- Torm Ragetotem
 	[1719] = {1411, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod
 	[1791] = {1424, nil, nil, "Klannoc Macleod"}, -- Klannoc Macleod

@@ -692,6 +692,7 @@ Attune_Data.questRewards = {
 	[1706] = { fixed = {{6971, 1}} },
 	[1709] = { fixed = {{6974, 1}} },
 	[1711] = { fixed = {{6973, 1}} },
+	[1782] = { fixed = {{6972, 1}} },
 	[1792] = { choice = {{6975, 1}, {6977, 1}, {6976, 1}} },
 	-- Class quest reward audit.
 	[1818] = {},
@@ -1100,6 +1101,7 @@ Attune_Data.rewardItems = {
 	[7327] = {"Thun'grim's Dagger", "inv_weapon_shortblade_05", 2},
 	[7329] = {"Thun'grim's Sword", "inv_sword_04", 2},
 	[6971] = {"Fire Hardened Coif", "inv_helmet_39", 2},
+	[6972] = {"Fire Hardened Hauberk", "inv_chest_chain_07", 3},
 	[6974] = {"Fire Hardened Gauntlets", "inv_gauntlets_04", 2},
 	[6973] = {"Fire Hardened Leggings", "inv_pants_03", 2},
 	[6975] = {"Whirlwind Axe", "inv_axe_12", 3},

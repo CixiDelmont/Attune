@@ -7616,13 +7616,30 @@ local function Attune_FormatXPAmount(xp)
 	return tostring(xp)
 end
 
+local ATTUNE_SPELL_FRAME = "Interface\\AddOns\\Attune\\Images\\spellframe"
+
+-- Gold ring with a black center. Additive draw keeps the spell icon visible.
+local function Attune_SetSpellFrame(row, show)
+	if not show then
+		if row.spellFrame then row.spellFrame:Hide() end
+		return
+	end
+	if not row.spellFrame then
+		local frame = row:CreateTexture(nil, "OVERLAY")
+		frame:SetTexture(ATTUNE_SPELL_FRAME)
+		frame:SetBlendMode("ADD")
+		frame:SetAllPoints(row.icon)
+		row.spellFrame = frame
+	end
+	row.spellFrame:Show()
+end
+
 local function Attune_CreateRewardRow(parent)
 	local row = CreateFrame("Button", nil, parent)
 	row:SetHeight(36)
 	row.icon = row:CreateTexture(nil, "ARTWORK")
 	row.icon:SetSize(32, 32)
 	row.icon:SetPoint("LEFT", 2, 0)
-	row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 	row.count = row:CreateFontString(nil, "OVERLAY", "NumberFontNormalSmall")
 	row.count:SetPoint("BOTTOMRIGHT", row.icon, "BOTTOMRIGHT", -1, 2)
 	row.count:SetJustifyH("RIGHT")
@@ -7683,6 +7700,7 @@ local function Attune_PaintRewardItem(frame, entry, y)
 
 	row.itemID = entry.itemID
 	row.spellID = nil
+	Attune_SetSpellFrame(row, false)
 	local name = entry.name
 	local quality = entry.quality
 	local texture = entry.texture
@@ -7728,6 +7746,7 @@ function spellReward.Paint(frame, entry, y)
 
 	row.itemID = nil
 	row.spellID = entry.spellID
+	Attune_SetSpellFrame(row, true)
 	local name, texture = spellReward.Resolve(entry.spellID)
 	if not name or name == "" then name = entry.name end
 	if not texture then texture = entry.texture end
@@ -8136,7 +8155,6 @@ local function Attune_DetailRewardRow(parent)
 	row.icon = row:CreateTexture(nil, "ARTWORK")
 	row.icon:SetSize(attunelocal_Icon_Size, attunelocal_Icon_Size)
 	row.icon:SetPoint("LEFT", 2, 0)
-	row.icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 	row.name = row:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 	row.name:SetPoint("BOTTOMLEFT", row.icon, "RIGHT", 6, 1)
 	row.name:SetPoint("RIGHT", row, "RIGHT", -2, 0)
@@ -8192,6 +8210,7 @@ function spellReward.ShowDetail(panel, entry, y, shown)
 	row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
 	row.itemID = nil
 	row.spellID = entry.spellID
+	Attune_SetSpellFrame(row, true)
 	local name, texture = spellReward.Resolve(entry.spellID)
 	if not name or name == "" then name = entry.name end
 	if not texture then texture = entry.texture end
@@ -8356,10 +8375,11 @@ local function Attune_LayoutQuestDetail(panel)
 			end
 			row:ClearAllPoints()
 			row:SetPoint("TOPLEFT", 4, -y)
-			row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
-			row.itemID = entry.itemID
-			row.spellID = nil
-			row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
+	row:SetPoint("RIGHT", panel.rewardChild, "RIGHT", -6, 0)
+	row.itemID = entry.itemID
+	row.spellID = nil
+	Attune_SetSpellFrame(row, false)
+	row.icon:SetTexture(texture or "Interface\\Icons\\INV_Misc_QuestionMark")
 			local text = name
 			if entry.count and entry.count > 1 then text = text .. " x" .. entry.count end
 			-- if entry.choice then text = text .. " (" .. AttuneLang["Choose one reward"] .. ")" end
