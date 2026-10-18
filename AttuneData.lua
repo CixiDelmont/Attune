@@ -19,7 +19,7 @@ Attune_Data.attunes = 	{
 	{ID="170",NAME=AttuneLang["The Deadmines"],SHORT="VC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_human_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="18-21"},
 	{ID="177",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="19-22"},
     {ID="180",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="19-22"},
-	{ID="190",NAME=AttuneLang["Shadowfang Keep"],SHORT="SFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_monsterfang_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="23-26"},
+	{ID="190",NAME=AttuneLang["Shadowfang Keep"],SHORT="SFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_mount_whitedirewolf", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="23-26"},
     {ID="195",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-29"},
 	{ID="196",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-29"},
     {ID="200",NAME=AttuneLang["Blackfathom Deeps"],SHORT="BFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="25-28"},
@@ -39,18 +39,18 @@ Attune_Data.attunes = 	{
 	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-52"},
     {ID="320",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
 	{ID="330",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
-	{ID="350",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
-	{ID="351",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_troll_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
+	{ID="350",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
+	{ID="351",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
     {ID="355",NAME=AttuneLang["Alcaz Prison"],SHORT="AP",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	{ID="300",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	{ID="310",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_stoneclawtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
+	{ID="300",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
+	{ID="310",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
 	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
 	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
     {ID="390",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
 	{ID="400",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
     {ID="405",NAME=AttuneLang["Blackmaw Hold"],SHORT="BH",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
-    {ID="340",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
-    {ID="341",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="340",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="341",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
     {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
 	{ID="410",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
@@ -58,8 +58,8 @@ Attune_Data.attunes = 	{
     {ID="415",NAME=AttuneLang["The Shapers Terrace"],SHORT="TST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="360",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
     {ID="361",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
-    {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-    {ID="366",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_dragon_black", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="366",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     
     -- keys
 	{ID="159",NAME=AttuneLang["Tome of Dalaran"],SHORT="Dal Boss",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_book_04", DESC=AttuneLang["TD_Desc"]},
@@ -103,9 +103,9 @@ Attune_Data.steps = 	{
 
 	{ID_ATTUNE="30",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="30",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50"}, -- quest: Warlord's Command
-	{ID_ATTUNE="30",ID="30",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\inv_misc_head_centaur_01",FOLLOWS="20",STAGE="60"}, -- npc: Highlord Omokk
-	{ID_ATTUNE="30",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="20",STAGE="60"}, -- npc: War Master Voone
-	{ID_ATTUNE="30",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="20",STAGE="60"}, -- npc: Overlord Wyrmthalak
+	{ID_ATTUNE="30",ID="30",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="20",STAGE="60"}, -- npc: Highlord Omokk
+	{ID_ATTUNE="30",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="20",STAGE="60"}, -- npc: War Master Voone
+	{ID_ATTUNE="30",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="20",STAGE="60"}, -- npc: Overlord Wyrmthalak
 	{ID_ATTUNE="30",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="20",STAGE="60"}, -- item: Important Blackrock Documents
 	{ID_ATTUNE="30",ID="65",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&30&40&50",STAGE="70"}, -- quest: Warlord's Command
 	{ID_ATTUNE="30",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4941",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="80"}, -- quest: Eitrigg's Wisdom
@@ -114,7 +114,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="30",ID="95",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="105"}, -- quest: For The Horde!
 	{ID_ATTUNE="30",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="6566",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="95",STAGE="110"}, -- quest: What the Wind Carries
 	{ID_ATTUNE="30",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="6567",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="120"}, -- quest: The Champion of the Horde
-	{ID_ATTUNE="30",ID="115",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="110",STAGE="130"}, -- npc: Rexxar
+	{ID_ATTUNE="30",ID="115",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="110",STAGE="130"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6568",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="115",STAGE="140"}, -- quest: The Testament of Rexxar
 	{ID_ATTUNE="30",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="6569",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="150"}, -- quest: Oculus Illusions
 	{ID_ATTUNE="30",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="16786",ICON="Interface\\Icons\\inv_misc_eye_01",FOLLOWS="130",STAGE="160", COUNT=20}, -- item: Black Dragonspawn Eye
@@ -133,10 +133,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="30",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="12899",ICON="Interface\\Icons\\inv_misc_head_dragon_red",FOLLOWS="220",STAGE="210"}, -- npc: Axtroz
 	{ID_ATTUNE="30",ID="235",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6585",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="215"}, -- quest: The Test of Skulls, Axtroz
 	{ID_ATTUNE="30",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="235",STAGE="220"}, -- quest: Ascension...
-	{ID_ATTUNE="30",ID="245",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="240",STAGE="230"}, -- npc: Rexxar
+	{ID_ATTUNE="30",ID="245",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="240",STAGE="230"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="250",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="245",STAGE="240"}, -- quest: Blood of the Black Dragon Champion
-	{ID_ATTUNE="30",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_potion_27",FOLLOWS="250",STAGE="250"}, -- npc: General Drakkisath
-	{ID_ATTUNE="30",ID="265",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="260",STAGE="260"}, -- npc: Rexxar
+	{ID_ATTUNE="30",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="250",STAGE="250"}, -- npc: General Drakkisath
+	{ID_ATTUNE="30",ID="265",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="260",STAGE="260"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="268",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="265",STAGE="265"}, -- quest: Blood of the Black Dragon Champion
 	{ID_ATTUNE="30",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_jewelry_talisman_11",FOLLOWS="268",STAGE="270"},
 
@@ -166,7 +166,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="40",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="6501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="21"}, -- quest: The Dragon's Eye
 	{ID_ATTUNE="40",ID="230",TYPE="Interact",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10929",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="220",STAGE="22"}, -- npc: Haleh
 	{ID_ATTUNE="40",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="6502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="23"}, -- quest: Drakefire Amulet
-	{ID_ATTUNE="40",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_potion_27",FOLLOWS="240",STAGE="24"}, -- npc: General Drakkisath
+	{ID_ATTUNE="40",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="240",STAGE="24"}, -- npc: General Drakkisath
 	{ID_ATTUNE="40",ID="260",TYPE="Interact",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10929",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="250",STAGE="25"}, -- npc: Haleh
 	{ID_ATTUNE="40",ID="265",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="6502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="26"}, -- quest: Drakefire Amulet
 	{ID_ATTUNE="40",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_jewelry_talisman_11",FOLLOWS="265",STAGE="27"},
@@ -175,7 +175,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="50",ID="20",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="9046",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="10",STAGE="20"}, -- npc: Scarshield Quartermaster
 	{ID_ATTUNE="50",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="20",STAGE="30"}, -- item: Blackhand's Command
 	{ID_ATTUNE="50",ID="40",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- quest: Blackhand's Command
-	{ID_ATTUNE="50",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="40",STAGE="50"}, -- npc: General Drakkisath
+	{ID_ATTUNE="50",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="40",STAGE="50"}, -- npc: General Drakkisath
 	{ID_ATTUNE="50",ID="60",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="50",STAGE="60"},
 	{ID_ATTUNE="50",ID="65",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65"}, -- quest: Blackhand's Command
 	{ID_ATTUNE="50",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="65",STAGE="70"},
@@ -2352,9 +2352,9 @@ Attune_Data.steps = 	{
 -- 	{ID_ATTUNE="345",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40"}, -- quest: Bijou's Belongings
 -- 	{ID_ATTUNE="345",ID="850",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="50"}, -- quest: Message to Maxwell
 -- 	{ID_ATTUNE="345",ID="860",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="850",STAGE="60"}, -- quest: Maxwell's Mission
--- 	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\inv_misc_head_centaur_01",FOLLOWS="860",STAGE="70"}, -- npc: Highlord Omokk
--- 	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="860",STAGE="70"}, -- npc: War Master Voone
--- 	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="860",STAGE="70"}, -- npc: Overlord Wyrmthalak
+-- 	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="860",STAGE="70"}, -- npc: Highlord Omokk
+-- 	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="860",STAGE="70"}, -- npc: War Master Voone
+-- 	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="860",STAGE="70"}, -- npc: Overlord Wyrmthalak
 -- 	{ID_ATTUNE="345",ID="880",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870&872&874",STAGE="80"}, -- quest: Maxwell's Mission
 -- 	-- Put Her Down
 -- 	{ID_ATTUNE="345",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Put Her Down
@@ -2446,9 +2446,9 @@ Attune_Data.steps = 	{
 -- 	{ID_ATTUNE="346",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="80"},
 -- 	-- Warlord's Command
 -- 	{ID_ATTUNE="346",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Warlord's Command
--- 	{ID_ATTUNE="346",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\inv_misc_head_centaur_01",FOLLOWS="720",STAGE="30"}, -- npc: Highlord Omokk
--- 	{ID_ATTUNE="346",ID="732",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="720",STAGE="30"}, -- npc: War Master Voone
--- 	{ID_ATTUNE="346",ID="734",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="720",STAGE="30"}, -- npc: Overlord Wyrmthalak
+-- 	{ID_ATTUNE="346",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="720",STAGE="30"}, -- npc: Highlord Omokk
+-- 	{ID_ATTUNE="346",ID="732",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="720",STAGE="30"}, -- npc: War Master Voone
+-- 	{ID_ATTUNE="346",ID="734",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="720",STAGE="30"}, -- npc: Overlord Wyrmthalak
 -- 	{ID_ATTUNE="346",ID="736",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="720",STAGE="30"}, -- item: Important Blackrock Documents
 -- 	{ID_ATTUNE="346",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730&732&734&736",STAGE="40"}, -- quest: Warlord's Command
 -- 	{ID_ATTUNE="346",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
