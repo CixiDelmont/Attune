@@ -7,7 +7,17 @@
 --	but WITHOUT ANY WARRANTY. Use at your own risk.
 --
 -------------------------------------------------------------------------
+
+-- 16001-32
+--   - The attunements and dungeons are now shown as icons (Change back in the options or the toggle above the list).
+--   - Completed chains are now moved to a Completed section (Change back in the options).
+--   - The Results tab has been changed to allow sorting on class and level, and can now scroll horizontally
+--   - Class quest categories are listed above dungeon quests.
+--   - The selection pane can be resized to show more or less icons.
+--   - The selected attunement is saved on a per-character basis.
+--
 -- 16001-31
+--   - Added a toggle above the attunement list to switch between the list and icons.
 --   - Added the Scarlet Key.
 --   - Added the Tome of Dalaran.
 --   - Added the Scarlet Key quests.
@@ -122,6 +132,12 @@ AttuneLang = LibStub("AceLocale-3.0"):GetLocale("Attune")
 
 local AceGUI = LibStub("AceGUI-3.0")
 
+-- Declared here so the layout and style functions below close over them.
+-- A local's scope starts on the next line, so these cannot live further down.
+local attunelocal_treeMinWidth = 130
+local attunelocal_treeMaxWidth = 370
+local attunelocal_treeDefaultWidth = 265
+
 -- Current clients collapse a frame that is anchored to opposite edges and also
 -- given an explicit size. AceGUI does both. Fix that on Attune's own widgets
 -- only; Libs stays untouched and other addons keep stock AceGUI.
@@ -165,13 +181,20 @@ local function Attune_InstallLayoutFix(widget)
 			if contentwidth < 0 then contentwidth = 0 end
 			content.width = contentwidth
 
-			local maxtreewidth = math.min(400, width - 50)
-			if maxtreewidth > 100 and status.treewidth > maxtreewidth then
+			local maxtreewidth = math.min(attunelocal_treeMaxWidth, width - 50)
+			local mintreewidth = attunelocal_treeMinWidth
+			-- Icon grid needs two icons. A configured min below that still has to fit them.
+			if Attune_MinTreeWidth then mintreewidth = math.max(mintreewidth, Attune_MinTreeWidth()) end
+			if maxtreewidth < mintreewidth then maxtreewidth = mintreewidth end
+			if status.treewidth < mintreewidth then
+				self:SetTreeWidth(mintreewidth, true)
+			elseif maxtreewidth > mintreewidth and status.treewidth > maxtreewidth then
 				self:SetTreeWidth(maxtreewidth, status.treesizable)
 			end
 			if treeframe.SetResizeBounds then
-				treeframe:SetResizeBounds(100, 1, maxtreewidth, 1600)
+				treeframe:SetResizeBounds(mintreewidth, 1, maxtreewidth, 1600)
 			else
+				treeframe:SetMinResize(mintreewidth, 1)
 				treeframe:SetMaxResize(maxtreewidth, 1600)
 			end
 		end
@@ -279,8 +302,65 @@ local function Attune_StyleTreeGroup(widget)
 	if widget.border then
 		widget.border:SetBackdropColor(0, 0, 0, 0.5)
 	end
-	-- 20% wider than AceGUI's 175px default; keep resizable (second arg) so the drag handle stays enabled.
-	widget:SetTreeWidth(210)
+	-- Second argument keeps the drag handle enabled. AceGUI treats a missing flag as fixed width.
+	local minTree = attunelocal_treeMinWidth
+	if Attune_MinTreeWidth then minTree = math.max(minTree, Attune_MinTreeWidth()) end
+	local treeWidth = attunelocal_treeDefaultWidth
+	if Attune_DB and Attune_DB.treeWidth and Attune_DB.treeWidth >= minTree and Attune_DB.treeWidth <= attunelocal_treeMaxWidth then
+		treeWidth = Attune_DB.treeWidth
+	end
+	widget:SetTreeWidth(treeWidth, true)
+
+	-- The right pane is anchored to the list and to the window. On current
+	-- clients that mixed anchor makes StartSizing ignore the separator until
+	-- the window itself is moved or resized. Keep both of the pane's points
+	-- on the tree widget, and follow the list width while it is dragged.
+	local function syncBorder()
+		local border = widget.border
+		local treeframe = widget.treeframe
+		local parent = widget.frame
+		if not border or not treeframe or not parent then return end
+		if border.attuneSyncing then return end
+		local width = treeframe:GetWidth() or 0
+		if width < 1 then return end
+		if border.attuneTreeWidth and math.abs(border.attuneTreeWidth - width) < 0.1 then return end
+		border.attuneSyncing = true
+		border.attuneTreeWidth = width
+		border:ClearAllPoints()
+		border:SetPoint("TOPLEFT", parent, "TOPLEFT", width, 0)
+		border:SetPoint("BOTTOMRIGHT", parent, "BOTTOMRIGHT", 0, 0)
+		border.attuneSyncing = false
+	end
+	if widget.treeframe and not widget.treeframe.attuneBorderSynced then
+		widget.treeframe.attuneBorderSynced = true
+		widget.treeframe:HookScript("OnSizeChanged", syncBorder)
+	end
+	if widget.dragger and not widget.dragger.attuneSizingHooked then
+		widget.dragger.attuneSizingHooked = true
+		-- Same click must unlock sizing. A later hook would run after StartSizing.
+		-- Moving the window once is what the client needs before a child StartSizing works.
+		widget.dragger:SetScript("OnMouseDown", function(frame)
+			local treeframe = frame:GetParent()
+			if not treeframe then return end
+			if not frame.attuneSizingReady then
+				frame.attuneSizingReady = true
+				pcall(function()
+					local host = treeframe
+					while host and host ~= UIParent and not host:IsMovable() do
+						host = host:GetParent()
+					end
+					if host and host ~= treeframe and host ~= UIParent and host:IsMovable() then
+						host:StartMoving()
+						host:StopMovingOrSizing()
+					end
+				end)
+			end
+			syncBorder()
+			treeframe:StartSizing("RIGHT")
+		end)
+		widget.dragger:HookScript("OnMouseUp", syncBorder)
+	end
+	syncBorder()
 
 	local createButton = widget.CreateButton
 	widget.CreateButton = function(self, ...)
@@ -337,6 +417,7 @@ local attunelocal_Zoom_Step = 0.01
 local attunelocal_frame						-- main frame
 local attunelocal_tree = {}					-- tree data (nodes and leaves)
 local attunelocal_treeframe					-- Ace TreeGroup object for attune tab
+-- attunelocal_iconView is global: the main chunk is already at Lua's 200-local limit.
 local attunelocal_guildframe				-- Ace SimpleGroup object for result tab
 local attunelocal_treeIsShown = false		-- indicates whether we're on the tree view or result view
 local attunelocal_right						-- right panel of the TreeGroup object
@@ -472,15 +553,6 @@ local attune_options = {
 					width = 2.5,
 					order = 5,
 				},
-				autosurvey = {
-					type = "toggle",
-					name = AttuneLang["AutoSurvey_TEXT"],
-					desc = AttuneLang["AutoSurvey_DESC"],
-					get = function(info) return Attune_DB.autosurvey end,
-					set = function(info, val) Attune_DB.autosurvey = val end,
-					width = 2.5,
-					order = 6,
-				},
 				useFullMap = {
 					type = "toggle",
 					name = AttuneLang["FullMap_TEXT"],
@@ -491,7 +563,7 @@ local attune_options = {
 						if Attune_RefreshQuestMapMode then Attune_RefreshQuestMapMode() end
 					end,
 					width = 2.5,
-					order = 7,
+					order = 6,
 				},
 				showAllClassQuests = {
 					type = "toggle",
@@ -500,14 +572,43 @@ local attune_options = {
 					get = function(info) return Attune_DB.showAllClassQuests end,
 					set = function(info, val)
 						Attune_DB.showAllClassQuests = val
-						Attune_LoadTree()
-						if attunelocal_treeframe then
-							attunelocal_treeframe:SetTree(attunelocal_tree)
-						end
+						Attune_ReloadAttuneTree()
 					end,
 					width = 2.5,
+					order = 7,
+				},
+				iconView = {
+					type = "toggle",
+					name = AttuneLang["IconView_TEXT"],
+					desc = AttuneLang["IconView_DESC"],
+					get = function(info) return Attune_DB.iconView end,
+					set = function(info, val)
+						Attune_SetIconView(val)
+					end,
+					width = 1.65,
 					order = 8,
 				},
+				archiveCompleted = {
+					type = "toggle",
+					name = AttuneLang["ArchiveCompleted_TEXT"],
+					desc = AttuneLang["ArchiveCompleted_DESC"],
+					get = function(info) return Attune_DB.archiveCompleted end,
+					set = function(info, val)
+						Attune_DB.archiveCompleted = val
+						Attune_ReloadAttuneTree()
+					end,
+					width = 1.65,
+					order = 9,
+				},
+				autosurvey = {
+					type = "toggle",
+					name = AttuneLang["AutoSurvey_TEXT"],
+					desc = AttuneLang["AutoSurvey_DESC"],
+					get = function(info) return Attune_DB.autosurvey end,
+					set = function(info, val) Attune_DB.autosurvey = val end,
+					width = 2.5,
+					order = 10,
+				},                
 				showSurveyed = {
 					type = "toggle",
 					name = AttuneLang["ShowSurveyed_TEXT"],
@@ -846,6 +947,8 @@ function Attune:OnEnable()
 	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
 	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
 	if Attune_DB.showAllClassQuests == nil then Attune_DB.showAllClassQuests = false end
+	if Attune_DB.iconView == nil then Attune_DB.iconView = true end
+	if Attune_DB.archiveCompleted == nil then Attune_DB.archiveCompleted = true end
 	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/forever" end
 	if TreeExpandStatus == nil then TreeExpandStatus = {} end
 	
@@ -921,19 +1024,6 @@ function Attune:OnEnable()
 	end 
 
 	Attune_UpdateLogs()
-	
-	--this is per character as it could cause problems with alliance vs horde last viewed (ex if last viewed is Honor Hold)
-	-- Default: first dungeon for this faction (Alliance → Hall of Thanes, Horde → Ragefire Chasm)
-	if AttuneLastViewed == nil then
-		local defaultAttune = Attune_Data.attunes[1]
-		for _, a in ipairs(Attune_Data.attunes) do
-			if a.GROUP == AttuneLang['DUNGEONS'] and (a.FACTION == attunelocal_faction or a.FACTION == "Both") then
-				defaultAttune = a
-				break
-			end
-		end
-		AttuneLastViewed = defaultAttune.EXPAC.."\001"..defaultAttune.GROUP.."\001"..defaultAttune.ID
-	end
 
 	Attune_CheckProgress() -- get your own standing
 	Attune:BAG_UPDATE(nil)
@@ -975,6 +1065,8 @@ function Attune:OnEnable()
 	end
 	-- End step done means fully attuned (Kill/Interact may lag behind in the done map)
 	Attune_ApplyCompletedEndSteps(t)
+	-- No saved selection yet: open on the first attunement this character has not finished.
+	Attune_EnsureDefaultView()
 
 
 
@@ -985,10 +1077,6 @@ function Attune:OnEnable()
 			if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_versionprefix, attunelocal_version, "GUILD", ""); end
 		end)
 	end
-
-	C_Timer.After(11, function()
-		Attune:SendCommMessage(attunelocal_versionprefix, attunelocal_version, "YELL", "");
-	end)
 
 --[[	C_Timer.After(15, function()
 		attunelocal_achieveDelayDone = true -- after 10s the spam should have been done
@@ -1044,12 +1132,13 @@ function Attune:OnEnable()
 
 
 	local aid = nil
-	-- Find the last selected attunement
-	local st, le = string.find(AttuneLastViewed, "\001")
+	-- Find the last selected attunement for this character
+	local lastViewed = Attune_GetLastViewed()
+	local st = lastViewed and string.find(lastViewed, "\001")
 
 	if st ~= nil then -- not top level
 		--get actual attune (remove expac/group)
-		expac, group, sel = strsplit("\001", AttuneLastViewed);
+		expac, group, sel = strsplit("\001", lastViewed);
 		if sel ~= "" and sel ~= nil then
 			aid = sel
 		end
@@ -2051,6 +2140,11 @@ end
 -------------------------------------------------------------------------
 
 function Attune_UpdateTreeGroup(aid)
+	-- Completed attunes move into Archived, so the list has to be rebuilt.
+	if Attune_DB.archiveCompleted then
+		Attune_ReloadAttuneTree()
+		return
+	end
 
 	for i, a in pairs(Attune_Data.attunes) do
 		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then 
@@ -2149,6 +2243,55 @@ local function Attune_ClassQuestVisible(a)
 	return classFile ~= nil and a.CLASS == classFile
 end
 
+-- Selected attunement, stored on this character inside the account-wide saved data.
+function Attune_GetLastViewed()
+	local t = Attune_DB and attunelocal_charKey and Attune_DB.toons and Attune_DB.toons[attunelocal_charKey]
+	if t == nil then return nil end
+	-- Older builds kept this in a per-character saved variable. Copy it once.
+	if (t.lastViewed == nil or t.lastViewed == "") and type(AttuneLastViewed) == "string" and AttuneLastViewed ~= "" then
+		t.lastViewed = AttuneLastViewed
+		AttuneLastViewed = nil
+	end
+	return t.lastViewed
+end
+
+function Attune_SetLastViewed(path)
+	local t = Attune_DB and attunelocal_charKey and Attune_DB.toons and Attune_DB.toons[attunelocal_charKey]
+	if t == nil then return end
+	t.lastViewed = path
+end
+
+-- First unfinished attunement in list order. Used when this character has not opened one yet.
+function Attune_EnsureDefaultView()
+	if Attune_GetLastViewed() ~= nil then return end
+	local withSteps = {}
+	for _, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) then
+			withSteps[s.ID_ATTUNE] = true
+		end
+	end
+	local toon = Attune_DB.toons[attunelocal_charKey]
+	local fallback = nil
+	local chosen = nil
+	for _, a in ipairs(Attune_Data.attunes) do
+		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes)
+			and (a.FACTION == attunelocal_faction or a.FACTION == "Both")
+			and Attune_ClassQuestVisible(a)
+			and Attune_MayRecordAttuneProgress(toon, a.ID)
+			and withSteps[a.ID]
+		then
+			if fallback == nil then fallback = a end
+			if (toon.attuned[a.ID] or 0) < 100 then
+				chosen = a
+				break
+			end
+		end
+	end
+	if chosen == nil then chosen = fallback end
+	if chosen == nil then return end
+	Attune_SetLastViewed(chosen.EXPAC .. "\001" .. chosen.GROUP .. "\001" .. chosen.ID)
+end
+
 local function Attune_CommitGroup(expacNode, groupNode, groupAllDone)
 	if groupNode == nil or groupNode.children == nil or #groupNode.children == 0 then return end
 	if groupAllDone then groupNode.text = "|cff00ff00"..groupNode.text.."|r" end
@@ -2162,6 +2305,7 @@ function Attune_LoadTree()
 	local expacNode = {}
 	local groupNode = {}
 	local groupAllDone = true
+	local archivedNodes = {}
 	local attunesWithSteps = {}
 	for _, s in pairs(Attune_Data.steps) do
 		if showPatchStep(s) then
@@ -2209,6 +2353,7 @@ function Attune_LoadTree()
 
 				local text = Attune_DisplayName(a)
 				local icon = a.ICON
+				local done = false
 				if not attunesWithSteps[a.ID] then
 					text = "|cff808080"..text.."|r"
 					groupAllDone = false
@@ -2218,6 +2363,7 @@ function Attune_LoadTree()
 					if Attune_DB.toons[attunelocal_charKey].attuned[a.ID] >= 100 then
 						text = "|cff00ff00"..text.."|r"
 						icon = "Interface\\AddOns\\Attune\\Images\\success"
+						done = true
 					else 
 						groupAllDone = false
 					end
@@ -2227,19 +2373,575 @@ function Attune_LoadTree()
 				local attuneNode = {
 					value = a.ID,
 					text = text,
-					icon = icon
-
+					icon = icon,
+					sourceIcon = a.ICON,
+					tip = Attune_DisplayName(a),
+					short = a.SHORT,
+					dim = not attunesWithSteps[a.ID],
+					done = done,
 				}
-				-- "Interface\\Icons\\" ..
-				--icon = "Interface\\AddOns\\Attune\\Images\\" .. a.ICON
+				-- Completed attunes leave their category and collect at the bottom.
+				if Attune_DB.archiveCompleted and done then
+					table.insert(archivedNodes, attuneNode)
+				else
 					table.insert(groupNode.children, attuneNode)
+				end
 			end
 		end
 	end
 	--table.insert(groupNode.children, attuneNode)
 	Attune_CommitGroup(expacNode, groupNode, groupAllDone)
+	if #archivedNodes > 0 and expacNode.children then
+		table.insert(expacNode.children, {
+			value = AttuneLang["Archived"],
+			text = "|cff00ff00"..AttuneLang["Archived"].."|r",
+			children = archivedNodes,
+		})
+	end
 	table.insert(attunelocal_tree, expacNode)
+	Attune_SyncLastViewedPath()
 
+end
+
+
+-------------------------------------------------------------------------
+-- Path of an attune in the current tree (expac, category, id)
+-------------------------------------------------------------------------
+
+function Attune_PathForAttune(attuneId)
+	if attuneId == nil then return nil end
+	for _, expacNode in ipairs(attunelocal_tree) do
+		for _, groupNode in ipairs(expacNode.children or {}) do
+			for _, leaf in ipairs(groupNode.children or {}) do
+				if leaf.value == attuneId then
+					return expacNode.value .. "\001" .. groupNode.value .. "\001" .. leaf.value
+				end
+			end
+		end
+	end
+end
+
+function Attune_SyncLastViewedPath()
+	local lastViewed = Attune_GetLastViewed()
+	if lastViewed == nil then return end
+	local _, _, sel = strsplit("\001", lastViewed)
+	if sel == nil or sel == "" then return end
+	local path = Attune_PathForAttune(sel)
+	if path then Attune_SetLastViewed(path) end
+end
+
+function Attune_ReloadAttuneTree()
+	Attune_LoadTree()
+	local tree = attunelocal_treeframe
+	-- Results view releases the tree widget. The rebuilt list is applied the next time that view opens.
+	if tree == nil or not attunelocal_treeIsShown then return end
+	local status = tree.status or tree.localstatus
+	local lastViewed = Attune_GetLastViewed()
+	if status and lastViewed then
+		status.selected = lastViewed
+	end
+	if Attune_DB.archiveCompleted and status and status.groups then
+		local archived = AttuneLang["Archived"]
+		for _, expacNode in ipairs(attunelocal_tree) do
+			if expacNode.value then
+				local key = expacNode.value .. "\001" .. archived
+				if TreeExpandStatus == nil or TreeExpandStatus[key] ~= 0 then
+					status.groups[key] = true
+				end
+			end
+		end
+	end
+	tree:SetTree(attunelocal_tree)
+end
+
+
+-------------------------------------------------------------------------
+-- Icon grid shown in place of the tree list
+-------------------------------------------------------------------------
+
+-- Not local: Attune.lua's main chunk is at Lua's 200-local limit.
+ATTUNE_ICON_SIZE = 48
+ATTUNE_ICON_GAP = 10
+ATTUNE_ICON_HEADER = 20
+ATTUNE_ICON_HEADER_GAP = 6
+ATTUNE_ICON_CAPTION_H = 13
+
+-- Left inset 4, drag handle 8, scrollbar 18, plus two icons and the gap between them.
+function Attune_MinTreeWidth()
+	return ATTUNE_ICON_SIZE * 2 + ATTUNE_ICON_GAP + 30
+end
+
+function Attune_PlainText(text)
+	if not text then return "" end
+	return (text:gsub("|c%x%x%x%x%x%x%x%x", ""):gsub("|r", ""))
+end
+
+function Attune_IconViewUpdateScroll(view)
+	local height = view.scroll:GetHeight() or 0
+	local contentH = view.content:GetHeight() or 0
+	local maxScroll = contentH - height
+	if maxScroll < 0 then maxScroll = 0 end
+	local value = view.scroll:GetVerticalScroll() or 0
+	if value > maxScroll then value = maxScroll end
+	if value < 0 then value = 0 end
+	view.noupdate = true
+	view.bar:SetMinMaxValues(0, maxScroll)
+	view.bar:SetValue(value)
+	view.scroll:SetVerticalScroll(value)
+	view.noupdate = nil
+end
+
+function Attune_IconViewScroll(delta)
+	local view = attunelocal_iconView
+	if view == nil or not view:IsShown() then return end
+	local minV, maxV = view.bar:GetMinMaxValues()
+	local step = view.iconStep or (ATTUNE_ICON_SIZE + ATTUNE_ICON_GAP)
+	local value = view.bar:GetValue() - delta * step
+	if value < minV then value = minV end
+	if value > maxV then value = maxV end
+	view.bar:SetValue(value)
+end
+
+function Attune_IconViewButton(view)
+	local button = CreateFrame("Button", nil, view.content)
+	button:RegisterForClicks("LeftButtonUp")
+	button.icon = button:CreateTexture(nil, "ARTWORK")
+	button.icon:SetPoint("TOPLEFT", button, "TOPLEFT", 0, 0)
+	button.selected = button:CreateTexture(nil, "OVERLAY")
+	button.selected:SetTexture("Interface\\AddOns\\Attune\\Images\\spellframe")
+	button.selected:SetBlendMode("ADD")
+	button.selected:SetAllPoints(button.icon)
+	button.selected:Hide()
+	button.success = button:CreateTexture(nil, "OVERLAY")
+	button.success:SetTexture("Interface\\AddOns\\Attune\\Images\\success")
+	button.success:SetPoint("BOTTOMRIGHT", button.icon, "BOTTOMRIGHT", 2, -2)
+	button.success:Hide()
+	button.caption = button:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	button.caption:SetPoint("TOP", button.icon, "BOTTOM", 0, -1)
+	button.caption:SetJustifyH("CENTER")
+	button.caption:SetWordWrap(false)
+	button.caption:SetTextColor(0.9, 0.9, 0.9)
+	button.caption:Hide()
+	local highlight = button:CreateTexture(nil, "HIGHLIGHT")
+	highlight:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight:SetBlendMode("ADD")
+	highlight:SetAllPoints(button.icon)
+	button:SetScript("OnEnter", function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(self.tip or "")
+		if self.done then
+			GameTooltip:AddLine(AttuneLang["Attuned"], 0, 1, 0)
+		end
+		GameTooltip:Show()
+	end)
+	button:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
+	button:SetScript("OnClick", function(self)
+		if attunelocal_treeframe then
+			attunelocal_treeframe:SelectByPath(self.expac, self.group, self.id)
+		end
+	end)
+	button:EnableMouseWheel(true)
+	button:SetScript("OnMouseWheel", function(_, delta)
+		Attune_IconViewScroll(delta)
+	end)
+	return button
+end
+
+function Attune_IconViewHeader(view)
+	local header = CreateFrame("Frame", nil, view.content)
+	header:SetHeight(ATTUNE_ICON_HEADER)
+	header.text = header:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+	header.text:SetPoint("CENTER", header, "CENTER", 0, 0)
+	header.text:SetJustifyH("CENTER")
+	header.text:SetTextColor(0.63, 0.63, 0.63)
+	header.left = header:CreateTexture(nil, "ARTWORK")
+	header.left:SetColorTexture(0.63, 0.63, 0.63, 0.55)
+	header.left:SetHeight(1)
+	header.right = header:CreateTexture(nil, "ARTWORK")
+	header.right:SetColorTexture(0.63, 0.63, 0.63, 0.55)
+	header.right:SetHeight(1)
+	header:EnableMouseWheel(true)
+	header:SetScript("OnMouseWheel", function(_, delta)
+		Attune_IconViewScroll(delta)
+	end)
+	return header
+end
+
+function Attune_LayoutIconView()
+	local view = attunelocal_iconView
+	if view == nil or not view:IsShown() then return end
+	local width = view.scroll:GetWidth()
+	if not width or width < 20 then
+		if not view.pending then
+			view.pending = true
+			C_Timer.After(0, function()
+				view.pending = false
+				if view:IsShown() then Attune_LayoutIconView() end
+			end)
+		end
+		return
+	end
+
+	local size = ATTUNE_ICON_SIZE
+	local gap = ATTUNE_ICON_GAP
+	local cols = math.floor((width + gap) / (size + gap))
+	if cols < 2 then cols = 2 end
+	view.iconStep = size + gap
+	local gridW = cols * size + (cols - 1) * gap
+	local originX = math.floor((width - gridW) / 2)
+	if originX < 0 then originX = 0 end
+
+	local status = attunelocal_treeframe and (attunelocal_treeframe.status or attunelocal_treeframe.localstatus)
+	local selected = status and status.selected
+	local y = 6
+	local iconIndex = 0
+	local headerIndex = 0
+	local selectedButton = nil
+	local showExpac = #attunelocal_tree > 1
+
+	local function placeHeader(label)
+		headerIndex = headerIndex + 1
+		local header = view.headers[headerIndex]
+		if header == nil then
+			header = Attune_IconViewHeader(view)
+			view.headers[headerIndex] = header
+		end
+		header:ClearAllPoints()
+		header:SetPoint("TOPLEFT", view.content, "TOPLEFT", 0, -y)
+		header:SetWidth(width)
+		header.text:SetText(label)
+		local textW = header.text:GetStringWidth() or 0
+		local room = (width - textW) / 2
+		header.left:ClearAllPoints()
+		header.right:ClearAllPoints()
+		if room > 14 then
+			header.left:SetPoint("LEFT", header, "LEFT", 4, 0)
+			header.left:SetPoint("RIGHT", header.text, "LEFT", -6, 0)
+			header.right:SetPoint("LEFT", header.text, "RIGHT", 6, 0)
+			header.right:SetPoint("RIGHT", header, "RIGHT", -4, 0)
+			header.left:Show()
+			header.right:Show()
+		else
+			header.left:Hide()
+			header.right:Hide()
+		end
+		header:Show()
+		y = y + ATTUNE_ICON_HEADER + ATTUNE_ICON_HEADER_GAP
+	end
+
+	for _, expacNode in ipairs(attunelocal_tree) do
+		if showExpac and expacNode.children and #expacNode.children > 0 then
+			placeHeader(Attune_PlainText(expacNode.text))
+		end
+		for _, groupNode in ipairs(expacNode.children or {}) do
+			local leaves = groupNode.children
+			if leaves and #leaves > 0 then
+				placeHeader(Attune_PlainText(groupNode.text))
+				local i = 1
+				while i <= #leaves do
+					local rowCount = math.min(cols, #leaves - i + 1)
+					local rowHeight = size
+					for look = 0, rowCount - 1 do
+						local ahead = leaves[i + look]
+						if ahead.short and ahead.short ~= "" then
+							rowHeight = size + ATTUNE_ICON_CAPTION_H
+							break
+						end
+					end
+					for look = 0, rowCount - 1 do
+						local leaf = leaves[i + look]
+						iconIndex = iconIndex + 1
+						local button = view.icons[iconIndex]
+						if button == nil then
+							button = Attune_IconViewButton(view)
+							view.icons[iconIndex] = button
+						end
+						local x = originX + look * (size + gap)
+						button:ClearAllPoints()
+						button:SetSize(size, rowHeight)
+						button:SetPoint("TOPLEFT", view.content, "TOPLEFT", x, -y)
+						button.offsetY = y
+						button.cellHeight = rowHeight
+						button.icon:SetSize(size, size)
+						button.expac = expacNode.value
+						button.group = groupNode.value
+						button.id = leaf.value
+						button.tip = leaf.tip or Attune_PlainText(leaf.text)
+						button.done = leaf.done
+						button.icon:SetTexture(leaf.sourceIcon or leaf.icon or "Interface\\Icons\\INV_Misc_QuestionMark")
+						local badge = 16
+						if size < 32 then badge = math.max(12, math.floor(size * 0.5)) end
+						button.success:SetSize(badge, badge)
+						if leaf.done then button.success:Show() else button.success:Hide() end
+						local alpha = leaf.done and 0.15 or 1
+						if leaf.dim then
+							button.icon:SetVertexColor(0.45, 0.45, 0.45, alpha)
+						else
+							button.icon:SetVertexColor(1, 1, 1, alpha)
+						end
+						if leaf.short and leaf.short ~= "" then
+							button.caption:SetWidth(size)
+							button.caption:SetText(leaf.short)
+							button.caption:Show()
+						else
+							button.caption:Hide()
+						end
+						local path = expacNode.value .. "\001" .. groupNode.value .. "\001" .. leaf.value
+						if path == selected then
+							button.selected:Show()
+							selectedButton = button
+						else
+							button.selected:Hide()
+						end
+						button:Show()
+					end
+					y = y + rowHeight + gap
+					i = i + rowCount
+				end
+				y = y + 4
+			end
+		end
+	end
+
+	for i = iconIndex + 1, #view.icons do view.icons[i]:Hide() end
+	for i = headerIndex + 1, #view.headers do view.headers[i]:Hide() end
+
+	view.content:SetWidth(width)
+	view.content:SetHeight(math.max(y, 1))
+	Attune_IconViewUpdateScroll(view)
+
+	local viewH = view.scroll:GetHeight() or 0
+	if selectedButton and viewH > 10 then
+		local offset = view.scroll:GetVerticalScroll() or 0
+		local top = selectedButton.offsetY
+		local bottom = top + (selectedButton.cellHeight or size)
+		if top < offset then
+			view.bar:SetValue(top)
+		elseif bottom > offset + viewH then
+			view.bar:SetValue(math.max(0, bottom - viewH))
+		end
+	end
+end
+
+function Attune_EnsureIconView(widget)
+	if widget.attuneIconHolder then
+		attunelocal_iconView = widget.attuneIconHolder
+		return widget.attuneIconHolder
+	end
+	local treeframe = widget.treeframe
+	local holder = CreateFrame("Frame", nil, treeframe)
+	holder:SetPoint("TOPLEFT", treeframe, "TOPLEFT", 4, -6)
+	holder:SetPoint("BOTTOMRIGHT", treeframe, "BOTTOMRIGHT", -8, 6)
+	holder:SetFrameLevel(treeframe:GetFrameLevel() + 5)
+	holder:EnableMouse(true)
+	holder:EnableMouseWheel(true)
+	holder:SetScript("OnMouseWheel", function(_, delta)
+		Attune_IconViewScroll(delta)
+	end)
+
+	local scroll = CreateFrame("ScrollFrame", nil, holder)
+	scroll:SetPoint("TOPLEFT", holder, "TOPLEFT", 0, 0)
+	scroll:SetPoint("BOTTOMRIGHT", holder, "BOTTOMRIGHT", -18, 0)
+	scroll:EnableMouseWheel(true)
+	scroll:SetScript("OnMouseWheel", function(_, delta)
+		Attune_IconViewScroll(delta)
+	end)
+
+	attunelocal_iconScrollSerial = (attunelocal_iconScrollSerial or 0) + 1
+	local bar = CreateFrame("Slider", "AttuneIconScrollBar"..attunelocal_iconScrollSerial, holder, "UIPanelScrollBarTemplate")
+	-- The template's OnValueChanged calls SetVerticalScroll on the parent. This parent is not a ScrollFrame.
+	bar:SetScript("OnValueChanged", nil)
+	bar:ClearAllPoints()
+	bar:SetPoint("TOPRIGHT", holder, "TOPRIGHT", 0, -16)
+	bar:SetPoint("BOTTOMRIGHT", holder, "BOTTOMRIGHT", 0, 16)
+	bar:SetWidth(16)
+	bar.scrollStep = ATTUNE_ICON_SIZE + ATTUNE_ICON_GAP
+	holder.scroll = scroll
+	holder.noupdate = true
+	bar:SetScript("OnValueChanged", function(self, value)
+		if holder.noupdate or not holder.scroll then return end
+		holder.scroll:SetVerticalScroll(value or 0)
+	end)
+	bar:SetMinMaxValues(0, 0)
+	bar:SetValueStep(1)
+	bar:SetValue(0)
+	holder.noupdate = nil
+
+	local content = CreateFrame("Frame", nil, scroll)
+	content:SetSize(1, 1)
+	scroll:SetScrollChild(content)
+
+	holder.scroll = scroll
+	holder.bar = bar
+	holder.content = content
+	holder.icons = {}
+	holder.headers = {}
+	holder:Hide()
+	widget.attuneIconHolder = holder
+	attunelocal_iconView = holder
+	return holder
+end
+
+function Attune_ShowIconView(widget)
+	for _, button in ipairs(widget.buttons or {}) do
+		button:Hide()
+	end
+	if widget.ShowScroll then widget:ShowScroll(false) end
+	local holder = Attune_EnsureIconView(widget)
+	holder:Show()
+	Attune_LayoutIconView()
+end
+
+function Attune_PaintViewToggleButton(button, active)
+	button:SetAlpha(active and 1 or 0.5)
+end
+
+function Attune_UpdateViewToggle(widget)
+	widget = widget or attunelocal_treeframe
+	local header = widget and widget.attuneViewToggle
+	if not header then return end
+	local icons = Attune_DB and Attune_DB.iconView
+	Attune_PaintViewToggleButton(header.listButton, not icons)
+	Attune_PaintViewToggleButton(header.iconButton, icons)
+end
+
+function Attune_SetIconView(enabled)
+	enabled = not not enabled
+	if not Attune_DB then return end
+	if Attune_DB.iconView == enabled then
+		Attune_UpdateViewToggle()
+		return
+	end
+	Attune_DB.iconView = enabled
+	Attune_UpdateViewToggle()
+	local reg = LibStub("AceConfigRegistry-3.0", true)
+	if reg then reg:NotifyChange("Attune") end
+	if attunelocal_treeframe and attunelocal_treeIsShown then
+		attunelocal_treeframe:RefreshTree()
+	end
+end
+
+function Attune_CreateViewToggleButton(parent, mode)
+	local button = CreateFrame("Button", nil, parent)
+	button:SetSize(18, 16)
+	button.iconMode = mode == "icon"
+	button.tip = AttuneLang[button.iconMode and "IconView_TIP" or "TreeView_TIP"]
+	local edge = button:CreateTexture(nil, "BACKGROUND")
+	edge:SetColorTexture(0.4, 0.4, 0.4, 1)
+	edge:SetAllPoints()
+	button.edge = edge
+	local fill = button:CreateTexture(nil, "BACKGROUND")
+	fill:SetColorTexture(0.05, 0.05, 0.05, 0.95)
+	fill:SetPoint("TOPLEFT", 1, -1)
+	fill:SetPoint("BOTTOMRIGHT", -1, 1)
+	button.marks = {}
+	if mode == "list" then
+		for i = 0, 2 do
+			local line = button:CreateTexture(nil, "ARTWORK")
+			line:SetColorTexture(1, 1, 1, 1)
+			line:SetSize(10, 2)
+			line:SetPoint("CENTER", button, "CENTER", 0, 4 - i * 4)
+			button.marks[#button.marks + 1] = line
+		end
+	else
+		for row = 0, 1 do
+			for col = 0, 1 do
+				local sq = button:CreateTexture(nil, "ARTWORK")
+				sq:SetColorTexture(1, 1, 1, 1)
+				sq:SetSize(4, 4)
+				sq:SetPoint("CENTER", button, "CENTER", -3 + col * 6, 3 - row * 6)
+				button.marks[#button.marks + 1] = sq
+			end
+		end
+	end
+	local highlight = button:CreateTexture(nil, "HIGHLIGHT")
+	highlight:SetTexture("Interface\\QuestFrame\\UI-QuestTitleHighlight")
+	highlight:SetBlendMode("ADD")
+	highlight:SetAllPoints()
+	button:SetScript("OnEnter", function(self)
+		GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+		GameTooltip:SetText(self.tip or "")
+		GameTooltip:Show()
+	end)
+	button:SetScript("OnLeave", function()
+		GameTooltip:Hide()
+	end)
+	button:SetScript("OnClick", function(self)
+		Attune_SetIconView(self.iconMode)
+	end)
+	button:EnableMouseWheel(true)
+	button:SetScript("OnMouseWheel", function(_, delta)
+		local tree = attunelocal_treeframe
+		if not tree or not tree.treeframe then return end
+		local wheel = tree.treeframe:GetScript("OnMouseWheel")
+		if wheel then wheel(tree.treeframe, delta) end
+	end)
+	return button
+end
+
+function Attune_EnsureViewToggle(widget)
+	local header = attunelocal_viewToggle
+	if not header then
+		-- Open band under the title, above both the list and the main pane.
+		-- Parent is the window so the buttons are not inside either frame.
+		local parent = attunelocal_frame and attunelocal_frame.frame or widget.frame
+		header = CreateFrame("Frame", nil, parent)
+		header:SetSize(40, 16)
+		if attunelocal_frame and attunelocal_frame.content then
+			-- Clear the portrait, which hangs into the left of this band.
+			header:SetPoint("BOTTOMLEFT", attunelocal_frame.content, "TOPLEFT", 48, 4)
+		else
+			header:SetPoint("BOTTOMLEFT", widget.frame, "TOPLEFT", 48, 4)
+		end
+		header:SetFrameLevel((parent:GetFrameLevel() or 0) + 30)
+		header:EnableMouse(true)
+		header:EnableMouseWheel(true)
+		header:SetScript("OnMouseWheel", function(_, delta)
+			local tree = attunelocal_treeframe
+			if not tree or not tree.treeframe then return end
+			local wheel = tree.treeframe:GetScript("OnMouseWheel")
+			if wheel then wheel(tree.treeframe, delta) end
+		end)
+		header.listButton = Attune_CreateViewToggleButton(header, "list")
+		header.listButton:SetPoint("RIGHT", header, "CENTER", -1, 0)
+		header.iconButton = Attune_CreateViewToggleButton(header, "icon")
+		header.iconButton:SetPoint("LEFT", header, "CENTER", 1, 0)
+		attunelocal_viewToggle = header
+	end
+	widget.attuneViewToggle = header
+	header:Show()
+	Attune_UpdateViewToggle(widget)
+	return header
+end
+
+function Attune_InstallIconView(widget)
+	Attune_EnsureViewToggle(widget)
+	if widget.attuneIconViewInstalled then return end
+	widget.attuneIconViewInstalled = true
+	local orig = widget.RefreshTree
+	widget.RefreshTree = function(self, ...)
+		if self == attunelocal_treeframe and Attune_DB and Attune_DB.iconView then
+			Attune_ShowIconView(self)
+			return
+		end
+		if self.attuneIconHolder then self.attuneIconHolder:Hide() end
+		return orig(self, ...)
+	end
+	local wheel = widget.treeframe:GetScript("OnMouseWheel")
+	widget.treeframe:SetScript("OnMouseWheel", function(frame, delta)
+		if frame.obj == attunelocal_treeframe and Attune_DB and Attune_DB.iconView then
+			Attune_IconViewScroll(delta)
+			return
+		end
+		if wheel then wheel(frame, delta) end
+	end)
+	local origRelease = widget.OnRelease
+	widget.OnRelease = function(self)
+		if self.attuneViewToggle then self.attuneViewToggle:Hide() end
+		if origRelease then origRelease(self) end
+	end
 end
 
 
@@ -2842,7 +3544,6 @@ local function Attune_ShowWorkInProgress(show)
 	if not show then
 		if attunelocal_wipFrame then
 			attunelocal_wipFrame:Hide()
-			attunelocal_wipFrame:SetParent(nil)
 		end
 		return
 	end
@@ -4336,8 +5037,15 @@ function Attune_CreateNode(step, parent, posX, posY)
 		icon:SetParent(fnode)
 		icon:SetWidth(attunelocal_Icon_Size)
 		icon:SetHeight(attunelocal_Icon_Size)
-		icon:SetNormalTexture(step.ICON)
-		icon:SetHighlightTexture(step.ICON)
+		local stepIcon = step.ICON
+		if step.TYPE == "End" then
+			local attune = Attune_Data.attuneById and Attune_Data.attuneById[step.ID_ATTUNE]
+			if attune ~= nil and attune.ICON ~= nil then
+				stepIcon = attune.ICON
+			end
+		end
+		icon:SetNormalTexture(stepIcon)
+		icon:SetHighlightTexture(stepIcon)
 		icon:SetToplevel(true)
 		icon:EnableMouse(false)
 		icon:Disable()
@@ -4600,6 +5308,574 @@ end
 
 
 -------------------------------------------------------------------------
+-- Result grid. Names stay on screen. Result columns scroll sideways.
+-- Names and results scroll up and down together.
+-- attunelocal_resultHolder / attunelocal_resultHeader / attunelocal_resultNames
+-- are globals (200-local limit).
+-------------------------------------------------------------------------
+
+function Attune_ResultLevelWidth() return 48 end
+function Attune_ResultClassWidth() return 48 end
+function Attune_ResultCharWidth() return 162 end
+function Attune_ResultDeleteWidth() return 44 end
+
+-- Frozen pane: level, class, name, and the delete button.
+function Attune_ResultNameWidth()
+	return 4 + Attune_ResultLevelWidth() + Attune_ResultClassWidth() + Attune_ResultCharWidth() + Attune_ResultDeleteWidth() + 4
+end
+
+function Attune_ResultRowHeight()
+	return 26
+end
+
+function Attune_ResultColumnsWidth()
+	local width = 0
+	local expac = ""
+	local faction = UnitFactionGroup("player")
+	for _, a in pairs(Attune_Data.attunes) do
+		if (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) and not Attune_IsClassQuest(a) then
+			if (TreeExpandStatus[a.EXPAC] == nil or TreeExpandStatus[a.EXPAC] == 1)
+			and (TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == nil or TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == 1) then
+				local key = a.EXPAC.."-"..a.GROUP
+				if expac ~= key then
+					width = width + 10
+					expac = key
+				end
+				if a.FACTION == faction or a.FACTION == "Both" then
+					width = width + 30
+				end
+			end
+		end
+	end
+	return width + 8
+end
+
+-- SetHorizontalScroll / SetVerticalScroll crash the client when the scroll frame has no child,
+-- or when the offset is past the range the child actually has.
+function Attune_SafeScroll(scroll, axis, offset)
+	if not scroll or not scroll.GetScrollChild or not scroll:GetScrollChild() then return end
+	offset = offset or 0
+	if offset < 0 then offset = 0 end
+	if axis == "h" then
+		if scroll.GetHorizontalScrollRange then
+			local range = scroll:GetHorizontalScrollRange() or 0
+			if offset > range then offset = range end
+		end
+		scroll:SetHorizontalScroll(offset)
+	else
+		if scroll.GetVerticalScrollRange then
+			local range = scroll:GetVerticalScrollRange() or 0
+			if offset > range then offset = range end
+		end
+		scroll:SetVerticalScroll(offset)
+	end
+end
+
+function Attune_ApplyResultScroll()
+	local holder = attunelocal_resultHolder
+	if not holder or holder.closing then return end
+	local h = holder.hOffset or 0
+	local v = holder.vOffset or 0
+	Attune_SafeScroll(holder.headerScroll, "h", h)
+	Attune_SafeScroll(holder.bodyScroll, "h", h)
+	Attune_SafeScroll(holder.bodyScroll, "v", v)
+	Attune_SafeScroll(holder.nameScroll, "v", v)
+end
+
+-- Ace widgets sit inside this frame. The frame itself stays the scroll child for the life of the holder.
+-- Replacing the scroll child, or reparenting it, frees that frame and the client access-violates.
+function Attune_MountResultWidget(widget, parent)
+	if not widget or not widget.frame or not parent then return end
+	local frame = widget.frame
+	frame:SetParent(parent)
+	frame:ClearAllPoints()
+	frame:SetPoint("TOPLEFT", parent, "TOPLEFT", 0, 0)
+	frame:Show()
+end
+
+function Attune_ResultScrollWheel(delta, horizontal)
+	local holder = attunelocal_resultHolder
+	if not holder or not holder:IsShown() then return end
+	if horizontal == nil then horizontal = IsShiftKeyDown() end
+	if horizontal then
+		local _, maxW = holder.hbar:GetMinMaxValues()
+		holder.hOffset = math.max(0, math.min(maxW or 0, (holder.hOffset or 0) - delta * 60))
+	else
+		local _, maxH = holder.vbar:GetMinMaxValues()
+		holder.vOffset = math.max(0, math.min(maxH or 0, (holder.vOffset or 0) - delta * 48))
+	end
+	holder.noupdate = true
+	holder.hbar:SetValue(holder.hOffset or 0)
+	holder.vbar:SetValue(holder.vOffset or 0)
+	holder.noupdate = nil
+	Attune_ApplyResultScroll()
+end
+
+function Attune_BindResultFrame(frame)
+	local holder = attunelocal_resultHolder
+	if not frame or not holder then return end
+	if not frame.attuneResultWheel then
+		frame.attuneResultWheel = true
+		-- SetFrameStrata on the scroll child itself access-violates. Descendants are fine.
+		local parent = frame:GetParent()
+		local isScrollChild = parent and parent.GetScrollChild and parent:GetScrollChild() == frame
+		if not isScrollChild then
+			frame.attuneResultStrata = frame:GetFrameStrata()
+			frame:SetFrameStrata(holder:GetFrameStrata())
+		end
+		frame:EnableMouseWheel(true)
+		frame:SetScript("OnMouseWheel", function(self, delta)
+			if not self.attuneResultWheel then return end
+			Attune_ResultScrollWheel(delta)
+		end)
+	end
+	for _, child in ipairs({ frame:GetChildren() }) do
+		Attune_BindResultFrame(child)
+	end
+end
+
+function Attune_UnbindResultFrame(frame)
+	if not frame then return end
+	if frame.attuneResultWheel then
+		frame.attuneResultWheel = nil
+		frame:SetScript("OnMouseWheel", nil)
+		if frame.attuneResultStrata then
+			local parent = frame:GetParent()
+			local isScrollChild = parent and parent.GetScrollChild and parent:GetScrollChild() == frame
+			if not isScrollChild then
+				frame:SetFrameStrata(frame.attuneResultStrata)
+			end
+			frame.attuneResultStrata = nil
+		end
+	end
+	for _, child in ipairs({ frame:GetChildren() }) do
+		Attune_UnbindResultFrame(child)
+	end
+end
+
+function Attune_EnsureResultHolder()
+	if attunelocal_resultHolder then return attunelocal_resultHolder end
+
+	local parent = attunelocal_frame.frame
+	local holder = CreateFrame("Frame", nil, parent, BackdropTemplateMixin and "BackdropTemplate" or nil)
+	holder:SetFrameStrata(parent:GetFrameStrata())
+	holder:SetFrameLevel(parent:GetFrameLevel() + 20)
+	holder:EnableMouse(true)
+	holder:EnableMouseWheel(true)
+	holder:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		tile = true, tileSize = 16, edgeSize = 12,
+		insets = { left = 3, right = 3, top = 3, bottom = 3 },
+	})
+	holder:SetBackdropColor(0.05, 0.05, 0.05, 0.85)
+	holder:SetBackdropBorderColor(0.45, 0.4, 0.3, 1)
+	holder:Hide()
+	holder.hOffset = 0
+	holder.vOffset = 0
+
+	local pad = 6
+	holder.pad = pad
+
+	-- Frozen name column. Vertical scroll only, kept in step with the results.
+	local nameHead = CreateFrame("Frame", nil, holder)
+	nameHead:EnableMouseWheel(true)
+	nameHead:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta)
+	end)
+	if nameHead.SetClipsChildren then nameHead:SetClipsChildren(true) end
+	holder.nameHead = nameHead
+
+	local nameScroll = CreateFrame("ScrollFrame", nil, holder)
+	nameScroll:EnableMouseWheel(true)
+	nameScroll:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta)
+	end)
+	holder.nameScroll = nameScroll
+
+	local headerScroll = CreateFrame("ScrollFrame", nil, holder)
+	headerScroll:EnableMouseWheel(true)
+	headerScroll:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta)
+	end)
+	holder.headerScroll = headerScroll
+
+	local bodyScroll = CreateFrame("ScrollFrame", nil, holder)
+	bodyScroll:EnableMouseWheel(true)
+	bodyScroll:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta)
+	end)
+	holder.bodyScroll = bodyScroll
+
+	-- Permanent scroll children. Created once, never swapped, never reparented.
+	local function resultScrollContent(scroll)
+		local content = CreateFrame("Frame", nil, scroll)
+		content:SetSize(1, 1)
+		scroll:SetScrollChild(content)
+		return content
+	end
+	holder.nameContent = resultScrollContent(nameScroll)
+	holder.headerContent = resultScrollContent(headerScroll)
+	holder.bodyContent = resultScrollContent(bodyScroll)
+
+	local headerBg = holder:CreateTexture(nil, "BACKGROUND")
+	headerBg:SetColorTexture(0.22, 0.18, 0.1, 0.55)
+	holder.headerBg = headerBg
+
+	local nameShade = holder:CreateTexture(nil, "BACKGROUND")
+	nameShade:SetColorTexture(0, 0, 0, 0.28)
+	holder.nameShade = nameShade
+
+	local divider = CreateFrame("Frame", nil, holder)
+	divider:SetWidth(1)
+	local dividerTex = divider:CreateTexture(nil, "ARTWORK")
+	dividerTex:SetAllPoints()
+	dividerTex:SetColorTexture(0.55, 0.46, 0.28, 0.9)
+	holder.divider = divider
+
+	local headerLine = CreateFrame("Frame", nil, holder)
+	headerLine:SetHeight(1)
+	local headerLineTex = headerLine:CreateTexture(nil, "ARTWORK")
+	headerLineTex:SetAllPoints()
+	headerLineTex:SetColorTexture(0.55, 0.46, 0.28, 0.9)
+	holder.headerLine = headerLine
+
+	local baseLevel = holder:GetFrameLevel()
+	nameHead:SetFrameLevel(baseLevel + 6)
+	nameScroll:SetFrameLevel(baseLevel + 6)
+	headerScroll:SetFrameLevel(baseLevel + 3)
+	bodyScroll:SetFrameLevel(baseLevel + 3)
+	divider:SetFrameLevel(baseLevel + 7)
+	headerLine:SetFrameLevel(baseLevel + 7)
+
+	attunelocal_resultScrollSerial = (attunelocal_resultScrollSerial or 0) + 1
+	local serial = attunelocal_resultScrollSerial
+
+	-- Template OnValueChanged calls SetVerticalScroll on the parent. This parent is not a ScrollFrame.
+	local vbar = CreateFrame("Slider", "AttuneResultVBar"..serial, holder, "UIPanelScrollBarTemplate")
+	vbar:SetScript("OnValueChanged", nil)
+	vbar:SetWidth(16)
+	vbar:SetMinMaxValues(0, 0)
+	vbar:SetValueStep(1)
+	vbar:SetValue(0)
+	vbar:Hide()
+	vbar:EnableMouseWheel(true)
+	vbar:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta, false)
+	end)
+	vbar:SetScript("OnValueChanged", function(_, value)
+		if holder.noupdate then return end
+		holder.vOffset = value or 0
+		Attune_ApplyResultScroll()
+	end)
+	holder.vbar = vbar
+
+	local hbar = CreateFrame("Slider", "AttuneResultHBar"..serial, holder)
+	hbar:SetOrientation("HORIZONTAL")
+	hbar:SetHeight(16)
+	hbar:SetThumbTexture("Interface\\Buttons\\UI-ScrollBar-Knob")
+	local thumb = hbar:GetThumbTexture()
+	if thumb then thumb:SetSize(16, 16) end
+	local track = hbar:CreateTexture(nil, "BACKGROUND")
+	track:SetColorTexture(0, 0, 0, 0.45)
+	track:SetAllPoints()
+	hbar:SetMinMaxValues(0, 0)
+	hbar:SetValueStep(1)
+	hbar:SetValue(0)
+	hbar:Hide()
+	hbar:EnableMouseWheel(true)
+	hbar:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta, true)
+	end)
+	hbar:SetScript("OnValueChanged", function(_, value)
+		if holder.noupdate then return end
+		holder.hOffset = value or 0
+		Attune_ApplyResultScroll()
+	end)
+	holder.hbar = hbar
+	vbar:SetFrameLevel(holder:GetFrameLevel() + 8)
+	hbar:SetFrameLevel(holder:GetFrameLevel() + 8)
+
+	holder:SetScript("OnMouseWheel", function(_, delta)
+		Attune_ResultScrollWheel(delta)
+	end)
+
+	holder.RefreshBars = function()
+		if holder.closing or holder.refreshing or not holder:IsShown() then return end
+		holder.refreshing = true
+		local width = holder:GetWidth() or 0
+		local height = holder:GetHeight() or 0
+		local headerH = headerScroll:GetHeight() or 0
+		local nameW = holder.nameW or Attune_ResultNameWidth()
+		if nameW > width - pad * 2 - 80 then nameW = math.max(80, width - pad * 2 - 80) end
+		local contentW = holder.contentW or 1
+		local contentH = holder.contentH or 1
+		if attunelocal_resultHeader and attunelocal_resultHeader.frame then
+			contentW = math.max(contentW, attunelocal_resultHeader.frame:GetWidth() or 0)
+		end
+		if attunelocal_glist and attunelocal_glist.frame then
+			contentW = math.max(contentW, attunelocal_glist.frame:GetWidth() or 0)
+			contentH = math.max(contentH, attunelocal_glist.frame:GetHeight() or 0)
+		end
+		if attunelocal_resultNames and attunelocal_resultNames.frame then
+			contentH = math.max(contentH, attunelocal_resultNames.frame:GetHeight() or 0)
+		end
+		local bar = 18
+		local bodyRoom = math.max(1, height - pad * 2 - headerH)
+		local resultsRoom = math.max(1, width - pad * 2 - nameW)
+		local needV = contentH > bodyRoom + 1
+		local needH = contentW > resultsRoom + 1
+		if needV then needH = contentW > (resultsRoom - bar) + 1 end
+		if needH then needV = contentH > (bodyRoom - bar) + 1 end
+		local right = -(pad + (needV and bar or 0))
+		local bottom = pad + (needH and bar or 0)
+
+		nameHead:ClearAllPoints()
+		nameHead:SetPoint("TOPLEFT", holder, "TOPLEFT", pad, -pad)
+		nameHead:SetSize(nameW, headerH)
+
+		nameScroll:ClearAllPoints()
+		nameScroll:SetPoint("TOPLEFT", nameHead, "BOTTOMLEFT", 0, 0)
+		nameScroll:SetPoint("BOTTOMLEFT", holder, "BOTTOMLEFT", pad, bottom)
+		nameScroll:SetWidth(nameW)
+
+		headerScroll:ClearAllPoints()
+		headerScroll:SetPoint("TOPLEFT", nameHead, "TOPRIGHT", 0, 0)
+		headerScroll:SetPoint("TOPRIGHT", holder, "TOPRIGHT", right, -pad)
+		headerScroll:SetHeight(headerH)
+
+		bodyScroll:ClearAllPoints()
+		bodyScroll:SetPoint("TOPLEFT", headerScroll, "BOTTOMLEFT", 0, 0)
+		bodyScroll:SetPoint("BOTTOMRIGHT", holder, "BOTTOMRIGHT", right, bottom)
+
+		holder.headerBg:ClearAllPoints()
+		holder.headerBg:SetPoint("TOPLEFT", holder, "TOPLEFT", pad, -pad)
+		holder.headerBg:SetPoint("TOPRIGHT", holder, "TOPRIGHT", right, -pad)
+		holder.headerBg:SetHeight(math.max(headerH, 1))
+
+		holder.nameShade:ClearAllPoints()
+		holder.nameShade:SetPoint("TOPLEFT", nameHead, "TOPLEFT", 0, 0)
+		holder.nameShade:SetPoint("BOTTOMRIGHT", nameScroll, "BOTTOMRIGHT", 0, 0)
+
+		holder.divider:ClearAllPoints()
+		holder.divider:SetPoint("TOP", nameHead, "TOPRIGHT", 0, 0)
+		holder.divider:SetPoint("BOTTOM", nameScroll, "BOTTOMRIGHT", 0, 0)
+
+		holder.headerLine:ClearAllPoints()
+		holder.headerLine:SetPoint("TOPLEFT", nameHead, "BOTTOMLEFT", 0, 0)
+		holder.headerLine:SetPoint("TOPRIGHT", headerScroll, "BOTTOMRIGHT", 0, 0)
+		holder.headerLine:SetHeight(1)
+
+		if needV then
+			vbar:ClearAllPoints()
+			vbar:SetPoint("TOPRIGHT", holder, "TOPRIGHT", -pad, -(pad + 16))
+			vbar:SetPoint("BOTTOMRIGHT", holder, "BOTTOMRIGHT", -pad, bottom + 16)
+			vbar:Show()
+		else
+			vbar:Hide()
+		end
+		if needH then
+			hbar:ClearAllPoints()
+			hbar:SetPoint("BOTTOMLEFT", holder, "BOTTOMLEFT", pad + nameW, pad)
+			hbar:SetPoint("BOTTOMRIGHT", holder, "BOTTOMRIGHT", right, pad)
+			hbar:Show()
+		else
+			hbar:Hide()
+		end
+
+		local viewW = math.max(1, width - nameW - pad + right)
+		local viewH = math.max(1, height - pad - headerH - bottom)
+		local maxW = math.max(0, contentW - viewW)
+		local maxH = math.max(0, contentH - viewH)
+		if holder.headerContent then holder.headerContent:SetSize(math.max(contentW, 1), math.max(headerH, 1)) end
+		if holder.bodyContent then holder.bodyContent:SetSize(math.max(contentW, 1), math.max(contentH, 1)) end
+		if holder.nameContent then holder.nameContent:SetSize(math.max(nameW, 1), math.max(contentH, 1)) end
+		if headerScroll.UpdateScrollChildRect then headerScroll:UpdateScrollChildRect() end
+		if bodyScroll.UpdateScrollChildRect then bodyScroll:UpdateScrollChildRect() end
+		if nameScroll.UpdateScrollChildRect then nameScroll:UpdateScrollChildRect() end
+		holder.hOffset = math.max(0, math.min(maxW, holder.hOffset or 0))
+		holder.vOffset = math.max(0, math.min(maxH, holder.vOffset or 0))
+		holder.noupdate = true
+		hbar:SetMinMaxValues(0, maxW)
+		vbar:SetMinMaxValues(0, maxH)
+		hbar:SetValue(holder.hOffset)
+		vbar:SetValue(holder.vOffset)
+		holder.noupdate = nil
+		Attune_ApplyResultScroll()
+		holder.refreshing = false
+	end
+
+	holder:SetScript("OnSizeChanged", function()
+		holder.RefreshBars()
+	end)
+
+	holder:SetScript("OnUpdate", function()
+		if not holder:IsShown() then return end
+		local guild = attunelocal_guildframe
+		local window = attunelocal_frame
+		if not guild or not guild.content or not window or not window.frame then return end
+		local pLeft, pTop = parent:GetLeft(), parent:GetTop()
+		local cLeft, cRight, cBottom = guild.content:GetLeft(), guild.content:GetRight(), guild.content:GetBottom()
+		if not pLeft or not pTop or not cLeft or not cRight or not cBottom then return end
+		local filterBottom = nil
+		for _, widget in ipairs(holder.above or {}) do
+			local b = widget.frame and widget.frame:IsShown() and widget.frame:GetBottom()
+			if b and (not filterBottom or b < filterBottom) then filterBottom = b end
+		end
+		if not filterBottom then return end
+		local left = math.floor(cLeft - pLeft + 2)
+		local top = math.floor(filterBottom - 8 - pTop)
+		local right = math.floor(cRight - pLeft - 2)
+		local bottom = math.floor(cBottom - pTop + 2)
+		local key = left.."|"..top.."|"..right.."|"..bottom
+		if key == holder.placeKey then return end
+		holder.placeKey = key
+		holder:ClearAllPoints()
+		holder:SetPoint("TOPLEFT", parent, "TOPLEFT", left, top)
+		holder:SetPoint("BOTTOMRIGHT", parent, "TOPLEFT", right, bottom)
+	end)
+
+	attunelocal_resultHolder = holder
+	return holder
+end
+
+function Attune_CloseResultTable()
+	-- Drop queued row builders before the widgets they would parent are released.
+	attunelocal_resultListSerial = (attunelocal_resultListSerial or 0) + 1
+	local holder = attunelocal_resultHolder
+	if holder then
+		holder.closing = true
+		holder:Hide()
+	end
+	local function releaseWidget(widget)
+		if not widget then return end
+		Attune_UnbindResultFrame(widget.frame)
+		-- Leave the scroll child in place. Release only the Ace widget that was mounted inside it.
+		widget:Release()
+	end
+	releaseWidget(attunelocal_glist)
+	attunelocal_glist = nil
+	releaseWidget(attunelocal_resultNames)
+	attunelocal_resultNames = nil
+	releaseWidget(attunelocal_resultHeader)
+	attunelocal_resultHeader = nil
+	releaseWidget(attunelocal_resultNameHeader)
+	attunelocal_resultNameHeader = nil
+	if holder then
+		holder.hOffset = 0
+		holder.vOffset = 0
+		holder.contentW = nil
+		holder.contentH = nil
+		holder.above = nil
+		holder.placeKey = nil
+		holder.noupdate = true
+		if holder.hbar then
+			holder.hbar:SetMinMaxValues(0, 0)
+			holder.hbar:SetValue(0)
+		end
+		if holder.vbar then
+			holder.vbar:SetMinMaxValues(0, 0)
+			holder.vbar:SetValue(0)
+		end
+		holder.noupdate = nil
+		-- Stay closed until the next results open. Scrolling here runs while the rows are being released.
+		holder:Hide()
+	end
+end
+
+function Attune_UpdateResultScroll()
+	local holder = attunelocal_resultHolder
+	if not holder or not holder:IsShown() or holder.updating then return end
+	holder.updating = true
+	local nameW = Attune_ResultNameWidth()
+	local colW = Attune_ResultColumnsWidth()
+	holder.nameW = nameW
+	local header = attunelocal_resultHeader
+	local nameHeader = attunelocal_resultNameHeader
+	local hh = 36
+	if header then
+		header.frame:Show()
+		header:SetWidth(colW)
+		header:DoLayout()
+		hh = header.frame:GetHeight() or 0
+		if hh < 28 then hh = 28 end
+		header.frame:SetSize(colW, hh)
+		holder.headerScroll:SetHeight(hh)
+		holder.contentW = colW
+		if holder.headerScroll.UpdateScrollChildRect then holder.headerScroll:UpdateScrollChildRect() end
+	end
+	if nameHeader then
+		nameHeader.frame:Show()
+		nameHeader:SetAutoAdjustHeight(false)
+		nameHeader:SetWidth(nameW)
+		nameHeader:SetHeight(hh)
+		nameHeader.frame:SetSize(nameW, hh)
+		if holder.nameHead then holder.nameHead:SetHeight(hh) end
+		-- Flow pins these labels to the top, and the label widget snaps its text
+		-- back to the top whenever it is resized. Stretch each title to the header
+		-- and center the fontstring in that full height.
+		local content = nameHeader.content
+		if content and nameHeader.children then
+			local x = 0
+			for _, child in ipairs(nameHeader.children) do
+				local w = child.frame.width or child.frame:GetWidth() or 0
+				child.OnWidthSet = function() end
+				if child.label and not child._attuneCenterHook then
+					local origSetText = child.SetText
+					child.SetText = function(self, text)
+						origSetText(self, text)
+						if self._attuneCenter then self:_attuneCenter() end
+					end
+					child._attuneCenterHook = true
+				end
+				child._attuneCenter = function(self)
+					if not self.label then return end
+					self.label:ClearAllPoints()
+					self.label:SetPoint("LEFT", self.frame, "LEFT", 0, 0)
+					self.label:SetPoint("RIGHT", self.frame, "RIGHT", 0, 0)
+					self.label:SetJustifyV("MIDDLE")
+					self.label:SetWordWrap(false)
+				end
+				child.frame:ClearAllPoints()
+				child.frame:SetPoint("TOPLEFT", content, "TOPLEFT", x, 0)
+				child.frame:SetPoint("BOTTOMLEFT", content, "BOTTOMLEFT", x, 0)
+				child.frame:SetWidth(w)
+				x = x + w
+				if child._attuneCenter then child:_attuneCenter() end
+			end
+		end
+	end
+	local lh = 1
+	if attunelocal_glist then
+		attunelocal_glist.frame:Show()
+		attunelocal_glist:SetWidth(colW)
+		attunelocal_glist.content.width = colW
+		attunelocal_glist:DoLayout()
+		lh = math.max(lh, attunelocal_glist.frame:GetHeight() or 0)
+	end
+	if attunelocal_resultNames then
+		attunelocal_resultNames.frame:Show()
+		attunelocal_resultNames:SetWidth(nameW)
+		attunelocal_resultNames.content.width = nameW
+		attunelocal_resultNames:DoLayout()
+		lh = math.max(lh, attunelocal_resultNames.frame:GetHeight() or 0)
+	end
+	if lh < 1 then lh = 1 end
+	if attunelocal_glist then
+		attunelocal_glist.frame:SetSize(colW, lh)
+		if holder.bodyScroll.UpdateScrollChildRect then holder.bodyScroll:UpdateScrollChildRect() end
+	end
+	if attunelocal_resultNames then
+		attunelocal_resultNames.frame:SetSize(nameW, lh)
+		if holder.nameScroll.UpdateScrollChildRect then holder.nameScroll:UpdateScrollChildRect() end
+	end
+	holder.contentW = colW
+	holder.contentH = lh
+	holder.updating = false
+	holder.RefreshBars()
+end
+
+-------------------------------------------------------------------------
 -- Toggle between the Attune tab and the result summary tab
 -------------------------------------------------------------------------
 
@@ -4613,10 +5889,16 @@ function Attune_ToggleView(noToggle)
 	Attune_ReleaseZoomSlider()
 	Attune_HideDungeonArt()
 	Attune_ShowWorkInProgress(false)
+	Attune_CloseResultTable()
 	attunelocal_frame:ReleaseChildren()
 	--Hiding all frames
 	for i, f in pairs(attunelocal_frames) do _G[f]:Hide() end
-	if attunelocal_graphRoot then attunelocal_graphRoot:Hide() end
+	-- Take the chain off the scroll child before that scroll frame is released.
+	-- SetPoint on a scroll child that still holds line regions access-violates.
+	if attunelocal_graphRoot then
+		attunelocal_graphRoot:Hide()
+		attunelocal_graphRoot:SetParent(UIParent)
+	end
 
 	if attunelocal_treeIsShown or noToggle then
 
@@ -4639,7 +5921,7 @@ function Attune_ToggleView(noToggle)
 
 		--Display guild name and sort message
 		local titleGroup = Attune_AceCreate("SimpleGroup")
-		titleGroup:SetRelativeWidth(0.45)
+		titleGroup:SetRelativeWidth(0.28)
 
 			local label = Attune_AceCreate("Label")
 			label:SetText(attunelocal_myguild)
@@ -4705,32 +5987,38 @@ function Attune_ToggleView(noToggle)
 		attunelocal_guildframe:AddChild(titleGroup)
 
 
-		--CheckBox
+		-- Two columns: My Toons / Guild members, then Last survey results / All results
 		local radioGroup = Attune_AceCreate("SimpleGroup")
-		radioGroup:SetRelativeWidth(0.25)
+		radioGroup:SetLayout("Flow")
+		radioGroup:SetRelativeWidth(0.45)
 
 		local radio1 = Attune_AceCreate("CheckBox")
 		radio1:SetType("radio")
 		radio1:SetLabel(AttuneLang["Last survey results"])
 		radio1:SetValue(attunelocal_resultselection == 0)
-		radioGroup:AddChild(radio1)
+		radio1:SetRelativeWidth(0.5)
 
 		local radio2 = Attune_AceCreate("CheckBox")
 		radio2:SetType("radio")
 		radio2:SetLabel(AttuneLang["Guild members"])
 		radio2:SetValue(attunelocal_resultselection == 1)
-		radioGroup:AddChild(radio2)
+		radio2:SetRelativeWidth(0.5)
 
 		local radio3 = Attune_AceCreate("CheckBox")
 		radio3:SetType("radio")
 		radio3:SetLabel(AttuneLang["My Toons"])
 		radio3:SetValue(attunelocal_resultselection == 2)
-		radioGroup:AddChild(radio3)
+		radio3:SetRelativeWidth(0.5)
 
 		local radio4 = Attune_AceCreate("CheckBox")
 		radio4:SetType("radio")
 		radio4:SetLabel(AttuneLang["All results"])
 		radio4:SetValue(attunelocal_resultselection == 3)
+		radio4:SetRelativeWidth(0.5)
+
+		radioGroup:AddChild(radio3)
+		radioGroup:AddChild(radio1)
+		radioGroup:AddChild(radio2)
 		radioGroup:AddChild(radio4)
 
 		radio1:SetCallback("OnValueChanged", function(obj, evt, val)
@@ -4794,17 +6082,17 @@ function Attune_ToggleView(noToggle)
 			end)
 			syncGroup:AddChild(slider)
 
-			local spacer = Attune_AceCreate("Label")
-			spacer:SetText(" \n ")
-			spacer:SetFullWidth(true)
-			syncGroup:AddChild(spacer)
+			-- local spacer = Attune_AceCreate("Label")
+			-- spacer:SetText(" \n ")
+			-- spacer:SetFullWidth(true)
+			-- syncGroup:AddChild(spacer)
 
-			local sync = Attune_AceCreate("Button")
-			sync:SetText(AttuneLang["Sync with target"])
-			sync:SetCallback("OnClick", function()
-				Attune_SendSyncRequest()
-			end)
-			syncGroup:AddChild(sync)
+			-- local sync = Attune_AceCreate("Button")
+			-- sync:SetText(AttuneLang["Sync with target"])
+			-- sync:SetCallback("OnClick", function()
+			-- 	Attune_SendSyncRequest()
+			-- end)
+			-- syncGroup:AddChild(sync)
 
 		attunelocal_guildframe:AddChild(syncGroup)
 
@@ -4815,29 +6103,57 @@ function Attune_ToggleView(noToggle)
 		if attunelocal_showResultAttunes then 
 			--show attunes
 
-			--Header row
-			local gftitle = Attune_AceCreate("InlineGroup")
+			-- Frozen name column, then the result columns that scroll sideways.
+			local resultHolder = Attune_EnsureResultHolder()
+			resultHolder.above = { titleGroup, radioGroup, syncGroup }
+			local guildLevel = attunelocal_guildframe.frame:GetFrameLevel() or attunelocal_frame.frame:GetFrameLevel()
+			resultHolder:SetFrameLevel(guildLevel + 20)
+			resultHolder.closing = false
+			resultHolder:Show()
+
+			local nameHeader = Attune_AceCreate("SimpleGroup")
+			nameHeader:SetLayout("Flow")
+			nameHeader:SetWidth(Attune_ResultNameWidth())
+			attunelocal_resultNameHeader = nameHeader
+			nameHeader.frame:SetParent(resultHolder.nameHead)
+			nameHeader.frame:ClearAllPoints()
+			nameHeader.frame:SetPoint("TOPLEFT", resultHolder.nameHead, "TOPLEFT", 0, 0)
+
+			local headPad = Attune_AceCreate("Label")
+			headPad:SetWidth(4)
+			nameHeader:AddChild(headPad)
+
+			local function addSortHeader(text, width, key, startHigh, justify)
+				local lab = Attune_AceCreate("InteractiveLabel")
+				lab:SetText(text)
+				lab:SetWidth(width)
+				lab:SetFont(GameFontHighlight:GetFont(), 12, "")
+				lab:SetJustifyH(justify or "CENTER")
+				lab:SetCallback("OnClick", function()
+					if Attune_DB.sortresult[1] == key then
+						Attune_DB.sortresult[2] = not Attune_DB.sortresult[2]
+					else
+						Attune_DB.sortresult[1] = key
+						-- true sorts low-to-high. Level starts with the high levels first.
+						Attune_DB.sortresult[2] = not startHigh
+					end
+					Attune_ShowResultList(label)
+				end)
+				nameHeader:AddChild(lab)
+				return lab
+			end
+
+			-- -5 level, -6 class, 0 name. Same keys the result sort uses.
+			addSortHeader(AttuneLang["Level"], Attune_ResultLevelWidth(), -5, true, "CENTER")
+			addSortHeader(AttuneLang["Class"], Attune_ResultClassWidth(), -6, false, "CENTER")
+			attunelocal_gflabel = addSortHeader(AttuneLang["Character"], Attune_ResultCharWidth(), 0, false, "LEFT")
+
+			local gftitle = Attune_AceCreate("SimpleGroup")
 			gftitle:SetLayout("Flow")
 			gftitle:SetAutoAdjustHeight(true)
-			gftitle:SetFullWidth(true)
-
-			attunelocal_gflabel = Attune_AceCreate("InteractiveLabel")
-			attunelocal_gflabel:SetText(AttuneLang["Character"])
-			attunelocal_gflabel:SetWidth(265)
-			attunelocal_gflabel:SetFont(GameFontHighlight:GetFont(), 16, "")
-			attunelocal_gflabel:SetCallback("OnClick", function()
-				if Attune_DB.sortresult[1] == 0 then
-					--same sort, just change order
-					Attune_DB.sortresult[2] = not Attune_DB.sortresult[2]
-				else
-					Attune_DB.sortresult[1] = 0
-					Attune_DB.sortresult[2] = true
-				end
-				Attune_ShowResultList(label) -- profiles disabled
-				-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
-				-- else Attune_ShowProfileList(label)	end
-			end)
-			gftitle:AddChild(attunelocal_gflabel)
+			attunelocal_resultHeader = gftitle
+			Attune_MountResultWidget(gftitle, resultHolder.headerContent)
+			gftitle:SetWidth(Attune_ResultColumnsWidth())
 
 
 			local expac = ""
@@ -4884,34 +6200,28 @@ function Attune_ToggleView(noToggle)
 				end
 			end
 
-			attunelocal_guildframe:AddChild(gftitle)
+			Attune_BindResultFrame(nameHeader.frame)
+			Attune_BindResultFrame(gftitle.frame)
 
-
-
-			attunelocal_gscroll = Attune_AceCreate("ScrollFrame")
-			attunelocal_gscroll:SetLayout("Flow")
-			attunelocal_gscroll:SetFullWidth(true)
-			
-	
-			-- This script needed to allow the scrollframe resize whenever content changes or vertical size is moved
-			attunelocal_gscroll.frame:SetScript("OnUpdate", function()
-				attunelocal_gscroll:SetHeight(attunelocal_frame.frame:GetHeight() - 255)
-			end)
-	
-	
+			attunelocal_resultNames = Attune_AceCreate("SimpleGroup")
+			attunelocal_resultNames:SetLayout("List")
+			attunelocal_resultNames:SetAutoAdjustHeight(true)
+			Attune_MountResultWidget(attunelocal_resultNames, resultHolder.nameContent)
+			attunelocal_resultNames:SetWidth(Attune_ResultNameWidth())
 
 			attunelocal_glist = Attune_AceCreate("SimpleGroup")
-			attunelocal_glist:SetLayout("Flow")
+			attunelocal_glist:SetLayout("List")
 			attunelocal_glist:SetAutoAdjustHeight(true)
-			attunelocal_glist:SetFullWidth(true)
+			Attune_MountResultWidget(attunelocal_glist, resultHolder.bodyContent)
+			attunelocal_glist:SetWidth(Attune_ResultColumnsWidth())
 
 			Attune_ShowResultList(label) -- profiles disabled
 			-- if attunelocal_showResultAttunes then Attune_ShowResultList(label)
 			-- else Attune_ShowProfileList(label)	end
 
-			attunelocal_gscroll:AddChild(attunelocal_glist)
-
-			attunelocal_guildframe:AddChild(attunelocal_gscroll)
+			Attune_BindResultFrame(nameHeader.frame)
+			Attune_BindResultFrame(gftitle.frame)
+			Attune_UpdateResultScroll()
 
 --[=[ Show Profiles view disabled for now
 		else
@@ -5061,6 +6371,7 @@ function Attune_ToggleView(noToggle)
 		-- create the tree
 		attunelocal_treeframe = Attune_AceCreate("TreeGroup")
 		Attune_StyleTreeGroup(attunelocal_treeframe)
+		Attune_InstallIconView(attunelocal_treeframe)
 		attunelocal_treeframe:SetTree(attunelocal_tree)
 		attunelocal_treeframe:SetLayout("AttuneFill")
 		attunelocal_treeframe:SetFullWidth(true)
@@ -5079,6 +6390,16 @@ function Attune_ToggleView(noToggle)
 				if TreeExpandStatus[a.EXPAC.."\001"..a.GROUP] == 1 then attunelocal_treeframe:SelectByPath(a.EXPAC.."\001"..a.GROUP) end
 			end
 		end
+		if Attune_DB.archiveCompleted then
+			local archived = AttuneLang["Archived"]
+			for _, expacNode in ipairs(attunelocal_tree) do
+				if expacNode.value then
+					local key = expacNode.value .. "\001" .. archived
+					if TreeExpandStatus[key] == nil then TreeExpandStatus[key] = 1 end
+					if TreeExpandStatus[key] == 1 then attunelocal_treeframe:SelectByPath(expacNode.value, archived) end
+				end
+			end
+		end
 		attunelocal_treeframe:SetCallback("OnGroupSelected", function(container, event, selection)
 			--check if it's a top level expac
 			local st, le = string.find(selection, "\001")
@@ -5086,15 +6407,18 @@ function Attune_ToggleView(noToggle)
 				--get actual attune (remove expac/group)
 				expac, group, sel = strsplit("\001", selection);
 				if sel ~= "" and sel ~= nil then
-					AttuneLastViewed = selection
+					Attune_SetLastViewed(selection)
 					Attune_Select(sel)
 				end
 			end
 		end)
 
-		attunelocal_treeframe:SetCallback("OnTreeResize", function(container, event, group)
-			--force the size to 175
-			container.treeframe:SetWidth(175)
+		attunelocal_treeframe:SetCallback("OnTreeResize", function(container, event, width)
+			local minTree = attunelocal_treeMinWidth
+			if Attune_MinTreeWidth then minTree = math.max(minTree, Attune_MinTreeWidth()) end
+			if type(width) == "number" and width >= minTree and width <= attunelocal_treeMaxWidth then
+				Attune_DB.treeWidth = width
+			end
 		end)
 
 		attunelocal_right = Attune_AceCreate("SimpleGroup")
@@ -5113,8 +6437,9 @@ function Attune_ToggleView(noToggle)
 
 		Attune_CreateZoomSlider()
 
-		--select default attune (or last viewed)
-		attunelocal_treeframe:SelectByPath(AttuneLastViewed)
+		--select default attune (or last viewed) for this character
+		local lastViewed = Attune_GetLastViewed()
+		if lastViewed then attunelocal_treeframe:SelectByPath(lastViewed) end
 
 	end
 
@@ -5157,7 +6482,31 @@ function Attune_ShowResultList(title)
 
 	end
 
-	attunelocal_glist:ReleaseChildren()
+	-- Drop wheel hooks before pooled row widgets go back to Ace.
+	attunelocal_resultListSerial = (attunelocal_resultListSerial or 0) + 1
+	local listSerial = attunelocal_resultListSerial
+	if attunelocal_glist then
+		Attune_UnbindResultFrame(attunelocal_glist.frame)
+		attunelocal_glist:ReleaseChildren()
+		Attune_BindResultFrame(attunelocal_glist.frame)
+	end
+	if attunelocal_resultNames then
+		Attune_UnbindResultFrame(attunelocal_resultNames.frame)
+		attunelocal_resultNames:ReleaseChildren()
+		Attune_BindResultFrame(attunelocal_resultNames.frame)
+	end
+	-- Same gap on both columns so the first name and its results stay aligned.
+	local function addListGap(list)
+		if not list then return end
+		local gap = Attune_AceCreate("SimpleGroup")
+		gap:SetFullWidth(true)
+		gap:SetAutoAdjustHeight(false)
+		gap:SetHeight(4)
+		list:AddChild(gap)
+	end
+	addListGap(attunelocal_resultNames)
+	addListGap(attunelocal_glist)
+	Attune_UpdateResultScroll()
 
 
 	-- parse all recorded toons and get their progress
@@ -5227,6 +6576,20 @@ function Attune_ShowResultList(title)
 			else
 				return t[a].survey > t[b].survey
 			end
+		elseif Attune_DB.sortresult[1] == -5 then
+			local la = tonumber(t[a].level) or 0
+			local lb = tonumber(t[b].level) or 0
+			if la ~= lb then
+				if Attune_DB.sortresult[2] then return lb > la else return la > lb end
+			end
+			if Attune_DB.sortresult[2] then return b > a else return a > b end
+		elseif Attune_DB.sortresult[1] == -6 then
+			local ca = string.upper(t[a].class or "")
+			local cb = string.upper(t[b].class or "")
+			if ca ~= cb then
+				if Attune_DB.sortresult[2] then return cb > ca else return ca > cb end
+			end
+			if Attune_DB.sortresult[2] then return b > a else return a > b end
 		else 
 			--sort by attune % AND name. reversing the % with "100-" to be able to sort names alpha
 			if Attune_DB.sortresult[2] then
@@ -5255,8 +6618,8 @@ function Attune_ShowResultList(title)
 					count = count + 1
 
 					C_Timer.After(0.01*count, function()
-						local lev = t.level
-						if tonumber(lev) < 10 then lev = "  "..lev end -- align numbers when under 10
+						if listSerial ~= attunelocal_resultListSerial or not attunelocal_glist then return end
+						local lev = tostring(t.level or "")
 
 						local ggg = t.guild
 						if ggg == '' then ggg = "(Not in a guild)" else ggg = "<"..ggg..">" end
@@ -5278,21 +6641,60 @@ function Attune_ShowResultList(title)
 								sss = sss .. " (inactive)"
 							end 
 						end
-						-- container for the whole row
+						local rowH = Attune_ResultRowHeight()
+						local function rowStatusIn()
+							attunelocal_frame:SetStatusText(t.name.." "..ggg.." "..vvv.." "..sss)
+						end
+						local function rowStatusOut()
+							attunelocal_frame:SetStatusText(attunelocal_statusText)
+						end
+
+						-- Frozen name. Same height as the result row so the two columns stay aligned.
+						local nameRow = Attune_AceCreate("SimpleGroup")
+						nameRow:SetLayout("Flow")
+						nameRow:SetAutoAdjustHeight(false)
+						nameRow:SetHeight(rowH)
+						nameRow:SetFullWidth(true)
+						nameRow.frame:SetScript("OnEnter", rowStatusIn)
+						nameRow.frame:SetScript("OnLeave", rowStatusOut)
+
+						local namePad = Attune_AceCreate("Label")
+						namePad:SetWidth(4)
+						nameRow:AddChild(namePad)
+
+						local lvlLabel = Attune_AceCreate("Label")
+						lvlLabel:SetText("|c80606060"..lev.."|r")
+						lvlLabel:SetWidth(Attune_ResultLevelWidth())
+						lvlLabel:SetJustifyH("CENTER")
+						lvlLabel:SetFont(GameFontNormal:GetFont(), 12, "")
+						nameRow:AddChild(lvlLabel)
+
+						local classLabel = Attune_AceCreate("Label")
+						classLabel:SetText("|T"..Attune_Icons(string.upper(t.class), nil)..":16|t")
+						classLabel:SetWidth(Attune_ResultClassWidth())
+						classLabel:SetJustifyH("CENTER")
+						classLabel:SetFont(GameFontNormal:GetFont(), 12, "")
+						nameRow:AddChild(classLabel)
+
+						local glabel = Attune_AceCreate("Label")
+						glabel:SetText(activeName)
+						glabel:SetWidth(Attune_ResultCharWidth())
+						glabel:SetFont(GameFontNormal:GetFont(), 12, "")
+						nameRow:AddChild(glabel)
+
+						-- Result columns. These are the part that scrolls sideways.
 						local gframe = Attune_AceCreate("SimpleGroup")
 						gframe:SetLayout("Flow")
-						gframe:SetAutoAdjustHeight(true)
+						gframe:SetAutoAdjustHeight(false)
+						gframe:SetHeight(rowH)
 						gframe:SetFullWidth(true)
-						gframe.frame:SetScript("OnEnter", function() attunelocal_frame:SetStatusText(t.name.." "..ggg.." "..vvv.." "..sss)  end)
-						gframe.frame:SetScript("OnLeave", function() attunelocal_frame:SetStatusText(attunelocal_statusText)  end)
+						gframe.frame:SetScript("OnEnter", rowStatusIn)
+						gframe.frame:SetScript("OnLeave", rowStatusOut)
 
-						-- add toon part
-							local glabel = Attune_AceCreate("Label")
-							glabel:SetText("    |c80606060"..lev.."|r  |T"..Attune_Icons(string.upper(t.class), nil)..":16|t  "..activeName)
-							glabel:SetWidth(285)
-							glabel:SetFont(GameFontNormal:GetFont(), 12, "")
-							gframe:AddChild(glabel)
-
+						-- Nudge the cells right so they sit under the header icons.
+						local resultPad = Attune_AceCreate("Label")
+						resultPad:SetWidth(3)
+						gframe:AddChild(resultPad)
 
 						-- Go through each Attune and create the corresponding % label for this toon
 						local expac = ""
@@ -5343,7 +6745,7 @@ function Attune_ShowResultList(title)
 							-- add a delete button, to allow removing players from our data (for example if they changed guilds)
 							local gdel = Attune_AceCreate("Button")
 							gdel:SetText("X")
-							gdel:SetWidth(50)
+							gdel:SetWidth(Attune_ResultDeleteWidth())
 							gdel:SetCallback("OnClick", function()
 								Attune_DB.toons[kt] = nil
 								Attune_ShowResultList(label) -- profiles disabled
@@ -5351,12 +6753,16 @@ function Attune_ShowResultList(title)
 								-- else Attune_ShowProfileList(label)	end
 					
 							end)
-							gframe:AddChild(gdel)
+							nameRow:AddChild(gdel)
 						end
 
-						-- add the row to the list
+						nameRow:SetHeight(rowH)
+						gframe:SetHeight(rowH)
+						if attunelocal_resultNames then attunelocal_resultNames:AddChild(nameRow) end
 						attunelocal_glist:AddChild(gframe)
-						attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
+						Attune_BindResultFrame(nameRow.frame)
+						Attune_BindResultFrame(gframe.frame)
+						Attune_UpdateResultScroll()
 					end) -- end of timer function
 				end
 			end
@@ -5364,7 +6770,7 @@ function Attune_ShowResultList(title)
 	end
 
 	attunelocal_gflabel:SetText(AttuneLang["Characters"].." ("..count..")")
-	attunelocal_gscroll.content.obj.content:SetHeight(attunelocal_frame.frame:GetHeight() - 80)
+	Attune_UpdateResultScroll()
 
 end
 
@@ -5666,18 +7072,6 @@ function Attune_SendSilentGuildRequest()
 	Attune_DB.survey = {}
 	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingGuildSilentSurvey"]) end
 	if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "GUILD", ""); end
-
-end
-
--------------------------------------------------------------------------
--- Same as SendRequest, but in the YELL range
--- Quirk to see who around has the addon, silently
--------------------------------------------------------------------------
-
-function Attune_SendSilentYellRequest()
-	Attune_DB.survey = {}
-	if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["SendingYellSilentSurvey"]) end
-	Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "YELL", "");
 
 end
 
@@ -6609,9 +8003,6 @@ function Attune_SlashCommandHandler( msg )
 	elseif (msg == 'silentsurvey') then
 		Attune_SendSilentGuildRequest();	-- Guild check, without triggering the response message on remote toons. Mostly for debugging without annoying players
 
-	elseif (msg == 'yell') then
-		Attune_SendSilentYellRequest();		-- Check who's got the addon around you
-
 	elseif (msg == 'sync') then
 		Attune_SendSyncRequest()
 
@@ -7260,6 +8651,7 @@ end]=]
 
 local attunelocal_rewardFrame
 local ATTUNE_REWARD_WIDTH = 300
+
 
 local function Attune_RewardQuestIDs(idWowhead)
 	local ids = {}
@@ -8756,6 +10148,8 @@ function Attune_HideQuestDetail()
 	end
 	if attunelocal_questDetail then
 		attunelocal_questDetail:Hide()
+		-- Pull it off the tree before that tree is released, so its scroll child is not torn down with the pool.
+		attunelocal_questDetail:SetParent(UIParent)
 		attunelocal_questDetail.key = nil
 		attunelocal_questDetail.step = nil
 	end

@@ -1,4 +1,4 @@
--- Vanilla class quest chains, listed between Dungeons and Keys.
+-- Vanilla class quest chains, listed above Dungeons.
 -- Quest list: Wowhead Classic class filters (Season of Discovery excluded).
 -- Chain order and objectives: CMaNGOS classic-db 1.12.1.
 
@@ -2441,9 +2441,9 @@ local classQuestGivers = {
 	[8564] = {1941, 38.2, 20.8, "Magistrix Erona"}, -- Magistrix Erona, Eversong Woods
 }
 
-local insertAt = #Attune_Data.attunes + 1
+local insertAt = 1
 for i, a in ipairs(Attune_Data.attunes) do
-	if a.GROUP == AttuneLang["KEYS"] then
+	if a.GROUP == AttuneLang["DUNGEONS"] then
 		insertAt = i
 		break
 	end
