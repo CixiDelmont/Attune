@@ -8,6 +8,11 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-33
+--   - Added a new option to change the size of the treeview text.
+--   - Fixed a number of icons that were misleading
+--   - Fixed an issue where zoomed chains would overlap text.
+--
 -- 16001-32
 --   - The attunements and dungeons are now shown as icons (Change back in the options or the toggle above the list).
 --   - Completed chains are now moved to a Completed section (Change back in the options).
@@ -373,6 +378,93 @@ local function Attune_StyleTreeGroup(widget)
 	end
 end
 
+-- AceGUI reserves 16px for a 14px icon, so the name sits on the icon.
+-- List size also grows the font, icon, and row. The tree still measures rows as 18px,
+-- so RefreshTree reports a shorter frame and then these metrics are applied.
+-- Globals: the main chunk is already at Lua's 200-local limit.
+function Attune_TreeRowMetrics()
+	local scale = Attune_DB and Attune_DB.treeScale
+	if scale == "large" then return 24, 20, 2 end
+	if scale == "larger" then return 30, 24, 4 end
+	return 18, 14, 0
+end
+
+function Attune_TreeFont(kind, base, extra)
+	if not Attune_TreeFontCache then Attune_TreeFontCache = {} end
+	local key = kind .. extra
+	local font = Attune_TreeFontCache[key]
+	if not font then
+		font = CreateFont("AttuneTreeFont" .. key)
+		Attune_TreeFontCache[key] = font
+	end
+	font:CopyFontObject(base)
+	local path, size, flags = base:GetFont()
+	if path then font:SetFont(path, (size or 12) + extra, flags or "") end
+	return font
+end
+
+function Attune_ApplyTreeListMetrics(widget)
+	local buttons = widget.buttons
+	if not buttons then return end
+	local row, iconSize, extra = Attune_TreeRowMetrics()
+	for i = 1, #buttons do
+		local button = buttons[i]
+		if button:IsShown() then
+			button:SetHeight(row)
+			local text = button.text
+			local icon = button.icon
+			local level = button.level or 1
+			if button.toggle then button.toggle:SetSize(iconSize, iconSize) end
+			if text then
+				text:SetHeight(row - 4)
+				text:SetWordWrap(false)
+				if text.SetMaxLines then text:SetMaxLines(1) end
+				if extra > 0 then
+					local normal, highlight
+					if level == 1 then
+						normal = Attune_TreeFont("Normal", GameFontNormal, extra)
+						highlight = Attune_TreeFont("Highlight", GameFontHighlight, extra)
+					else
+						normal = Attune_TreeFont("Small", GameFontHighlightSmall, extra)
+						highlight = normal
+					end
+					button:SetNormalFontObject(normal)
+					button:SetHighlightFontObject(highlight)
+				end
+			end
+			if icon and text and icon:GetTexture() then
+				icon:ClearAllPoints()
+				icon:SetSize(iconSize, iconSize)
+				icon:SetPoint("LEFT", button, "LEFT", 8 * level, (level == 1) and 0 or 1)
+				local iconDy = (level == 1) and 0 or 1
+				local right = -8
+				if extra > 0 and button.toggle and button.toggle:IsShown() then
+					right = -(iconSize + 10)
+				end
+				text:ClearAllPoints()
+				text:SetPoint("LEFT", icon, "RIGHT", 4, 2 - iconDy)
+				text:SetPoint("RIGHT", button, "RIGHT", right, 2)
+			elseif text and extra > 0 then
+				local left = (level == 1) and 8 or (8 * level)
+				local right = -8
+				if button.toggle and button.toggle:IsShown() then
+					right = -(iconSize + 10)
+				end
+				text:ClearAllPoints()
+				text:SetPoint("LEFT", button, "LEFT", left, 2)
+				text:SetPoint("RIGHT", button, "RIGHT", right, 2)
+			end
+			if extra > 0 then
+				local hl = button:GetHighlightTexture()
+				if hl then
+					hl:ClearAllPoints()
+					hl:SetAllPoints(button)
+				end
+			end
+		end
+	end
+end
+
 local _G = getfenv(0)
 
 local attunelocal_ldb = LibStub("LibDataBroker-1.1")
@@ -434,9 +526,9 @@ local attunelocal_showResultAttunes = true 	-- profiles UI disabled; keep true t
 local attunelocal_graphRoot					-- container for attune chain nodes (scaled for zoom)
 local attunelocal_graphHeight = 0			-- unscaled chain height (for live zoom scroll updates)
 local attunelocal_contentHeight = 50		-- scroll content height accounting for zoom
-local attunelocal_graphHeaderOffset = 10    -- fixed (unscaled) px below AceGUI title/desc before graph
+local attunelocal_graphHeaderOffset = 10    -- px below AceGUI title/desc, in scroll-content space
 local attunelocal_zoomSlider				-- fixed overlay zoom slider (not inside scroll)
-local attunelocal_graphPanX = 0				-- horizontal pan offset (parent coords)
+local attunelocal_graphPanX = 0				-- horizontal pan, in scroll-content pixels
 local attunelocal_graphMaxExtent = 0		-- unscaled half-width of widest stage
 local attunelocal_graphMaxPanX = 0			-- max |panX| allowed at current zoom/view
 local attunelocal_graphDragging = false		-- true while click-dragging the chain
@@ -562,7 +654,7 @@ local attune_options = {
 						Attune_DB.useFullMap = val
 						if Attune_RefreshQuestMapMode then Attune_RefreshQuestMapMode() end
 					end,
-					width = 2.5,
+					width = 1.65,
 					order = 6,
 				},
 				showAllClassQuests = {
@@ -574,9 +666,30 @@ local attune_options = {
 						Attune_DB.showAllClassQuests = val
 						Attune_ReloadAttuneTree()
 					end,
-					width = 2.5,
+					width = 1.65,
 					order = 7,
 				},
+				treeScale = {
+					type = "select",
+					name = AttuneLang["TreeScale_TEXT"],
+					desc = AttuneLang["TreeScale_DESC"],
+					values = {
+						normal = AttuneLang["TreeScale_Normal"],
+						large = AttuneLang["TreeScale_Large"],
+						larger = AttuneLang["TreeScale_Larger"],
+					},
+					sorting = { "normal", "large", "larger" },
+					get = function() return Attune_DB.treeScale or "normal" end,
+					set = function(info, val)
+						Attune_DB.treeScale = val
+						local tree = attunelocal_treeframe
+						if tree and tree.RefreshTree and attunelocal_treeIsShown and not Attune_DB.iconView then
+							tree:RefreshTree()
+						end
+					end,
+					width = 1.65,
+					order = 8,
+				},                
 				iconView = {
 					type = "toggle",
 					name = AttuneLang["IconView_TEXT"],
@@ -586,7 +699,7 @@ local attune_options = {
 						Attune_SetIconView(val)
 					end,
 					width = 1.65,
-					order = 8,
+					order = 8.5,
 				},
 				archiveCompleted = {
 					type = "toggle",
@@ -948,6 +1061,7 @@ function Attune:OnEnable()
 	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
 	if Attune_DB.showAllClassQuests == nil then Attune_DB.showAllClassQuests = false end
 	if Attune_DB.iconView == nil then Attune_DB.iconView = true end
+	if Attune_DB.treeScale ~= "large" and Attune_DB.treeScale ~= "larger" then Attune_DB.treeScale = "normal" end
 	if Attune_DB.archiveCompleted == nil then Attune_DB.archiveCompleted = true end
 	if Attune_DB.websiteUrl == nil then Attune_DB.websiteUrl = "https://wowhead.com/forever" end
 	if TreeExpandStatus == nil then TreeExpandStatus = {} end
@@ -2927,7 +3041,22 @@ function Attune_InstallIconView(widget)
 			return
 		end
 		if self.attuneIconHolder then self.attuneIconHolder:Hide() end
-		return orig(self, ...)
+		local treeframe = self.treeframe
+		local row = Attune_TreeRowMetrics()
+		local origGetHeight
+		if treeframe and row ~= 18 and treeframe.GetHeight then
+			origGetHeight = treeframe.GetHeight
+			treeframe.GetHeight = function(frame)
+				local h = origGetHeight(frame)
+				if not h or h <= 20 then return h or 0 end
+				return 20 + (h - 20) * 18 / row
+			end
+		end
+		local ok, result = pcall(orig, self, ...)
+		if origGetHeight then treeframe.GetHeight = origGetHeight end
+		if not ok then error(result, 0) end
+		Attune_ApplyTreeListMetrics(self)
+		return result
 	end
 	local wheel = widget.treeframe:GetScript("OnMouseWheel")
 	widget.treeframe:SetScript("OnMouseWheel", function(frame, delta)
@@ -3638,8 +3767,8 @@ function Attune_Select(attuneId)
 	label:SetFont(GameFontHighlight:GetFont(), 20, "")
 	attunelocal_scroll:AddChild(label)
 
-	-- Fixed top margin: measure AceGUI header (title/desc) so graph sits below it
-	-- without that gap shrinking when SetScale zooms the chain.
+	-- Header height in scroll-content pixels. Applied later divided by zoom, because
+	-- SetPoint offsets are in the scaled graph's own space.
 	if attunelocal_scroll.DoLayout then attunelocal_scroll:DoLayout() end
 	attunelocal_graphHeaderOffset = 80
 	do
@@ -3672,11 +3801,10 @@ function Attune_Select(attuneId)
 		attunelocal_graphRoot:SetParent(scrollframe)
 	end
 	attunelocal_graphPanX = 0
-	attunelocal_graphRoot:ClearAllPoints()
-	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, -attunelocal_graphHeaderOffset)
 	attunelocal_graphRoot:SetWidth(1)
 	attunelocal_graphRoot:SetHeight(1)
 	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
+	Attune_ApplyGraphPan()
 	attunelocal_graphRoot:Show()
 
 	-- Count steps per stage (main chain only; SIDE reminders are placed beside End)
@@ -3964,8 +4092,12 @@ function Attune_ApplyGraphPan()
 	if not scrollframe then return end
 	if attunelocal_graphPanX > attunelocal_graphMaxPanX then attunelocal_graphPanX = attunelocal_graphMaxPanX end
 	if attunelocal_graphPanX < -attunelocal_graphMaxPanX then attunelocal_graphPanX = -attunelocal_graphMaxPanX end
+	-- Offsets are in the graph frame's scaled space, so a lower zoom would otherwise
+	-- pull the chain up into the unscaled title and description.
+	local zoom = Attune_DB.zoom or 1
+	if zoom < 0.01 then zoom = 0.01 end
 	attunelocal_graphRoot:ClearAllPoints()
-	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX, -(attunelocal_graphHeaderOffset or 0))
+	attunelocal_graphRoot:SetPoint("TOP", scrollframe, "TOP", attunelocal_graphPanX / zoom, -((attunelocal_graphHeaderOffset or 0) / zoom))
 end
 
 function Attune_UpdateGraphPanLimits()
