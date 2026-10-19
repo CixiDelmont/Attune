@@ -2210,7 +2210,8 @@ function Attune_CheckIsNext(who)
 	att.next = {}
 
 	for i, step in pairs(Attune_Data.steps) do
-		if showPatchStep(step) and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
+		-- Inside reminders are optional and always available, so they are not "the current step".
+		if showPatchStep(step) and not step.SIDE and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
 			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
@@ -4809,8 +4810,9 @@ function Attune_CreateNode(step, parent, posX, posY)
 			if toonClass ~= requiredClass then filter = false end
 		end
 
-		if filter then
+		if filter and not step.SIDE then
 			-- calculate how many other toon has this step marked as IsNext
+			-- Inside reminders are not a current step, so they get no count badge.
 			if kt ~= attunelocal_charKey then
 				if t.next ~= nil then
 					if t.next[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
@@ -5259,7 +5261,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 		end
 
 
-		if countSameStep > 0 or countCompleted > 0 then
+		if (countSameStep > 0 or countCompleted > 0) and not step.SIDE then
 
 			--notification text
 			local exist = false

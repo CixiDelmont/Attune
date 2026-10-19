@@ -2343,258 +2343,232 @@ Attune_Data.steps = 	{
 
 
 --vForever: Lower Blackrock Spire (Alliance 345)
-	-- Columns L→R: Bijou→Maxwell | Put Her Down | Worg Pup | Spider Eggs | Mother's Milk | Seal of Ascension | Urok | Doomrigger | Tablets | Drakkisath's Command
+	-- Columns L→R: Bijou→Maxwell | Put Her Down | 3520→4788 Tablets | Worg Pup | Mother's Milk | Spider Eggs
+	-- SIDE: 4742→4743 Seal of Ascension (Inside — Vaelan) | 4867 Urok Doomhowl (Inside) | 5089 General Drakkisath's Command (Inside — item 12780)
+	-- Doomrigger's Clasp (4766→4764) is on Upper Blackrock Spire, attune 365.
 	-- Onyxia's Drakefire chain stays on attune 40. Demon Forge (5127) is Blacksmith-only and is omitted.
--- 	{ID_ATTUNE="345",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
--- 	-- Bijou → Maxwell's Mission
--- 	{ID_ATTUNE="345",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bijou's Belongings
--- 	{ID_ATTUNE="345",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="820",STAGE="30"}, -- item: Bijou's Belongings
--- 	{ID_ATTUNE="345",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40"}, -- quest: Bijou's Belongings
--- 	{ID_ATTUNE="345",ID="850",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="50"}, -- quest: Message to Maxwell
--- 	{ID_ATTUNE="345",ID="860",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="850",STAGE="60"}, -- quest: Maxwell's Mission
--- 	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="860",STAGE="70"}, -- npc: Highlord Omokk
--- 	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="860",STAGE="70"}, -- npc: War Master Voone
--- 	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="860",STAGE="70"}, -- npc: Overlord Wyrmthalak
--- 	{ID_ATTUNE="345",ID="880",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870&872&874",STAGE="80"}, -- quest: Maxwell's Mission
--- 	-- Put Her Down
--- 	{ID_ATTUNE="345",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Put Her Down
--- 	{ID_ATTUNE="345",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="720",STAGE="30"}, -- npc: Halycon
--- 	{ID_ATTUNE="345",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40"}, -- quest: Put Her Down
--- 	{ID_ATTUNE="345",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
--- 	-- Kibler's Exotic Pets
--- 	{ID_ATTUNE="345",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Kibler's Exotic Pets
--- 	{ID_ATTUNE="345",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_01",FOLLOWS="620",STAGE="30"}, -- item: Caged Worg Pup
--- 	{ID_ATTUNE="345",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Kibler's Exotic Pets
--- 	{ID_ATTUNE="345",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
--- 	-- En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="345",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="345",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="520",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
--- 	{ID_ATTUNE="345",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="345",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
--- 	-- Mother's Milk
--- 	{ID_ATTUNE="345",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mother's Milk
--- 	{ID_ATTUNE="345",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="420",STAGE="30"}, -- npc: Mother Smolderweb
--- 	{ID_ATTUNE="345",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Mother's Milk
--- 	{ID_ATTUNE="345",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
--- 	-- Seal of Ascension
--- 	{ID_ATTUNE="345",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="345",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12335",ICON="Interface\\Icons\\inv_misc_gem_topaz_02",FOLLOWS="320",STAGE="30"}, -- item: Gemstone of Smolderthorn
--- 	{ID_ATTUNE="345",ID="332",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12336",ICON="Interface\\Icons\\inv_misc_gem_emerald_02",FOLLOWS="320",STAGE="30"}, -- item: Gemstone of Spirestone
--- 	{ID_ATTUNE="345",ID="334",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12337",ICON="Interface\\Icons\\inv_misc_gem_ruby_02",FOLLOWS="320",STAGE="30"}, -- item: Gemstone of Bloodaxe
--- 	{ID_ATTUNE="345",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330&332&334",STAGE="40"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="345",ID="350",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="345",ID="360",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="10321",ICON="Interface\\Icons\\inv_misc_head_dragon_red",FOLLOWS="350",STAGE="60"}, -- npc: Emberstrife
--- 	{ID_ATTUNE="345",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="380",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="370",STAGE="80"}, -- quest: Seal of Ascension
--- 	-- Urok Doomhowl
--- 	{ID_ATTUNE="345",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Urok Doomhowl
--- 	{ID_ATTUNE="345",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10584",ICON="Interface\\Icons\\inv_misc_bone_orcskull_01",FOLLOWS="220",STAGE="30"}, -- npc: Urok Doomhowl
--- 	{ID_ATTUNE="345",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12712",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="230",STAGE="40"}, -- item: Warosh's Mojo
--- 	{ID_ATTUNE="345",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Urok Doomhowl
--- 	{ID_ATTUNE="345",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
--- 	-- Doomrigger's Clasp
--- 	{ID_ATTUNE="345",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4766",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mayara Brightwing
--- 	{ID_ATTUNE="345",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Doomrigger's Clasp
--- 	{ID_ATTUNE="345",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12352",ICON="Interface\\Icons\\inv_belt_12",FOLLOWS="130",STAGE="40"}, -- item: Doomrigger's Clasp
--- 	{ID_ATTUNE="345",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Doomrigger's Clasp
--- 	{ID_ATTUNE="345",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
--- 	-- The Final Tablets (dungeon step; Screecher Spirits chain is the prereq)
--- 	{ID_ATTUNE="345",ID="92",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Final Tablets
--- 	{ID_ATTUNE="345",ID="93",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="92",STAGE="30"}, -- item: Fifth Mosh'aru Tablet
--- 	{ID_ATTUNE="345",ID="94",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="92",STAGE="30"}, -- item: Sixth Mosh'aru Tablet
--- 	{ID_ATTUNE="345",ID="95",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93&94",STAGE="40"}, -- quest: The Final Tablets
--- 	{ID_ATTUNE="345",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="97",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="96",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="98",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="99",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="98",STAGE="80"},
--- 	-- General Drakkisath's Command (kill is Upper Spire, attune 365)
--- 	{ID_ATTUNE="345",ID="62",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12780",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: General Drakkisath's Command
--- 	{ID_ATTUNE="345",ID="63",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="30"}, -- quest: General Drakkisath's Command
--- 	{ID_ATTUNE="345",ID="64",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="63",STAGE="40"}, -- quest: General Drakkisath's Command
--- 	{ID_ATTUNE="345",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="64",STAGE="50"},
--- 	{ID_ATTUNE="345",ID="66",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="65",STAGE="60"},
--- 	{ID_ATTUNE="345",ID="67",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="66",STAGE="70"},
--- 	{ID_ATTUNE="345",ID="68",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="67",STAGE="80"},
--- 	{ID_ATTUNE="345",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01",FOLLOWS="880&780&680&580&480&380&280&180&99&68",STAGE="90"},
+	{ID_ATTUNE="345",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Bijou → Maxwell's Mission
+	{ID_ATTUNE="345",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bijou's Belongings
+	{ID_ATTUNE="345",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="820",STAGE="30"}, -- item: Bijou's Belongings
+	{ID_ATTUNE="345",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40"}, -- quest: Bijou's Belongings
+	{ID_ATTUNE="345",ID="850",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="50"}, -- quest: Message to Maxwell
+	{ID_ATTUNE="345",ID="855",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="60"},
+	{ID_ATTUNE="345",ID="860",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="855",STAGE="70"}, -- quest: Maxwell's Mission
+	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="860",STAGE="80"}, -- npc: Highlord Omokk
+	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="860",STAGE="80"}, -- npc: War Master Voone
+	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="860",STAGE="80"}, -- npc: Overlord Wyrmthalak
+	{ID_ATTUNE="345",ID="880",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870&872&874",STAGE="90"}, -- quest: Maxwell's Mission
+	-- {ID_ATTUNE="345",ID="890",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="880",STAGE="90"},
+	-- Put Her Down
+	{ID_ATTUNE="345",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Put Her Down
+	{ID_ATTUNE="345",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="720",STAGE="30"}, -- npc: Halycon
+	{ID_ATTUNE="345",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40"}, -- quest: Put Her Down
+	{ID_ATTUNE="345",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
+	{ID_ATTUNE="345",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
+	{ID_ATTUNE="345",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
+	-- {ID_ATTUNE="345",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
+	{ID_ATTUNE="345",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="90"},
+	-- The Final Tablets (3520 Screecher Spirits → 4788)
+	{ID_ATTUNE="345",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
+	{ID_ATTUNE="345",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="345",ID="640",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="345",ID="650",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50"}, -- quest: The God Hakkar
+	{ID_ATTUNE="345",ID="660",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: The Lost Tablets of Mosh'aru
+	{ID_ATTUNE="345",ID="670",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="70"}, -- quest: The Final Tablets
+	{ID_ATTUNE="345",ID="680",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="670",STAGE="80"}, -- item: Fifth Mosh'aru Tablet
+	{ID_ATTUNE="345",ID="682",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="670",STAGE="80"}, -- item: Sixth Mosh'aru Tablet
+	{ID_ATTUNE="345",ID="690",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="680&682",STAGE="90"}, -- quest: The Final Tablets
+	-- Kibler's Exotic Pets
+	{ID_ATTUNE="345",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Kibler's Exotic Pets
+	{ID_ATTUNE="345",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="520",STAGE="30"}, -- item: Caged Worg Pup
+	{ID_ATTUNE="345",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Kibler's Exotic Pets
+	{ID_ATTUNE="345",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="345",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
+	{ID_ATTUNE="345",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
+	{ID_ATTUNE="345",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="345",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="90"},
+	-- Mother's Milk
+	{ID_ATTUNE="345",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mother's Milk
+	{ID_ATTUNE="345",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="420",STAGE="30"}, -- npc: Mother Smolderweb
+	{ID_ATTUNE="345",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Mother's Milk
+	{ID_ATTUNE="345",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="345",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="345",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
+	{ID_ATTUNE="345",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="345",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="90"},
+	-- En-Ay-Es-Tee-Why
+	{ID_ATTUNE="345",ID="92",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: En-Ay-Es-Tee-Why
+	{ID_ATTUNE="345",ID="93",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="92",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
+	{ID_ATTUNE="345",ID="94",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="40"}, -- quest: En-Ay-Es-Tee-Why
+	{ID_ATTUNE="345",ID="95",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="94",STAGE="50"},
+	{ID_ATTUNE="345",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="60"},
+	{ID_ATTUNE="345",ID="97",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="96",STAGE="70"},
+	{ID_ATTUNE="345",ID="98",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+	{ID_ATTUNE="345",ID="99",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="90"},
+
+    {ID_ATTUNE="345",ID="25",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
+
+	{ID_ATTUNE="345",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Seal of Ascension (Inside)
+	{ID_ATTUNE="345",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Seal of Ascension (Inside)
+	{ID_ATTUNE="345",ID="1080",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Urok Doomhowl (Inside)
+	{ID_ATTUNE="345",ID="1020",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: General Drakkisath's Command (Inside — item 12780)
+	{ID_ATTUNE="345",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01",FOLLOWS="880&790&690&590&490&99&1200&1100&1080&1020",STAGE="100"},
 
 
 -- --vForever: Lower Blackrock Spire (Horde 346)
--- 	{ID_ATTUNE="346",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
--- 	-- Operative Bijou
--- 	{ID_ATTUNE="346",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Operative Bijou
--- 	{ID_ATTUNE="346",ID="830",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="30"}, -- quest: Operative Bijou
--- 	{ID_ATTUNE="346",ID="840",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40"}, -- quest: Bijou's Belongings
--- 	{ID_ATTUNE="346",ID="850",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="840",STAGE="50"}, -- item: Bijou's Belongings
--- 	{ID_ATTUNE="346",ID="860",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="850",STAGE="60"}, -- quest: Bijou's Belongings
--- 	{ID_ATTUNE="346",ID="870",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="860",STAGE="70"}, -- quest: Bijou's Reconnaissance Report
--- 	{ID_ATTUNE="346",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="80"},
--- 	-- Warlord's Command
--- 	{ID_ATTUNE="346",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Warlord's Command
--- 	{ID_ATTUNE="346",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="720",STAGE="30"}, -- npc: Highlord Omokk
--- 	{ID_ATTUNE="346",ID="732",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="720",STAGE="30"}, -- npc: War Master Voone
--- 	{ID_ATTUNE="346",ID="734",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="720",STAGE="30"}, -- npc: Overlord Wyrmthalak
--- 	{ID_ATTUNE="346",ID="736",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="720",STAGE="30"}, -- item: Important Blackrock Documents
--- 	{ID_ATTUNE="346",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730&732&734&736",STAGE="40"}, -- quest: Warlord's Command
--- 	{ID_ATTUNE="346",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
--- 	-- The Pack Mistress
--- 	{ID_ATTUNE="346",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Pack Mistress
--- 	{ID_ATTUNE="346",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="620",STAGE="30"}, -- npc: Halycon
--- 	{ID_ATTUNE="346",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: The Pack Mistress
--- 	{ID_ATTUNE="346",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
--- 	-- Kibler's Exotic Pets
--- 	{ID_ATTUNE="346",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Kibler's Exotic Pets
--- 	{ID_ATTUNE="346",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_01",FOLLOWS="520",STAGE="30"}, -- item: Caged Worg Pup
--- 	{ID_ATTUNE="346",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Kibler's Exotic Pets
--- 	{ID_ATTUNE="346",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
--- 	-- En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="346",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="346",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="420",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
--- 	{ID_ATTUNE="346",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: En-Ay-Es-Tee-Why
--- 	{ID_ATTUNE="346",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
--- 	-- Mother's Milk
--- 	{ID_ATTUNE="346",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mother's Milk
--- 	{ID_ATTUNE="346",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="320",STAGE="30"}, -- npc: Mother Smolderweb
--- 	{ID_ATTUNE="346",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Mother's Milk
--- 	{ID_ATTUNE="346",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
--- 	-- Seal of Ascension
--- 	{ID_ATTUNE="346",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="346",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12335",ICON="Interface\\Icons\\inv_misc_gem_topaz_02",FOLLOWS="220",STAGE="30"}, -- item: Gemstone of Smolderthorn
--- 	{ID_ATTUNE="346",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12336",ICON="Interface\\Icons\\inv_misc_gem_emerald_02",FOLLOWS="220",STAGE="30"}, -- item: Gemstone of Spirestone
--- 	{ID_ATTUNE="346",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12337",ICON="Interface\\Icons\\inv_misc_gem_ruby_02",FOLLOWS="220",STAGE="30"}, -- item: Gemstone of Bloodaxe
--- 	{ID_ATTUNE="346",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230&232&234",STAGE="40"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="346",ID="250",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Seal of Ascension
--- 	{ID_ATTUNE="346",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="10321",ICON="Interface\\Icons\\inv_misc_head_dragon_red",FOLLOWS="250",STAGE="60"}, -- npc: Emberstrife
--- 	{ID_ATTUNE="346",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="280",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="270",STAGE="80"}, -- quest: Seal of Ascension
--- 	-- Urok Doomhowl
--- 	{ID_ATTUNE="346",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Urok Doomhowl
--- 	{ID_ATTUNE="346",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10584",ICON="Interface\\Icons\\inv_misc_bone_orcskull_01",FOLLOWS="120",STAGE="30"}, -- npc: Urok Doomhowl
--- 	{ID_ATTUNE="346",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12712",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="130",STAGE="40"}, -- item: Warosh's Mojo
--- 	{ID_ATTUNE="346",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: Urok Doomhowl
--- 	{ID_ATTUNE="346",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
--- 	-- The Darkstone Tablet
--- 	{ID_ATTUNE="346",ID="92",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="4769",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vivian Lagrave and the Darkstone Tablet
--- 	{ID_ATTUNE="346",ID="93",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="92",STAGE="30"}, -- quest: The Darkstone Tablet
--- 	{ID_ATTUNE="346",ID="94",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12358",ICON="Interface\\Icons\\inv_misc_stonetablet_01",FOLLOWS="93",STAGE="40"}, -- item: Darkstone Tablet
--- 	{ID_ATTUNE="346",ID="95",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="94",STAGE="50"}, -- quest: The Darkstone Tablet
--- 	{ID_ATTUNE="346",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="97",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="96",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="98",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="80"},
--- 	-- The Final Tablets
--- 	{ID_ATTUNE="346",ID="72",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Final Tablets
--- 	{ID_ATTUNE="346",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="72",STAGE="30"}, -- item: Fifth Mosh'aru Tablet
--- 	{ID_ATTUNE="346",ID="74",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="72",STAGE="30"}, -- item: Sixth Mosh'aru Tablet
--- 	{ID_ATTUNE="346",ID="75",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73&74",STAGE="40"}, -- quest: The Final Tablets
--- 	{ID_ATTUNE="346",ID="76",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="75",STAGE="50"},
--- 	{ID_ATTUNE="346",ID="77",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="76",STAGE="60"},
--- 	{ID_ATTUNE="346",ID="78",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="77",STAGE="70"},
--- 	{ID_ATTUNE="346",ID="79",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="78",STAGE="80"},
--- 	{ID_ATTUNE="346",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01",FOLLOWS="880&780&680&580&480&380&280&180&98&79",STAGE="90"},
+	-- Columns L→R: Worg Pup | Warlord's Command | Pack Mistress | Operative Bijou | 3520→4788 Tablets | Darkstone | Mother's Milk | Spider Eggs
+	-- SIDE: 4742→4743 Seal of Ascension (Inside — Vaelan) | 4867 Urok Doomhowl (Inside)
+	{ID_ATTUNE="346",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Kibler's Exotic Pets
+	{ID_ATTUNE="346",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Kibler's Exotic Pets
+	{ID_ATTUNE="346",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="820",STAGE="30"}, -- item: Caged Worg Pup
+	{ID_ATTUNE="346",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="50"}, -- quest: Kibler's Exotic Pets
+	{ID_ATTUNE="346",ID="850",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="840",STAGE="60"},
+	{ID_ATTUNE="346",ID="860",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="70"},
+	{ID_ATTUNE="346",ID="870",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="860",STAGE="80"},
+	-- {ID_ATTUNE="346",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="90"},
+	{ID_ATTUNE="346",ID="890",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="100"},
+	-- Warlord's Command
+	{ID_ATTUNE="346",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Warlord's Command
+	{ID_ATTUNE="346",ID="736",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="720",STAGE="30"}, -- item: Important Blackrock Documents
+	{ID_ATTUNE="346",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="736",STAGE="50"}, -- quest: Warlord's Command
+	{ID_ATTUNE="346",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="60"},
+	{ID_ATTUNE="346",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="70"},
+	{ID_ATTUNE="346",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="80"},
+	-- {ID_ATTUNE="346",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="90"},
+	{ID_ATTUNE="346",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="100"},
+	-- The Pack Mistress
+	{ID_ATTUNE="346",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Pack Mistress
+	{ID_ATTUNE="346",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="620",STAGE="30"}, -- npc: Halycon
+	{ID_ATTUNE="346",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="50"}, -- quest: The Pack Mistress
+	{ID_ATTUNE="346",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="60"},
+	{ID_ATTUNE="346",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="70"},
+	{ID_ATTUNE="346",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="80"},
+	{ID_ATTUNE="346",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="346",ID="690",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="100"},
+	-- Operative Bijou
+	{ID_ATTUNE="346",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Operative Bijou
+	-- {ID_ATTUNE="346",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Operative Bijou
+	{ID_ATTUNE="346",ID="540",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Bijou's Belongings
+	{ID_ATTUNE="346",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="540",STAGE="50"}, -- item: Bijou's Belongings
+	{ID_ATTUNE="346",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: Bijou's Belongings
+	{ID_ATTUNE="346",ID="570",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="70"}, -- quest: Bijou's Reconnaissance Report
+	{ID_ATTUNE="346",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
+	{ID_ATTUNE="346",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="100"},
+	-- The Final Tablets (3520 Screecher Spirits → 4788)
+	{ID_ATTUNE="346",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="3520",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Screecher Spirits
+	{ID_ATTUNE="346",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Prophecy of Mosh'aru
+	{ID_ATTUNE="346",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Hinterlands"],ID_WOWHEAD="4787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50"}, -- quest: The Ancient Egg
+	{ID_ATTUNE="346",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="60"}, -- quest: The God Hakkar
+	{ID_ATTUNE="346",ID="460",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"}, -- quest: The Lost Tablets of Mosh'aru
+	{ID_ATTUNE="346",ID="470",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="80"}, -- quest: The Final Tablets
+	{ID_ATTUNE="346",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="470",STAGE="90"}, -- item: Fifth Mosh'aru Tablet
+	{ID_ATTUNE="346",ID="482",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="470",STAGE="90"}, -- item: Sixth Mosh'aru Tablet
+	{ID_ATTUNE="346",ID="490",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="480&482",STAGE="100"}, -- quest: The Final Tablets
+	-- The Darkstone Tablet
+	{ID_ATTUNE="346",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="4769",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vivian Lagrave and the Darkstone Tablet
+	{ID_ATTUNE="346",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: The Darkstone Tablet
+	{ID_ATTUNE="346",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12358",ICON="Interface\\Icons\\inv_misc_rune_06",FOLLOWS="330",STAGE="50"}, -- item: Darkstone Tablet
+	{ID_ATTUNE="346",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="60"}, -- quest: The Darkstone Tablet
+	{ID_ATTUNE="346",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="70"},
+	{ID_ATTUNE="346",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="80"},
+	-- {ID_ATTUNE="346",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="90"},
+	{ID_ATTUNE="346",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="100"},
+	-- Mother's Milk
+	{ID_ATTUNE="346",ID="92",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mother's Milk
+	{ID_ATTUNE="346",ID="93",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="92",STAGE="30"}, -- npc: Mother Smolderweb
+	{ID_ATTUNE="346",ID="94",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="50"}, -- quest: Mother's Milk
+	{ID_ATTUNE="346",ID="95",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="94",STAGE="60"},
+	{ID_ATTUNE="346",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="70"},
+	{ID_ATTUNE="346",ID="97",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="96",STAGE="80"},
+	-- {ID_ATTUNE="346",ID="98",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="90"},
+	{ID_ATTUNE="346",ID="99",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="100"},
+	-- En-Ay-Es-Tee-Why
+	{ID_ATTUNE="346",ID="72",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: En-Ay-Es-Tee-Why
+	{ID_ATTUNE="346",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="72",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
+	{ID_ATTUNE="346",ID="74",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73",STAGE="50"}, -- quest: En-Ay-Es-Tee-Why
+	{ID_ATTUNE="346",ID="75",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="74",STAGE="60"},
+	{ID_ATTUNE="346",ID="76",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="75",STAGE="70"},
+	{ID_ATTUNE="346",ID="77",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="76",STAGE="80"},
+	-- {ID_ATTUNE="346",ID="78",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
+	{ID_ATTUNE="346",ID="79",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="77",STAGE="100"},
+	{ID_ATTUNE="346",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: Seal of Ascension (Inside)
+	{ID_ATTUNE="346",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: Seal of Ascension (Inside)
+	{ID_ATTUNE="346",ID="1000",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: Urok Doomhowl (Inside)
+	{ID_ATTUNE="346",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01",FOLLOWS="890&790&690&590&490&390&99&79&1200&1100&1000",STAGE="110"},
 
 
 -- --vForever: Upper Blackrock Spire (Alliance 365)
--- 	-- Shared columns: Eggs | Blackhand's Command | Matron | Finkle | Eye of the Emberseer | Drakkisath
--- 	-- Drakefire Amulet stays on the Onyxia attune.
--- 	{ID_ATTUNE="365",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
--- 	{ID_ATTUNE="365",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Egg Freezing
--- 	{ID_ATTUNE="365",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Freezing
--- 	{ID_ATTUNE="365",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Egg Collection
--- 	{ID_ATTUNE="365",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_egg_04",FOLLOWS="640",STAGE="50", COUNT=8}, -- item: Collected Dragon Egg
--- 	{ID_ATTUNE="365",ID="660",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: Egg Collection
--- 	{ID_ATTUNE="365",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
--- 	{ID_ATTUNE="365",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Blackhand's Command
--- 	{ID_ATTUNE="365",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
--- 	{ID_ATTUNE="365",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
--- 	{ID_ATTUNE="365",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: Blackhand's Command
--- 	{ID_ATTUNE="365",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
--- 	{ID_ATTUNE="365",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_11",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
--- 	{ID_ATTUNE="365",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Matron Protectorate
--- 	{ID_ATTUNE="365",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
--- 	{ID_ATTUNE="365",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
--- 	{ID_ATTUNE="365",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Finkle Einhorn, At Your Service!
--- 	{ID_ATTUNE="365",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="320",STAGE="30"},
--- 	{ID_ATTUNE="365",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
--- 	{ID_ATTUNE="365",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
--- 	{ID_ATTUNE="365",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
--- 	{ID_ATTUNE="365",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Eye of the Emberseer
--- 	{ID_ATTUNE="365",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
--- 	{ID_ATTUNE="365",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_eye_01",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
--- 	{ID_ATTUNE="365",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Eye of the Emberseer
--- 	{ID_ATTUNE="365",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
--- 	{ID_ATTUNE="365",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: General Drakkisath's Demise
--- 	{ID_ATTUNE="365",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="120",STAGE="30"}, -- npc: General Drakkisath
--- 	{ID_ATTUNE="365",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: General Drakkisath's Demise
--- 	{ID_ATTUNE="365",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
--- 	{ID_ATTUNE="365",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
--- 	{ID_ATTUNE="365",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&360&260&160",STAGE="70"},
+-- 	-- Shared columns: Eggs | Blackhand's Command | Matron | Eye of the Emberseer | Drakkisath | Doomrigger's Clasp
+-- 	-- SIDE: 5047 Finkle Einhorn (Inside)
+-- 	-- Drakefire Amulet stays on the Onyxia attune. Mayara Brightwing (4766→4764) moved here from Lower Spire 345.
+	{ID_ATTUNE="365",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="365",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Egg Freezing
+	{ID_ATTUNE="365",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Freezing
+	{ID_ATTUNE="365",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Egg Collection
+	{ID_ATTUNE="365",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="50", COUNT=8}, -- item: Collected Dragon Egg
+	{ID_ATTUNE="365",ID="660",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: Egg Collection
+	{ID_ATTUNE="365",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
+	{ID_ATTUNE="365",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Blackhand's Command
+	{ID_ATTUNE="365",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
+	{ID_ATTUNE="365",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="365",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: Blackhand's Command
+	{ID_ATTUNE="365",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
+	{ID_ATTUNE="365",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_10",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
+	{ID_ATTUNE="365",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Matron Protectorate
+	{ID_ATTUNE="365",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="365",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="365",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Eye of the Emberseer
+	{ID_ATTUNE="365",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
+	{ID_ATTUNE="365",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
+	{ID_ATTUNE="365",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Eye of the Emberseer
+	{ID_ATTUNE="365",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="365",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: General Drakkisath's Demise
+	{ID_ATTUNE="365",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="120",STAGE="30"}, -- npc: General Drakkisath
+	{ID_ATTUNE="365",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: General Drakkisath's Demise
+	{ID_ATTUNE="365",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	{ID_ATTUNE="365",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- Doomrigger's Clasp (Mayara Brightwing)
+	{ID_ATTUNE="365",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4766",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mayara Brightwing
+	{ID_ATTUNE="365",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: Doomrigger's Clasp
+	{ID_ATTUNE="365",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12352",ICON="Interface\\Icons\\inv_belt_12",FOLLOWS="30",STAGE="40"}, -- item: Doomrigger's Clasp
+	{ID_ATTUNE="365",ID="50",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- quest: Doomrigger's Clasp
+	{ID_ATTUNE="365",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="365",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Finkle Einhorn, At Your Service! (Inside)
+	{ID_ATTUNE="365",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&260&160&60&1200",STAGE="70"},
 
 
 -- --vForever: Upper Blackrock Spire (Horde 366)
--- 	{ID_ATTUNE="366",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
--- 	{ID_ATTUNE="366",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Egg Freezing
--- 	{ID_ATTUNE="366",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Freezing
--- 	{ID_ATTUNE="366",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Egg Collection
--- 	{ID_ATTUNE="366",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_egg_04",FOLLOWS="640",STAGE="50", COUNT=8}, -- item: Collected Dragon Egg
--- 	{ID_ATTUNE="366",ID="660",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: Egg Collection
--- 	{ID_ATTUNE="366",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
--- 	{ID_ATTUNE="366",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Blackhand's Command
--- 	{ID_ATTUNE="366",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
--- 	{ID_ATTUNE="366",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
--- 	{ID_ATTUNE="366",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: Blackhand's Command
--- 	{ID_ATTUNE="366",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
--- 	{ID_ATTUNE="366",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_11",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
--- 	{ID_ATTUNE="366",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Matron Protectorate
--- 	{ID_ATTUNE="366",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
--- 	{ID_ATTUNE="366",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
--- 	{ID_ATTUNE="366",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Finkle Einhorn, At Your Service!
--- 	{ID_ATTUNE="366",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="320",STAGE="30"},
--- 	{ID_ATTUNE="366",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
--- 	{ID_ATTUNE="366",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
--- 	{ID_ATTUNE="366",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
--- 	{ID_ATTUNE="366",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Eye of the Emberseer
--- 	{ID_ATTUNE="366",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
--- 	{ID_ATTUNE="366",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_eye_01",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
--- 	{ID_ATTUNE="366",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Eye of the Emberseer
--- 	{ID_ATTUNE="366",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
--- 	{ID_ATTUNE="366",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: For The Horde!
--- 	{ID_ATTUNE="366",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30"}, -- npc: Warchief Rend Blackhand
--- 	{ID_ATTUNE="366",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: For The Horde!
--- 	{ID_ATTUNE="366",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
--- 	{ID_ATTUNE="366",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
--- 	{ID_ATTUNE="366",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&360&260&160",STAGE="70"},
+	{ID_ATTUNE="366",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="366",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Egg Freezing
+	-- {ID_ATTUNE="366",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Freezing
+	{ID_ATTUNE="366",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Collection
+	{ID_ATTUNE="366",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="40", COUNT=8}, -- item: Collected Dragon Egg
+	{ID_ATTUNE="366",ID="655",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="50"}, -- quest: Egg Collection
+    {ID_ATTUNE="366",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="655",STAGE="60"},
+	{ID_ATTUNE="366",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
+	{ID_ATTUNE="366",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Blackhand's Command
+	{ID_ATTUNE="366",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
+	{ID_ATTUNE="366",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="366",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: Blackhand's Command
+	{ID_ATTUNE="366",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
+	{ID_ATTUNE="366",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_10",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
+	{ID_ATTUNE="366",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Matron Protectorate
+	{ID_ATTUNE="366",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="366",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="366",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Eye of the Emberseer
+	{ID_ATTUNE="366",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
+	{ID_ATTUNE="366",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
+	{ID_ATTUNE="366",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50"}, -- quest: Eye of the Emberseer
+	{ID_ATTUNE="366",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="366",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: For The Horde!
+	{ID_ATTUNE="366",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30"}, -- npc: Warchief Rend Blackhand
+	{ID_ATTUNE="366",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: For The Horde!
+	{ID_ATTUNE="366",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	{ID_ATTUNE="366",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	{ID_ATTUNE="366",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Finkle Einhorn, At Your Service! (Inside)
+	{ID_ATTUNE="366",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&260&160&1200",STAGE="70"},
 
 	-- Cozy Sleeping Bag (Horde). Alliance (95) swaps the first two zones.
 	{ID_ATTUNE="90",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -2719,7 +2693,7 @@ Attune_Data.quests = {
 	[80324]={40,5},			[80325]={40,5},
 	[4701]={55,5},			[4724]={55,5},			[4729]={55,5},			[4734]={57,5},			[4735]={57,5},
 	[4742]={57,5},			[4743]={57,5},			[4764]={57,5},			[4766]={57,1},			[4768]={57,5},
-	[4769]={57,1},			[4788]={40,5},			[4862]={55,5},			[4866]={55,5},			[4867]={55,5},
+	[4769]={57,1},			[4788]={40,5},			[5065]={40,1},			[4862]={55,5},			[4866]={55,5},			[4867]={55,5},
 	[4981]={55,1},			[4982]={55,5},			[4983]={55,1},			[5001]={55,5},			[5002]={55,1},
 	[5047]={57,1},			[5081]={55,5},			[5089]={55,1},			[5102]={55,5},			[5160]={57,1},
 	-- Excavation Site: Wetlands (Forever)
