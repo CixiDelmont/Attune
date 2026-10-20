@@ -120,24 +120,52 @@ local classAttunes = {
 local classSteps = {
     -- DRUID
 	{ID_ATTUNE="5103",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Columns left to right (higher ID = left): Skyborne | Heeding the Call. Spacers keep that column down to End.
 	{ID_ATTUNE="5103",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5103",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5103",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5925",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5103",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94006",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Great Ursera Spirit
+	{ID_ATTUNE="5103",ID="29",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5103",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5921",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20|22",STAGE="30"}, -- Moonglade
+	{ID_ATTUNE="5103",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5103",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23",STAGE="30"}, -- Strength and Mercy
+	{ID_ATTUNE="5103",ID="39",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="5103",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5929",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Great Bear Spirit
+	{ID_ATTUNE="5103",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5103",ID="43",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="33",STAGE="40"},
+	{ID_ATTUNE="5103",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5103",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="5931",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Darnassus
+	{ID_ATTUNE="5103",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5103",ID="53",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="43",STAGE="50"},
+	{ID_ATTUNE="5103",ID="59",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="5103",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="6001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Body and Heart
-	{ID_ATTUNE="5103",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5103",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5103",ID="63",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="53",STAGE="60"},
+	{ID_ATTUNE="5103",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60|63",STAGE="70"},
 
 	{ID_ATTUNE="5104",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Columns left to right (higher ID = left): Skyborne | Heeding the Call. Spacers keep that column down to End.
 	{ID_ATTUNE="5104",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5104",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5927",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
 	{ID_ATTUNE="5104",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="5928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Heeding the Call
+	{ID_ATTUNE="5104",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94006",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Great Ursera Spirit
+	{ID_ATTUNE="5104",ID="29",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5104",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22|21|20",STAGE="30"}, -- Moonglade
+	{ID_ATTUNE="5104",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5104",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23",STAGE="30"}, -- Strength and Mercy
+	{ID_ATTUNE="5104",ID="39",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="5104",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5930",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Great Bear Spirit
+	{ID_ATTUNE="5104",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5104",ID="43",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="33",STAGE="40"},
+	{ID_ATTUNE="5104",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5104",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="5932",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Back to Thunder Bluff
+	{ID_ATTUNE="5104",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5104",ID="53",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="43",STAGE="50"},
+	{ID_ATTUNE="5104",ID="59",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="5104",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="6002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Body and Heart
-	{ID_ATTUNE="5104",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60",STAGE="70"},
+	{ID_ATTUNE="5104",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5104",ID="63",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="53",STAGE="60"},
+	{ID_ATTUNE="5104",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="60|63",STAGE="70"},
 
 	{ID_ATTUNE="5105",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 14",LOCATION="",ID_WOWHEAD="14",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5105",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="6121",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Lessons Anew
@@ -1368,6 +1396,8 @@ local classQuestInfo = {
 	[1882]={10,1},
 	[93791]={10,1},
 	[93797]={10,1},
+	[94006]={10,1},
+	[94638]={10,1},
 	[1919]={15,1},
 	[1920]={15,1},
 	[1921]={15,1},
@@ -1971,6 +2001,8 @@ local classQuestGivers = {
 	[1882] = {1458, 85, 10.2, "Anastasia Hartwell"}, -- Anastasia Hartwell, Undercity
 	[93791] = {2991, 65.8, 80.4, "Anathamaas Aetherwind"}, -- Anathamaas Aetherwind, Valanaar
 	[93797] = {2991, 62.8, 77.4, "Belann Windwood"}, -- Belann Windwood, Valanaar
+	[94006] = {2991, 64.0, 75.1, "Lotheluum Starbreeze"}, -- Lotheluum Starbreeze, Valanaar
+	[94638] = {2991, 69.8, 61.7, "Urs'endris"}, -- Urs'endris, East Pylon Watchtower
 	[1919] = {1429, 43.2, 66.2, "Zaldimar Wefhellt"}, -- Zaldimar Wefhellt, Elwynn Forest (also Dink, Ironforge 26.8, 8.4)
 	[1920] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City
 	[1921] = {1453, 38.6, 79.4, "Jennea Cannon"}, -- Jennea Cannon, Stormwind City

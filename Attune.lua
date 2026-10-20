@@ -8,6 +8,9 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-34
+--   - Added the Bear Form quest for Skyborne elves.
+--
 -- 16001-33
 --   - Added a new option to change the size of the treeview text.
 --   - Fixed an issue where completed steps would not show right away.
