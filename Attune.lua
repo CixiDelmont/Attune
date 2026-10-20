@@ -10,8 +10,11 @@
 
 -- 16001-33
 --   - Added a new option to change the size of the treeview text.
+--   - Fixed an issue where completed steps would not show right away.
 --   - Fixed a number of icons that were misleading
 --   - Fixed an issue where zoomed chains would overlap text.
+--   - Added the Upper Blackrock Spire attunement.
+--   - Added the Lower Blackrock Spire attunement.
 --
 -- 16001-32
 --   - The attunements and dungeons are now shown as icons (Change back in the options or the toggle above the list).
@@ -105,7 +108,16 @@ local IsAddOnLoaded = C_AddOns.IsAddOnLoaded or IsAddOnLoaded;
 local IsAddOnLoadOnDemand = C_AddOns.IsAddOnLoadOnDemand or IsAddOnLoadOnDemand;
 local GetAddOnInfo = C_AddOns.GetAddOnInfo or GetAddOnInfo
 local GetAddOnDependencies = C_AddOns.GetAddOnDependencies or GetAddOnDependencies
-local GetItemCount = C_Item.GetItemCount or GetItemCount
+-- C_Item.GetItemCount ignores a string id and returns 0, so "4770" never matches the belt in the bag.
+local function GetItemCount(itemId, includeBank, includeUses, includeReagentBank)
+	local raw = (C_Item and C_Item.GetItemCount) or _G.GetItemCount
+	if not raw then return 0 end
+	local id = tonumber(itemId)
+	if not id then return 0 end
+	local ok, count = pcall(raw, id, includeBank, includeUses, includeReagentBank)
+	if not ok or type(count) ~= "number" then return 0 end
+	return count
+end
 local GetItemInfo = C_Item.GetItemInfo or GetItemInfo
 
 -- Forever / Midnight use C_Reputation; Classic still has GetFactionInfoByID.
@@ -997,6 +1009,7 @@ function Attune:OnEnable()
 	self:RegisterEvent("PLAYER_LOGOUT")
 	self:RegisterEvent("PLAYER_LEVEL_UP")
 	self:RegisterEvent("QUEST_ACCEPTED")
+	self:RegisterEvent("QUEST_REMOVED")
 	self:RegisterEvent("QUEST_TURNED_IN")
 	self:RegisterEvent("UPDATE_FACTION")
 	self:RegisterEvent("BAG_UPDATE")
@@ -1752,24 +1765,131 @@ end
 -- EVENT: Quest accepted
 -------------------------------------------------------------------------
 
-function Attune:QUEST_ACCEPTED(event, arg1, arg2)
-	-- Classic passes questID; older clients pass questLogIndex, questID.
-	local questID = tonumber(arg2) or tonumber(arg1)
-	if questID == nil then return end
-	local steps = Attune_Data.stepsByPickup and Attune_Data.stepsByPickup[questID]
-	if steps == nil then return end
+-- Picking a quest up again means that turn-in is no longer done.
+-- Returns true when a recorded turn-in was cleared.
+function Attune_ClearTurnInOnAccept(questID)
+	local toon = Attune_DB.toons[attunelocal_charKey]
+	if toon == nil or toon.done == nil or questID == nil then return false end
+	local list = Attune_Data.stepsByTurnIn and Attune_Data.stepsByTurnIn[questID]
+	if list == nil then return false end
 
-	local refreshNeeded = false
-	for _, s in ipairs(steps) do
+	local attunes = nil
+	for _, s in ipairs(list) do
 		if showPatchStep(s) then
-			if Attune_MarkStepDone(s, AttuneLang[s.TYPE], AttuneLang["Q1_"..s.ID_WOWHEAD], false) then
-				refreshNeeded = true
+			local key = s.ID_ATTUNE .. "-" .. s.ID
+			if toon.done[key] then
+				toon.done[key] = nil
+				if attunes == nil then attunes = {} end
+				attunes[s.ID_ATTUNE] = true
 			end
 		end
 	end
+	if attunes == nil then return false end
 
-	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
+	local ends = Attune_Data.stepsByType and Attune_Data.stepsByType["End"]
+	if ends then
+		for _, s in pairs(ends) do
+			if attunes[s.ID_ATTUNE] and showPatchStep(s) and toon.done[s.ID_ATTUNE .. "-" .. s.ID] then
+				local still = false
+				if s.FOLLOWS ~= nil and s.FOLLOWS ~= "0" then
+					local orMode = string.find(s.FOLLOWS, "|", 1, true) ~= nil
+					local ids = Attune_split(s.FOLLOWS, orMode and "|" or "&")
+					if orMode then
+						for _, flw in pairs(ids) do
+							if toon.done[s.ID_ATTUNE .. "-" .. flw] then still = true break end
+						end
+					else
+						still = true
+						for _, flw in pairs(ids) do
+							if not toon.done[s.ID_ATTUNE .. "-" .. flw] then still = false break end
+						end
+					end
+				end
+				if not still then
+					toon.done[s.ID_ATTUNE .. "-" .. s.ID] = nil
+					Attune_RecountAttune(s.ID_ATTUNE)
+				end
+			end
+		end
+	end
+	return true
+end
 
+-- Step-count percent for one attunement. Used when a finished chain is reopened.
+function Attune_RecountAttune(attuneId)
+	local t = Attune_DB.toons[attunelocal_charKey]
+	if t == nil or t.done == nil or attuneId == nil then return end
+	if t.attuned == nil then t.attuned = {} end
+	local total, done = 0, 0
+	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[attuneId]
+	for _, s in pairs(chain or Attune_Data.steps) do
+		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) and s.TYPE ~= "Spacer" then
+			total = total + 1
+			if t.done[s.ID_ATTUNE .. "-" .. s.ID] then done = done + 1 end
+		end
+	end
+	if total > 0 then
+		t.attuned[attuneId] = math.floor(100 * done / total)
+	else
+		t.attuned[attuneId] = 0
+	end
+end
+
+function Attune:QUEST_ACCEPTED(event, arg1, arg2)
+	-- Forever passes questID; Classic passes questLogIndex, questID.
+	local questID = tonumber(arg2) or tonumber(arg1)
+	if questID == nil then return end
+	-- The quest log often omits the quest until after this event.
+	-- Remember it now so the Pick Up / Quest cell paints yellow immediately.
+	if Attune_LogQuests == nil then Attune_LogQuests = {} end
+	Attune_LogQuests[questID] = GetTime()
+	local refreshNeeded = Attune_ClearTurnInOnAccept(questID)
+	local steps = Attune_Data.stepsByPickup and Attune_Data.stepsByPickup[questID]
+	if steps then
+		for _, s in ipairs(steps) do
+			if showPatchStep(s) then
+				if Attune_MarkStepDone(s, AttuneLang[s.TYPE], AttuneLang["Q1_"..s.ID_WOWHEAD], false) then
+					refreshNeeded = true
+				end
+			end
+		end
+		refreshNeeded = true
+	end
+	if Attune_Data.stepsByTurnIn and Attune_Data.stepsByTurnIn[questID] then
+		refreshNeeded = true
+	end
+
+	if refreshNeeded then
+		Attune_ForceAttuneTabRefresh()
+		if C_Timer and C_Timer.After then
+			C_Timer.After(0.5, function()
+				Attune_SyncQuestLog()
+				Attune_ForceAttuneTabRefresh()
+			end)
+		end
+	end
+
+end
+
+-- Abandon and turn-in both remove the quest from the log.
+-- Wait briefly so a turn-in can record completion before the cell drops back to grey.
+function Attune:QUEST_REMOVED(event, arg1)
+	local questID = tonumber(arg1)
+	if questID == nil or Attune_LogQuests == nil then return end
+	local stamp = Attune_LogQuests[questID]
+	if stamp == nil then return end
+	if not (C_Timer and C_Timer.After) then
+		Attune_LogQuests[questID] = nil
+		return
+	end
+	C_Timer.After(0.5, function()
+		if Attune_LogQuests == nil then return end
+		if type(stamp) == "number" and Attune_LogQuests[questID] ~= stamp then return end
+		Attune_LogQuests[questID] = nil
+		local known = (Attune_Data.stepsByPickup and Attune_Data.stepsByPickup[questID])
+			or (Attune_Data.stepsByTurnIn and Attune_Data.stepsByTurnIn[questID])
+		if known then Attune_ForceAttuneTabRefresh() end
+	end)
 end
 
 -------------------------------------------------------------------------
@@ -1860,7 +1980,11 @@ local function Attune_ScanItemSteps()
 			end
 			for _, s in ipairs(steps) do
 				if showPatchStep(s) then
-					toon.items[s.ID_WOWHEAD] = count
+					-- Partial stacks (1/12) still need a redraw; completion is not the only change.
+					if toon.items[s.ID_WOWHEAD] ~= count then
+						toon.items[s.ID_WOWHEAD] = count
+						refreshNeeded = true
+					end
 					local countNeeded = 1
 					if s.COUNT ~= nil then countNeeded = s.COUNT end
 					if count >= countNeeded then --check bags and bank
@@ -1950,6 +2074,7 @@ end
 
 function Attune_CheckProgress()
 
+	Attune_SyncQuestLog()
 	local att = Attune_DB.toons[attunelocal_charKey]
 
 	if att.reps == nil then att.reps = {} end
@@ -2004,8 +2129,8 @@ function Attune_CheckProgress()
 						if s.TYPE == "Pick Up" then
 							local eitherOnQuest = false
 							local qIDs = Attune_split(s.ID_WOWHEAD, "|")
-							for i=1, #qIDs do 
-								if C_QuestLog.IsOnQuest(qIDs[i]) then
+							for i=1, #qIDs do
+								if Attune_QuestInLog(qIDs[i]) then
 									eitherOnQuest = true
 								end
 							end
@@ -2022,7 +2147,7 @@ function Attune_CheckProgress()
 							local onQuest = false
 							local qIDs = Attune_split(s.ID_WOWHEAD, "|")
 							for i=1, #qIDs do
-								if C_QuestLog.IsOnQuest(qIDs[i]) then
+								if Attune_QuestInLog(qIDs[i]) then
 									onQuest = true
 								elseif IsQuestFlaggedCompleted(qIDs[i]) then
 									eitherCompleted = true
@@ -3345,6 +3470,9 @@ function Attune_Frame()
 		-- Quest loot and the quest-giver map sit on top of the tree. Dismiss them with the window.
 		if Attune_HideQuestDetail then Attune_HideQuestDetail() end
 	end)
+	attunelocal_frame.frame:HookScript("OnShow", function()
+		if attunelocal_panelDirty then Attune_RefreshAttunePanel() end
+	end)
 
 
 	-- Hacking into the Ace3 frame to reduce the size of the statusbox, to allow us room for other buttons
@@ -3706,8 +3834,13 @@ local function Attune_ShowWorkInProgress(show)
 	end
 end
 
-function Attune_Select(attuneId)
-	PlaySound(856)  --igMainMenuOptionCheckBoxOn
+function Attune_Select(attuneId, quiet)
+	if not quiet then PlaySound(856) end --igMainMenuOptionCheckBoxOn
+	local keepPan = quiet and (attunelocal_graphPanX or 0) or 0
+	local keepScroll
+	if quiet and attunelocal_scroll and attunelocal_scroll.scrollframe then
+		keepScroll = attunelocal_scroll.scrollframe:GetVerticalScroll()
+	end
 	Attune_ShowDungeonArt(attuneId)
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 	local scrollframe = attunelocal_scroll.content.obj.content
@@ -3801,7 +3934,7 @@ function Attune_Select(attuneId)
 	else
 		attunelocal_graphRoot:SetParent(scrollframe)
 	end
-	attunelocal_graphPanX = 0
+	attunelocal_graphPanX = keepPan
 	attunelocal_graphRoot:SetWidth(1)
 	attunelocal_graphRoot:SetHeight(1)
 	attunelocal_graphRoot:SetScale(Attune_DB.zoom)
@@ -4079,7 +4212,18 @@ function Attune_Select(attuneId)
 		end
 	end)
 
-
+	if keepScroll and keepScroll > 0 then
+		C_Timer.After(0, function()
+			local sf = attunelocal_scroll and attunelocal_scroll.scrollframe
+			if not sf or not sf.GetVerticalScrollRange then return end
+			local range = sf:GetVerticalScrollRange() or 0
+			-- Layout may not have a range yet. Clamping now would jump back to the top.
+			if range <= 0 then return end
+			local offset = keepScroll
+			if offset > range then offset = range end
+			sf:SetVerticalScroll(offset)
+		end)
+	end
 
 end
 
@@ -4550,24 +4694,100 @@ local function Attune_QuestRecordedComplete(attuneId, qid, doneMap)
 	return false
 end
 
+-- Quest ids currently in the log. A number is the time of a fresh accept
+-- (the log may not list it yet). true means a log scan confirmed it.
+-- Globals: this file is already at Lua's 200-local limit.
+
+function Attune_QuestIdFromLogSlot(index)
+	if C_QuestLog and C_QuestLog.GetInfo then
+		local info = C_QuestLog.GetInfo(index)
+		if type(info) == "table" and not info.isHeader then
+			return tonumber(info.questID)
+		end
+		return nil
+	end
+	if GetQuestLogTitle then
+		local _, _, _, isHeader, _, _, _, questID = GetQuestLogTitle(index)
+		if not isHeader then return tonumber(questID) end
+	end
+	return nil
+end
+
+function Attune_SyncQuestLog()
+	if Attune_LogQuests == nil then Attune_LogQuests = {} end
+	local ok, nextQuests = pcall(function()
+		local num = 0
+		if C_QuestLog and C_QuestLog.GetNumQuestLogEntries then
+			num = C_QuestLog.GetNumQuestLogEntries() or 0
+		elseif GetNumQuestLogEntries then
+			num = GetNumQuestLogEntries() or 0
+		end
+		if issecretvalue and issecretvalue(num) then return nil end
+		local found = {}
+		for i = 1, num do
+			local qid = Attune_QuestIdFromLogSlot(i)
+			if qid then found[qid] = true end
+		end
+		return found
+	end)
+	if not ok or type(nextQuests) ~= "table" then return end
+	local now = GetTime()
+	for id, stamp in pairs(Attune_LogQuests) do
+		if not nextQuests[id] and type(stamp) == "number" and (now - stamp) < 2 then
+			nextQuests[id] = stamp
+		end
+	end
+	Attune_LogQuests = nextQuests
+end
+
+function Attune_QuestInLog(questID)
+	questID = tonumber(questID)
+	if not questID then return false end
+	if Attune_LogQuests and Attune_LogQuests[questID] then return true end
+	if C_QuestLog and C_QuestLog.IsOnQuest then
+		local ok, on = pcall(C_QuestLog.IsOnQuest, questID)
+		if ok and not (issecretvalue and issecretvalue(on)) and on == true then
+			if Attune_LogQuests == nil then Attune_LogQuests = {} end
+			Attune_LogQuests[questID] = true
+			return true
+		end
+	end
+	local index
+	if C_QuestLog and C_QuestLog.GetLogIndexForQuestID then
+		local ok, got = pcall(C_QuestLog.GetLogIndexForQuestID, questID)
+		if ok then index = got end
+	elseif GetQuestLogIndexByID then
+		local ok, got = pcall(GetQuestLogIndexByID, questID)
+		if ok then index = got end
+	end
+	if index and not (issecretvalue and issecretvalue(index)) and index > 0 then
+		if Attune_LogQuests == nil then Attune_LogQuests = {} end
+		Attune_LogQuests[questID] = true
+		return true
+	end
+	return false
+end
+
 -- completed, active (in the quest log, not turned in)
+-- A recorded turn-in stays completed even while the log still lists the quest.
+-- That list updates a moment after the turn-in; the saved step is already done.
 local function Attune_QuestState(idWowhead, attuneId)
 	local completed, active = false, false
+	local recorded = false
 	local qIDs = Attune_split(tostring(idWowhead or ""), "|")
 	local doneMap = Attune_DB.toons[attunelocal_charKey] and Attune_DB.toons[attunelocal_charKey].done
 	for _, q in ipairs(qIDs) do
 		local qid = tonumber(q)
 		if qid then
-			local onQuest = C_QuestLog and C_QuestLog.IsOnQuest and C_QuestLog.IsOnQuest(qid)
-			if onQuest then
-				-- Still in the log, so this step is not turned in.
-				active = true
-			elseif Attune_IsQuestFlaggedCompleted(qid) or Attune_QuestRecordedComplete(attuneId, qid, doneMap) then
+			if Attune_QuestInLog(qid) then active = true end
+			if Attune_QuestRecordedComplete(attuneId, qid, doneMap) then recorded = true end
+			if Attune_IsQuestFlaggedCompleted(qid) or recorded then
 				completed = true
 			end
 		end
 	end
-	if active then completed = false end
+	-- Still in the log, and this turn-in was not recorded: not turned in.
+	if active and not recorded then completed = false end
 	return completed, active
 end
 
@@ -4650,7 +4870,7 @@ end
 
 local function Attune_QuestCellTone(step)
 	local completed, active = Attune_QuestState(step.ID_WOWHEAD, step.ID_ATTUNE)
-	if not completed and not active and step.TYPE ~= "Pick Up" then
+	if not completed and step.TYPE ~= "Pick Up" then
 		local doneMap = Attune_DB.toons[attunelocal_charKey] and Attune_DB.toons[attunelocal_charKey].done
 		if doneMap and doneMap[step.ID_ATTUNE .. "-" .. step.ID] then
 			completed = true
@@ -5432,12 +5652,51 @@ end
 -- Trigger a redraw of the Attune tab
 -------------------------------------------------------------------------
 
-function Attune_ForceAttuneTabRefresh()
-	-- Rebuilding the window while it is closed still walks the step list on this frame.
+-- Redraw the open attunement from saved progress.
+-- Toggling the whole window left the chain on screen until a reload, and a rebuild
+-- during the completion event still saw the quest in the log.
+function Attune_RefreshAttunePanel()
 	if attunelocal_initial then return end
-	if attunelocal_frame == nil or not attunelocal_frame:IsShown() then return end
-	attunelocal_treeIsShown = not attunelocal_treeIsShown
-	Attune_ToggleView()
+	if attunelocal_frame == nil or not attunelocal_frame:IsShown() then
+		attunelocal_panelDirty = true
+		if Attune_DB and attunelocal_charKey then Attune_LoadTree() end
+		return
+	end
+	attunelocal_panelDirty = false
+	if Attune_HideQuestDetail then Attune_HideQuestDetail() end
+	Attune_ReloadAttuneTree()
+	if not attunelocal_treeIsShown then
+		if attunelocal_glist then Attune_ShowResultList() end
+		return
+	end
+	local lastViewed = Attune_GetLastViewed()
+	local sel
+	if lastViewed then
+		_, _, sel = strsplit("\001", lastViewed)
+	end
+	if (sel == nil or sel == "") and attunelocal_treeframe then
+		local status = attunelocal_treeframe.status or attunelocal_treeframe.localstatus
+		local selected = status and status.selected
+		if selected then _, _, sel = strsplit("\001", selected) end
+	end
+	if sel and sel ~= "" and attunelocal_scroll then
+		Attune_Select(sel, true)
+	end
+end
+
+function Attune_ForceAttuneTabRefresh()
+	if attunelocal_initial then
+		attunelocal_panelDirty = true
+		return
+	end
+	-- Not a chunk local: this file is already at Lua's 200-local limit.
+	attunelocal_panelDirty = true
+	attunelocal_refreshToken = (attunelocal_refreshToken or 0) + 1
+	local token = attunelocal_refreshToken
+	C_Timer.After(0, function()
+		if token ~= attunelocal_refreshToken then return end
+		Attune_RefreshAttunePanel()
+	end)
 end
 
 

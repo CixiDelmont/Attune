@@ -69,6 +69,7 @@ local classAttunes = {
 	{ID="5227",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	
     -- -- SHAMAN
+    -- {ID="5230",NAME="A Humble Task",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_drink_08", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
 	{ID="5231",NAME="Call of Earth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_earth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
 	{ID="5242",NAME="Call of Earth",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Alliance",ICON="Interface\\Icons\\inv_elemental_primal_earth", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="4"},
 	{ID="5233",NAME="Call of Fire",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_elemental_primal_fire", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="10"},
@@ -761,6 +762,17 @@ local classSteps = {
 
 
     -- SHAMAN
+    -- FAKE ATTUNEMENT, FOR TESTING PURPOSES ONLY
+	-- {ID_ATTUNE="5230",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 1",LOCATION="",ID_WOWHEAD="1",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- {ID_ATTUNE="5230",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="752",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Humble Task
+	-- {ID_ATTUNE="5230",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="753",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- A Humble Task
+	-- {ID_ATTUNE="5230",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="755",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Rites of the Earthmother
+	-- {ID_ATTUNE="5230",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="757",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Rite of Strength
+    -- {ID_ATTUNE="5230",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="4770",ICON="Interface\\Icons\\inv_belt_05",FOLLOWS="50",STAGE="52", COUNT=12}, -- 
+    -- {ID_ATTUNE="5230",ID="55",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="757",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52",STAGE="55"}, -- Rite of Strength
+	-- {ID_ATTUNE="5230",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="763",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="55",STAGE="60"}, -- Rites of the Earthmother
+	-- {ID_ATTUNE="5230",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_drink_08",FOLLOWS="60",STAGE="70"},
+
 	-- Earth Sapta: orc/troll (Durotar) or tauren (Mulgore)
 	{ID_ATTUNE="5231",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 4",LOCATION="",ID_WOWHEAD="4",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5231",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1516",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Call of Earth
@@ -1588,6 +1600,11 @@ local classQuestInfo = {
 	[3093]={1,1},
 	[3089]={1,1},
 	[3084]={1,1},
+	[752]={2,1},
+	[753]={3,1},
+	[755]={3,1},
+	[757]={4,1},
+	[763]={5,1},
 	[1516]={4,1},
 	[1517]={4,1},
 	[1463]={4,1},
@@ -2181,6 +2198,11 @@ local classQuestGivers = {
 	[8236] = {1447, 29.2, 40.2, "Archmage Xylem"}, -- Archmage Xylem, Azshara. Turn in to Lord Jorach Ravenholdt, Alterac Mountains 86, 79.
 	[3089] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
 	[3084] = {1411, 42, 68.4, "Gornek"}, -- Gornek, Durotar
+	[752] = {1412, 44.2, 76, "Chief Hawkwind"}, -- Chief Hawkwind, Mulgore
+	[753] = {1412, 48.6, 80.8, "Greatmother Hawkwind"}, -- Greatmother Hawkwind, Mulgore
+	[755] = {1412, 44.2, 76, "Chief Hawkwind"}, -- Chief Hawkwind, Mulgore. Turn in to Seer Graytongue, 42.6, 92.
+	[757] = {1412, 42.6, 92, "Seer Graytongue"}, -- Seer Graytongue, Mulgore
+	[763] = {1412, 44.2, 76, "Chief Hawkwind"}, -- Chief Hawkwind, Mulgore. Turn in to Baine Bloodhoof, Bloodhoof Village 47.4, 60.2.
 	[1516] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar
 	[1517] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar
 	[1463] = {1411, 42.4, 69, "Canaga Earthcaller"}, -- Canaga Earthcaller, Durotar

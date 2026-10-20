@@ -663,6 +663,11 @@ Attune_Data.questRewards = {
 	[1503] = { choice = {{7326, 1}, {7328, 1}, {7327, 1}, {7329, 1}} },
 	[1505] = {},
 	-- Class quest reward audit.
+	[752] = { choice = {{247840, 1}, {247841, 1}, {247846, 1}} },
+	[753] = {},
+	[755] = {},
+	[757] = { choice = {{1382, 1}, {1383, 1}, {2137, 1}, {5776, 1}, {5777, 1}} },
+	[763] = {},
 	[1516] = {},
 	[1517] = {},
 	[1519] = {},
@@ -1213,6 +1218,14 @@ Attune_Data.rewardItems = {
 	[13965] = {"Blackhand's Breadth", "inv_misc_armorkit_09", 3},
 	[13966] = {"Mark of Tyranny", "inv_jewelry_talisman_09", 3},
 	[13968] = {"Eye of the Beast", "inv_jewelry_talisman_08", 3},
+	[1382] = {"Rock Mace", "inv_mace_07", 1},
+	[1383] = {"Stone Tomahawk", "inv_throwingaxe_03", 1},
+	[2137] = {"Whittling Knife", "inv_weapon_shortblade_01", 1},
+	[5776] = {"Elder's Cane", "inv_staff_17", 1},
+	[5777] = {"Brave's Axe", "inv_throwingaxe_05", 1},
+	[247840] = {"Mining for Dummies", "inv_10_specialization_professionbook_mining_orig", 1},
+	[247841] = {"Wild Harvest", "inv_10_specialization_professionbook_herbalism_color1", 1},
+	[247846] = {"Pelt Collecting for Beginners", "inv_10_specialization_professionbook_skinning_color1", 1},
 }
 
 -- name, icon file. Used when the client has not cached the spell.
