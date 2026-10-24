@@ -582,6 +582,28 @@ local attunelocal_myFullName = attunelocal_myFirst .. " " .. attunelocal_myLast
 local attunelocal_charKey = attunelocal_myFullName --.. "-" .. attunelocal_realm			-- Character unique name
 local attunelocal_statusText = AttuneLang["Version"]:gsub("##VERSION##", attunelocal_version)		-- Default status text
 
+-- Forever UnitName returns "First", "Last". On Blizzard clients the second
+-- return is the realm, and it is nil while the unit is on the home realm.
+local function Attune_CharacterKey(unit)
+	local name, extra = UnitName(unit or "player")
+	if name == nil or name == "" then return nil end
+	local forever = attunelocal_interfaceVersion >= 16000 and attunelocal_interfaceVersion < 20000
+	if forever then
+		if extra ~= nil and extra ~= "" then
+			return name .. " " .. extra, name, extra
+		end
+		return name, name, ""
+	end
+	local realm = extra
+	if realm == nil or realm == "" then
+		realm = (GetNormalizedRealmName and GetNormalizedRealmName()) or GetRealmName()
+	end
+	if realm ~= nil and realm ~= "" then
+		return name .. "-" .. realm, name, realm
+	end
+	return name, name, ""
+end
+
 local attunelocal_refreshDone = false		-- flag to indicate when the UI refresh has been done, to avoid doing it too many times and freezing UI)
 
 local attunelocal_syncTarget = nil
@@ -1001,6 +1023,18 @@ function Attune:OnEnable()
 	-- Called when the addon is enabled
 	-- Class quests are already merged; index them before any completion event.
 	Attune_BuildStepIndex()
+
+	-- Resolve the character and create the DB before any event can fire.
+	-- A bag update during enable used to run while Attune_DB was still nil.
+	local full, first, last = Attune_CharacterKey("player")
+	attunelocal_myFirst = first or attunelocal_myFirst
+	attunelocal_myLast = last or ""
+	attunelocal_myFullName = full or attunelocal_myFirst
+	attunelocal_charKey = attunelocal_myFullName
+	if Attune_DB == nil then Attune_DB = {} end
+	if Attune_DB.toons == nil then Attune_DB.toons = {} end
+	if Attune_DB.toons[attunelocal_charKey] == nil then Attune_DB.toons[attunelocal_charKey] = {} end
+
 	C_ChatInfo.RegisterAddonMessagePrefix(attunelocal_prefix)
 	C_ChatInfo.RegisterAddonMessagePrefix(attunelocal_versionprefix)
     --	C_ChatInfo.RegisterAddonMessagePrefix(attunelocal_syncprefix)
@@ -1020,10 +1054,6 @@ function Attune:OnEnable()
 	self:RegisterEvent("QUEST_DETAIL")
 --	self:RegisterEvent("ACHIEVEMENT_EARNED")
 
-    attunelocal_myFirst, attunelocal_myLast = UnitName("player")
-    attunelocal_myFullName = attunelocal_myFirst .. " " .. attunelocal_myLast
-    attunelocal_charKey = attunelocal_myFullName --.. "-" .. attunelocal_realm			-- Character unique name
-    
 	--self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
 	if attunelocal_hasCombatLog then
 		cleu_parser:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -1956,6 +1986,7 @@ local attuneItemScanQueued = false
 local function Attune_ScanItemSteps()
 	local items = Attune_Data.stepsByItem
 	if items == nil then return end
+	if Attune_DB == nil or Attune_DB.toons == nil then return end
 	local toon = Attune_DB.toons[attunelocal_charKey]
 	if toon == nil or toon.done == nil or toon.items == nil then return end
 
@@ -2026,8 +2057,11 @@ function Attune:UPDATE_FACTION(event)
 	local reps = Attune_Data.stepsByType and Attune_Data.stepsByType["Rep"]
 	if reps == nil then return end
 
+	if Attune_DB == nil or Attune_DB.toons == nil then return end
 	local refreshNeeded = false
 	local toon = Attune_DB.toons[attunelocal_charKey]
+	if toon == nil then return end
+	if toon.reps == nil then toon.reps = {} end
 	for _, s in ipairs(reps) do
 		if showPatchStep(s) then
 			local name, _, _, _, _, earnedValue = Attune_GetFactionInfoByID(s.LOCATION)
@@ -7827,8 +7861,8 @@ function Attune_SendSyncRequest()
 		if attunelocal_syncStatus ~= -1 then 
 			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Cannot sync while another sync is in progress"]) end
 		else 
-            local targetFirst, targetLast = UnitName("target")
-			attunelocal_syncTarget = targetFirst .. " " .. targetLast -- .. "-" .. GetRealmName()
+            attunelocal_syncTarget = Attune_CharacterKey("target")
+			if attunelocal_syncTarget == nil then return end
 
 			StaticPopupDialogs["SYNC_CONFIRM"] = {
 				text = AttuneLang["Sending Sync Request"]:gsub("##PLAYER##", attunelocal_syncTarget) .. "\n\n" .. AttuneLang["Could be slow"],

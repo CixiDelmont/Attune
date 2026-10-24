@@ -1,4 +1,4 @@
-## Interface: 16001
+## Interface: 11508, 11509, 16001, 20505, 20506, 30405, 38002, 40402, 50503, 50504, 120100, 120105, 120107
 ## Title: Attune
 ## Author: CixiDelmont
 ## Notes: Track raid attunements and dungeon quest progress
