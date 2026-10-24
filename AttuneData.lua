@@ -2668,16 +2668,18 @@ do
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="15", TYPE="Stat", STEP=AttuneLang["Honorable kills"], LOCATION="", ID_WOWHEAD="588", COUNT=honor, ICON=icon.honor, FOLLOWS="0", STAGE="20"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="12", TYPE="Stat", STEP=AttuneLang["5-player dungeons"], LOCATION="", ID_WOWHEAD="932", COUNT=dungeons, ICON=icon.dungeons, FOLLOWS="0", STAGE="30"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="10", TYPE="Stat", STEP=AttuneLang["Gold looted"], LOCATION="", ID_WOWHEAD="333", COUNT=gold, GOLD=true, ICON=icon.gold, FOLLOWS="0", STAGE="30"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="70", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="1524", COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="1519", COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="70", TYPE="Prof", STEP=profLabel, LOCATION="", ID_WOWHEAD="0", COUNT=skill, NEED=2, ICON=icon.prof, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="1524", COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="1519", COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="50"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="50", TYPE="Stat", STEP=AttuneLang["First Aid skill"], LOCATION="", ID_WOWHEAD="281", COUNT=skill, ICON=icon.aid, FOLLOWS="0", STAGE="50"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Prof", STEP=profLabel, LOCATION="", ID_WOWHEAD="0", COUNT=skill, NEED=2, ICON=icon.prof, FOLLOWS="0", STAGE="50"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="80", TYPE="End", STEP="Attuned", LOCATION="", ID_WOWHEAD="0", ICON=icon.level, FOLLOWS="30&20&18&15&12&10&70&60&50&40", STAGE="60"}
 	end
 
-	addTier("500", 20, 250, 5, 100, 125, 10, 10)
-	addTier("510", 40, 500, 50, 200, 250, 100, 20)
-	addTier("520", 60, 1000, 200, 300, 500, 500, 50)
+
+    -- ID, level, kills, gold, skill, quests, honor kills, dungeons
+	addTier("500", 20, 750, 3, 100, 100, 5, 5)
+	addTier("510", 40, 3000, 50, 200, 300, 50, 15)
+	addTier("520", 60, 7500, 200, 300, 600, 500, 50)
 end
 
 -- Highest skill of each primary profession. Any two at the tier's skill count.
