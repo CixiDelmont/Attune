@@ -2602,7 +2602,88 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="95",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"}, -- quest: This Must Be The Place (Hastily Rolled-Up Satchel)
 	{ID_ATTUNE="95",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments",FOLLOWS="130",STAGE="140"},
 }
-	
+
+-- Character trials. Each requirement reads a statistic (GetStatistic):
+-- 107 creatures killed, 333 gold looted (gold amount before the first pipe), 98 quests completed,
+-- 588 total honorable kills, 932 five-player dungeons entered, and profession skill.
+-- The chain is placed right to left, so a higher step id sits further left.
+-- Top row: level, kills, quests, honorable kills, dungeons, gold.
+-- Bottom row: cooking, fishing, first aid, two professions.
+do
+	local steps = Attune_Data.steps
+	local attunes = Attune_Data.attunes
+	local expac = AttuneLang["World of Warcraft"]
+	local group = AttuneLang["CHARACTER"]
+	local icon = {
+		level = "Interface\\Icons\\spell_holy_innerfire",
+		kills = "Interface\\Icons\\ability_warrior_savageblow",
+		gold = "Interface\\Icons\\inv_misc_coin_02",
+		quests = "Interface\\Icons\\inv_scroll_03",
+		honor = "Interface\\Icons\\inv_bannerpvp_02",
+		dungeons = "Interface\\Icons\\inv_misc_key_03",
+		cooking = "Interface\\Icons\\inv_misc_food_15",
+		fishing = "Interface\\Icons\\trade_fishing",
+		aid = "Interface\\Icons\\spell_holy_sealofsacrifice",
+		prof = "Interface\\Icons\\inv_misc_book_09",
+	}
+
+	local function addAttune(index, id, nameKey, descKey, iconPath, level)
+		table.insert(attunes, index, {
+			ID = id,
+			NAME = AttuneLang[nameKey],
+			SHORT = tostring(level),
+			EXPAC = expac,
+			GROUP = group,
+			FACTION = "Both",
+			ICON = iconPath,
+			DESC = AttuneLang[descKey],
+			LEVELS = tostring(level),
+		})
+	end
+
+	addAttune(1, "500", "Initiate", "Initiate_Desc", "Interface\\Icons\\achievement_level_20", 20)
+	addAttune(2, "510", "Intermediate", "Intermediate_Desc", "Interface\\Icons\\achievement_level_40", 40)
+	addAttune(3, "520", "Veteran", "Veteran_Desc", "Interface\\Icons\\achievement_level_60", 60)
+
+
+    -- https://wowwiki-archive.fandom.com/wiki/Complete_list_of_Achievement_ID%27s for the achievement IDs
+
+	local function addTier(id, level, kills, gold, skill, quests, honor, dungeons)
+		local profLabel = (AttuneLang["ProfessionsAt"] or "2 professions at ##SKILL##"):gsub("##SKILL##", tostring(skill))
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="30", TYPE="Level", STEP=AttuneLang["Reach level"].." "..level, LOCATION="", ID_WOWHEAD=tostring(level), ICON=icon.level, FOLLOWS="0", STAGE="10"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="20", TYPE="Stat", STEP=AttuneLang["Creatures killed"], LOCATION="", ID_WOWHEAD="1198", COUNT=kills, ICON=icon.kills, FOLLOWS="0", STAGE="10"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="18", TYPE="Stat", STEP=AttuneLang["Quests completed"], LOCATION="", ID_WOWHEAD="98", COUNT=quests, ICON=icon.quests, FOLLOWS="0", STAGE="20"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="15", TYPE="Stat", STEP=AttuneLang["Honorable kills"], LOCATION="", ID_WOWHEAD="588", COUNT=honor, ICON=icon.honor, FOLLOWS="0", STAGE="20"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="12", TYPE="Stat", STEP=AttuneLang["5-player dungeons"], LOCATION="", ID_WOWHEAD="932", COUNT=dungeons, ICON=icon.dungeons, FOLLOWS="0", STAGE="30"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="10", TYPE="Stat", STEP=AttuneLang["Gold looted"], LOCATION="", ID_WOWHEAD="333", COUNT=gold, GOLD=true, ICON=icon.gold, FOLLOWS="0", STAGE="30"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="70", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="1524", COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="1519", COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="50", TYPE="Stat", STEP=AttuneLang["First Aid skill"], LOCATION="", ID_WOWHEAD="281", COUNT=skill, ICON=icon.aid, FOLLOWS="0", STAGE="50"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Prof", STEP=profLabel, LOCATION="", ID_WOWHEAD="0", COUNT=skill, NEED=2, ICON=icon.prof, FOLLOWS="0", STAGE="50"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="80", TYPE="End", STEP="Attuned", LOCATION="", ID_WOWHEAD="0", ICON=icon.level, FOLLOWS="30&20&18&15&12&10&70&60&50&40", STAGE="60"}
+	end
+
+	addTier("500", 20, 250, 5, 100, 125, 10, 10)
+	addTier("510", 40, 500, 50, 200, 250, 100, 20)
+	addTier("520", 60, 1000, 200, 400, 500, 500, 50)
+end
+
+-- Highest skill of each primary profession. Any two at the tier's skill count.
+-- Jewelcrafting and Inscription are included so they count where those professions exist.
+Attune_Data.primaryProfessions = {
+	{"1527", "Alchemy"},
+	{"1532", "Blacksmithing"},
+	{"1535", "Enchanting"},
+	{"1544", "Engineering"},
+	{"1538", "Herbalism"},
+	{"1539", "Inscription"},
+	{"1540", "Jewelcrafting"},
+	{"1536", "Leatherworking"},
+	{"1537", "Mining"},
+	{"1541", "Skinning"},
+	{"1542", "Tailoring"},
+}
+
 -- [id] = title, minlevel, groupsize, desc
 Attune_Data.quests = {
 	[7848]={55,5},			[7847]={46,1},			[4903]={55,5},			[4941]={55,1},			[4974]={55,10},			[6566]={55,1},			[6567]={55,1},

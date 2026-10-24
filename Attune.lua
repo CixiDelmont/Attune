@@ -8,6 +8,11 @@
 --
 -------------------------------------------------------------------------
 
+
+-- 16001-35
+--   - Added the Character attunements. Initiate, Intermediate, Veteran
+--   - Added an option to disregard the character attunements.
+--
 -- 16001-34
 --   - Added the Bear Form quest for Skyborne elves.
 --
@@ -1052,6 +1057,12 @@ function Attune:OnEnable()
 	self:RegisterEvent("BAG_UPDATE")
 	self:RegisterEvent("GOSSIP_SHOW")
 	self:RegisterEvent("QUEST_DETAIL")
+	-- Statistics (kills, gold looted, profession skill). Missing on clients without achievements.
+	pcall(self.RegisterEvent, self, "CRITERIA_UPDATE")
+	pcall(self.RegisterEvent, self, "SKILL_LINES_CHANGED")
+	pcall(self.RegisterEvent, self, "CHAT_MSG_MONEY")
+	pcall(self.RegisterEvent, self, "PLAYER_PVP_KILLS_CHANGED")
+	pcall(self.RegisterEvent, self, "PLAYER_ENTERING_WORLD")
 --	self:RegisterEvent("ACHIEVEMENT_EARNED")
 
 	--self:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
@@ -1733,6 +1744,8 @@ local function Attune_MarkStepDone(s, typeLabel, stepLabel, checkComplete)
 end
 
 local function Attune_ProcessKill(npc_id)
+	-- Creature-killed statistics move even when this npc is not an attune target.
+	Attune_QueueStatScan()
 	if npc_id == nil or npc_id == -1 then return end
 	local steps = Attune_Data.stepsByKill and Attune_Data.stepsByKill[tostring(npc_id)]
 	if steps == nil then return end
@@ -1791,6 +1804,27 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 
 	if refreshNeeded then Attune_ForceAttuneTabRefresh() end -- refresh view if needed
 
+end
+
+-- Kills, looted gold, and profession skill move the character trials.
+function Attune:CRITERIA_UPDATE()
+	Attune_QueueStatScan()
+end
+
+function Attune:SKILL_LINES_CHANGED()
+	Attune_QueueStatScan()
+end
+
+function Attune:CHAT_MSG_MONEY()
+	Attune_QueueStatScan()
+end
+
+function Attune:PLAYER_PVP_KILLS_CHANGED()
+	Attune_QueueStatScan()
+end
+
+function Attune:PLAYER_ENTERING_WORLD()
+	Attune_QueueStatScan()
 end
 
 
@@ -1930,6 +1964,7 @@ end
 -------------------------------------------------------------------------
 
 function Attune:QUEST_TURNED_IN(event, arg1)
+	Attune_QueueStatScan()
 	local questID = tonumber(arg1)
 	if questID == nil then return end
 	local steps = Attune_Data.stepsByTurnIn and Attune_Data.stepsByTurnIn[questID]
@@ -2106,6 +2141,321 @@ function Attune_UpdateLogs()
 end
 
 -------------------------------------------------------------------------
+-- Character trials: statistics (kills, gold looted, profession skill)
+-------------------------------------------------------------------------
+
+-- GetStatistic returns a display string ("1,234" or "--").
+function Attune_ReadStatisticRaw(statId)
+	if statId == nil or statId == "" or statId == "0" then return nil end
+	if GetStatistic == nil then return nil end
+	local ok, raw = pcall(GetStatistic, tonumber(statId) or statId)
+	if not ok or raw == nil then return nil end
+	raw = tostring(raw)
+	if raw == "--" or raw == "" then return nil end
+	return raw
+end
+
+function Attune_ReadStatistic(statId)
+	local raw = Attune_ReadStatisticRaw(statId)
+	if raw == nil then return 0 end
+	local digits = raw:gsub("%D", "")
+	if digits == "" then return 0 end
+	return tonumber(digits) or 0
+end
+
+-- Gold looted is a money string: "1530|T...UI-GoldIcon...|t 68|T...SilverIcon...".
+-- The gold amount is the number before the first pipe. Icon coordinates must not be counted.
+function Attune_ReadGoldLooted(statId)
+	local raw = Attune_ReadStatisticRaw(statId)
+	if raw == nil then return 0 end
+	if raw:find("|", 1, true) then
+		if not raw:find("GoldIcon", 1, true) then return 0 end
+		local head = raw:match("^([^|]*)") or ""
+		local digits = head:gsub("%D", "")
+		if digits == "" then return 0 end
+		return tonumber(digits) or 0
+	end
+	local digits = raw:gsub("%D", "")
+	if digits == "" then return 0 end
+	local per = COPPER_PER_GOLD or 10000
+	return math.floor((tonumber(digits) or 0) / per)
+end
+
+function Attune_StatGoal(step)
+	if step == nil then return 0 end
+	if step.TYPE == "Prof" then return tonumber(step.NEED) or 2 end
+	return tonumber(step.COUNT) or 0
+end
+
+function Attune_StatValue(step)
+	if step == nil then return 0 end
+	if step.TYPE == "Prof" then
+		local skill = tonumber(step.COUNT) or 0
+		local have = 0
+		local profs = Attune_Data.primaryProfessions
+		if profs then
+			for i = 1, #profs do
+				if Attune_ReadStatistic(profs[i][1]) >= skill then
+					have = have + 1
+				end
+			end
+		end
+		return have
+	end
+	if step.GOLD then
+		return Attune_ReadGoldLooted(step.ID_WOWHEAD)
+	end
+	return Attune_ReadStatistic(step.ID_WOWHEAD)
+end
+
+function Attune_CurrentAttuneId()
+	local last = Attune_GetLastViewed()
+	if last ~= nil and last ~= "" then
+		local _, _, sel = strsplit("\001", last)
+		if sel ~= nil and sel ~= "" then return sel end
+	end
+	if attunelocal_treeframe then
+		local status = attunelocal_treeframe.status or attunelocal_treeframe.localstatus
+		local selected = status and status.selected
+		if selected then
+			local _, _, sel = strsplit("\001", selected)
+			if sel ~= nil and sel ~= "" then return sel end
+		end
+	end
+end
+
+function Attune_ViewingCharacterAttune()
+	if attunelocal_frame == nil or not attunelocal_frame:IsShown() then return false end
+	local sel = Attune_CurrentAttuneId()
+	if sel == nil then return false end
+	local a = Attune_Data.attuneById and Attune_Data.attuneById[sel]
+	return a ~= nil and a.GROUP == AttuneLang["CHARACTER"]
+end
+
+-- Rewrite the open trial's counts without rebuilding the chain.
+function Attune_RefreshOpenStatLabels()
+	local sel = Attune_CurrentAttuneId()
+	if sel == nil then return end
+	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[sel]
+	if chain == nil then return end
+	for _, s in pairs(chain) do
+		if s.TYPE == "Stat" or s.TYPE == "Prof" then
+			local title = _G["Attune_Title_" .. s.ID]
+			if title then
+				local goal = Attune_StatGoal(s)
+				local value = Attune_StatValue(s)
+				if goal > 0 and value > goal then value = goal end
+				title:SetText(value .. "/" .. goal)
+			end
+		end
+	end
+end
+
+function Attune_CharacterStepAllowed(toon, attuneId)
+	local a = Attune_Data.attuneById and Attune_Data.attuneById[attuneId]
+	if a == nil then return false end
+	if a.DEPRECATED ~= nil and not Attune_DB.showDeprecatedAttunes then return false end
+	local faction = UnitFactionGroup("player")
+	if not (a.FACTION == faction or a.FACTION == "Both") then return false end
+	return Attune_MayRecordAttuneProgress(toon, a.ID)
+end
+
+-- Rebuild the tree and icon list after the current draw finishes.
+-- The graph records completion during its own redraw, which is too late for the list just built.
+function Attune_QueueCharacterTreeRefresh()
+	if Attune_CharacterTreeRefreshQueued then return end
+	Attune_CharacterTreeRefreshQueued = true
+	C_Timer.After(0, function()
+		Attune_CharacterTreeRefreshQueued = false
+		if attunelocal_initial then return end
+		if not (attunelocal_frame and attunelocal_frame:IsShown() and attunelocal_treeIsShown) then
+			if Attune_DB and attunelocal_charKey then Attune_LoadTree() end
+			return
+		end
+		Attune_ReloadAttuneTree()
+		if Attune_DB and Attune_DB.iconView and attunelocal_treeframe then
+			Attune_ShowIconView(attunelocal_treeframe)
+		end
+	end)
+end
+
+-- Close or reopen the Character end node from the requirement steps.
+-- Returns true when a trial newly finishes or reopens, so the tree can move it.
+function Attune_SyncCharacterEnds(toon)
+	if toon == nil or toon.done == nil then return false end
+	local ends = Attune_Data.stepsByType and Attune_Data.stepsByType["End"]
+	if ends == nil then return false end
+	if toon.attuned == nil then toon.attuned = {} end
+	local changed = false
+	for _, e in pairs(ends) do
+		local a = Attune_Data.attuneById and Attune_Data.attuneById[e.ID_ATTUNE]
+		if a and a.GROUP == AttuneLang["CHARACTER"] and showPatchStep(e) then
+			local allDone = e.FOLLOWS ~= nil and e.FOLLOWS ~= "0"
+			if allDone then
+				for _, flw in pairs(Attune_split(e.FOLLOWS, "&")) do
+					if not toon.done[e.ID_ATTUNE .. "-" .. flw] then
+						allDone = false
+						break
+					end
+				end
+			end
+			local key = e.ID_ATTUNE .. "-" .. e.ID
+			local wasComplete = (toon.attuned[e.ID_ATTUNE] or 0) >= 100 or toon.done[key] ~= nil
+			if allDone then
+				toon.done[key] = 1
+				toon.attuned[e.ID_ATTUNE] = 100
+				if not wasComplete then
+					changed = true
+					if not attunelocal_initial and attunelocal_frame and attunelocal_frame:IsShown() then
+						PlaySound(5275) -- AuctionWindowClose
+						if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
+						if Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "" then SendChatMessage("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", a.NAME), "GUILD") end
+					end
+				end
+			else
+				if toon.done[key] then toon.done[key] = nil end
+				Attune_RecountAttune(e.ID_ATTUNE)
+				if wasComplete then changed = true end
+			end
+		end
+	end
+	return changed
+end
+
+function Attune_ShowStatTooltip(step, fnode)
+	local goal = Attune_StatGoal(step)
+	local value = Attune_StatValue(step)
+	local shown = value
+	if goal > 0 and shown > goal then shown = goal end
+	if attunelocal_frame then
+		attunelocal_frame:SetStatusText(shown .. "/" .. goal .. " " .. (step.STEP or ""))
+	end
+	GameTooltip:SetOwner(fnode, "ANCHOR_NONE")
+	GameTooltip:SetPoint("TOPLEFT", fnode, "TOPRIGHT", 10, 0)
+	GameTooltip:SetText(step.STEP or "")
+	GameTooltip:AddLine((AttuneLang["Current progress"] or "Current progress") .. ": " .. value .. "/" .. goal, 0.5, 0.5, 0.5, 1)
+	if step.GOLD and AttuneLang["GoldLooted_Note"] then
+		GameTooltip:AddLine(AttuneLang["GoldLooted_Note"], 1, 1, 1, 1, true)
+	end
+	if step.TYPE == "Prof" then
+		local skillGoal = tonumber(step.COUNT) or 0
+		local any = false
+		local profs = Attune_Data.primaryProfessions
+		if profs then
+			for i = 1, #profs do
+				local skill = Attune_ReadStatistic(profs[i][1])
+				if skill > 0 then
+					any = true
+					local name = AttuneLang[profs[i][2]] or profs[i][2]
+					if skill >= skillGoal then
+						GameTooltip:AddLine(name .. ": " .. skill .. "/" .. skillGoal, 0.373, 0.729, 0.275, 1)
+					else
+						GameTooltip:AddLine(name .. ": " .. skill .. "/" .. skillGoal, 0.851, 0.608, 0.0, 1)
+					end
+				end
+			end
+		end
+		if not any and AttuneLang["NoProfessionYet"] then
+			GameTooltip:AddLine(AttuneLang["NoProfessionYet"], 0.5, 0.5, 0.5, 1, true)
+		end
+	end
+end
+
+-- silent: record progress without the completion sound (login and redraw).
+function Attune_ScanStatSteps(silent)
+	if Attune_StatScanRunning then return end
+	if Attune_DB == nil or Attune_DB.toons == nil or attunelocal_charKey == nil then return end
+	local toon = Attune_DB.toons[attunelocal_charKey]
+	if toon == nil then return end
+	if toon.done == nil then toon.done = {} end
+	if toon.stats == nil then toon.stats = {} end
+	local byType = Attune_Data.stepsByType
+	if byType == nil then return end
+
+	Attune_StatScanRunning = true
+	local structural = false
+	local progressChanged = false
+
+	local function consider(list)
+		if list == nil then return end
+		for _, s in pairs(list) do
+			if showPatchStep(s) and (s.TYPE == "Stat" or s.TYPE == "Prof") and Attune_CharacterStepAllowed(toon, s.ID_ATTUNE) then
+				local key = s.ID_ATTUNE .. "-" .. s.ID
+				local value = Attune_StatValue(s)
+				local goal = Attune_StatGoal(s)
+				if toon.stats[key] ~= value then
+					toon.stats[key] = value
+					progressChanged = true
+				end
+				if goal > 0 and value >= goal then
+					if toon.done[key] == nil then
+						if silent then
+							toon.done[key] = 1
+							structural = true
+						elseif Attune_MarkStepDone(s, s.STEP or "", value .. "/" .. goal, true) then
+							structural = true
+						end
+					end
+				elseif toon.done[key] then
+					toon.done[key] = nil
+					structural = true
+				end
+			end
+		end
+	end
+
+	consider(byType["Stat"])
+	consider(byType["Prof"])
+	local listChanged = Attune_SyncCharacterEnds(toon)
+	Attune_StatScanRunning = false
+
+	-- Silent redraws record the finish after the tree was built. Refresh the list once that draw returns.
+	if (listChanged or structural) and not attunelocal_initial then
+		Attune_QueueCharacterTreeRefresh()
+	end
+
+	if silent then return end
+	if not (attunelocal_frame and attunelocal_frame:IsShown()) then return end
+	if structural then
+		Attune_ForceAttuneTabRefresh()
+	elseif progressChanged and Attune_ViewingCharacterAttune() then
+		Attune_RefreshOpenStatLabels()
+	end
+end
+
+function Attune_QueueStatScan()
+	-- The statistic often updates a moment after the kill, turn-in, or loot.
+	if not Attune_StatScanQueued then
+		Attune_StatScanQueued = true
+		C_Timer.After(0.4, function()
+			Attune_StatScanQueued = false
+			Attune_ScanStatSteps(false)
+		end)
+	end
+	if Attune_StatScanFollowUp then return end
+	Attune_StatScanFollowUp = true
+	C_Timer.After(1.25, function()
+		Attune_StatScanFollowUp = false
+		Attune_ScanStatSteps(false)
+	end)
+end
+
+-- While a Character trial is on screen, reread statistics even if the kill event was missed.
+function Attune_EnsureStatPoll()
+	if Attune_StatPollActive then return end
+	Attune_StatPollActive = true
+	local function tick()
+		if not Attune_ViewingCharacterAttune() then
+			Attune_StatPollActive = false
+			return
+		end
+		Attune_ScanStatSteps(false)
+		C_Timer.After(1, tick)
+	end
+	C_Timer.After(1, tick)
+end
+
+-------------------------------------------------------------------------
 -- Perform the attunement checks
 -------------------------------------------------------------------------
 
@@ -2222,6 +2572,7 @@ function Attune_CheckProgress()
 
 	-- some specific steps mean the whole attunement is complete. Close off the whole tree if those are done
 	-- including a second pass to mark as done all non-trackable steps (interact/kill/past items) that belong to earlier (completed) quests
+	Attune_ScanStatSteps(true)
 	Attune_SendPushInfo("TOON")
 	Attune_CheckComplete(true)
 	Attune_SendPushInfo("OVER")
@@ -2576,6 +2927,8 @@ local function Attune_CommitGroup(expacNode, groupNode, groupAllDone)
 end
 
 function Attune_LoadTree()
+	local treeToon = Attune_DB and attunelocal_charKey and Attune_DB.toons[attunelocal_charKey]
+	if treeToon then Attune_ApplyCompletedEndSteps(treeToon) end
 	attunelocal_tree = {}
 	local expac = ""
 	local group = ""
@@ -3978,6 +4331,13 @@ function Attune_Select(attuneId, quiet)
 	Attune_ApplyGraphPan()
 	attunelocal_graphRoot:Show()
 
+	-- Character trials read statistics, so the open chain matches the panel before nodes are colored.
+	Attune_ScanStatSteps(true)
+	local openAttune = Attune_Data.attuneById and Attune_Data.attuneById[attuneId]
+	if openAttune and openAttune.GROUP == AttuneLang["CHARACTER"] then
+		Attune_EnsureStatPoll()
+	end
+
 	-- Count steps per stage (main chain only; SIDE reminders are placed beside End)
 	local stageSteps = {}
 	local stageWidthSum = {}
@@ -5278,7 +5638,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 				GameTooltip:SetText(other)
 			end
 
-
+		elseif step.TYPE == "Stat" or step.TYPE == "Prof" then
+			Attune_ShowStatTooltip(step, fnode)
 
 		-- change transparency if clickable sub-attune
 		elseif step.TYPE == "Attune" then
@@ -5480,6 +5841,11 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 			elseif step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In" then
 				ftitle:SetText(AttuneLang["Q1_"..step.ID_WOWHEAD])
+			elseif step.TYPE == "Stat" or step.TYPE == "Prof" then
+				local goal = Attune_StatGoal(step)
+				local value = Attune_StatValue(step)
+				if goal > 0 and value > goal then value = goal end
+				ftitle:SetText(value .. "/" .. goal)
 			else
 				ftitle:SetText(step.STEP)
 			end
@@ -5498,6 +5864,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			elseif step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
 			elseif step.TYPE == "Attune" then type = "|c60808080"..AttuneLang["Attunement or key"].."|r"
 			elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
+			elseif step.TYPE == "Stat" or step.TYPE == "Prof" then type = "|cffffd100"..(step.STEP or "").."|r"
 			elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
 			end
 
