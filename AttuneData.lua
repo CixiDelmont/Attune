@@ -189,7 +189,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="60",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="9123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="20"}, -- quest: The Dread Citadel - Naxxramas
 	{ID_ATTUNE="60",ID="90",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_trinket_naxxramas06",FOLLOWS="40|50|60",STAGE="30"},
 
-	{ID_ATTUNE="100",ID="10",TYPE="Interact",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="15180",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="0",STAGE="10"}, -- npc: Baristolth of the Shifting Sands
+	
+    {ID_ATTUNE="100",ID="5",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="5"},
+    {ID_ATTUNE="100",ID="10",TYPE="Interact",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="15180",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="0",STAGE="10"}, -- npc: Baristolth of the Shifting Sands
 	{ID_ATTUNE="100",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8286",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: What Tomorrow Brings
 	{ID_ATTUNE="100",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: Only One May Rise
 	{ID_ATTUNE="100",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="12017",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="30",STAGE="40"}, -- npc: Broodlord Lashlayer
@@ -2627,8 +2629,17 @@ do
 		prof = "Interface\\Icons\\inv_misc_book_09",
 	}
 
-	local function addAttune(index, id, nameKey, descKey, iconPath, level)
-		table.insert(attunes, index, {
+	-- Sit ahead of dungeons. Class quests insert in front of this group when they load.
+	local insertAt = #attunes + 1
+	for i, a in ipairs(attunes) do
+		if a.GROUP == AttuneLang["DUNGEONS"] then
+			insertAt = i
+			break
+		end
+	end
+
+	local function addAttune(id, nameKey, descKey, iconPath, level)
+		table.insert(attunes, insertAt, {
 			ID = id,
 			NAME = AttuneLang[nameKey],
 			SHORT = tostring(level),
@@ -2639,11 +2650,12 @@ do
 			DESC = AttuneLang[descKey],
 			LEVELS = tostring(level),
 		})
+		insertAt = insertAt + 1
 	end
 
-	addAttune(1, "500", "Initiate", "Initiate_Desc", "Interface\\Icons\\achievement_level_20", 20)
-	addAttune(2, "510", "Intermediate", "Intermediate_Desc", "Interface\\Icons\\achievement_level_40", 40)
-	addAttune(3, "520", "Veteran", "Veteran_Desc", "Interface\\Icons\\achievement_level_60", 60)
+	addAttune("500", "Initiate", "Initiate_Desc", "Interface\\Icons\\achievement_level_20", 20)
+	addAttune("510", "Intermediate", "Intermediate_Desc", "Interface\\Icons\\achievement_level_40", 40)
+	addAttune("520", "Veteran", "Veteran_Desc", "Interface\\Icons\\achievement_level_60", 60)
 
 
     -- https://wowwiki-archive.fandom.com/wiki/Complete_list_of_Achievement_ID%27s for the achievement IDs
@@ -2665,7 +2677,7 @@ do
 
 	addTier("500", 20, 250, 5, 100, 125, 10, 10)
 	addTier("510", 40, 500, 50, 200, 250, 100, 20)
-	addTier("520", 60, 1000, 200, 400, 500, 500, 50)
+	addTier("520", 60, 1000, 200, 300, 500, 500, 50)
 end
 
 -- Highest skill of each primary profession. Any two at the tier's skill count.
