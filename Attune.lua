@@ -8,7 +8,10 @@
 --
 -------------------------------------------------------------------------
 
-
+-- 16001-37
+--   - Added the new prerequisite chain to "The Wrath of Rath'mael" (RoL)
+--   - Added the new prerequisite chain to "The New Plague" (RoL)
+--
 -- 16001-36
 --   - Added the possibility to discard/hide some attunements
 
