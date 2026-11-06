@@ -2625,10 +2625,10 @@ Attune_Data.steps = 	{
 }
 
 -- Character trials. Each requirement reads a statistic (GetStatistic):
--- 107 creatures killed, 333 gold looted (gold amount before the first pipe), 98 quests completed,
+-- 1198 creatures killed, 64222 times camped, 98 quests completed,
 -- 588 total honorable kills, 932 five-player dungeons entered, and profession skill.
 -- The chain is placed right to left, so a higher step id sits further left.
--- Top row: level, kills, quests, honorable kills, dungeons, gold.
+-- Top row: level, kills, quests, honorable kills, dungeons, times camped.
 -- Bottom row: cooking, fishing, first aid, two professions.
 do
 	local steps = Attune_Data.steps
@@ -2638,7 +2638,7 @@ do
 	local icon = {
 		level = "Interface\\Icons\\spell_holy_innerfire",
 		kills = "Interface\\Icons\\ability_warrior_savageblow",
-		gold = "Interface\\Icons\\inv_misc_coin_02",
+		camped = "Interface\\Icons\\inv_camelot_camping_welcomingcampfire",
 		quests = "Interface\\Icons\\inv_scroll_03",
 		honor = "Interface\\Icons\\inv_bannerpvp_02",
 		dungeons = "Interface\\Icons\\inv_misc_key_03",
@@ -2679,14 +2679,14 @@ do
 
     -- https://wowwiki-archive.fandom.com/wiki/Complete_list_of_Achievement_ID%27s for the achievement IDs
 
-	local function addTier(id, level, kills, gold, skill, quests, honor, dungeons)
+	local function addTier(id, level, kills, camped, skill, quests, honor, dungeons)
 		local profLabel = (AttuneLang["ProfessionsAt"] or "2 professions at ##SKILL##"):gsub("##SKILL##", tostring(skill))
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="30", TYPE="Level", STEP=AttuneLang["Reach level"].." "..level, LOCATION="", ID_WOWHEAD=tostring(level), ICON=icon.level, FOLLOWS="0", STAGE="10"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="20", TYPE="Stat", STEP=AttuneLang["Creatures killed"], LOCATION="", ID_WOWHEAD="1198", COUNT=kills, ICON=icon.kills, FOLLOWS="0", STAGE="10"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="18", TYPE="Stat", STEP=AttuneLang["Quests completed"], LOCATION="", ID_WOWHEAD="98", COUNT=quests, ICON=icon.quests, FOLLOWS="0", STAGE="20"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="15", TYPE="Stat", STEP=AttuneLang["Honorable kills"], LOCATION="", ID_WOWHEAD="588", COUNT=honor, ICON=icon.honor, FOLLOWS="0", STAGE="20"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="12", TYPE="Stat", STEP=AttuneLang["5-player dungeons"], LOCATION="", ID_WOWHEAD="932", COUNT=dungeons, ICON=icon.dungeons, FOLLOWS="0", STAGE="30"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="10", TYPE="Stat", STEP=AttuneLang["Gold looted"], LOCATION="", ID_WOWHEAD="333", COUNT=gold, GOLD=true, ICON=icon.gold, FOLLOWS="0", STAGE="30"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="10", TYPE="Stat", STEP=AttuneLang["Times camped"], LOCATION="", ID_WOWHEAD="64222", COUNT=camped, ICON=icon.camped, FOLLOWS="0", STAGE="30"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="70", TYPE="Prof", STEP=profLabel, LOCATION="", ID_WOWHEAD="0", COUNT=skill, NEED=2, ICON=icon.prof, FOLLOWS="0", STAGE="40"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="1524", COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="1519", COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="50"}
@@ -2695,10 +2695,10 @@ do
 	end
 
 
-    -- ID, level, kills, gold, skill, quests, honor kills, dungeons
-	addTier("500", 20, 750, 3, 100, 100, 5, 5)
-	addTier("510", 40, 3000, 50, 200, 300, 50, 15)
-	addTier("520", 60, 7500, 200, 300, 600, 500, 50)
+	-- ID, level, kills, times camped, skill, quests, honor kills, dungeons
+	addTier("500", 20, 750, 10, 100, 100, 5, 5)
+	addTier("510", 40, 3000, 25, 200, 300, 50, 15)
+	addTier("520", 60, 7500, 60, 300, 600, 500, 50)
 end
 
 -- Highest skill of each primary profession. Any two at the tier's skill count.
