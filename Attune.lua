@@ -2796,7 +2796,6 @@ function Attune_CheckIsNext(who)
 		-- Inside reminders are optional and always available, so they are not "the current step".
 		if showPatchStep(step) and not step.SIDE and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
-			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
 			local next = false
 			if  att.done[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
