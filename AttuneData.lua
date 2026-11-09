@@ -12,7 +12,7 @@
 Attune_Data.attunes = 	{
 	-- dungeon quests
 	{ID="163",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-15"},
-	{ID="166",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-15"},
+	{ID="166",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-15", DEFAULTSKIP=true},
 	{ID="160",NAME=AttuneLang["Ragefire Chasm"],SHORT="RFC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_fire_fire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-16"},
     {ID="183",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-17"},
 	{ID="186",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-17"},
@@ -749,25 +749,27 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="190",ID="360",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="350&250&150",STAGE="60"},
 
 --vForever dungeon attune 200
-	-- Columns L→R (higher ID = left): 1199 Twilight | 1275 Research | 971 Knowledge
-	-- SIDE (beside End): 1200 Blackfathom Villainy, 78916 Heart of the Void (from inside)
+	-- Columns L→R (higher ID = left): 1198→1200 Thaelrid | 1199 Twilight | 1275 Research | 971 Knowledge
+	-- SIDE (beside End): 78916 Heart of the Void (from inside)
 	{ID_ATTUNE="200",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 18",LOCATION="",ID_WOWHEAD="18",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="200",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1198",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: In Search of Thaelrid (prequest)
 	{ID_ATTUNE="200",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Twilight Falls
 	{ID_ATTUNE="200",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1275",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Researching the Corruption
 	{ID_ATTUNE="200",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Knowledge in the Deeps
 	-- STAGE 30
+	{ID_ATTUNE="200",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Blackfathom Villainy (from Thaelrid)
 	{ID_ATTUNE="200",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5879",ICON="Interface\\Icons\\inv_jewelry_amulet_06",FOLLOWS="320",STAGE="30", COUNT=10}, -- item: Twilight Pendant
 	{ID_ATTUNE="200",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5952",ICON="Interface\\Icons\\inv_misc_organ_03",FOLLOWS="220",STAGE="30", COUNT=8}, -- item: Corrupted Brain Stem
 	{ID_ATTUNE="200",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5359",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="120",STAGE="30"}, -- item: Lorgalis Manuscript
 	-- STAGE 40
+	{ID_ATTUNE="200",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="520",STAGE="40"},
 	{ID_ATTUNE="200",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Twilight Falls
 	{ID_ATTUNE="200",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1275",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Researching the Corruption
 	{ID_ATTUNE="200",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Knowledge in the Deeps
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="200",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: Blackfathom Villainy (from Thaelrid)
 	{ID_ATTUNE="200",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="78916",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: The Heart of the Void
-	{ID_ATTUNE="200",ID="350",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="340&240&140&520&510",STAGE="50"},
+	{ID_ATTUNE="200",ID="350",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="540&340&240&140&510",STAGE="50"},
 
 --vForever dungeon attune 210
 	-- Columns L→R (higher ID = left): 6921 Amongst | 6564→6565 Allegiance | 6562→6563 Essence
@@ -2624,9 +2626,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="95",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments",FOLLOWS="130",STAGE="140"},
 }
 
--- Character trials. Each requirement reads a statistic (GetStatistic):
+-- Character trials. Most requirements read a statistic (GetStatistic):
 -- 1198 creatures killed, 64222 times camped, 98 quests completed,
--- 588 total honorable kills, 932 five-player dungeons entered, and profession skill.
+-- 588 total honorable kills, and 932 five-player dungeons entered.
+-- Professions, including cooking (185), fishing (356), and first aid (129), read the profession rank.
 -- The chain is placed right to left, so a higher step id sits further left.
 -- Top row: level, kills, quests, honorable kills, dungeons, times camped.
 -- Bottom row: cooking, fishing, first aid, two professions.
@@ -2688,9 +2691,9 @@ do
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="12", TYPE="Stat", STEP=AttuneLang["5-player dungeons"], LOCATION="", ID_WOWHEAD="932", COUNT=dungeons, ICON=icon.dungeons, FOLLOWS="0", STAGE="30"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="10", TYPE="Stat", STEP=AttuneLang["Times camped"], LOCATION="", ID_WOWHEAD="64222", COUNT=camped, ICON=icon.camped, FOLLOWS="0", STAGE="30"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="70", TYPE="Prof", STEP=profLabel, LOCATION="", ID_WOWHEAD="0", COUNT=skill, NEED=2, ICON=icon.prof, FOLLOWS="0", STAGE="40"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="1524", COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="1519", COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="50"}
-		steps[#steps + 1] = {ID_ATTUNE=id, ID="50", TYPE="Stat", STEP=AttuneLang["First Aid skill"], LOCATION="", ID_WOWHEAD="281", COUNT=skill, ICON=icon.aid, FOLLOWS="0", STAGE="50"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="40", TYPE="Stat", STEP=AttuneLang["Cooking skill"], LOCATION="", ID_WOWHEAD="0", SKILL_LINE=185, COUNT=skill, ICON=icon.cooking, FOLLOWS="0", STAGE="40"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="60", TYPE="Stat", STEP=AttuneLang["Fishing skill"], LOCATION="", ID_WOWHEAD="0", SKILL_LINE=356, COUNT=skill, ICON=icon.fishing, FOLLOWS="0", STAGE="50"}
+		steps[#steps + 1] = {ID_ATTUNE=id, ID="50", TYPE="Stat", STEP=AttuneLang["First Aid skill"], LOCATION="", ID_WOWHEAD="0", SKILL_LINE=129, COUNT=skill, ICON=icon.aid, FOLLOWS="0", STAGE="50"}
 		steps[#steps + 1] = {ID_ATTUNE=id, ID="80", TYPE="End", STEP="Attuned", LOCATION="", ID_WOWHEAD="0", ICON=icon.level, FOLLOWS="30&20&18&15&12&10&70&60&50&40", STAGE="60"}
 	end
 
@@ -2701,20 +2704,20 @@ do
 	addTier("520", 60, 7500, 60, 300, 600, 500, 50)
 end
 
--- Highest skill of each primary profession. Any two at the tier's skill count.
+-- Skill line id and name. Any two at the tier's skill count.
 -- Jewelcrafting and Inscription are included so they count where those professions exist.
 Attune_Data.primaryProfessions = {
-	{"1527", "Alchemy"},
-	{"1532", "Blacksmithing"},
-	{"1535", "Enchanting"},
-	{"1544", "Engineering"},
-	{"1538", "Herbalism"},
-	{"1539", "Inscription"},
-	{"1540", "Jewelcrafting"},
-	{"1536", "Leatherworking"},
-	{"1537", "Mining"},
-	{"1541", "Skinning"},
-	{"1542", "Tailoring"},
+	{171, "Alchemy"},
+	{164, "Blacksmithing"},
+	{333, "Enchanting"},
+	{202, "Engineering"},
+	{182, "Herbalism"},
+	{773, "Inscription"},
+	{755, "Jewelcrafting"},
+	{165, "Leatherworking"},
+	{186, "Mining"},
+	{393, "Skinning"},
+	{197, "Tailoring"},
 }
 
 -- [id] = title, minlevel, groupsize, desc

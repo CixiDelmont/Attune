@@ -63,6 +63,7 @@ Attune_Data.questGivers = {
 	[1154] = {1442, 78.6, 45.6, "Braug Dimspirit"}, -- Braug Dimspirit (Stonetalon Mountains)
 	[1159] = {1442, 78.6, 45.6, "Braug Dimspirit"}, -- Braug Dimspirit (Stonetalon Mountains)
 	[1160] = {1458, 57.8, 65.0, "Parqual Fintallas"}, -- Parqual Fintallas (Undercity)
+	[1198] = {1457, 55.4, 24.6, "Dawnwatcher Shaedlass"}, -- Dawnwatcher Shaedlass (Darnassus)
 	[1199] = {1457, 55.2, 23.6, "Argent Guard Manados"}, -- Argent Guard Manados (Darnassus)
 	[1221] = {1413, 62.4, 37.6, "Mebok Mizzyrix"}, -- Mebok Mizzyrix (The Barrens)
 	[1275] = {1439, 38.4, 43.0, "Gershala Nightwhisper"}, -- Gershala Nightwhisper (Darkshore)

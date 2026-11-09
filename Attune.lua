@@ -1293,6 +1293,8 @@ function Attune:OnEnable()
 	end
 	-- End step done means fully attuned (Kill/Interact may lag behind in the done map)
 	Attune_ApplyCompletedEndSteps(t)
+	-- Horde Hall of Thanes starts under Will not do, once real progress is known.
+	Attune_ApplyDefaultSkips(t, attunelocal_faction)
 	-- No saved selection yet: open on the first attunement this character has not finished.
 	Attune_EnsureDefaultView()
 
@@ -1300,7 +1302,8 @@ function Attune:OnEnable()
 
 	-- sending a couple version checks to make sure people update to the latest version
 	guildName, guildRankName, guildRankIndex = GetGuildInfo("player");
-	if guildName ~= nil then
+	if type(guildName) == "string" and guildName ~= "" then
+		attunelocal_myguild = guildName
 		C_Timer.After(11, function()
 			if attunelocal_myguild ~= "" then Attune:SendCommMessage(attunelocal_versionprefix, attunelocal_version, "GUILD", ""); end
 		end)
@@ -1765,32 +1768,113 @@ local function Attune_StepIsNext(s)
 	return true
 end
 
--- Guild chat is protected in combat. Hold the line until PLAYER_REGEN_ENABLED.
+-- Midnight blocks addon chat for the whole encounter, not just while
+-- InCombatLockdown() is true. A line sent in that window is discarded.
 local Attune_GuildAnnounceQueue = {}
+local Attune_GuildAnnounceFlushing = false
+local Attune_GuildSendFailures = 0
+
+local function Attune_RememberGuild()
+	if not GetGuildInfo then return end
+	local guildName = GetGuildInfo("player")
+	if type(guildName) == "string" and guildName ~= "" then
+		attunelocal_myguild = guildName
+	end
+end
+
+local function Attune_InGuild()
+	Attune_RememberGuild()
+	if attunelocal_myguild ~= "" then return true end
+	if IsInGuild then
+		local ok, inGuild = pcall(IsInGuild)
+		if ok and inGuild then return true end
+	end
+	return false
+end
+
+local function Attune_ChatLocked()
+	if InCombatLockdown and InCombatLockdown() then return true end
+	local info = C_ChatInfo
+	if info and info.InChatMessagingLockdown and info.InChatMessagingLockdown() then return true end
+	return false
+end
+
+local function Attune_TrySendGuild(msg)
+	local info = C_ChatInfo
+	local send = (info and info.SendChatMessage) or SendChatMessage
+	return pcall(send, msg, "GUILD")
+end
+
+local Attune_FlushGuildAnnouncements
+
+local function Attune_ScheduleGuildFlush(delay)
+	if Attune_GuildAnnounceFlushing then return end
+	Attune_GuildAnnounceFlushing = true
+	C_Timer.After(delay or 0, Attune_FlushGuildAnnouncements)
+end
+
+Attune_FlushGuildAnnouncements = function()
+	Attune_GuildAnnounceFlushing = false
+	if #Attune_GuildAnnounceQueue == 0 then return end
+	if Attune_ChatLocked() then
+		Attune_ScheduleGuildFlush(1)
+		return
+	end
+	local pending = Attune_GuildAnnounceQueue
+	Attune_GuildAnnounceQueue = {}
+	local failed = false
+	for _, msg in ipairs(pending) do
+		if failed or Attune_ChatLocked() or not Attune_TrySendGuild(msg) then
+			Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
+			failed = true
+		end
+	end
+	if not failed then
+		Attune_GuildSendFailures = 0
+		return
+	end
+	Attune_GuildSendFailures = Attune_GuildSendFailures + 1
+	if Attune_GuildSendFailures >= 5 then
+		Attune_GuildAnnounceQueue = {}
+		Attune_GuildSendFailures = 0
+		return
+	end
+	Attune_ScheduleGuildFlush(1)
+end
 
 local function Attune_AnnounceGuild(msg)
-	if InCombatLockdown() then
+	if Attune_ChatLocked() or not Attune_TrySendGuild(msg) then
 		for _, pending in ipairs(Attune_GuildAnnounceQueue) do
 			if pending == msg then return end
 		end
 		Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
-		return
+		Attune_ScheduleGuildFlush(0.5)
 	end
-	SendChatMessage(msg, "GUILD")
 end
 
 function Attune:PLAYER_REGEN_ENABLED()
-	if InCombatLockdown() or #Attune_GuildAnnounceQueue == 0 then return end
-	local pending = Attune_GuildAnnounceQueue
-	Attune_GuildAnnounceQueue = {}
-	for _, msg in ipairs(pending) do
-		SendChatMessage(msg, "GUILD")
-	end
+	if #Attune_GuildAnnounceQueue == 0 then return end
+	-- Combat lockdown is still on during this event. Retry once it lifts,
+	-- and keep retrying while chat-messaging lockdown is still up.
+	Attune_GuildAnnounceFlushing = false
+	Attune_ScheduleGuildFlush(0)
 end
 
 local function Attune_AnnounceAttuneComplete(name)
-	if not (Attune_DB and Attune_DB.announceAttuneCompleted and attunelocal_myguild ~= "") then return end
-	Attune_AnnounceGuild("[Attune] "..AttuneLang["AttuneCompleteGuild"]:gsub("##NAME##", name))
+	if not (Attune_DB and Attune_DB.announceAttuneCompleted and name) then return end
+	if not Attune_InGuild() then return end
+	local template = AttuneLang["AttuneCompleteGuild"]
+	if not template then return end
+	Attune_AnnounceGuild("[Attune] "..template:gsub("##NAME##", name))
+end
+
+local function Attune_CelebrateAttuneComplete(name)
+	if not name or name == "" then return end
+	PlaySound(5275) -- AuctionWindowClose
+	if Attune_DB and Attune_DB.showStepReached and AttuneLang["AttuneComplete"] then
+		print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", name))
+	end
+	Attune_AnnounceAttuneComplete(name)
 end
 
 -- Mark one matching step, announce it, and optionally close out the attunement.
@@ -1816,13 +1900,9 @@ local function Attune_MarkStepDone(s, typeLabel, stepLabel, checkComplete)
 	end
 	Attune_SendPushInfo("TOON")
 	Attune_SendPushInfo(key)
+	-- CheckComplete posts the guild line when this step is the one that hits 100%.
 	if checkComplete then
 		Attune_CheckComplete(false)
-		if toon.attuned[a.ID] >= 100 then
-			PlaySound(5275) -- AuctionWindowClose
-			if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-			Attune_AnnounceAttuneComplete(a.NAME)
-		end
 	end
 	Attune_SendPushInfo("OVER")
 	return true
@@ -1884,7 +1964,7 @@ function Attune:PLAYER_LEVEL_UP(event, arg1)
 	for _, s in ipairs(levels) do
 		if showPatchStep(s) and arg1 >= tonumber(s.ID_WOWHEAD) then
 			-- Level messages keep the raw type word used before this lookup.
-			if Attune_MarkStepDone(s, s.TYPE, s.STEP, false) then
+			if Attune_MarkStepDone(s, s.TYPE, s.STEP, true) then
 				refreshNeeded = true
 			end
 		end
@@ -1913,6 +1993,10 @@ function Attune:PLAYER_PVP_KILLS_CHANGED()
 end
 
 function Attune:PLAYER_ENTERING_WORLD()
+	Attune_RememberGuild()
+	if C_Timer and C_Timer.After then
+		C_Timer.After(2, Attune_RememberGuild)
+	end
 	Attune_QueueStatScan()
 	Attune_NextFrameUpdate()
 end
@@ -2005,7 +2089,7 @@ function Attune:QUEST_ACCEPTED(event, arg1, arg2)
 	if steps then
 		for _, s in ipairs(steps) do
 			if showPatchStep(s) then
-				if Attune_MarkStepDone(s, AttuneLang[s.TYPE], AttuneLang["Q1_"..s.ID_WOWHEAD], false) then
+				if Attune_MarkStepDone(s, AttuneLang[s.TYPE], AttuneLang["Q1_"..s.ID_WOWHEAD], true) then
 					refreshNeeded = true
 				end
 			end
@@ -2259,15 +2343,39 @@ function Attune_StatGoal(step)
 	return tonumber(step.COUNT) or 0
 end
 
+-- Profession rank from the profession window, not the statistics tab.
+-- Forever's GetProfessions order differs from other clients, so match the skill line.
+function Attune_ProfessionRank(skillLine)
+	skillLine = tonumber(skillLine)
+	if skillLine == nil or type(GetProfessions) ~= "function" or type(GetProfessionInfo) ~= "function" then
+		return 0
+	end
+	local s1, s2, s3, s4, s5, s6 = GetProfessions()
+	local slots = { s1, s2, s3, s4, s5, s6 }
+	for i = 1, 6 do
+		local index = slots[i]
+		if type(index) == "number" then
+			local ok, _, _, rank, _, _, _, line = pcall(GetProfessionInfo, index)
+			if ok and line == skillLine then
+				return tonumber(rank) or 0
+			end
+		end
+	end
+	return 0
+end
+
 function Attune_StatValue(step)
 	if step == nil then return 0 end
+	if step.SKILL_LINE then
+		return Attune_ProfessionRank(step.SKILL_LINE)
+	end
 	if step.TYPE == "Prof" then
 		local skill = tonumber(step.COUNT) or 0
 		local have = 0
 		local profs = Attune_Data.primaryProfessions
 		if profs then
 			for i = 1, #profs do
-				if Attune_ReadStatistic(profs[i][1]) >= skill then
+				if Attune_ProfessionRank(profs[i][1]) >= skill then
 					have = have + 1
 				end
 			end
@@ -2350,7 +2458,7 @@ end
 
 -- Close or reopen the Character end node from the requirement steps.
 -- Returns true when a trial newly finishes or reopens, so the tree can move it.
-function Attune_SyncCharacterEnds(toon)
+function Attune_SyncCharacterEnds(toon, silent)
 	if toon == nil or toon.done == nil then return false end
 	local ends = Attune_Data.stepsByType and Attune_Data.stepsByType["End"]
 	if ends == nil then return false end
@@ -2375,10 +2483,9 @@ function Attune_SyncCharacterEnds(toon)
 				toon.attuned[e.ID_ATTUNE] = 100
 				if not wasComplete then
 					changed = true
-					if not attunelocal_initial and attunelocal_frame and attunelocal_frame:IsShown() then
-						PlaySound(5275) -- AuctionWindowClose
-						if Attune_DB.showStepReached then print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", a.NAME)) end
-						Attune_AnnounceAttuneComplete(a.NAME)
+					-- Login records the finish quietly. A live close still announces with the window shut.
+					if not silent then
+						Attune_CelebrateAttuneComplete(a.NAME)
 					end
 				end
 			else
@@ -2409,7 +2516,7 @@ function Attune_ShowStatTooltip(step, fnode)
 		local profs = Attune_Data.primaryProfessions
 		if profs then
 			for i = 1, #profs do
-				local skill = Attune_ReadStatistic(profs[i][1])
+				local skill = Attune_ProfessionRank(profs[i][1])
 				if skill > 0 then
 					any = true
 					local name = AttuneLang[profs[i][2]] or profs[i][2]
@@ -2472,7 +2579,7 @@ function Attune_ScanStatSteps(silent)
 
 	consider(byType["Stat"])
 	consider(byType["Prof"])
-	local listChanged = Attune_SyncCharacterEnds(toon)
+	local listChanged = Attune_SyncCharacterEnds(toon, silent)
 	Attune_StatScanRunning = false
 
 	-- Silent redraws record the finish after the tree was built. Refresh the list once that draw returns.
@@ -2644,7 +2751,7 @@ function Attune_CheckProgress()
 	-- including a second pass to mark as done all non-trackable steps (interact/kill/past items) that belong to earlier (completed) quests
 	Attune_ScanStatSteps(true)
 	Attune_SendPushInfo("TOON")
-	Attune_CheckComplete(true)
+	Attune_CheckComplete(true, true)
 	Attune_SendPushInfo("OVER")
 
 	-- a third pass to mark as done all attunements used in further attunements
@@ -2704,25 +2811,29 @@ end
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
-function Attune_CheckComplete(newComplete)
+function Attune_CheckComplete(newComplete, quiet)
 	local att = Attune_DB.toons[attunelocal_charKey]
+	local finished = {}
+	local function noteFinished(id)
+		finished[#finished + 1] = id
+	end
 
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 
 	-- WoW
-	if att.done["20-45"] and att.attuned["20"] ~= 100 	then att.done["20-50"] = 1; 	Attune_SendPushInfo("20-50"); 	att.attuned["20"] = 100; Attune_UpdateTreeGroup("20"); newComplete = true;  end	-- MC
-	if att.done["30-268"] and att.attuned["30"] ~= 100	then att.done["30-270"] = 1; Attune_SendPushInfo("30-270"); 	att.attuned["30"] = 100; Attune_UpdateTreeGroup("30"); newComplete = true;  end	-- Ony Horde
-	if att.done["40-265"] and att.attuned["40"] ~= 100	then att.done["40-270"] = 1; Attune_SendPushInfo("40-270"); 	att.attuned["40"] = 100; Attune_UpdateTreeGroup("40"); newComplete = true;  end	-- Ony Alliance
-	if att.done["50-65"] and att.attuned["50"] ~= 100 	then att.done["50-70"] = 1; 	Attune_SendPushInfo("50-70"); 	att.attuned["50"] = 100; Attune_UpdateTreeGroup("50"); newComplete = true;  end	-- BWL
-	if att.done["60-40"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
-	if att.done["60-50"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
-	if att.done["60-60"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
-	if att.done["80-200"] and att.attuned["80"] ~= 100 	then att.done["80-210"] = 1; Attune_SendPushInfo("80-210"); 	att.attuned["80"] = 100;	 Attune_UpdateTreeGroup("80"); newComplete = true;  end	-- MC Quintessence
-	if att.done["100-960"] and att.attuned["100"] ~= 100 	then att.done["100-970"] = 1;Attune_SendPushInfo("100-970"); 	att.attuned["100"] = 100; Attune_UpdateTreeGroup("100"); newComplete = true;  end	-- scarab
+	if att.done["20-45"] and att.attuned["20"] ~= 100 	then att.done["20-50"] = 1; 	Attune_SendPushInfo("20-50"); 	att.attuned["20"] = 100; noteFinished("20"); Attune_UpdateTreeGroup("20"); newComplete = true;  end	-- MC
+	if att.done["30-268"] and att.attuned["30"] ~= 100	then att.done["30-270"] = 1; Attune_SendPushInfo("30-270"); 	att.attuned["30"] = 100; noteFinished("30"); Attune_UpdateTreeGroup("30"); newComplete = true;  end	-- Ony Horde
+	if att.done["40-265"] and att.attuned["40"] ~= 100	then att.done["40-270"] = 1; Attune_SendPushInfo("40-270"); 	att.attuned["40"] = 100; noteFinished("40"); Attune_UpdateTreeGroup("40"); newComplete = true;  end	-- Ony Alliance
+	if att.done["50-65"] and att.attuned["50"] ~= 100 	then att.done["50-70"] = 1; 	Attune_SendPushInfo("50-70"); 	att.attuned["50"] = 100; noteFinished("50"); Attune_UpdateTreeGroup("50"); newComplete = true;  end	-- BWL
+	if att.done["60-40"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; noteFinished("60"); Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["60-50"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; noteFinished("60"); Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["60-60"] and att.attuned["60"] ~= 100 	then att.done["60-90"] = 1; 	Attune_SendPushInfo("60-90"); 	att.attuned["60"] = 100; noteFinished("60"); Attune_UpdateTreeGroup("60"); newComplete = true;  end	-- Naxx
+	if att.done["80-200"] and att.attuned["80"] ~= 100 	then att.done["80-210"] = 1; Attune_SendPushInfo("80-210"); 	att.attuned["80"] = 100; noteFinished("80"); Attune_UpdateTreeGroup("80"); newComplete = true;  end	-- MC Quintessence
+	if att.done["100-960"] and att.attuned["100"] ~= 100 	then att.done["100-970"] = 1;Attune_SendPushInfo("100-970"); 	att.attuned["100"] = 100; noteFinished("100"); Attune_UpdateTreeGroup("100"); newComplete = true;  end	-- scarab
 
-	if att.done["120-65"] and att.attuned["120"] ~= 100 	then att.done["120-70"] = 1; Attune_SendPushInfo("120-70"); 	att.attuned["120"] = 100; Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- brd key
-	if att.done["140-130"] and att.attuned["140"] ~= 100 	then att.done["140-140"] = 1; Attune_SendPushInfo("140-140"); 	att.attuned["140"] = 100; Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- scholo Horde
-	if att.done["150-130"] and att.attuned["150"] ~= 100 	then att.done["150-140"] = 1; Attune_SendPushInfo("150-140"); 	att.attuned["150"] = 100; Attune_UpdateTreeGroup("150"); newComplete = true;  end	-- scholo Alliance
+	if att.done["120-65"] and att.attuned["120"] ~= 100 	then att.done["120-70"] = 1; Attune_SendPushInfo("120-70"); 	att.attuned["120"] = 100; noteFinished("120"); Attune_UpdateTreeGroup("120"); newComplete = true;  end	-- brd key
+	if att.done["140-130"] and att.attuned["140"] ~= 100 	then att.done["140-140"] = 1; Attune_SendPushInfo("140-140"); 	att.attuned["140"] = 100; noteFinished("140"); Attune_UpdateTreeGroup("140"); newComplete = true;  end	-- scholo Horde
+	if att.done["150-130"] and att.attuned["150"] ~= 100 	then att.done["150-140"] = 1; Attune_SendPushInfo("150-140"); 	att.attuned["150"] = 100; noteFinished("150"); Attune_UpdateTreeGroup("150"); newComplete = true;  end	-- scholo Alliance
 
 
 	-- Generic: mark End done when all its FOLLOWS are complete
@@ -2749,9 +2860,17 @@ function Attune_CheckComplete(newComplete)
 				att.done[s.ID_ATTUNE .. "-" .. s.ID] = 1
 				Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID)
 				att.attuned[s.ID_ATTUNE] = 100
+				noteFinished(s.ID_ATTUNE)
 				Attune_UpdateTreeGroup(s.ID_ATTUNE)
 				newComplete = true
 			end
+		end
+	end
+
+	if not quiet then
+		for _, id in ipairs(finished) do
+			local a = Attune_Data.attuneById and Attune_Data.attuneById[id]
+			if a then Attune_CelebrateAttuneComplete(a.NAME) end
 		end
 	end
 
@@ -2961,6 +3080,34 @@ function Attune_IsSkipped(attuneId)
 	return t ~= nil and t.skip ~= nil and t.skip[attuneId] == true
 end
 
+-- True when this character has finished the attune, or done a step besides the level gate.
+function Attune_AttuneAlreadyStarted(toon, attuneId)
+	if toon == nil then return false end
+	if toon.attuned and (toon.attuned[attuneId] or 0) >= 100 then return true end
+	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[attuneId]
+	if chain == nil or toon.done == nil then return false end
+	for _, s in ipairs(chain) do
+		if s.TYPE ~= "Level" and s.TYPE ~= "Spacer" and toon.done[attuneId .. "-" .. s.ID] then
+			return true
+		end
+	end
+	return false
+end
+
+-- DEFAULTSKIP attunes (Horde Hall of Thanes) start under Will not do.
+-- A stored false means this character turned the box off, so it stays off.
+function Attune_ApplyDefaultSkips(toon, faction)
+	if toon == nil or faction == nil or faction == "" or Attune_Data == nil or Attune_Data.attunes == nil then return end
+	if toon.skip == nil then toon.skip = {} end
+	for _, a in pairs(Attune_Data.attunes) do
+		if a.DEFAULTSKIP and (a.FACTION == faction or a.FACTION == "Both") and toon.skip[a.ID] == nil then
+			if not Attune_AttuneAlreadyStarted(toon, a.ID) then
+				toon.skip[a.ID] = true
+			end
+		end
+	end
+end
+
 function Attune_TreeHasGroup(expacNode, groupValue)
 	if expacNode == nil or groupValue == nil then return false end
 	for _, g in ipairs(expacNode.children or {}) do
@@ -2990,12 +3137,15 @@ function Attune_SetAttuneSkipped(attuneId, skipped)
 	local t = Attune_DB.toons and Attune_DB.toons[attunelocal_charKey]
 	if t == nil then return end
 	if t.skip == nil then t.skip = {} end
+	local a = Attune_Data.attuneById and Attune_Data.attuneById[attuneId]
 	if skipped then
 		t.skip[attuneId] = true
+	elseif a and a.DEFAULTSKIP then
+		-- false keeps a default-skipped attune in the list. nil would be set again next login.
+		t.skip[attuneId] = false
 	else
 		t.skip[attuneId] = nil
 	end
-	local a = Attune_Data.attuneById and Attune_Data.attuneById[attuneId]
 	if a then
 		local done = t.attuned and (t.attuned[attuneId] or 0) >= 100
 		local group = Attune_WillNotDoLabel()
@@ -8201,7 +8351,7 @@ function Attune_SendRequestResults(surveyRequestor)
 			meta.o = 0 --not officer
 		end
 	end
-	attunelocal_myguild = guildName
+	if guildName ~= "" then attunelocal_myguild = guildName end
 
 	local att = Attune_DB.toons[attunelocal_charKey]
 	if att.status == nil then att.status = "None" end
@@ -8264,7 +8414,7 @@ function Attune_SendPushInfo(step)
 				meta.o = 0 --not officer
 			end
 		end
-		attunelocal_myguild = guildName
+		if guildName ~= "" then attunelocal_myguild = guildName end
 
 		local att = Attune_DB.toons[attunelocal_charKey]
 		if att.status == nil then att.status = "None" end
