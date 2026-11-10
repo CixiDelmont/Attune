@@ -8,12 +8,18 @@
 --
 -------------------------------------------------------------------------
 
-
+-- 16001-40
+--   - Added the Call of Fire quest for Skyborne shamans.
+--   - Added the human and skyborne hunter taming chains.
+--   - Removed a SoD quest from gnomeragan, and fixed another.
+--
 -- 16001-39
 --   - Added an option to turn off Attune sounds.
+--   - Added an option to show/hide full categories
 --   - Added an option to toggle Deadmines between VC and DM
 --   - Removed a SoD quest from Blafathom Deeps
 --   - Added a missing chain to The Stockades
+--   - Added Portuguese translation (Kudos to kenpark on Curseforge <3
 --
 -- 16001-38
 --   - Fixed an issue where an error would occur if an achievement completed while in combat
