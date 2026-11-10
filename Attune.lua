@@ -9,6 +9,12 @@
 -------------------------------------------------------------------------
 
 
+-- 16001-39
+--   - Added an option to turn off Attune sounds.
+--   - Added an option to toggle Deadmines between VC and DM
+--   - Removed a SoD quest from Blafathom Deeps
+--   - Added a missing chain to The Stockades
+--
 -- 16001-38
 --   - Fixed an issue where an error would occur if an achievement completed while in combat
 --   - Changed the Character Progression attunes to 'Times Camped' instead of 'Gold looted' (as that stat currently doesn't work)
@@ -676,7 +682,7 @@ local attune_options = {
     args = {
         tab1 = {
             type = "group",
-            name = AttuneLang["Settings"],
+            name = AttuneLang["GeneralSettings"],
 			width = "full",
 			order = 1,
 			args = {
@@ -715,13 +721,9 @@ local attune_options = {
 					type = "toggle",
 					name = AttuneLang["ShowCharacterProgression_TEXT"],
 					desc = AttuneLang["ShowCharacterProgression_DESC"],
-					get = function(info) return Attune_DB.showCharacterProgression ~= false end,
+					get = function(info) return Attune_CategoryShown("CHARACTER") end,
 					set = function(info, val)
-						Attune_DB.showCharacterProgression = val
-						Attune_ReloadAttuneTree()
-						if Attune_DB.iconView then Attune_LayoutIconView() end
-						if attunelocal_glist then Attune_ShowResultList() end
-						Attune_NextFrameUpdate()
+						Attune_SetCategoryShown("CHARACTER", val)
 					end,
 					width = 2.5,
 					order = 5,
@@ -774,6 +776,29 @@ local attune_options = {
 					width = 2.5,
 					order = 8.5,
 				},
+				playSounds = {
+					type = "toggle",
+					name = AttuneLang["PlaySounds_TEXT"],
+					desc = AttuneLang["PlaySounds_DESC"],
+					get = function(info) return Attune_DB.playSounds ~= false end,
+					set = function(info, val) Attune_DB.playSounds = val end,
+					width = 2.5,
+					order = 8.6,
+				},
+				deadminesAsDM = {
+					type = "toggle",
+					name = AttuneLang["DeadminesAsDM_TEXT"],
+					desc = AttuneLang["DeadminesAsDM_DESC"],
+					get = function(info) return Attune_DB.deadminesAsDM end,
+					set = function(info, val)
+						Attune_DB.deadminesAsDM = val
+						Attune_ReloadAttuneTree()
+						if Attune_DB.iconView then Attune_LayoutIconView() end
+						Attune_NextFrameUpdate()
+					end,
+					width = 2.5,
+					order = 8.7,
+				},
 				treeScale = {
 					type = "select",
 					name = AttuneLang["TreeScale_TEXT"],
@@ -796,11 +821,114 @@ local attune_options = {
 					order = 9,
 				},                
 
-                spacer1 = {
+				-- showListAlt = {
+				-- 	type = "toggle",
+				-- 	name = AttuneLang["ShowAltsInstead_TEXT"],
+				-- 	desc = AttuneLang["ShowAltsInstead_DESC"],
+				-- 	get = function(info) return Attune_DB.showListAlt end,
+				-- 	set = function(info, val) Attune_DB.showListAlt = val end,
+				-- 	width = 2.5,
+				-- 	order = 26,
+				-- },
+				-- showDeprecatedAttunes = {
+				-- 	type = "toggle",
+				-- 	name = AttuneLang["showDeprecatedAttunes_TEXT"],
+				-- 	desc = AttuneLang["showDeprecatedAttunes_DESC"],
+				-- 	get = function(info) return Attune_DB.showDeprecatedAttunes end,
+				-- 	set = function(info, val) Attune_DB.showDeprecatedAttunes = val; 	Attune_LoadTree(); 	Attune_ForceAttuneTabRefresh() end,
+				-- 	width = 2.5,
+				-- 	order = 27,
+				-- },
+				spacer5 = {
 					type = "description",
 					name = " ",
 					width = "full",
-					order = 9.5,
+					order = 27,
+				},
+
+				websiteUrl = {
+					type = "input",
+					name = "Database Website URL",
+					desc = "URL of a World of Warcraft database website",
+					get = function(info) return Attune_DB.websiteUrl end,
+					set = function(info, val) Attune_DB.websiteUrl = val end,
+					width = "full",
+					order = 28,
+				},
+
+
+				spacer6 = {
+					type = "description",
+					name = " \n ",
+					width = "full",
+					order = 40,
+				},
+
+				credits = {
+					type = "description",
+					name = AttuneLang["Credits"],
+					width = "full",
+					fontSize = "medium",
+					order = 45,
+				},
+  --[[				showWidget = {
+					type = "toggle",
+					name = "Show Reputation Widget",
+					desc = "Displays a reputation tracking window, allowing you to check your attunement reputation gains and progress.",
+					get = function(info) return Attune_DB.repWidget.showWidget end,
+					set = function(info, val) Attune_DB.repWidget.showWidget = val;
+						if attunelocal_repWidget ~= nil then
+							if val then attunelocal_repWidget:Show()
+							else attunelocal_repWidget:Hide()
+							end
+						end
+					end,
+					width = 1.7,
+					order = 41,
+				},
+				lockWidget = {
+					type = "toggle",
+					name = "Lock Reputation Widget",
+					desc = "Lock the reputation widget in place, preventing its movement and hiding usage information.",
+					get = function(info) return Attune_DB.repWidget.lockWidget end,
+					set = function(info, val) Attune_DB.repWidget.lockWidget = val
+						if attunelocal_repWidget ~= nil then
+							print("in")
+							if val then
+								attunelocal_repWidget:SetMovable(false)
+								print("NOT movable")
+							else
+								attunelocal_repWidget:SetMovable(true)
+								print("movable")
+							end
+						end
+					end,
+					width = 1.7,
+					order = 42,
+				},
+  ]]
+			},
+		},
+
+		categories = {
+			type = "group",
+			name = AttuneLang["Categories"],
+			width = "full",
+			order = 50,
+			args = {},
+		},
+
+		surveySettings = {
+			type = "group",
+			name = AttuneLang["SurveySettings"],
+			width = "full",
+			order = 75,
+			args = {
+				spacer1 = {
+					type = "description",
+					name = " ",
+					width = "full",
+					order = 2,
 				},
 				autosurvey = {
 					type = "toggle",
@@ -810,7 +938,7 @@ local attune_options = {
 					set = function(info, val) Attune_DB.autosurvey = val end,
 					width = 2.5,
 					order = 10,
-				},                
+				},
 				showSurveyed = {
 					type = "toggle",
 					name = AttuneLang["ShowSurveyed_TEXT"],
@@ -864,13 +992,13 @@ local attune_options = {
 					set = function(info, val) Attune_DB.toons[attunelocal_charKey].announceAchieveCompleted = val end,
 					width = 2.6,
 					order = 20,
-				},				
+				},
 				achieveMinPoints = {
 					type = "select",
 					name = "",
 					desc = "",
-					values = {	
-						[10] = "10 Points", 
+					values = {
+						[10] = "10 Points",
 						[20] = "20 Points",
 						[25] = "25 Points",
 						[30] = "30 Points",
@@ -906,44 +1034,11 @@ local attune_options = {
 					width = 0.5,
 					order = 24,
 				},
-				-- showListAlt = {
-				-- 	type = "toggle",
-				-- 	name = AttuneLang["ShowAltsInstead_TEXT"],
-				-- 	desc = AttuneLang["ShowAltsInstead_DESC"],
-				-- 	get = function(info) return Attune_DB.showListAlt end,
-				-- 	set = function(info, val) Attune_DB.showListAlt = val end,
-				-- 	width = 2.5,
-				-- 	order = 26,
-				-- },
-				-- showDeprecatedAttunes = {
-				-- 	type = "toggle",
-				-- 	name = AttuneLang["showDeprecatedAttunes_TEXT"],
-				-- 	desc = AttuneLang["showDeprecatedAttunes_DESC"],
-				-- 	get = function(info) return Attune_DB.showDeprecatedAttunes end,
-				-- 	set = function(info, val) Attune_DB.showDeprecatedAttunes = val; 	Attune_LoadTree(); 	Attune_ForceAttuneTabRefresh() end,
-				-- 	width = 2.5,
-				-- 	order = 27,
-				-- },
-				websiteUrl = {
-					type = "input",
-					name = "Database Website URL",
-					desc = "URL of a World of Warcraft database website",
-					get = function(info) return Attune_DB.websiteUrl end,
-					set = function(info, val) Attune_DB.websiteUrl = val end,
-					width = "full",
-					order = 28,
-				},
-				spacer3 = {
+				spacerDelete = {
 					type = "description",
 					name = " ",
 					width = "full",
 					order = 30,
-				},
-				spacer4 = {
-					type = "description",
-					name = " ",
-					width = "full",
-					order = 40,
 				},
 				deleteAll = {
 					type = "execute",
@@ -983,59 +1078,6 @@ local attune_options = {
 					width = 1.6,
 					order = 33,
 				},
-
-	--[[
-				spacer5 = {
-					type = "description",
-					name = " ",
-					width = "full",
-					order = 40,
-				},
-	]]
-
-				credits = {
-					type = "description",
-					name = AttuneLang["Credits"],
-					width = "full",
-					fontSize = "medium",
-					order = 45,
-				},
-  --[[				showWidget = {
-					type = "toggle",
-					name = "Show Reputation Widget",
-					desc = "Displays a reputation tracking window, allowing you to check your attunement reputation gains and progress.",
-					get = function(info) return Attune_DB.repWidget.showWidget end,
-					set = function(info, val) Attune_DB.repWidget.showWidget = val;
-						if attunelocal_repWidget ~= nil then
-							if val then attunelocal_repWidget:Show()
-							else attunelocal_repWidget:Hide()
-							end
-						end
-					end,
-					width = 1.7,
-					order = 41,
-				},
-				lockWidget = {
-					type = "toggle",
-					name = "Lock Reputation Widget",
-					desc = "Lock the reputation widget in place, preventing its movement and hiding usage information.",
-					get = function(info) return Attune_DB.repWidget.lockWidget end,
-					set = function(info, val) Attune_DB.repWidget.lockWidget = val
-						if attunelocal_repWidget ~= nil then
-							print("in")
-							if val then
-								attunelocal_repWidget:SetMovable(false)
-								print("NOT movable")
-							else
-								attunelocal_repWidget:SetMovable(true)
-								print("movable")
-							end
-						end
-					end,
-					width = 1.7,
-					order = 42,
-				},
-  ]]
 			},
 		},
 
@@ -1061,6 +1103,7 @@ local attune_options = {
 -------------------------------------------------------------------------
 
 function Attune:OnInitialize()
+	Attune_InstallCategoryOptions()
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("Attune", attune_options, nil)
 	-- Second return is the Settings category ID (numeric on modern clients).
 	local _, categoryID = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("Attune")
@@ -1164,6 +1207,8 @@ function Attune:OnEnable()
 	if Attune_DB.minimapbuttonpos.hide == nil then Attune_DB.minimapbuttonpos.hide = false end
 	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
 	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
+	if Attune_DB.playSounds == nil then Attune_DB.playSounds = true end
+	if Attune_DB.deadminesAsDM == nil then Attune_DB.deadminesAsDM = false end
 	if Attune_DB.showAllClassQuests == nil then Attune_DB.showAllClassQuests = false end
 	if Attune_DB.showCharacterProgression == nil then
 		if Attune_DB.hideCharacterProgression == nil then
@@ -1171,6 +1216,11 @@ function Attune:OnEnable()
 		else
 			Attune_DB.showCharacterProgression = not Attune_DB.hideCharacterProgression
 		end
+	end
+	if Attune_DB.hiddenGroups == nil then Attune_DB.hiddenGroups = {} end
+	-- Older builds stored this as its own toggle. A missing checkbox stays on.
+	if Attune_DB.showCharacterProgression == false then
+		Attune_DB.hiddenGroups["CHARACTER"] = true
 	end
 	if Attune_DB.iconView == nil then Attune_DB.iconView = true end
 	if Attune_DB.showNextSteps == nil then Attune_DB.showNextSteps = true end
@@ -1868,9 +1918,16 @@ local function Attune_AnnounceAttuneComplete(name)
 	Attune_AnnounceGuild("[Attune] "..template:gsub("##NAME##", name))
 end
 
+-- Plays an Attune cue when Play sounds is on.
+local function Attune_PlaySound(sound)
+	if not sound or not PlaySound then return end
+	if Attune_DB and Attune_DB.playSounds == false then return end
+	PlaySound(sound)
+end
+
 local function Attune_CelebrateAttuneComplete(name)
 	if not name or name == "" then return end
-	PlaySound(5275) -- AuctionWindowClose
+	Attune_PlaySound(5275) -- AuctionWindowClose
 	if Attune_DB and Attune_DB.showStepReached and AttuneLang["AttuneComplete"] then
 		print("|cffff00ff[Attune]|r "..AttuneLang["AttuneComplete"]:gsub("##NAME##", name))
 	end
@@ -1894,7 +1951,7 @@ local function Attune_MarkStepDone(s, typeLabel, stepLabel, checkComplete)
 	end
 
 	toon.done[key] = 1
-	PlaySound(1210) --putdownring
+	Attune_PlaySound(1210) --putdownring
 	if Attune_DB.showStepReached then
 		print("|cffff00ff[Attune]|r "..AttuneLang["CompletedStep"]:gsub("##TYPE##", typeLabel):gsub("##STEP##", stepLabel):gsub("##NAME##", a.NAME))
 	end
@@ -3046,6 +3103,17 @@ local function Attune_DisplayName(a)
 	return a.NAME
 end
 
+-- Off: Deadmines is VC and Dire Maul is DM. On: Deadmines is DM and Dire Maul uses its name.
+function Attune_ShortName(a)
+	if not a then return "" end
+	if Attune_DB and Attune_DB.deadminesAsDM then
+		local id = tostring(a.ID)
+		if id == "170" then return "DM" end
+		if id == "340" or id == "341" then return AttuneLang["Dire Maul"] or "Dire Maul" end
+	end
+	return a.SHORT
+end
+
 -------------------------------------------------------------------------
 -- Load the data into the TreeGroup object (nodes/leaves)
 -------------------------------------------------------------------------
@@ -3063,10 +3131,218 @@ local function Attune_ClassQuestVisible(a)
 	return classFile ~= nil and a.CLASS == classFile
 end
 
--- Character Progression attunes stay in the list when "Show Character Progression attunes" is on.
+-- Locale keys for category checkboxes. A group name that is not in this list
+-- still gets a checkbox, stored under the name itself.
+Attune_CategoryKeyList = {
+	"CLASS_DRUID",
+	"CLASS_HUNTER",
+	"CLASS_MAGE",
+	"CLASS_PALADIN",
+	"CLASS_PRIEST",
+	"CLASS_ROGUE",
+	"CLASS_SHAMAN",
+	"CLASS_WARLOCK",
+	"CLASS_WARRIOR",
+	"CHARACTER",
+	"DUNGEONS",
+	"KEYS",
+	"RAIDS",
+	"MISC",
+	"HEROICS",
+}
+
+-- First-seen group order in the attune list. That is the order of the checkboxes.
+function Attune_DiscoverCategoryKeys()
+	if Attune_GroupKeyByText ~= nil and Attune_CategoryKeys ~= nil then return end
+	local textToKey = {}
+	for _, key in ipairs(Attune_CategoryKeyList) do
+		local text = AttuneLang[key]
+		if text and text ~= "" then
+			textToKey[text] = key
+		end
+	end
+	local seen = {}
+	local keys = {}
+	local classesFolded = false
+	local attunes = Attune_Data and Attune_Data.attunes
+	if attunes then
+		for _, a in ipairs(attunes) do
+			local text = a.GROUP
+			if text and text ~= "" and not seen[text] then
+				seen[text] = true
+				local key = textToKey[text]
+				if key == nil then
+					key = text
+					textToKey[text] = key
+				end
+				-- Druid, Hunter, and the other class headers share one checkbox.
+				if key:sub(1, 6) == "CLASS_" then
+					if not classesFolded then
+						keys[#keys + 1] = "CLASSES"
+						classesFolded = true
+					end
+				else
+					keys[#keys + 1] = key
+				end
+			end
+		end
+	end
+	if not classesFolded then
+		keys[#keys + 1] = "CLASSES"
+	end
+	keys[#keys + 1] = "ARCHIVED"
+	keys[#keys + 1] = "WILLNOTDO"
+	Attune_GroupKeyByText = textToKey
+	Attune_CategoryKeys = keys
+end
+
+function Attune_GroupKey(groupText)
+	if groupText == nil or groupText == "" then return nil end
+	if Attune_GroupKeyByText == nil then Attune_DiscoverCategoryKeys() end
+	if Attune_GroupKeyByText == nil then return nil end
+	return Attune_GroupKeyByText[groupText]
+end
+
+-- A missing entry is shown. Unchecking a box stores true under that key.
+function Attune_CategoryShown(key)
+	if key == nil or Attune_DB == nil or Attune_DB.hiddenGroups == nil then return true end
+	return not Attune_DB.hiddenGroups[key]
+end
+
+-- Category headers are stored in capitals. The options list shows the first letter as a capital.
+function Attune_SentenceCase(text)
+	if type(text) ~= "string" or text == "" then return text or "" end
+	local function lowerCp(cp)
+		if cp >= 65 and cp <= 90 then return cp + 32 end
+		if (cp >= 0xC0 and cp <= 0xD6) or (cp >= 0xD8 and cp <= 0xDE) then return cp + 0x20 end
+		if cp >= 0x410 and cp <= 0x42F then return cp + 0x20 end
+		if cp == 0x401 then return 0x451 end
+		return cp
+	end
+	local function upperCp(cp)
+		if cp >= 97 and cp <= 122 then return cp - 32 end
+		if (cp >= 0xE0 and cp <= 0xF6) or (cp >= 0xF8 and cp <= 0xFE) then return cp - 0x20 end
+		if cp >= 0x430 and cp <= 0x44F then return cp - 0x20 end
+		if cp == 0x451 then return 0x401 end
+		return cp
+	end
+	local function charCp(cp)
+		if cp < 0x80 then
+			return string.char(cp)
+		elseif cp < 0x800 then
+			return string.char(0xC0 + math.floor(cp / 0x40), 0x80 + cp % 0x40)
+		end
+		return string.char(0xE0 + math.floor(cp / 0x1000), 0x80 + math.floor(cp / 0x40) % 0x40, 0x80 + cp % 0x40)
+	end
+	local out = {}
+	local capped = false
+	local i, n = 1, #text
+	while i <= n do
+		local b = text:byte(i)
+		local cp, len
+		if b < 0x80 then
+			cp, len = b, 1
+		elseif b < 0xE0 then
+			cp, len = (b - 0xC0) * 0x40 + text:byte(i + 1) - 0x80, 2
+		else
+			cp, len = (b - 0xE0) * 0x1000 + (text:byte(i + 1) - 0x80) * 0x40 + text:byte(i + 2) - 0x80, 3
+		end
+		local lower = lowerCp(cp)
+		if not capped and upperCp(lower) ~= lower then
+			lower = upperCp(lower)
+			capped = true
+		end
+		out[#out + 1] = charCp(lower)
+		i = i + len
+	end
+	return table.concat(out)
+end
+
+function Attune_CategoryLabel(key)
+	local name
+	if key == "CLASSES" then
+		name = AttuneLang["CLASSES"] or "Classes"
+	elseif key == "ARCHIVED" then
+		name = AttuneLang["Archived"] or "Completed"
+	elseif key == "WILLNOTDO" then
+		name = AttuneLang["WillNotDo"] or "Will not do"
+	else
+		name = AttuneLang[key] or key
+	end
+	return Attune_SentenceCase(name)
+end
+
+function Attune_GroupVisible(a)
+	if a == nil then return true end
+	local key = Attune_GroupKey(a.GROUP)
+	if (a.CLASS ~= nil and a.CLASS ~= "") or (type(key) == "string" and key:sub(1, 6) == "CLASS_") then
+		return Attune_CategoryShown("CLASSES")
+	end
+	return Attune_CategoryShown(key)
+end
+
+function Attune_InstallCategoryOptions()
+	Attune_DiscoverCategoryKeys()
+	local args = {
+		desc = {
+			type = "description",
+			name = " ",
+			width = "full",
+			order = 1,
+		},
+		intro = {
+			type = "description",
+			name = AttuneLang["Categories_DESC"] or "",
+			width = "full",
+			order = 2,
+		},
+	}
+	for i, key in ipairs(Attune_CategoryKeys or {}) do
+		local categoryKey = key
+		args["cat_" .. categoryKey] = {
+			type = "toggle",
+			name = Attune_CategoryLabel(categoryKey),
+			desc = AttuneLang["ShowCategory_DESC"],
+			get = function() return Attune_CategoryShown(categoryKey) end,
+			set = function(_, val) Attune_SetCategoryShown(categoryKey, val) end,
+			width = "full",
+			order = 10 + i,
+		}
+	end
+	attune_options.args.categories.args = args
+end
+
+function Attune_SetCategoryShown(key, shown)
+	if key == nil or Attune_DB == nil then return end
+	if Attune_DB.hiddenGroups == nil then Attune_DB.hiddenGroups = {} end
+	if shown then
+		Attune_DB.hiddenGroups[key] = nil
+	else
+		Attune_DB.hiddenGroups[key] = true
+	end
+	if key == "CHARACTER" then
+		Attune_DB.showCharacterProgression = shown and true or false
+	end
+	local previous = Attune_GetLastViewed()
+	Attune_ReloadAttuneTree()
+	local path = Attune_GetLastViewed()
+	if path ~= previous then
+		local tree = attunelocal_treeframe
+		if tree and path and attunelocal_treeIsShown then
+			tree:SelectByPath(path)
+		elseif path and attunelocal_scroll then
+			local _, _, id = strsplit("\001", path)
+			if id and id ~= "" then Attune_Select(id, true) end
+		end
+	end
+	if Attune_DB.iconView then Attune_LayoutIconView() end
+	if attunelocal_glist then Attune_ShowResultList() end
+	Attune_NextFrameUpdate()
+end
+
+-- Kept for the call sites that already filter the list, the Next window, and Results.
 local function Attune_CharacterProgressionVisible(a)
-	if a.GROUP ~= AttuneLang["CHARACTER"] then return true end
-	return not (Attune_DB and Attune_DB.showCharacterProgression == false)
+	return Attune_GroupVisible(a)
 end
 
 -- This character has set the attunement aside. It stays in the list, under Will not do.
@@ -3308,16 +3584,21 @@ function Attune_LoadTree()
 					icon = icon,
 					sourceIcon = a.ICON,
 					tip = Attune_DisplayName(a),
-					short = a.SHORT,
+					short = Attune_ShortName(a),
 					dim = not hasSteps,
 					done = done,
 					skipped = skipped,
 				}
 				-- Discarded attunes collect under Will not do, after Completed.
+				-- A hidden category drops those attunes from the list.
 				if skipped then
-					table.insert(skippedNodes, attuneNode)
+					if Attune_CategoryShown("WILLNOTDO") then
+						table.insert(skippedNodes, attuneNode)
+					end
 				elseif Attune_DB.archiveCompleted and done then
-					table.insert(archivedNodes, attuneNode)
+					if Attune_CategoryShown("ARCHIVED") then
+						table.insert(archivedNodes, attuneNode)
+					end
 				else
 					table.insert(groupNode.children, attuneNode)
 				end
@@ -3370,7 +3651,13 @@ function Attune_SyncLastViewedPath()
 	local _, _, sel = strsplit("\001", lastViewed)
 	if sel == nil or sel == "" then return end
 	local path = Attune_PathForAttune(sel)
-	if path then Attune_SetLastViewed(path) end
+	if path then
+		Attune_SetLastViewed(path)
+		return
+	end
+	-- The open attune is not in the tree. Its category is hidden.
+	Attune_SetLastViewed(nil)
+	Attune_EnsureDefaultView()
 end
 
 function Attune_ReloadAttuneTree()
@@ -4554,7 +4841,7 @@ local function Attune_ShowWorkInProgress(show)
 end
 
 function Attune_Select(attuneId, quiet)
-	if not quiet then PlaySound(856) end --igMainMenuOptionCheckBoxOn
+	if not quiet then Attune_PlaySound(856) end --igMainMenuOptionCheckBoxOn
 	Attune_UpdateSkipCheck(attuneId)
 	local keepPan = quiet and (attunelocal_graphPanX or 0) or 0
 	local keepScroll
@@ -5169,7 +5456,7 @@ function Attune_CreateSkipCheck()
 		holder:SetScript("OnClick", function(self)
 			if self.attuneId == nil then return end
 			local on = not self.checked
-			PlaySound(on and 856 or 857)
+			Attune_PlaySound(on and 856 or 857)
 			Attune_SetAttuneSkipped(self.attuneId, on)
 		end)
 		holder:SetScript("OnEnter", function(self)
@@ -7138,7 +7425,7 @@ function Attune_ToggleView(noToggle)
 		_G["GuildButton"]:SetText(AttuneLang["Attunes"])
 
 		-- SHOW RESULT FRAME
-		PlaySound(856)  --igMainMenuOptionCheckBoxOn
+		Attune_PlaySound(856)  --igMainMenuOptionCheckBoxOn
 		attunelocal_treeIsShown = false
 		Attune_UpdateWindowPortrait()
 
@@ -8853,7 +9140,7 @@ function Attune:OnCommReceived(prefix, message, distribution, sender)
 				attunelocal_syncAmountReceived = 0
 	
 				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["Received request from"]:gsub("##PLAYER##", attunelocal_syncTarget)) end
-				PlaySound(6675) -- BellTollTribal
+				Attune_PlaySound(6675) -- BellTollTribal
 				StaticPopupDialogs["SYNC_ATTUNE"] = {
 					text = AttuneLang["Sync Request From"]:gsub("##PLAYER##", attunelocal_syncTarget).."\n\n"..AttuneLang["Could be slow"],
 					button1 = AttuneLang["Accept"],
@@ -10734,8 +11021,8 @@ function rewardUi.Attune_ShareDetailPin(uiMapID, x, y)
 		C_Map.ClearUserWaypoint()
 	end
 
-	if PlaySound and SOUNDKIT and SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE then
-		PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE)
+	if SOUNDKIT and SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE then
+		Attune_PlaySound(SOUNDKIT.UI_MAP_WAYPOINT_CHAT_SHARE)
 	end
 end
 
@@ -11587,7 +11874,7 @@ function Attune_NextFrameCollect()
 						dist = 0
 					end
 					ord = ord + 1
-					local tag = a.SHORT
+					local tag = Attune_ShortName(a)
 					if tag == nil or tag == "" or tonumber(tag) then tag = a.NAME or "" end
 					local name = Attune_NextStepLabel(found[1])
 					local text
