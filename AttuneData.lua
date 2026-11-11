@@ -1066,12 +1066,12 @@ Attune_Data.steps = 	{
 
 
 --vForever dungeon attune 270
-	-- Columns L→R: 1051 Vorrel | 1109→1113 Guano | Test of Lore (→1160) | 1049 Compendium | 1048 Into SM → (Loksey ‖ Herod ‖ Mograine ‖ Whitemane)
+	-- Columns L→R: 1051 Vorrel | 1109→1113 Guano | Test of Lore (→1160) | 1049 Compendium (not Undead) | 1048 Into SM → (Loksey ‖ Herod ‖ Mograine ‖ Whitemane)
 	{ID_ATTUNE="270",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 25",LOCATION="",ID_WOWHEAD="25",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="270",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano! (prequest)
 	{ID_ATTUNE="270",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1149",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Test of Faith
-	{ID_ATTUNE="270",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Compendium of the Fallen
+	{ID_ATTUNE="270",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",NORACE="Scourge"}, -- quest: Compendium of the Fallen (not offered to Undead)
 	{ID_ATTUNE="270",ID="420",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
     {ID_ATTUNE="270",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Into The Scarlet Monastery
 	{ID_ATTUNE="270",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
@@ -1081,7 +1081,7 @@ Attune_Data.steps = 	{
 	-- STAGE 30 — 4 kills on one row (all FOLLOWS Pick Up)
 	{ID_ATTUNE="270",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: Hearts of Zeal
 	{ID_ATTUNE="270",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1150",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Test of Endurance
-	{ID_ATTUNE="270",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5535",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="520",STAGE="30"}, -- item: Compendium of the Fallen
+	{ID_ATTUNE="270",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5535",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="520",STAGE="30",NORACE="Scourge"}, -- item: Compendium of the Fallen
 	{ID_ATTUNE="270",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="320",STAGE="30"}, -- npc: Houndmaster Loksey
 	{ID_ATTUNE="270",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="320",STAGE="30"}, -- npc: Herod
     {ID_ATTUNE="270",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="320",STAGE="30"}, -- npc: Scarlet Commander Mograine
@@ -1090,7 +1090,7 @@ Attune_Data.steps = 	{
 	-- STAGE 40
 	{ID_ATTUNE="270",ID="740",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5805",ICON="Interface\\Icons\\inv_misc_organ_02",FOLLOWS="730",STAGE="40", COUNT=20}, -- item: Heart of Zeal
 	{ID_ATTUNE="270",ID="640",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Test of Strength
-	{ID_ATTUNE="270",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Compendium of the Fallen
+	{ID_ATTUNE="270",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",NORACE="Scourge"}, -- quest: Compendium of the Fallen
 	{ID_ATTUNE="270",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="270",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430&330&230&130",STAGE="40"}, -- quest: Into The Scarlet Monastery
 	{ID_ATTUNE="270",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
@@ -1099,7 +1099,7 @@ Attune_Data.steps = 	{
 	-- STAGE 50
 	{ID_ATTUNE="270",ID="750",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="50"}, -- quest: Hearts of Zeal
 	{ID_ATTUNE="270",ID="650",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="1152",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50"}, -- quest: Test of Lore (find Braug)
-	{ID_ATTUNE="270",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="270",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
     {ID_ATTUNE="270",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="270",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
@@ -1108,7 +1108,7 @@ Attune_Data.steps = 	{
 	-- STAGE 60
 	{ID_ATTUNE="270",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
 	{ID_ATTUNE="270",ID="660",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="1154",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: Test of Lore (Legacy of the Aspects)
-	{ID_ATTUNE="270",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
+	{ID_ATTUNE="270",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="270",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	{ID_ATTUNE="270",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -1117,7 +1117,7 @@ Attune_Data.steps = 	{
 	-- STAGE 70
 	{ID_ATTUNE="270",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
 	{ID_ATTUNE="270",ID="670",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6627",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="70"}, -- quest: Test of Lore (Braug's question)
-	{ID_ATTUNE="270",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
+	{ID_ATTUNE="270",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="270",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
 	{ID_ATTUNE="270",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
@@ -1126,7 +1126,7 @@ Attune_Data.steps = 	{
 	-- STAGE 80
 	{ID_ATTUNE="270",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
 	{ID_ATTUNE="270",ID="680",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1159",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="670",STAGE="80"}, -- quest: Test of Lore (find Parqual)
-	{ID_ATTUNE="270",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
+	{ID_ATTUNE="270",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
 	{ID_ATTUNE="270",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
 	{ID_ATTUNE="270",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
@@ -1135,7 +1135,7 @@ Attune_Data.steps = 	{
 	-- STAGE 90
 	{ID_ATTUNE="270",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="90"},
 	{ID_ATTUNE="270",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="680",STAGE="90"}, -- quest: Test of Lore (Beginnings of the Undead Threat)
-	{ID_ATTUNE="270",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="90"},
+	{ID_ATTUNE="270",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="90",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
 	{ID_ATTUNE="270",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="90"},
 	{ID_ATTUNE="270",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
@@ -1144,7 +1144,7 @@ Attune_Data.steps = 	{
 	-- STAGE 100 — book; other columns hold their place
 	{ID_ATTUNE="270",ID="700",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="790",STAGE="100"},
 	{ID_ATTUNE="270",ID="600",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5861",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="690",STAGE="100"}, -- item: Beginnings of the Undead Threat
-	{ID_ATTUNE="270",ID="500",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="100"},
+	{ID_ATTUNE="270",ID="500",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="100",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="400",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
 	{ID_ATTUNE="270",ID="300",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="100"},
 	{ID_ATTUNE="270",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
@@ -1153,7 +1153,7 @@ Attune_Data.steps = 	{
 	-- STAGE 110 — book turn-in
 	{ID_ATTUNE="270",ID="710",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="700",STAGE="110"},
 	{ID_ATTUNE="270",ID="610",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="600",STAGE="110"}, -- quest: Test of Lore
-	{ID_ATTUNE="270",ID="510",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="500",STAGE="110"},
+	{ID_ATTUNE="270",ID="510",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="500",STAGE="110",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="410",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
 	{ID_ATTUNE="270",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="300",STAGE="110"},
 	{ID_ATTUNE="270",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},

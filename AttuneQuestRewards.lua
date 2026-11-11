@@ -673,6 +673,8 @@ Attune_Data.questRewards = {
 	[1463] = { fixed = {{6635, 1}} },
 	[1464] = { fixed = {{6636, 1}} },
 	[1498] = { spells = {71} },
+	-- The Skybreaker Bulwark. Teaches Defensive Stance and rewards the shield.
+	[94003] = { fixed = {{275290, 1}}, spells = {71} },
 	[1502] = {},
 	[1503] = { choice = {{7326, 1}, {7328, 1}, {7327, 1}, {7329, 1}} },
 	[1505] = {},
@@ -1260,6 +1262,8 @@ Attune_Data.rewardItems = {
 	[247840] = {"Mining for Dummies", "inv_10_specialization_professionbook_mining_orig", 1},
 	[247841] = {"Wild Harvest", "inv_10_specialization_professionbook_herbalism_color1", 1},
 	[247846] = {"Pelt Collecting for Beginners", "inv_10_specialization_professionbook_skinning_color1", 1},
+	[263993] = {"Skybreaker Bulwark", "inv_shield_13", 1},
+	[275290] = {"Stormforged Protector", "inv_shield_1h_skybornec60_b_01", 2},
 }
 
 -- name, icon file. Used when the client has not cached the spell.

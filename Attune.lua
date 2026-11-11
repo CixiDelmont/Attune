@@ -12,6 +12,9 @@
 --   - Added the Call of Fire quest for Skyborne shamans.
 --   - Added the human and skyborne hunter taming chains.
 --   - Removed a SoD quest from gnomeragan, and fixed another.
+--   - The Compendium of the Fallen quest will no longer be listed for Undead
+--   - The Skyborne Defensive Stance quest has been added
+--   - Fixed a typo in a Deadmines quest
 --
 -- 16001-39
 --   - Added an option to turn off Attune sounds.
@@ -648,6 +651,7 @@ local attunelocal_raidroster					-- scroller inside the raid SimpleGroup of the 
 local attunelocal_raidspotIcon = {}				-- Icon object of the raid spots
 ]=]
 local attunelocal_faction = ""
+local attunelocal_race = ""			-- UnitRace file: Scourge, Troll, Orc, Tauren, ...
 --[=[ Raid Planner locals disabled for now
 local attunelocal_raidname = ""					-- selected Raid name
 local attunelocal_raidsize = 0					-- selected Raid size
@@ -1135,6 +1139,13 @@ function Attune:OnEnable()
 	if Attune_DB == nil then Attune_DB = {} end
 	if Attune_DB.toons == nil then Attune_DB.toons = {} end
 	if Attune_DB.toons[attunelocal_charKey] == nil then Attune_DB.toons[attunelocal_charKey] = {} end
+	local _, raceFile = UnitRace("player")
+	if raceFile ~= nil and raceFile ~= "" then
+		attunelocal_race = raceFile
+		Attune_DB.toons[attunelocal_charKey].race = raceFile
+	elseif Attune_DB.toons[attunelocal_charKey].race ~= nil then
+		attunelocal_race = Attune_DB.toons[attunelocal_charKey].race
+	end
 
 	C_ChatInfo.RegisterAddonMessagePrefix(attunelocal_prefix)
 	C_ChatInfo.RegisterAddonMessagePrefix(attunelocal_versionprefix)
@@ -1316,6 +1327,14 @@ function Attune:OnEnable()
 	-- calculate how many steps this toon has done on the attune
 	local attuneDone = {}
 	local t = Attune_DB.toons[attunelocal_charKey]
+	-- Drop progress on steps this race cannot do (for example Compendium of the Fallen).
+	if attunelocal_race ~= "" and t.done ~= nil and Attune_Data.stepsByKey ~= nil then
+		for key, step in pairs(Attune_Data.stepsByKey) do
+			if t.done[key] and Attune_RaceBlocksStep(step, attunelocal_race) then
+				t.done[key] = nil
+			end
+		end
+	end
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 	local spacerDone = {}
 	for _, s in pairs(Attune_Data.steps) do
@@ -1332,9 +1351,12 @@ function Attune:OnEnable()
 	end
 	for i, d in pairs(t.done) do
 		if not spacerDone[i] then
-			local Ids = Attune_split(i, "-")
-			if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
-			attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+			local step = Attune_Data.stepsByKey and Attune_Data.stepsByKey[i]
+			if not (step and Attune_RaceBlocksStep(step, attunelocal_race)) then
+				local Ids = Attune_split(i, "-")
+				if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
+				attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+			end
 		end
 	end
 	if t.attuned == nil then t.attuned = {} end
@@ -2105,7 +2127,7 @@ function Attune_ClearTurnInOnAccept(questID)
 					else
 						still = true
 						for _, flw in pairs(ids) do
-							if not toon.done[s.ID_ATTUNE .. "-" .. flw] then still = false break end
+							if not Attune_FollowSatisfied(s.ID_ATTUNE, flw, toon.done) then still = false break end
 						end
 					end
 				end
@@ -2909,7 +2931,7 @@ function Attune_CheckComplete(newComplete, quiet)
 			else
 				local fIDs = Attune_split(s.FOLLOWS, "&")
 				for _, flw in pairs(fIDs) do
-					if not att.done[s.ID_ATTUNE .. "-" .. flw] then allDone = false; break end
+					if not Attune_FollowSatisfied(s.ID_ATTUNE, flw, att.done) then allDone = false; break end
 				end
 			end
 			if s.FOLLOWS ~= nil and string.find(s.FOLLOWS, "|", 1, true) then
@@ -2976,7 +2998,7 @@ function Attune_CheckIsNext(who)
 
 	for i, step in pairs(Attune_Data.steps) do
 		-- Inside reminders are optional and always available, so they are not "the current step".
-		if showPatchStep(step) and not step.SIDE and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
+		if Attune_StepShownForRace(step, att.race) and not step.SIDE and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
 			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
@@ -3068,9 +3090,17 @@ end
 -- Recurse through previous steps (following the FOLLOWS path)
 -------------------------------------------------------------------------
 
-function Attune_recursePreviousSteps(who, aID, follows)
+function Attune_recursePreviousSteps(who, aID, follows, race)
 
-    
+	if race == nil or race == "" then
+		local t = Attune_DB.toons[who]
+		if t ~= nil and t.race ~= nil and t.race ~= "" then
+			race = t.race
+		else
+			race = attunelocal_race
+		end
+	end
+
 	if (Attune_DB.toons[who] ~= nil) then
 		if (Attune_DB.toons[who].done ~= nil) then
 
@@ -3081,7 +3111,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 
 			for fi, f in pairs(fIDs) do
 				local s = Attune_Data.stepsByKey and Attune_Data.stepsByKey[aID .. "-" .. f]
-				if s and showPatchStep(s) and Attune_MayRecordAttuneProgress(Attune_DB.toons[who], aID) then
+				if s and Attune_StepShownForRace(s, race) and Attune_MayRecordAttuneProgress(Attune_DB.toons[who], aID) then
 					if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
 						if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
 							-- print(s.ID_ATTUNE .. "-" .. s.ID)
@@ -3089,7 +3119,7 @@ function Attune_recursePreviousSteps(who, aID, follows)
 							if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
 						end
 						if follows ~= 0 then -- no need to recurse first level
-							Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS)
+							Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS, race)
 						end
 					end
 				end
@@ -5520,15 +5550,32 @@ end
 
 -------------------------------------------------------------------------
 
-function showPatchStep(s)
-	local showStep = false
-	if (s.VALIDFROM == nil and s.VALIDTO == nil) then 
-		showStep = true
-	else
-		if (s.VALIDFROM ~= nil and patch >= s.VALIDFROM) then showStep = true end
-		if (s.VALIDTO ~= nil and patch < s.VALIDTO) then showStep = true end
+-- NORACE lists UnitRace file names ("Scourge") that cannot see this step.
+function Attune_RaceBlocksStep(s, race)
+	if s == nil or s.NORACE == nil or s.NORACE == "" then return false end
+	if race == nil or race == "" then return false end
+	if s.NORACE == race then return true end
+	if string.find(s.NORACE, "|", 1, true) == nil then return false end
+	for _, name in pairs(Attune_split(s.NORACE, "|")) do
+		if name == race then return true end
 	end
-	return showStep
+	return false
+end
+
+local function Attune_PatchShowsStep(s)
+	if (s.VALIDFROM == nil and s.VALIDTO == nil) then return true end
+	if (s.VALIDFROM ~= nil and patch >= s.VALIDFROM) then return true end
+	if (s.VALIDTO ~= nil and patch < s.VALIDTO) then return true end
+	return false
+end
+
+function Attune_StepShownForRace(s, race)
+	if s == nil or not Attune_PatchShowsStep(s) then return false end
+	return not Attune_RaceBlocksStep(s, race)
+end
+
+function showPatchStep(s)
+	return Attune_StepShownForRace(s, attunelocal_race)
 end
 
 -------------------------------------------------------------------------
@@ -5547,6 +5594,14 @@ function Attune_FindStep(attuneId, stepId)
 		end
 	end
 	return nil
+end
+
+-- A race-blocked predecessor is not required, so the rest of the chain can finish.
+function Attune_FollowSatisfied(attuneId, followId, done)
+	local s = Attune_FindStep(attuneId, followId)
+	if s and Attune_RaceBlocksStep(s, attunelocal_race) then return true end
+	if done == nil then return false end
+	return done[attuneId .. "-" .. followId] and true or false
 end
 
 function Attune_IsSideStep(attuneId, stepId)
@@ -6721,8 +6776,16 @@ function Attune_CreateNode(step, parent, posX, posY)
 			local exist = false
 			for _, f in ipairs(attunelocal_frames) do if f == "Attune_Line1_"..step.ID.."_"..flw then exist = true end end
 
+			local prevNode = _G["Attune_Node_"..flw]
+			if not prevNode or not prevNode:IsShown() then
+				for _, suffix in ipairs({ "Line1", "Line2", "Line3" }) do
+					local ln = _G["Attune_"..suffix.."_"..step.ID.."_"..flw]
+					if ln then ln:Hide() end
+				end
+			else
+
 			local cur, _, _, curX, curY  = _G["Attune_Node_"..step.ID]:GetPoint()
-			local prev, _, _, prevX, prevY = _G["Attune_Node_"..flw]:GetPoint()
+			local prev, _, _, prevX, prevY = prevNode:GetPoint()
 			local offset = (attunelocal_Line_Thickness/2)
 
 			local line
@@ -6770,6 +6833,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 			line:SetStartPoint("TOP", offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
 			line:SetEndPoint("TOP", prevX - curX + offset, prevY - curY - (attunelocal_Node_Height + (attunelocal_Node_VGap/2)))
 			line:Show()
+
+			end -- prev node is on this graph
 
 			end -- not SIDE→End
 
@@ -7990,15 +8055,20 @@ function Attune_ShowResultList(title)
 
 	local count = 0 -- number of rows displayed in table
 
-	-- number of steps per attune - this is to calculate % completion
-	local attuneSteps = {}
-	for i, s in pairs(Attune_Data.steps) do
-		if showPatchStep(s) then
-			if s.TYPE ~= "Spacer" then
-				if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
-				attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
+	-- Step totals differ by race: a NORACE step is left out of that character's percent.
+	local stepCountsByRace = {}
+	local function stepsForRace(race)
+		local key = race or ""
+		local counts = stepCountsByRace[key]
+		if counts then return counts end
+		counts = {}
+		for _, s in pairs(Attune_Data.steps) do
+			if s.TYPE ~= "Spacer" and Attune_StepShownForRace(s, race) then
+				counts[s.ID_ATTUNE] = (counts[s.ID_ATTUNE] or 0) + 1
 			end
 		end
+		stepCountsByRace[key] = counts
+		return counts
 	end
 
 	-- adjust the title according to the selection
@@ -8056,11 +8126,15 @@ function Attune_ShowResultList(title)
 		local attuneDone = {}
 		if t.done ~= nil then 
 			Attune_AutoCompleteSpacers(kt)
+			local attuneSteps = stepsForRace(t.race)
 			for i, d in pairs(t.done) do
 				if not spacerDone[i] then
-					local Ids = Attune_split(i, "-")
-					if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
-					attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+					local step = Attune_Data.stepsByKey and Attune_Data.stepsByKey[i]
+					if not (step and Attune_RaceBlocksStep(step, t.race)) then
+						local Ids = Attune_split(i, "-")
+						if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
+						attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
+					end
 				end
 			end
 
@@ -8826,9 +8900,10 @@ function Attune_HandleRequestResults(response)
 		if tag == 'SILENTDONE' then 
 			--print("Received ".. data[3] .. " from " .. player.name)
 			local s = Attune_Data.stepsByKey and Attune_Data.stepsByKey[data[3]]
-			if s and showPatchStep(s) then
+			if s and Attune_StepShownForRace(s, player.race) then
 				-- recurse into earlier steps to mark them as done too
-				C_Timer.After(0.01, function() Attune_recursePreviousSteps(name, s.ID_ATTUNE, s.FOLLOWS) end)
+				local senderRace = player.race
+				C_Timer.After(0.01, function() Attune_recursePreviousSteps(name, s.ID_ATTUNE, s.FOLLOWS, senderRace) end)
 			end
 		end
 

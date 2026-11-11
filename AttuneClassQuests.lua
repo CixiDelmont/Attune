@@ -1177,58 +1177,85 @@ local classSteps = {
 
 
     -- WARRIOR
-	-- Orc (right) or Undead (left). Either chain completes Forged Steel.
+	-- Columns left to right (higher ID = left): Skyborne | Undead | Orc. Any chain teaches Defensive Stance.
 	{ID_ATTUNE="5287",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5287",ID="19",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="5287",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1505",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Veteran Uzzek
 	{ID_ATTUNE="5287",ID="21",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="5287",ID="23",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1818",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Speak with Dillinger
 	{ID_ATTUNE="5287",ID="24",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="5287",ID="25",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94003",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Skybreaker Bulwark
+	{ID_ATTUNE="5287",ID="29",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5287",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1498",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Path of Defense
 	{ID_ATTUNE="5287",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5287",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1819",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23",STAGE="30"}, -- Ulag the Cleaver
 	{ID_ATTUNE="5287",ID="34",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5287",ID="35",TYPE="Item",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="263993",ICON="Interface\\Icons\\inv_shield_13",FOLLOWS="25",STAGE="30"}, -- item: Skybreaker Bulwark
+	{ID_ATTUNE="5287",ID="39",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="5287",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Thun'grim Firegaze
 	{ID_ATTUNE="5287",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="5287",ID="43",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1820",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="33",STAGE="40"}, -- Speak with Coleman
 	{ID_ATTUNE="5287",ID="44",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5287",ID="45",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94003",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="35",STAGE="40"}, -- The Skybreaker Bulwark
+	{ID_ATTUNE="5287",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5287",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1503",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Forged Steel
 	{ID_ATTUNE="5287",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5287",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="43",STAGE="50"}, -- Agamand Heirlooms
 	{ID_ATTUNE="5287",ID="54",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="5287",ID="55",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="45",STAGE="50"},
 	{ID_ATTUNE="5287",ID="58",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="5287",ID="61",TYPE="Item",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="7567",ICON="Interface\\Icons\\inv_axe_01",FOLLOWS="53",STAGE="60"}, -- Agamand Family Axe
 	{ID_ATTUNE="5287",ID="62",TYPE="Item",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="7566",ICON="Interface\\Icons\\inv_sword_04",FOLLOWS="53",STAGE="60"}, -- Agamand Family Sword
 	{ID_ATTUNE="5287",ID="63",TYPE="Item",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="7569",ICON="Interface\\Icons\\inv_mace_01",FOLLOWS="53",STAGE="60"}, -- Agamand Family Mace
 	{ID_ATTUNE="5287",ID="64",TYPE="Item",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="7568",ICON="Interface\\Icons\\inv_weapon_shortblade_05",FOLLOWS="53",STAGE="60"}, -- Agamand Family Dagger
+	{ID_ATTUNE="5287",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="55",STAGE="60"},
+	{ID_ATTUNE="5287",ID="69",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="5287",ID="70",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="70"},
 	{ID_ATTUNE="5287",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="5287",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="1822",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="64&63&62&61",STAGE="70"}, -- Heirloom Weapon
 	{ID_ATTUNE="5287",ID="74",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="5287",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|73",STAGE="80"},
+	{ID_ATTUNE="5287",ID="75",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="65",STAGE="70"},
+	{ID_ATTUNE="5287",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|73|75",STAGE="80"},
 
-	-- Human (right), Dwarf (middle), or Night Elf (left). Any chain completes Grey Iron Weapons.
+	-- Columns left to right (higher ID = left): Skyborne | Night elf | Dwarf | Human. Any chain teaches Defensive Stance.
 	{ID_ATTUNE="5288",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5288",ID="19",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="5288",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1638",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- A Warrior's Training
 	{ID_ATTUNE="5288",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1679",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Muren Stormpike
 	{ID_ATTUNE="5288",ID="22",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1684",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- Elanaria
+	{ID_ATTUNE="5288",ID="24",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="5288",ID="25",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94003",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20", OR=true}, -- The Skybreaker Bulwark
+	{ID_ATTUNE="5288",ID="29",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5288",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1639",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bartleby the Drunk
 	{ID_ATTUNE="5288",ID="31",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1678",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Vejrek
 	{ID_ATTUNE="5288",ID="32",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1683",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="22",STAGE="30"}, -- Vorlus Vilehoof
+	{ID_ATTUNE="5288",ID="34",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="5288",ID="35",TYPE="Item",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="263993",ICON="Interface\\Icons\\inv_shield_13",FOLLOWS="25",STAGE="30"}, -- item: Skybreaker Bulwark
+	{ID_ATTUNE="5288",ID="39",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="5288",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1640",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Beat Bartleby
 	{ID_ATTUNE="5288",ID="41",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="31",STAGE="40"}, -- Tormus Deepforge
 	{ID_ATTUNE="5288",ID="42",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1686",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="32",STAGE="40"}, -- The Shade of Elura
+	{ID_ATTUNE="5288",ID="44",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="5288",ID="45",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Zephras Isle"],ID_WOWHEAD="94003",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="35",STAGE="40"}, -- The Skybreaker Bulwark
     {ID_ATTUNE="5288",ID="49",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5288",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1665",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Bartleby's Mug
 	{ID_ATTUNE="5288",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1681",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="41",STAGE="50"}, -- Ironband's Compound
 	{ID_ATTUNE="5288",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6809",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="42",STAGE="50"}, -- Elura's Medallion
 	{ID_ATTUNE="5288",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="6808",ICON="Interface\\Icons\\inv_ore_iron_01",FOLLOWS="42",STAGE="50", COUNT=8}, -- Elunite Ore
+	{ID_ATTUNE="5288",ID="54",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="45",STAGE="50"},
+	{ID_ATTUNE="5288",ID="59",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="5288",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Marshal Haggard
 	{ID_ATTUNE="5288",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1682",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51",STAGE="60"}, -- Grey Iron Weapons
 	{ID_ATTUNE="5288",ID="62",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1692",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="53&52",STAGE="60"}, -- Smith Mathiel
+	{ID_ATTUNE="5288",ID="64",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
+	{ID_ATTUNE="5288",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="54",STAGE="60"},
+	{ID_ATTUNE="5288",ID="69",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="5288",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1667",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Dead-tooth Jack
 	{ID_ATTUNE="5288",ID="71",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="61",STAGE="70"},
 	{ID_ATTUNE="5288",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Teldrassil"],ID_WOWHEAD="1693",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62",STAGE="70"}, -- Weapons of Elunite
-	{ID_ATTUNE="5288",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|71|72",STAGE="80"},
+	{ID_ATTUNE="5288",ID="74",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="5288",ID="75",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="65",STAGE="70"},
+	{ID_ATTUNE="5288",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_defensivestance",FOLLOWS="70|71|72|75",STAGE="80"},
 
 	{ID_ATTUNE="5291",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 20",LOCATION="",ID_WOWHEAD="20",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5291",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1823",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Speak with Ruga
@@ -1917,6 +1944,7 @@ local classQuestInfo = {
 	[1820]={10,1},
 	[1821]={10,1},
 	[1822]={10,1},
+	[94003]={10,1},
 	[1684]={10,1},
 	[1683]={10,1},
 	[1686]={10,1},
@@ -2509,6 +2537,7 @@ local classQuestGivers = {
 	[1820] = {1420, 58.2, 51.4, "Deathguard Dillinger"}, -- Deathguard Dillinger, Tirisfal Glades
 	[1821] = {1420, 61.8, 52.4, "Coleman Farthing"}, -- Coleman Farthing, Tirisfal Glades
 	[1822] = {1420, 61.8, 52.4, "Coleman Farthing"}, -- Coleman Farthing, Tirisfal Glades
+	[94003] = {2991, 59.8, 72.8, "Seena Skybreaker"}, -- Seena Skybreaker, Valanaar (Zephras Isle)
 	[1684] = {1438, 55.6, 58.4, "Moon Priestess Amara"}, -- Moon Priestess Amara, Teldrassil (also Kyra Windblade, Teldrassil 56.2, 59.2)
 	[1683] = {1457, 57.4, 34.8, "Elanaria"}, -- Elanaria, Darnassus
 	[1686] = {1457, 57.4, 34.8, "Elanaria"}, -- Elanaria, Darnassus
