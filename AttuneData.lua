@@ -11,55 +11,56 @@
 
 Attune_Data.attunes = 	{
 	-- dungeon quests
-	{ID="163",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-15"},
-	{ID="166",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-15", DEFAULTSKIP=true},
-	{ID="160",NAME=AttuneLang["Ragefire Chasm"],SHORT="RFC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_fire_fire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-16"},
-    {ID="183",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-17"},
-	{ID="186",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-17"},
-	{ID="170",NAME=AttuneLang["The Deadmines"],SHORT="VC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_human_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="18-21"},
-	{ID="177",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="19-22"},
-    {ID="180",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="19-22"},
-	{ID="190",NAME=AttuneLang["Shadowfang Keep"],SHORT="SFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_mount_whitedirewolf", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="23-26"},
-    {ID="195",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-29"},
-	{ID="196",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-29"},
-    {ID="200",NAME=AttuneLang["Blackfathom Deeps"],SHORT="BFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="25-28"},
-	{ID="210",NAME=AttuneLang["Blackfathom Deeps"],SHORT="BFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="25-28"},
+	{ID="160",NAME=AttuneLang["Ragefire Chasm"],SHORT="RFC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_fire_fire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-18"},
+	{ID="163",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-20"},
+	{ID="166",NAME=AttuneLang["The Hall of Thanes"],SHORT="HoT",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_statue_07", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="13-20", DEFAULTSKIP=true},
+    {ID="183",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-22"},
+	{ID="186",NAME=AttuneLang["Ruins of Lordaeron"],SHORT="RoL",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-22"},
+	{ID="177",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-24"},
+    {ID="180",NAME=AttuneLang["Wailing Caverns"],SHORT="WC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_poisoncleansingtotem", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="15-24"},
+	{ID="170",NAME=AttuneLang["The Deadmines"],SHORT="VC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_human_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="17-26"},
+	{ID="190",NAME=AttuneLang["Shadowfang Keep"],SHORT="SFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_mount_whitedirewolf", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="20-30"},
+    {ID="195",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="26-33"},
+	{ID="196",NAME=AttuneLang["Excavation Site"],SHORT="ES",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="26-33"},
+    {ID="200",NAME=AttuneLang["Blackfathom Deeps"],SHORT="BFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-32"},
+	{ID="210",NAME=AttuneLang["Blackfathom Deeps"],SHORT="BFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_frost_summonwaterelemental", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="24-32"},
 	{ID="220",NAME=AttuneLang["The Stockade"],SHORT="STK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_03", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="26-29"},
-	{ID="225",NAME=AttuneLang["City of Dalaran"],SHORT="CoD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"].."\n\n"..AttuneLang["Dal_Desc"], GROUPSIZE=5, LEVELS="28-32"},
-	{ID="226",NAME=AttuneLang["City of Dalaran"],SHORT="CoD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="28-32"},
-    {ID="250",NAME=AttuneLang["Razorfen Kraul"],SHORT="RFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-33"},
-	{ID="251",NAME=AttuneLang["Razorfen Kraul"],SHORT="RFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-33"},
-	{ID="230",NAME=AttuneLang["Gnomeregan"],SHORT="Gnomer",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="31-34"},
-	{ID="240",NAME=AttuneLang["Gnomeregan"],SHORT="Gnomer",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="31-34"},
-	{ID="260",NAME=AttuneLang["Scarlet Monastery"],SHORT="SM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="31-42"},
-	{ID="270",NAME=AttuneLang["Scarlet Monastery"],SHORT="SM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="31-42"},
-    {ID="275",NAME=AttuneLang["The Drowned City"],SHORT="DC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\spell_frost_wizardmark", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-38"},
-	{ID="280",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="38-41"},
-	{ID="290",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-41"},
-	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-52"},
-    {ID="320",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
-	{ID="330",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-47"},
-	{ID="350",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
-	{ID="351",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="45-48"},
-    {ID="355",NAME=AttuneLang["Alcaz Prison"],SHORT="AP",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	{ID="300",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	{ID="310",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-51"},
-	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
-	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-55"},
-    {ID="390",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
-	{ID="400",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-57"},
+	{ID="225",NAME=AttuneLang["City of Dalaran"],SHORT="CoD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"].."\n\n"..AttuneLang["Dal_Desc"], GROUPSIZE=5, LEVELS="28-35"},
+	{ID="226",NAME=AttuneLang["City of Dalaran"],SHORT="CoD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_arcane_starfire", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="28-35"},
+    {ID="250",NAME=AttuneLang["Razorfen Kraul"],SHORT="RFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="29-38"},
+	{ID="251",NAME=AttuneLang["Razorfen Kraul"],SHORT="RFK",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="29-38"},
+	{ID="230",NAME=AttuneLang["Gnomeregan"],SHORT="Gnomer",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="29-38"},
+	{ID="240",NAME=AttuneLang["Gnomeregan"],SHORT="Gnomer",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gear_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="29-38"},
+	{ID="260",NAME=AttuneLang["Scarlet Monastery"],SHORT="SM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-44"},
+	{ID="270",NAME=AttuneLang["Scarlet Monastery"],SHORT="SM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_cape_18", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="30-44"},
+    {ID="275",NAME=AttuneLang["The Drowned City"],SHORT="DC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_frost_wizardmark", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-42"},
+    {ID="276",NAME=AttuneLang["The Drowned City"],SHORT="DC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_frost_wizardmark", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-42"},
+	{ID="280",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="37-46"},
+	{ID="290",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="37-46"},
+	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-47"},
+    {ID="320",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="41-51"},
+	{ID="330",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="41-51"},
+	{ID="350",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-54"},
+	{ID="351",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-54"},
+	{ID="300",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="46-55"},
+	{ID="310",NAME=AttuneLang["Maraudon"],SHORT="Mara",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_head_centaur_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="46-55"},
+    {ID="355",NAME=AttuneLang["Alcaz Prison"],SHORT="AP",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_key_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="48-55"},
+	{ID="370",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="50-60"},
+	{ID="380",NAME=AttuneLang["The Temple of Atal'Hakkar"],SHORT="ST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="50-60"},
+    {ID="390",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-60"},
+	{ID="400",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-60"},
+    {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="405",NAME=AttuneLang["Blackmaw Hold"],SHORT="BH",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="340",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="341",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
-    {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
-    {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="57-60"},
 	{ID="410",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
 	{ID="420",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="415",NAME=AttuneLang["The Shapers Terrace"],SHORT="TST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-    {ID="360",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
-    {ID="361",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
-    {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-    {ID="366",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="360",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="361",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
+    {ID="366",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
     
     -- keys
 	{ID="159",NAME=AttuneLang["Tome of Dalaran"],SHORT="Dal Boss",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['KEYS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_book_04", DESC=AttuneLang["TD_Desc"]},
@@ -1066,7 +1067,8 @@ Attune_Data.steps = 	{
 
 
 --vForever dungeon attune 270
-	-- Columns L→R: 1051 Vorrel | 1109→1113 Guano | Test of Lore (→1160) | 1049 Compendium (not Undead) | 1048 Into SM → (Loksey ‖ Herod ‖ Mograine ‖ Whitemane)
+	-- Columns L→R: 1109→1113 Guano | Test of Lore (→1160) | 1049 Compendium (not Undead) | 1048 Into SM → (Loksey ‖ Herod ‖ Mograine ‖ Whitemane)
+	-- SIDE (beside End): 1051 Vorrel's Revenge (Inside — Vorrel Sengutz)
 	{ID_ATTUNE="270",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 25",LOCATION="",ID_WOWHEAD="25",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="270",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Going, Going, Guano! (prequest)
@@ -1076,8 +1078,6 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="270",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Into The Scarlet Monastery
 	{ID_ATTUNE="270",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="270",ID="120",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
-    {ID_ATTUNE="270",ID="020",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vorrel's Revenge
-	
 	-- STAGE 30 — 4 kills on one row (all FOLLOWS Pick Up)
 	{ID_ATTUNE="270",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: Hearts of Zeal
 	{ID_ATTUNE="270",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1150",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Test of Endurance
@@ -1086,7 +1086,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="320",STAGE="30"}, -- npc: Herod
     {ID_ATTUNE="270",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="320",STAGE="30"}, -- npc: Scarlet Commander Mograine
 	{ID_ATTUNE="270",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="320",STAGE="30"}, -- npc: High Inquisitor Whitemane
-    {ID_ATTUNE="270",ID="030",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5538",ICON="Interface\\Icons\\inv_jewelry_ring_03",FOLLOWS="020",STAGE="30"}, -- item: Vorrel's Wedding Ring
 	-- STAGE 40
 	{ID_ATTUNE="270",ID="740",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5805",ICON="Interface\\Icons\\inv_misc_organ_02",FOLLOWS="730",STAGE="40", COUNT=20}, -- item: Heart of Zeal
 	{ID_ATTUNE="270",ID="640",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40"}, -- quest: Test of Strength
@@ -1095,7 +1094,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1048",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430&330&230&130",STAGE="40"}, -- quest: Into The Scarlet Monastery
 	{ID_ATTUNE="270",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="270",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-    {ID_ATTUNE="270",ID="040",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="030",STAGE="40"}, -- quest: Vorrel's Revenge (Tarren Mill)
 	-- STAGE 50
 	{ID_ATTUNE="270",ID="750",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="50"}, -- quest: Hearts of Zeal
 	{ID_ATTUNE="270",ID="650",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="1152",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50"}, -- quest: Test of Lore (find Braug)
@@ -1104,7 +1102,6 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="270",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="270",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="270",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
-    {ID_ATTUNE="270",ID="050",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="040",STAGE="50"},
 	-- STAGE 60
 	{ID_ATTUNE="270",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
 	{ID_ATTUNE="270",ID="660",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="1154",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: Test of Lore (Legacy of the Aspects)
@@ -1113,7 +1110,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	{ID_ATTUNE="270",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="270",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
-    {ID_ATTUNE="270",ID="060",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="050",STAGE="60"},
 	-- STAGE 70
 	{ID_ATTUNE="270",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
 	{ID_ATTUNE="270",ID="670",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6627",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="70"}, -- quest: Test of Lore (Braug's question)
@@ -1122,7 +1118,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
 	{ID_ATTUNE="270",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="270",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-    {ID_ATTUNE="270",ID="070",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="060",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="270",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
 	{ID_ATTUNE="270",ID="680",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1159",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="670",STAGE="80"}, -- quest: Test of Lore (find Parqual)
@@ -1131,7 +1126,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
 	{ID_ATTUNE="270",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
 	{ID_ATTUNE="270",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-    {ID_ATTUNE="270",ID="080",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="070",STAGE="80"},
 	-- STAGE 90
 	{ID_ATTUNE="270",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="90"},
 	{ID_ATTUNE="270",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="680",STAGE="90"}, -- quest: Test of Lore (Beginnings of the Undead Threat)
@@ -1140,7 +1134,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="90"},
 	{ID_ATTUNE="270",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
 	{ID_ATTUNE="270",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
-    {ID_ATTUNE="270",ID="090",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="080",STAGE="90"},
 	-- STAGE 100 — book; other columns hold their place
 	{ID_ATTUNE="270",ID="700",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="790",STAGE="100"},
 	{ID_ATTUNE="270",ID="600",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5861",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="690",STAGE="100"}, -- item: Beginnings of the Undead Threat
@@ -1149,7 +1142,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="300",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="100"},
 	{ID_ATTUNE="270",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
 	{ID_ATTUNE="270",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
-	{ID_ATTUNE="270",ID="000",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="090",STAGE="100"},
 	-- STAGE 110 — book turn-in
 	{ID_ATTUNE="270",ID="710",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="700",STAGE="110"},
 	{ID_ATTUNE="270",ID="610",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="600",STAGE="110"}, -- quest: Test of Lore
@@ -1158,9 +1150,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="300",STAGE="110"},
 	{ID_ATTUNE="270",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
 	{ID_ATTUNE="270",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
-	{ID_ATTUNE="270",ID="010",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="000",STAGE="110"},
-
-	{ID_ATTUNE="270",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="010&710&610&510&310",STAGE="120"},
+	-- SIDE reminder (inside dungeon) — left of End
+	{ID_ATTUNE="270",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: Vorrel's Revenge (Inside — Vorrel Sengutz)
+	{ID_ATTUNE="270",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="710&610&510&310&820",STAGE="120"},
 
 --vForever dungeon attune 280
 	-- Columns L→R (higher ID = left): 3636 Bring the Light | 6626 Host of Evil
@@ -2305,7 +2297,7 @@ Attune_Data.steps = 	{
 	-- SIDE (beside End): 95810 Lost Relic Carry (Inside — Titan Relic from Relic Guardian; Prehistoric Prism follows in-game)
 	{ID_ATTUNE="195",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 24",LOCATION="",ID_WOWHEAD="24",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="195",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="95737",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Seeking Caitlin (prereq)
+	{ID_ATTUNE="195",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="95737",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Seeking Caitlin (prereq, Llana)
 	{ID_ATTUNE="195",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="469",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Daily Delivery
 	{ID_ATTUNE="195",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Greenwarden
 	{ID_ATTUNE="195",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="95772",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Songblade Search
@@ -2362,6 +2354,107 @@ Attune_Data.steps = 	{
 	-- SIDE reminder (inside dungeon) — left of End
 	{ID_ATTUNE="196",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="95664",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Elder Knowledge (Inside — Titan Relic from Relic Guardian)
 	{ID_ATTUNE="196",ID="260",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="250&150&320",STAGE="60"},
+
+
+--vForever dungeon attune 275 (Alliance The Drowned City)
+	-- Columns L→R: 203+204→207→205→95786, then 95788→95798 | 95787→95799 | 97130 Idol | 95791 Captain | 95789 Saltseers
+	{ID_ATTUNE="275",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+	{ID_ATTUNE="275",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="203",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Second Rebellion
+	{ID_ATTUNE="275",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bad Medicine
+	{ID_ATTUNE="275",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="97130",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Ancient Gurubashi Secrets
+	{ID_ATTUNE="275",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Saltseer Captain
+	{ID_ATTUNE="275",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Shady Saltseers
+	-- STAGE 30
+    {ID_ATTUNE="275",ID="915",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="275",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="207",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920&820",STAGE="30"}, -- quest: Kurzen's Mystery
+	{ID_ATTUNE="275",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="320",STAGE="30"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
+	{ID_ATTUNE="275",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="220",STAGE="30"}, -- npc: Captain Dreadrise
+	{ID_ATTUNE="275",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="120",STAGE="30",COUNT=10}, -- item: Voodoo-Infused Artifact
+	-- STAGE 40
+    {ID_ATTUNE="275",ID="905",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="275",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="205",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Troll Witchery
+	{ID_ATTUNE="275",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="97130",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Ancient Gurubashi Secrets
+	{ID_ATTUNE="275",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: The Saltseer Captain
+	{ID_ATTUNE="275",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Shady Saltseers
+	-- STAGE 50
+    {ID_ATTUNE="275",ID="895",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="275",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95786",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: An Acquaintance in Southshore
+	{ID_ATTUNE="275",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="275",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	{ID_ATTUNE="275",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="275",ID="880",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="95788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="60"}, -- quest: Magics of the Drowned City
+	{ID_ATTUNE="275",ID="780",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="95787",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="60"}, -- quest: Take Two With Water
+	{ID_ATTUNE="275",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="275",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	{ID_ATTUNE="275",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="275",ID="870",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270343",ICON="Interface\\Icons\\archaeology_5_0_carvedbronzemirror",FOLLOWS="880",STAGE="70",COUNT=5}, -- item: I'lalai Fetish
+	{ID_ATTUNE="275",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="70"},
+	{ID_ATTUNE="275",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
+	{ID_ATTUNE="275",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	{ID_ATTUNE="275",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="275",ID="860",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="95788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870",STAGE="80"}, -- quest: Magics of the Drowned City
+	{ID_ATTUNE="275",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="80"},
+	{ID_ATTUNE="275",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
+	{ID_ATTUNE="275",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="275",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="275",ID="850",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="95798",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="860",STAGE="90"}, -- quest: The Web of Magic
+	{ID_ATTUNE="275",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="95799",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="90"}, -- quest: Findings for the Explorer's League
+	{ID_ATTUNE="275",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="90"},
+	{ID_ATTUNE="275",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
+	{ID_ATTUNE="275",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
+	{ID_ATTUNE="275",ID="1000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_frost_wizardmark",FOLLOWS="850&720&390&290&190",STAGE="100"},
+
+--vForever dungeon attune 276 (Horde The Drowned City)
+	-- Columns L→R: 629→95748→95770, then 95773→95776 | 95775→96078 | 96774 Idol | 95791 Captain | 95789 Saltseers
+	{ID_ATTUNE="276",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 30",LOCATION="",ID_WOWHEAD="30",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- STAGE 20
+    {ID_ATTUNE="276",ID="925",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="276",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="629",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Vile Reef
+	{ID_ATTUNE="276",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="96774",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Ancient Gurubashi Idol
+	{ID_ATTUNE="276",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Saltseer Captain
+	{ID_ATTUNE="276",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Shady Saltseers
+	-- STAGE 30
+    {ID_ATTUNE="276",ID="915",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="276",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95748",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: The Gurubashi Legends of Old
+	{ID_ATTUNE="276",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="420",STAGE="30"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
+	{ID_ATTUNE="276",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="320",STAGE="30"}, -- npc: Captain Dreadrise
+	{ID_ATTUNE="276",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="220",STAGE="30",COUNT=10}, -- item: Voodoo-Infused Artifact
+	-- STAGE 40
+    {ID_ATTUNE="276",ID="905",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="276",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Locating the Lost City
+	{ID_ATTUNE="276",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="96774",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Ancient Gurubashi Idol
+	{ID_ATTUNE="276",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: The Saltseer Captain
+	{ID_ATTUNE="276",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Shady Saltseers
+	-- STAGE 50
+	{ID_ATTUNE="276",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: Enemies in the Water
+	{ID_ATTUNE="276",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95775",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: The Drowned City
+	{ID_ATTUNE="276",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="276",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
+	{ID_ATTUNE="276",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="276",ID="880",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95776",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="60"}, -- quest: The Only Good Brinescale...
+	{ID_ATTUNE="276",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="790",STAGE="60"},
+	{ID_ATTUNE="276",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="276",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
+	{ID_ATTUNE="276",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="276",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="258924",ICON="Interface\\Icons\\ability_creature_poison_05",FOLLOWS="880",STAGE="70"}, -- npc: Var'Taka
+	{ID_ATTUNE="276",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="70"},
+	{ID_ATTUNE="276",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
+	{ID_ATTUNE="276",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
+	{ID_ATTUNE="276",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="276",ID="860",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95776",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870",STAGE="80"}, -- quest: The Only Good Brinescale...
+	{ID_ATTUNE="276",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="96078",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="80"}, -- quest: A Tale Spun Around the Fire
+	{ID_ATTUNE="276",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
+	{ID_ATTUNE="276",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
+	{ID_ATTUNE="276",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="276",ID="1000",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_frost_wizardmark",FOLLOWS="860&720&480&380&280",STAGE="90"},
 
 
 --vForever: Lower Blackrock Spire (Alliance 345)
@@ -2826,6 +2919,15 @@ Attune_Data.quests = {
 	[544]={30,1},			[545]={30,1},
 	[93680]={30,1},			[92434]={30,1},			[96984]={24,5},			[96986]={24,5},
 	[96987]={24,5},			[96988]={24,5},			[97287]={24,1},
+	-- The Drowned City (Alliance)
+	[203]={30,1},			[204]={30,1},			[205]={30,1},			[207]={30,1},
+	[95786]={30,1},			[95787]={30,5},			[95788]={30,5},			[95798]={30,1},
+	[95799]={30,1},			[97130]={34,5},
+	-- The Drowned City (Horde)
+	[629]={30,1},			[95748]={30,1},			[95770]={30,1},			[95773]={30,1},
+	[95775]={30,5},			[95776]={30,5},			[96078]={30,1},			[96774]={30,5},
+	-- The Drowned City (both)
+	[95789]={34,5},			[95791]={34,5},
 }
 
 
