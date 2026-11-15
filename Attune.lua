@@ -3109,6 +3109,9 @@ end
 
 function Attune_CheckIsNext(who)
 	local att = Attune_DB.toons[who]
+	-- OVER can arrive before TOON, or for a stub that never got a done table.
+	if att == nil then return end
+	if att.done == nil then att.done = {} end
 	--print("Checking "..who)
 	-- blank the array
 	att.next = {}
@@ -9029,6 +9032,8 @@ function Attune_HandleRequestResults(response)
 	elseif tag == 'OVER' or tag == 'SILENTOVER' then
 		--print(tag.." " .. player.name)
 		attunelocal_refreshDone = false
+		-- Same arrival order as DONE: the closing message can be the first one stored.
+		if player.done == nil then player.done = {} end
 
 		if player.name ~= attunelocal_myFullName then
 			if tag == 'OVER' and Attune_DB.showResponses then print("|cffff00ff[Attune]|r "..AttuneLang["ReceivedDataFromName"]:gsub("##NAME##",  player.name)) end -- received data from someone else, might as well announce it in chat

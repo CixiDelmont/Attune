@@ -37,7 +37,8 @@ Attune_Data.attunes = 	{
     {ID="276",NAME=AttuneLang["The Drowned City"],SHORT="DC",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_frost_wizardmark", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="35-42"},
 	{ID="280",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="37-46"},
 	{ID="290",NAME=AttuneLang["Razorfen Downs"],SHORT="RFD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\spell_shadow_raisedead", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="37-46"},
-	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-47"},
+	{ID="295",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-47"},
+	{ID="296",NAME=AttuneLang["Krol'dok Stronghold"],SHORT="KS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_monsterclaw_04", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="40-47"},
     {ID="320",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="41-51"},
 	{ID="330",NAME=AttuneLang["Uldaman"],SHORT="Ulda",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_pick_05", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="41-51"},
 	{ID="350",NAME=AttuneLang["Zul'Farrak"],SHORT="ZF",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_trollgore", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="44-54"},
@@ -1024,46 +1025,47 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="251",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_magic_polymorphpig",FOLLOWS="350&250&150&430&420",STAGE="60"},
 
 --vForever dungeon attune 260
-	-- Columns L→R (higher ID = left): 1053 Name of the Light (→4 kills ‖) | 1050 Mythology
+	-- Columns L→R (higher ID = left): 96800 Past Due | 1053 Name of the Light (→4 kills ‖) | 1050 Mythology
 	-- Kill row (same STAGE): Loksey ‖ Herod ‖ Mograine ‖ Whitemane
 	{ID_ATTUNE="260",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
-	{ID_ATTUNE="260",ID="520",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
+	{ID_ATTUNE="260",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96800",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Past Due
 	{ID_ATTUNE="260",ID="420",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="260",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Brother Anton
 	{ID_ATTUNE="260",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="260",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1050",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mythology of the Titans
 	-- STAGE 30
-	{ID_ATTUNE="260",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
+	{ID_ATTUNE="260",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="273169",ICON="Interface\\Icons\\inv_10_specialization_professionbook_inscription_color1",FOLLOWS="520",STAGE="30"}, -- item: The Lost Magic of the Runemasters
 	{ID_ATTUNE="260",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="260",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="261",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Down the Scarlet Path
 	{ID_ATTUNE="260",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="260",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5536",ICON="Interface\\Icons\\inv_misc_book_10",FOLLOWS="120",STAGE="30"}, -- item: Mythology of the Titans
 	-- STAGE 40
-	{ID_ATTUNE="260",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	{ID_ATTUNE="260",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96800",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Past Due
 	{ID_ATTUNE="260",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="260",ID="340",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1052",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40"}, -- quest: Down the Scarlet Path
 	{ID_ATTUNE="260",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
     {ID_ATTUNE="260",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1050",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40"}, -- quest: Mythology of the Titans
 	-- STAGE 50
-	{ID_ATTUNE="260",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
+	{ID_ATTUNE="260",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="260",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="260",ID="350",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: In the Name of the Light
 	{ID_ATTUNE="260",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="260",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60 — 4 kills on one row (all FOLLOWS Pick Up)
+	{ID_ATTUNE="260",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="260",ID="560",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="350",STAGE="60"}, -- npc: Houndmaster Loksey
 	{ID_ATTUNE="260",ID="460",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="350",STAGE="60"}, -- npc: Herod
 	{ID_ATTUNE="260",ID="360",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="350",STAGE="60"}, -- npc: Scarlet Commander Mograine
 	{ID_ATTUNE="260",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="350",STAGE="60"}, -- npc: High Inquisitor Whitemane
 	-- {ID_ATTUNE="260",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="260",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
+	{ID_ATTUNE="260",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
 	{ID_ATTUNE="260",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
     {ID_ATTUNE="260",ID="370",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="1053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560&460&360&260",STAGE="70"}, -- quest: In the Name of the Light
 	{ID_ATTUNE="260",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="260",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
-	{ID_ATTUNE="260",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="370&170",STAGE="80"},
+	{ID_ATTUNE="260",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="570&370&170",STAGE="80"},
 
 
 --vForever dungeon attune 270
@@ -1155,49 +1157,57 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="710&610&510&310&820",STAGE="120"},
 
 --vForever dungeon attune 280
-	-- Columns L→R (higher ID = left): 3636 Bring the Light | 6626 Host of Evil
+	-- Columns L→R (higher ID = left): 96773 Coldbringer's Eye | 3636 Bring the Light | 6626 Host of Evil
 	-- SIDE (beside End): 3523 Scourge of the Downs (Inside — Belnistrasz)
 	{ID_ATTUNE="280",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="280",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="3636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bring the Light
 	{ID_ATTUNE="280",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
+	{ID_ATTUNE="280",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="420",STAGE="30"}, -- item: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="220",STAGE="30"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="280",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
+	{ID_ATTUNE="280",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="3636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Bring the Light
 	{ID_ATTUNE="280",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- SIDE reminder (inside dungeon) — left of End
 	{ID_ATTUNE="280",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: Scourge of the Downs (Inside)
-	{ID_ATTUNE="280",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="240&140&320",STAGE="50"},
+	{ID_ATTUNE="280",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="440&240&140&320",STAGE="50"},
 
 --vForever dungeon attune 290
-	-- Columns L→R: 3341 Bring the End | 6522→6521 Unholy Alliance (longest) | 6626 Host of Evil
+	-- Columns L→R: 97196 Coldbringer's Eye | 3341 Bring the End | 6522→6521 Unholy Alliance (longest) | 6626 Host of Evil
 	-- SIDE (beside End): 3523 Scourge of the Downs (Inside — Belnistrasz)
 	{ID_ATTUNE="290",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="290",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97196",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="3341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bring the End
 	{ID_ATTUNE="290",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: An Unholy Alliance (Small Scroll from RFK)
 	{ID_ATTUNE="290",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
+	{ID_ATTUNE="290",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="520",STAGE="30"}, -- item: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="320",STAGE="30"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="290",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: An Unholy Alliance
 	{ID_ATTUNE="290",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
+	{ID_ATTUNE="290",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97196",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="10420",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="330",STAGE="40"}, -- item: Skull of the Coldbringer
 	{ID_ATTUNE="290",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="12865",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="230",STAGE="40"}, -- npc: Ambassador Malcin
 	{ID_ATTUNE="290",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- STAGE 50
+	{ID_ATTUNE="290",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="290",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="3341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Bring the End
 	{ID_ATTUNE="290",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="17009",ICON="Interface\\Icons\\inv_misc_head_undead_01",FOLLOWS="240",STAGE="50"}, -- item: Ambassador Malcin's Head
 	{ID_ATTUNE="290",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60
+	{ID_ATTUNE="290",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="290",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	{ID_ATTUNE="290",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: An Unholy Alliance
 	{ID_ATTUNE="290",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- SIDE reminder (inside dungeon) — left of End
 	{ID_ATTUNE="290",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Scourge of the Downs (Inside)
-	{ID_ATTUNE="290",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="360&260&160&420",STAGE="70"},
+	{ID_ATTUNE="290",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&360&260&160&420",STAGE="70"},
 
 --vForever dungeon attune 300
 	-- Columns L→R: 7065 Corruption | 7044 Legends (Noxxion→Rod ‖ Vyletongue→Diamond) | 7041 Vyletongue Corruption | 7028 Twisted Evils | 7070 Shadowshard | 7067 Pariah
@@ -2716,6 +2726,87 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="95",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- quest: This Must Be The Place (Messenger Bag)
 	{ID_ATTUNE="95",ID="130",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="79976",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="130"}, -- quest: This Must Be The Place (Hastily Rolled-Up Satchel)
 	{ID_ATTUNE="95",ID="140",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_bag_bigbagofenchantments",FOLLOWS="130",STAGE="140"},
+
+	-- Krol'dok Stronghold (Alliance).
+	-- A Small Favor opens Tome of Twilight.
+	-- Twilight Mementos → Lingering Essence → Curios of Curiosity.
+	-- Krol'dok Moulding is dropped by Tunk, then Key Ingredients.
+	-- Eye of Mugg and Vengeance of the Highborne stand alone.
+	-- SIDE: Krol'dok No More! (escort inside the stronghold).
+	{ID_ATTUNE="295",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 36",LOCATION="",ID_WOWHEAD="36",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	-- Tome of Twilight
+	{ID_ATTUNE="295",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94907",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Small Favor
+	{ID_ATTUNE="295",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Tome of Twilight
+	{ID_ATTUNE="295",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="910",STAGE="40"}, -- item: Tome of Twilight
+	{ID_ATTUNE="295",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: Tome of Twilight
+	{ID_ATTUNE="295",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="890",STAGE="60"},
+	{ID_ATTUNE="295",ID="870",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="880",STAGE="70"},
+	-- Twilight Mementos
+	{ID_ATTUNE="295",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Twilight Mementos
+	{ID_ATTUNE="295",ID="810",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267234",ICON="Interface\\Icons\\inv_7_0raid_necklace_13b",FOLLOWS="820",STAGE="30", COUNT=8}, -- item: Twilight Bangle
+	{ID_ATTUNE="295",ID="800",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="810",STAGE="40"}, -- quest: Twilight Mementos
+	{ID_ATTUNE="295",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="50"}, -- quest: Lingering Essence
+	{ID_ATTUNE="295",ID="780",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94998",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="790",STAGE="60"}, -- quest: Curios of Curiosity
+	{ID_ATTUNE="295",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="70"},
+	-- Krol'dok Moulding (Tunk) → Key Ingredients
+	{ID_ATTUNE="295",ID="620",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267138",ICON="Interface\\Icons\\inv_ingot_platinum",FOLLOWS="10",STAGE="20"}, -- item: Krol'dok Moulding
+	{ID_ATTUNE="295",ID="610",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Krol'dok Moulding
+	{ID_ATTUNE="295",ID="600",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="40"}, -- quest: Key Ingredients
+	{ID_ATTUNE="295",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="600",STAGE="50"},
+	{ID_ATTUNE="295",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="60"},
+	{ID_ATTUNE="295",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="70"},
+	-- Eye of Mugg
+	{ID_ATTUNE="295",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Eye of Mugg
+	{ID_ATTUNE="295",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="420",STAGE="30"}, -- item: Eye of Mugg
+	{ID_ATTUNE="295",ID="400",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="40"}, -- quest: Eye of Mugg
+	{ID_ATTUNE="295",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="400",STAGE="50"},
+	{ID_ATTUNE="295",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="60"},
+	{ID_ATTUNE="295",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="70"},
+	-- Vengeance of the Highborne
+	{ID_ATTUNE="295",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vengeance of the Highborne
+	{ID_ATTUNE="295",ID="210",TYPE="Kill",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="268423",ICON="Interface\\Icons\\inv_misc_head_elf_02",FOLLOWS="220",STAGE="30"}, -- npc: Zalfan Moonshadow
+	{ID_ATTUNE="295",ID="200",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="40"}, -- quest: Vengeance of the Highborne
+	{ID_ATTUNE="295",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="200",STAGE="50"},
+	{ID_ATTUNE="295",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="190",STAGE="60"},
+	{ID_ATTUNE="295",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="70"},
+	{ID_ATTUNE="295",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94969",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Krol'dok No More! (Inside)
+	{ID_ATTUNE="295",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterclaw_04",FOLLOWS="870&770&570&370&170&150",STAGE="80"},
+
+	-- Krol'dok Stronghold (Horde).
+	-- Clugfist's Decree → The Wayward Warrior.
+	-- Then Break Their Chains, Carving a Path, and Rise Up! together open Bring Me His Head.
+	-- That opens A Token of Vengeance, and It Is Time, Brother... which opens Eye of Mugg and Tome of Twilight.
+	-- Krol'dok Moulding is dropped by Tunk, then Key Ingredients.
+	-- SIDE: Krol'dok No More! (escort inside the stronghold).
+	{ID_ATTUNE="296",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 36",LOCATION="",ID_WOWHEAD="36",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="296",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95428",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Clugfist's Decree
+	{ID_ATTUNE="296",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94744",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: The Wayward Warrior
+	{ID_ATTUNE="296",ID="840",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94748",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Break Their Chains
+	{ID_ATTUNE="296",ID="830",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94745",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Carving a Path
+	{ID_ATTUNE="296",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95432",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Rise Up!
+	{ID_ATTUNE="296",ID="800",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840&830&820",STAGE="50"}, -- quest: Bring Me His Head
+	{ID_ATTUNE="296",ID="780",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="60"}, -- quest: A Token of Vengeance
+	{ID_ATTUNE="296",ID="760",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="60"}, -- quest: It Is Time, Brother...
+	{ID_ATTUNE="296",ID="770",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267091",ICON="Interface\\Icons\\inv_misc_ear_human_01",FOLLOWS="780",STAGE="70", COUNT=15}, -- item: Cultist Ear
+	{ID_ATTUNE="296",ID="740",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="70"}, -- quest: Eye of Mugg
+	{ID_ATTUNE="296",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="70"}, -- quest: Tome of Twilight
+	{ID_ATTUNE="296",ID="790",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="770",STAGE="80"}, -- quest: A Token of Vengeance
+	{ID_ATTUNE="296",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="740",STAGE="80"}, -- item: Eye of Mugg
+	{ID_ATTUNE="296",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="720",STAGE="80"}, -- item: Tome of Twilight
+	{ID_ATTUNE="296",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="790",STAGE="90"},
+	{ID_ATTUNE="296",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="90"}, -- quest: Eye of Mugg
+	{ID_ATTUNE="296",ID="690",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="90"}, -- quest: Tome of Twilight
+	-- Krol'dok Moulding (Tunk) → Key Ingredients
+	{ID_ATTUNE="296",ID="420",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267137",ICON="Interface\\Icons\\inv_ingot_platinum",FOLLOWS="10",STAGE="20"}, -- item: Krol'dok Moulding
+	{ID_ATTUNE="296",ID="410",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94973",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Krol'dok Moulding
+	{ID_ATTUNE="296",ID="400",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="40"}, -- quest: Key Ingredients
+	{ID_ATTUNE="296",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="400",STAGE="50"},
+	{ID_ATTUNE="296",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="60"},
+	{ID_ATTUNE="296",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="70"},
+	{ID_ATTUNE="296",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="80"},
+	{ID_ATTUNE="296",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="90"},
+	{ID_ATTUNE="296",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="95056",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="90",SIDE=true}, -- quest: Krol'dok No More! (Inside)
+	{ID_ATTUNE="296",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterclaw_04",FOLLOWS="750&700&690&350&150",STAGE="100"},
 }
 
 -- Character trials. Most requirements read a statistic (GetStatistic):
@@ -2928,6 +3019,17 @@ Attune_Data.quests = {
 	[95775]={30,5},			[95776]={30,5},			[96078]={30,1},			[96774]={30,5},
 	-- The Drowned City (both)
 	[95789]={34,5},			[95791]={34,5},
+	-- Krol'dok Stronghold (Alliance)
+	[94907]={36,1},			[94969]={40,5},			[94980]={38,1},			[94981]={38,1},
+	[94982]={40,5},			[94983]={38,5},			[94984]={39,5},			[94997]={38,1},
+	[94998]={38,1},			[96771]={37,5},
+	-- Krol'dok Stronghold (Horde)
+	[94744]={38,1},			[94745]={38,1},			[94748]={38,1},			[94768]={38,1},
+	[94968]={40,5},			[94972]={39,5},			[94973]={38,1},			[94974]={38,1},
+	[94975]={38,5},			[95056]={40,5},			[95278]={38,1},			[95428]={36,1},
+	[95432]={36,1},
+	-- Razorfen Downs / Scarlet Monastery (Forever)
+	[96773]={34,5},			[97196]={34,5},			[96800]={30,5},
 }
 
 
@@ -3090,4 +3192,5 @@ Attune_Data.npcs = {
 	[260326] = { "29", AttuneLang["Boss"], AttuneLang["Elemental"]}, -- Relic Guardian
 	[247126] = { "32", AttuneLang["Elite"], AttuneLang["Undead"]}, -- Atrexis the Grave Knight
 	[246016] = { "??", AttuneLang["Elite"], AttuneLang["Elemental"]}, -- Arcanic Enigma
+	[268423] = { "??", AttuneLang["Boss"], AttuneLang["Night-Elf"]}, -- Zalfan Moonshadow
 }

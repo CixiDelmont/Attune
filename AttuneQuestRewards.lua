@@ -908,6 +908,34 @@ Attune_Data.questRewards = {
 	[96078] = { choice = {{279885, 1}, {279886, 1}, {279887, 1}}, fixed = {{270312, 1}, {270313, 1}} }, -- A Tale Spun Around the Fire
 	[96774] = {}, -- Ancient Gurubashi Idol; 1 gold
 	[97130] = {}, -- Ancient Gurubashi Secrets; 50 silver
+	[96773] = {}, -- The Coldbringer's Eye; 55 silver
+	[97196] = {}, -- The Coldbringer's Eye; 55 silver
+	[96800] = { choice = {{276898, 1}, {276899, 1}} }, -- Past Due; 45 silver
+	-- Krol'dok Stronghold (Alliance)
+	[94907] = {}, -- A Small Favor; experience only
+	[94969] = {}, -- Krol'dok No More!; reward items are blank on Wowhead
+	[94980] = {}, -- Krol'dok Moulding; 55 silver
+	[94981] = { fixed = {{267089, 1}} }, -- Key Ingredients
+	[94982] = { choice = {{279852, 1}, {279853, 1}, {279480, 1}} }, -- Eye of Mugg
+	[94983] = {}, -- Twilight Mementos; experience only
+	[94984] = { choice = {{279854, 1}, {279855, 1}} }, -- Tome of Twilight
+	[94997] = {}, -- Lingering Essence; 55 silver
+	[94998] = { choice = {{279850, 1}} }, -- Curios of Curiosity
+	[96771] = {}, -- Vengeance of the Highborne; 65 silver
+	-- Krol'dok Stronghold (Horde)
+	[94744] = {}, -- The Wayward Warrior; experience only
+	[94745] = {}, -- Carving a Path; 65 silver
+	[94748] = {}, -- Break Their Chains; experience only
+	[94768] = { choice = {{275050, 1}, {275051, 1}} }, -- Bring Me His Head
+	[94968] = { choice = {{279852, 1}, {279480, 1}, {279853, 1}} }, -- Eye of Mugg
+	[94972] = { choice = {{279859, 1}, {279860, 1}} }, -- Tome of Twilight
+	[94973] = {}, -- Krol'dok Moulding; 55 silver
+	[94974] = { fixed = {{267089, 1}} }, -- Key Ingredients
+	[94975] = { fixed = {{267090, 1}} }, -- A Token of Vengeance
+	[95056] = {}, -- Krol'dok No More!; reward items are blank on Wowhead
+	[95278] = {}, -- It Is Time, Brother...; experience only
+	[95428] = {}, -- Clugfist's Decree; experience only
+	[95432] = {}, -- Rise Up!; experience only
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -1312,6 +1340,30 @@ Attune_Data.rewardItems = {
 	[279888] = {"Tidesoaked Leggings", "inv_pants_13", 2},
 	[279889] = {"Naga Priestess's Mantle", "inv_shoulder_18", 2},
 	[279930] = {"Saltseer's Helm", "inv_helmet_15", 2},
+	-- Krol'dok Stronghold
+	[267086] = {"Eye of Mugg", "inv_misc_eye_04", 1},
+	[267089] = {"Krol'dok Compound Key", "inv_misc_key_11", 1},
+	[267090] = {"Semblance of Twilight", "inv_misc_ear_human_01", 2},
+	[267091] = {"Cultist Ear", "inv_misc_ear_human_01", 1},
+	[267104] = {"Tome of Twilight", "inv_misc_book_05", 1},
+	[267137] = {"Krol'dok Moulding", "inv_ingot_platinum", 1},
+	[267138] = {"Krol'dok Moulding", "inv_ingot_platinum", 1},
+	[267234] = {"Twilight Bangle", "inv_7_0raid_necklace_13b", 1},
+	[275050] = {"Cloak of the Cult", "inv_misc_cape_22", 2},
+	[275051] = {"Twilight Barrier", "inv_shield_03", 2},
+	[279480] = {"Bigger Rock on Bigger Stick", "inv_mace_04", 3},
+	[279850] = {"Curio-Adorned Necklace", "inv_jewelry_necklace_04", 3},
+	[279852] = {"Rock on Stick", "inv_hammer_09", 3},
+	[279853] = {"Stick No Rock", "inv_staff_22", 3},
+	[279854] = {"Twilight Initiate's Belt", "inv_belt_26", 2},
+	[279855] = {"Torn Cultist Cloak", "inv_misc_cape_19", 2},
+	[279859] = {"Indoctrinated Choker", "inv_jewelry_necklace_11", 2},
+	[279860] = {"Convert's Bindings", "inv_bracer_07", 2},
+	-- Razorfen Downs / Scarlet Monastery (Forever)
+	[273169] = {"The Lost Magic of the Runemasters", "inv_10_specialization_professionbook_inscription_color1", 1},
+	[276898] = {"Salve and Salvation", "inv_misc_book_01", 3},
+	[276899] = {"Knucklebound Thimble", "inv_jewelry_ring_01", 3},
+	[276916] = {"The Coldbringer's Eye", "spell_animamaldraxxus_orb", 1},
 }
 
 -- name, icon file. Used when the client has not cached the spell.
