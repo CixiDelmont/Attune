@@ -3109,6 +3109,9 @@ end
 
 function Attune_CheckIsNext(who)
 	local att = Attune_DB.toons[who]
+	if att == nil then return end
+	-- OVER can arrive for a toon stub that never received TOON/DONE data; ensure done exists
+	if att.done == nil then att.done = {} end
 	--print("Checking "..who)
 	-- blank the array
 	att.next = {}
