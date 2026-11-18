@@ -53,7 +53,8 @@ Attune_Data.attunes = 	{
 	{ID="400",NAME=AttuneLang["Blackrock Depths"],SHORT="BRD",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_key_08", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="52-60"},
     {ID="345",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="346",NAME=AttuneLang["Lower Blackrock Spire"],SHORT="LBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
-    {ID="405",NAME=AttuneLang["Blackmaw Hold"],SHORT="BH",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+    {ID="405",NAME=AttuneLang["Blackmaw Hold"],SHORT="BH",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
+	{ID="406",NAME=AttuneLang["Blackmaw Hold"],SHORT="BH",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\ability_druid_demoralizingroar", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="340",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
     {ID="341",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
 	{ID="410",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
@@ -2882,6 +2883,48 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="356",ID="710",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="720",STAGE="70"},
 	{ID_ATTUNE="356",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="96335",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: The Man in the Iron Chains (Inside — Mason Connery)
 	{ID_ATTUNE="356",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_04",FOLLOWS="910&810&710&140",STAGE="80"},
+
+	-- Blackmaw Hold (Alliance).
+	-- Beneath Nordrassil opens Get to the Roots of It.
+	-- Blackmaw Pouches is the follow-up of the same name.
+	-- SIDE: quests picked up inside. Each is the first quest of its chain.
+	{ID_ATTUNE="405",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 45",LOCATION="",ID_WOWHEAD="45",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="405",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92345",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Beneath Nordrassil
+	{ID_ATTUNE="405",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="92344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Get to the Roots of It
+	{ID_ATTUNE="405",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10}, -- item: Nordrassil Root Cap
+	{ID_ATTUNE="405",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="92344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: Get to the Roots of It
+	{ID_ATTUNE="405",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="405",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5}, -- item: Blackmaw Pouch
+	{ID_ATTUNE="405",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="405",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="96246",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="700",STAGE="50"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="405",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="97173",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Blackmaw Magic (Inside — Archmage Timear; totem from Elder Shaman Bloodmane)
+	{ID_ATTUNE="405",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: A Lost Memento (Inside — Feathered Charm Necklace)
+	{ID_ATTUNE="405",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Feeding Time! (Inside)
+	{ID_ATTUNE="405",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: The Twin Bears (Inside — turn in to Lorekeeper Nok at Ursolan)
+	{ID_ATTUNE="405",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Claws That Rend, Tusks that Gore (Inside — Ogtinc)
+	{ID_ATTUNE="405",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Blackmaw Reclamation (Inside — turn in to Gatekeeper Rageroar at Ursolan)
+	{ID_ATTUNE="405",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_demoralizingroar",FOLLOWS="890&690&160&150&140&130&120&110",STAGE="60"},
+
+	-- Blackmaw Hold (Horde).
+	-- Beneath Nordrassil opens Get to the Roots of It.
+	-- Blackmaw Pouches is the follow-up of the same name.
+	-- SIDE: quests picked up inside. Each is the first quest of its chain.
+	{ID_ATTUNE="406",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 45",LOCATION="",ID_WOWHEAD="45",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="406",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92346",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Beneath Nordrassil
+	{ID_ATTUNE="406",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="92343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Get to the Roots of It
+	{ID_ATTUNE="406",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10}, -- item: Nordrassil Root Cap
+	{ID_ATTUNE="406",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="92343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: Get to the Roots of It
+	{ID_ATTUNE="406",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="406",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5}, -- item: Blackmaw Pouch
+	{ID_ATTUNE="406",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="406",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="96246",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="700",STAGE="50"}, -- quest: Blackmaw Pouches
+	{ID_ATTUNE="406",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97198",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Blackmaw Magic (Inside — Muln Earthfury; totem from Elder Shaman Bloodmane)
+	{ID_ATTUNE="406",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: A Lost Memento (Inside — Feathered Charm Necklace)
+	{ID_ATTUNE="406",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Feeding Time! (Inside)
+	{ID_ATTUNE="406",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: The Twin Bears (Inside — turn in to Lorekeeper Nok at Ursolan)
+	{ID_ATTUNE="406",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Claws That Rend, Tusks that Gore (Inside — Ogtinc)
+	{ID_ATTUNE="406",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Blackmaw Reclamation (Inside — turn in to Gatekeeper Rageroar at Ursolan)
+	{ID_ATTUNE="406",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_demoralizingroar",FOLLOWS="890&690&160&150&140&130&120&110",STAGE="60"},
 }
 
 -- Character trials. Most requirements read a statistic (GetStatistic):
@@ -3116,6 +3159,12 @@ Attune_Data.quests = {
 	-- Alcaz Prison (Horde)
 	[95283]={48,1},			[95284]={48,1},			[95285]={48,1},
 	[96332]={48,5},			[96334]={48,5},			[95309]={48,5},
+	-- Blackmaw Hold
+	[92345]={45,1},			[92344]={45,5},			[92346]={45,1},			[92343]={45,5},
+	[97327]={55,5},			[96246]={55,5},
+	[97173]={52,5},			[97198]={52,5},
+	[92070]={47,5},			[92067]={45,5},			[92066]={47,5},
+	[92069]={45,5},			[92065]={47,5},
 }
 
 

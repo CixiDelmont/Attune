@@ -10,6 +10,7 @@
 
 -- 16001-43
 --   - Added the Alcaz Prison dungeon quests.
+--   - Added the Blackmaw Hold dungeon quests.
 --  
 -- 16001-42
 --   - Added the Krol'dok Stronghold dungeon quests.

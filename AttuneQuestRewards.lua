@@ -966,6 +966,20 @@ Attune_Data.questRewards = {
 	[96335] = {}, -- The Man in the Iron Chains
 	[96381] = { choice = {{279825, 1}, {279826, 1}, {279829, 1}} }, -- A Bit of Wet Work
 	[96772] = {}, -- The Dragon's Journal
+	-- Blackmaw Hold
+	[92343] = {}, -- Get to the Roots of It
+	[92344] = {}, -- Get to the Roots of It
+	[92345] = {}, -- Beneath Nordrassil
+	[92346] = {}, -- Beneath Nordrassil
+	[96246] = {}, -- Blackmaw Pouches
+	[97173] = {}, -- Blackmaw Magic
+	[97198] = {}, -- Blackmaw Magic
+	[97327] = {}, -- Blackmaw Pouches
+	[92065] = { choice = {{260216, 1}, {260217, 1}, {260218, 1}, {260219, 1}} }, -- Blackmaw Reclamation
+	[92066] = { choice = {{279891, 1}, {279892, 1}} }, -- The Twin Bears
+	[92067] = { fixed = {{249900, 1}} }, -- Feeding Time!
+	[92069] = { choice = {{260213, 1}, {260214, 1}, {260215, 1}} }, -- Claws That Rend, Tusks that Gore
+	[92070] = { choice = {{279893, 1}} }, -- A Lost Memento
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -1404,6 +1418,20 @@ Attune_Data.rewardItems = {
 	[279825] = {"Theramore Defender's Gauntlets", "inv_gauntlets_03", 2},
 	[279826] = {"Marshdweller's Pants", "inv_pants_10", 2},
 	[279829] = {"Naga Scale Spaulders", "inv_shoulder_07", 2},
+	-- Blackmaw Hold
+	[249900] = {"Regurgitated Seed Pod", "inv_farm_goldenseed", 1},
+	[250773] = {"Nordrassil Root Cap", "inv_misc_herb_nightmarevine_stem", 1},
+	[260213] = {"Great Bear Claw", "inv_misc_monsterclaw_04", 2},
+	[260214] = {"Staff of Wild Beasts", "inv_staff_51", 2},
+	[260215] = {"Wild Malleus", "inv_mace_01", 2},
+	[260216] = {"Ouroboros Ring", "inv_jewelry_ring_40", 3},
+	[260217] = {"Eagle's Head Signet", "inv_jewelry_ring_zulgurub_01", 3},
+	[260218] = {"Malefactor's End", "inv_jewelry_ring_66", 3},
+	[260219] = {"Engraved Band", "inv_jewelcrafting_70_lvlupring_purple", 3},
+	[273050] = {"Blackmaw Pouch", "inv_misc_bag_03", 1},
+	[279891] = {"Guidance of Ursoc", "inv_misc_cape_08", 2},
+	[279892] = {"Wisdom of Ursol", "inv_misc_cape_05", 2},
+	[279893] = {"Nama's Cherished Necklace", "inv_misc_necklace_feather09", 2},
 }
 
 -- name, icon file. Used when the client has not cached the spell.

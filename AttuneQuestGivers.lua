@@ -506,4 +506,16 @@ Attune_Data.questGivers = {
 	[96332] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island)
 	[96334] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island); turn in to Eitrigg (Orgrimmar 34.3, 39.4)
 	[95309] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island); turn in to Commander Folkar inside Alcaz Prison
+	-- Blackmaw Hold (Alliance).
+	[92345] = {1447, 11.8, 78.4, "Commander Truesong"}, -- Commander Truesong (Talrendis Point); turn in to Mathrengyl Bearwalker (Cenarion Enclave 35.4, 8.4)
+	[92344] = {1457, 35.4, 8.4, "Mathrengyl Bearwalker"}, -- Mathrengyl Bearwalker (Cenarion Enclave)
+	[97173] = {1416, 15.4, 74.1, "Archmage Timear"}, -- Archmage Timear (Dalaran); totem drops from Elder Shaman Bloodmane
+	[92069] = {1447, 42.4, 42.6, "Ogtinc"}, -- Ogtinc (Azshara)
+	-- Blackmaw Hold (Horde).
+	[92346] = {1447, 22.6, 51.4, "Jediga"}, -- Jediga (Valormok); turn in to Nara Wildmane (Elder Rise 75.7, 31.6)
+	[92343] = {1456, 75.7, 31.6, "Nara Wildmane"}, -- Nara Wildmane (Elder Rise)
+	[97198] = {1412, 33.4, 22.6, "Muln Earthfury"}, -- Muln Earthfury (Mulgore); totem drops from Elder Shaman Bloodmane
+	-- Blackmaw Hold (both).
+	[97327] = {1447, 42.0, 38.9, "Ekkal"}, -- Ekkal (Ruins of Eldarath)
+	[96246] = {1447, 42.0, 38.9, "Ekkal"}, -- Ekkal (Ruins of Eldarath)
 }
