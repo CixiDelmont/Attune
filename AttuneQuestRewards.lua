@@ -912,10 +912,15 @@ Attune_Data.questRewards = {
 	[97196] = {}, -- The Coldbringer's Eye; 55 silver
 	[96800] = { choice = {{276898, 1}, {276899, 1}} }, -- Past Due; 45 silver
 	-- Krol'dok Stronghold (Alliance)
+	[94879] = {}, -- Scraps of Knowledge; experience only
+	[94881] = {}, -- Curious Trinkets; experience only
+	[94886] = {}, -- The Western Front; experience only
+	[94888] = {}, -- No Soldier Left Behind; experience only
+	[94889] = {}, -- Carving a Path; 30 silver
+	[94890] = { choice = {{275046, 1}, {275049, 1}} }, -- Bring Me His Head
 	[94907] = {}, -- A Small Favor; experience only
 	[94969] = {}, -- Krol'dok No More!; reward items are blank on Wowhead
 	[94980] = {}, -- Krol'dok Moulding; 55 silver
-	[94981] = { fixed = {{267089, 1}} }, -- Key Ingredients
 	[94982] = { choice = {{279852, 1}, {279853, 1}, {279480, 1}} }, -- Eye of Mugg
 	[94983] = {}, -- Twilight Mementos; experience only
 	[94984] = { choice = {{279854, 1}, {279855, 1}} }, -- Tome of Twilight
@@ -923,6 +928,12 @@ Attune_Data.questRewards = {
 	[94998] = { choice = {{279850, 1}} }, -- Curios of Curiosity
 	[96771] = {}, -- Vengeance of the Highborne; 65 silver
 	-- Krol'dok Stronghold (Horde)
+	[93786] = {}, -- A Message in Blood; experience only
+	[93787] = {}, -- Food for the Taking; experience only
+	[94483] = {}, -- Show Them How It's Done; 35 silver
+	[94672] = {}, -- Encroaching Twilight; experience only
+	[94680] = {}, -- Twilight Missives; experience only
+	[94727] = {}, -- Digging for Answers; experience only
 	[94744] = {}, -- The Wayward Warrior; experience only
 	[94745] = {}, -- Carving a Path; 65 silver
 	[94748] = {}, -- Break Their Chains; experience only
@@ -930,12 +941,31 @@ Attune_Data.questRewards = {
 	[94968] = { choice = {{279852, 1}, {279480, 1}, {279853, 1}} }, -- Eye of Mugg
 	[94972] = { choice = {{279859, 1}, {279860, 1}} }, -- Tome of Twilight
 	[94973] = {}, -- Krol'dok Moulding; 55 silver
-	[94974] = { fixed = {{267089, 1}} }, -- Key Ingredients
 	[94975] = { fixed = {{267090, 1}} }, -- A Token of Vengeance
 	[95056] = {}, -- Krol'dok No More!; reward items are blank on Wowhead
 	[95278] = {}, -- It Is Time, Brother...; experience only
+	[95417] = {}, -- The Purple Ones; experience only
+	[95420] = {}, -- Land of Giants; experience only
+	[95424] = {}, -- Might Makes Right; experience only
+	[95425] = {}, -- Unworthy Champion; experience only
+	[95427] = {}, -- Twilight No More!; 25 silver
 	[95428] = {}, -- Clugfist's Decree; experience only
+	[95431] = {}, -- Rumblings of Discontent; experience only
 	[95432] = {}, -- Rise Up!; experience only
+	[95602] = {}, -- Sickening Lights; experience only
+	-- Alcaz Prison
+	[95194] = {}, -- Our Man in Theramore
+	[95196] = {}, -- Watch Yer Back
+	[95198] = {}, -- The Return of the King?
+	[95283] = {}, -- The Missing Kor'kron
+	[95284] = {}, -- The Elite of the Elite
+	[95285] = {}, -- Right Place, Wrong Time
+	[95309] = {}, -- No Orc Left Behind
+	[96332] = { choice = {{279824, 1}, {279826, 1}, {279829, 1}} }, -- A Little Payback
+	[96334] = { choice = {{279448, 1}, {279473, 1}} }, -- Blood Red Bandanas
+	[96335] = {}, -- The Man in the Iron Chains
+	[96381] = { choice = {{279825, 1}, {279826, 1}, {279829, 1}} }, -- A Bit of Wet Work
+	[96772] = {}, -- The Dragon's Journal
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -1342,13 +1372,14 @@ Attune_Data.rewardItems = {
 	[279930] = {"Saltseer's Helm", "inv_helmet_15", 2},
 	-- Krol'dok Stronghold
 	[267086] = {"Eye of Mugg", "inv_misc_eye_04", 1},
-	[267089] = {"Krol'dok Compound Key", "inv_misc_key_11", 1},
 	[267090] = {"Semblance of Twilight", "inv_misc_ear_human_01", 2},
 	[267091] = {"Cultist Ear", "inv_misc_ear_human_01", 1},
 	[267104] = {"Tome of Twilight", "inv_misc_book_05", 1},
 	[267137] = {"Krol'dok Moulding", "inv_ingot_platinum", 1},
 	[267138] = {"Krol'dok Moulding", "inv_ingot_platinum", 1},
 	[267234] = {"Twilight Bangle", "inv_7_0raid_necklace_13b", 1},
+	[275046] = {"Twilight Overlord Drape", "inv_misc_cape_22", 2},
+	[275049] = {"Farholde Bastion", "inv_shield_03", 2},
 	[275050] = {"Cloak of the Cult", "inv_misc_cape_22", 2},
 	[275051] = {"Twilight Barrier", "inv_shield_03", 2},
 	[279480] = {"Bigger Rock on Bigger Stick", "inv_mace_04", 3},
@@ -1364,6 +1395,15 @@ Attune_Data.rewardItems = {
 	[276898] = {"Salve and Salvation", "inv_misc_book_01", 3},
 	[276899] = {"Knucklebound Thimble", "inv_jewelry_ring_01", 3},
 	[276916] = {"The Coldbringer's Eye", "spell_animamaldraxxus_orb", 1},
+	-- Alcaz Prison
+	[274028] = {"Blood Red Bandana", "inv_misc_bandana_03", 1},
+	[276890] = {"Zarla's Journal", "inv_10_specialization_professionbook_jewelcrafting_color1", 1},
+	[279448] = {"Bloodsplattered Bandana", "inv_misc_bandana_03", 2},
+	[279473] = {"Makeshift Belt", "inv_misc_clothscrap_02", 2},
+	[279824] = {"Kor'kron Battle Gauntlets", "inv_gauntlets_03", 2},
+	[279825] = {"Theramore Defender's Gauntlets", "inv_gauntlets_03", 2},
+	[279826] = {"Marshdweller's Pants", "inv_pants_10", 2},
+	[279829] = {"Naga Scale Spaulders", "inv_shoulder_07", 2},
 }
 
 -- name, icon file. Used when the client has not cached the spell.

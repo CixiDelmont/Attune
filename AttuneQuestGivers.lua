@@ -449,20 +449,38 @@ Attune_Data.questGivers = {
 	[95791] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)
 	[95789] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)
 	-- Krol'dok Stronghold (Alliance). Riverglades is UI map 2548.
+	[94879] = {2548, 66.6, 81.0, "Ashe Amberhall"}, -- Ashe Amberhall (Farholde Keep)
+	[94881] = {2548, 66.6, 81.0, "Ashe Amberhall"}, -- Ashe Amberhall (Farholde Keep)
+	[94886] = {2548, 66.6, 81.0, "Demar Brant"}, -- Demar Brant (Farholde Keep); turn in to Sergeant Riftan (Farholde Lookouts 30.6, 49.0)
+	[94888] = {2548, 30.6, 49.0, "Sergeant Riftan"}, -- Sergeant Riftan (Farholde Lookouts)
+	[94889] = {2548, 30.6, 49.0, "Sergeant Riftan"}, -- Sergeant Riftan (Farholde Lookouts)
+	[94890] = {2548, 30.6, 49.0, "Sergeant Riftan"}, -- Sergeant Riftan (Farholde Lookouts)
 	[94907] = {2548, 66.6, 81.0, "Ashe Amberhall"}, -- Ashe Amberhall (Farholde Keep)
 	[94984] = {2548, 66.6, 81.0, "Ashe Amberhall"}, -- Ashe Amberhall (Farholde Keep)
 	[94983] = {2548, 30.6, 49.0, "Sergeant Riftan"}, -- Sergeant Riftan (Farholde Lookouts)
 	[94997] = {2548, 30.6, 49.0, "Sergeant Riftan"}, -- Sergeant Riftan; turn in to Ashe Amberhall (Farholde Keep 66.6, 81.0)
 	[94998] = {2548, 66.6, 81.0, "Ashe Amberhall"}, -- Ashe Amberhall; turn in to Melanie Sable (66.2, 83.2)
 	[94980] = {2548, 64.4, 82.0, "Alphonse Dumas"}, -- Alphonse Dumas; started by Krol'dok Moulding, dropped by Tunk
-	[94981] = {2548, 64.4, 82.0, "Alphonse Dumas"}, -- Alphonse Dumas (Farholde Keep)
 	[94982] = {2548, 66.6, 81.0, "Demar Brant"}, -- Commander Demar Brant (Farholde Keep)
 	[96771] = {1416, 17.8, 66.0, "Ranath Nightstride"}, -- Ranath Nightstride (Alterac Mountains)
 	-- Krol'dok Stronghold (Horde).
+	[93786] = {2548, 59.4, 45.6, "Krom'rosh"}, -- Krom'rosh (Rog'mar)
+	[93787] = {2548, 59.4, 45.6, "Krom'rosh"}, -- Krom'rosh (Rog'mar)
+	[94483] = {2548, 59.4, 45.6, "Krom'rosh"}, -- Krom'rosh (Rog'mar)
+	[94672] = {2548, 59.4, 44.0, "Tran'gul"}, -- Tran'gul (Rog'mar)
+	[94680] = {2548, 59.4, 44.0, "Tran'gul"}, -- Tran'gul (Rog'mar)
+	[94727] = {2548, 59.4, 44.0, "Tran'gul"}, -- Tran'gul (tower behind Krom'rosh); turn in to Clubtoe (Sunnyglade cave 49.9, 47.0)
+	[95417] = {2548, 49.9, 47.0, "Clubtoe"}, -- Clubtoe (Sunnyglade cave)
+	[95602] = {2548, 49.9, 47.0, "Clubtoe"}, -- Clubtoe (Sunnyglade cave)
+	[95427] = {2548, 49.9, 47.0, "Clubtoe"}, -- Clubtoe (Sunnyglade cave)
+	[95420] = {2548, 59.4, 44.0, "Tran'gul"}, -- Tran'gul; turn in to Clugfist (64.4, 14.8)
+	[95424] = {2548, 64.4, 14.8, "Clugfist"}, -- Clugfist (Bolder'ok)
+	[95425] = {2548, 64.4, 14.8, "Clugfist"}, -- Clugfist (Bolder'ok)
 	[95428] = {2548, 64.4, 14.8, "Clugfist"}, -- Clugfist; turn in to Krom'rosh (Rog'mar 59.4, 45.6)
 	[94744] = {2548, 59.4, 45.6, "Krom'rosh"}, -- Krom'rosh (Rog'mar); turn in to Da'grosh (33.4, 38.0)
 	[94748] = {2548, 33.4, 38.0, "Da'grosh"}, -- Da'grosh (Twilight's Shroud)
 	[94745] = {2548, 33.4, 38.0, "Da'grosh"}, -- Da'grosh (Twilight's Shroud)
+	[95431] = {2548, 33.4, 38.0, "Da'grosh"}, -- Da'grosh; turn in to Crag'rog (27.4, 37.0)
 	[95432] = {2548, 27.4, 37.0, "Crag'rog"}, -- Crag'rog
 	[94768] = {2548, 33.4, 38.0, "Da'grosh"}, -- Da'grosh (Twilight's Shroud)
 	[94975] = {2548, 33.4, 38.0, "Da'grosh"}, -- Da'grosh (Twilight's Shroud)
@@ -470,10 +488,22 @@ Attune_Data.questGivers = {
 	[94968] = {2548, 59.4, 45.6, "Krom'rosh"}, -- Krom'rosh (Rog'mar)
 	[94972] = {2548, 59.4, 44.0, "Tran'gul"}, -- Tran'gul (Rog'mar)
 	[94973] = {2548, 59.8, 46.0, "Kreza Darkthorn"}, -- Kreza Darkthorn; started by Krol'dok Moulding, dropped by Tunk
-	[94974] = {2548, 59.8, 46.0, "Kreza Darkthorn"}, -- Kreza Darkthorn (Rog'mar)
 	-- Razorfen Downs (Forever). The Coldbringer's Eye.
 	[96773] = {1416, 15.4, 73.8, "Archmage Lan'dalock"}, -- Archmage Lan'dalock (Dalaran, outside the Violet Hold)
 	[97196] = {1412, 34.4, 22.8, "Sutara Plainstalker"}, -- Sutara Plainstalker (Camp Gev'rek, Skywatcher Plateau); also 34.6, 22.8
 	-- Scarlet Monastery (Alliance, Forever). Past Due. Silver Enclave; entrance is 14.4, 64.8.
 	[96800] = {1416, 10.0, 63.8, "Magus Olvek"}, -- Magus Olvek (Dalaran, Silver Enclave)
+	-- Alcaz Prison (Alliance).
+	[95194] = {1453, 78.3, 70.7, "Master Mathias Shaw"}, -- Master Mathias Shaw (Stormwind City); turn in to Sully McCleary (Theramore Isle 66.2, 45.1)
+	[95196] = {1445, 66.2, 45.1, "Sully McCleary"}, -- Sully McCleary (Theramore Isle); turn in to Sully McCleary (63.5, 42.3)
+	[95198] = {1445, 63.5, 42.3, "Sully McCleary"}, -- Sully McCleary (Dustwallow Marsh)
+	[96381] = {1445, 63.5, 42.3, "Sully McCleary"}, -- Sully McCleary (Dustwallow Marsh)
+	[96772] = {1416, 15.3, 73.9, "Archmage Lan'dalock"}, -- Archmage Lan'dalock (Dalaran)
+	-- Alcaz Prison (Horde).
+	[95283] = {1454, 34.3, 39.4, "Eitrigg"}, -- Eitrigg (Orgrimmar); turn in to Nazeer Bloodpike (Brackenwall Village 35.2, 30.7)
+	[95284] = {1445, 35.2, 30.7, "Nazeer Bloodpike"}, -- Nazeer Bloodpike (Brackenwall Village); turn in to Sergeant Ulka (Alcaz Island 70.3, 18.9)
+	[95285] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island)
+	[96332] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island)
+	[96334] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island); turn in to Eitrigg (Orgrimmar 34.3, 39.4)
+	[95309] = {1445, 70.3, 18.9, "Sergeant Ulka"}, -- Sergeant Ulka (Alcaz Island); turn in to Commander Folkar inside Alcaz Prison
 }

@@ -8,6 +8,14 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-43
+--   - Added the Alcaz Prison dungeon quests.
+--  
+-- 16001-42
+--   - Added the Krol'dok Stronghold dungeon quests.
+--   - Fixed an issue where index field 'done' (a nil value) would appear as error
+--   - Added a couple new quests in RFD
+--
 -- 16001-41
 --   - Hearthing no longer reprints completed Character trial steps in chat.
 --   - Readjusted Dungeons level requirements to match Group Finder values
