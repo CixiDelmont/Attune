@@ -59,7 +59,8 @@ Attune_Data.attunes = 	{
     {ID="341",NAME=AttuneLang["Dire Maul"],SHORT="DM",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_jewelry_talisman_10", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="55-60"},
 	{ID="410",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
 	{ID="420",NAME=AttuneLang["Scholomance"],SHORT="Scholo",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_book_11", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
-    {ID="415",NAME=AttuneLang["The Shapers Terrace"],SHORT="TST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="415",NAME=AttuneLang["The Shapers Terrace"],SHORT="TST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
+    {ID="417",NAME=AttuneLang["The Shapers Terrace"],SHORT="TST",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_gem_crystal_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="360",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="361",NAME=AttuneLang["Stratholme"],SHORT="Strat",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Horde",ICON="Interface\\Icons\\inv_misc_bone_skull_02", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="58-60"},
     {ID="365",NAME=AttuneLang["Upper Blackrock Spire"],SHORT="UBRS",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang['DUNGEONS'], FACTION="Alliance",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath", DESC=AttuneLang["DungeonQuest_Desc"], GROUPSIZE=5, LEVELS="59-60"},
@@ -946,7 +947,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="230",ID="160",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="60"}, -- quest: Save Techbot's Brain!
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="230",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: A Fine Mess (Kernobee)
-	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2947",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring
+	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2947",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Talvash del Kissel)
 	{ID_ATTUNE="230",ID="570",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&360&260&160&630&620",STAGE="70"},
 
 --vForever dungeon attune 240
@@ -970,7 +971,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="240",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="240",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: A Fine Mess (Kernobee)
-	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring
+	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Nogg)
 	{ID_ATTUNE="240",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="260&160&330&320",STAGE="70"},
 
 --vForever dungeon attune 250 (Alliance)
@@ -2925,6 +2926,27 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="406",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92069",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Claws That Rend, Tusks that Gore (Inside — Ogtinc)
 	{ID_ATTUNE="406",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="92065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Blackmaw Reclamation (Inside — turn in to Gatekeeper Rageroar at Ursolan)
 	{ID_ATTUNE="406",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_demoralizingroar",FOLLOWS="890&690&160&150&140&130&120&110",STAGE="60"},
+
+	-- The Shaper's Terrace (Alliance).
+	-- Every listed quest is picked up inside, and none has a follow-up.
+	{ID_ATTUNE="415",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="415",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="95790",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Digestible Research (Inside — 15 Partially Digested Journal Pages)
+	{ID_ATTUNE="415",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="95925",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Mapping the Way Forward (Inside — Curator Thorius)
+	{ID_ATTUNE="415",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="95924",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Panic at the Digsite (Inside — Curator Thorius)
+	{ID_ATTUNE="415",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_crystal_02",FOLLOWS="10&160&150&140",STAGE="30"},
+
+	-- The Shaper's Terrace (Horde).
+	-- Crystalline Elements is picked up before you go. The other two are inside, with no follow-up.
+	{ID_ATTUNE="417",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="417",ID="500",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="95928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Crystalline Elements
+	{ID_ATTUNE="417",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271912",ICON="Interface\\Icons\\inv_jewelcrafting_empyreansapphire_01",FOLLOWS="500",STAGE="30"}, -- item: Moist Crystal
+	{ID_ATTUNE="417",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271898",ICON="Interface\\Icons\\inv_jewelcrafting_lionseye_01",FOLLOWS="500",STAGE="30"}, -- item: Charged Crystal
+	{ID_ATTUNE="417",ID="420",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271902",ICON="Interface\\Icons\\inv_jewelcrafting_seasprayemerald_01",FOLLOWS="500",STAGE="30"}, -- item: Noxious Crystal
+	{ID_ATTUNE="417",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271894",ICON="Interface\\Icons\\inv_jewelcrafting_crimsonspinel_01",FOLLOWS="500",STAGE="30"}, -- item: Fiery Crystal
+	{ID_ATTUNE="417",ID="400",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="95928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440&430&420&410",STAGE="40"}, -- quest: Crystalline Elements
+	{ID_ATTUNE="417",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="97049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: Essence of Seeping Slimes (Inside — Chemist Fuely)
+	{ID_ATTUNE="417",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="95926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true}, -- quest: The Dark Crystal (Inside — Master Apothecary Faranell)
+	{ID_ATTUNE="417",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_crystal_02",FOLLOWS="400&160&150",STAGE="60"},
 }
 
 -- Character trials. Most requirements read a statistic (GetStatistic):
@@ -3079,7 +3101,7 @@ Attune_Data.quests = {
 	[2204]={37,5},			[2240]={35,5},			[2278]={40,5},			[2279]={40,1},			[2280]={40,1},
 	[2258]={39,1},			[2283]={37,5},			[2284]={37,5},			[2318]={37,1},			[2339]={37,5},			[2342]={33,5},			[2398]={35,1},
 	[2418]={30,5},			[2500]={39,1},			[2768]={40,5},			[2770]={40,5},			[2841]={25,5},			[2842]={20,1},
-	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2922]={20,1},
+	[2843]={20,1},			[2846]={40,5},			[2865]={40,5},			[2904]={20,5},			[2947]={28,1},			[2949]={28,1},			[2922]={20,1},
 	[2923]={20,1},			[2924]={24,5},			[2926]={20,1},			[2927]={20,1},			[2928]={20,5},
 	[2929]={25,5},			[2933]={40,1},			[2934]={40,1},			[2935]={40,1},			[2936]={45,5},			[2991]={45,5},			[3042]={40,5},			[3341]={37,5},
 	[3369]={15,1},			[3373]={48,5},			[3380]={46,1},			[3444]={46,1},			[3445]={46,1},
@@ -3165,6 +3187,9 @@ Attune_Data.quests = {
 	[97173]={52,5},			[97198]={52,5},
 	[92070]={47,5},			[92067]={45,5},			[92066]={47,5},
 	[92069]={45,5},			[92065]={47,5},
+	-- The Shaper's Terrace
+	[95790]={55,5},			[95925]={55,5},			[95924]={55,5},
+	[95928]={55,5},			[97049]={55,5},			[95926]={55,5},
 }
 
 

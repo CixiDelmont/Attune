@@ -11,6 +11,9 @@
 -- 16001-43
 --   - Added the Alcaz Prison dungeon quests.
 --   - Added the Blackmaw Hold dungeon quests.
+--   - Added The Shaper's Terrace dungeon quests.
+--   - Fixed the missing Gnomeregan quest
+--   - Added the Agamaggan's Blood chain to RFD
 --  
 -- 16001-42
 --   - Added the Krol'dok Stronghold dungeon quests.

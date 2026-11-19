@@ -83,6 +83,7 @@ Attune_Data.questGivers = {
 	[2041] = {1455, 69.4, 50.6, "Gnoarn"}, -- Gnoarn (Ironforge)
 	[2198] = {1418, 44.2, 12.2, "Shattered Necklace"}, -- Shattered Necklace drop (Uldaman)
 	[2200] = {1455, 36.0, 4.0, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge)
+	[2947] = {1455, 36.4, 3.6, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge); starts at The Sparklematic 5200 in Gnomeregan
 	[2202] = {1418, 2.6, 46.0, "Jarkal Mossmeld"}, -- Jarkal Mossmeld (Badlands)
 	[2204] = {1418, 44.7, 12.6, "Talvash's Scrying Bowl"}, -- Talvash's Scrying Bowl (Badlands)
 	[2258] = {1418, 2.6, 46.0, "Jarkal Mossmeld"}, -- Jarkal Mossmeld (Badlands)
@@ -96,6 +97,7 @@ Attune_Data.questGivers = {
 	[2768] = {1446, 52.4, 28.4, "Chief Engineer Bilgewhizzle"}, -- Chief Engineer Bilgewhizzle (Tanaris)
 	[2770] = {1441, 78.0, 77.0, "Wizzle Brassbolts"}, -- Wizzle Brassbolts (Thousand Needles)
 	[2841] = {1454, 75.8, 25.2, "Nogg"}, -- Nogg (Orgrimmar)
+	[2949] = {1454, 76.0, 25.4, "Nogg"}, -- Nogg (Orgrimmar); starts at The Sparklematic 5200 in Gnomeregan
 	[2842] = {1454, 75.6, 25.2, "Sovik"}, -- Sovik (Orgrimmar)
 	[2843] = {1434, 27.6, 77.4, "Scooty"}, -- Scooty (Stranglethorn Vale)
 	[2846] = {1445, 46.0, 57.0, "Tabetha"}, -- Tabetha (Dustwallow Marsh)
@@ -518,4 +520,11 @@ Attune_Data.questGivers = {
 	-- Blackmaw Hold (both).
 	[97327] = {1447, 42.0, 38.9, "Ekkal"}, -- Ekkal (Ruins of Eldarath)
 	[96246] = {1447, 42.0, 38.9, "Ekkal"}, -- Ekkal (Ruins of Eldarath)
+	-- The Shaper's Terrace (Alliance). Digestible Research has no start NPC.
+	[95925] = {1455, 71.5, 15.7, "Curator Thorius"}, -- Curator Thorius (Ironforge)
+	[95924] = {1455, 71.5, 15.7, "Curator Thorius"}, -- Curator Thorius (Ironforge)
+	-- The Shaper's Terrace (Horde).
+	[95928] = {1412, 34.9, 22.1, "Mayena Earthseeker"}, -- Mayena Earthseeker (Camp Gev'rek)
+	[97049] = {1458, 47.5, 73.3, "Chemist Fuely"}, -- Chemist Fuely (Undercity)
+	[95926] = {1458, 48.8, 69.3, "Master Apothecary Faranell"}, -- Master Apothecary Faranell (Undercity)
 }

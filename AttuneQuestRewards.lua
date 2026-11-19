@@ -110,6 +110,8 @@ Attune_Data.questRewards = {
 	[2846] = { fixed = {{9527, 1}, {9531, 1}} },
 	[2865] = {},
 	[2904] = { choice = {{9535, 1}, {9536, 1}, {270042, 1}} },
+	[2947] = {}, -- Return of the Ring
+	[2949] = {}, -- Return of the Ring
 	[2922] = {},
 	[2923] = {},
 	[2924] = {},
@@ -980,6 +982,13 @@ Attune_Data.questRewards = {
 	[92067] = { fixed = {{249900, 1}} }, -- Feeding Time!
 	[92069] = { choice = {{260213, 1}, {260214, 1}, {260215, 1}} }, -- Claws That Rend, Tusks that Gore
 	[92070] = { choice = {{279893, 1}} }, -- A Lost Memento
+	-- The Shaper's Terrace
+	[95790] = { choice = {{279931, 1}, {279901, 1}} }, -- Digestible Research
+	[95924] = { choice = {{279903, 1}, {279905, 1}} }, -- Panic at the Digsite
+	[95925] = { choice = {{279908, 1}, {279910, 1}, {279912, 1}} }, -- Mapping the Way Forward
+	[95926] = { choice = {{279908, 1}, {279910, 1}, {279912, 1}} }, -- The Dark Crystal
+	[95928] = { choice = {{279904, 1}, {279906, 1}} }, -- Crystalline Elements
+	[97049] = { choice = {{279932, 1}, {279902, 1}} }, -- Essence of Seeping Slimes
 }
 
 -- name, icon file, quality. Used when the client has not cached the item.
@@ -1432,6 +1441,22 @@ Attune_Data.rewardItems = {
 	[279891] = {"Guidance of Ursoc", "inv_misc_cape_08", 2},
 	[279892] = {"Wisdom of Ursol", "inv_misc_cape_05", 2},
 	[279893] = {"Nama's Cherished Necklace", "inv_misc_necklace_feather09", 2},
+	-- The Shaper's Terrace
+	[271894] = {"Fiery Crystal", "inv_jewelcrafting_crimsonspinel_01", 1},
+	[271898] = {"Charged Crystal", "inv_jewelcrafting_lionseye_01", 1},
+	[271902] = {"Noxious Crystal", "inv_jewelcrafting_seasprayemerald_01", 1},
+	[271912] = {"Moist Crystal", "inv_jewelcrafting_empyreansapphire_01", 1},
+	[279901] = {"Expeditionary Legplates", "inv_pants_04", 3},
+	[279902] = {"Reinforced Muck Protectors", "inv_pants_04", 3},
+	[279903] = {"Diemetradon Scale Spaulders", "inv_shoulder_28", 3},
+	[279904] = {"Crystalline Pauldrons", "inv_shoulder_26", 3},
+	[279905] = {"Ravasaur Hide Footpads", "inv_boots_05", 3},
+	[279906] = {"Potent Treads", "inv_boots_05", 3},
+	[279908] = {"Crystal-Infused Cleaver", "inv_axe_21", 3},
+	[279910] = {"Beastslayer's Trident", "inv_spear_04", 3},
+	[279912] = {"Faintly Glowing Orb", "inv_misc_orb_01", 3},
+	[279931] = {"Lost Researcher's Hood", "inv_helmet_29", 3},
+	[279932] = {"Slime-Resistant Shroud", "inv_helmet_29", 3},
 }
 
 -- name, icon file. Used when the client has not cached the spell.
