@@ -527,4 +527,15 @@ Attune_Data.questGivers = {
 	[95928] = {1412, 34.9, 22.1, "Mayena Earthseeker"}, -- Mayena Earthseeker (Camp Gev'rek)
 	[97049] = {1458, 47.5, 73.3, "Chemist Fuely"}, -- Chemist Fuely (Undercity)
 	[95926] = {1458, 48.8, 69.3, "Master Apothecary Faranell"}, -- Master Apothecary Faranell (Undercity)
+	-- Razorfen Downs chain, Strange Pylons through Agamaggan's Blood. Shen'dralas is map 2652.
+	[92914] = {2652, 43.7, 34.4, "Shen'dralar Pylon"}, -- Shen'dralar Pylon (Valley of Bones); turn in to Mordent Evenshade (35.2, 46.6)
+	[96010] = {2652, 35.2, 46.6, "Mordent Evenshade"}, -- Mordent Evenshade (Evenshade's Overlook)
+	[96018] = {2652, 35.2, 46.6, "Mordent Evenshade"}, -- Mordent Evenshade (Evenshade's Overlook)
+	[93016] = {2652, 35.2, 46.6, "Mordent Evenshade"}, -- Mordent Evenshade (Evenshade's Overlook)
+	[93394] = {2652, 35.2, 46.6, "Mordent Evenshade"}, -- Mordent Evenshade; turn in to Magister Kirandis (47.4, 76.5)
+	[93341] = {2652, 53.3, 76.0, "Mithera"}, -- Mithera
+	[93594] = {2652, 53.3, 76.0, "Mithera"}, -- Mithera; turn in to Woodwyrd (Forlorn Gardens 69.7, 71.8)
+	[93404] = {2652, 69.7, 71.8, "Woodwyrd"}, -- Woodwyrd (Forlorn Gardens)
+	[93601] = {2652, 69.7, 71.8, "Woodwyrd"}, -- Woodwyrd; turn in to Kog'thug the Brave (Bristleback Retreat 72.7, 31.2)
+	[93604] = {2652, 72.7, 31.2, "Kog'thug the Brave"}, -- Kog'thug the Brave (Bristleback Retreat)
 }

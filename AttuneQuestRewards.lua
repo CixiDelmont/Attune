@@ -911,6 +911,16 @@ Attune_Data.questRewards = {
 	[96774] = {}, -- Ancient Gurubashi Idol; 1 gold
 	[97130] = {}, -- Ancient Gurubashi Secrets; 50 silver
 	[96773] = {}, -- The Coldbringer's Eye; 55 silver
+	[92914] = {}, -- Strange Pylons
+	[96010] = {}, -- Fragments of the Pylons
+	[96018] = {}, -- Powering the Pylons
+	[93016] = {}, -- A Brief History Lesson
+	[93394] = {}, -- Meeting the Magister
+	[93341] = {}, -- Forlorn Gardens
+	[93594] = {}, -- Word of the Woods
+	[93404] = { choice = {{272186, 1}, {272187, 1}} }, -- Rot and Regret
+	[93601] = {}, -- Passing the Blame
+	[93604] = {}, -- Agamaggan's Blood
 	[97196] = {}, -- The Coldbringer's Eye; 55 silver
 	[96800] = { choice = {{276898, 1}, {276899, 1}} }, -- Past Due; 45 silver
 	-- Krol'dok Stronghold (Alliance)
@@ -1457,6 +1467,10 @@ Attune_Data.rewardItems = {
 	[279912] = {"Faintly Glowing Orb", "inv_misc_orb_01", 3},
 	[279931] = {"Lost Researcher's Hood", "inv_helmet_29", 3},
 	[279932] = {"Slime-Resistant Shroud", "inv_helmet_29", 3},
+	[258296] = {"Vial of Earth Song Water", "ability_mage_conjurefoodrank12", 2},
+	[260237] = {"Virulent Blood of Agamaggan", "inv_potion_08", 1},
+	[272186] = {"Overgrown Cuffs", "inv_bracer_02", 3},
+	[272187] = {"Thornplated Cord", "inv_belt_23", 3},
 }
 
 -- name, icon file. Used when the client has not cached the spell.

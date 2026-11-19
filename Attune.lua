@@ -13,7 +13,7 @@
 --   - Added the Blackmaw Hold dungeon quests.
 --   - Added The Shaper's Terrace dungeon quests.
 --   - Fixed the missing Gnomeregan quest
---   - Added the Agamaggan's Blood chain to RFD
+--   - Added the Agamaggan's Blood chain to RFD. Some players might see the attunement re-open if they haven't completed it yet.
 --  
 -- 16001-42
 --   - Added the Krol'dok Stronghold dungeon quests.
@@ -2142,6 +2142,15 @@ function Attune:PLAYER_ENTERING_WORLD()
 	Attune_RememberGuild()
 	if C_Timer and C_Timer.After then
 		C_Timer.After(2, Attune_RememberGuild)
+		-- Quest completion flags can be unread during OnEnable. Check the
+		-- Razorfen chain again once the client can answer, and drop a saved
+		-- completion that the new steps do not support.
+		C_Timer.After(3, function()
+			Attune_ReopenRazorfenBloodChain()
+			if attunelocal_frame and attunelocal_frame:IsShown() and Attune_ReloadAttuneTree then
+				Attune_ReloadAttuneTree()
+			end
+		end)
 		-- One more read after skill lines have settled. A new completion still
 		-- announces; a step that was already done does not.
 		Attune_WorldLoadGen = (Attune_WorldLoadGen or 0) + 1
@@ -3018,6 +3027,92 @@ function Attune_AutoCompleteSpacers(who)
 end
 
 -------------------------------------------------------------------------
+-- Razorfen Downs gained Strange Pylons through Agamaggan's Blood after some
+-- characters were already attuned. A saved End step would keep the attunement
+-- at 100% and backfill the new steps. Reopen it unless each quest is turned in.
+-------------------------------------------------------------------------
+
+local Attune_RazorfenBloodEnd = { ["280"] = "250", ["290"] = "370" }
+local Attune_RazorfenBloodSteps = {
+	["92914"] = { "920" },
+	["96010"] = { "910" },
+	["96018"] = { "900" },
+	["93016"] = { "890" },
+	["93394"] = { "880" },
+	["93341"] = { "870" },
+	["93594"] = { "860" },
+	["93404"] = { "850", "840", "830" },
+	["93601"] = { "820" },
+	["93604"] = { "810", "800", "790" },
+}
+local Attune_RazorfenBloodStepQuest = {}
+for qid, steps in pairs(Attune_RazorfenBloodSteps) do
+	for _, stepId in ipairs(steps) do
+		Attune_RazorfenBloodStepQuest[stepId] = qid
+	end
+end
+
+-- true / false when the client can answer, nil when quest data is not ready.
+local function Attune_QuestFlagKnown(qid)
+	qid = tonumber(qid)
+	if qid == nil then return nil end
+	if C_QuestLog and C_QuestLog.IsQuestFlaggedCompleted then
+		local ok, done = pcall(C_QuestLog.IsQuestFlaggedCompleted, qid)
+		if ok then return not not done end
+	end
+	if IsQuestFlaggedCompleted then
+		local ok, done = pcall(IsQuestFlaggedCompleted, qid)
+		if ok then return not not done end
+	end
+	return nil
+end
+
+function Attune_RazorfenBloodChainDone()
+	for qid in pairs(Attune_RazorfenBloodSteps) do
+		if Attune_QuestFlagKnown(qid) ~= true then return false end
+	end
+	return true
+end
+
+function Attune_ReopenRazorfenBloodChain()
+	local t = Attune_DB.toons[attunelocal_charKey]
+	if t == nil or t.done == nil then return end
+	local known = {}
+	for qid in pairs(Attune_RazorfenBloodSteps) do
+		local flag = Attune_QuestFlagKnown(qid)
+		if flag == nil then return end
+		known[qid] = flag
+	end
+	local chainDone = true
+	for _, flag in pairs(known) do
+		if not flag then chainDone = false end
+	end
+	for attuneId, endId in pairs(Attune_RazorfenBloodEnd) do
+		local changed = false
+		for qid, steps in pairs(Attune_RazorfenBloodSteps) do
+			if not known[qid] then
+				for _, stepId in ipairs(steps) do
+					local key = attuneId .. "-" .. stepId
+					if t.done[key] then
+						t.done[key] = nil
+						changed = true
+					end
+				end
+			end
+		end
+		if not chainDone then
+			local endKey = attuneId .. "-" .. endId
+			if t.done[endKey] then
+				t.done[endKey] = nil
+				changed = true
+			end
+			if (t.attuned and t.attuned[attuneId] or 0) >= 100 then changed = true end
+		end
+		if changed then Attune_RecountAttune(attuneId) end
+	end
+end
+
+-------------------------------------------------------------------------
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
@@ -3028,6 +3123,7 @@ function Attune_CheckComplete(newComplete, quiet)
 		finished[#finished + 1] = id
 	end
 
+	Attune_ReopenRazorfenBloodChain()
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 
 	-- WoW
@@ -3065,6 +3161,9 @@ function Attune_CheckComplete(newComplete, quiet)
 					if att.done[s.ID_ATTUNE .. "-" .. flw] then anyDone = true; break end
 				end
 				allDone = anyDone
+			end
+			if allDone and Attune_RazorfenBloodEnd[s.ID_ATTUNE] and not Attune_RazorfenBloodChainDone() then
+				allDone = false
 			end
 			if allDone then
 				att.done[s.ID_ATTUNE .. "-" .. s.ID] = 1
@@ -3244,7 +3343,9 @@ function Attune_recursePreviousSteps(who, aID, follows, race)
 			for fi, f in pairs(fIDs) do
 				local s = Attune_Data.stepsByKey and Attune_Data.stepsByKey[aID .. "-" .. f]
 				if s and Attune_StepShownForRace(s, race) and Attune_MayRecordAttuneProgress(Attune_DB.toons[who], aID) then
-					if string.find(follows, "|") == nil then -- don't recurse OR, as we don't know which parent was actually done
+					local bloodQuest = Attune_RazorfenBloodEnd[aID] and Attune_RazorfenBloodStepQuest[s.ID]
+					local bloodOpen = bloodQuest and Attune_QuestFlagKnown(bloodQuest) ~= true
+					if string.find(follows, "|") == nil and not bloodOpen then -- don't recurse OR, as we don't know which parent was actually done
 						if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
 							-- print(s.ID_ATTUNE .. "-" .. s.ID)
 							Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1

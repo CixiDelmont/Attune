@@ -1160,57 +1160,174 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="710&610&510&310&820",STAGE="120"},
 
 --vForever dungeon attune 280
-	-- Columns L→R (higher ID = left): 96773 Coldbringer's Eye | 3636 Bring the Light | 6626 Host of Evil
+	-- Columns L→R (higher ID = left): Strange Pylons → Agamaggan's Blood | 96773 Coldbringer's Eye | 3636 Bring the Light | 6626 Host of Evil
 	-- SIDE (beside End): 3523 Scourge of the Downs (Inside — Belnistrasz)
 	{ID_ATTUNE="280",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="280",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="92914",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Strange Pylons
 	{ID_ATTUNE="280",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="3636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bring the Light
 	{ID_ATTUNE="280",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
+	{ID_ATTUNE="280",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Fragments of the Pylons
 	{ID_ATTUNE="280",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="420",STAGE="30"}, -- item: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="220",STAGE="30"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="280",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
+	{ID_ATTUNE="280",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96018",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Powering the Pylons
 	{ID_ATTUNE="280",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="280",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="3636",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40"}, -- quest: Bring the Light
 	{ID_ATTUNE="280",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
+	-- STAGE 50
+	{ID_ATTUNE="280",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93016",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: A Brief History Lesson
+	{ID_ATTUNE="280",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
+	{ID_ATTUNE="280",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
+	{ID_ATTUNE="280",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
+	-- STAGE 60
+	{ID_ATTUNE="280",ID="880",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="60"}, -- quest: Meeting the Magister
+	{ID_ATTUNE="280",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
+	{ID_ATTUNE="280",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="60"},
+	{ID_ATTUNE="280",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="280",ID="870",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="880",STAGE="70"}, -- quest: Forlorn Gardens
+	{ID_ATTUNE="280",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
+	{ID_ATTUNE="280",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="70"},
+	{ID_ATTUNE="280",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="280",ID="860",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93594",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870",STAGE="80"}, -- quest: Word of the Woods
+	{ID_ATTUNE="280",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="80"},
+	{ID_ATTUNE="280",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="80"},
+	{ID_ATTUNE="280",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="280",ID="850",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="860",STAGE="90"}, -- quest: Rot and Regret
+	{ID_ATTUNE="280",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="480",STAGE="90"},
+	{ID_ATTUNE="280",ID="300",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="290",STAGE="90"},
+	{ID_ATTUNE="280",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
+	-- STAGE 100
+	{ID_ATTUNE="280",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100"}, -- item: Vial of Earth Song Water
+	{ID_ATTUNE="280",ID="500",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="490",STAGE="100"},
+	{ID_ATTUNE="280",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="300",STAGE="100"},
+	{ID_ATTUNE="280",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="190",STAGE="100"},
+	-- STAGE 110
+	{ID_ATTUNE="280",ID="830",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="110"}, -- quest: Rot and Regret
+	{ID_ATTUNE="280",ID="510",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="500",STAGE="110"},
+	{ID_ATTUNE="280",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="310",STAGE="110"},
+	{ID_ATTUNE="280",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="200",STAGE="110"},
+	-- STAGE 120
+	{ID_ATTUNE="280",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="120"}, -- quest: Passing the Blame
+	{ID_ATTUNE="280",ID="520",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="510",STAGE="120"},
+	{ID_ATTUNE="280",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="120"},
+	{ID_ATTUNE="280",ID="145",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="210",STAGE="120"},
+	-- STAGE 130
+	{ID_ATTUNE="280",ID="810",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="130"}, -- quest: Agamaggan's Blood
+	{ID_ATTUNE="280",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="520",STAGE="130"},
+	{ID_ATTUNE="280",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="130"},
+	{ID_ATTUNE="280",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="145",STAGE="130"},
+	-- STAGE 140
+	{ID_ATTUNE="280",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140"}, -- item: Virulent Blood of Agamaggan
+	{ID_ATTUNE="280",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="140"},
+	{ID_ATTUNE="280",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="140"},
+	{ID_ATTUNE="280",ID="165",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="155",STAGE="140"},
+	-- STAGE 150
+	{ID_ATTUNE="280",ID="790",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="150"}, -- quest: Agamaggan's Blood
+	{ID_ATTUNE="280",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="150"},
+	{ID_ATTUNE="280",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="150"},
+	{ID_ATTUNE="280",ID="175",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="165",STAGE="150"},
 	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="280",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="40",SIDE=true}, -- quest: Scourge of the Downs (Inside)
-	{ID_ATTUNE="280",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="440&240&140&320",STAGE="50"},
+	{ID_ATTUNE="280",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="150",SIDE=true}, -- quest: Scourge of the Downs (Inside)
+	{ID_ATTUNE="280",ID="250",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="790&550&370&175&320",STAGE="160"},
 
 --vForever dungeon attune 290
-	-- Columns L→R: 97196 Coldbringer's Eye | 3341 Bring the End | 6522→6521 Unholy Alliance (longest) | 6626 Host of Evil
+	-- Columns L→R: Strange Pylons → Agamaggan's Blood | 97196 Coldbringer's Eye | 3341 Bring the End | 6522→6521 Unholy Alliance | 6626 Host of Evil
 	-- SIDE (beside End): 3523 Scourge of the Downs (Inside — Belnistrasz)
 	{ID_ATTUNE="290",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 28",LOCATION="",ID_WOWHEAD="28",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
+	{ID_ATTUNE="290",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="92914",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Strange Pylons
 	{ID_ATTUNE="290",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97196",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="3341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Bring the End
 	{ID_ATTUNE="290",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: An Unholy Alliance (Small Scroll from RFK)
 	{ID_ATTUNE="290",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
+	{ID_ATTUNE="290",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Fragments of the Pylons
 	{ID_ATTUNE="290",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="520",STAGE="30"}, -- item: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="320",STAGE="30"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="290",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: An Unholy Alliance
 	{ID_ATTUNE="290",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
+	{ID_ATTUNE="290",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96018",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Powering the Pylons
 	{ID_ATTUNE="290",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97196",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The Coldbringer's Eye
 	{ID_ATTUNE="290",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="10420",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="330",STAGE="40"}, -- item: Skull of the Coldbringer
 	{ID_ATTUNE="290",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="12865",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="230",STAGE="40"}, -- npc: Ambassador Malcin
 	{ID_ATTUNE="290",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- STAGE 50
+	{ID_ATTUNE="290",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93016",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: A Brief History Lesson
 	{ID_ATTUNE="290",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="290",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="3341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50"}, -- quest: Bring the End
 	{ID_ATTUNE="290",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="17009",ICON="Interface\\Icons\\inv_misc_head_undead_01",FOLLOWS="240",STAGE="50"}, -- item: Ambassador Malcin's Head
 	{ID_ATTUNE="290",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60
+	{ID_ATTUNE="290",ID="880",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="60"}, -- quest: Meeting the Magister
 	{ID_ATTUNE="290",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="290",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	{ID_ATTUNE="290",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60"}, -- quest: An Unholy Alliance
 	{ID_ATTUNE="290",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
+	-- STAGE 70
+	{ID_ATTUNE="290",ID="870",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="880",STAGE="70"}, -- quest: Forlorn Gardens
+	{ID_ATTUNE="290",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="560",STAGE="70"},
+	{ID_ATTUNE="290",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
+	{ID_ATTUNE="290",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
+	{ID_ATTUNE="290",ID="165",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="70"},
+	-- STAGE 80
+	{ID_ATTUNE="290",ID="860",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93594",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870",STAGE="80"}, -- quest: Word of the Woods
+	{ID_ATTUNE="290",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
+	{ID_ATTUNE="290",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="380",STAGE="80"},
+	{ID_ATTUNE="290",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="270",STAGE="80"},
+	{ID_ATTUNE="290",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="165",STAGE="80"},
+	-- STAGE 90
+	{ID_ATTUNE="290",ID="850",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="860",STAGE="90"}, -- quest: Rot and Regret
+	{ID_ATTUNE="290",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="580",STAGE="90"},
+	{ID_ATTUNE="290",ID="400",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="90"},
+	{ID_ATTUNE="290",ID="285",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
+	{ID_ATTUNE="290",ID="175",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="90"},
+	-- STAGE 100
+	{ID_ATTUNE="290",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100"}, -- item: Vial of Earth Song Water
+	{ID_ATTUNE="290",ID="600",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="100"},
+	{ID_ATTUNE="290",ID="410",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="400",STAGE="100"},
+	{ID_ATTUNE="290",ID="305",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="285",STAGE="100"},
+	{ID_ATTUNE="290",ID="185",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="175",STAGE="100"},
+	-- STAGE 110
+	{ID_ATTUNE="290",ID="830",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93404",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="110"}, -- quest: Rot and Regret
+	{ID_ATTUNE="290",ID="610",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="600",STAGE="110"},
+	{ID_ATTUNE="290",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="410",STAGE="110"},
+	{ID_ATTUNE="290",ID="315",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="305",STAGE="110"},
+	{ID_ATTUNE="290",ID="195",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="185",STAGE="110"},
+	-- STAGE 120
+	{ID_ATTUNE="290",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="120"}, -- quest: Passing the Blame
+	{ID_ATTUNE="290",ID="620",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="610",STAGE="120"},
+	{ID_ATTUNE="290",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="120"},
+	{ID_ATTUNE="290",ID="325",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="315",STAGE="120"},
+	{ID_ATTUNE="290",ID="205",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="195",STAGE="120"},
+	-- STAGE 130
+	{ID_ATTUNE="290",ID="810",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="130"}, -- quest: Agamaggan's Blood
+	{ID_ATTUNE="290",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="130"},
+	{ID_ATTUNE="290",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="130"},
+	{ID_ATTUNE="290",ID="335",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="325",STAGE="130"},
+	{ID_ATTUNE="290",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="205",STAGE="130"},
+	-- STAGE 140
+	{ID_ATTUNE="290",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140"}, -- item: Virulent Blood of Agamaggan
+	{ID_ATTUNE="290",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="140"},
+	{ID_ATTUNE="290",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="140"},
+	{ID_ATTUNE="290",ID="345",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="335",STAGE="140"},
+	{ID_ATTUNE="290",ID="225",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="215",STAGE="140"},
+	-- STAGE 150
+	{ID_ATTUNE="290",ID="790",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="150"}, -- quest: Agamaggan's Blood
+	{ID_ATTUNE="290",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="150"},
+	{ID_ATTUNE="290",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="150"},
+	{ID_ATTUNE="290",ID="355",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="345",STAGE="150"},
+	{ID_ATTUNE="290",ID="235",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="225",STAGE="150"},
 	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="290",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Scourge of the Downs (Inside)
-	{ID_ATTUNE="290",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&360&260&160&420",STAGE="70"},
+	{ID_ATTUNE="290",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="3523",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="150",SIDE=true}, -- quest: Scourge of the Downs (Inside)
+	{ID_ATTUNE="290",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="790&650&470&355&235&420",STAGE="160"},
 
 --vForever dungeon attune 300
 	-- Columns L→R: 7065 Corruption | 7044 Legends (Noxxion→Rod ‖ Vyletongue→Diamond) | 7041 Vyletongue Corruption | 7028 Twisted Evils | 7070 Shadowshard | 7067 Pariah
@@ -3175,6 +3292,10 @@ Attune_Data.quests = {
 	[95602]={36,1},
 	-- Razorfen Downs / Scarlet Monastery (Forever)
 	[96773]={34,5},			[97196]={34,5},			[96800]={30,5},
+	-- Razorfen Downs: Strange Pylons through Agamaggan's Blood
+	[92914]={35,1},			[96010]={35,1},			[96018]={35,1},			[93016]={35,1},
+	[93394]={35,1},			[93341]={35,1},			[93594]={35,1},			[93601]={35,1},
+	[93404]={35,5},			[93604]={35,5},
 	-- Alcaz Prison (Alliance)
 	[95194]={48,1},			[95196]={48,1},			[95198]={48,1},			[96381]={48,5},
 	[96772]={46,5},			[96335]={48,5},
