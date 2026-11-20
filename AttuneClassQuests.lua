@@ -486,10 +486,10 @@ local classSteps = {
 	{ID_ATTUNE="5144",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5144",ID="32",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="5144",ID="33",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="25|24|23",STAGE="30"}, -- The Tome of Divinity
-	{ID_ATTUNE="5144",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="6775",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="30",STAGE="40"}, -- Tome of Divinity
-	{ID_ATTUNE="5144",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="5144",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-	{ID_ATTUNE="5144",ID="43",TYPE="Item",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="6916",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="33",STAGE="40"}, -- Tome of Divinity
+	-- {ID_ATTUNE="5144",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="6775",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="30",STAGE="40"}, -- Tome of Divinity
+	-- {ID_ATTUNE="5144",ID="41",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	-- {ID_ATTUNE="5144",ID="42",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
+	-- {ID_ATTUNE="5144",ID="43",TYPE="Item",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="6916",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="33",STAGE="40"}, -- Tome of Divinity
 	{ID_ATTUNE="5144",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1642",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30&40",STAGE="50"}, -- The Tome of Divinity
 	{ID_ATTUNE="5144",ID="51",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5144",ID="52",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
@@ -611,10 +611,10 @@ local classSteps = {
     {ID_ATTUNE="5156",ID="79",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
 	{ID_ATTUNE="5156",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7648",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Grimand's Finest Work
 	{ID_ATTUNE="5156",ID="83",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="7645",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80"}, -- Manna-Enriched Horse Feed
-    {ID_ATTUNE="5156",ID="85",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&81",STAGE="87"}, -- Ancient Equine1Spirit
+    {ID_ATTUNE="5156",ID="85",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7643",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&81",STAGE="87",MARKER='dungeon'}, -- Ancient Equine Spirit
 	{ID_ATTUNE="5156",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7644",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="85",STAGE="90"}, -- Blessed Arcanite Barding
 	{ID_ATTUNE="5156",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7646",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Divination Scryer
-	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110"}, -- Judgment and Redemption
+	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110",MARKER='dungeon'}, -- Judgment and Redemption
 	-- {ID_ATTUNE="5156",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- Again Into the Great Ossuary
 	{ID_ATTUNE="5156",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_charger",FOLLOWS="110",STAGE="130"},
 
@@ -1278,7 +1278,7 @@ local classSteps = {
 	{ID_ATTUNE="5291",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="7126",ICON="Interface\\Icons\\inv_ore_tin_01",FOLLOWS="50",STAGE="55", COUNT=15}, -- Smoky Iron Ingot
 	{ID_ATTUNE="5291",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="7127",ICON="Interface\\Icons\\inv_misc_dust_02",FOLLOWS="50",STAGE="55", COUNT=10}, -- Powdered Azurite
 	{ID_ATTUNE="5291",ID="53",TYPE="Item",STEP="",LOCATION="",ID_WOWHEAD="3575",ICON="Interface\\Icons\\inv_ingot_iron",FOLLOWS="50",STAGE="55", COUNT=10}, -- Iron Bar
-	{ID_ATTUNE="5291",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55"}, -- Vial of Phlogiston
+	{ID_ATTUNE="5291",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55",MARKER='dungeon'}, -- Vial of Phlogiston
     {ID_ATTUNE="5291",ID="57",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1838",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="57"}, -- Brutal Armor
 	{ID_ATTUNE="5291",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="1839",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Ula'elek and the Brutal Gauntlets
 	{ID_ATTUNE="5291",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1840",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Orm Stonehoof and the Brutal Helm
@@ -1302,7 +1302,7 @@ local classSteps = {
 	{ID_ATTUNE="5292",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="6838",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="50",STAGE="55", COUNT=50}, -- Scorched Spider Fang
 	{ID_ATTUNE="5292",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6839",ICON="Interface\\Icons\\inv_misc_horn_01",FOLLOWS="50",STAGE="55", COUNT=12}, -- Charred Horn
 	{ID_ATTUNE="5292",ID="53",TYPE="Item",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6840",ICON="Interface\\Icons\\inv_misc_horn_02",FOLLOWS="50",STAGE="55"}, -- Galvanized Horn
-	{ID_ATTUNE="5292",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55"}, -- Vial of Phlogiston
+	{ID_ATTUNE="5292",ID="54",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6841",ICON="Interface\\Icons\\inv_potion_01",FOLLOWS="50",STAGE="55",MARKER='dungeon'}, -- Vial of Phlogiston
 	{ID_ATTUNE="5292",ID="57",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="51&52&53&54",STAGE="57"}, -- Fire Hardened Mail
 	{ID_ATTUNE="5292",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1704",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Klockmort Spannerspan
 	{ID_ATTUNE="5292",ID="61",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="1700",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="57",STAGE="60"}, -- Grimand Elmore
@@ -1607,10 +1607,10 @@ local classQuestInfo = {
 	[7642]={60,1},
 	[7643]={60,1},
 	[7648]={60,1},
-	[7644]={60,1},
+	[7644]={60,5},
 	[7645]={60,1},
 	[7646]={60,1},
-	[7647]={60,1},
+	[7647]={60,5},
 	[7666]={60,1},
 	[7670]={60,1},
 	[3103]={1,1},
@@ -1924,9 +1924,9 @@ local classQuestInfo = {
 	[7626]={60,1},
 	[7627]={60,1},
 	[7628]={60,1},
-	[7629]={60,1},
+	[7629]={60,5},
 	[7630]={60,1},
-	[7631]={60,1},
+	[7631]={60,5},
 	[7581]={60,1},
 	[7582]={60,1},
 	[7583]={60,1},

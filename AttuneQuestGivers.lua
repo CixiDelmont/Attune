@@ -390,6 +390,9 @@ Attune_Data.questGivers = {
 	[5102] = {1428, 84.6, 68.8, "Marshal Maxwell"}, -- Marshal Maxwell (Burning Steppes)
 	[5047] = {1428, 33.0, 25.2, "Pip Quickwit"}, -- Pip Quickwit (entrance); turn in to Malyfous Darkhammer, Winterspring 61.0, 38.6
 	[5160] = {1428, 33.0, 25.2, "Awbee"}, -- Awbee (entrance); turn in to Haleh, Winterspring 54.4, 51.2
+	[5161] = {1452, 54.4, 51.2, "Haleh"}, -- Haleh (Winterspring)
+	[5162] = {1452, 54.4, 51.2, "Haleh"}, -- Haleh (Winterspring); turn in to Jeziba, Western Plaguelands 39.4, 66.8
+	[5164] = {1422, 39.4, 66.8, "Jeziba"}, -- Jeziba (Western Plaguelands)
 	-- Excavation Site: Wetlands (Attune 195)
 	[275] = {1437, 56.4, 40.4, "Rethiel the Greenwarden"}, -- Rethiel the Greenwarden (Wetlands)
 	[276] = {1437, 56.4, 40.4, "Rethiel the Greenwarden"}, -- Rethiel the Greenwarden (Wetlands)

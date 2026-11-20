@@ -9,10 +9,11 @@
 -------------------------------------------------------------------------
 
 -- 16001-44
+--   - Steps occurring inside a dungeon now have an orange tint. Raid steps use red.
 --   - Added a whole bunch of translations that were missing.
 --   - Added some missing dungeon lead-in quests.
 --   - Added a Follow up section under dungeon chains for quest chains that continue after the dungeon.
---   - Steps occurring inside a dungeon have an orange tint. Raid steps use red.
+--   - Added support for Mexican locale (esMX)
 --
 -- 16001-43
 --   - Added the Alcaz Prison dungeon quests.
