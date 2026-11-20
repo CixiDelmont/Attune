@@ -7,7 +7,7 @@ alwaysApply: true
 
 Whenever you add or change any `Lang["..."]` entry in `Locales/enUS.lua`:
 
-1. Add the same key to **every** other locale file: `frFR`, `deDE`, `esES`, `ruRU`, `zhCN`, `zhTW`, `koKR`.
+1. Add the same key to **every** other locale file: `frFR`, `deDE`, `esES`, `esMX`, `ruRU`, `zhCN`, `zhTW`, `koKR`.
 2. Use the Wowhead translation for that language. Keep the English `enUS` value only when Wowhead has no translation. Quest givers and rewards are covered by the quest-data rule.
 3. After locale edits, confirm every other locale file has the same keys.
 4. Do not leave Forever/Vanilla dungeon quest, item (`I_`), NPC (`N1_`/`N2_`), or location keys only in `enUS`.

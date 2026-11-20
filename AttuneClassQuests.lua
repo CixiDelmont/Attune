@@ -31,6 +31,7 @@ local classAttunes = {
 	{ID="5137",NAME="Celestial Power",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_orb_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="35"},
 	{ID="5138",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	{ID="5139",NAME="Polymorph: Pig",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\spell_magic_polymorphpig", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+	{ID="5140",NAME="Arcane Refreshment",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_MAGE"], CLASS="MAGE", FACTION="Both",ICON="Interface\\Icons\\inv_drink_07", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- PALADIN
 	{ID="5144",NAME="Redemption",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_holy_resurrection", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="12"},
@@ -67,6 +68,7 @@ local classAttunes = {
 	{ID="5225",NAME="Ravenholdt",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\inv_throwingknife_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="24"},
 	{ID="5226",NAME="Junkboxes Needed",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\inv_box_03", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	{ID="5227",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
+	{ID="5228",NAME="The Eye of Bhossca",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_ROGUE"], CLASS="ROGUE", FACTION="Both",ICON="Interface\\Icons\\inv_misc_gem_pearl_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- SHAMAN
     -- {ID="5230",NAME="A Humble Task",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_SHAMAN"], CLASS="SHAMAN", FACTION="Horde",ICON="Interface\\Icons\\inv_drink_08", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="1"},
@@ -233,13 +235,13 @@ local classSteps = {
 	{ID_ATTUNE="5109",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9063",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Torwa Pathfinder
 	{ID_ATTUNE="5109",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9052",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bloodpetal Poison
 	{ID_ATTUNE="5109",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Toxic Test
-    {ID_ATTUNE="5109",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- A Better Ingredient
+    {ID_ATTUNE="5109",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- A Better Ingredient
 	{ID_ATTUNE="5109",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="22444",ICON="Interface\\Icons\\ability_creature_poison_04",FOLLOWS="50",STAGE="60"}, -- Putrid Vine
-	{ID_ATTUNE="5109",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- A Better Ingredient
+	{ID_ATTUNE="5109",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- A Better Ingredient
 	{ID_ATTUNE="5109",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5295",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5295",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Emerald Dream...
+	{ID_ATTUNE="5295",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7506",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- The Emerald Dream...
 	{ID_ATTUNE="5295",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="20",STAGE="30"},
 
 
@@ -458,6 +460,10 @@ local classSteps = {
 	{ID_ATTUNE="5139",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="9362",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Warlord Krellian
 	{ID_ATTUNE="5139",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="9364",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Fragmented Magic
 	{ID_ATTUNE="5139",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_magic_polymorphpig",FOLLOWS="30",STAGE="40"},
+
+	{ID_ATTUNE="5140",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5140",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- Arcane Refreshment
+	{ID_ATTUNE="5140",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_drink_07",FOLLOWS="20",STAGE="30"},
 
 
     -- PALADIN
@@ -822,6 +828,13 @@ local classSteps = {
 	{ID_ATTUNE="5227",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20022",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="50",STAGE="60"}, -- Azure Key
 	{ID_ATTUNE="5227",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="8236",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Azure Key
 	{ID_ATTUNE="5227",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="70",STAGE="80"},
+
+	{ID_ATTUNE="5228",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5228",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78261",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Horn of Xelthos
+	{ID_ATTUNE="5228",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78307",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Horn of Xelthos
+	{ID_ATTUNE="5228",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="78676",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- The Eye of Bhossca
+	{ID_ATTUNE="5228",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78699",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Eye of Bhossca
+	{ID_ATTUNE="5228",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="50",STAGE="60"},
 
 
     -- SHAMAN
@@ -1358,11 +1371,11 @@ local classSteps = {
 	{ID_ATTUNE="5294",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="45", COUNT=2}, -- Amber Voodoo Feather
 	{ID_ATTUNE="5294",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_11",FOLLOWS="40",STAGE="45", COUNT=2}, -- Blue Voodoo Feather
 	{ID_ATTUNE="5294",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_08",FOLLOWS="40",STAGE="45", COUNT=2}, -- Green Voodoo Feather
-	{ID_ATTUNE="5294",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50"}, -- Voodoo Feathers
+	{ID_ATTUNE="5294",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50",MARKER="dungeon"}, -- Voodoo Feathers
 	{ID_ATTUNE="5294",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5296",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5296",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7499",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Codex of Defense
+	{ID_ATTUNE="5296",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7499",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- Codex of Defense
 	{ID_ATTUNE="5296",ID="30",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_warrior_savageblow",FOLLOWS="20",STAGE="30"},
 }
 

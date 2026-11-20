@@ -15,7 +15,7 @@ When you add or change a quest on an attunement, look it up on Wowhead first (`/
    - Every new item goes in `rewardItems` as `{English name, icon, quality}`. The client localizes the tooltip when it knows the item.
    - Every new spell goes in `rewardSpells` as `{English name, icon}`. The client localizes the tooltip when it knows the spell.
    - If the Forever page lists no rewards, or a reward link looks corrupted, look up the same id on `/classic/`.
-3. **Locales.** Add `Q1_` / `Q2_` and any new location key to `enUS`, `frFR`, `deDE`, `esES`, `ruRU`, `zhCN`, `zhTW`, and `koKR`. Use that language's Wowhead text. Keep English only when Wowhead has no translation.
+3. **Locales.** Add `Q1_` / `Q2_` and any new location key to `enUS`, `frFR`, `deDE`, `esES`, `esMX`, `ruRU`, `zhCN`, `zhTW`, and `koKR`. Use that language's Wowhead text. Keep English only when Wowhead has no translation.
 
 ```lua
 -- classQuestGivers

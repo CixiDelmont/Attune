@@ -8,6 +8,14 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-44
+--   - Added a whole bunch of translations that were missing.
+--   - Added some missing dungeon lead-in quests.
+--   - Added a Follow up section under dungeon chains for quest chains that continue after the dungeon.
+--   - A step can set MARKER to "dungeon", "raid", or "elite".
+--   - 5- and 10-player quest steps default to a dungeon marker. Larger groups default to a raid marker.
+--   - Dungeon steps have an orange border and a light tint. Raid steps use red.
+--
 -- 16001-43
 --   - Added the Alcaz Prison dungeon quests.
 --   - Added the Blackmaw Hold dungeon quests.
@@ -1365,7 +1373,7 @@ function Attune:OnEnable()
 	local attuneSteps = {}
 	for i, s in pairs(Attune_Data.steps) do
 		if showPatchStep(s) then
-			if s.TYPE ~= "Spacer" then
+			if s.TYPE ~= "Spacer" and not s.FOLLOW then
 				if attuneSteps[s.ID_ATTUNE] == nil then attuneSteps[s.ID_ATTUNE] = 0 end
 				attuneSteps[s.ID_ATTUNE] = attuneSteps[s.ID_ATTUNE] +1
 			end
@@ -1374,7 +1382,7 @@ function Attune:OnEnable()
 	for i, d in pairs(t.done) do
 		if not spacerDone[i] then
 			local step = Attune_Data.stepsByKey and Attune_Data.stepsByKey[i]
-			if not (step and Attune_RaceBlocksStep(step, attunelocal_race)) then
+			if not (step and (step.FOLLOW or Attune_RaceBlocksStep(step, attunelocal_race))) then
 				local Ids = Attune_split(i, "-")
 				if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
 				attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
@@ -2147,6 +2155,9 @@ function Attune:PLAYER_ENTERING_WORLD()
 		-- completion that the new steps do not support.
 		C_Timer.After(3, function()
 			Attune_ReopenRazorfenBloodChain()
+			-- Quest flags are often unread during the first login scan.
+			-- Read them again so a follow-up turned in earlier still paints green.
+			Attune_SyncQuestDoneFlags()
 			if attunelocal_frame and attunelocal_frame:IsShown() and Attune_ReloadAttuneTree then
 				Attune_ReloadAttuneTree()
 			end
@@ -2227,7 +2238,7 @@ function Attune_RecountAttune(attuneId)
 	local total, done = 0, 0
 	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[attuneId]
 	for _, s in pairs(chain or Attune_Data.steps) do
-		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) and s.TYPE ~= "Spacer" then
+		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) and s.TYPE ~= "Spacer" and not s.FOLLOW then
 			total = total + 1
 			if t.done[s.ID_ATTUNE .. "-" .. s.ID] then done = done + 1 end
 		end
@@ -2932,7 +2943,7 @@ function Attune_CheckProgress()
 							for i=1, #qIDs do
 								if Attune_QuestInLog(qIDs[i]) then
 									onQuest = true
-								elseif IsQuestFlaggedCompleted(qIDs[i]) then
+								elseif Attune_QuestFlaggedCompleted(qIDs[i]) then
 									eitherCompleted = true
 								end
 							end
@@ -2983,6 +2994,53 @@ function Attune_CheckProgress()
 		end	
 	end
 
+end
+
+-- Read quest completion again once the client can answer.
+-- Follow-ups stay out of the percent, and a turned-in one still records as done so the node turns green.
+function Attune_SyncQuestDoneFlags()
+	local att = Attune_DB and attunelocal_charKey and Attune_DB.toons[attunelocal_charKey]
+	if att == nil or att.done == nil or Attune_Data == nil or Attune_Data.steps == nil then return end
+	Attune_SyncQuestLog()
+	local faction = UnitFactionGroup("player")
+	local touched = {}
+	for _, s in pairs(Attune_Data.steps) do
+		if showPatchStep(s) and (s.TYPE == "Quest" or s.TYPE == "Turn In") and Attune_MayRecordAttuneProgress(att, s.ID_ATTUNE) then
+			local a = Attune_Data.attuneById and Attune_Data.attuneById[s.ID_ATTUNE]
+			if a and (a.FACTION == faction or a.FACTION == "Both") and (a.DEPRECATED == nil or Attune_DB.showDeprecatedAttunes) then
+				local eitherCompleted, onQuest = false, false
+				local qIDs = Attune_split(s.ID_WOWHEAD, "|")
+				for i = 1, #qIDs do
+					if Attune_QuestInLog(qIDs[i]) then
+						onQuest = true
+					elseif Attune_QuestFlaggedCompleted(qIDs[i]) then
+						eitherCompleted = true
+					end
+				end
+				local key = s.ID_ATTUNE .. "-" .. s.ID
+				if onQuest then
+					if att.done[key] then
+						att.done[key] = nil
+						touched[s.ID_ATTUNE] = true
+					end
+				elseif eitherCompleted and not att.done[key] then
+					att.done[key] = 1
+					touched[s.ID_ATTUNE] = true
+				end
+			end
+		end
+	end
+	if next(touched) == nil then return end
+	for id in pairs(touched) do
+		Attune_RecountAttune(id)
+	end
+	Attune_CheckComplete(true, true)
+	Attune_ApplyCompletedEndSteps(att)
+	if attunelocal_frame and attunelocal_frame:IsShown() then
+		Attune_ForceAttuneTabRefresh()
+	elseif Attune_DB and attunelocal_charKey then
+		Attune_LoadTree()
+	end
 end
 
 -------------------------------------------------------------------------
@@ -3228,8 +3286,8 @@ function Attune_CheckIsNext(who)
 	att.next = {}
 
 	for i, step in pairs(Attune_Data.steps) do
-		-- Inside reminders are optional and always available, so they are not "the current step".
-		if Attune_StepShownForRace(step, att.race) and not step.SIDE and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
+		-- Inside reminders and follow-ups are not part of attunement completion.
+		if Attune_StepShownForRace(step, att.race) and not step.SIDE and not step.FOLLOW and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
 			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
@@ -3346,13 +3404,20 @@ function Attune_recursePreviousSteps(who, aID, follows, race)
 					local bloodQuest = Attune_RazorfenBloodEnd[aID] and Attune_RazorfenBloodStepQuest[s.ID]
 					local bloodOpen = bloodQuest and Attune_QuestFlagKnown(bloodQuest) ~= true
 					if string.find(follows, "|") == nil and not bloodOpen then -- don't recurse OR, as we don't know which parent was actually done
-						if Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] ~= 1 then
-							-- print(s.ID_ATTUNE .. "-" .. s.ID)
-							Attune_DB.toons[who].done[s.ID_ATTUNE .. "-" .. s.ID] = 1
-							if (who == attunelocal_charKey) then Attune_SendPushInfo(s.ID_ATTUNE .. "-" .. s.ID) end
-						end
-						if follows ~= 0 then -- no need to recurse first level
-							Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS, race)
+						local key = s.ID_ATTUNE .. "-" .. s.ID
+						-- A later step must not paint a follow-up done. Only the quest itself does.
+						if s.FOLLOW then
+							if Attune_DB.toons[who].done[key] and follows ~= 0 then
+								Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS, race)
+							end
+						else
+							if Attune_DB.toons[who].done[key] ~= 1 then
+								Attune_DB.toons[who].done[key] = 1
+								if (who == attunelocal_charKey) then Attune_SendPushInfo(key) end
+							end
+							if follows ~= 0 then -- no need to recurse first level
+								Attune_recursePreviousSteps(who, s.ID_ATTUNE, s.FOLLOWS, race)
+							end
 						end
 					end
 				end
@@ -3632,7 +3697,7 @@ function Attune_AttuneAlreadyStarted(toon, attuneId)
 	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[attuneId]
 	if chain == nil or toon.done == nil then return false end
 	for _, s in ipairs(chain) do
-		if s.TYPE ~= "Level" and s.TYPE ~= "Spacer" and toon.done[attuneId .. "-" .. s.ID] then
+		if s.TYPE ~= "Level" and s.TYPE ~= "Spacer" and not s.FOLLOW and toon.done[attuneId .. "-" .. s.ID] then
 			return true
 		end
 	end
@@ -5203,6 +5268,8 @@ function Attune_Select(attuneId, quiet)
 	for i, f in pairs(attunelocal_frames) do	_G[f]:Hide()	end
 	if _G["Attune_SideBox"] then _G["Attune_SideBox"]:Hide() end
 	if _G["Attune_SideBoxTitle"] then _G["Attune_SideBoxTitle"]:Hide() end
+	if _G["Attune_FollowBox"] then _G["Attune_FollowBox"]:Hide() end
+	if _G["Attune_FollowBoxTitle"] then _G["Attune_FollowBoxTitle"]:Hide() end
 
 	-- Scaled container for the attune chain (icons, text, lines zoom together)
 	if attunelocal_graphRoot == nil then
@@ -5228,6 +5295,7 @@ function Attune_Select(attuneId, quiet)
 	local stageSteps = {}
 	local stageWidthSum = {}
 	local sideSteps = {}
+	local followSteps = {}
 	local endInfo = nil
 	local chain = Attune_Data.stepsByAttune and Attune_Data.stepsByAttune[attuneId]
 	local chainSteps = chain or Attune_Data.steps
@@ -5235,6 +5303,8 @@ function Attune_Select(attuneId, quiet)
 		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) then
 			if s.SIDE then
 				table.insert(sideSteps, s)
+			elseif s.FOLLOW then
+				table.insert(followSteps, s)
 			else
 				stageSteps[s.STAGE] = (stageSteps[s.STAGE] or 0) + 1
 				stageWidthSum[s.STAGE] = (stageWidthSum[s.STAGE] or 0) + Attune_NodeWidth(s)
@@ -5281,7 +5351,7 @@ function Attune_Select(attuneId, quiet)
 		rowPlaced = {}
 	end
 	for i, s in Attune_spairs(chainSteps, function(t,a,b) 	return tonumber(t[b].STAGE)*10000 + tonumber(t[b].ID) > tonumber(t[a].STAGE)*10000 + tonumber(t[a].ID) end) do
-		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) and not s.SIDE then
+		if (chain ~= nil or s.ID_ATTUNE == attuneId) and showPatchStep(s) and not s.SIDE and not s.FOLLOW then
 			if s.STAGE ~= curStage then
 				flushOrRow()
 				consumed = 0
@@ -5458,6 +5528,10 @@ function Attune_Select(attuneId, quiet)
 		-- Spacer below Complete
 		local endBottom = endInfo.yy + attunelocal_Node_Height + attunelocal_Node_VGap + attunelocal_Node_Height
 		if endBottom > yy then yy = endBottom end
+	end
+
+	if #followSteps > 0 then
+		yy = Attune_DrawFollowBox(followSteps, yy)
 	end
 
 	-- Ace 'mask' needed to trick the scroller into the right size, as it doesn't detect the custom frames.
@@ -5843,6 +5917,84 @@ function Attune_IsSideStep(attuneId, stepId)
 end
 
 -------------------------------------------------------------------------
+-- Follow-up quests, stacked under the chain. They do not gate completion.
+-------------------------------------------------------------------------
+
+function Attune_DrawFollowBox(followSteps, topY)
+	table.sort(followSteps, function(a, b)
+		if tonumber(a.STAGE) ~= tonumber(b.STAGE) then
+			return tonumber(a.STAGE) < tonumber(b.STAGE)
+		end
+		return tonumber(a.ID) < tonumber(b.ID)
+	end)
+
+	local n = #followSteps
+	local pad = attunelocal_Side_Pad
+	local sideVGap = attunelocal_Side_VGap
+	local innerH = n * attunelocal_Node_Height + (n - 1) * sideVGap
+	local boxW = attunelocal_Node_Width + pad * 2
+	local boxH = innerH + pad * 2
+	local colX = 0
+	local firstY = topY + pad
+
+	local boxName = "Attune_FollowBox"
+	local existBox = false
+	for _, f in ipairs(attunelocal_frames) do if f == boxName then existBox = true end end
+	local followBox
+	if existBox then
+		followBox = _G[boxName]
+	else
+		followBox = CreateFrame("Frame", boxName, attunelocal_graphRoot, BackdropTemplateMixin and "BackdropTemplate" or nil)
+		table.insert(attunelocal_frames, boxName)
+	end
+	followBox:SetParent(attunelocal_graphRoot)
+	followBox:SetWidth(boxW)
+	followBox:SetHeight(boxH)
+	followBox:ClearAllPoints()
+	followBox:SetPoint("TOP", attunelocal_graphRoot, "TOP", colX, -(firstY - pad))
+	followBox:SetBackdrop({
+		bgFile = "Interface\\ChatFrame\\ChatFrameBackground",
+		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+		tile = true, tileSize = 16, edgeSize = 16,
+		insets = { left = 3, right = 3, top = 3, bottom = 3 }
+	})
+	followBox:SetBackdropColor(0.04, 0.04, 0.06, 0.55)
+	followBox:SetBackdropBorderColor(0.55, 0.55, 0.60, 0.95)
+	followBox:SetFrameLevel((attunelocal_graphRoot:GetFrameLevel() or 0) + 1)
+	followBox:Show()
+
+	local titleName = "Attune_FollowBoxTitle"
+	local existTitle = false
+	for _, f in ipairs(attunelocal_frames) do if f == titleName then existTitle = true end end
+	local followTitle
+	if existTitle then
+		followTitle = _G[titleName]
+	else
+		followTitle = followBox:CreateFontString(titleName)
+		table.insert(attunelocal_frames, titleName)
+	end
+	followTitle:SetFont(GameFontNormal:GetFont(), 10, "")
+	followTitle:SetText("|cffffd100"..(AttuneLang["Follow up"] or "Follow up").."|r")
+	followTitle:ClearAllPoints()
+	followTitle:SetPoint("BOTTOMLEFT", followBox, "TOPLEFT", 6, 2)
+	followTitle:Show()
+
+	for i, s in ipairs(followSteps) do
+		local sy = firstY + (i - 1) * (attunelocal_Node_Height + sideVGap)
+		Attune_CreateNode(s, attunelocal_graphRoot, colX, sy)
+		local node = _G["Attune_Node_"..s.ID]
+		if node then
+			node:SetFrameLevel((followBox:GetFrameLevel() or 0) + 2)
+		end
+	end
+
+	local followExtent = boxW / 2
+	if followExtent > attunelocal_graphMaxExtent then attunelocal_graphMaxExtent = followExtent end
+
+	return firstY + (n - 1) * (attunelocal_Node_Height + sideVGap) + attunelocal_Node_Height + pad + attunelocal_Node_VGap
+end
+
+-------------------------------------------------------------------------
 -- Horizontal feeder from the Inside-quests box into the End node
 -------------------------------------------------------------------------
 
@@ -6083,6 +6235,11 @@ local function Attune_IsQuestFlaggedCompleted(qid)
 		if ok and done then return true end
 	end
 	return false
+end
+
+function Attune_QuestFlaggedCompleted(qid)
+	qid = tonumber(qid) or qid
+	return Attune_IsQuestFlaggedCompleted(qid)
 end
 
 -- A saved Quest or Turn In step counts as completion for every cell of that quest.
@@ -6407,6 +6564,42 @@ local function Attune_SetNodeTone(fnode, tone)
 	end
 end
 
+-- MARKER on a step: "dungeon", "raid", or "elite". Absent means no badge.
+-- {..., LOCATION=AttuneLang["The Deadmines"], MARKER="dungeon", ...}
+function Attune_StepMarker(step)
+	if step == nil or step.MARKER == nil or step.MARKER == "" then return nil end
+	local marker = step.MARKER
+	if marker == "dungeon" or marker == "raid" or marker == "elite" then return marker end
+	return nil
+end
+
+function Attune_ShowStepMarker(step, icon)
+	local markerKind = Attune_StepMarker(step)
+	local halo = _G["Attune_Halo_" .. step.ID]
+	if halo then halo:Hide() end
+	local oldGlow = _G["Attune_Glow_" .. step.ID]
+	if oldGlow then oldGlow:Hide() end
+	local oldIcon = _G["Attune_Place_" .. step.ID]
+	if oldIcon then oldIcon:Hide() end
+	if markerKind ~= "dungeon" and markerKind ~= "raid" then return end
+	local node = icon:GetParent()
+	local tr, tg, tb = 1, 0.5, 0.05
+	if markerKind == "raid" then
+		tr, tg, tb = 0.9, 0.15, 0.12
+	end
+	node:SetBackdropBorderColor(tr, tg, tb, 0.8)
+	-- Keep the done / ready / waiting fill, shifted a little toward the border color.
+	local br, bg, bb, ba = node:GetBackdropColor()
+	br, bg, bb, ba = br or 0.1, bg or 0.1, bb or 0.1, ba or 0.4
+	local mix = 0.15
+	node:SetBackdropColor(
+		br + (tr - br) * mix,
+		bg + (tg - bg) * mix,
+		bb + (tb - bb) * mix,
+		ba
+	)
+end
+
 function Attune_CreateNode(step, parent, posX, posY)
 	-- Generic look and feel for the node
 	local PaneBackdrop  = {
@@ -6442,7 +6635,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			if toonClass ~= requiredClass then filter = false end
 		end
 
-		if filter and not step.SIDE then
+		if filter and not step.SIDE and not step.FOLLOW then
 			-- calculate how many other toon has this step marked as IsNext
 			-- Inside reminders are not a current step, so they get no count badge.
 			if kt ~= attunelocal_charKey then
@@ -6670,6 +6863,14 @@ function Attune_CreateNode(step, parent, posX, posY)
 		end
 
 		if listSameStep ~= "" and Attune_DB.showList then GameTooltip:AddLine(listSameStep, 1, 1, 1, 1) end
+		local markerKind = Attune_StepMarker(step)
+		if markerKind == "dungeon" then
+			GameTooltip:AddLine(AttuneLang["Done inside the dungeon"], 0.65, 0.85, 1, 1)
+		elseif markerKind == "raid" then
+			GameTooltip:AddLine(AttuneLang["Done inside the raid"], 0.85, 0.65, 1, 1)
+		elseif markerKind == "elite" then
+			GameTooltip:AddLine(AttuneLang["Elite"], 1, 0.82, 0, 1)
+		end
 		GameTooltip:Show()
 		if (step.TYPE == "Quest" or step.TYPE == "Pick Up") and not step.SIDE then
 			Attune_ShowQuestGiverTip(step, fnode)
@@ -6817,6 +7018,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 		icon:EnableMouse(false)
 		icon:Disable()
 		icon:Show()
+		Attune_ShowStepMarker(step, icon)
 
 
 		-- step information, reuse when possible
@@ -6873,7 +7075,10 @@ function Attune_CreateNode(step, parent, posX, posY)
 
 			-- format depending on type
 			local type = "|cffffd100"..AttuneLang[step.TYPE].."|r"
-			if step.SIDE then
+			if step.FOLLOW then
+				type = "|cffffd100"..(AttuneLang["Follow up"] or "Follow up").."|r"
+				if step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r" end
+			elseif step.SIDE then
 				type = "|cffffd100"..(AttuneLang["Inside"] or "Inside").."|r"
 				if step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r" end
 			elseif step.TYPE == "Level" then type = "|cffffd100"..AttuneLang["Required level"].."|r"
@@ -6881,6 +7086,12 @@ function Attune_CreateNode(step, parent, posX, posY)
 			elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
 			elseif step.TYPE == "Stat" or step.TYPE == "Prof" then type = "|cffffd100"..(step.STEP or "").."|r"
 			elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
+			end
+			local markerKind = Attune_StepMarker(step)
+			if markerKind == "dungeon" or markerKind == "raid" then
+				type = "|cff7ec8ff"..(AttuneLang["Inside"] or "Inside").."|r  " .. type
+			elseif markerKind == "elite" then
+				type = "|cffffd100"..(AttuneLang["Elite"] or "Elite").."|r  " .. type
 			end
 
 			local exist = false
@@ -6926,6 +7137,7 @@ function Attune_CreateNode(step, parent, posX, posY)
 			else			notif = CreateFrame("Button", "Attune_Notif_"..step.ID)
 							table.insert(attunelocal_frames, "Attune_Notif_"..step.ID) -- recording, to reuse
 			end
+			notif:ClearAllPoints()
 			notif:SetPoint("TOPRIGHT", fnode, "TOPRIGHT", 8, 5)
 			notif:SetParent(fnode)
 			notif:SetWidth(32)
@@ -6979,7 +7191,8 @@ function Attune_CreateNode(step, parent, posX, posY)
 	-- Create lines between nodes
 	-- 3 lines for each connection. No diagonals are used, only horizontal or vertical, to make it easier to look at
 	-- End ← Inside (SIDE) links use a dedicated side feeder instead (see Attune_DrawSideFeeder)
-	if step.FOLLOWS ~= "0" then
+	-- Follow-up steps sit in their own box. Their FOLLOWS still gates when they unlock.
+	if step.FOLLOWS ~= "0" and not step.FOLLOW then
 		local followOR = false;
 		local fIDs = Attune_split(step.FOLLOWS, "&")
 		if string.find(step.FOLLOWS, "|") then fIDs = Attune_split(step.FOLLOWS, "|"); followOR = true end
@@ -8296,7 +8509,7 @@ function Attune_ShowResultList(title)
 		if counts then return counts end
 		counts = {}
 		for _, s in pairs(Attune_Data.steps) do
-			if s.TYPE ~= "Spacer" and Attune_StepShownForRace(s, race) then
+			if s.TYPE ~= "Spacer" and not s.FOLLOW and Attune_StepShownForRace(s, race) then
 				counts[s.ID_ATTUNE] = (counts[s.ID_ATTUNE] or 0) + 1
 			end
 		end
@@ -8363,7 +8576,7 @@ function Attune_ShowResultList(title)
 			for i, d in pairs(t.done) do
 				if not spacerDone[i] then
 					local step = Attune_Data.stepsByKey and Attune_Data.stepsByKey[i]
-					if not (step and Attune_RaceBlocksStep(step, t.race)) then
+					if not (step and (step.FOLLOW or Attune_RaceBlocksStep(step, t.race))) then
 						local Ids = Attune_split(i, "-")
 						if attuneDone[Ids[1]] == nil then attuneDone[Ids[1]] = 0 end
 						attuneDone[Ids[1]] = attuneDone[Ids[1]] +1
@@ -12164,7 +12377,7 @@ function Attune_NextFrameCollect()
 			if chain then
 				local main, side = {}, {}
 				for _, step in ipairs(chain) do
-					if showPatchStep(step) and step.TYPE ~= "End" and step.TYPE ~= "Spacer" and Attune_NextStepIsCurrent(step, toon.done) then
+					if showPatchStep(step) and step.TYPE ~= "End" and step.TYPE ~= "Spacer" and not step.FOLLOW and Attune_NextStepIsCurrent(step, toon.done) then
 						if step.SIDE then
 							side[#side + 1] = step
 						else

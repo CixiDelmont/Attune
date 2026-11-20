@@ -538,4 +538,15 @@ Attune_Data.questGivers = {
 	[93404] = {2652, 69.7, 71.8, "Woodwyrd"}, -- Woodwyrd (Forlorn Gardens)
 	[93601] = {2652, 69.7, 71.8, "Woodwyrd"}, -- Woodwyrd; turn in to Kog'thug the Brave (Bristleback Retreat 72.7, 31.2)
 	[93604] = {2652, 72.7, 31.2, "Kog'thug the Brave"}, -- Kog'thug the Brave (Bristleback Retreat)
+	-- Dungeon leads that start at a giver already pinned above.
+	[1956] = {1445, 46.0, 57.0, "Tabetha"}, -- Tabetha (Dustwallow Marsh)
+	[3301] = {1413, 52.2, 31.8, "Tonga Runetotem"}, -- Tonga Runetotem (The Barrens)
+	[2962] = {1426, 45.8, 49.2, "Ozzie Togglevolt"}, -- Ozzie Togglevolt (Dun Morogh)
+	[2948] = {1455, 36.4, 3.6, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge)
+	[2199] = {1455, 36.0, 4.0, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge)
+	[3375] = {1455, 36.0, 4.0, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge)
+	[2361] = {1455, 36.0, 4.0, "Talvash del Kissel"}, -- Talvash del Kissel (Ironforge)
+	[596] = {1434, 32.2, 27.8, "Kin'weelay"}, -- Kin'weelay (Grom'gol)
+	[598] = {1434, 32.2, 27.8, "Kin'weelay"}, -- Kin'weelay (Grom'gol)
+	[3765] = {1453, 21.4, 55.6, "Argos Nightwhisper"}, -- Argos Nightwhisper (Stormwind City)
 }

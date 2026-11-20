@@ -438,6 +438,8 @@ Attune_Data.questRewards = {
 	[1954] = {},
 	[1955] = {},
 	[1956] = {},
+	[3765] = {}, -- The Corruption Abroad; experience only
+	[723] = {}, -- Prospect of Faith; experience and reputation only
 	[1957] = {},
 	[1958] = { choice = {{7515, 1}, {9517, 1}} },
 	[8250] = {},
