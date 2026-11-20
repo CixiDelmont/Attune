@@ -6085,6 +6085,39 @@ local function Attune_QuestIdFromStep(step)
 	return questId
 end
 
+local function Attune_InsertChatLink(link)
+	if not link then return false end
+	if ChatFrameUtil and ChatFrameUtil.InsertLink then
+		return ChatFrameUtil.InsertLink(link)
+	elseif ChatEdit_InsertLink then
+		return ChatEdit_InsertLink(link)
+	end
+	return false
+end
+
+local function Attune_ShareQuestStep(step)
+	local questId = Attune_QuestIdFromStep(step)
+	if not questId then return end
+
+	-- Native quest links only resolve for quests in the player's log; fall back to chat-safe text.
+	local link
+	if C_QuestLog and C_QuestLog.GetQuestLink then
+		link = C_QuestLog.GetQuestLink(questId)
+	elseif GetQuestLink then
+		link = GetQuestLink(questId)
+	end
+	if not link then
+		local key = "Q1_" .. tostring(step.ID_WOWHEAD)
+		local questName = AttuneLang[key]
+		if not questName or questName == key then
+			questName = "Quest " .. tostring(questId)
+		end
+		link = string.format("[%s (%d)]", questName, questId)
+	end
+
+	Attune_InsertChatLink(link)
+end
+
 local attunelocal_openedQuestMap
 
 local function Attune_CloseQuestGiverMap()
@@ -6898,17 +6931,14 @@ function Attune_CreateNode(step, parent, posX, posY)
 			if link then
 				HandleModifiedItemClick(link);
 			end
-		-- shift clicking quests not working in Classic. Keep for TBC maybe it will work there
-	--		elseif step.TYPE == "Quest" then
-	--			local quest = Attune_Data.quests[tonumber(step.ID_WOWHEAD)]
-	--			if quest and IsModifiedClick("CHATLINK") and ChatEdit_GetActiveWindow() then
-	--				ChatEdit_InsertLink(format("|cffffff00|Hquest:%d:%d|h[%s]|h|r", tonumber(step.ID_WOWHEAD), 60, quest[1]));
-	--			end
-
-		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In") and (button == nil or button == "LeftButton") and not IsModifiedClick() then
-			GameTooltip:Hide()
-			Attune_HideQuestGiverTip()
-			Attune_ShowQuestDetail(step)
+		elseif (step.TYPE == "Quest" or step.TYPE == "Pick Up" or step.TYPE == "Turn In") then
+			if IsModifiedClick("CHATLINK") then
+				Attune_ShareQuestStep(step)
+			elseif (button == nil or button == "LeftButton") and not IsModifiedClick() then
+				GameTooltip:Hide()
+				Attune_HideQuestGiverTip()
+				Attune_ShowQuestDetail(step)
+			end
 
 		-- navigate to sub-attunement
 		elseif step.TYPE == "Attune" then
@@ -11507,7 +11537,7 @@ function rewardUi.Attune_DetailGiver(step)
 	return uiMapID, x, y, name
 end
 
--- Shift-click shares this pin the same way the world map pin does: chat link plus clipboard.
+-- Shift-click shares this pin in chat; CopyToClipboard is protected for addons.
 function rewardUi.Attune_ShareDetailPin(uiMapID, x, y)
 	if not uiMapID or not x or not y or not (C_Map and C_Map.SetUserWaypoint and C_Map.GetUserWaypointHyperlink and UiMapPoint) then return end
 	if C_Map.CanSetUserWaypointOnMap and not C_Map.CanSetUserWaypointOnMap(uiMapID) then return end
@@ -11517,20 +11547,8 @@ function rewardUi.Attune_ShareDetailPin(uiMapID, x, y)
 
 	C_Map.SetUserWaypoint(UiMapPoint.CreateFromCoordinates(uiMapID, x / 100, y / 100))
 	local link = C_Map.GetUserWaypointHyperlink()
-	local waypoint = C_Map.GetUserWaypoint and C_Map.GetUserWaypoint()
 
-	if link then
-		if ChatFrameUtil and ChatFrameUtil.InsertLink then
-			ChatFrameUtil.InsertLink(link)
-		elseif ChatEdit_InsertLink then
-			ChatEdit_InsertLink(link)
-		end
-	end
-
-	if waypoint and waypoint.position and CopyToClipboard then
-		local cmd = (SLASH_MAPPIN1 or "/pin") .. string.format(" %d %.1f %.1f", waypoint.uiMapID, waypoint.position.x * 100, waypoint.position.y * 100)
-		CopyToClipboard(cmd)
-	end
+	Attune_InsertChatLink(link)
 
 	if previous then
 		C_Map.SetUserWaypoint(previous)
