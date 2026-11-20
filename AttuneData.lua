@@ -102,46 +102,46 @@ Attune_Data.steps = 	{
 
 	{ID_ATTUNE="20",ID="20",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="1"},
 	{ID_ATTUNE="20",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7848",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="2",MARKER="dungeon"}, -- quest: Attunement to the Core
-	{ID_ATTUNE="20",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="18412",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="30",STAGE="3"}, -- item: Core Fragment
+	{ID_ATTUNE="20",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="18412",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="30",STAGE="3",MARKER="dungeon"}, -- item: Core Fragment
 	{ID_ATTUNE="20",ID="45",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7848",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="4",MARKER="dungeon"}, -- quest: Attunement to the Core
 	{ID_ATTUNE="20",ID="50",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_hammer_unique_sulfuras",FOLLOWS="45",STAGE="5"},
 
 	{ID_ATTUNE="30",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="30",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="50",MARKER="dungeon"}, -- quest: Warlord's Command
-	{ID_ATTUNE="30",ID="30",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="20",STAGE="60"}, -- npc: Highlord Omokk
-	{ID_ATTUNE="30",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="20",STAGE="60"}, -- npc: War Master Voone
-	{ID_ATTUNE="30",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="20",STAGE="60"}, -- npc: Overlord Wyrmthalak
-	{ID_ATTUNE="30",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="20",STAGE="60"}, -- item: Important Blackrock Documents
+	{ID_ATTUNE="30",ID="30",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="20",STAGE="60",MARKER="dungeon"}, -- npc: Highlord Omokk
+	{ID_ATTUNE="30",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="20",STAGE="60",MARKER="dungeon"}, -- npc: War Master Voone
+	{ID_ATTUNE="30",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="20",STAGE="60",MARKER="dungeon"}, -- npc: Overlord Wyrmthalak
+	{ID_ATTUNE="30",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="20",STAGE="60",MARKER="dungeon"}, -- item: Important Blackrock Documents
 	{ID_ATTUNE="30",ID="65",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&30&40&50",STAGE="70",MARKER="dungeon"}, -- quest: Warlord's Command
 	{ID_ATTUNE="30",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4941",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="80"}, -- quest: Eitrigg's Wisdom
 	{ID_ATTUNE="30",ID="80",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="90",MARKER="dungeon"}, -- quest: For The Horde!
-	{ID_ATTUNE="30",ID="90",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="80",STAGE="100"}, -- npc: Warchief Rend Blackhand
+	{ID_ATTUNE="30",ID="90",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="80",STAGE="100",MARKER="dungeon"}, -- npc: Warchief Rend Blackhand
 	{ID_ATTUNE="30",ID="95",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="105",MARKER="dungeon"}, -- quest: For The Horde!
 	{ID_ATTUNE="30",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="6566",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="95",STAGE="110"}, -- quest: What the Wind Carries
 	{ID_ATTUNE="30",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="6567",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="120"}, -- quest: The Champion of the Horde
 	{ID_ATTUNE="30",ID="115",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="110",STAGE="130"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6568",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="115",STAGE="140"}, -- quest: The Testament of Rexxar
 	{ID_ATTUNE="30",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="6569",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="150",MARKER="dungeon"}, -- quest: Oculus Illusions
-	{ID_ATTUNE="30",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="16786",ICON="Interface\\Icons\\inv_misc_eye_01",FOLLOWS="130",STAGE="160", COUNT=20}, -- item: Black Dragonspawn Eye
+	{ID_ATTUNE="30",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="16786",ICON="Interface\\Icons\\inv_misc_eye_01",FOLLOWS="130",STAGE="160", COUNT=20,MARKER="dungeon"}, -- item: Black Dragonspawn Eye
 	{ID_ATTUNE="30",ID="145",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="6569",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="165",MARKER="dungeon"}, -- quest: Oculus Illusions
 	{ID_ATTUNE="30",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6570",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="145",STAGE="170"}, -- quest: Emberstrife
 	{ID_ATTUNE="30",ID="160",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6584",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="180",MARKER="dungeon"}, -- quest: The Test of Skulls, Chronalis
 	{ID_ATTUNE="30",ID="170",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6582",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="180",MARKER="dungeon"}, -- quest: The Test of Skulls, Scryer
 	{ID_ATTUNE="30",ID="180",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6583",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="180",MARKER="dungeon"}, -- quest: The Test of Skulls, Somnus
-	{ID_ATTUNE="30",ID="190",TYPE="Kill",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8197",ICON="Interface\\Icons\\inv_misc_head_dragon_bronze",FOLLOWS="160",STAGE="190"}, -- npc: Chronalis
+	{ID_ATTUNE="30",ID="190",TYPE="Kill",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8197",ICON="Interface\\Icons\\inv_misc_head_dragon_bronze",FOLLOWS="160",STAGE="190",MARKER="dungeon"}, -- npc: Chronalis
 	{ID_ATTUNE="30",ID="195",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6584",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="195",MARKER="dungeon"}, -- quest: The Test of Skulls, Chronalis
-	{ID_ATTUNE="30",ID="200",TYPE="Kill",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10664",ICON="Interface\\Icons\\inv_misc_head_dragon_blue",FOLLOWS="170",STAGE="190"}, -- npc: Scryer
+	{ID_ATTUNE="30",ID="200",TYPE="Kill",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10664",ICON="Interface\\Icons\\inv_misc_head_dragon_blue",FOLLOWS="170",STAGE="190",MARKER="dungeon"}, -- npc: Scryer
 	{ID_ATTUNE="30",ID="205",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6582",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="200",STAGE="195",MARKER="dungeon"}, -- quest: The Test of Skulls, Scryer
-	{ID_ATTUNE="30",ID="210",TYPE="Kill",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="12900",ICON="Interface\\Icons\\inv_misc_head_dragon_green",FOLLOWS="180",STAGE="190"}, -- npc: Somnus
+	{ID_ATTUNE="30",ID="210",TYPE="Kill",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="12900",ICON="Interface\\Icons\\inv_misc_head_dragon_green",FOLLOWS="180",STAGE="190",MARKER="dungeon"}, -- npc: Somnus
 	{ID_ATTUNE="30",ID="215",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6583",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="195",MARKER="dungeon"}, -- quest: The Test of Skulls, Somnus
 	{ID_ATTUNE="30",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6585",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="195&205&215",STAGE="200",MARKER="dungeon"}, -- quest: The Test of Skulls, Axtroz
-	{ID_ATTUNE="30",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="12899",ICON="Interface\\Icons\\inv_misc_head_dragon_red",FOLLOWS="220",STAGE="210"}, -- npc: Axtroz
+	{ID_ATTUNE="30",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="12899",ICON="Interface\\Icons\\inv_misc_head_dragon_red",FOLLOWS="220",STAGE="210",MARKER="dungeon"}, -- npc: Axtroz
 	{ID_ATTUNE="30",ID="235",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6585",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="215",MARKER="dungeon"}, -- quest: The Test of Skulls, Axtroz
 	{ID_ATTUNE="30",ID="240",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="6601",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="235",STAGE="220"}, -- quest: Ascension...
 	{ID_ATTUNE="30",ID="245",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="240",STAGE="230"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="250",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="245",STAGE="240",MARKER="dungeon"}, -- quest: Blood of the Black Dragon Champion
-	{ID_ATTUNE="30",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="250",STAGE="250"}, -- npc: General Drakkisath
-	{ID_ATTUNE="30",ID="265",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="260",STAGE="260"}, -- npc: Rexxar
+	{ID_ATTUNE="30",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="250",STAGE="250",MARKER="dungeon"}, -- npc: General Drakkisath
+	{ID_ATTUNE="30",ID="265",TYPE="Interact",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="10182",ICON="Interface\\Icons\\inv_rexxar",FOLLOWS="260",STAGE="260",MARKER="dungeon"}, -- npc: Rexxar
 	{ID_ATTUNE="30",ID="268",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="6602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="265",STAGE="265",MARKER="dungeon"}, -- quest: Blood of the Black Dragon Champion
 	{ID_ATTUNE="30",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_jewelry_talisman_11",FOLLOWS="268",STAGE="270"},
 
@@ -159,10 +159,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="40",ID="110",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11446",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="100",STAGE="11"}, -- item: A Crumpled Up Note
 	{ID_ATTUNE="40",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4264",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="12"}, -- quest: A Crumpled Up Note
 	{ID_ATTUNE="40",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4282",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="13",MARKER="dungeon"}, -- quest: A shred of Hope
-	{ID_ATTUNE="40",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="8983",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="130",STAGE="14"}, -- npc: Golem Lord Argelmach
-	{ID_ATTUNE="40",ID="150",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9033",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="130",STAGE="14"}, -- npc: General Angerforge
-	{ID_ATTUNE="40",ID="160",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11465",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="140",STAGE="15"}, -- item: Marshal Windsor's Lost Information
-	{ID_ATTUNE="40",ID="170",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11464",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="150",STAGE="15"}, -- item: Marshal Windsor's Lost Information
+	{ID_ATTUNE="40",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="8983",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="130",STAGE="14",MARKER="dungeon"}, -- npc: Golem Lord Argelmach
+	{ID_ATTUNE="40",ID="150",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9033",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="130",STAGE="14",MARKER="dungeon"}, -- npc: General Angerforge
+	{ID_ATTUNE="40",ID="160",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11465",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="140",STAGE="15",MARKER="dungeon"}, -- item: Marshal Windsor's Lost Information
+	{ID_ATTUNE="40",ID="170",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11464",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="150",STAGE="15",MARKER="dungeon"}, -- item: Marshal Windsor's Lost Information
 	{ID_ATTUNE="40",ID="175",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4282",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="170&160",STAGE="16",MARKER="dungeon"}, -- quest: A shred of Hope
 	{ID_ATTUNE="40",ID="180",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4322",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="175",STAGE="17",MARKER="dungeon"}, -- quest: Jail Break
 	{ID_ATTUNE="40",ID="190",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="6402",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="18"}, -- quest: Stormwind Rendezvous
@@ -171,8 +171,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="40",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="6501",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="21"}, -- quest: The Dragon's Eye
 	{ID_ATTUNE="40",ID="230",TYPE="Interact",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10929",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="220",STAGE="22"}, -- npc: Haleh
 	{ID_ATTUNE="40",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="6502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="23",MARKER="dungeon"}, -- quest: Drakefire Amulet
-	{ID_ATTUNE="40",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="240",STAGE="24"}, -- npc: General Drakkisath
-	{ID_ATTUNE="40",ID="260",TYPE="Interact",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10929",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="250",STAGE="25"}, -- npc: Haleh
+	{ID_ATTUNE="40",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="240",STAGE="24",MARKER="dungeon"}, -- npc: General Drakkisath
+	{ID_ATTUNE="40",ID="260",TYPE="Interact",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="10929",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="250",STAGE="25",MARKER="dungeon"}, -- npc: Haleh
 	{ID_ATTUNE="40",ID="265",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="6502",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="26",MARKER="dungeon"}, -- quest: Drakefire Amulet
 	{ID_ATTUNE="40",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_jewelry_talisman_11",FOLLOWS="265",STAGE="27"},
 
@@ -180,8 +180,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="50",ID="20",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="9046",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="10",STAGE="20"}, -- npc: Scarshield Quartermaster
 	{ID_ATTUNE="50",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="20",STAGE="30"}, -- item: Blackhand's Command
 	{ID_ATTUNE="50",ID="40",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- quest: Blackhand's Command
-	{ID_ATTUNE="50",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="40",STAGE="50"}, -- npc: General Drakkisath
-	{ID_ATTUNE="50",ID="60",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="50",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- npc: General Drakkisath
+	{ID_ATTUNE="50",ID="60",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="50",STAGE="60",MARKER="dungeon"},
 	{ID_ATTUNE="50",ID="65",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65",MARKER="dungeon"}, -- quest: Blackhand's Command
 	{ID_ATTUNE="50",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="65",STAGE="70"},
 
@@ -199,8 +199,8 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="100",ID="10",TYPE="Interact",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="15180",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="0",STAGE="10"}, -- npc: Baristolth of the Shifting Sands
 	{ID_ATTUNE="100",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8286",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: What Tomorrow Brings
 	{ID_ATTUNE="100",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30",MARKER="raid"}, -- quest: Only One May Rise
-	{ID_ATTUNE="100",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="12017",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="30",STAGE="40"}, -- npc: Broodlord Lashlayer
-	{ID_ATTUNE="100",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="20383",ICON="Interface\\Icons\\spell_shadow_curseoftounges",FOLLOWS="40",STAGE="50"}, -- item: Head of the Broodlord Lashlayer
+	{ID_ATTUNE="100",ID="40",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="12017",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="30",STAGE="40",MARKER="raid"}, -- npc: Broodlord Lashlayer
+	{ID_ATTUNE="100",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="20383",ICON="Interface\\Icons\\spell_shadow_curseoftounges",FOLLOWS="40",STAGE="50",MARKER="raid"}, -- item: Head of the Broodlord Lashlayer
 	{ID_ATTUNE="100",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60",MARKER="raid"}, -- quest: Only One May Rise
 	{ID_ATTUNE="100",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="100",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silithus"],ID_WOWHEAD="8301",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- quest: The Path of the Righteous
@@ -212,8 +212,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="100",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8555",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="120"}, -- quest: The Charge of the Dragonflights
 	{ID_ATTUNE="100",ID="150",TYPE="Interact",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="13020",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="140",STAGE="130"}, -- npc: Vaelastrasz the Corrupt
 	{ID_ATTUNE="100",ID="160",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="8730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150",STAGE="140",MARKER="raid"}, -- quest: Nefarius's Corruption
-	{ID_ATTUNE="100",ID="170",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="11583",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="160",STAGE="150"}, -- npc: Nefarian
-	{ID_ATTUNE="100",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="21138",ICON="Interface\\Icons\\inv_misc_gem_ruby_03",FOLLOWS="170",STAGE="160"}, -- item: Red Scepter Shard
+	{ID_ATTUNE="100",ID="170",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="11583",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="160",STAGE="150",MARKER="raid"}, -- npc: Nefarian
+	{ID_ATTUNE="100",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="21138",ICON="Interface\\Icons\\inv_misc_gem_ruby_03",FOLLOWS="170",STAGE="160",MARKER="raid"}, -- item: Red Scepter Shard
 	{ID_ATTUNE="100",ID="190",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="8730",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="180",STAGE="170",MARKER="raid"}, -- quest: Nefarius's Corruption
 	{ID_ATTUNE="100",ID="200",TYPE="Interact",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="15362",ICON="Interface\\Icons\\spell_nature_wispsplode",FOLLOWS="140",STAGE="130"}, -- npc: Malfurion Stormrage
 	{ID_ATTUNE="100",ID="210",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="8733",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="200",STAGE="140",MARKER="dungeon"}, -- quest: Eranikus, Tyrant of the Dream
@@ -222,14 +222,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="100",ID="241",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="160"},
 	{ID_ATTUNE="100",ID="242",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="160"},
 	{ID_ATTUNE="100",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="8735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="170",MARKER="raid"}, -- quest: The Nightmare's Corruption
-	{ID_ATTUNE="100",ID="241",TYPE="Item",STEP="",LOCATION=AttuneLang["Hinterlands"],ID_WOWHEAD="21146",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="170"}, -- item: Fragment of the Nightmare's Corruption
+	{ID_ATTUNE="100",ID="241",TYPE="Item",STEP="",LOCATION=AttuneLang["Hinterlands"],ID_WOWHEAD="21146",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="170",MARKER="raid"}, -- item: Fragment of the Nightmare's Corruption
 	{ID_ATTUNE="100",ID="242",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="170"},
 	{ID_ATTUNE="100",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="180"},
-	{ID_ATTUNE="100",ID="251",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="21147",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="180"}, -- item: Fragment of the Nightmare's Corruption
+	{ID_ATTUNE="100",ID="251",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="21147",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="180",MARKER="raid"}, -- item: Fragment of the Nightmare's Corruption
 	{ID_ATTUNE="100",ID="252",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="182"},
-	{ID_ATTUNE="100",ID="253",TYPE="Item",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="21148",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="182"}, -- item: Fragment of the Nightmare's Corruption
+	{ID_ATTUNE="100",ID="253",TYPE="Item",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="21148",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="182",MARKER="raid"}, -- item: Fragment of the Nightmare's Corruption
 	{ID_ATTUNE="100",ID="254",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="184"},
-	{ID_ATTUNE="100",ID="255",TYPE="Item",STEP="",LOCATION=AttuneLang["Duskwood"],ID_WOWHEAD="21149",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="184"}, -- item: Fragment of the Nightmare's Corruption
+	{ID_ATTUNE="100",ID="255",TYPE="Item",STEP="",LOCATION=AttuneLang["Duskwood"],ID_WOWHEAD="21149",ICON="Interface\\Icons\\spell_shadow_antimagicshell",FOLLOWS="0",STAGE="184",MARKER="raid"}, -- item: Fragment of the Nightmare's Corruption
 	{ID_ATTUNE="100",ID="259",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="190"},
 	{ID_ATTUNE="100",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="8735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240&241&251&253&255",STAGE="190",MARKER="raid"}, -- quest: The Nightmare's Corruption
 	{ID_ATTUNE="100",ID="261",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="190"},
@@ -281,18 +281,18 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="100",ID="520",TYPE="Kill",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="15554",ICON="Interface\\Icons\\ability_hunter_pet_gorilla",FOLLOWS="510",STAGE="274"}, -- npc: Number Two
 	{ID_ATTUNE="100",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8606",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="276"}, -- quest: Decoy!
 	{ID_ATTUNE="100",ID="540",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8620",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="278",MARKER="raid"}, -- quest: The Only Prescription
-	{ID_ATTUNE="100",ID="546",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="15552",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_gnome_male",FOLLOWS="0",STAGE="278"}, -- npc: Doctor Weavil
-	{ID_ATTUNE="100",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21103",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="546",STAGE="280"}, -- item: Draconic for Dummies - Chapter I
-	{ID_ATTUNE="100",ID="552",TYPE="Item",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="21104",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="281"}, -- item: Draconic for Dummies - Chapter II
-	{ID_ATTUNE="100",ID="554",TYPE="Item",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="21105",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="283"}, -- item: Draconic for Dummies - Chapter III
-	{ID_ATTUNE="100",ID="556",TYPE="Item",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="21106",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="284"}, -- item: Draconic for Dummies - Chapter IV
-	{ID_ATTUNE="100",ID="558",TYPE="Item",STEP="",LOCATION="Stormwind",ID_WOWHEAD="21107",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="285"}, -- item: Draconic for Dummies - Chapter V
-	{ID_ATTUNE="100",ID="560",TYPE="Kill",STEP="",LOCATION=AttuneLang["Onyxia's Lair"],ID_WOWHEAD="10184",ICON="Interface\\Icons\\inv_misc_head_dragon_01",FOLLOWS="0",STAGE="286"}, -- npc: Onyxia
-	{ID_ATTUNE="100",ID="562",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21108",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="560",STAGE="287"}, -- item: Draconic for Dummies - Chapter VI
-	{ID_ATTUNE="100",ID="564",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="21109",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="288"}, -- item: Draconic for Dummies - Chapter VII
-	{ID_ATTUNE="100",ID="566",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="11502",ICON="Interface\\Icons\\inv_hammer_unique_sulfuras",FOLLOWS="0",STAGE="289"}, -- npc: Ragnaros
-	{ID_ATTUNE="100",ID="568",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21110",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="566",STAGE="290"}, -- item: Draconic for Dummies - Chapter VIII
-	{ID_ATTUNE="100",ID="570",TYPE="Item",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="21111",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="540&550&552&554&556&558&562&564&568",STAGE="295"}, -- item: Draconic For Dummies: Volume II
+	{ID_ATTUNE="100",ID="546",TYPE="Kill",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="15552",ICON="Interface\\AddOns\\Attune\\Images\\achievement_character_gnome_male",FOLLOWS="0",STAGE="278",MARKER="raid"}, -- npc: Doctor Weavil
+	{ID_ATTUNE="100",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21103",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="546",STAGE="280",MARKER="raid"}, -- item: Draconic for Dummies - Chapter I
+	{ID_ATTUNE="100",ID="552",TYPE="Item",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="21104",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="281",MARKER="raid"}, -- item: Draconic for Dummies - Chapter II
+	{ID_ATTUNE="100",ID="554",TYPE="Item",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="21105",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="283",MARKER="raid"}, -- item: Draconic for Dummies - Chapter III
+	{ID_ATTUNE="100",ID="556",TYPE="Item",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="21106",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="284",MARKER="raid"}, -- item: Draconic for Dummies - Chapter IV
+	{ID_ATTUNE="100",ID="558",TYPE="Item",STEP="",LOCATION="Stormwind",ID_WOWHEAD="21107",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="285",MARKER="raid"}, -- item: Draconic for Dummies - Chapter V
+	{ID_ATTUNE="100",ID="560",TYPE="Kill",STEP="",LOCATION=AttuneLang["Onyxia's Lair"],ID_WOWHEAD="10184",ICON="Interface\\Icons\\inv_misc_head_dragon_01",FOLLOWS="0",STAGE="286",MARKER="raid"}, -- npc: Onyxia
+	{ID_ATTUNE="100",ID="562",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21108",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="560",STAGE="287",MARKER="raid"}, -- item: Draconic for Dummies - Chapter VI
+	{ID_ATTUNE="100",ID="564",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackwing Lair"],ID_WOWHEAD="21109",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="0",STAGE="288",MARKER="raid"}, -- item: Draconic for Dummies - Chapter VII
+	{ID_ATTUNE="100",ID="566",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="11502",ICON="Interface\\Icons\\inv_hammer_unique_sulfuras",FOLLOWS="0",STAGE="289",MARKER="raid"}, -- npc: Ragnaros
+	{ID_ATTUNE="100",ID="568",TYPE="Item",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="21110",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="566",STAGE="290",MARKER="raid"}, -- item: Draconic for Dummies - Chapter VIII
+	{ID_ATTUNE="100",ID="570",TYPE="Item",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="21111",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="540&550&552&554&556&558&562&564&568",STAGE="295",MARKER="raid"}, -- item: Draconic For Dummies: Volume II
 	{ID_ATTUNE="100",ID="580",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8620",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="570",STAGE="300",MARKER="raid"}, -- quest: The Only Prescription
 	{ID_ATTUNE="100",ID="571",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="295"},
 	{ID_ATTUNE="100",ID="581",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="300"},
@@ -306,15 +306,15 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="100",ID="740",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8587",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="274"}, -- quest: Return to Narain
 	{ID_ATTUNE="100",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8577",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="225"}, -- quest: Stewvul, Ex-B.F.F.
 	{ID_ATTUNE="100",ID="800",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="8578",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="790",STAGE="230",MARKER="raid"}, -- quest: Scrying Goggles? No Problem!
-	{ID_ATTUNE="100",ID="810",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="20951",ICON="Interface\\Icons\\inv_helmet_47",FOLLOWS="800",STAGE="240"}, -- item: Narain's Scrying Goggles
+	{ID_ATTUNE="100",ID="810",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="20951",ICON="Interface\\Icons\\inv_helmet_47",FOLLOWS="800",STAGE="240",MARKER="raid"}, -- item: Narain's Scrying Goggles
 	{ID_ATTUNE="100",ID="820",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8578",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="810",STAGE="250",MARKER="raid"}, -- quest: Scrying Goggles? No Problem!
 	{ID_ATTUNE="100",ID="887",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="310"},
 	{ID_ATTUNE="100",ID="888",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="310"},
 	{ID_ATTUNE="100",ID="889",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="310"},	
 	{ID_ATTUNE="100",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="580&820&740",STAGE="310"}, -- quest: The Good News and The Bad News
 	{ID_ATTUNE="100",ID="900",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="890",STAGE="320",MARKER="raid"}, -- quest: The Wrath of Neptulon
-	{ID_ATTUNE="100",ID="910",TYPE="Kill",STEP="Maws",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="15571",ICON="Interface\\AddOns\\Attune\\Images\\inv_pet_babyshark",FOLLOWS="900",STAGE="330"}, -- npc: Maws
-	{ID_ATTUNE="100",ID="920",TYPE="Item",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="21137",ICON="Interface\\Icons\\inv_misc_gem_sapphire_03",FOLLOWS="910",STAGE="340"}, -- item: Blue Scepter Shard
+	{ID_ATTUNE="100",ID="910",TYPE="Kill",STEP="Maws",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="15571",ICON="Interface\\AddOns\\Attune\\Images\\inv_pet_babyshark",FOLLOWS="900",STAGE="330",MARKER="raid"}, -- npc: Maws
+	{ID_ATTUNE="100",ID="920",TYPE="Item",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="21137",ICON="Interface\\Icons\\inv_misc_gem_sapphire_03",FOLLOWS="910",STAGE="340",MARKER="raid"}, -- item: Blue Scepter Shard
 	{ID_ATTUNE="100",ID="930",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="350",MARKER="raid"}, -- quest: The Wrath of Neptulon
 	{ID_ATTUNE="100",ID="940",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="8742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190&290&930",STAGE="360"}, -- quest: The Might of Kalimdor
 	{ID_ATTUNE="100",ID="941",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="360"},
@@ -330,8 +330,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="120",ID="20",TYPE="Interact",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="8888",ICON="Interface\\Icons\\achievement_character_dwarf_male",FOLLOWS="10",STAGE="20"}, -- npc: Franclorn Forgewright
 	{ID_ATTUNE="120",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="3801",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- quest: Dark Iron Legacy
 	{ID_ATTUNE="120",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="3802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- quest: Dark Iron Legacy
-	{ID_ATTUNE="120",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9056",ICON="Interface\\Icons\\Inv_misc_head_dwarf_01",FOLLOWS="40",STAGE="50"}, -- npc: Fineous Darkvire
-	{ID_ATTUNE="120",ID="60",TYPE="Click",STEP=AttuneLang["Shrine of Thaurissan"],LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="3",ICON="Interface\\Icons\\inv_hammer_23",FOLLOWS="50",STAGE="60"},
+	{ID_ATTUNE="120",ID="50",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9056",ICON="Interface\\Icons\\Inv_misc_head_dwarf_01",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- npc: Fineous Darkvire
+	{ID_ATTUNE="120",ID="60",TYPE="Click",STEP=AttuneLang["Shrine of Thaurissan"],LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="3",ICON="Interface\\Icons\\inv_hammer_23",FOLLOWS="50",STAGE="60",MARKER="dungeon"},
 	{ID_ATTUNE="120",ID="65",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="3802",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65",MARKER="dungeon"}, -- quest: Dark Iron Legacy
 	{ID_ATTUNE="120",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="65",STAGE="70"},
 
@@ -418,14 +418,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="80",ID="80",TYPE="Rep",STEP=AttuneLang["Honored with"].." "..AttuneLang["Hydraxian Waterlords"],LOCATION="749",ID_WOWHEAD="9000",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="80",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6823",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70&80",STAGE="80",MARKER="raid"}, -- quest: Agent of Hydraxis
 	{ID_ATTUNE="80",ID="100",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="6824",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="90",MARKER="raid"}, -- quest: Hands of the Enemy
-	{ID_ATTUNE="80",ID="110",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12264",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-blue",FOLLOWS="100",STAGE="100"}, -- npc: Shazzrah
-	{ID_ATTUNE="80",ID="120",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12118",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-gray",FOLLOWS="100",STAGE="100"}, -- npc: Lucifron
-	{ID_ATTUNE="80",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12259",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100"}, -- npc: Gehennas
-	{ID_ATTUNE="80",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12098",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100"}, -- npc: Sulfuron Harbinger
-	{ID_ATTUNE="80",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17332",ICON="Interface\\Icons\\inv_gauntlets_19",FOLLOWS="110",STAGE="110"}, -- item: Hand of Shazzrah
-	{ID_ATTUNE="80",ID="160",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17329",ICON="Interface\\Icons\\inv_gauntlets_26",FOLLOWS="120",STAGE="110"}, -- item: Hand of Lucifron
-	{ID_ATTUNE="80",ID="170",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17331",ICON="Interface\\Icons\\spell_fire_immolation",FOLLOWS="130",STAGE="110"}, -- item: Hand of Gehennas
-	{ID_ATTUNE="80",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17330",ICON="Interface\\Icons\\inv_gauntlets_03",FOLLOWS="140",STAGE="110"}, -- item: Hand of Sulfuron
+	{ID_ATTUNE="80",ID="110",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12264",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-blue",FOLLOWS="100",STAGE="100",MARKER="raid"}, -- npc: Shazzrah
+	{ID_ATTUNE="80",ID="120",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12118",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-gray",FOLLOWS="100",STAGE="100",MARKER="raid"}, -- npc: Lucifron
+	{ID_ATTUNE="80",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12259",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100",MARKER="raid"}, -- npc: Gehennas
+	{ID_ATTUNE="80",ID="140",TYPE="Kill",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="12098",ICON="Interface\\AddOns\\Attune\\Images\\flamewalker-red",FOLLOWS="100",STAGE="100",MARKER="raid"}, -- npc: Sulfuron Harbinger
+	{ID_ATTUNE="80",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17332",ICON="Interface\\Icons\\inv_gauntlets_19",FOLLOWS="110",STAGE="110",MARKER="raid"}, -- item: Hand of Shazzrah
+	{ID_ATTUNE="80",ID="160",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17329",ICON="Interface\\Icons\\inv_gauntlets_26",FOLLOWS="120",STAGE="110",MARKER="raid"}, -- item: Hand of Lucifron
+	{ID_ATTUNE="80",ID="170",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17331",ICON="Interface\\Icons\\spell_fire_immolation",FOLLOWS="130",STAGE="110",MARKER="raid"}, -- item: Hand of Gehennas
+	{ID_ATTUNE="80",ID="180",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="17330",ICON="Interface\\Icons\\inv_gauntlets_03",FOLLOWS="140",STAGE="110",MARKER="raid"}, -- item: Hand of Sulfuron
 	{ID_ATTUNE="80",ID="190",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6824",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="150&160&170&180",STAGE="120",MARKER="raid"}, -- quest: Hands of the Enemy
 	{ID_ATTUNE="80",ID="200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="7486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="190",STAGE="130"}, -- quest: A Hero's Reward
 	{ID_ATTUNE="80",ID="210",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_potion_76",FOLLOWS="200",STAGE="140"},
@@ -445,13 +445,13 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="160",ID="70",TYPE="Interact",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11834",ICON="Interface\\Icons\\inv_misc_bag_10",FOLLOWS="20",STAGE="30"}, -- npc: Maur Grimtotem
     {ID_ATTUNE="160",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="160",ID="90",TYPE="Item",STEP="",LOCATION=AttuneLang["Durotar"],ID_WOWHEAD="14544",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="40",STAGE="30"}, -- item: Lieutenant's Insignia
-    {ID_ATTUNE="160",ID="100",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="50",STAGE="30"}, -- npc: Taragaman the Hungerer
+    {ID_ATTUNE="160",ID="100",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11520",ICON="Interface\\Icons\\spell_shadow_metamorphosis",FOLLOWS="50",STAGE="30",MARKER="dungeon"}, -- npc: Taragaman the Hungerer
     {ID_ATTUNE="160",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 
     {ID_ATTUNE="160",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="5724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="40"}, -- quest: Returning the Lost Satchel
     {ID_ATTUNE="160",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="160",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5726",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="40"}, -- quest: Hidden Enemies
-	{ID_ATTUNE="160",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="100",STAGE="40"}, -- item: Taragaman the Hungerer's Heart
+	{ID_ATTUNE="160",ID="150",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14540",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="100",STAGE="40",MARKER="dungeon"}, -- item: Taragaman the Hungerer's Heart
     {ID_ATTUNE="160",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 
     {ID_ATTUNE="160",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
@@ -468,10 +468,10 @@ Attune_Data.steps = 	{
 
     {ID_ATTUNE="160",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
     {ID_ATTUNE="160",ID="280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="160",ID="290",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="240",STAGE="70"}, -- npc: Bazzalan
-    {ID_ATTUNE="160",ID="300",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="240",STAGE="70"}, -- npc: Jergosh the Invoker
-	{ID_ATTUNE="160",ID="310",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="60",STAGE="70"}, -- item: Spells of Shadow
-    {ID_ATTUNE="160",ID="320",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="60",STAGE="70"}, -- item: Incantations from the Nether
+	{ID_ATTUNE="160",ID="290",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11519",ICON="Interface\\Icons\\ability_warrior_rampage",FOLLOWS="240",STAGE="70",MARKER="dungeon"}, -- npc: Bazzalan
+    {ID_ATTUNE="160",ID="300",TYPE="Kill",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="11518",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="240",STAGE="70",MARKER="dungeon"}, -- npc: Jergosh the Invoker
+	{ID_ATTUNE="160",ID="310",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14395",ICON="Interface\\Icons\\inv_misc_book_01",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- item: Spells of Shadow
+    {ID_ATTUNE="160",ID="320",TYPE="Item",STEP="",LOCATION=AttuneLang["Ragefire Chasm"],ID_WOWHEAD="14396",ICON="Interface\\Icons\\inv_misc_book_06",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- item: Incantations from the Nether
 
     {ID_ATTUNE="160",ID="330",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="5728",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="290&300",STAGE="80",MARKER="dungeon"}, -- quest: Hidden Enemies
     {ID_ATTUNE="160",ID="385",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="85"},
@@ -506,20 +506,20 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2041",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Speak with Shoni
 	{ID_ATTUNE="170",ID="20",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Oh Brother...
 	-- STAGE 30
-	{ID_ATTUNE="170",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="510",STAGE="30", COUNT=4}, -- item: Miners' Union Card
+	{ID_ATTUNE="170",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1894",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="510",STAGE="30", COUNT=4,MARKER="dungeon"}, -- item: Miners' Union Card
 	-- {ID_ATTUNE="170",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="13",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="30"}, -- quest: The People's Militia
     {ID_ATTUNE="170",ID="420",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="170",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="30"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92744",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="30"}, -- quest: Murloc Gills
 	{ID_ATTUNE="170",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="2040",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="30",MARKER="dungeon"}, -- quest: Underground Assault
-	{ID_ATTUNE="170",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="20",STAGE="30"}, -- item: Thistlenettle's Badge
+	{ID_ATTUNE="170",ID="30",TYPE="Item",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1875",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="20",STAGE="30",MARKER="dungeon"}, -- item: Thistlenettle's Badge
 	-- STAGE 40
 	{ID_ATTUNE="170",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="168",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40",MARKER="dungeon"}, -- quest: Collecting Memories
 	-- {ID_ATTUNE="170",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="14",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40"}, -- quest: The People's Militia
     {ID_ATTUNE="170",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="170",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="135",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="40"}, -- quest: The Defias Brotherhood
 	{ID_ATTUNE="170",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="92745",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="40"}, -- quest: The State of the Mines
-	{ID_ATTUNE="170",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="120",STAGE="40"}, -- item: Gnoam Sprecklesprocket
+	{ID_ATTUNE="170",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="7365",ICON="Interface\\Icons\\inv_misc_gear_01",FOLLOWS="120",STAGE="40",MARKER="dungeon"}, -- item: Gnoam Sprecklesprocket
 	{ID_ATTUNE="170",ID="40",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="167",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- quest: Oh Brother...
 	-- STAGE 50
 	{ID_ATTUNE="170",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="50"},
@@ -556,9 +556,9 @@ Attune_Data.steps = 	{
 	-- STAGE 90
 	{ID_ATTUNE="170",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="90"},
 	-- {ID_ATTUNE="170",ID="480",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="90"},
-    {ID_ATTUNE="170",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="470",STAGE="90", COUNT=10}, -- item: Red Silk Bandana
+    {ID_ATTUNE="170",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="915",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="470",STAGE="90", COUNT=10,MARKER="dungeon"}, -- item: Red Silk Bandana
 	-- {ID_ATTUNE="170",ID="380",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="639",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90"}, -- npc: Edwin VanCleef
-    {ID_ATTUNE="170",ID="380",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90"}, -- item: Head of VanCleef
+    {ID_ATTUNE="170",ID="380",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="3637",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="370",STAGE="90",MARKER="dungeon"}, -- item: Head of VanCleef
 	{ID_ATTUNE="170",ID="280",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92751",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="270",STAGE="90"}, -- quest: Detonation at a Distance
 	{ID_ATTUNE="170",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="90"},
 	{ID_ATTUNE="170",ID="90",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="80",STAGE="90"},
@@ -588,7 +588,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="170",ID="198",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="195",STAGE="115"},
 	{ID_ATTUNE="170",ID="108",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="105",STAGE="115"},
 	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="170",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="115",SIDE=true}, -- quest: The Unsent Letter (Inside — letter from VanCleef)
+	{ID_ATTUNE="170",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="373",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="115",SIDE=true,MARKER="dungeon"}, -- quest: The Unsent Letter (Inside — letter from VanCleef)
 	{ID_ATTUNE="170",ID="600",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="598&498&398&298&198&108&610",STAGE="120"},
 
 
@@ -600,18 +600,18 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="177",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="177",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Deviate Eradication
-	{ID_ATTUNE="177",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="177",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Trouble at the Docks
 	{ID_ATTUNE="177",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Raptor Horns
 	{ID_ATTUNE="177",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Deviate Hides
 	-- STAGE 30
 	{ID_ATTUNE="177",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="30"},
-	{ID_ATTUNE="177",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30"}, -- item: 99-Year-Old Port
+	{ID_ATTUNE="177",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: 99-Year-Old Port
 	{ID_ATTUNE="177",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: Smart Drinks
-	{ID_ATTUNE="177",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20}, -- item: Deviate Hide
+	{ID_ATTUNE="177",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20,MARKER="dungeon"}, -- item: Deviate Hide
 	-- STAGE 40
 	{ID_ATTUNE="177",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
-	{ID_ATTUNE="177",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Trouble at the Docks
-	{ID_ATTUNE="177",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6}, -- item: Wailing Essence
+	{ID_ATTUNE="177",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="177",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6,MARKER="dungeon"}, -- item: Wailing Essence
 	{ID_ATTUNE="177",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Deviate Hides
 	-- STAGE 50
 	{ID_ATTUNE="177",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
@@ -633,29 +633,29 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="180",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 10",LOCATION="",ID_WOWHEAD="10",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="180",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1487",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Deviate Eradication
-	{ID_ATTUNE="180",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="180",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Trouble at the Docks
 	{ID_ATTUNE="180",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="886",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Barrens Oases
 	{ID_ATTUNE="180",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Raptor Horns
 	{ID_ATTUNE="180",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Serpentbloom
 	{ID_ATTUNE="180",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Deviate Hides
 	-- STAGE 30
 	{ID_ATTUNE="180",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="30"},
-	{ID_ATTUNE="180",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30"}, -- item: 99-Year-Old Port
+	{ID_ATTUNE="180",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5334",ICON="Interface\\Icons\\inv_drink_10",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: 99-Year-Old Port
 	{ID_ATTUNE="180",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="870",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: The Forgotten Pools
 	{ID_ATTUNE="180",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: Smart Drinks
-	{ID_ATTUNE="180",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5339",ICON="Interface\\Icons\\inv_misc_herb_03",FOLLOWS="220",STAGE="30", COUNT=10}, -- item: Serpentbloom
-	{ID_ATTUNE="180",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20}, -- item: Deviate Hide
+	{ID_ATTUNE="180",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="5339",ICON="Interface\\Icons\\inv_misc_herb_03",FOLLOWS="220",STAGE="30", COUNT=10,MARKER="dungeon"}, -- item: Serpentbloom
+	{ID_ATTUNE="180",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6443",ICON="Interface\\Icons\\inv_misc_pelt_wolf_ruin_03",FOLLOWS="120",STAGE="30", COUNT=20,MARKER="dungeon"}, -- item: Deviate Hide
 	-- STAGE 40
 	{ID_ATTUNE="180",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
-	{ID_ATTUNE="180",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: Trouble at the Docks
+	{ID_ATTUNE="180",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="959",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: Trouble at the Docks
 	{ID_ATTUNE="180",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="877",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: The Stagnant Oasis
-	{ID_ATTUNE="180",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6}, -- item: Wailing Essence
+	{ID_ATTUNE="180",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="6464",ICON="Interface\\Icons\\spell_nature_corrosivebreath",FOLLOWS="330",STAGE="40", COUNT=6,MARKER="dungeon"}, -- item: Wailing Essence
 	{ID_ATTUNE="180",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="962",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Serpentbloom
 	{ID_ATTUNE="180",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wailing Caverns"],ID_WOWHEAD="1486",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Deviate Hides
 	-- STAGE 50
 	{ID_ATTUNE="180",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
 	{ID_ATTUNE="180",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
-	{ID_ATTUNE="180",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50",MARKER="dungeon"}, -- quest: Altered Beings
+	{ID_ATTUNE="180",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="880",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="50"}, -- quest: Altered Beings
 	{ID_ATTUNE="180",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1491",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="50",MARKER="dungeon"}, -- quest: Smart Drinks
 	{ID_ATTUNE="180",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
 	{ID_ATTUNE="180",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
@@ -699,9 +699,9 @@ Attune_Data.steps = 	{
 	-- SIDE: 95189 Crest, 95195 Bloodied Insignia, 92415 Remember That I Love You, 95250 Abominable Creatures
 	{ID_ATTUNE="183",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 15",LOCATION="",ID_WOWHEAD="15",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="183",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95189",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Crest of Lordaeron (Inside)
-	{ID_ATTUNE="183",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95195",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Bloodied Insignia (Inside)
-	{ID_ATTUNE="183",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92415",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true}, -- quest: Remember That I Love You (Inside)
+	{ID_ATTUNE="183",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95189",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true,MARKER="dungeon"}, -- quest: Crest of Lordaeron (Inside)
+	{ID_ATTUNE="183",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95195",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true,MARKER="dungeon"}, -- quest: Bloodied Insignia (Inside)
+	{ID_ATTUNE="183",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92415",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true,MARKER="dungeon"}, -- quest: Remember That I Love You (Inside)
 	{ID_ATTUNE="183",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95250",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="20",SIDE=true,MARKER="dungeon"}, -- quest: Abominable Creatures (Inside)
 	{ID_ATTUNE="183",ID="430",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="420&320&220&120&10",STAGE="20"},
 	{ID_ATTUNE="183",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95161",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30",FOLLOW=true}, -- quest: Remember That I Love You
@@ -719,7 +719,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="186",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="447",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Recipe For Death
 	{ID_ATTUNE="186",ID="410",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="356",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Rear Guard Patrol
 	{ID_ATTUNE="186",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92421",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Light's Justice
-	{ID_ATTUNE="186",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92401",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Frightened Request
+	{ID_ATTUNE="186",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="92401",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: A Frightened Request
 	-- STAGE 30
 	{ID_ATTUNE="186",ID="615",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="450",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="30"}, -- quest: A Recipe For Death
 	{ID_ATTUNE="186",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="99156",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="30"}, -- quest: Rear Guard Patrol
@@ -736,8 +736,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="186",ID="345",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="186",ID="245",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="186",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Crest of Lordaeron (Inside)
-	{ID_ATTUNE="186",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Unending Torment (Inside)
+	{ID_ATTUNE="186",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="95204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Crest of Lordaeron (Inside)
+	{ID_ATTUNE="186",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97288",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Unending Torment (Inside)
 	{ID_ATTUNE="186",ID="630",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="620&445&345&245&520&120",STAGE="60"},
 	{ID_ATTUNE="186",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97289",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="70",FOLLOW=true}, -- quest: Unending Torment
 	{ID_ATTUNE="186",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ruins of Lordaeron"],ID_WOWHEAD="97290",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="80",FOLLOW=true}, -- quest: Unending Torment
@@ -756,14 +756,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="190",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1098",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Deathstalkers in Shadowfang
 	{ID_ATTUNE="190",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1013",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Book of Ur
 	-- STAGE 30
-    {ID_ATTUNE="190",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="5442",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="320",STAGE="30"}, -- item: Head of Arugal
+    {ID_ATTUNE="190",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="5442",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Head of Arugal
 	-- {ID_ATTUNE="190",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4275",ICON="Interface\\Icons\\spell_shadow_summonfelhunter",FOLLOWS="320",STAGE="30"}, -- npc: Archmage Arugal
-	{ID_ATTUNE="190",ID="230",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="3849",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="220",STAGE="30"}, -- npc: Deathstalker Adamant
-	{ID_ATTUNE="190",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6283",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="120",STAGE="30"}, -- item: The Book of Ur
+	{ID_ATTUNE="190",ID="230",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="3849",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Deathstalker Adamant
+	{ID_ATTUNE="190",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6283",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: The Book of Ur
 	-- STAGE 40
     {ID_ATTUNE="190",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="1014",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Arugal Must Die
 	-- {ID_ATTUNE="190",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="5442",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="330",STAGE="40"}, -- item: Head of Arugal
-	{ID_ATTUNE="190",ID="240",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4444",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="230",STAGE="40"}, -- npc: Deathstalker Vincent
+	{ID_ATTUNE="190",ID="240",TYPE="Interact",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="4444",ICON="Interface\\Icons\\ability_stealth",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- npc: Deathstalker Vincent
 	{ID_ATTUNE="190",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1013",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: The Book of Ur
 	-- STAGE 50
     {ID_ATTUNE="190",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
@@ -787,9 +787,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="200",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Knowledge in the Deeps
 	-- STAGE 30
 	{ID_ATTUNE="200",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="1200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- quest: Blackfathom Villainy (from Thaelrid)
-	{ID_ATTUNE="200",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5879",ICON="Interface\\Icons\\inv_jewelry_amulet_06",FOLLOWS="320",STAGE="30", COUNT=10}, -- item: Twilight Pendant
-	{ID_ATTUNE="200",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5952",ICON="Interface\\Icons\\inv_misc_organ_03",FOLLOWS="220",STAGE="30", COUNT=8}, -- item: Corrupted Brain Stem
-	{ID_ATTUNE="200",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5359",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="120",STAGE="30"}, -- item: Lorgalis Manuscript
+	{ID_ATTUNE="200",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5879",ICON="Interface\\Icons\\inv_jewelry_amulet_06",FOLLOWS="320",STAGE="30", COUNT=10,MARKER="dungeon"}, -- item: Twilight Pendant
+	{ID_ATTUNE="200",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5952",ICON="Interface\\Icons\\inv_misc_organ_03",FOLLOWS="220",STAGE="30", COUNT=8,MARKER="dungeon"}, -- item: Corrupted Brain Stem
+	{ID_ATTUNE="200",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="5359",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: Lorgalis Manuscript
 	-- STAGE 40
 	{ID_ATTUNE="200",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="520",STAGE="40"},
 	{ID_ATTUNE="200",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Twilight Falls
@@ -806,7 +806,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="210",ID="220",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="16790",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="10",STAGE="20"}, -- item: Damp Note (starts 6564)
 	{ID_ATTUNE="210",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stonetalon Mountains"],ID_WOWHEAD="6562",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Trouble in the Deeps (prequest)
 	-- STAGE 30
-	{ID_ATTUNE="210",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="16762",ICON="Interface\\Icons\\inv_misc_stonetablet_08",FOLLOWS="320",STAGE="30"}, -- item: Fathom Core
+	{ID_ATTUNE="210",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="16762",ICON="Interface\\Icons\\inv_misc_stonetablet_08",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Fathom Core
 	{ID_ATTUNE="210",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6564",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Allegiance to the Old Gods (turn in note)
 	{ID_ATTUNE="210",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6563",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: The Essence of Aku'Mai
 	-- STAGE 40
@@ -815,7 +815,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="210",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="16784",ICON="Interface\\Icons\\inv_misc_gem_sapphire_03",FOLLOWS="130",STAGE="40", COUNT=20}, -- item: Sapphire of Aku'Mai
 	-- STAGE 50
 	{ID_ATTUNE="210",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
-	{ID_ATTUNE="210",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="12902",ICON="Interface\\Icons\\spell_shadow_shadowbolt",FOLLOWS="240",STAGE="50"}, -- npc: Lorgus Jett
+	{ID_ATTUNE="210",ID="250",TYPE="Kill",STEP="",LOCATION=AttuneLang["Blackfathom Deeps"],ID_WOWHEAD="12902",ICON="Interface\\Icons\\spell_shadow_shadowbolt",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- npc: Lorgus Jett
 	{ID_ATTUNE="210",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="6563",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: The Essence of Aku'Mai
 	-- STAGE 60
 	{ID_ATTUNE="210",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
@@ -838,13 +838,13 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="220",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="386",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: What Comes Around...
 	-- STAGE 30
 	{ID_ATTUNE="220",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="378",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: The Fury Runs Deep
-	{ID_ATTUNE="220",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="2909",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="520",STAGE="30", COUNT=10}, -- item: Red Wool Bandana
+	{ID_ATTUNE="220",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="2909",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="520",STAGE="30", COUNT=10,MARKER="dungeon"}, -- item: Red Wool Bandana
 	{ID_ATTUNE="220",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="420",STAGE="30"},
 	{ID_ATTUNE="220",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="389",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Bazil Thredd
-    {ID_ATTUNE="220",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3628",ICON="Interface\\Icons\\inv_gauntlets_09",FOLLOWS="220",STAGE="30"}, -- item: Hand of Dextren Ward
-    {ID_ATTUNE="220",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3630",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30"}, -- item: Head of Targorr
+    {ID_ATTUNE="220",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3628",ICON="Interface\\Icons\\inv_gauntlets_09",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- item: Hand of Dextren Ward
+    {ID_ATTUNE="220",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3630",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: Head of Targorr
 	-- STAGE 40
-	{ID_ATTUNE="220",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3640",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="630",STAGE="40"}, -- item: Head of Deepfury
+	{ID_ATTUNE="220",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="3640",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- item: Head of Deepfury
 	{ID_ATTUNE="220",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="388",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: The Color of Blood
 	{ID_ATTUNE="220",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="40"},
 	{ID_ATTUNE="220",ID="340",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="391",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: The Stockade Riots
@@ -854,7 +854,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="220",ID="650",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="378",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50",MARKER="dungeon"}, -- quest: The Fury Runs Deep
 	{ID_ATTUNE="220",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="220",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
-	{ID_ATTUNE="220",ID="350",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="340",STAGE="50"}, -- npc: Bazil Thredd
+	{ID_ATTUNE="220",ID="350",TYPE="Item",STEP="",LOCATION=AttuneLang["The Stockade"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_misc_head_human_01",FOLLOWS="340",STAGE="50",MARKER="dungeon"}, -- npc: Bazil Thredd
 	{ID_ATTUNE="220",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Duskwood"],ID_WOWHEAD="377",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- quest: Crime and Punishment
     {ID_ATTUNE="220",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- {ID_ATTUNE="220",ID="150",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="386",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="140",STAGE="50"}, -- quest: What Comes Around...
@@ -881,13 +881,13 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="225",ID="225",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="25"},
 	{ID_ATTUNE="225",ID="125",TYPE="Quest",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="92457",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="25",MARKER="dungeon"}, -- quest: Starving Arcane
 	-- STAGE 30
-	{ID_ATTUNE="225",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251983",ICON="Interface\\Icons\\inv_misc_herb_fellotus",FOLLOWS="325",STAGE="30"}, -- item: Fel Infused Blossom
-	{ID_ATTUNE="225",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="246016",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="225",STAGE="30"}, -- npc: Arcanic Enigma
+	{ID_ATTUNE="225",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251983",ICON="Interface\\Icons\\inv_misc_herb_fellotus",FOLLOWS="325",STAGE="30",MARKER="dungeon"}, -- item: Fel Infused Blossom
+	{ID_ATTUNE="225",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="246016",ICON="Interface\\Icons\\spell_frost_summonwaterelemental",FOLLOWS="225",STAGE="30",MARKER="dungeon"}, -- npc: Arcanic Enigma
 	{ID_ATTUNE="225",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="92458",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="125",STAGE="30",MARKER="dungeon"}, -- quest: Heart of Disruption
 	-- STAGE 40
 	{ID_ATTUNE="225",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92456",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: A Green Sample
 	{ID_ATTUNE="225",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="92489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Power Overwhelming
-	{ID_ATTUNE="225",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\inv_misc_cutgemperfect3",FOLLOWS="130",STAGE="40"}, -- item: Arcane Mote (should be jewelcrafting_uncut-epic-gem_color1 but that's failing)
+	{ID_ATTUNE="225",ID="140",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\inv_misc_cutgemperfect3",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- item: Arcane Mote (should be jewelcrafting_uncut-epic-gem_color1 but that's failing)
 	-- STAGE 50
 	{ID_ATTUNE="225",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="225",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
@@ -906,8 +906,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="226",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="544",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Prison Break In
 	{ID_ATTUNE="226",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="93680",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Key to the City
 	-- STAGE 30
-	{ID_ATTUNE="226",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="275997",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="620",STAGE="30", COUNT=6}, -- item: Cracked Sentry Core
-	{ID_ATTUNE="226",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="247126",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="520",STAGE="30"}, -- npc: Atrexis the Grave Knight
+	{ID_ATTUNE="226",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="275997",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="620",STAGE="30", COUNT=6,MARKER="dungeon"}, -- item: Cracked Sentry Core
+	{ID_ATTUNE="226",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="247126",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- npc: Atrexis the Grave Knight
 	{ID_ATTUNE="226",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="545",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Dalaran Patrols
 	{ID_ATTUNE="226",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="279469",ICON="Interface\\Icons\\inv_misc_key_03",FOLLOWS="320",STAGE="30"}, -- item: Grimy Key
 	-- STAGE 40
@@ -923,7 +923,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="226",ID="460",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="96984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="60",MARKER="dungeon"}, -- quest: Heart of Disruption
 	-- STAGE 70
     {ID_ATTUNE="226",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
-	{ID_ATTUNE="226",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\inv_misc_cutgemperfect3",FOLLOWS="460",STAGE="70"}, -- item: Arcane Mote	
+	{ID_ATTUNE="226",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["City of Dalaran"],ID_WOWHEAD="251961",ICON="Interface\\Icons\\inv_misc_cutgemperfect3",FOLLOWS="460",STAGE="70",MARKER="dungeon"}, -- item: Arcane Mote	
 	-- STAGE 80
 	{ID_ATTUNE="226",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="80"},
 	{ID_ATTUNE="226",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="80"},
@@ -958,9 +958,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="230",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2923",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Tinkmaster Overspark (prequest)
 	{ID_ATTUNE="230",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2931",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Castpipe's Task
 	-- STAGE 30
-	{ID_ATTUNE="230",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="520",STAGE="30"}, -- npc: Mekgineer Thermaplugg
-	{ID_ATTUNE="230",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9278",ICON="Interface\\Icons\\inv_gizmo_01",FOLLOWS="420",STAGE="30", COUNT=12}, -- item: Essential Artificial
-	{ID_ATTUNE="230",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9309",ICON="Interface\\Icons\\inv_gizmo_02",FOLLOWS="320",STAGE="30", COUNT=24}, -- item: Robo-mechanical Guts
+	{ID_ATTUNE="230",ID="530",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- npc: Mekgineer Thermaplugg
+	{ID_ATTUNE="230",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9278",ICON="Interface\\Icons\\inv_gizmo_01",FOLLOWS="420",STAGE="30", COUNT=12,MARKER="dungeon"}, -- item: Essential Artificial
+	{ID_ATTUNE="230",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9309",ICON="Interface\\Icons\\inv_gizmo_02",FOLLOWS="320",STAGE="30", COUNT=24,MARKER="dungeon"}, -- item: Robo-mechanical Guts
 	{ID_ATTUNE="230",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="2926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: Gnogaine
 	{ID_ATTUNE="230",ID="130",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2922",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Save Techbot's Brain!
 	{ID_ATTUNE="230",ID="111",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2930",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="30",MARKER="dungeon"}, -- quest: Data Rescue
@@ -987,9 +987,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="230",ID="114",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="113",STAGE="60"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="230",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: A Fine Mess (Kernobee)
-	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2947",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="60",SIDE=true}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Talvash del Kissel)
-	{ID_ATTUNE="230",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2945",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Grime-Encrusted Ring
-	{ID_ATTUNE="230",ID="600",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Sparklematic 5200!
+	{ID_ATTUNE="230",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2947",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Talvash del Kissel)
+	{ID_ATTUNE="230",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2945",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Grime-Encrusted Ring
+	{ID_ATTUNE="230",ID="600",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Sparklematic 5200!
 	{ID_ATTUNE="230",ID="570",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&360&260&160&114&630&620&610&600",STAGE="70"},
 	{ID_ATTUNE="230",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2948",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="80",FOLLOW=true}, -- quest: Gnome Improvement
 	-- {ID_ATTUNE="230",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2952",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="600",STAGE="90",FOLLOW=true}, -- quest: The Sparklematic 5200!
@@ -1003,22 +1003,22 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="240",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Rig Wars
 	{ID_ATTUNE="240",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2842",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Chief Engineer Scooty (prequest)
 	-- STAGE 30
-	{ID_ATTUNE="240",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="220",STAGE="30"}, -- npc: Mekgineer Thermaplugg
+	{ID_ATTUNE="240",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="7800",ICON="Interface\\Icons\\inv_misc_head_gnome_01",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Mekgineer Thermaplugg
 	{ID_ATTUNE="240",ID="130",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="2843",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Gnomer-gooooone!
 	-- STAGE 40
-    {ID_ATTUNE="240",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9299",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="230",STAGE="40"}, -- item: Thermaplugg's Safe Combination
+    {ID_ATTUNE="240",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9299",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- item: Thermaplugg's Safe Combination
 	{ID_ATTUNE="240",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},    
 	-- STAGE 50
-	{ID_ATTUNE="240",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9153",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="240",STAGE="50"}, -- item: Rig Blueprints
+	{ID_ATTUNE="240",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="9153",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- item: Rig Blueprints
 	{ID_ATTUNE="240",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
     -- STAGE 60
 	{ID_ATTUNE="240",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2841",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="60",MARKER="dungeon"}, -- quest: Rig Wars
 	{ID_ATTUNE="240",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- SIDE reminders (inside dungeon) — left of End
 	{ID_ATTUNE="240",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2904",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: A Fine Mess (Kernobee)
-	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="60",SIDE=true}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Nogg)
-	{ID_ATTUNE="240",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2945",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: Grime-Encrusted Ring
-	{ID_ATTUNE="240",ID="300",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Sparklematic 5200!
+	{ID_ATTUNE="240",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2949",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="310",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Return of the Ring (The Sparklematic 5200; turn in to Nogg)
+	{ID_ATTUNE="240",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2945",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Grime-Encrusted Ring
+	{ID_ATTUNE="240",ID="300",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2951",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Sparklematic 5200!
 	{ID_ATTUNE="240",ID="270",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="260&160&330&320&310&300",STAGE="70"},
 	-- {ID_ATTUNE="240",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2952",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300",STAGE="80",FOLLOW=true}, -- quest: The Sparklematic 5200!
 	-- {ID_ATTUNE="240",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Gnomeregan"],ID_WOWHEAD="2953",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="90",FOLLOW=true}, -- quest: More Sparklematic Action
@@ -1032,16 +1032,16 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="250",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1100",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Lonebrow's Journal (prequest)
 	{ID_ATTUNE="250",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Blueleaf Tubers
 	-- STAGE 30
-	{ID_ATTUNE="250",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5825",ICON="Interface\\Icons\\inv_jewelry_necklace_01",FOLLOWS="320",STAGE="30"}, -- item: Treshala's Pendant
+	{ID_ATTUNE="250",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5825",ICON="Interface\\Icons\\inv_jewelry_necklace_01",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Treshala's Pendant
 	{ID_ATTUNE="250",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="1101",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- quest: The Crone of the Kraul
-	{ID_ATTUNE="250",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6}, -- item: Blueleaf Tuber
+	{ID_ATTUNE="250",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6,MARKER="dungeon"}, -- item: Blueleaf Tuber
 	-- STAGE 40
 	{ID_ATTUNE="250",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="1142",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Mortality Wanes
-	{ID_ATTUNE="250",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="230",STAGE="40"}, -- npc: Charlga Razorflank
+	{ID_ATTUNE="250",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- npc: Charlga Razorflank
 	{ID_ATTUNE="250",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Blueleaf Tubers
 	-- STAGE 50
 	{ID_ATTUNE="250",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
-	{ID_ATTUNE="250",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5792",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="240",STAGE="50"}, -- item: Razorflank's Medallion
+	{ID_ATTUNE="250",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5792",ICON="Interface\\Icons\\inv_jewelry_talisman_01",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- item: Razorflank's Medallion
 	{ID_ATTUNE="250",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60
 	{ID_ATTUNE="250",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
@@ -1060,19 +1060,19 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="251",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: A Vengeful Fate
 	{ID_ATTUNE="251",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Blueleaf Tubers
 	-- STAGE 30
-	{ID_ATTUNE="251",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5801",ICON="Interface\\Icons\\inv_misc_slime_01",FOLLOWS="320",STAGE="30"}, -- item: Kraul Guano
-	{ID_ATTUNE="251",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="220",STAGE="30"}, -- npc: Charlga Razorflank
-	{ID_ATTUNE="251",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6}, -- item: Blueleaf Tuber
+	{ID_ATTUNE="251",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5801",ICON="Interface\\Icons\\inv_misc_slime_01",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Kraul Guano
+	{ID_ATTUNE="251",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="4421",ICON="Interface\\Icons\\spell_nature_thorns",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Charlga Razorflank
+	{ID_ATTUNE="251",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5876",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="120",STAGE="30", COUNT=6,MARKER="dungeon"}, -- item: Blueleaf Tuber
 	-- STAGE 40
 	{ID_ATTUNE="251",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="1109",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Going, Going, Guano!
-	{ID_ATTUNE="251",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5793",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="230",STAGE="40"}, -- item: Razorflank's Heart
+	{ID_ATTUNE="251",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="5793",ICON="Interface\\Icons\\inv_misc_organ_01",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- item: Razorflank's Heart
 	{ID_ATTUNE="251",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="1221",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Blueleaf Tubers
 	-- STAGE 50
 	{ID_ATTUNE="251",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	{ID_ATTUNE="251",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="1102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- quest: A Vengeful Fate
 	{ID_ATTUNE="251",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="251",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: An Unholy Alliance (Small Scroll from Charlga → RFD)
+	{ID_ATTUNE="251",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="6522",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: An Unholy Alliance (Small Scroll from Charlga → RFD)
 	{ID_ATTUNE="251",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Razorfen Kraul"],ID_WOWHEAD="1144",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Willix the Importer
 	{ID_ATTUNE="251",ID="370",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_magic_polymorphpig",FOLLOWS="350&250&150&430&420",STAGE="60"},
 
@@ -1087,11 +1087,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="260",ID="220",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="260",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1050",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Mythology of the Titans
 	-- STAGE 30
-	{ID_ATTUNE="260",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="273169",ICON="Interface\\Icons\\inv_10_specialization_professionbook_inscription_color1",FOLLOWS="520",STAGE="30"}, -- item: The Lost Magic of the Runemasters
+	{ID_ATTUNE="260",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="273169",ICON="Interface\\Icons\\inv_10_specialization_professionbook_inscription_color1",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: The Lost Magic of the Runemasters
 	{ID_ATTUNE="260",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="260",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="261",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Down the Scarlet Path
 	{ID_ATTUNE="260",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-    {ID_ATTUNE="260",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5536",ICON="Interface\\Icons\\inv_misc_book_10",FOLLOWS="120",STAGE="30"}, -- item: Mythology of the Titans
+    {ID_ATTUNE="260",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5536",ICON="Interface\\Icons\\inv_misc_book_10",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: Mythology of the Titans
 	-- STAGE 40
 	{ID_ATTUNE="260",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96800",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: Past Due
 	{ID_ATTUNE="260",ID="440",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
@@ -1106,10 +1106,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="260",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	-- STAGE 60 — 4 kills on one row (all FOLLOWS Pick Up)
 	{ID_ATTUNE="260",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
-	{ID_ATTUNE="260",ID="560",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="350",STAGE="60"}, -- npc: Houndmaster Loksey
-	{ID_ATTUNE="260",ID="460",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="350",STAGE="60"}, -- npc: Herod
-	{ID_ATTUNE="260",ID="360",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="350",STAGE="60"}, -- npc: Scarlet Commander Mograine
-	{ID_ATTUNE="260",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="350",STAGE="60"}, -- npc: High Inquisitor Whitemane
+	{ID_ATTUNE="260",ID="560",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="350",STAGE="60",MARKER="dungeon"}, -- npc: Houndmaster Loksey
+	{ID_ATTUNE="260",ID="460",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="350",STAGE="60",MARKER="dungeon"}, -- npc: Herod
+	{ID_ATTUNE="260",ID="360",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="350",STAGE="60",MARKER="dungeon"}, -- npc: Scarlet Commander Mograine
+	{ID_ATTUNE="260",ID="260",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="350",STAGE="60",MARKER="dungeon"}, -- npc: High Inquisitor Whitemane
 	-- {ID_ATTUNE="260",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- STAGE 70
 	{ID_ATTUNE="260",ID="570",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
@@ -1135,11 +1135,11 @@ Attune_Data.steps = 	{
 	-- STAGE 30 — 4 kills on one row (all FOLLOWS Pick Up)
 	{ID_ATTUNE="270",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1113",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: Hearts of Zeal
 	{ID_ATTUNE="270",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1150",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: Test of Endurance
-	{ID_ATTUNE="270",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5535",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="520",STAGE="30",NORACE="Scourge"}, -- item: Compendium of the Fallen
-	{ID_ATTUNE="270",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="320",STAGE="30"}, -- npc: Houndmaster Loksey
-	{ID_ATTUNE="270",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="320",STAGE="30"}, -- npc: Herod
-    {ID_ATTUNE="270",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="320",STAGE="30"}, -- npc: Scarlet Commander Mograine
-	{ID_ATTUNE="270",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="320",STAGE="30"}, -- npc: High Inquisitor Whitemane
+	{ID_ATTUNE="270",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5535",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="520",STAGE="30",NORACE="Scourge",MARKER="dungeon"}, -- item: Compendium of the Fallen
+	{ID_ATTUNE="270",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3974",ICON="Interface\\Icons\\ability_hunter_beastcall",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Houndmaster Loksey
+	{ID_ATTUNE="270",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3975",ICON="Interface\\Icons\\ability_warrior_challange",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Herod
+    {ID_ATTUNE="270",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3976",ICON="Interface\\Icons\\spell_holy_prayerofhealing02",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Scarlet Commander Mograine
+	{ID_ATTUNE="270",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="3977",ICON="Interface\\Icons\\spell_holy_resurrection",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: High Inquisitor Whitemane
 	-- STAGE 40
 	{ID_ATTUNE="270",ID="740",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5805",ICON="Interface\\Icons\\inv_misc_organ_02",FOLLOWS="730",STAGE="40", COUNT=20}, -- item: Heart of Zeal
 	{ID_ATTUNE="270",ID="640",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- quest: Test of Strength
@@ -1190,7 +1190,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
 	-- STAGE 100 — book; other columns hold their place
 	{ID_ATTUNE="270",ID="700",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="790",STAGE="100"},
-	{ID_ATTUNE="270",ID="600",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5861",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="690",STAGE="100"}, -- item: Beginnings of the Undead Threat
+	{ID_ATTUNE="270",ID="600",TYPE="Item",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="5861",ICON="Interface\\Icons\\inv_misc_book_08",FOLLOWS="690",STAGE="100",MARKER="dungeon"}, -- item: Beginnings of the Undead Threat
 	{ID_ATTUNE="270",ID="500",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="100",NORACE="Scourge"},
 	{ID_ATTUNE="270",ID="400",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
 	{ID_ATTUNE="270",ID="300",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="100"},
@@ -1205,7 +1205,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="270",ID="210",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
 	{ID_ATTUNE="270",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="110"},
 	-- SIDE reminder (inside dungeon) — left of End
-	{ID_ATTUNE="270",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true}, -- quest: Vorrel's Revenge (Inside — Vorrel Sengutz)
+	{ID_ATTUNE="270",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="1051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",SIDE=true,MARKER="dungeon"}, -- quest: Vorrel's Revenge (Inside — Vorrel Sengutz)
 	{ID_ATTUNE="270",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="710&610&510&310&820",STAGE="120"},
 	{ID_ATTUNE="270",ID="1010",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6628",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="130",FOLLOW=true}, -- quest: Test of Lore
 	{ID_ATTUNE="270",ID="1000",TYPE="Quest",STEP="",LOCATION=AttuneLang["Thousand Needles"],ID_WOWHEAD="1394",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1010",STAGE="140",FOLLOW=true}, -- quest: Final Passage
@@ -1221,8 +1221,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="280",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
 	{ID_ATTUNE="280",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Fragments of the Pylons
-	{ID_ATTUNE="280",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="420",STAGE="30"}, -- item: The Coldbringer's Eye
-	{ID_ATTUNE="280",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="220",STAGE="30"}, -- npc: Amnennar the Coldbringer
+	{ID_ATTUNE="280",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: The Coldbringer's Eye
+	{ID_ATTUNE="280",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="280",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
 	{ID_ATTUNE="280",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96018",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Powering the Pylons
@@ -1255,7 +1255,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="280",ID="300",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="290",STAGE="90"},
 	{ID_ATTUNE="280",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
 	-- STAGE 100
-	{ID_ATTUNE="280",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100"}, -- item: Vial of Earth Song Water
+	{ID_ATTUNE="280",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100",MARKER="dungeon"}, -- item: Vial of Earth Song Water
 	{ID_ATTUNE="280",ID="500",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="490",STAGE="100"},
 	{ID_ATTUNE="280",ID="310",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="300",STAGE="100"},
 	{ID_ATTUNE="280",ID="200",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="190",STAGE="100"},
@@ -1275,7 +1275,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="280",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="130"},
 	{ID_ATTUNE="280",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="145",STAGE="130"},
 	-- STAGE 140
-	{ID_ATTUNE="280",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140"}, -- item: Virulent Blood of Agamaggan
+	{ID_ATTUNE="280",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140",MARKER="dungeon"}, -- item: Virulent Blood of Agamaggan
 	{ID_ATTUNE="280",ID="540",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="530",STAGE="140"},
 	{ID_ATTUNE="280",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="140"},
 	{ID_ATTUNE="280",ID="165",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="155",STAGE="140"},
@@ -1301,14 +1301,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="290",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="6626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Host of Evil
 	-- STAGE 30
 	{ID_ATTUNE="290",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96010",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: Fragments of the Pylons
-	{ID_ATTUNE="290",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="520",STAGE="30"}, -- item: The Coldbringer's Eye
-	{ID_ATTUNE="290",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="320",STAGE="30"}, -- npc: Amnennar the Coldbringer
+	{ID_ATTUNE="290",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="276916",ICON="Interface\\Icons\\spell_animamaldraxxus_orb",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: The Coldbringer's Eye
+	{ID_ATTUNE="290",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="7358",ICON="Interface\\Icons\\spell_frost_frostbolt",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Amnennar the Coldbringer
 	{ID_ATTUNE="290",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="6521",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30"}, -- quest: An Unholy Alliance
 	{ID_ATTUNE="290",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
 	{ID_ATTUNE="290",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="96018",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Powering the Pylons
 	{ID_ATTUNE="290",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97196",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: The Coldbringer's Eye
-	{ID_ATTUNE="290",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="10420",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="330",STAGE="40"}, -- item: Skull of the Coldbringer
+	{ID_ATTUNE="290",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="10420",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- item: Skull of the Coldbringer
 	{ID_ATTUNE="290",ID="240",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="12865",ICON="Interface\\Icons\\spell_shadow_raisedead",FOLLOWS="230",STAGE="40"}, -- npc: Ambassador Malcin
 	{ID_ATTUNE="290",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
 	-- STAGE 50
@@ -1342,7 +1342,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="290",ID="285",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
 	{ID_ATTUNE="290",ID="175",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="170",STAGE="90"},
 	-- STAGE 100
-	{ID_ATTUNE="290",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100"}, -- item: Vial of Earth Song Water
+	{ID_ATTUNE="290",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="258296",ICON="Interface\\Icons\\ability_mage_conjurefoodrank12",FOLLOWS="850",STAGE="100",MARKER="dungeon"}, -- item: Vial of Earth Song Water
 	{ID_ATTUNE="290",ID="600",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="590",STAGE="100"},
 	{ID_ATTUNE="290",ID="410",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="400",STAGE="100"},
 	{ID_ATTUNE="290",ID="305",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="285",STAGE="100"},
@@ -1366,7 +1366,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="290",ID="335",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="325",STAGE="130"},
 	{ID_ATTUNE="290",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="205",STAGE="130"},
 	-- STAGE 140
-	{ID_ATTUNE="290",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140"}, -- item: Virulent Blood of Agamaggan
+	{ID_ATTUNE="290",ID="800",TYPE="Item",STEP="",LOCATION=AttuneLang["Razorfen Downs"],ID_WOWHEAD="260237",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="810",STAGE="140",MARKER="dungeon"}, -- item: Virulent Blood of Agamaggan
 	{ID_ATTUNE="290",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="140"},
 	{ID_ATTUNE="290",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="140"},
 	{ID_ATTUNE="290",ID="345",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="335",STAGE="140"},
@@ -1394,12 +1394,12 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="300",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="7070",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Shadowshard Fragments
 	{ID_ATTUNE="300",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="7067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Pariah's Instructions
 	-- STAGE 30 
-	{ID_ATTUNE="300",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12201",ICON="Interface\\Icons\\spell_nature_earthquake",FOLLOWS="720",STAGE="30"}, -- npc: Princess Theradras
+	{ID_ATTUNE="300",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12201",ICON="Interface\\Icons\\spell_nature_earthquake",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- npc: Princess Theradras
     {ID_ATTUNE="300",ID="630",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="620",STAGE="30"},
 	{ID_ATTUNE="300",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="420",STAGE="30"},
-	{ID_ATTUNE="300",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17684",ICON="Interface\\Icons\\inv_misc_gem_stone_01",FOLLOWS="320",STAGE="30",COUNT=15}, -- item: Theradric Crystal Carving
+	{ID_ATTUNE="300",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17684",ICON="Interface\\Icons\\inv_misc_gem_stone_01",FOLLOWS="320",STAGE="30",COUNT=15,MARKER="dungeon"}, -- item: Theradric Crystal Carving
 	{ID_ATTUNE="300",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17756",ICON="Interface\\Icons\\inv_misc_gem_amethyst_02",FOLLOWS="220",STAGE="30",COUNT=10}, -- item: Shadowshard Fragment
-	{ID_ATTUNE="300",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17758",ICON="Interface\\Icons\\inv_jewelry_amulet_04",FOLLOWS="120",STAGE="30"}, -- item: Amulet of Union
+	{ID_ATTUNE="300",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17758",ICON="Interface\\Icons\\inv_jewelry_amulet_04",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: Amulet of Union
 	-- STAGE 40 
 	{ID_ATTUNE="300",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="7065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40",MARKER="dungeon"}, -- quest: Corruption of Earth and Seed
     {ID_ATTUNE="300",ID="640",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="40"},
@@ -1409,15 +1409,15 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="300",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="7067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: The Pariah's Instructions
 	-- STAGE 50 (Noxxion ‖ Lord Vyletongue)
 	-- {ID_ATTUNE="300",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
-  	{ID_ATTUNE="300",ID="650",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="13282",ICON="Interface\\Icons\\spell_nature_acid_01",FOLLOWS="640",STAGE="50"}, -- npc: Noxxion
-	{ID_ATTUNE="300",ID="450",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12236",ICON="Interface\\Icons\\spell_shadow_shadowwordpain",FOLLOWS="640",STAGE="50"}, -- npc: Lord Vyletongue
+  	{ID_ATTUNE="300",ID="650",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="13282",ICON="Interface\\Icons\\spell_nature_acid_01",FOLLOWS="640",STAGE="50",MARKER="dungeon"}, -- npc: Noxxion
+	{ID_ATTUNE="300",ID="450",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12236",ICON="Interface\\Icons\\spell_shadow_shadowwordpain",FOLLOWS="640",STAGE="50",MARKER="dungeon"}, -- npc: Lord Vyletongue
 	{ID_ATTUNE="300",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="300",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="300",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	-- STAGE 60 (Celebrian Rod ‖ Celebrian Diamond)
 	-- {ID_ATTUNE="300",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
-	{ID_ATTUNE="300",ID="660",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17702",ICON="Interface\\Icons\\inv_wand_07",FOLLOWS="650",STAGE="60"}, -- item: Celebrian Rod
-	{ID_ATTUNE="300",ID="460",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17703",ICON="Interface\\Icons\\inv_misc_gem_diamond_02",FOLLOWS="450",STAGE="60"}, -- item: Celebrian Diamond
+	{ID_ATTUNE="300",ID="660",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17702",ICON="Interface\\Icons\\inv_wand_07",FOLLOWS="650",STAGE="60",MARKER="dungeon"}, -- item: Celebrian Rod
+	{ID_ATTUNE="300",ID="460",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17703",ICON="Interface\\Icons\\inv_misc_gem_diamond_02",FOLLOWS="450",STAGE="60",MARKER="dungeon"}, -- item: Celebrian Diamond
 	{ID_ATTUNE="300",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="300",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="300",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -1429,7 +1429,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="300",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="70"},
 	{ID_ATTUNE="300",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="70"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="300",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: Seed of Life (Inside — Zaetar's Spirit)
+	{ID_ATTUNE="300",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true,MARKER="dungeon"}, -- quest: Seed of Life (Inside — Zaetar's Spirit)
 	{ID_ATTUNE="300",ID="810",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7046",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true,MARKER="dungeon"}, -- quest: The Scepter of Celebras (Inside)
 	{ID_ATTUNE="300",ID="760",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="770&670&470&370&270&170&820&810",STAGE="90"},
 
@@ -1448,12 +1448,12 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="7067",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Pariah's Instructions
 	-- STAGE 30 (Legends blank row 1)
 	{ID_ATTUNE="310",ID="730",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="720",STAGE="30"},
-	{ID_ATTUNE="310",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12201",ICON="Interface\\Icons\\spell_nature_earthquake",FOLLOWS="620",STAGE="30"}, -- npc: Princess Theradras
+	{ID_ATTUNE="310",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12201",ICON="Interface\\Icons\\spell_nature_earthquake",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- npc: Princess Theradras
 	{ID_ATTUNE="310",ID="530",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="520",STAGE="30"},
 	-- {ID_ATTUNE="310",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
-	{ID_ATTUNE="310",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17684",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="320",STAGE="30",COUNT=15}, -- item: Theradric Crystal Carving
+	{ID_ATTUNE="310",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17684",ICON="Interface\\Icons\\inv_jewelry_talisman_07",FOLLOWS="320",STAGE="30",COUNT=15,MARKER="dungeon"}, -- item: Theradric Crystal Carving
 	{ID_ATTUNE="310",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17756",ICON="Interface\\Icons\\inv_misc_gem_amethyst_03",FOLLOWS="220",STAGE="30",COUNT=10}, -- item: Shadowshard Fragment
-	{ID_ATTUNE="310",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17758",ICON="Interface\\Icons\\inv_jewelry_amulet_04",FOLLOWS="120",STAGE="30"}, -- item: Amulet of Union
+	{ID_ATTUNE="310",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17758",ICON="Interface\\Icons\\inv_jewelry_amulet_04",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- item: Amulet of Union
 	-- STAGE 40 (Legends blank row 2)
 	{ID_ATTUNE="310",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="40"},
 	{ID_ATTUNE="310",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Desolace"],ID_WOWHEAD="7064",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- quest: Corruption of Earth and Seed
@@ -1465,16 +1465,16 @@ Attune_Data.steps = 	{
 	-- STAGE 50 (Noxxion ‖ Lord Vyletongue)
 	-- {ID_ATTUNE="310",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
 	-- {ID_ATTUNE="310",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="50"},
-	{ID_ATTUNE="310",ID="550",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="13282",ICON="Interface\\Icons\\spell_nature_acid_01",FOLLOWS="540",STAGE="50"}, -- npc: Noxxion
-	{ID_ATTUNE="310",ID="450",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12236",ICON="Interface\\Icons\\spell_shadow_shadowwordpain",FOLLOWS="540",STAGE="50"}, -- npc: Lord Vyletongue
+	{ID_ATTUNE="310",ID="550",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="13282",ICON="Interface\\Icons\\spell_nature_acid_01",FOLLOWS="540",STAGE="50",MARKER="dungeon"}, -- npc: Noxxion
+	{ID_ATTUNE="310",ID="450",TYPE="Kill",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="12236",ICON="Interface\\Icons\\spell_shadow_shadowwordpain",FOLLOWS="540",STAGE="50",MARKER="dungeon"}, -- npc: Lord Vyletongue
 	-- {ID_ATTUNE="310",ID="350",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="340",STAGE="50"},
 	-- {ID_ATTUNE="310",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="50"},
 	{ID_ATTUNE="310",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	-- STAGE 60 (Celebrian Rod ‖ Celebrian Diamond)
 	-- {ID_ATTUNE="310",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
 	-- {ID_ATTUNE="310",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="60"},
-	{ID_ATTUNE="310",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17702",ICON="Interface\\Icons\\inv_wand_07",FOLLOWS="550",STAGE="60"}, -- item: Celebrian Rod
-	{ID_ATTUNE="310",ID="460",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17703",ICON="Interface\\Icons\\inv_misc_gem_diamond_02",FOLLOWS="450",STAGE="60"}, -- item: Celebrian Diamond
+	{ID_ATTUNE="310",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17702",ICON="Interface\\Icons\\inv_wand_07",FOLLOWS="550",STAGE="60",MARKER="dungeon"}, -- item: Celebrian Rod
+	{ID_ATTUNE="310",ID="460",TYPE="Item",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="17703",ICON="Interface\\Icons\\inv_misc_gem_diamond_02",FOLLOWS="450",STAGE="60",MARKER="dungeon"}, -- item: Celebrian Diamond
 	-- {ID_ATTUNE="310",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	-- {ID_ATTUNE="310",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="310",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -1487,7 +1487,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="70"},
 	{ID_ATTUNE="310",ID="170",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="70"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="310",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Seed of Life (Inside — Zaetar's Spirit)
+	{ID_ATTUNE="310",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7066",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: Seed of Life (Inside — Zaetar's Spirit)
 	{ID_ATTUNE="310",ID="810",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="7046",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Scepter of Celebras (Inside)
 	{ID_ATTUNE="310",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Maraudon"],ID_WOWHEAD="96776",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true,MARKER="dungeon"}, -- quest: An'she's Radiance (Inside)
 	{ID_ATTUNE="310",ID="780",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="770&670&570&370&270&170&820&810&1510",STAGE="80"},
@@ -1584,7 +1584,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="320",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1139",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="611",STAGE="20",MARKER="dungeon"}, -- quest: The Lost Tablets of Will
 	{ID_ATTUNE="320",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="2500",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="511",STAGE="20"}, -- quest: Badlands Reagent Run (prereq)
 	{ID_ATTUNE="320",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="720",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="411",STAGE="20"}, -- quest: A Sign of Hope (prereq)
-	{ID_ATTUNE="320",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="311",STAGE="20",MARKER="dungeon"}, -- quest: Power Stones
+	{ID_ATTUNE="320",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="311",STAGE="20"}, -- quest: Power Stones
 	{ID_ATTUNE="320",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="211",STAGE="20",MARKER="dungeon"}, -- quest: Reclaimed Treasures
 	{ID_ATTUNE="320",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="111",STAGE="20",MARKER="dungeon"}, -- quest: Solution to Doom
 	{ID_ATTUNE="320",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="101",STAGE="20"},
@@ -1595,17 +1595,17 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="320",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8009",ICON="Interface\\Icons\\inv_misc_gem_diamond_01",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: Dentrium Power Stone
 	-- STAGE 40
 	{ID_ATTUNE="320",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2240",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="40",MARKER="dungeon"}, -- quest: The Hidden Chamber
-	{ID_ATTUNE="320",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="5824",ICON="Interface\\Icons\\inv_misc_rune_01",FOLLOWS="620",STAGE="40"}, -- item: Tablet of Will
+	{ID_ATTUNE="320",ID="630",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="5824",ICON="Interface\\Icons\\inv_misc_rune_01",FOLLOWS="620",STAGE="40",MARKER="dungeon"}, -- item: Tablet of Will
 	{ID_ATTUNE="320",ID="530",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="40",MARKER="dungeon"}, -- quest: Uldaman Reagent Run
 	{ID_ATTUNE="320",ID="430",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="721",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40",MARKER="dungeon"}, -- quest: A Sign of Hope
-	{ID_ATTUNE="320",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40",MARKER="dungeon"}, -- quest: Power Stones
-	{ID_ATTUNE="320",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8027",ICON="Interface\\Icons\\inv_drink_03",FOLLOWS="220",STAGE="40"}, -- item: Krom Stoutarm's Treasure
-	{ID_ATTUNE="320",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40"}, -- item: Tablet of Ryun'eh
+	{ID_ATTUNE="320",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40"}, -- quest: Power Stones
+	{ID_ATTUNE="320",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8027",ICON="Interface\\Icons\\inv_drink_03",FOLLOWS="220",STAGE="40",MARKER="dungeon"}, -- item: Krom Stoutarm's Treasure
+	{ID_ATTUNE="320",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40",MARKER="dungeon"}, -- item: Tablet of Ryun'eh
 	{ID_ATTUNE="320",ID="128",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="100",STAGE="40"},
 	-- STAGE 50
 	{ID_ATTUNE="320",ID="740",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="50"},
 	{ID_ATTUNE="320",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1139",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="50",MARKER="dungeon"}, -- quest: The Lost Tablets of Will
-	{ID_ATTUNE="320",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="530",STAGE="50",COUNT=12}, -- item: Magenta Fungus Cap
+	{ID_ATTUNE="320",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="530",STAGE="50",COUNT=12,MARKER="dungeon"}, -- item: Magenta Fungus Cap
 	{ID_ATTUNE="320",ID="440",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="722",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="50",MARKER="dungeon"}, -- quest: Amulet of Secrets
 	{ID_ATTUNE="320",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="50"},
 	{ID_ATTUNE="320",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="1360",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50",MARKER="dungeon"}, -- quest: Reclaimed Treasures
@@ -1615,7 +1615,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="320",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="60"},
 	{ID_ATTUNE="320",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="60"},
 	{ID_ATTUNE="320",ID="550",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="17",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="540",STAGE="60",MARKER="dungeon"}, -- quest: Uldaman Reagent Run
-	{ID_ATTUNE="320",ID="450",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4635",ICON="Interface\\Icons\\inv_jewelry_amulet_03",FOLLOWS="440",STAGE="60"}, -- item: Hammertoe's Amulet
+	{ID_ATTUNE="320",ID="450",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4635",ICON="Interface\\Icons\\inv_jewelry_amulet_03",FOLLOWS="440",STAGE="60",MARKER="dungeon"}, -- item: Hammertoe's Amulet
 	{ID_ATTUNE="320",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="60"},
 	{ID_ATTUNE="320",ID="250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="240",STAGE="60"},
 	{ID_ATTUNE="320",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="60"},
@@ -1630,9 +1630,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="320",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
 	{ID_ATTUNE="320",ID="158",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="148",STAGE="70"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="320",ID="810",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2198",ICON="Interface\\Icons\\inv_jewelry_necklace_02",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: The Shattered Necklace (Inside)
+	{ID_ATTUNE="320",ID="810",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2198",ICON="Interface\\Icons\\inv_jewelry_necklace_02",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Shattered Necklace (Inside)
 	{ID_ATTUNE="320",ID="800",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Platinum Discs (Inside)
-	{ID_ATTUNE="320",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2279",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="70",SIDE=true}, -- quest: The Platinum Discs (Inside)
+	{ID_ATTUNE="320",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2279",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Platinum Discs (Inside)
 	{ID_ATTUNE="320",ID="780",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="760&660&560&460&380&260&160&158&810&800&790",STAGE="80"},
 	{ID_ATTUNE="320",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="2199",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="810",STAGE="90",FOLLOW=true}, -- quest: Lore for a Price
 	{ID_ATTUNE="320",ID="1500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2200",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1510",STAGE="100",FOLLOW=true,MARKER="dungeon"}, -- quest: Back to Uldaman
@@ -1660,21 +1660,21 @@ Attune_Data.steps = 	{
 	-- STAGE 20
 	{ID_ATTUNE="330",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Reclaimed Treasures
 	{ID_ATTUNE="330",ID="420",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2258",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Badlands Reagent Run (prereq)
-	{ID_ATTUNE="330",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Power Stones
+	{ID_ATTUNE="330",ID="320",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Power Stones
 	{ID_ATTUNE="330",ID="220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2283",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Necklace Recovery
 	{ID_ATTUNE="330",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Solution to Doom
 	-- STAGE 30 (Power Stones only — other chains skip this row)
 	{ID_ATTUNE="330",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8052",ICON="Interface\\Icons\\inv_battery_01",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: An'Alleum Power Stone
 	{ID_ATTUNE="330",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8009",ICON="Interface\\Icons\\inv_battery_02",FOLLOWS="320",STAGE="30",COUNT=8}, -- item: Dentrium Power Stone
 	-- STAGE 40
-	{ID_ATTUNE="330",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8026",ICON="Interface\\Icons\\inv_box_01",FOLLOWS="520",STAGE="40"}, -- item: Garrett Family Treasure
+	{ID_ATTUNE="330",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8026",ICON="Interface\\Icons\\inv_box_01",FOLLOWS="520",STAGE="40",MARKER="dungeon"}, -- item: Garrett Family Treasure
 	{ID_ATTUNE="330",ID="430",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="40",MARKER="dungeon"}, -- quest: Uldaman Reagent Run
-	{ID_ATTUNE="330",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40",MARKER="dungeon"}, -- quest: Power Stones
+	{ID_ATTUNE="330",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340&330",STAGE="40"}, -- quest: Power Stones
 	{ID_ATTUNE="330",ID="230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2284",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="40",MARKER="dungeon"}, -- quest: Necklace Recovery, Take 2
-	{ID_ATTUNE="330",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40"}, -- item: Tablet of Ryun'eh
+	{ID_ATTUNE="330",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="4631",ICON="Interface\\Icons\\inv_misc_rune_02",FOLLOWS="120",STAGE="40",MARKER="dungeon"}, -- item: Tablet of Ryun'eh
 	-- STAGE 50
 	{ID_ATTUNE="330",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="50",MARKER="dungeon"}, -- quest: Reclaimed Treasures
-	{ID_ATTUNE="330",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="430",STAGE="50",COUNT=12}, -- item: Magenta Fungus Cap
+	{ID_ATTUNE="330",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="8047",ICON="Interface\\Icons\\inv_mushroom_01",FOLLOWS="430",STAGE="50",COUNT=12,MARKER="dungeon"}, -- item: Magenta Fungus Cap
 	{ID_ATTUNE="330",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="50"},
 	{ID_ATTUNE="330",ID="240",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="50",MARKER="dungeon"}, -- quest: Find the Gems and Power Source
 	{ID_ATTUNE="330",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="709",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="50",MARKER="dungeon"}, -- quest: Solution to Doom
@@ -1682,7 +1682,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="330",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="60"},
 	{ID_ATTUNE="330",ID="450",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2202",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="60",MARKER="dungeon"}, -- quest: Uldaman Reagent Run
 	{ID_ATTUNE="330",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="60"},
-	{ID_ATTUNE="330",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7672",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="240",STAGE="60"}, -- item: Shattered Necklace Power Source
+	{ID_ATTUNE="330",ID="250",TYPE="Item",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="7672",ICON="Interface\\Icons\\inv_misc_orb_03",FOLLOWS="240",STAGE="60",MARKER="dungeon"}, -- item: Shattered Necklace Power Source
 	{ID_ATTUNE="330",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="60"},
 	-- STAGE 70
 	{ID_ATTUNE="330",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="70"},
@@ -1691,9 +1691,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="330",ID="260",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="2339",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="250",STAGE="70",MARKER="dungeon"}, -- quest: Find the Gems and Power Source
 	{ID_ATTUNE="330",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="70"},
 	-- SIDE reminders (inside dungeon) — left of End
-	{ID_ATTUNE="330",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2318",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Translating the Journal (Inside)
+	{ID_ATTUNE="330",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2318",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: Translating the Journal (Inside)
 	{ID_ATTUNE="330",ID="610",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2278",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Platinum Discs (Inside)
-	{ID_ATTUNE="330",ID="600",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2280",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="70",SIDE=true}, -- quest: The Platinum Discs (Inside)
+	{ID_ATTUNE="330",ID="600",TYPE="Quest",STEP="",LOCATION=AttuneLang["Uldaman"],ID_WOWHEAD="2280",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="610",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: The Platinum Discs (Inside)
 	{ID_ATTUNE="330",ID="580",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="560&460&380&260&160&620&610&600",STAGE="80"},
 	{ID_ATTUNE="330",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="2340",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="260",STAGE="90",FOLLOW=true}, -- quest: Deliver the Gems
 	{ID_ATTUNE="330",ID="1500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="2341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1510",STAGE="100",FOLLOW=true}, -- quest: Necklace Recovery
@@ -1714,11 +1714,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="340",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7482",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Elven Legends
 	-- STAGE 30
 	{ID_ATTUNE="340",ID="430",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7488",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- quest: Lethtendris's Web
-	{ID_ATTUNE="340",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18261",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="320",STAGE="30"}, -- item: Book of Incantations
-	{ID_ATTUNE="340",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18501",ICON="Interface\\Icons\\inv_enchant_shardradientsmall",FOLLOWS="220",STAGE="30"}, -- item: Felvine Shard
+	{ID_ATTUNE="340",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18261",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Book of Incantations
+	{ID_ATTUNE="340",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18501",ICON="Interface\\Icons\\inv_enchant_shardradientsmall",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- item: Felvine Shard
 	{ID_ATTUNE="340",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
-	{ID_ATTUNE="340",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="430",STAGE="40"}, -- item: Lethtendris's Web
+	{ID_ATTUNE="340",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- item: Lethtendris's Web
 	{ID_ATTUNE="340",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7441",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Pusillin and the Elder Azj'Tordin
 	{ID_ATTUNE="340",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Shards of the Felvine
 	{ID_ATTUNE="340",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
@@ -1731,7 +1731,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="340",ID="801",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="1193",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: A Broken Trap (Inside)
 	{ID_ATTUNE="340",ID="802",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5525",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Free Knot! (Inside)
 	{ID_ATTUNE="340",ID="808",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5518",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Gordok Ogre Suit (Inside)
-	{ID_ATTUNE="340",ID="809",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Gordok Taste Test (Inside)
+	{ID_ATTUNE="340",ID="809",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Gordok Taste Test (Inside)
 	{ID_ATTUNE="340",ID="811",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7703",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Unfinished Gordok Business (Inside)
 	{ID_ATTUNE="340",ID="812",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="1318",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Unfinished Gordok Business (Inside)
 	{ID_ATTUNE="340",ID="460",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="450&350&250&150&610&801&802&808&809&811&812",STAGE="60"},
@@ -1755,11 +1755,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="341",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7481",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Elven Legends
 	-- STAGE 30
 	{ID_ATTUNE="341",ID="430",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7489",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- quest: Lethtendris's Web
-	{ID_ATTUNE="341",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18261",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="320",STAGE="30"}, -- item: Book of Incantations
-	{ID_ATTUNE="341",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18501",ICON="Interface\\Icons\\inv_enchant_shardradientsmall",FOLLOWS="220",STAGE="30"}, -- item: Felvine Shard
+	{ID_ATTUNE="341",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18261",ICON="Interface\\Icons\\inv_misc_book_07",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Book of Incantations
+	{ID_ATTUNE="341",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18501",ICON="Interface\\Icons\\inv_enchant_shardradientsmall",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- item: Felvine Shard
 	{ID_ATTUNE="341",ID="130",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="120",STAGE="30"},
 	-- STAGE 40
-	{ID_ATTUNE="341",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="430",STAGE="40"}, -- item: Lethtendris's Web
+	{ID_ATTUNE="341",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="18426",ICON="Interface\\Icons\\spell_nature_web",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- item: Lethtendris's Web
 	{ID_ATTUNE="341",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="7441",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Pusillin and the Elder Azj'Tordin
 	{ID_ATTUNE="341",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Moonglade"],ID_WOWHEAD="5526",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Shards of the Felvine
 	{ID_ATTUNE="341",ID="140",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="130",STAGE="40"},
@@ -1772,7 +1772,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="341",ID="801",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="1193",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: A Broken Trap (Inside)
 	{ID_ATTUNE="341",ID="802",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5525",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Free Knot! (Inside)
 	{ID_ATTUNE="341",ID="808",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5518",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Gordok Ogre Suit (Inside)
-	{ID_ATTUNE="341",ID="809",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true}, -- quest: The Gordok Taste Test (Inside)
+	{ID_ATTUNE="341",ID="809",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="5528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: The Gordok Taste Test (Inside)
 	{ID_ATTUNE="341",ID="811",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="7703",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Unfinished Gordok Business (Inside)
 	{ID_ATTUNE="341",ID="812",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dire Maul"],ID_WOWHEAD="1318",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="60",SIDE=true,MARKER="dungeon"}, -- quest: Unfinished Gordok Business (Inside)
 	{ID_ATTUNE="341",ID="460",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="450&350&250&150&610&801&802&808&809&811&812",STAGE="60"},
@@ -1828,17 +1828,17 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="350",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Troll Temper
 	{ID_ATTUNE="350",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="128",STAGE="20",MARKER="dungeon"}, -- quest: Scarab Shells
 	-- STAGE 30
-	{ID_ATTUNE="350",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30"}, -- item: Divino-matic Rod (Sergeant Bly)
-	{ID_ATTUNE="350",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9471",ICON="Interface\\Icons\\inv_jewelry_amulet_01",FOLLOWS="820",STAGE="30"}, -- item: Nekrum's Medallion
-	{ID_ATTUNE="350",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30"}, -- item: Gahz'rilla's Electrified Scale
+	{ID_ATTUNE="350",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30",MARKER="dungeon"}, -- item: Divino-matic Rod (Sergeant Bly)
+	{ID_ATTUNE="350",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9471",ICON="Interface\\Icons\\inv_jewelry_amulet_01",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- item: Nekrum's Medallion
+	{ID_ATTUNE="350",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- item: Gahz'rilla's Electrified Scale
 	{ID_ATTUNE="350",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: The Prophecy of Mosh'aru
-	{ID_ATTUNE="350",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30"}, -- item: Tiara of the Deep
-	{ID_ATTUNE="350",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20}, -- item: Troll Temper
-	{ID_ATTUNE="350",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5}, -- item: Uncracked Scarab Shell
+	{ID_ATTUNE="350",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Tiara of the Deep
+	{ID_ATTUNE="350",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20,MARKER="dungeon"}, -- item: Troll Temper
+	{ID_ATTUNE="350",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Uncracked Scarab Shell
 	-- STAGE 40 (Mosh'aru tablets only)
 	-- {ID_ATTUNE="350",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
-    {ID_ATTUNE="350",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40"}, -- item: First Mosh'aru Tablet
-	{ID_ATTUNE="350",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40"}, -- item: Second Mosh'aru Tablet
+    {ID_ATTUNE="350",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- item: First Mosh'aru Tablet
+	{ID_ATTUNE="350",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- item: Second Mosh'aru Tablet
     -- STAGE 50 (item turn-ins)
 	{ID_ATTUNE="350",ID="950",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="50",MARKER="dungeon"}, -- quest: Divino-matic Rod
 	{ID_ATTUNE="350",ID="850",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blasted Lands"],ID_WOWHEAD="2991",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="50",MARKER="dungeon"}, -- quest: Nekrum's Medallion
@@ -1874,16 +1874,16 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="351",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Troll Temper
 	{ID_ATTUNE="351",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="2865",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="125",STAGE="20",MARKER="dungeon"}, -- quest: Scarab Shells
 	-- STAGE 30
-	{ID_ATTUNE="351",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30"}, -- item: Divino-matic Rod (Sergeant Bly)
-	{ID_ATTUNE="351",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30"}, -- item: Gahz'rilla's Electrified Scale
+	{ID_ATTUNE="351",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8548",ICON="Interface\\Icons\\inv_wand_08",FOLLOWS="920",STAGE="30",MARKER="dungeon"}, -- item: Divino-matic Rod (Sergeant Bly)
+	{ID_ATTUNE="351",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="8707",ICON="Interface\\Icons\\inv_misc_monsterscales_17",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- item: Gahz'rilla's Electrified Scale
 	{ID_ATTUNE="351",ID="630",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: The Prophecy of Mosh'aru
 	{ID_ATTUNE="351",ID="430",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="2933",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30"}, -- quest: Venom Bottles
-	{ID_ATTUNE="351",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30"}, -- item: Tiara of the Deep
-	{ID_ATTUNE="351",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20}, -- item: Troll Temper
-	{ID_ATTUNE="351",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5}, -- item: Uncracked Scarab Shell
+	{ID_ATTUNE="351",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9234",ICON="Interface\\Icons\\inv_jewelry_amulet_05",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Tiara of the Deep
+	{ID_ATTUNE="351",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9523",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="220",STAGE="30",COUNT=20,MARKER="dungeon"}, -- item: Troll Temper
+	{ID_ATTUNE="351",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="9238",ICON="Interface\\Icons\\inv_misc_monsterscales_01",FOLLOWS="120",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Uncracked Scarab Shell
 	-- STAGE 40 (Mosh'aru tablets only)
-    {ID_ATTUNE="351",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40"}, -- item: First Mosh'aru Tablet
-	{ID_ATTUNE="351",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40"}, -- item: Second Mosh'aru Tablet
+    {ID_ATTUNE="351",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10660",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- item: First Mosh'aru Tablet
+	{ID_ATTUNE="351",ID="540",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Farrak"],ID_WOWHEAD="10661",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- item: Second Mosh'aru Tablet
     {ID_ATTUNE="351",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
     {ID_ATTUNE="351",ID="240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
     -- STAGE 50 (item turn-ins)
@@ -1944,13 +1944,13 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5281",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Restless Souls
 	{ID_ATTUNE="360",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5214",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Great Fras Siabi
 	-- STAGE 30
-	{ID_ATTUNE="360",ID="821",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13180",ICON="Interface\\Icons\\inv_potion_75",FOLLOWS="820",STAGE="30",COUNT=5}, -- item: Stratholme Holy Water
+	{ID_ATTUNE="360",ID="821",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13180",ICON="Interface\\Icons\\inv_potion_75",FOLLOWS="820",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Stratholme Holy Water
 	{ID_ATTUNE="360",ID="732",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="721",STAGE="130"},
 	{ID_ATTUNE="360",ID="621",TYPE="Item",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="13585",ICON="Interface\\Icons\\inv_misc_book_04",FOLLOWS="620",STAGE="30"}, -- item: Keepsake of Remembrance
 	{ID_ATTUNE="360",ID="521",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Of Forgotten Memories
-	{ID_ATTUNE="360",ID="421",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13174",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_03",FOLLOWS="420",STAGE="30",COUNT=20}, -- item: Plagued Flesh Sample
+	{ID_ATTUNE="360",ID="421",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13174",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_03",FOLLOWS="420",STAGE="30",COUNT=20,MARKER="dungeon"}, -- item: Plagued Flesh Sample
 	{ID_ATTUNE="360",ID="322",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5282",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: The Restless Souls
-	{ID_ATTUNE="360",ID="221",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13172",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="220",STAGE="30"}, -- item: Grimm's Premium Tobacco
+	{ID_ATTUNE="360",ID="221",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13172",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- item: Grimm's Premium Tobacco
 	-- STAGE 40
 	{ID_ATTUNE="360",ID="822",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5243",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="821",STAGE="40",MARKER="dungeon"}, -- quest: Houses of the Holy
 	{ID_ATTUNE="360",ID="722",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="5262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: The Truth Comes Crashing Down
@@ -1972,7 +1972,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="724",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="723",STAGE="50"}, -- quest: The Truth Comes Crashing Down
 	{ID_ATTUNE="360",ID="625",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="5463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="623",STAGE="60",MARKER="dungeon"}, -- quest: Menethil's Gift
 	{ID_ATTUNE="360",ID="524",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5845",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="523",STAGE="60"}, -- quest: Of Lost Honor
-	{ID_ATTUNE="360",ID="424",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13176",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="423",STAGE="60"}, -- item: Scourge Data
+	{ID_ATTUNE="360",ID="424",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13176",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="423",STAGE="60",MARKER="dungeon"}, -- item: Scourge Data
 	{ID_ATTUNE="360",ID="326",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="325",STAGE="60"},
 	{ID_ATTUNE="360",ID="224",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="223",STAGE="60"},
 	-- STAGE 70
@@ -1985,7 +1985,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="225",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="224",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="360",ID="826",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="825",STAGE="80"},
-	{ID_ATTUNE="360",ID="727",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13251",ICON="Interface\\Icons\\spell_shadow_charm",FOLLOWS="725",STAGE="70"}, -- item: Head of Baron Rivendare
+	{ID_ATTUNE="360",ID="727",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13251",ICON="Interface\\Icons\\spell_shadow_charm",FOLLOWS="725",STAGE="70",MARKER="dungeon"}, -- item: Head of Baron Rivendare
 	{ID_ATTUNE="360",ID="627",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="625",STAGE="70"},
 	{ID_ATTUNE="360",ID="526",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5845",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="525",STAGE="80"}, -- quest: Of Lost Honor
 	{ID_ATTUNE="360",ID="426",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="425",STAGE="80"},
@@ -2019,7 +2019,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="360",ID="830",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="829",STAGE="120"},
 	{ID_ATTUNE="360",ID="731",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="110"},
 	{ID_ATTUNE="360",ID="631",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="630",STAGE="110"},
-	{ID_ATTUNE="360",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="14679",ICON="Interface\\Icons\\inv_scroll_06",FOLLOWS="529",STAGE="110"}, -- item: Of Love and Family
+	{ID_ATTUNE="360",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="14679",ICON="Interface\\Icons\\inv_scroll_06",FOLLOWS="529",STAGE="110",MARKER="dungeon"}, -- item: Of Love and Family
 	{ID_ATTUNE="360",ID="430",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="429",STAGE="120"},
 	{ID_ATTUNE="360",ID="332",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="331",STAGE="120"},
 	{ID_ATTUNE="360",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="229",STAGE="120"},
@@ -2051,11 +2051,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="361",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5961",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Champion of the Banshee Queen
     {ID_ATTUNE="361",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	-- STAGE 30
-	{ID_ATTUNE="361",ID="721",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13180",ICON="Interface\\Icons\\inv_potion_75",FOLLOWS="720",STAGE="30",COUNT=5}, -- item: Stratholme Holy Water
+	{ID_ATTUNE="361",ID="721",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13180",ICON="Interface\\Icons\\inv_potion_75",FOLLOWS="720",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Stratholme Holy Water
 	{ID_ATTUNE="361",ID="822",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5282",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- quest: The Restless Souls
-	{ID_ATTUNE="361",ID="621",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13172",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="620",STAGE="30"}, -- item: Grimm's Premium Tobacco
+	{ID_ATTUNE="361",ID="621",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13172",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- item: Grimm's Premium Tobacco
 	{ID_ATTUNE="361",ID="521",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5781",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Of Forgotten Memories
-	{ID_ATTUNE="361",ID="421",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13174",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_03",FOLLOWS="420",STAGE="30",COUNT=20}, -- item: Plagued Flesh Sample
+	{ID_ATTUNE="361",ID="421",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13174",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_03",FOLLOWS="420",STAGE="30",COUNT=20,MARKER="dungeon"}, -- item: Plagued Flesh Sample
 	{ID_ATTUNE="361",ID="322",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="5262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: The Archivist
 	{ID_ATTUNE="361",ID="221",TYPE="Item",STEP="",LOCATION=AttuneLang["Arathi Highlands"],ID_WOWHEAD="13585",ICON="Interface\\Icons\\inv_misc_book_04",FOLLOWS="220",STAGE="30"}, -- item: Keepsake of Remembrance
     {ID_ATTUNE="361",ID="122",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="6042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="120",STAGE="30"}, -- quest: Un-Life's Little Annoyances
@@ -2093,7 +2093,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="361",ID="826",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="825",STAGE="60"},
 	{ID_ATTUNE="361",ID="624",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="623",STAGE="60"},
 	{ID_ATTUNE="361",ID="524",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5845",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="523",STAGE="60"}, -- quest: Of Lost Honor
-	{ID_ATTUNE="361",ID="424",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13176",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="423",STAGE="60"}, -- item: Scourge Data
+	{ID_ATTUNE="361",ID="424",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13176",ICON="Interface\\Icons\\inv_misc_rune_07",FOLLOWS="423",STAGE="60",MARKER="dungeon"}, -- item: Scourge Data
 	{ID_ATTUNE="361",ID="325",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5263",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="324",STAGE="60",MARKER="dungeon"}, -- quest: Above and Beyond
 	{ID_ATTUNE="361",ID="225",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="223",STAGE="60",MARKER="dungeon"}, -- quest: Menethil's Gift
 	{ID_ATTUNE="361",ID="154",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -2105,7 +2105,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="361",ID="625",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="624",STAGE="70"},
 	{ID_ATTUNE="361",ID="525",TYPE="Item",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="14625",ICON="Interface\\Icons\\inv_banner_02",FOLLOWS="524",STAGE="70"}, -- item: Symbol of Lost Honor
 	{ID_ATTUNE="361",ID="425",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5213",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="424",STAGE="70",MARKER="dungeon"}, -- quest: The Active Agent
-	{ID_ATTUNE="361",ID="327",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13251",ICON="Interface\\Icons\\spell_shadow_charm",FOLLOWS="325",STAGE="70"}, -- item: Head of Baron Rivendare
+	{ID_ATTUNE="361",ID="327",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="13251",ICON="Interface\\Icons\\spell_shadow_charm",FOLLOWS="325",STAGE="70",MARKER="dungeon"}, -- item: Head of Baron Rivendare
 	{ID_ATTUNE="361",ID="226",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="5463",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="225",STAGE="70",MARKER="dungeon"}, -- quest: Menethil's Gift
 	{ID_ATTUNE="361",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="70"},
 	{ID_ATTUNE="361",ID="126",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="6163",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="124",STAGE="70",MARKER="dungeon"}, -- quest: Ramstein
@@ -2119,7 +2119,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="361",ID="328",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5263",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="327",STAGE="80",MARKER="dungeon"}, -- quest: Above and Beyond
 	{ID_ATTUNE="361",ID="227",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="226",STAGE="80"},
 	{ID_ATTUNE="361",ID="156",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
-	{ID_ATTUNE="361",ID="128",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="15880",ICON="Interface\\Icons\\inv_misc_head_elf_01",FOLLOWS="126",STAGE="80"}, -- item: Head of Ramstein the Gorger
+	{ID_ATTUNE="361",ID="128",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="15880",ICON="Interface\\Icons\\inv_misc_head_elf_01",FOLLOWS="126",STAGE="80",MARKER="dungeon"}, -- item: Head of Ramstein the Gorger
     {ID_ATTUNE="361",ID="113",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="80"},
 	-- STAGE 90
 	{ID_ATTUNE="361",ID="727",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="726",STAGE="90"},
@@ -2147,7 +2147,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="361",ID="729",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="728",STAGE="110"},
 	{ID_ATTUNE="361",ID="832",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="830",STAGE="110"},
 	{ID_ATTUNE="361",ID="629",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="628",STAGE="110"},
-	{ID_ATTUNE="361",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="14679",ICON="Interface\\Icons\\inv_scroll_06",FOLLOWS="529",STAGE="110"}, -- item: Of Love and Family
+	{ID_ATTUNE="361",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Stratholme"],ID_WOWHEAD="14679",ICON="Interface\\Icons\\inv_scroll_06",FOLLOWS="529",STAGE="110",MARKER="dungeon"}, -- item: Of Love and Family
 	{ID_ATTUNE="361",ID="429",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="428",STAGE="110"},
 	{ID_ATTUNE="361",ID="331",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="110"},
 	{ID_ATTUNE="361",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="229",STAGE="110"},
@@ -2223,8 +2223,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="370",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="91",STAGE="20"},
 	{ID_ATTUNE="370",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="4141",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="79",STAGE="20"}, -- quest: Muigin and Larion
 	-- STAGE 30
-	{ID_ATTUNE="370",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6288",ICON="Interface\\Icons\\inv_misc_stonetablet_04",FOLLOWS="900",STAGE="30",COUNT=10}, -- item: Atal'ai Tablet
-	{ID_ATTUNE="370",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="700",STAGE="30"}, -- item: Head of Jammal'an
+	{ID_ATTUNE="370",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6288",ICON="Interface\\Icons\\inv_misc_stonetablet_04",FOLLOWS="900",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Atal'ai Tablet
+	{ID_ATTUNE="370",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="700",STAGE="30",MARKER="dungeon"}, -- item: Head of Jammal'an
 	{ID_ATTUNE="370",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- quest: The Prophecy of Mosh'aru
 	{ID_ATTUNE="370",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300",STAGE="30"}, -- quest: The Stone Circle
 	{ID_ATTUNE="370",ID="110",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
@@ -2260,7 +2260,7 @@ Attune_Data.steps = 	{
 	-- STAGE 80
 	{ID_ATTUNE="370",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="80"},
 	{ID_ATTUNE="370",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="80"},
-	{ID_ATTUNE="370",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80"}, -- item: Filled Egg of Hakkar
+	{ID_ATTUNE="370",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80",MARKER="dungeon"}, -- item: Filled Egg of Hakkar
 	{ID_ATTUNE="370",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="80"},
 	{ID_ATTUNE="370",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="80"},
 	{ID_ATTUNE="370",ID="35",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="45",STAGE="80"},
@@ -2288,7 +2288,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="380",ID="100",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="20"},
 	{ID_ATTUNE="380",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="4145",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Larion and Muigin
 	-- STAGE 30
-	{ID_ATTUNE="380",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="900",STAGE="30"}, -- item: Head of Jammal'an
+	{ID_ATTUNE="380",ID="910",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6212",ICON="Interface\\Icons\\inv_misc_head_troll_01",FOLLOWS="900",STAGE="30",MARKER="dungeon"}, -- item: Head of Jammal'an
 	{ID_ATTUNE="380",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="6175",ICON="Interface\\Icons\\inv_misc_idol_03",FOLLOWS="700",STAGE="30",COUNT=10}, -- item: Atal'ai Artifact
 	{ID_ATTUNE="380",ID="510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="3527",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- quest: The Prophecy of Mosh'aru
 	{ID_ATTUNE="380",ID="310",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Barrens"],ID_WOWHEAD="3444",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="300",STAGE="30"}, -- quest: The Stone Circle
@@ -2324,8 +2324,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="380",ID="45",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="55",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="380",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="80"},
-	{ID_ATTUNE="380",ID="760",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6181",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="750",STAGE="80",COUNT=20}, -- item: Fetish of Hakkar
-	{ID_ATTUNE="380",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80"}, -- item: Filled Egg of Hakkar
+	{ID_ATTUNE="380",ID="760",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="6181",ICON="Interface\\Icons\\inv_misc_bone_humanskull_01",FOLLOWS="750",STAGE="80",COUNT=20,MARKER="dungeon"}, -- item: Fetish of Hakkar
+	{ID_ATTUNE="380",ID="560",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="10662",ICON="Interface\\Icons\\inv_egg_05",FOLLOWS="550",STAGE="80",MARKER="dungeon"}, -- item: Filled Egg of Hakkar
 	{ID_ATTUNE="380",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="80"},
 	{ID_ATTUNE="380",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="80"},
 	{ID_ATTUNE="380",ID="35",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="45",STAGE="80"},
@@ -2355,22 +2355,22 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4286",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Good Stuff
 	{ID_ATTUNE="390",ID="1220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="4262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Overmaster Pyron
 	-- STAGE 30
-	{ID_ATTUNE="390",ID="1030",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11309",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_02",FOLLOWS="1020",STAGE="30"}, -- item: The Heart of the Mountain
-	{ID_ATTUNE="390",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11129",ICON="Interface\\Icons\\inv_enchant_shardglowinglarge",FOLLOWS="920",STAGE="30",COUNT=10}, -- item: Essence of the Elements
+	{ID_ATTUNE="390",ID="1030",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11309",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_02",FOLLOWS="1020",STAGE="30",MARKER="dungeon"}, -- item: The Heart of the Mountain
+	{ID_ATTUNE="390",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11129",ICON="Interface\\Icons\\inv_enchant_shardglowinglarge",FOLLOWS="920",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Essence of the Elements
 	{ID_ATTUNE="390",ID="830",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4024",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- quest: A Taste of Flame
 	{ID_ATTUNE="390",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="3701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: The Smoldering Ruins of Thaurissan
 	{ID_ATTUNE="390",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4183",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: The True Masters
 	{ID_ATTUNE="390",ID="430",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="4126",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- quest: Hurley Blackbreath
-	{ID_ATTUNE="390",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11313",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="320",STAGE="30"}, -- item: Ribbly's Head
-	{ID_ATTUNE="390",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11468",ICON="Interface\\Icons\\inv_misc_bag_09",FOLLOWS="220",STAGE="30",COUNT=20}, -- item: Dark Iron Fanny Pack
+	{ID_ATTUNE="390",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11313",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Ribbly's Head
+	{ID_ATTUNE="390",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11468",ICON="Interface\\Icons\\inv_misc_bag_09",FOLLOWS="220",STAGE="30",COUNT=20,MARKER="dungeon"}, -- item: Dark Iron Fanny Pack
 	{ID_ATTUNE="390",ID="1230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4263",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1220",STAGE="30",MARKER="dungeon"}, -- quest: Incendius!
 	-- STAGE 40
 	{ID_ATTUNE="390",ID="1040",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1030",STAGE="40",MARKER="dungeon"}, -- quest: The Heart of the Mountain
 	{ID_ATTUNE="390",ID="940",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="3911",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="40",MARKER="dungeon"}, -- quest: The Last Element
-	{ID_ATTUNE="390",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11230",ICON="Interface\\Icons\\spell_fire_sealoffire",FOLLOWS="830",STAGE="40"}, -- item: Encased Fiery Essence
+	{ID_ATTUNE="390",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11230",ICON="Interface\\Icons\\spell_fire_sealoffire",FOLLOWS="830",STAGE="40",MARKER="dungeon"}, -- item: Encased Fiery Essence
 	{ID_ATTUNE="390",ID="740",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40",MARKER="dungeon"}, -- quest: Kharan Mighthammer
 	{ID_ATTUNE="390",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="4184",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The True Masters
-	{ID_ATTUNE="390",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11312",ICON="Interface\\Icons\\inv_misc_note_03",FOLLOWS="430",STAGE="40"}, -- item: Lost Thunderbrew Recipe
+	{ID_ATTUNE="390",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11312",ICON="Interface\\Icons\\inv_misc_note_03",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- item: Lost Thunderbrew Recipe
 	{ID_ATTUNE="390",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4136",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: Ribbly Screwspigot
 	{ID_ATTUNE="390",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4286",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: The Good Stuff
 	{ID_ATTUNE="390",ID="1240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1230",STAGE="40"},
@@ -2443,11 +2443,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="180",STAGE="90"},
 	-- SIDE (inside dungeon)
 	{ID_ATTUNE="390",ID="1120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4201",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Love Potion (Inside)
-	{ID_ATTUNE="390",ID="1110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4242",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Abandoned Hope (Inside)
-	{ID_ATTUNE="390",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4264",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: A Crumpled Up Note (Inside)
-	{ID_ATTUNE="390",ID="1601",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4295",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Rocknot's Ale (Inside)
-	{ID_ATTUNE="390",ID="1602",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: The Spectral Chalice (Inside)
-	{ID_ATTUNE="390",ID="1603",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="7604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: A Binding Contract (Inside)
+	{ID_ATTUNE="390",ID="1110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4242",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Abandoned Hope (Inside)
+	{ID_ATTUNE="390",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4264",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: A Crumpled Up Note (Inside)
+	{ID_ATTUNE="390",ID="1601",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4295",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Rocknot's Ale (Inside)
+	{ID_ATTUNE="390",ID="1602",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Spectral Chalice (Inside)
+	{ID_ATTUNE="390",ID="1603",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="7604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: A Binding Contract (Inside)
 	{ID_ATTUNE="390",ID="1604",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9015",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Challenge (Inside)
 	{ID_ATTUNE="390",ID="1300",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="1390&1290&1090&990&890&790&590&490&390&290&190&1120&1110&1100&1601&1602&1603&1604",STAGE="100"},
 
@@ -2464,18 +2464,18 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="400",ID="1220",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: KILL ON SIGHT: Dark Iron Dwarves
 	{ID_ATTUNE="400",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="3906",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Disharmony of Flame
 	-- STAGE 30
-	{ID_ATTUNE="400",ID="1030",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11129",ICON="Interface\\Icons\\inv_enchant_shardglowinglarge",FOLLOWS="1020",STAGE="30",COUNT=10}, -- item: Essence of the Elements
+	{ID_ATTUNE="400",ID="1030",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11129",ICON="Interface\\Icons\\inv_enchant_shardglowinglarge",FOLLOWS="1020",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Essence of the Elements
 	{ID_ATTUNE="400",ID="930",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4024",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30",MARKER="dungeon"}, -- quest: A Taste of Flame
-	{ID_ATTUNE="400",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11268",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="820",STAGE="30"}, -- item: Elemental Shard / Argelmach's Head
-	{ID_ATTUNE="400",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11309",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_02",FOLLOWS="320",STAGE="30"}, -- item: The Heart of the Mountain
-	{ID_ATTUNE="400",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11313",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="520",STAGE="30"}, -- item: Ribbly's Head
-	{ID_ATTUNE="400",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11312",ICON="Interface\\Icons\\inv_misc_note_03",FOLLOWS="420",STAGE="30"}, -- item: Lost Thunderbrew Recipe
+	{ID_ATTUNE="400",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11268",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- item: Elemental Shard / Argelmach's Head
+	{ID_ATTUNE="400",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11309",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_02",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: The Heart of the Mountain
+	{ID_ATTUNE="400",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11313",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: Ribbly's Head
+	{ID_ATTUNE="400",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11312",ICON="Interface\\Icons\\inv_misc_note_03",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Lost Thunderbrew Recipe
 	{ID_ATTUNE="400",ID="1230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4082",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1220",STAGE="30",MARKER="dungeon"}, -- quest: KILL ON SIGHT: High Ranking Dark Iron Officials
 	{ID_ATTUNE="400",ID="630",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="3907",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: Disharmony of Fire
 	-- STAGE 40
 	{ID_ATTUNE="400",ID="1040",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="7201",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1030",STAGE="40",MARKER="dungeon"}, -- quest: The Last Element
-	{ID_ATTUNE="400",ID="940",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11230",ICON="Interface\\Icons\\spell_fire_sealoffire",FOLLOWS="930",STAGE="40"}, -- item: Encased Fiery Essence
-	{ID_ATTUNE="400",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11269",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="830",STAGE="40",COUNT=10}, -- item: Intact Elemental Core
+	{ID_ATTUNE="400",ID="940",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11230",ICON="Interface\\Icons\\spell_fire_sealoffire",FOLLOWS="930",STAGE="40",MARKER="dungeon"}, -- item: Encased Fiery Essence
+	{ID_ATTUNE="400",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11269",ICON="Interface\\Icons\\inv_misc_gem_opal_01",FOLLOWS="830",STAGE="40",COUNT=10,MARKER="dungeon"}, -- item: Intact Elemental Core
 	{ID_ATTUNE="400",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: The Heart of the Mountain
 	{ID_ATTUNE="400",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4136",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: Ribbly Screwspigot
 	{ID_ATTUNE="400",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4134",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- quest: Lost Thunderbrew Recipe
@@ -2545,11 +2545,11 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="400",ID="290",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="280",STAGE="90"},
     
 	{ID_ATTUNE="400",ID="1400",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4201",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Love Potion (Inside)
-	{ID_ATTUNE="400",ID="1501",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4295",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: Rocknot's Ale (Inside)
-	{ID_ATTUNE="400",ID="1502",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: The Spectral Chalice (Inside)
-	{ID_ATTUNE="400",ID="1503",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="7604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: A Binding Contract (Inside)
+	{ID_ATTUNE="400",ID="1501",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4295",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Rocknot's Ale (Inside)
+	{ID_ATTUNE="400",ID="1502",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Spectral Chalice (Inside)
+	{ID_ATTUNE="400",ID="1503",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="7604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: A Binding Contract (Inside)
 	{ID_ATTUNE="400",ID="1504",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9015",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Challenge (Inside)
-	{ID_ATTUNE="400",ID="1505",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4133",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="15"}, -- quest: Vivian Lagrave
+	-- {ID_ATTUNE="400",ID="1505",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4133",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="15"}, -- quest: Vivian Lagrave
 	{ID_ATTUNE="400",ID="1506",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4132",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1505",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Operation: Death to Angerforge (Inside)
 	{ID_ATTUNE="400",ID="1507",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="97197",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Fragment of the Firelands (Inside)
 	{ID_ATTUNE="400",ID="1508",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="3982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: What Is Going On? (Inside)
@@ -2569,7 +2569,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="410",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Plagued Hatchlings
 	-- STAGE 30
 	{ID_ATTUNE="410",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Betina Bigglezink
-	{ID_ATTUNE="410",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30"}, -- item: Human Head of Ras Frostwhisper
+	{ID_ATTUNE="410",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Human Head of Ras Frostwhisper
 	{ID_ATTUNE="410",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: Krastinov's Bag of Horrors
     {ID_ATTUNE="410",ID="313",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="410",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
@@ -2578,7 +2578,7 @@ Attune_Data.steps = 	{
     -- STAGE 32
     {ID_ATTUNE="410",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="4771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="32",MARKER="dungeon"}, -- quest: Dawn's Gambit
     {ID_ATTUNE="410",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="32",MARKER="dungeon"}, -- quest: The Lich, Ras Frostwhisper
-    {ID_ATTUNE="410",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="410",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32",MARKER="dungeon"}, -- item: Krastinov's Bag of Horrors
     {ID_ATTUNE="410",ID="311",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
     {ID_ATTUNE="410",ID="229",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="32"},
     {ID_ATTUNE="410",ID="211",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
@@ -2586,10 +2586,10 @@ Attune_Data.steps = 	{
     -- STAGE 35 (Barov deeds only)   
     {ID_ATTUNE="410",ID="512",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
     {ID_ATTUNE="410",ID="245",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
-	{ID_ATTUNE="410",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Caer Darrow
-	{ID_ATTUNE="410",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Brill
-	{ID_ATTUNE="410",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Tarren Mill
-	{ID_ATTUNE="410",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Southshore
+	{ID_ATTUNE="410",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Caer Darrow
+	{ID_ATTUNE="410",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Brill
+	{ID_ATTUNE="410",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Tarren Mill
+	{ID_ATTUNE="410",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Southshore
 	-- STAGE 40
     {ID_ATTUNE="410",ID="535",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="40"},
 	{ID_ATTUNE="410",ID="435",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="40"},
@@ -2609,7 +2609,7 @@ Attune_Data.steps = 	{
     -- STAGE 60
     {ID_ATTUNE="410",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="410",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-    {ID_ATTUNE="410",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60"}, -- npc: Kirtonos the Herald
+    {ID_ATTUNE="410",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60",MARKER="dungeon"}, -- npc: Kirtonos the Herald
 	{ID_ATTUNE="410",ID="315",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="410",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="410",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -2640,7 +2640,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="420",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5529",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Plagued Hatchlings
 	-- STAGE 30
 	{ID_ATTUNE="420",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5531",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Betina Bigglezink
-	{ID_ATTUNE="420",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30"}, -- item: Human Head of Ras Frostwhisper
+	{ID_ATTUNE="420",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13626",ICON="Interface\\Icons\\inv_misc_head_scourge_01",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Human Head of Ras Frostwhisper
 	{ID_ATTUNE="420",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5515",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: Krastinov's Bag of Horrors
     {ID_ATTUNE="420",ID="313",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
     {ID_ATTUNE="420",ID="230",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
@@ -2649,7 +2649,7 @@ Attune_Data.steps = 	{
     -- STAGE 32
     {ID_ATTUNE="420",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="4771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="32",MARKER="dungeon"}, -- quest: Dawn's Gambit
     {ID_ATTUNE="420",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="5466",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="32",MARKER="dungeon"}, -- quest: The Lich, Ras Frostwhisper
-    {ID_ATTUNE="420",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32"}, -- item: Krastinov's Bag of Horrors
+    {ID_ATTUNE="420",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13725",ICON="Interface\\Icons\\inv_misc_bag_07",FOLLOWS="330",STAGE="32",MARKER="dungeon"}, -- item: Krastinov's Bag of Horrors
     {ID_ATTUNE="420",ID="311",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
     {ID_ATTUNE="420",ID="229",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="220",STAGE="32"},
     {ID_ATTUNE="420",ID="211",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="32"},
@@ -2657,10 +2657,10 @@ Attune_Data.steps = 	{
     -- STAGE 35 (Barov deeds only)   
     {ID_ATTUNE="420",ID="512",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
     {ID_ATTUNE="420",ID="245",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
-	{ID_ATTUNE="420",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Caer Darrow
-	{ID_ATTUNE="420",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Brill
-	{ID_ATTUNE="420",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Tarren Mill
-	{ID_ATTUNE="420",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35"}, -- item: The Deed to Southshore
+	{ID_ATTUNE="420",ID="234",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13448",ICON="Interface\\Icons\\inv_misc_note_05",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Caer Darrow
+	{ID_ATTUNE="420",ID="233",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13471",ICON="Interface\\Icons\\inv_misc_note_02",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Brill
+	{ID_ATTUNE="420",ID="232",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13451",ICON="Interface\\Icons\\inv_misc_note_01",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Tarren Mill
+	{ID_ATTUNE="420",ID="231",TYPE="Item",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="13450",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="229",STAGE="35",MARKER="dungeon"}, -- item: The Deed to Southshore
 	-- STAGE 40
     {ID_ATTUNE="420",ID="535",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="40"},
 	{ID_ATTUNE="420",ID="435",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="40"},
@@ -2680,7 +2680,7 @@ Attune_Data.steps = 	{
     -- STAGE 60
     {ID_ATTUNE="420",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
 	{ID_ATTUNE="420",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
-    {ID_ATTUNE="420",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60"}, -- npc: Kirtonos the Herald
+    {ID_ATTUNE="420",ID="370",TYPE="Kill",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="10506",ICON="Interface\\Icons\\ability_hunter_pet_bat",FOLLOWS="360",STAGE="60",MARKER="dungeon"}, -- npc: Kirtonos the Herald
 	{ID_ATTUNE="420",ID="315",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
 	{ID_ATTUNE="420",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="420",ID="215",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
@@ -2711,8 +2711,8 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="163",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="96403",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Important Heirlooms
 	-- STAGE 30
 	{ID_ATTUNE="163",ID="330",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="320",STAGE="30"},
-	{ID_ATTUNE="163",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274286",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="220",STAGE="30"}, -- item: Durgen Dirgehammer's Head
-	{ID_ATTUNE="163",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274289",ICON="Interface\\Icons\\trade_archaeology_silverdoorknocker-of-female-dwarf",FOLLOWS="120",STAGE="30",COUNT=8}, -- item: Dwarven Heirloom
+	{ID_ATTUNE="163",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274286",ICON="Interface\\Icons\\inv_misc_head_dwarf_01",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- item: Durgen Dirgehammer's Head
+	{ID_ATTUNE="163",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274289",ICON="Interface\\Icons\\trade_archaeology_silverdoorknocker-of-female-dwarf",FOLLOWS="120",STAGE="30",COUNT=8,MARKER="dungeon"}, -- item: Dwarven Heirloom
 	-- STAGE 40
 	{ID_ATTUNE="163",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
 	{ID_ATTUNE="163",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="96393",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Old Ironforge Incursion
@@ -2729,7 +2729,7 @@ Attune_Data.steps = 	{
 	-- STAGE 20
 	{ID_ATTUNE="166",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="96403",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Important Heirlooms
 	-- STAGE 30
-	{ID_ATTUNE="166",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274289",ICON="Interface\\Icons\\inv_misc_statue_07",FOLLOWS="120",STAGE="30",COUNT=8}, -- item: Dwarven Heirloom
+	{ID_ATTUNE="166",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Hall of Thanes"],ID_WOWHEAD="274289",ICON="Interface\\Icons\\inv_misc_statue_07",FOLLOWS="120",STAGE="30",COUNT=8,MARKER="dungeon"}, -- item: Dwarven Heirloom
 	-- STAGE 40
 	{ID_ATTUNE="166",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="96403",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Important Heirlooms
 	-- SIDE reminder (inside dungeon) — left of End
@@ -2754,7 +2754,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="195",ID="330",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="95795",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30"}, -- quest: Fallen in the Fen
 	-- STAGE 40
 	{ID_ATTUNE="195",ID="740",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95809",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40"}, -- quest: Heartwoven
-	{ID_ATTUNE="195",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="284845",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_05",FOLLOWS="630",STAGE="40",COUNT=4}, -- item: Thicket Raptor Hide
+	{ID_ATTUNE="195",ID="640",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="284845",ICON="Interface\\Icons\\inv_misc_pelt_bear_ruin_05",FOLLOWS="630",STAGE="40",COUNT=4,MARKER="dungeon"}, -- item: Thicket Raptor Hide
 	{ID_ATTUNE="195",ID="440",TYPE="Quest",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="277",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40"}, -- quest: Fire Taboo
 	{ID_ATTUNE="195",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="40"},
 	-- STAGE 50
@@ -2770,7 +2770,7 @@ Attune_Data.steps = 	{
 	-- STAGE 70
 	{ID_ATTUNE="195",ID="770",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="760",STAGE="70"},
 	{ID_ATTUNE="195",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="660",STAGE="70"},
-	{ID_ATTUNE="195",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="270180",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="460",STAGE="70"}, -- item: Horrible Rootcore (Highland Horror)
+	{ID_ATTUNE="195",ID="470",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="270180",ICON="Interface\\Icons\\inv_misc_herb_07",FOLLOWS="460",STAGE="70",MARKER="dungeon"}, -- item: Horrible Rootcore (Highland Horror)
 	{ID_ATTUNE="195",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="195",ID="780",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="80"},
@@ -2790,9 +2790,9 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="196",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="95697",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Changing Tastes
 	-- STAGE 30
 	{ID_ATTUNE="196",ID="230",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95682",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- quest: Open the Maw
-	{ID_ATTUNE="196",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="271100",ICON="Interface\\Icons\\inv_misc_food_71",FOLLOWS="120",STAGE="30",COUNT=4}, -- item: Thicket Raptor Meat
+	{ID_ATTUNE="196",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="271100",ICON="Interface\\Icons\\inv_misc_food_71",FOLLOWS="120",STAGE="30",COUNT=4,MARKER="dungeon"}, -- item: Thicket Raptor Meat
 	-- STAGE 40
-	{ID_ATTUNE="196",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="284844",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="230",STAGE="40"}, -- item: Dragonmaw Dispatch
+	{ID_ATTUNE="196",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Excavation Site"],ID_WOWHEAD="284844",ICON="Interface\\Icons\\inv_misc_note_06",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- item: Dragonmaw Dispatch
 	{ID_ATTUNE="196",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="95697",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: Changing Tastes
 	-- STAGE 50
 	{ID_ATTUNE="196",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Wetlands"],ID_WOWHEAD="95682",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- quest: Open the Maw
@@ -2814,9 +2814,9 @@ Attune_Data.steps = 	{
 	-- STAGE 30
     {ID_ATTUNE="275",ID="915",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="275",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="207",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920&820",STAGE="30"}, -- quest: Kurzen's Mystery
-	{ID_ATTUNE="275",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="320",STAGE="30"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
-	{ID_ATTUNE="275",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="220",STAGE="30"}, -- npc: Captain Dreadrise
-	{ID_ATTUNE="275",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="120",STAGE="30",COUNT=10}, -- item: Voodoo-Infused Artifact
+	{ID_ATTUNE="275",ID="330",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
+	{ID_ATTUNE="275",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Captain Dreadrise
+	{ID_ATTUNE="275",ID="130",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="120",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Voodoo-Infused Artifact
 	-- STAGE 33
 	{ID_ATTUNE="275",ID="935",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="33"},
 	{ID_ATTUNE="275",ID="928",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="574",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="33",MARKER="dungeon"}, -- quest: Special Forces
@@ -2854,7 +2854,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="275",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="255",STAGE="60"},
 	{ID_ATTUNE="275",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="155",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="275",ID="870",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270343",ICON="Interface\\Icons\\archaeology_5_0_carvedbronzemirror",FOLLOWS="880",STAGE="70",COUNT=5}, -- item: I'lalai Fetish
+	{ID_ATTUNE="275",ID="870",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270343",ICON="Interface\\Icons\\archaeology_5_0_carvedbronzemirror",FOLLOWS="880",STAGE="70",COUNT=5,MARKER="dungeon"}, -- item: I'lalai Fetish
 	{ID_ATTUNE="275",ID="670",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="70"},
 	{ID_ATTUNE="275",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
 	{ID_ATTUNE="275",ID="270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="260",STAGE="70"},
@@ -2891,9 +2891,9 @@ Attune_Data.steps = 	{
 	-- STAGE 30
     {ID_ATTUNE="276",ID="915",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="30"},
 	{ID_ATTUNE="276",ID="910",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95748",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30"}, -- quest: The Gurubashi Legends of Old
-	{ID_ATTUNE="276",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="420",STAGE="30"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
-	{ID_ATTUNE="276",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="320",STAGE="30"}, -- npc: Captain Dreadrise
-	{ID_ATTUNE="276",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="220",STAGE="30",COUNT=10}, -- item: Voodoo-Infused Artifact
+	{ID_ATTUNE="276",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
+	{ID_ATTUNE="276",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Captain Dreadrise
+	{ID_ATTUNE="276",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="220",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Voodoo-Infused Artifact
 	-- STAGE 35
 	{ID_ATTUNE="276",ID="918",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
 	{ID_ATTUNE="276",ID="912",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="598",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="35"}, -- quest: Split Bone Necklace
@@ -2919,7 +2919,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="276",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="60"},
 	{ID_ATTUNE="276",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	-- STAGE 70
-	{ID_ATTUNE="276",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="258924",ICON="Interface\\Icons\\ability_creature_poison_05",FOLLOWS="880",STAGE="70"}, -- npc: Var'Taka
+	{ID_ATTUNE="276",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="258924",ICON="Interface\\Icons\\ability_creature_poison_05",FOLLOWS="880",STAGE="70",MARKER="dungeon"}, -- npc: Var'Taka
 	{ID_ATTUNE="276",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="70"},
 	{ID_ATTUNE="276",ID="470",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="460",STAGE="70"},
 	{ID_ATTUNE="276",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="70"},
@@ -2941,19 +2941,19 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="345",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- Bijou → Maxwell's Mission
 	{ID_ATTUNE="345",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Bijou's Belongings
-	{ID_ATTUNE="345",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="820",STAGE="30"}, -- item: Bijou's Belongings
+	{ID_ATTUNE="345",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- item: Bijou's Belongings
 	{ID_ATTUNE="345",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5001",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="40",MARKER="dungeon"}, -- quest: Bijou's Belongings
 	{ID_ATTUNE="345",ID="850",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5002",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="50"}, -- quest: Message to Maxwell
 	{ID_ATTUNE="345",ID="855",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="60"},
 	{ID_ATTUNE="345",ID="860",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="855",STAGE="70",MARKER="dungeon"}, -- quest: Maxwell's Mission
-	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="860",STAGE="80"}, -- npc: Highlord Omokk
-	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="860",STAGE="80"}, -- npc: War Master Voone
-	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="860",STAGE="80"}, -- npc: Overlord Wyrmthalak
+	{ID_ATTUNE="345",ID="870",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9196",ICON="Interface\\Icons\\achievement_reputation_ogre",FOLLOWS="860",STAGE="80",MARKER="dungeon"}, -- npc: Highlord Omokk
+	{ID_ATTUNE="345",ID="872",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9237",ICON="Interface\\Icons\\achievement_character_troll_male",FOLLOWS="860",STAGE="80",MARKER="dungeon"}, -- npc: War Master Voone
+	{ID_ATTUNE="345",ID="874",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="9568",ICON="Interface\\Icons\\achievement_boss_overlord_wyrmthalak",FOLLOWS="860",STAGE="80",MARKER="dungeon"}, -- npc: Overlord Wyrmthalak
 	{ID_ATTUNE="345",ID="880",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5081",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="870&872&874",STAGE="90",MARKER="dungeon"}, -- quest: Maxwell's Mission
 	-- {ID_ATTUNE="345",ID="890",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="880",STAGE="90"},
 	-- Put Her Down
 	{ID_ATTUNE="345",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Put Her Down
-	{ID_ATTUNE="345",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="720",STAGE="30"}, -- npc: Halycon
+	{ID_ATTUNE="345",ID="730",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- npc: Halycon
 	{ID_ATTUNE="345",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40",MARKER="dungeon"}, -- quest: Put Her Down
 	{ID_ATTUNE="345",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="50"},
 	{ID_ATTUNE="345",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="60"},
@@ -2967,12 +2967,12 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="345",ID="650",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="640",STAGE="50",MARKER="dungeon"}, -- quest: The God Hakkar
 	{ID_ATTUNE="345",ID="660",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60"}, -- quest: The Lost Tablets of Mosh'aru
 	{ID_ATTUNE="345",ID="670",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="660",STAGE="70",MARKER="dungeon"}, -- quest: The Final Tablets
-	{ID_ATTUNE="345",ID="680",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="670",STAGE="80"}, -- item: Fifth Mosh'aru Tablet
-	{ID_ATTUNE="345",ID="682",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="670",STAGE="80"}, -- item: Sixth Mosh'aru Tablet
+	{ID_ATTUNE="345",ID="680",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_stonetablet_05",FOLLOWS="670",STAGE="80",MARKER="dungeon"}, -- item: Fifth Mosh'aru Tablet
+	{ID_ATTUNE="345",ID="682",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_stonetablet_03",FOLLOWS="670",STAGE="80",MARKER="dungeon"}, -- item: Sixth Mosh'aru Tablet
 	{ID_ATTUNE="345",ID="690",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="680&682",STAGE="90",MARKER="dungeon"}, -- quest: The Final Tablets
 	-- Kibler's Exotic Pets
 	{ID_ATTUNE="345",ID="520",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Kibler's Exotic Pets
-	{ID_ATTUNE="345",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="520",STAGE="30"}, -- item: Caged Worg Pup
+	{ID_ATTUNE="345",ID="530",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- item: Caged Worg Pup
 	{ID_ATTUNE="345",ID="540",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- quest: Kibler's Exotic Pets
 	{ID_ATTUNE="345",ID="550",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="540",STAGE="50"},
 	{ID_ATTUNE="345",ID="560",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="550",STAGE="60"},
@@ -2981,7 +2981,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="345",ID="590",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="90"},
 	-- Mother's Milk
 	{ID_ATTUNE="345",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Mother's Milk
-	{ID_ATTUNE="345",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="420",STAGE="30"}, -- npc: Mother Smolderweb
+	{ID_ATTUNE="345",ID="430",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- npc: Mother Smolderweb
 	{ID_ATTUNE="345",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- quest: Mother's Milk
 	{ID_ATTUNE="345",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
 	{ID_ATTUNE="345",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
@@ -2990,7 +2990,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="345",ID="490",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="470",STAGE="90"},
 	-- En-Ay-Es-Tee-Why
 	{ID_ATTUNE="345",ID="92",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: En-Ay-Es-Tee-Why
-	{ID_ATTUNE="345",ID="93",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="92",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
+	{ID_ATTUNE="345",ID="93",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="92",STAGE="30", COUNT=15,MARKER="dungeon"}, -- item: Spire Spider Egg
 	{ID_ATTUNE="345",ID="94",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="40",MARKER="dungeon"}, -- quest: En-Ay-Es-Tee-Why
 	{ID_ATTUNE="345",ID="95",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="94",STAGE="50"},
 	{ID_ATTUNE="345",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="60"},
@@ -3003,7 +3003,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="345",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4742",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Seal of Ascension (Inside)
 	{ID_ATTUNE="345",ID="1100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4743",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Seal of Ascension (Inside)
 	{ID_ATTUNE="345",ID="1080",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4867",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: Urok Doomhowl (Inside)
-	{ID_ATTUNE="345",ID="1020",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true}, -- quest: General Drakkisath's Command (Inside — item 12780)
+	{ID_ATTUNE="345",ID="1020",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5089",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: General Drakkisath's Command (Inside — item 12780)
 	{ID_ATTUNE="345",ID="900",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_01",FOLLOWS="880&790&690&590&490&99&1200&1100&1080&1020",STAGE="100"},
 	{ID_ATTUNE="345",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="5306",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="110",FOLLOW=true,MARKER="dungeon"}, -- quest: Snakestone of the Shadow Huntress (hunter)
 
@@ -3014,7 +3014,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- Kibler's Exotic Pets
 	{ID_ATTUNE="346",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Kibler's Exotic Pets
-	{ID_ATTUNE="346",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="820",STAGE="30"}, -- item: Caged Worg Pup
+	{ID_ATTUNE="346",ID="830",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12263",ICON="Interface\\Icons\\inv_box_petcarrier_01",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- item: Caged Worg Pup
 	{ID_ATTUNE="346",ID="840",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4729",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="830",STAGE="50",MARKER="dungeon"}, -- quest: Kibler's Exotic Pets
 	{ID_ATTUNE="346",ID="850",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="840",STAGE="60"},
 	{ID_ATTUNE="346",ID="860",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="70"},
@@ -3023,7 +3023,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="890",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="100"},
 	-- Warlord's Command
 	{ID_ATTUNE="346",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Warlord's Command
-	{ID_ATTUNE="346",ID="736",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="720",STAGE="30"}, -- item: Important Blackrock Documents
+	{ID_ATTUNE="346",ID="736",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12562",ICON="Interface\\Icons\\inv_scroll_02",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- item: Important Blackrock Documents
 	{ID_ATTUNE="346",ID="740",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4903",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="736",STAGE="50",MARKER="dungeon"}, -- quest: Warlord's Command
 	{ID_ATTUNE="346",ID="750",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="740",STAGE="60"},
 	{ID_ATTUNE="346",ID="760",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="750",STAGE="70"},
@@ -3032,7 +3032,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="770",STAGE="100"},
 	-- The Pack Mistress
 	{ID_ATTUNE="346",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Pack Mistress
-	{ID_ATTUNE="346",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="620",STAGE="30"}, -- npc: Halycon
+	{ID_ATTUNE="346",ID="630",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10220",ICON="Interface\\Icons\\ability_hunter_pet_wolf",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- npc: Halycon
 	{ID_ATTUNE="346",ID="640",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4724",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="50",MARKER="dungeon"}, -- quest: The Pack Mistress
 	{ID_ATTUNE="346",ID="650",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="640",STAGE="60"},
 	{ID_ATTUNE="346",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="650",STAGE="70"},
@@ -3040,10 +3040,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="680",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="90"},
 	{ID_ATTUNE="346",ID="690",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="670",STAGE="100"},
 	-- Operative Bijou
-	{ID_ATTUNE="346",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Operative Bijou
+	{ID_ATTUNE="346",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Operative Bijou
 	-- {ID_ATTUNE="346",ID="530",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4981",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: Operative Bijou
 	{ID_ATTUNE="346",ID="540",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- quest: Bijou's Belongings
-	{ID_ATTUNE="346",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="540",STAGE="50"}, -- item: Bijou's Belongings
+	{ID_ATTUNE="346",ID="550",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12345",ICON="Interface\\Icons\\inv_misc_bag_19",FOLLOWS="540",STAGE="50",MARKER="dungeon"}, -- item: Bijou's Belongings
 	{ID_ATTUNE="346",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="4982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60",MARKER="dungeon"}, -- quest: Bijou's Belongings
 	{ID_ATTUNE="346",ID="570",TYPE="Quest",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="70"}, -- quest: Bijou's Reconnaissance Report
 	{ID_ATTUNE="346",ID="580",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="570",STAGE="80"},
@@ -3055,13 +3055,13 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="450",TYPE="Quest",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="3528",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440",STAGE="60",MARKER="dungeon"}, -- quest: The God Hakkar
 	{ID_ATTUNE="346",ID="460",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="5065",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="450",STAGE="70"}, -- quest: The Lost Tablets of Mosh'aru
 	{ID_ATTUNE="346",ID="470",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="460",STAGE="80",MARKER="dungeon"}, -- quest: The Final Tablets
-	{ID_ATTUNE="346",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="470",STAGE="90"}, -- item: Fifth Mosh'aru Tablet
-	{ID_ATTUNE="346",ID="482",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="470",STAGE="90"}, -- item: Sixth Mosh'aru Tablet
+	{ID_ATTUNE="346",ID="480",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12740",ICON="Interface\\Icons\\inv_misc_rune_08",FOLLOWS="470",STAGE="90",MARKER="dungeon"}, -- item: Fifth Mosh'aru Tablet
+	{ID_ATTUNE="346",ID="482",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12741",ICON="Interface\\Icons\\inv_misc_rune_04",FOLLOWS="470",STAGE="90",MARKER="dungeon"}, -- item: Sixth Mosh'aru Tablet
 	{ID_ATTUNE="346",ID="490",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Tanaris"],ID_WOWHEAD="4788",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="480&482",STAGE="100",MARKER="dungeon"}, -- quest: The Final Tablets
 	-- The Darkstone Tablet
 	{ID_ATTUNE="346",ID="320",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="4769",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Vivian Lagrave and the Darkstone Tablet
 	{ID_ATTUNE="346",ID="330",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- quest: The Darkstone Tablet
-	{ID_ATTUNE="346",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12358",ICON="Interface\\Icons\\inv_misc_rune_06",FOLLOWS="330",STAGE="50"}, -- item: Darkstone Tablet
+	{ID_ATTUNE="346",ID="340",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12358",ICON="Interface\\Icons\\inv_misc_rune_06",FOLLOWS="330",STAGE="50",MARKER="dungeon"}, -- item: Darkstone Tablet
 	{ID_ATTUNE="346",ID="350",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Badlands"],ID_WOWHEAD="4768",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="340",STAGE="60",MARKER="dungeon"}, -- quest: The Darkstone Tablet
 	{ID_ATTUNE="346",ID="360",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="70"},
 	{ID_ATTUNE="346",ID="370",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="360",STAGE="80"},
@@ -3069,7 +3069,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="370",STAGE="100"},
 	-- Mother's Milk
 	{ID_ATTUNE="346",ID="92",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Mother's Milk
-	{ID_ATTUNE="346",ID="93",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="92",STAGE="30"}, -- npc: Mother Smolderweb
+	{ID_ATTUNE="346",ID="93",TYPE="Kill",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="10596",ICON="Interface\\Icons\\inv_misc_monsterspidercarapace_01",FOLLOWS="92",STAGE="30",MARKER="dungeon"}, -- npc: Mother Smolderweb
 	{ID_ATTUNE="346",ID="94",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4866",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="93",STAGE="50",MARKER="dungeon"}, -- quest: Mother's Milk
 	{ID_ATTUNE="346",ID="95",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="94",STAGE="60"},
 	{ID_ATTUNE="346",ID="96",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="95",STAGE="70"},
@@ -3078,7 +3078,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="346",ID="99",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="97",STAGE="100"},
 	-- En-Ay-Es-Tee-Why
 	{ID_ATTUNE="346",ID="72",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: En-Ay-Es-Tee-Why
-	{ID_ATTUNE="346",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="72",STAGE="30", COUNT=15}, -- item: Spire Spider Egg
+	{ID_ATTUNE="346",ID="73",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12530",ICON="Interface\\Icons\\inv_egg_02",FOLLOWS="72",STAGE="30", COUNT=15,MARKER="dungeon"}, -- item: Spire Spider Egg
 	{ID_ATTUNE="346",ID="74",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="73",STAGE="50",MARKER="dungeon"}, -- quest: En-Ay-Es-Tee-Why
 	{ID_ATTUNE="346",ID="75",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="74",STAGE="60"},
 	{ID_ATTUNE="346",ID="76",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="75",STAGE="70"},
@@ -3100,12 +3100,12 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="365",ID="620",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Egg Freezing
 	{ID_ATTUNE="365",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: Egg Freezing
 	{ID_ATTUNE="365",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="630",STAGE="40",MARKER="dungeon"}, -- quest: Egg Collection
-	{ID_ATTUNE="365",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="50", COUNT=8}, -- item: Collected Dragon Egg
+	{ID_ATTUNE="365",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="50", COUNT=8,MARKER="dungeon"}, -- item: Collected Dragon Egg
 	{ID_ATTUNE="365",ID="660",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="60",MARKER="dungeon"}, -- quest: Egg Collection
 	{ID_ATTUNE="365",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
 	{ID_ATTUNE="365",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- quest: Blackhand's Command
-	{ID_ATTUNE="365",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
-	{ID_ATTUNE="365",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="365",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- npc: General Drakkisath
+	{ID_ATTUNE="365",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50",MARKER="dungeon"},
 	{ID_ATTUNE="365",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60",MARKER="dungeon"}, -- quest: Blackhand's Command
 	{ID_ATTUNE="365",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
 	{ID_ATTUNE="365",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_10",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
@@ -3113,22 +3113,22 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="365",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
 	{ID_ATTUNE="365",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
 	{ID_ATTUNE="365",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Eye of the Emberseer
-	{ID_ATTUNE="365",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
-	{ID_ATTUNE="365",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
+	{ID_ATTUNE="365",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Pyroguard Emberseer
+	{ID_ATTUNE="365",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- item: Eye of the Emberseer
 	{ID_ATTUNE="365",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- quest: Eye of the Emberseer
 	{ID_ATTUNE="365",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="365",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: General Drakkisath's Demise
-	{ID_ATTUNE="365",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="120",STAGE="30"}, -- npc: General Drakkisath
+	{ID_ATTUNE="365",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- npc: General Drakkisath
 	{ID_ATTUNE="365",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="5102",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: General Drakkisath's Demise
 	{ID_ATTUNE="365",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	{ID_ATTUNE="365",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
 	-- Doomrigger's Clasp (Mayara Brightwing)
 	{ID_ATTUNE="365",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4766",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Mayara Brightwing
 	{ID_ATTUNE="365",ID="30",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30",MARKER="dungeon"}, -- quest: Doomrigger's Clasp
-	{ID_ATTUNE="365",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12352",ICON="Interface\\Icons\\inv_belt_12",FOLLOWS="30",STAGE="40"}, -- item: Doomrigger's Clasp
+	{ID_ATTUNE="365",ID="40",TYPE="Item",STEP="",LOCATION=AttuneLang["Lower Blackrock Spire"],ID_WOWHEAD="12352",ICON="Interface\\Icons\\inv_belt_12",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- item: Doomrigger's Clasp
 	{ID_ATTUNE="365",ID="50",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4764",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- quest: Doomrigger's Clasp
 	{ID_ATTUNE="365",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
-	{ID_ATTUNE="365",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Finkle Einhorn, At Your Service! (Inside)
+	{ID_ATTUNE="365",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: Finkle Einhorn, At Your Service! (Inside)
 	{ID_ATTUNE="365",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&260&160&60&1200",STAGE="70"},
 	{ID_ATTUNE="365",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5126",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",FOLLOW=true}, -- quest: Lorax's Tale (blacksmith)
 	{ID_ATTUNE="365",ID="1500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5127",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1510",STAGE="90",FOLLOW=true,MARKER="dungeon"}, -- quest: The Demon Forge (blacksmith)
@@ -3139,13 +3139,13 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="366",ID="620",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Egg Freezing
 	-- {ID_ATTUNE="366",ID="630",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4734",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30"}, -- quest: Egg Freezing
 	{ID_ATTUNE="366",ID="640",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="620",STAGE="30",MARKER="dungeon"}, -- quest: Egg Collection
-	{ID_ATTUNE="366",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="40", COUNT=8}, -- item: Collected Dragon Egg
+	{ID_ATTUNE="366",ID="650",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12241",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="640",STAGE="40", COUNT=8,MARKER="dungeon"}, -- item: Collected Dragon Egg
 	{ID_ATTUNE="366",ID="655",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4735",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="650",STAGE="50",MARKER="dungeon"}, -- quest: Egg Collection
     {ID_ATTUNE="366",ID="660",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="655",STAGE="60"},
 	{ID_ATTUNE="366",ID="520",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="18987",ICON="Interface\\Icons\\inv_letter_17",FOLLOWS="10",STAGE="20"}, -- item: Blackhand's Command
 	{ID_ATTUNE="366",ID="530",TYPE="Pick Up",STEP=" Command",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30",MARKER="dungeon"}, -- quest: Blackhand's Command
-	{ID_ATTUNE="366",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40"}, -- npc: General Drakkisath
-	{ID_ATTUNE="366",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50"},
+	{ID_ATTUNE="366",ID="540",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10363",ICON="Interface\\Icons\\achievement_boss_generaldrakkisath",FOLLOWS="530",STAGE="40",MARKER="dungeon"}, -- npc: General Drakkisath
+	{ID_ATTUNE="366",ID="550",TYPE="Click",STEP=AttuneLang["Drakkisath's Brand"],LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="1",ICON="Interface\\Icons\\inv_misc_orb_05",FOLLOWS="540",STAGE="50",MARKER="dungeon"},
 	{ID_ATTUNE="366",ID="560",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="7761",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60",MARKER="dungeon"}, -- quest: Blackhand's Command
 	{ID_ATTUNE="366",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5160",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Matron Protectorate
 	{ID_ATTUNE="366",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="12923",ICON="Interface\\Icons\\inv_misc_monsterscales_10",FOLLOWS="420",STAGE="30"}, -- item: Awbee's Scale
@@ -3153,16 +3153,16 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="366",ID="450",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="440",STAGE="50"},
 	{ID_ATTUNE="366",ID="460",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="450",STAGE="60"},
 	{ID_ATTUNE="366",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Eye of the Emberseer
-	{ID_ATTUNE="366",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30"}, -- npc: Pyroguard Emberseer
-	{ID_ATTUNE="366",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40"}, -- item: Eye of the Emberseer
+	{ID_ATTUNE="366",ID="230",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="9816",ICON="Interface\\Icons\\spell_fire_lavaspawn",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Pyroguard Emberseer
+	{ID_ATTUNE="366",ID="240",TYPE="Item",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="17322",ICON="Interface\\Icons\\inv_misc_gem_pearl_04",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- item: Eye of the Emberseer
 	{ID_ATTUNE="366",ID="250",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="6821",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="240",STAGE="50",MARKER="dungeon"}, -- quest: Eye of the Emberseer
 	{ID_ATTUNE="366",ID="260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="250",STAGE="60"},
 	{ID_ATTUNE="366",ID="120",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: For The Horde!
-	{ID_ATTUNE="366",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30"}, -- npc: Warchief Rend Blackhand
+	{ID_ATTUNE="366",ID="130",TYPE="Kill",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="10429",ICON="Interface\\Icons\\inv_misc_head_orc_01",FOLLOWS="120",STAGE="30",MARKER="dungeon"}, -- npc: Warchief Rend Blackhand
 	{ID_ATTUNE="366",ID="140",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="4974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="130",STAGE="40",MARKER="dungeon"}, -- quest: For The Horde!
 	{ID_ATTUNE="366",ID="150",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="140",STAGE="50"},
 	{ID_ATTUNE="366",ID="160",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="150",STAGE="60"},
-	{ID_ATTUNE="366",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true}, -- quest: Finkle Einhorn, At Your Service! (Inside)
+	{ID_ATTUNE="366",ID="1200",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5047",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="70",SIDE=true,MARKER="dungeon"}, -- quest: Finkle Einhorn, At Your Service! (Inside)
 	{ID_ATTUNE="366",ID="700",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_head_dragon_black",FOLLOWS="660&560&460&260&160&1200",STAGE="70"},
 	{ID_ATTUNE="366",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="5126",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",FOLLOW=true}, -- quest: Lorax's Tale (blacksmith)
 	{ID_ATTUNE="366",ID="1500",TYPE="Quest",STEP="",LOCATION=AttuneLang["Upper Blackrock Spire"],ID_WOWHEAD="5127",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1510",STAGE="90",FOLLOW=true,MARKER="dungeon"}, -- quest: The Demon Forge (blacksmith)
@@ -3211,7 +3211,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="295",ID="930",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94881",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Curious Trinkets
 	{ID_ATTUNE="295",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94907",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="30"}, -- quest: A Small Favor
 	{ID_ATTUNE="295",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="40",MARKER="dungeon"}, -- quest: Tome of Twilight
-	{ID_ATTUNE="295",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="910",STAGE="50"}, -- item: Tome of Twilight
+	{ID_ATTUNE="295",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="910",STAGE="50",MARKER="dungeon"}, -- item: Tome of Twilight
 	{ID_ATTUNE="295",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94984",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="60",MARKER="dungeon"}, -- quest: Tome of Twilight
 	{ID_ATTUNE="295",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="890",STAGE="70"},
 	{ID_ATTUNE="295",ID="870",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="880",STAGE="80"},
@@ -3227,7 +3227,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="295",ID="835",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94890",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="850&845",STAGE="50"}, -- quest: Bring Me His Head
 	-- Twilight Mementos
 	{ID_ATTUNE="295",ID="820",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="835",STAGE="60",MARKER="dungeon"}, -- quest: Twilight Mementos
-	{ID_ATTUNE="295",ID="810",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267234",ICON="Interface\\Icons\\inv_7_0raid_necklace_13b",FOLLOWS="820",STAGE="70", COUNT=8}, -- item: Twilight Bangle
+	{ID_ATTUNE="295",ID="810",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267234",ICON="Interface\\Icons\\inv_7_0raid_necklace_13b",FOLLOWS="820",STAGE="70", COUNT=8,MARKER="dungeon"}, -- item: Twilight Bangle
 	{ID_ATTUNE="295",ID="800",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94983",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="810",STAGE="80",MARKER="dungeon"}, -- quest: Twilight Mementos
 	{ID_ATTUNE="295",ID="795",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94891",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="800",STAGE="85"}, -- quest: News to Farholde
 	{ID_ATTUNE="295",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94997",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="795",STAGE="90"}, -- quest: Lingering Essence
@@ -3245,7 +3245,7 @@ Attune_Data.steps = 	{
     {ID_ATTUNE="295",ID="600",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="100"},
 	-- Eye of Mugg   
 	{ID_ATTUNE="295",ID="420",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Eye of Mugg
-	{ID_ATTUNE="295",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="420",STAGE="30"}, -- item: Eye of Mugg
+	{ID_ATTUNE="295",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Eye of Mugg
 	{ID_ATTUNE="295",ID="400",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94982",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="410",STAGE="40",MARKER="dungeon"}, -- quest: Eye of Mugg
 	{ID_ATTUNE="295",ID="390",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="400",STAGE="50"},
 	{ID_ATTUNE="295",ID="380",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="390",STAGE="60"},
@@ -3255,7 +3255,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="295",ID="340",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="350",STAGE="100"},
 	-- Vengeance of the Highborne
 	{ID_ATTUNE="295",ID="220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Vengeance of the Highborne
-	{ID_ATTUNE="295",ID="210",TYPE="Kill",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="268423",ICON="Interface\\Icons\\inv_misc_head_elf_02",FOLLOWS="220",STAGE="30"}, -- npc: Zalfan Moonshadow
+	{ID_ATTUNE="295",ID="210",TYPE="Kill",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="268423",ICON="Interface\\Icons\\inv_misc_head_elf_02",FOLLOWS="220",STAGE="30",MARKER="dungeon"}, -- npc: Zalfan Moonshadow
 	{ID_ATTUNE="295",ID="200",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96771",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="210",STAGE="40",MARKER="dungeon"}, -- quest: Vengeance of the Highborne
 	{ID_ATTUNE="295",ID="190",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="200",STAGE="50"},
 	{ID_ATTUNE="295",ID="180",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="190",STAGE="60"},
@@ -3264,7 +3264,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="295",ID="155",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="160",STAGE="90"},
 	{ID_ATTUNE="295",ID="145",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="155",STAGE="100"},
 	-- {ID_ATTUNE="295",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94969",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: Krol'dok No More! (Inside)
-	{ID_ATTUNE="295",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true}, -- quest: Krol'dok Moulding (Inside — dropped by Tunk)
+	{ID_ATTUNE="295",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94980",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="80",SIDE=true,MARKER="dungeon"}, -- quest: Krol'dok Moulding (Inside — dropped by Tunk)
 	{ID_ATTUNE="295",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterclaw_04",FOLLOWS="885&780&340&145&140",STAGE="130"},
 
 	-- Krol'dok Stronghold (Horde).
@@ -3285,7 +3285,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="296",ID="960",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94727",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="965&964",STAGE="50"}, -- quest: Digging for Answers
 	{ID_ATTUNE="296",ID="950",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95417",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="960",STAGE="60"}, -- quest: The Purple Ones
 	{ID_ATTUNE="296",ID="940",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95602",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="960",STAGE="60"}, -- quest: Sickening Lights
-	{ID_ATTUNE="296",ID="930",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95427",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="950&940",STAGE="70",MARKER="dungeon"}, -- quest: Twilight No More!
+	{ID_ATTUNE="296",ID="930",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95427",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="950&940",STAGE="70"}, -- quest: Twilight No More!
 	{ID_ATTUNE="296",ID="925",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95420",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="80"}, -- quest: Land of Giants
 	{ID_ATTUNE="296",ID="923",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95424",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="925",STAGE="90"}, -- quest: Might Makes Right
 	{ID_ATTUNE="296",ID="922",TYPE="Quest",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="95425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="925",STAGE="90"}, -- quest: Unworthy Champion
@@ -3305,15 +3305,15 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="296",ID="740",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="150",MARKER="dungeon"}, -- quest: Eye of Mugg
 	{ID_ATTUNE="296",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="150",MARKER="dungeon"}, -- quest: Tome of Twilight
 
-	{ID_ATTUNE="296",ID="770",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267091",ICON="Interface\\Icons\\inv_misc_ear_human_01",FOLLOWS="780",STAGE="160", COUNT=15}, -- item: Cultist Ear
-	{ID_ATTUNE="296",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="740",STAGE="160"}, -- item: Eye of Mugg
-	{ID_ATTUNE="296",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="720",STAGE="160"}, -- item: Tome of Twilight
+	{ID_ATTUNE="296",ID="770",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267091",ICON="Interface\\Icons\\inv_misc_ear_human_01",FOLLOWS="780",STAGE="160", COUNT=15,MARKER="dungeon"}, -- item: Cultist Ear
+	{ID_ATTUNE="296",ID="730",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267086",ICON="Interface\\Icons\\inv_misc_eye_04",FOLLOWS="740",STAGE="160",MARKER="dungeon"}, -- item: Eye of Mugg
+	{ID_ATTUNE="296",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="267104",ICON="Interface\\Icons\\inv_misc_book_05",FOLLOWS="720",STAGE="160",MARKER="dungeon"}, -- item: Tome of Twilight
 
 	{ID_ATTUNE="296",ID="790",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94975",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="770",STAGE="170",MARKER="dungeon"}, -- quest: A Token of Vengeance
 	{ID_ATTUNE="296",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94968",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="170",MARKER="dungeon"}, -- quest: Eye of Mugg
 	{ID_ATTUNE="296",ID="690",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Riverglades"],ID_WOWHEAD="94972",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="170",MARKER="dungeon"}, -- quest: Tome of Twilight
 	-- {ID_ATTUNE="296",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="95056",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="170",SIDE=true}, -- quest: Krol'dok No More! (Inside)
-	{ID_ATTUNE="296",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94973",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="170",SIDE=true}, -- quest: Krol'dok Moulding (Inside — dropped by Tunk)
+	{ID_ATTUNE="296",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Krol'dok Stronghold"],ID_WOWHEAD="94973",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="170",SIDE=true,MARKER="dungeon"}, -- quest: Krol'dok Moulding (Inside — dropped by Tunk)
 	{ID_ATTUNE="296",ID="100",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterclaw_04",FOLLOWS="790&700&690&140",STAGE="180"},
 	{ID_ATTUNE="296",ID="1510",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="94974",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="790",STAGE="190",FOLLOW=true}, -- quest: Key Ingredients
 
@@ -3327,7 +3327,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="355",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="95198",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: The Return of the King?
 	{ID_ATTUNE="355",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="96381",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50",MARKER="dungeon"}, -- quest: A Bit of Wet Work
 	{ID_ATTUNE="355",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96772",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Dragon's Journal
-	{ID_ATTUNE="355",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="276890",ICON="Interface\\Icons\\inv_10_specialization_professionbook_jewelcrafting_color1",FOLLOWS="720",STAGE="30"}, -- item: Zarla's Journal (Blazeroar)
+	{ID_ATTUNE="355",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="276890",ICON="Interface\\Icons\\inv_10_specialization_professionbook_jewelcrafting_color1",FOLLOWS="720",STAGE="30",MARKER="dungeon"}, -- item: Zarla's Journal (Blazeroar)
 	{ID_ATTUNE="355",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="96772",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40",MARKER="dungeon"}, -- quest: The Dragon's Journal
 	{ID_ATTUNE="355",ID="690",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="700",STAGE="50"},
 	{ID_ATTUNE="355",ID="140",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="96335",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true,MARKER="dungeon"}, -- quest: The Man in the Iron Chains (Inside — Mason Connery)
@@ -3354,7 +3354,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="356",ID="830",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dustwallow Marsh"],ID_WOWHEAD="96334",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="940",STAGE="50",MARKER="dungeon"}, -- quest: Blood Red Bandanas
 	{ID_ATTUNE="356",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="95309",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="940",STAGE="50",MARKER="dungeon"}, -- quest: No Orc Left Behind
 	{ID_ATTUNE="356",ID="920",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="930",STAGE="60"},
-	{ID_ATTUNE="356",ID="820",TYPE="Item",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="274028",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="830",STAGE="60",COUNT=8}, -- item: Blood Red Bandana
+	{ID_ATTUNE="356",ID="820",TYPE="Item",STEP="",LOCATION=AttuneLang["Alcaz Prison"],ID_WOWHEAD="274028",ICON="Interface\\Icons\\inv_misc_bandana_03",FOLLOWS="830",STAGE="60",COUNT=8,MARKER="dungeon"}, -- item: Blood Red Bandana
 	{ID_ATTUNE="356",ID="720",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="730",STAGE="60"},
 	{ID_ATTUNE="356",ID="910",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="920",STAGE="70"},
 	{ID_ATTUNE="356",ID="810",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="96334",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="70",MARKER="dungeon"}, -- quest: Blood Red Bandanas
@@ -3375,10 +3375,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="405",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 45",LOCATION="",ID_WOWHEAD="45",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="405",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92345",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Beneath Nordrassil
 	{ID_ATTUNE="405",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="92344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30",MARKER="dungeon"}, -- quest: Get to the Roots of It
-	{ID_ATTUNE="405",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10}, -- item: Nordrassil Root Cap
+	{ID_ATTUNE="405",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10,MARKER="dungeon"}, -- item: Nordrassil Root Cap
 	{ID_ATTUNE="405",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Darnassus"],ID_WOWHEAD="92344",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50",MARKER="dungeon"}, -- quest: Get to the Roots of It
 	{ID_ATTUNE="405",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Blackmaw Pouches
-	{ID_ATTUNE="405",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5}, -- item: Blackmaw Pouch
+	{ID_ATTUNE="405",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Blackmaw Pouch
 	{ID_ATTUNE="405",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40",MARKER="dungeon"}, -- quest: Blackmaw Pouches
 	{ID_ATTUNE="405",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="96246",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="700",STAGE="50",MARKER="dungeon"}, -- quest: Blackmaw Pouches
 	{ID_ATTUNE="405",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="97173",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true,MARKER="dungeon"}, -- quest: Blackmaw Magic (Inside — Archmage Timear; totem from Elder Shaman Bloodmane)
@@ -3396,10 +3396,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="406",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 45",LOCATION="",ID_WOWHEAD="45",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="406",ID="920",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="92346",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Beneath Nordrassil
 	{ID_ATTUNE="406",ID="910",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="92343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="920",STAGE="30",MARKER="dungeon"}, -- quest: Get to the Roots of It
-	{ID_ATTUNE="406",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10}, -- item: Nordrassil Root Cap
+	{ID_ATTUNE="406",ID="900",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="250773",ICON="Interface\\Icons\\inv_misc_herb_nightmarevine_stem",FOLLOWS="910",STAGE="40",COUNT=10,MARKER="dungeon"}, -- item: Nordrassil Root Cap
 	{ID_ATTUNE="406",ID="890",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Thunder Bluff"],ID_WOWHEAD="92343",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50",MARKER="dungeon"}, -- quest: Get to the Roots of It
 	{ID_ATTUNE="406",ID="720",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Blackmaw Pouches
-	{ID_ATTUNE="406",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5}, -- item: Blackmaw Pouch
+	{ID_ATTUNE="406",ID="710",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="273050",ICON="Interface\\Icons\\inv_misc_bag_03",FOLLOWS="720",STAGE="30",COUNT=5,MARKER="dungeon"}, -- item: Blackmaw Pouch
 	{ID_ATTUNE="406",ID="700",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="97327",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="710",STAGE="40",MARKER="dungeon"}, -- quest: Blackmaw Pouches
 	{ID_ATTUNE="406",ID="690",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="96246",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="700",STAGE="50",MARKER="dungeon"}, -- quest: Blackmaw Pouches
 	{ID_ATTUNE="406",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="97198",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true,MARKER="dungeon"}, -- quest: Blackmaw Magic (Inside — Muln Earthfury; totem from Elder Shaman Bloodmane)
@@ -3422,10 +3422,10 @@ Attune_Data.steps = 	{
 	-- Crystalline Elements is picked up before you go. The other two are inside, with no follow-up.
 	{ID_ATTUNE="417",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 55",LOCATION="",ID_WOWHEAD="55",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="417",ID="500",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="95928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: Crystalline Elements
-	{ID_ATTUNE="417",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271912",ICON="Interface\\Icons\\inv_jewelcrafting_empyreansapphire_01",FOLLOWS="500",STAGE="30"}, -- item: Moist Crystal
-	{ID_ATTUNE="417",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271898",ICON="Interface\\Icons\\inv_jewelcrafting_lionseye_01",FOLLOWS="500",STAGE="30"}, -- item: Charged Crystal
-	{ID_ATTUNE="417",ID="420",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271902",ICON="Interface\\Icons\\inv_jewelcrafting_seasprayemerald_01",FOLLOWS="500",STAGE="30"}, -- item: Noxious Crystal
-	{ID_ATTUNE="417",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271894",ICON="Interface\\Icons\\inv_jewelcrafting_crimsonspinel_01",FOLLOWS="500",STAGE="30"}, -- item: Fiery Crystal
+	{ID_ATTUNE="417",ID="440",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271912",ICON="Interface\\Icons\\inv_jewelcrafting_empyreansapphire_01",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- item: Moist Crystal
+	{ID_ATTUNE="417",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271898",ICON="Interface\\Icons\\inv_jewelcrafting_lionseye_01",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- item: Charged Crystal
+	{ID_ATTUNE="417",ID="420",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271902",ICON="Interface\\Icons\\inv_jewelcrafting_seasprayemerald_01",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- item: Noxious Crystal
+	{ID_ATTUNE="417",ID="410",TYPE="Item",STEP="",LOCATION=AttuneLang["The Shapers Terrace"],ID_WOWHEAD="271894",ICON="Interface\\Icons\\inv_jewelcrafting_crimsonspinel_01",FOLLOWS="500",STAGE="30",MARKER="dungeon"}, -- item: Fiery Crystal
 	{ID_ATTUNE="417",ID="400",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="95928",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="440&430&420&410",STAGE="40",MARKER="dungeon"}, -- quest: Crystalline Elements
 	{ID_ATTUNE="417",ID="160",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="97049",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true,MARKER="dungeon"}, -- quest: Essence of Seeping Slimes (Inside — Chemist Fuely)
 	{ID_ATTUNE="417",ID="150",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="95926",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="50",SIDE=true,MARKER="dungeon"}, -- quest: The Dark Crystal (Inside — Master Apothecary Faranell)

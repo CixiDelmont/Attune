@@ -12,9 +12,7 @@
 --   - Added a whole bunch of translations that were missing.
 --   - Added some missing dungeon lead-in quests.
 --   - Added a Follow up section under dungeon chains for quest chains that continue after the dungeon.
---   - A step can set MARKER to "dungeon", "raid", or "elite".
---   - 5- and 10-player quest steps default to a dungeon marker. Larger groups default to a raid marker.
---   - Dungeon steps have an orange border and a light tint. Raid steps use red.
+--   - Steps occurring inside a dungeon have an orange tint. Raid steps use red.
 --
 -- 16001-43
 --   - Added the Alcaz Prison dungeon quests.
@@ -6564,12 +6562,12 @@ local function Attune_SetNodeTone(fnode, tone)
 	end
 end
 
--- MARKER on a step: "dungeon", "raid", or "elite". Absent means no badge.
+-- MARKER on a step: "dungeon" or "raid". Absent means no badge.
 -- {..., LOCATION=AttuneLang["The Deadmines"], MARKER="dungeon", ...}
 function Attune_StepMarker(step)
 	if step == nil or step.MARKER == nil or step.MARKER == "" then return nil end
 	local marker = step.MARKER
-	if marker == "dungeon" or marker == "raid" or marker == "elite" then return marker end
+	if marker == "dungeon" or marker == "raid" then return marker end
 	return nil
 end
 
@@ -6868,8 +6866,6 @@ function Attune_CreateNode(step, parent, posX, posY)
 			GameTooltip:AddLine(AttuneLang["Done inside the dungeon"], 0.65, 0.85, 1, 1)
 		elseif markerKind == "raid" then
 			GameTooltip:AddLine(AttuneLang["Done inside the raid"], 0.85, 0.65, 1, 1)
-		elseif markerKind == "elite" then
-			GameTooltip:AddLine(AttuneLang["Elite"], 1, 0.82, 0, 1)
 		end
 		GameTooltip:Show()
 		if (step.TYPE == "Quest" or step.TYPE == "Pick Up") and not step.SIDE then
@@ -7086,12 +7082,6 @@ function Attune_CreateNode(step, parent, posX, posY)
 			elseif step.TYPE == "Rep" then type = "|cffffd100"..AttuneLang["Reputation"].."|r"
 			elseif step.TYPE == "Stat" or step.TYPE == "Prof" then type = "|cffffd100"..(step.STEP or "").."|r"
 			elseif step.LOCATION ~= "" then type = type .. "|c60808080 ".. AttuneLang["in"].." "..AttuneLang[step.LOCATION].."|r"
-			end
-			local markerKind = Attune_StepMarker(step)
-			if markerKind == "dungeon" or markerKind == "raid" then
-				type = "|cff7ec8ff"..(AttuneLang["Inside"] or "Inside").."|r  " .. type
-			elseif markerKind == "elite" then
-				type = "|cffffd100"..(AttuneLang["Elite"] or "Elite").."|r  " .. type
 			end
 
 			local exist = false

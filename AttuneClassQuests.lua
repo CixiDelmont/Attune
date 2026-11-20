@@ -236,7 +236,7 @@ local classSteps = {
 	{ID_ATTUNE="5109",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9052",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Bloodpetal Poison
 	{ID_ATTUNE="5109",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9051",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Toxic Test
     {ID_ATTUNE="5109",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- A Better Ingredient
-	{ID_ATTUNE="5109",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="22444",ICON="Interface\\Icons\\ability_creature_poison_04",FOLLOWS="50",STAGE="60"}, -- Putrid Vine
+	{ID_ATTUNE="5109",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="22444",ICON="Interface\\Icons\\ability_creature_poison_04",FOLLOWS="50",STAGE="60",MARKER="dungeon"}, -- Putrid Vine
 	{ID_ATTUNE="5109",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="9053",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- A Better Ingredient
 	{ID_ATTUNE="5109",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_druid_maul",FOLLOWS="70",STAGE="80"},
 
@@ -339,13 +339,13 @@ local classSteps = {
 	{ID_ATTUNE="5119",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8151",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Hunter's Charm
 	{ID_ATTUNE="5119",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8153",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Courser Antlers
 	{ID_ATTUNE="5119",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8231",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Wavethrashing
-	{ID_ATTUNE="5119",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Green Drake
-	{ID_ATTUNE="5119",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20019",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="50",STAGE="60"}, -- Took of Morphaz
-	{ID_ATTUNE="5119",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Green Drake
+	{ID_ATTUNE="5119",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- The Green Drake
+	{ID_ATTUNE="5119",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20019",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="50",STAGE="60",MARKER="dungeon"}, -- Took of Morphaz
+	{ID_ATTUNE="5119",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8232",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- The Green Drake
 	{ID_ATTUNE="5119",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_monsterfang_01",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5120",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5120",ID="20",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="18703",ICON="Interface\\Icons\\spell_nature_resistnature",FOLLOWS="10",STAGE="20"}, -- item: Ancient Petrified Leaf
+	{ID_ATTUNE="5120",ID="20",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="18703",ICON="Interface\\Icons\\spell_nature_resistnature",FOLLOWS="10",STAGE="20", MARKER="raid"}, -- item: Ancient Petrified Leaf
 	{ID_ATTUNE="5120",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7632",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Ancient Leaf
 	{ID_ATTUNE="5120",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="7633",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- An Introduction
 	-- Columns left to right (higher ID = left): Lamina | blank | Stave | blank | A Proper String
@@ -451,9 +451,9 @@ local classSteps = {
 	{ID_ATTUNE="5138",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8250",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Magecraft
 	{ID_ATTUNE="5138",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8251",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Magic Dust
 	{ID_ATTUNE="5138",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8252",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Siren's Coral
-	{ID_ATTUNE="5138",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Destroy Morphaz
-	{ID_ATTUNE="5138",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20085",ICON="Interface\\Icons\\inv_misc_gem_topaz_03",FOLLOWS="50",STAGE="60"}, -- Arcane Shard
-	{ID_ATTUNE="5138",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Destroy Morphaz
+	{ID_ATTUNE="5138",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- Destroy Morphaz
+	{ID_ATTUNE="5138",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20085",ICON="Interface\\Icons\\inv_misc_gem_topaz_03",FOLLOWS="50",STAGE="60",MARKER="dungeon"}, -- Arcane Shard
+	{ID_ATTUNE="5138",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8253",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- Destroy Morphaz
 	{ID_ATTUNE="5138",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_gem_topaz_03",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5139",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -545,16 +545,16 @@ local classSteps = {
 	{ID_ATTUNE="5149",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Westfall"],ID_WOWHEAD="1651",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Tome of Valor
 	{ID_ATTUNE="5149",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1652",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Tome of Valor
 	{ID_ATTUNE="5149",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1653",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- The Test of Righteousness
-	{ID_ATTUNE="5149",ID="65",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65"}, -- The Test of Righteousness
-	{ID_ATTUNE="5149",ID="70",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="65",STAGE="70"}, -- Whitestone Oak Lumber
-	{ID_ATTUNE="5149",ID="71",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6895",ICON="Interface\\Icons\\inv_hammer_09",FOLLOWS="65",STAGE="70"}, -- Jordan's Smithing Hammer
-	{ID_ATTUNE="5149",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1442",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70"}, -- Seeking the Kor Gem
-	{ID_ATTUNE="5149",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="1655",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70"}, -- Bailor's Ore Shipment
+	{ID_ATTUNE="5149",ID="65",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="65",MARKER="dungeon"}, -- The Test of Righteousness
+	{ID_ATTUNE="5149",ID="70",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="65",STAGE="70",MARKER="dungeon"}, -- Whitestone Oak Lumber
+	{ID_ATTUNE="5149",ID="71",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="6895",ICON="Interface\\Icons\\inv_hammer_09",FOLLOWS="65",STAGE="70",MARKER="dungeon"}, -- Jordan's Smithing Hammer
+	{ID_ATTUNE="5149",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="1442",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70",MARKER="dungeon"}, -- Seeking the Kor Gem
+	{ID_ATTUNE="5149",ID="73",TYPE="Quest",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="1655",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="65",STAGE="70",MARKER="dungeon"}, -- Bailor's Ore Shipment
 	{ID_ATTUNE="5149",ID="80",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="70",STAGE="80"},
 	{ID_ATTUNE="5149",ID="81",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="71",STAGE="80"},
-	{ID_ATTUNE="5149",ID="82",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="7083",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="72",STAGE="80"}, -- Purified Kor Gem
-	{ID_ATTUNE="5149",ID="83",TYPE="Item",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="6993",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="73",STAGE="80"}, -- Jordan's Refined Ore Shipment
-	{ID_ATTUNE="5149",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&82&81&80",STAGE="90"}, -- The Test of Righteousness
+	{ID_ATTUNE="5149",ID="82",TYPE="Item",STEP="",LOCATION=AttuneLang["Darkshore"],ID_WOWHEAD="7083",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="72",STAGE="80",MARKER="dungeon"}, -- Purified Kor Gem
+	{ID_ATTUNE="5149",ID="83",TYPE="Item",STEP="",LOCATION=AttuneLang["Loch Modan"],ID_WOWHEAD="6993",ICON="Interface\\Icons\\inv_crate_01",FOLLOWS="73",STAGE="80",MARKER="dungeon"}, -- Jordan's Refined Ore Shipment
+	{ID_ATTUNE="5149",ID="90",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1654",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&82&81&80",STAGE="90",MARKER="dungeon"}, -- The Test of Righteousness
 	{ID_ATTUNE="5149",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Dun Morogh"],ID_WOWHEAD="1806",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Test of Righteousness
 	{ID_ATTUNE="5149",ID="110",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_hammer_05",FOLLOWS="100",STAGE="110"},
 
@@ -568,14 +568,14 @@ local classSteps = {
 	{ID_ATTUNE="5158",ID="28",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="91862",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="26",STAGE="28"}, -- Lumina Windsinger
 	{ID_ATTUNE="5158",ID="29",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="96204",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="28",STAGE="29"}, -- The Windshaper's Wrath
 	{ID_ATTUNE="5158",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95034",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="29",STAGE="30"}, -- The Debt
-	{ID_ATTUNE="5158",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- A Moon-Kissed Blade
-	{ID_ATTUNE="5158",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="40",STAGE="50"}, -- Whitestone Oak Lumber
-	{ID_ATTUNE="5158",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="267361",ICON="Interface\\Icons\\inv_ingot_ghostiron",FOLLOWS="40",STAGE="50"}, -- Enchanted Silver Ingot
-	{ID_ATTUNE="5158",ID="52",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="95042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Seeking the Kor Gem
+	{ID_ATTUNE="5158",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- A Moon-Kissed Blade
+	{ID_ATTUNE="5158",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Deadmines"],ID_WOWHEAD="6994",ICON="Interface\\Icons\\inv_tradeskillitem_01",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- Whitestone Oak Lumber
+	{ID_ATTUNE="5158",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Shadowfang Keep"],ID_WOWHEAD="267361",ICON="Interface\\Icons\\inv_ingot_ghostiron",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- Enchanted Silver Ingot
+	{ID_ATTUNE="5158",ID="52",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="95042",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- Seeking the Kor Gem
 	{ID_ATTUNE="5158",ID="60",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="50",STAGE="60"},
 	{ID_ATTUNE="5158",ID="61",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="51",STAGE="60"},
-	{ID_ATTUNE="5158",ID="62",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="272448",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="52",STAGE="60"}, -- Purified Kor Gem
-	{ID_ATTUNE="5158",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62&61&60",STAGE="70"}, -- A Moon-Kissed Blade
+	{ID_ATTUNE="5158",ID="62",TYPE="Item",STEP="",LOCATION=AttuneLang["Ashenvale"],ID_WOWHEAD="272448",ICON="Interface\\Icons\\inv_misc_gem_sapphire_02",FOLLOWS="52",STAGE="60",MARKER="dungeon"}, -- Purified Kor Gem
+	{ID_ATTUNE="5158",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95036",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="62&61&60",STAGE="70",MARKER="dungeon"}, -- A Moon-Kissed Blade
 	{ID_ATTUNE="5158",ID="72",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="95111",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="72"}, -- An Underrated Talent
 	{ID_ATTUNE="5158",ID="74",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="95125",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="72",STAGE="74"}, -- Ott's Masterwork
 	{ID_ATTUNE="5158",ID="80",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="95126",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="74",STAGE="80"}, -- The Moonsilver Blade
@@ -593,11 +593,11 @@ local classSteps = {
 	{ID_ATTUNE="5155",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8415",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Chillwind Point
 	{ID_ATTUNE="5155",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8414",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Dispelling Evil
 	{ID_ATTUNE="5155",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8416",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Inert Scourgestones
-	{ID_ATTUNE="5155",ID="45",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="45"}, -- Forging the Mightstone
-	{ID_ATTUNE="5155",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="45",STAGE="50", COUNT=2}, -- Green Voodoo Feather
-	{ID_ATTUNE="5155",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="45",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
-	{ID_ATTUNE="5155",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="45",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
-	{ID_ATTUNE="5155",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Forging the Mightstone
+	{ID_ATTUNE="5155",ID="45",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="45",MARKER="dungeon"}, -- Forging the Mightstone
+	{ID_ATTUNE="5155",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="45",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Green Voodoo Feather
+	{ID_ATTUNE="5155",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="45",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5155",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="45",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5155",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8418",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60",MARKER="dungeon"}, -- Forging the Mightstone
 	{ID_ATTUNE="5155",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5156",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -716,14 +716,14 @@ local classSteps = {
 	{ID_ATTUNE="5203",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8254",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Cenarion Aid
 	{ID_ATTUNE="5203",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8255",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Of Coursers We Know
 	{ID_ATTUNE="5203",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8256",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- The Ichor of Undeath
-	{ID_ATTUNE="5203",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8257",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Blood of Morphaz
-	{ID_ATTUNE="5203",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20025",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="50",STAGE="60"}, -- Blood of Morphaz
-	{ID_ATTUNE="5203",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8257",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- Blood of Morphaz
+	{ID_ATTUNE="5203",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8257",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- Blood of Morphaz
+	{ID_ATTUNE="5203",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20025",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="50",STAGE="60",MARKER="dungeon"}, -- Blood of Morphaz
+	{ID_ATTUNE="5203",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Felwood"],ID_WOWHEAD="8257",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- Blood of Morphaz
 	{ID_ATTUNE="5203",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_potion_08",FOLLOWS="70",STAGE="80"},
 
 	-- Both eyes are required. Eye of Divinity leads into the quests.
 	{ID_ATTUNE="5205",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5205",ID="20",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="18646",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="10",STAGE="20"}, -- The Eye of Divinity
+	{ID_ATTUNE="5205",ID="20",TYPE="Item",STEP="",LOCATION=AttuneLang["Molten Core"],ID_WOWHEAD="18646",ICON="Interface\\Icons\\spell_holy_mindsooth",FOLLOWS="10",STAGE="20",MARKER="raid"}, -- The Eye of Divinity
 	{ID_ATTUNE="5205",ID="21",TYPE="Item",STEP="",LOCATION=AttuneLang["Winterspring"],ID_WOWHEAD="18665",ICON="Interface\\Icons\\spell_shadow_unholyfrenzy",FOLLOWS="10",STAGE="20"}, -- The Eye of Shadow
 	{ID_ATTUNE="5205",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="7621",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- A Warning
     {ID_ATTUNE="5205",ID="31",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="21",STAGE="30"},
@@ -824,13 +824,13 @@ local classSteps = {
 	{ID_ATTUNE="5227",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8233",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Simple Request
 	{ID_ATTUNE="5227",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8234",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Sealed Azure Bag
 	{ID_ATTUNE="5227",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8235",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Encoded Fragments
-	{ID_ATTUNE="5227",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8236",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Azure Key
-	{ID_ATTUNE="5227",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20022",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="50",STAGE="60"}, -- Azure Key
-	{ID_ATTUNE="5227",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="8236",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70"}, -- The Azure Key
+	{ID_ATTUNE="5227",ID="50",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Azshara"],ID_WOWHEAD="8236",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50",MARKER="dungeon"}, -- The Azure Key
+	{ID_ATTUNE="5227",ID="60",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20022",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="50",STAGE="60",MARKER="dungeon"}, -- Azure Key
+	{ID_ATTUNE="5227",ID="70",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Alterac Mountains"],ID_WOWHEAD="8236",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER="dungeon"}, -- The Azure Key
 	{ID_ATTUNE="5227",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_key_08",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5228",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
-	{ID_ATTUNE="5228",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78261",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Horn of Xelthos
+	{ID_ATTUNE="5228",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78261",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- The Horn of Xelthos
 	{ID_ATTUNE="5228",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78307",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- The Horn of Xelthos
 	{ID_ATTUNE="5228",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scarlet Monastery"],ID_WOWHEAD="78676",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- The Eye of Bhossca
 	{ID_ATTUNE="5228",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Silverpine Forest"],ID_WOWHEAD="78699",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- The Eye of Bhossca
@@ -968,22 +968,22 @@ local classSteps = {
 	-- {ID_ATTUNE="5239,ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8410",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Elemental Mastery
 	{ID_ATTUNE="5239",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8411",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Mastering the Elements
 	{ID_ATTUNE="5239",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8412",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21",STAGE="30"}, -- Spirit Totem
-	{ID_ATTUNE="5239",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Da Voodoo
-	{ID_ATTUNE="5239",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2}, -- Green Voodoo Feather
-	{ID_ATTUNE="5239",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
-	{ID_ATTUNE="5239",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
-	{ID_ATTUNE="5239",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Da Voodoo
+	{ID_ATTUNE="5239",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- Da Voodoo
+	{ID_ATTUNE="5239",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Green Voodoo Feather
+	{ID_ATTUNE="5239",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5239",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5239",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60",MARKER="dungeon"}, -- Da Voodoo
 	{ID_ATTUNE="5239",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5237",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5237",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8410",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Elemental Mastery
 	{ID_ATTUNE="5237",ID="21",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8411",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Mastering the Elements
 	{ID_ATTUNE="5237",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8412",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21&20",STAGE="30"}, -- Spirit Totem
-	{ID_ATTUNE="5237",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Da Voodoo
-	{ID_ATTUNE="5237",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2}, -- Green Voodoo Feather
-	{ID_ATTUNE="5237",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2}, -- Blue Voodoo Feather
-	{ID_ATTUNE="5237",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2}, -- Amber Voodoo Feather
-	{ID_ATTUNE="5237",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Da Voodoo
+	{ID_ATTUNE="5237",ID="40",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40",MARKER="dungeon"}, -- Da Voodoo
+	{ID_ATTUNE="5237",ID="50",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_12",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Green Voodoo Feather
+	{ID_ATTUNE="5237",ID="51",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_13",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5237",ID="52",TYPE="Item",STEP="",LOCATION=AttuneLang["Zul'Gurub"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="50", COUNT=2,MARKER="dungeon"}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5237",ID="60",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8413",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60",MARKER="dungeon"}, -- Da Voodoo
 	{ID_ATTUNE="5237",ID="70",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="60",STAGE="70"},
 
 	{ID_ATTUNE="5238",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 58",LOCATION="",ID_WOWHEAD="58",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1174,12 +1174,12 @@ local classSteps = {
 	{ID_ATTUNE="5276",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7626",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Bell of Dethmoora
 	{ID_ATTUNE="5276",ID="51",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7627",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Wheel of the Black March
 	{ID_ATTUNE="5276",ID="52",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7628",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Doomsday Candle
-	{ID_ATTUNE="5276",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7629",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45",STAGE="50"}, -- Imp Delivery
+	{ID_ATTUNE="5276",ID="53",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7629",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45",STAGE="50",MARKER="dungeon"}, -- Imp Delivery
     {ID_ATTUNE="5276",ID="55",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="50"},
 	{ID_ATTUNE="5276",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7630",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="52&51&50",STAGE="60"}, -- Arcanite
     {ID_ATTUNE="5276",ID="62",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="60"},
     {ID_ATTUNE="5276",ID="65",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="53",STAGE="60"},
-	{ID_ATTUNE="5276",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&65",STAGE="70"}, -- Dreadsteed of Xoroth
+	{ID_ATTUNE="5276",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="7631",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60&65",STAGE="70",MARKER="dungeon"}, -- Dreadsteed of Xoroth
 	{ID_ATTUNE="5276",ID="80",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_dreadsteed",FOLLOWS="70",STAGE="80"},
 
 	{ID_ATTUNE="5277",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1368,10 +1368,11 @@ local classSteps = {
 	{ID_ATTUNE="5294",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8417",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Troubled Spirit
 	{ID_ATTUNE="5294",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8423",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Warrior Kinship
 	{ID_ATTUNE="5294",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8424",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- War on the Shadowsworn
-	{ID_ATTUNE="5294",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="40",STAGE="45", COUNT=2}, -- Amber Voodoo Feather
-	{ID_ATTUNE="5294",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_11",FOLLOWS="40",STAGE="45", COUNT=2}, -- Blue Voodoo Feather
-	{ID_ATTUNE="5294",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_08",FOLLOWS="40",STAGE="45", COUNT=2}, -- Green Voodoo Feather
-	{ID_ATTUNE="5294",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50",MARKER="dungeon"}, -- Voodoo Feathers
+	{ID_ATTUNE="5294",ID="42",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="42",MARKER="dungeon"}, -- Voodoo Feathers
+    {ID_ATTUNE="5294",ID="45",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20606",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="42",STAGE="45", COUNT=2,MARKER="dungeon"}, -- Amber Voodoo Feather
+	{ID_ATTUNE="5294",ID="46",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20607",ICON="Interface\\Icons\\inv_feather_11",FOLLOWS="42",STAGE="45", COUNT=2,MARKER="dungeon"}, -- Blue Voodoo Feather
+	{ID_ATTUNE="5294",ID="47",TYPE="Item",STEP="",LOCATION=AttuneLang["The Temple of Atal'Hakkar"],ID_WOWHEAD="20608",ICON="Interface\\Icons\\inv_feather_08",FOLLOWS="42",STAGE="45", COUNT=2,MARKER="dungeon"}, -- Green Voodoo Feather
+	{ID_ATTUNE="5294",ID="50",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Swamp of Sorrows"],ID_WOWHEAD="8425",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="45&46&47",STAGE="50",MARKER="dungeon"}, -- Voodoo Feathers
 	{ID_ATTUNE="5294",ID="60",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_feather_14",FOLLOWS="50",STAGE="60"},
 
 	{ID_ATTUNE="5296",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
