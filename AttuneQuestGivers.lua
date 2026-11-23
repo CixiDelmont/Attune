@@ -450,6 +450,7 @@ Attune_Data.questGivers = {
 	[95776] = {1434, 32.2, 28.8, "Commander Aggro'gosh"}, -- Commander Aggro'gosh (Grom'gol)
 	[96078] = {1434, 32.2, 27.8, "Kin'weelay"}, -- Kin'weelay (Grom'gol); turn in to Master Gadrin (Sen'jin Village 56.0, 74.6)
 	[96774] = {1412, 32.6, 20.6, "Mazu'kon"}, -- Mazu'kon (northwest Mulgore); also 32.4, 20.6
+	[96775] = {1412, 32.4, 20.6, "Mazu'kon"}, -- Mazu'kon (Camp Gev'rek, Mulgore); also 32.6, 20.6
 	-- The Drowned City (both). Krazek, top floor of the Booty Bay inn.
 	[95791] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)
 	[95789] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)

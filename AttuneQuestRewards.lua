@@ -914,6 +914,7 @@ Attune_Data.questRewards = {
 	[95799] = { choice = {{279880, 1}, {279881, 1}}, fixed = {{272124, 1}} }, -- Findings for the Explorer's League
 	[96078] = { choice = {{279885, 1}, {279886, 1}, {279887, 1}}, fixed = {{270312, 1}, {270313, 1}} }, -- A Tale Spun Around the Fire
 	[96774] = {}, -- Ancient Gurubashi Idol; 1 gold
+	[96775] = {}, -- Zum'rah's Head; 65 silver, Earthen Ring +300, Darkspear Trolls +150
 	[97130] = {}, -- Ancient Gurubashi Secrets; 50 silver
 	[96773] = {}, -- The Coldbringer's Eye; 55 silver
 	[92914] = {}, -- Strange Pylons

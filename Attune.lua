@@ -8,6 +8,15 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-45
+--   - Fixed an issue where Zum'rah's Head was showing as an inside quest.
+--   - Added Strange Pylons through Rot and Regret to both Maraudon attunements. A finished Maraudon reopens until those quests are turned in.
+--   - Guild completion messages are sent again. A timer callback was blocked from posting to guild chat.
+--   - Removed the option to automatically survey guild on login.
+--   - Added a button to reset the progress for the current character.
+--   - Removed an unnecessary quest from Uldaman (Replacement Phial).
+
+
 -- 16001-44
 --   - Steps occurring inside a dungeon now have an orange tint. Raid steps use red.
 --   - Added a whole bunch of translations that were missing.
@@ -985,15 +994,15 @@ local attune_options = {
 					width = "full",
 					order = 2,
 				},
-				autosurvey = {
-					type = "toggle",
-					name = AttuneLang["AutoSurvey_TEXT"],
-					desc = AttuneLang["AutoSurvey_DESC"],
-					get = function(info) return Attune_DB.autosurvey end,
-					set = function(info, val) Attune_DB.autosurvey = val end,
-					width = 2.5,
-					order = 10,
-				},
+				-- autosurvey = {
+				-- 	type = "toggle",
+				-- 	name = AttuneLang["AutoSurvey_TEXT"],
+				-- 	desc = AttuneLang["AutoSurvey_DESC"],
+				-- 	get = function(info) return Attune_DB.autosurvey end,
+				-- 	set = function(info, val) Attune_DB.autosurvey = val end,
+				-- 	width = 2.5,
+				-- 	order = 10,
+				-- },
 				showSurveyed = {
 					type = "toggle",
 					name = AttuneLang["ShowSurveyed_TEXT"],
@@ -1114,6 +1123,19 @@ local attune_options = {
 					end,
 					width = 1.6,
 					order = 33,
+				},
+				resetToon = {
+					type = "execute",
+					name = AttuneLang["ResetToon_TEXT"],
+					desc = AttuneLang["ResetToon_DESC"],
+					confirm = true,
+					confirmText = AttuneLang["ResetToon_CONF"],
+					func = function(info, val)
+						Attune_ResetThisToon()
+						if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["ResetToon_DONE"]) end
+					end,
+					width = 1.6,
+					order = 34,
 				},
 			},
 		},
@@ -1251,7 +1273,7 @@ function Attune:OnEnable()
 	if Attune_DB.logs == nil then Attune_DB.logs = {} end
 	if Attune_DB.minimapbuttonpos == nil then Attune_DB.minimapbuttonpos = {} end
 	if Attune_DB.minimapbuttonpos.hide == nil then Attune_DB.minimapbuttonpos.hide = false end
-	if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
+	-- if Attune_DB.autosurvey == nil then Attune_DB.autosurvey = false end
 	if Attune_DB.useFullMap == nil then Attune_DB.useFullMap = false end
 	if Attune_DB.playSounds == nil then Attune_DB.playSounds = true end
 	if Attune_DB.deadminesAsDM == nil then Attune_DB.deadminesAsDM = false end
@@ -1422,14 +1444,14 @@ function Attune:OnEnable()
 ]]
 	-- sending a couple version checks to make sure people update to the latest version
 
-	if Attune_DB.autosurvey then
-		C_Timer.After(13, function()
-			if attunelocal_myguild ~= "" then 
-				if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["StartAutoGuildSurvey"]) end
-				Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "GUILD", ""); 
-			end
-		end)
-	end
+	-- if Attune_DB.autosurvey then
+	-- 	C_Timer.After(13, function()
+	-- 		if attunelocal_myguild ~= "" then 
+	-- 			if Attune_DB.showOtherChat then print("|cffff00ff[Attune]|r "..AttuneLang["StartAutoGuildSurvey"]) end
+	-- 			Attune:SendCommMessage(attunelocal_prefix, "SILENTSURVEY", "GUILD", ""); 
+	-- 		end
+	-- 	end)
+	-- end
 
 
 
@@ -1877,10 +1899,12 @@ end
 
 -- Midnight blocks addon chat for the whole encounter, not just while
 -- InCombatLockdown() is true. A line sent in that window is discarded.
+-- C_Timer callbacks are ForceTaint_Strong, and a guild send from one of
+-- those callbacks is blocked, so the queue flushes from a frame update.
 -- The queue is global: this file is already at Lua's 200-local limit.
 Attune_GuildAnnounceQueue = Attune_GuildAnnounceQueue or {}
-Attune_GuildAnnounceFlushing = false
 Attune_GuildAnnounceDeadline = 0
+Attune_GuildSendBlocked = false
 
 local function Attune_RememberGuild()
 	if not GetGuildInfo then return end
@@ -1904,42 +1928,41 @@ local function Attune_ChatLocked()
 	if InCombatLockdown and InCombatLockdown() then return true end
 	local info = C_ChatInfo
 	if info and info.InChatMessagingLockdown and info.InChatMessagingLockdown() then return true end
+	-- A dead player is out of combat while the encounter lockdown is still on.
+	if IsEncounterInProgress and IsEncounterInProgress() then return true end
+	if C_InstanceEncounter and C_InstanceEncounter.IsEncounterInProgress and C_InstanceEncounter.IsEncounterInProgress() then return true end
 	return false
 end
 
 local function Attune_GuildSendOk(msg)
+	if Attune_ChatLocked() then return false end
 	local info = C_ChatInfo
 	local send = (info and info.SendChatMessage) or SendChatMessage
 	if type(send) ~= "function" then return false end
-	-- Classic returns nothing on success. false, or a Lua error, means it did not go out.
-	local ok, result = pcall(send, msg, "GUILD")
-	if not ok or result == false then return false end
+	-- Call it directly. pcall is an insecure caller, so Forever blocks the
+	-- guild send and reports the protected function as UNKNOWN().
+	-- A real block still fires ADDON_ACTION_BLOCKED and sets the flag below.
+	-- Classic returns nothing on success. false or a non-zero code means it did not go out.
+	Attune_GuildSendBlocked = false
+	local result = send(msg, "GUILD")
+	if Attune_GuildSendBlocked or result == false then return false end
+	if type(result) == "number" and result ~= 0 then return false end
 	return true
 end
 
-local Attune_FlushGuildAnnouncements
-
-local function Attune_ScheduleGuildFlush(delay)
-	if Attune_GuildAnnounceFlushing then return end
-	Attune_GuildAnnounceFlushing = true
-	C_Timer.After(delay or 0, Attune_FlushGuildAnnouncements)
-end
-
-local function Attune_QueueGuild(msg)
-	for _, pending in ipairs(Attune_GuildAnnounceQueue) do
-		if pending == msg then return end
+Attune_FlushGuildAnnouncements = function(_, elapsed)
+	local frame = Attune_GuildAnnounceFrame
+	if frame == nil then return end
+	frame.wait = (frame.wait or 0) - (elapsed or 0)
+	if frame.wait > 0 then return end
+	frame.wait = 0
+	if #Attune_GuildAnnounceQueue == 0 then
+		frame:Hide()
+		return
 	end
-	Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
-	-- Boss lockdown and a late guild roster both outlast a few quick retries.
-	Attune_GuildAnnounceDeadline = GetTime() + 600
-	Attune_ScheduleGuildFlush(0.5)
-end
-
-Attune_FlushGuildAnnouncements = function()
-	Attune_GuildAnnounceFlushing = false
-	if #Attune_GuildAnnounceQueue == 0 then return end
 	if GetTime() > (Attune_GuildAnnounceDeadline or 0) then
 		Attune_GuildAnnounceQueue = {}
+		frame:Hide()
 		return
 	end
 	-- Guild name is often nil for a few seconds after login or a loading screen.
@@ -1949,48 +1972,100 @@ Attune_FlushGuildAnnouncements = function()
 			local known, inGuild = pcall(IsInGuild)
 			if known and not inGuild then
 				Attune_GuildAnnounceQueue = {}
+				frame:Hide()
 				return
 			end
 		end
-		Attune_ScheduleGuildFlush(1)
+		frame.wait = 1
 		return
 	end
 	if Attune_ChatLocked() then
-		Attune_ScheduleGuildFlush(1)
+		frame.wait = 1
 		return
 	end
 	local pending = Attune_GuildAnnounceQueue
 	Attune_GuildAnnounceQueue = {}
 	local failed = false
+	local blocked = false
 	for _, msg in ipairs(pending) do
-		if failed or Attune_ChatLocked() or not Attune_GuildSendOk(msg) then
+		if blocked then
+			-- The client rejected an addon guild send. Do not call it again this flush.
+			print("|cffff00ff[Attune]|r "..msg)
+		elseif failed or Attune_ChatLocked() then
 			Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
 			failed = true
+		elseif not Attune_GuildSendOk(msg) then
+			-- Outside lockdown, another attempt will be blocked the same way.
+			-- Keep the line in the local chat instead of calling the protected function again.
+			if Attune_GuildSendBlocked and not Attune_ChatLocked() then
+				print("|cffff00ff[Attune]|r "..msg)
+				blocked = true
+			else
+				Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
+				failed = true
+			end
 		end
 	end
-	if failed then
-		Attune_ScheduleGuildFlush(1.5)
+	if #Attune_GuildAnnounceQueue == 0 then
+		frame:Hide()
+	elseif failed then
+		frame.wait = 1.5
+	end
+end
+
+if Attune_GuildAnnounceFrame == nil then
+	Attune_GuildAnnounceFrame = CreateFrame("Frame")
+	Attune_GuildAnnounceFrame:Hide()
+	Attune_GuildAnnounceFrame:RegisterEvent("ADDON_ACTION_BLOCKED")
+	Attune_GuildAnnounceFrame:RegisterEvent("ADDON_ACTION_FORBIDDEN")
+	Attune_GuildAnnounceFrame:SetScript("OnEvent", function(_, _, blockedAddon)
+		if blockedAddon == addonName then
+			Attune_GuildSendBlocked = true
+		end
+	end)
+	Attune_GuildAnnounceFrame:SetScript("OnUpdate", Attune_FlushGuildAnnouncements)
+end
+
+local function Attune_QueueGuild(msg)
+	for _, pending in ipairs(Attune_GuildAnnounceQueue) do
+		if pending == msg then return end
+	end
+	Attune_GuildAnnounceQueue[#Attune_GuildAnnounceQueue + 1] = msg
+	-- Boss lockdown and a late guild roster both outlast a few quick retries.
+	Attune_GuildAnnounceDeadline = GetTime() + 600
+	local frame = Attune_GuildAnnounceFrame
+	if frame and not frame:IsShown() then
+		-- Leave the addon-data push that rides along with the completion.
+		frame.wait = 0.4
+		frame:Show()
 	end
 end
 
 local function Attune_AnnounceGuild(msg)
-	-- Queue even when chat looks open. The completion also pushes addon data
-	-- in this same moment, and a direct send is the one that gets dropped.
+	-- The completion also pushes addon data in this same moment, and a
+	-- direct send is the one that gets dropped. The frame posts it once
+	-- that burst has gone out.
 	Attune_QueueGuild(msg)
 end
 
 function Attune:PLAYER_REGEN_ENABLED()
 	if #Attune_GuildAnnounceQueue == 0 then return end
 	-- Combat lockdown is still on during this event. Send once it has lifted.
-	Attune_GuildAnnounceFlushing = false
-	Attune_ScheduleGuildFlush(1.5)
+	local frame = Attune_GuildAnnounceFrame
+	if frame == nil then return end
+	if frame.wait == nil or frame.wait < 0.5 then frame.wait = 0.5 end
+	frame:Show()
 end
 
 function Attune:PLAYER_GUILD_UPDATE()
 	Attune_RememberGuild()
 	if #Attune_GuildAnnounceQueue == 0 then return end
-	Attune_GuildAnnounceFlushing = false
-	Attune_ScheduleGuildFlush(0.5)
+	local frame = Attune_GuildAnnounceFrame
+	if frame == nil then return end
+	if not frame:IsShown() then
+		frame.wait = 0.2
+		frame:Show()
+	end
 end
 
 local function Attune_AnnounceAttuneComplete(name)
@@ -2154,6 +2229,7 @@ function Attune:PLAYER_ENTERING_WORLD()
 		-- completion that the new steps do not support.
 		C_Timer.After(3, function()
 			Attune_ReopenRazorfenBloodChain()
+			Attune_ReopenMaraudonPylonChain()
 			-- Quest flags are often unread during the first login scan.
 			-- Read them again so a follow-up turned in earlier still paints green.
 			Attune_SyncQuestDoneFlags()
@@ -2995,6 +3071,43 @@ function Attune_CheckProgress()
 
 end
 
+-- Wipe saved progress for the character being played, then scan again.
+-- Quest, item, reputation, and level steps the game still knows about come back.
+-- Kill and interact steps that are not backed by that scan stay cleared.
+function Attune_ResetThisToon()
+	local t = Attune_DB and attunelocal_charKey and Attune_DB.toons[attunelocal_charKey]
+	if t == nil then return end
+
+	t.done = {}
+	t.items = {}
+	t.reps = {}
+	t.next = {}
+	t.attuned = {}
+	t.survey = 0
+	if Attune_DB.survey then Attune_DB.survey[attunelocal_charKey] = nil end
+
+	if Attune_Data and Attune_Data.noattunes then
+		for _, a in pairs(Attune_Data.noattunes) do
+			t.attuned[a.ID] = 100
+		end
+	end
+	if Attune_Data and Attune_Data.attunes then
+		for _, a in pairs(Attune_Data.attunes) do
+			if t.attuned[a.ID] == nil then t.attuned[a.ID] = 0 end
+		end
+	end
+
+	Attune_CheckProgress()
+	if Attune_Data and Attune_Data.attunes then
+		for _, a in pairs(Attune_Data.attunes) do
+			Attune_RecountAttune(a.ID)
+		end
+	end
+	Attune_ApplyCompletedEndSteps(t)
+	Attune_ApplyDefaultSkips(t, UnitFactionGroup("player"))
+	Attune_ForceAttuneTabRefresh()
+end
+
 -- Read quest completion again once the client can answer.
 -- Follow-ups stay out of the percent, and a turned-in one still records as done so the node turns green.
 function Attune_SyncQuestDoneFlags()
@@ -3170,6 +3283,134 @@ function Attune_ReopenRazorfenBloodChain()
 end
 
 -------------------------------------------------------------------------
+-- Maraudon gained Strange Pylons through Rot and Regret after some characters
+-- were already attuned. A saved End step would keep the attunement at 100%
+-- and backfill the new steps. Reopen it unless each quest is turned in.
+-------------------------------------------------------------------------
+
+Attune_MaraudonPylonEnd = { ["300"] = "760", ["310"] = "780" }
+-- Alliance 300 lists the pylon column in the fourth slot. Horde 310 lists it second, after Vyletongue Corruption.
+Attune_MaraudonPylonSteps = {
+	["300"] = {
+		["92914"] = { "420" },
+		["96010"] = { "430" },
+		["96018"] = { "440" },
+		["93016"] = { "470" },
+		["93394"] = { "880" },
+		["93341"] = { "870" },
+		["93594"] = { "480" },
+		["93404"] = { "490", "495", "496" },
+	},
+	["310"] = {
+		["92914"] = { "720" },
+		["96010"] = { "730" },
+		["96018"] = { "740" },
+		["93016"] = { "890" },
+		["93394"] = { "880" },
+		["93341"] = { "770" },
+		["93594"] = { "785" },
+		["93404"] = { "790", "795", "796" },
+	},
+}
+Attune_MaraudonPylonStepQuest = {
+	["300"] = {
+		["420"] = "92914",
+		["430"] = "96010",
+		["440"] = "96018",
+		["470"] = "93016",
+		["880"] = "93394",
+		["870"] = "93341",
+		["480"] = "93594",
+		["490"] = "93404",
+		["495"] = "93404",
+		["496"] = "93404",
+	},
+	["310"] = {
+		["720"] = "92914",
+		["730"] = "96010",
+		["740"] = "96018",
+		["890"] = "93016",
+		["880"] = "93394",
+		["770"] = "93341",
+		["785"] = "93594",
+		["790"] = "93404",
+		["795"] = "93404",
+		["796"] = "93404",
+	},
+}
+
+function Attune_MaraudonPylonChainDone()
+	for qid in pairs(Attune_MaraudonPylonSteps["300"]) do
+		if Attune_QuestFlagKnown(qid) ~= true then return false end
+	end
+	return true
+end
+
+function Attune_ReopenMaraudonPylonChain()
+	local t = Attune_DB.toons[attunelocal_charKey]
+	if t == nil or t.done == nil then return end
+	-- Alliance swapped the pylon column with Vyletongue Corruption. Move saved
+	-- done flags once so a finished step stays on the step that moved.
+	if not t.mara300ColSwap then
+		local swap = {
+			{ "920", "420" }, { "910", "430" }, { "900", "440" }, { "890", "470" },
+			{ "860", "480" }, { "850", "490" }, { "840", "495" }, { "830", "496" },
+		}
+		for _, pair in ipairs(swap) do
+			local a = "300-" .. pair[1]
+			local b = "300-" .. pair[2]
+			t.done[a], t.done[b] = t.done[b], t.done[a]
+		end
+		t.mara300ColSwap = true
+	end
+	if not t.mara310ColSwap then
+		local swap = {
+			{ "920", "720" }, { "910", "730" }, { "900", "740" }, { "870", "770" },
+			{ "860", "785" }, { "850", "790" }, { "840", "795" }, { "830", "796" },
+		}
+		for _, pair in ipairs(swap) do
+			local a = "310-" .. pair[1]
+			local b = "310-" .. pair[2]
+			t.done[a], t.done[b] = t.done[b], t.done[a]
+		end
+		t.mara310ColSwap = true
+	end
+	local known = {}
+	for qid in pairs(Attune_MaraudonPylonSteps["300"]) do
+		local flag = Attune_QuestFlagKnown(qid)
+		if flag == nil then return end
+		known[qid] = flag
+	end
+	local chainDone = true
+	for _, flag in pairs(known) do
+		if not flag then chainDone = false end
+	end
+	for attuneId, endId in pairs(Attune_MaraudonPylonEnd) do
+		local changed = false
+		for qid, steps in pairs(Attune_MaraudonPylonSteps[attuneId]) do
+			if not known[qid] then
+				for _, stepId in ipairs(steps) do
+					local key = attuneId .. "-" .. stepId
+					if t.done[key] then
+						t.done[key] = nil
+						changed = true
+					end
+				end
+			end
+		end
+		if not chainDone then
+			local endKey = attuneId .. "-" .. endId
+			if t.done[endKey] then
+				t.done[endKey] = nil
+				changed = true
+			end
+			if (t.attuned and t.attuned[attuneId] or 0) >= 100 then changed = true end
+		end
+		if changed then Attune_RecountAttune(attuneId) end
+	end
+end
+
+-------------------------------------------------------------------------
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
@@ -3181,6 +3422,7 @@ function Attune_CheckComplete(newComplete, quiet)
 	end
 
 	Attune_ReopenRazorfenBloodChain()
+	Attune_ReopenMaraudonPylonChain()
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 
 	-- WoW
@@ -3220,6 +3462,9 @@ function Attune_CheckComplete(newComplete, quiet)
 				allDone = anyDone
 			end
 			if allDone and Attune_RazorfenBloodEnd[s.ID_ATTUNE] and not Attune_RazorfenBloodChainDone() then
+				allDone = false
+			end
+			if allDone and Attune_MaraudonPylonEnd[s.ID_ATTUNE] and not Attune_MaraudonPylonChainDone() then
 				allDone = false
 			end
 			if allDone then
@@ -3402,7 +3647,10 @@ function Attune_recursePreviousSteps(who, aID, follows, race)
 				if s and Attune_StepShownForRace(s, race) and Attune_MayRecordAttuneProgress(Attune_DB.toons[who], aID) then
 					local bloodQuest = Attune_RazorfenBloodEnd[aID] and Attune_RazorfenBloodStepQuest[s.ID]
 					local bloodOpen = bloodQuest and Attune_QuestFlagKnown(bloodQuest) ~= true
-					if string.find(follows, "|") == nil and not bloodOpen then -- don't recurse OR, as we don't know which parent was actually done
+					local pylonByAttune = Attune_MaraudonPylonStepQuest[aID]
+					local pylonQuest = pylonByAttune and pylonByAttune[s.ID]
+					local pylonOpen = pylonQuest and Attune_QuestFlagKnown(pylonQuest) ~= true
+					if string.find(follows, "|") == nil and not bloodOpen and not pylonOpen then -- don't recurse OR, as we don't know which parent was actually done
 						local key = s.ID_ATTUNE .. "-" .. s.ID
 						-- A later step must not paint a follow-up done. Only the quest itself does.
 						if s.FOLLOW then
