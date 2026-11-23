@@ -657,6 +657,12 @@ Attune_Data.questRewards = {
 	[4485] = {},
 	[4486] = {},
 	[1661] = { spells = {13819} },
+	-- Horde warhorse. 97022 is a breadcrumb; 94971 teaches Summon Warhorse. 780 xp and Undercity +100 each.
+	[97022] = {},
+	[94971] = { spells = {1279399} },
+	-- Sword of Mourning. 93030 is a breadcrumb. 99187 offers the sword. 620 xp, then 13550 xp.
+	[93030] = {},
+	[99187] = { choice = {{286408, 1}} },
 	-- The Affray. Teaches Berserker Stance.
 	[1719] = { spells = {2458} },
 	-- Forging the Mightstone. The feathers are objectives; these are the turn-in rewards.
@@ -865,6 +871,19 @@ Attune_Data.questRewards = {
 	[7648] = {},
 	[7667] = {},
 	[7645] = { fixed = {{18775, 1}} },
+	-- Horde charger. 97186 rewards the horse feed. 97185 teaches Summon Forsaken Charger.
+	[97174] = {},
+	[97175] = {},
+	[97176] = {},
+	[97177] = {},
+	[97178] = {},
+	[97179] = {},
+	[97180] = {},
+	[97182] = {},
+	[97183] = {},
+	[97184] = {},
+	[97185] = { spells = {1296534} },
+	[97186] = { fixed = {{18775, 1}} },
 	-- Class quest reward audit.
 	[8233] = {},
 	[8234] = {},
@@ -1217,6 +1236,7 @@ Attune_Data.rewardItems = {
 	-- Mage level 10 spell focus
 	[7507] = {"Arcane Orb", "inv_misc_orb_01", 2},
 	[7508] = {"Ley Orb", "inv_misc_orb_01", 2},
+	[286408] = {"Sword of Mourning", "inv_sword_25", 3},
 	[9513] = {"Ley Staff", "inv_staff_21", 2},
 	[9514] = {"Arcane Staff", "inv_staff_10", 2},
 	[250344] = {"Elixir of Minor Spirit", "inv_potion_113", 1},
@@ -1491,6 +1511,7 @@ Attune_Data.rewardSpells = {
 	[697] = {"Summon Voidwalker", "spell_shadow_summonvoidwalker"},
 	[5487] = {"Bear Form", "ability_racial_bearform"},
 	[13819] = {"Summon Warhorse", "spell_nature_swiftness"},
+	[1279399] = {"Summon Warhorse", "spell_nature_swiftness"},
 	[5394] = {"Healing Stream Totem", "inv_spear_04"},
 	[5396] = {"Healing Stream Totem", "inv_spear_04"},
 	[1066] = {"Aquatic Form", "ability_druid_aquaticform"},
@@ -1518,4 +1539,5 @@ Attune_Data.rewardSpells = {
 	[713] = {"Summon Incubus", "ability_warlock_incubus"},
 	[768] = {"Cat Form", "ability_druid_catform"},
 	[23215] = {"Summon Charger", "spell_nature_swiftness"},
+	[1296534] = {"Summon Forsaken Charger", "ability_mount_charger"},
 }

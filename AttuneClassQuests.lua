@@ -39,8 +39,11 @@ local classAttunes = {
 	{ID="5149",NAME="Verigan's Fist",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\inv_hammer_05", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5158",NAME="Wolfsbane",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\inv_sword_25", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="20"},
 	{ID="5152",NAME="Warhorse",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_swiftness", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+    {ID="5153",NAME="Warhorse",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\spell_nature_swiftness", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="40"},
+	{ID="5154",NAME="Sword of Mourning",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\inv_sword_25", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	{ID="5155",NAME=AttuneLang["Sunken Temple"],EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\spell_nature_acid_01", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="50"},
 	{ID="5156",NAME="Charger",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Alliance",ICON="Interface\\Icons\\ability_mount_charger", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
+    {ID="5157",NAME="Charger",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PALADIN"], CLASS="PALADIN", FACTION="Horde",ICON="Interface\\Icons\\ability_mount_charger", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="60"},
 	
     -- -- PRIEST
 	{ID="5164",NAME="Garments of the priest",EXPAC=AttuneLang["World of Warcraft"], GROUP=AttuneLang["CLASS_PRIEST"], CLASS="PRIEST", FACTION="Horde",ICON="Interface\\Icons\\inv_chest_cloth_04", DESC=AttuneLang["ClassQuest_Desc"], GROUPSIZE=1, LEVELS="5"},
@@ -589,6 +592,19 @@ local classSteps = {
 	{ID_ATTUNE="5152",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="1661",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="21|20",STAGE="30"}, -- The Tome of Nobility
 	{ID_ATTUNE="5152",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_swiftness",FOLLOWS="30",STAGE="40"},
 
+
+	-- Garen Largo sends you to Danitha Morr, who teaches Summon Warhorse.
+	{ID_ATTUNE="5153",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 40",LOCATION="",ID_WOWHEAD="40",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5153",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Undercity"],ID_WOWHEAD="97022",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Report to Danitha
+	{ID_ATTUNE="5153",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="94971",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- A Paladin's Steed
+	{ID_ATTUNE="5153",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\spell_nature_swiftness",FOLLOWS="30",STAGE="40"},
+
+	-- Knight of Mourning in Tirisfal, then recover the Reliquary of Tyr in Blackmaw Hold.
+	{ID_ATTUNE="5154",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5154",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="93030",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- The Knight of Mourning
+	{ID_ATTUNE="5154",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackmaw Hold"],ID_WOWHEAD="99187",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30",MARKER="dungeon"}, -- The Reliquary of Tyr
+	{ID_ATTUNE="5154",ID="40",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_sword_25",FOLLOWS="30",STAGE="40"},
+
 	{ID_ATTUNE="5155",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 50",LOCATION="",ID_WOWHEAD="50",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	{ID_ATTUNE="5155",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="8415",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- Chillwind Point
 	{ID_ATTUNE="5155",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Western Plaguelands"],ID_WOWHEAD="8414",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Dispelling Evil
@@ -617,6 +633,22 @@ local classSteps = {
 	{ID_ATTUNE="5156",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="7647",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110",MARKER='dungeon'}, -- Judgment and Redemption
 	-- {ID_ATTUNE="5156",ID="120",TYPE="Quest",STEP="",LOCATION=AttuneLang["Elwynn Forest"],ID_WOWHEAD="7666",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="110",STAGE="120"}, -- Again Into the Great Ossuary
 	{ID_ATTUNE="5156",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_charger",FOLLOWS="110",STAGE="130"},
+
+	{ID_ATTUNE="5157",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 60",LOCATION="",ID_WOWHEAD="60",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
+	{ID_ATTUNE="5157",ID="20",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="97174",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- A Worthy Endeavor
+	{ID_ATTUNE="5157",ID="30",TYPE="Quest",STEP="",LOCATION=AttuneLang["Orgrimmar"],ID_WOWHEAD="97175",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="20",STAGE="30"}, -- Due Sacrifice
+	{ID_ATTUNE="5157",ID="40",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="97177",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="30",STAGE="40"}, -- Acts of Mercy
+	{ID_ATTUNE="5157",ID="50",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="97176",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="40",STAGE="50"}, -- Exorcising Terrordale
+	{ID_ATTUNE="5157",ID="60",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="97178",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="50",STAGE="60"}, -- Ott of Tarren Mill
+	{ID_ATTUNE="5157",ID="70",TYPE="Quest",STEP="",LOCATION=AttuneLang["Hillsbrad Foothills"],ID_WOWHEAD="97179",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="60",STAGE="70",MARKER='dungeon'}, -- Collection of Goods
+	{ID_ATTUNE="5157",ID="81",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="97180",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="80"}, -- Ott's Finest Work
+	{ID_ATTUNE="5157",ID="79",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="87"},
+	{ID_ATTUNE="5157",ID="83",TYPE="Quest",STEP="",LOCATION=AttuneLang["Feralas"],ID_WOWHEAD="97182",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="81",STAGE="87",MARKER='dungeon'}, -- An Offering of Vengeance
+	{ID_ATTUNE="5157",ID="85",TYPE="Quest",STEP="",LOCATION=AttuneLang["Eastern Plaguelands"],ID_WOWHEAD="97186",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="81",STAGE="87"}, -- Manna-Enriched Horse Feed
+	{ID_ATTUNE="5157",ID="90",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="97183",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="83&85",STAGE="90"}, -- Blessed Arcanite Barding
+	{ID_ATTUNE="5157",ID="100",TYPE="Quest",STEP="",LOCATION=AttuneLang["Tirisfal Glades"],ID_WOWHEAD="97184",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="90",STAGE="100"}, -- The Divination Scryer
+	{ID_ATTUNE="5157",ID="110",TYPE="Quest",STEP="",LOCATION=AttuneLang["Scholomance"],ID_WOWHEAD="97185",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="100",STAGE="110",MARKER='dungeon'}, -- Justice and Retribution
+	{ID_ATTUNE="5157",ID="130",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\ability_mount_charger",FOLLOWS="110",STAGE="130"},
 
     -- PRIEST
 	{ID_ATTUNE="5164",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 5",LOCATION="",ID_WOWHEAD="5",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
@@ -1594,6 +1626,22 @@ local classQuestInfo = {
 	[95140]={20,1},
 	[4485]={40,1},
 	[1661]={40,1},
+	[97022]={40,1},
+	[94971]={40,1},
+	[93030]={50,1},
+	[99187]={50,5},
+	[97174]={60,1},
+	[97175]={60,1},
+	[97176]={60,1},
+	[97177]={60,1},
+	[97178]={60,1},
+	[97179]={60,5},
+	[97180]={60,1},
+	[97182]={60,5},
+	[97183]={60,5},
+	[97184]={60,1},
+	[97185]={60,5},
+	[97186]={60,1},
 	[4486]={40,1},
 	[8415]={50,1},
 	[8414]={50,1},
@@ -2214,6 +2262,22 @@ local classQuestGivers = {
 	[4485] = {1455, 27.4, 12.0, "Tiza Battleforge"}, -- Tiza Battleforge, Hall of Mysteries
 	[4486] = {1455, 23.4, 6.4, "Brandur Ironhammer"}, -- Brandur Ironhammer
 	[1661] = {1453, 39.8, 29.8, "Duthorian Rall"}, -- Duthorian Rall, Cathedral of Light
+	[97022] = {1458, 47.6, 14.8, "Garen Largo"}, -- Garen Largo, Undercity. Turn in to Danitha Morr at Bandarion Keep, 22.0, 44.6.
+	[94971] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr, Bandarion Keep
+	[93030] = {1420, 17.6, 67.4, "Knight of Mourning"}, -- Knight of Mourning, Tirisfal Glades
+	[99187] = {1420, 17.6, 67.4, "Knight of Mourning"}, -- Knight of Mourning. The reliquary is in Blackmaw Hold.
+	[97174] = {1420, 21.8, 45.2, "Breton Samuels"}, -- Breton Samuels, Bandarion Keep. Also Garen Largo, Undercity 47.6, 14.8; Alodan the Hopeful, Thunder Bluff 25.4, 14.6.
+	[97175] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr. Turn in to Zayus in Orgrimmar, 35.6, 87.2.
+	[97177] = {1454, 35.6, 87.2, "Zayus"}, -- Zayus, Orgrimmar. Turn in to Danitha Morr at Bandarion Keep, 22.0, 44.6.
+	[97176] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr, Bandarion Keep
+	[97178] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr. Turn in to Ott at Tarren Mill, 60.4, 26.0.
+	[97179] = {1424, 60.4, 26.0, "Ott"}, -- Ott, Tarren Mill
+	[97180] = {1424, 60.4, 26.0, "Ott"}, -- Ott. Turn in to Danitha Morr at Bandarion Keep, 22.0, 44.6.
+	[97182] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr. The spirit is in Dire Maul.
+	[97186] = {1423, 26.6, 74.8, "Nathanos Blightcaller"}, -- Nathanos Blightcaller, Eastern Plaguelands
+	[97183] = {234, nil, nil, "Ancient Equine Spirit"}, -- Ancient Equine Spirit, Dire Maul. Wowhead lists no start coordinates. Turn in to Danitha Morr, 22.0, 44.6.
+	[97184] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr, Bandarion Keep
+	[97185] = {1420, 22.0, 44.6, "Danitha Morr"}, -- Danitha Morr. The trial is in Scholomance.
 	[8415] = {1453, 37.2, 33, "Lord Grayson Shadowbreaker"}, -- Lord Grayson Shadowbreaker, Stormwind City (also Brandur Ironhammer, Ironforge 23.4, 6.2)
 	[8414] = {1422, 42.8, 84, "Commander Ashlam Valorfist"}, -- Commander Ashlam Valorfist, Western Plaguelands
 	[8416] = {1422, 52, 82.8, "High Priest Thel'danis"}, -- High Priest Thel'danis, Western Plaguelands

@@ -9,14 +9,15 @@
 -------------------------------------------------------------------------
 
 -- 16001-45
+--   - Added missing Undead Paladin class quests
 --   - Fixed an issue where Zum'rah's Head was showing as an inside quest.
 --   - Added Strange Pylons through Rot and Regret to both Maraudon attunements. A finished Maraudon reopens until those quests are turned in.
 --   - Guild completion messages are sent again. A timer callback was blocked from posting to guild chat.
 --   - Removed the option to automatically survey guild on login.
 --   - Added a button to reset the progress for the current character.
 --   - Removed an unnecessary quest from Uldaman (Replacement Phial).
-
-
+--   - Removed a Horde only quest from BRD
+--
 -- 16001-44
 --   - Steps occurring inside a dungeon now have an orange tint. Raid steps use red.
 --   - Added a whole bunch of translations that were missing.

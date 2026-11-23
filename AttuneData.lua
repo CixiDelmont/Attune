@@ -2360,11 +2360,10 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="380",ID="1410",TYPE="Quest",STEP="",LOCATION=AttuneLang["Un'Goro Crater"],ID_WOWHEAD="4148",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="70",STAGE="110",FOLLOW=true}, -- quest: Bloodpetal Zapper
 
 --vForever dungeon attune 390
-	-- Columns L→R: 20 Molten Core | 4262→4263 Incendius | 4123 Heart | 3911 Last Element | 4022→4024 Taste of Flame | 3702→4363 Kharan/Princess | 4182→4241 Windsor | 4128→4126 Thunderbrew | 4136 Ribbly | 4286 Fanny Packs | 120 Shadowforge Key
+	-- Columns L→R: 20 Molten Core | 4262→4263 Incendius | 4123 Heart | 4022→4024 Taste of Flame | 3702→4363 Kharan/Princess | 4182→4241 Windsor | 4128→4126 Thunderbrew | 4136 Ribbly | 4286 Fanny Packs | 120 Shadowforge Key
 	{ID_ATTUNE="390",ID="10",TYPE="Level",STEP=AttuneLang["Reach level"].." 48",LOCATION="",ID_WOWHEAD="48",ICON="Interface\\Icons\\spell_holy_innerfire",FOLLOWS="0",STAGE="10"},
 	-- STAGE 20
 	{ID_ATTUNE="390",ID="1020",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Heart of the Mountain
-	{ID_ATTUNE="390",ID="920",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="3911",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20",MARKER="dungeon"}, -- quest: The Last Element
 	{ID_ATTUNE="390",ID="820",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4022",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: A Taste of Flame
 	{ID_ATTUNE="390",ID="720",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="3702",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: The Smoldering Ruins of Thaurissan
 	{ID_ATTUNE="390",ID="520",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4182",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Dragonkin Menace
@@ -2374,7 +2373,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1220",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Mountain"],ID_WOWHEAD="4262",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="10",STAGE="20"}, -- quest: Overmaster Pyron
 	-- STAGE 30
 	{ID_ATTUNE="390",ID="1030",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11309",ICON="Interface\\Icons\\inv_misc_gem_bloodstone_02",FOLLOWS="1020",STAGE="30",MARKER="dungeon"}, -- item: The Heart of the Mountain
-	{ID_ATTUNE="390",ID="930",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11129",ICON="Interface\\Icons\\inv_enchant_shardglowinglarge",FOLLOWS="920",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Essence of the Elements
 	{ID_ATTUNE="390",ID="830",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4024",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="820",STAGE="30",MARKER="dungeon"}, -- quest: A Taste of Flame
 	{ID_ATTUNE="390",ID="730",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="3701",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="720",STAGE="30"}, -- quest: The Smoldering Ruins of Thaurissan
 	{ID_ATTUNE="390",ID="530",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4183",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="520",STAGE="30"}, -- quest: The True Masters
@@ -2384,7 +2382,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1230",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4263",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1220",STAGE="30",MARKER="dungeon"}, -- quest: Incendius!
 	-- STAGE 40
 	{ID_ATTUNE="390",ID="1040",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4123",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="1030",STAGE="40",MARKER="dungeon"}, -- quest: The Heart of the Mountain
-	{ID_ATTUNE="390",ID="940",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="3911",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="930",STAGE="40",MARKER="dungeon"}, -- quest: The Last Element
 	{ID_ATTUNE="390",ID="840",TYPE="Item",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="11230",ICON="Interface\\Icons\\spell_fire_sealoffire",FOLLOWS="830",STAGE="40",MARKER="dungeon"}, -- item: Encased Fiery Essence
 	{ID_ATTUNE="390",ID="740",TYPE="Pick Up",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="730",STAGE="40",MARKER="dungeon"}, -- quest: Kharan Mighthammer
 	{ID_ATTUNE="390",ID="540",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="4184",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="530",STAGE="40"}, -- quest: The True Masters
@@ -2394,7 +2391,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1240",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1230",STAGE="40"},
 	-- STAGE 50
 	{ID_ATTUNE="390",ID="1050",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1040",STAGE="50"},
-	{ID_ATTUNE="390",ID="950",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="940",STAGE="50"},
 	{ID_ATTUNE="390",ID="850",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4024",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="840",STAGE="50",MARKER="dungeon"}, -- quest: A Taste of Flame
 	{ID_ATTUNE="390",ID="750",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4342",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="740",STAGE="50"}, -- quest: Kharan's Tale
 	{ID_ATTUNE="390",ID="550",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4185",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="540",STAGE="50"}, -- quest: The True Masters
@@ -2404,7 +2400,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1250",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1240",STAGE="50"},
 	-- STAGE 60
 	{ID_ATTUNE="390",ID="1060",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1050",STAGE="60"},
-	{ID_ATTUNE="390",ID="960",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="950",STAGE="60"},
 	{ID_ATTUNE="390",ID="860",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="850",STAGE="60"},
 	{ID_ATTUNE="390",ID="760",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="4361",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="750",STAGE="60"}, -- quest: The Bearer of Bad News
 	{ID_ATTUNE="390",ID="560",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stormwind City"],ID_WOWHEAD="4186",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="550",STAGE="60"}, -- quest: The True Masters
@@ -2414,7 +2409,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1260",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1250",STAGE="60"},
 	-- STAGE 70
 	{ID_ATTUNE="390",ID="1070",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1060",STAGE="70"},
-	{ID_ATTUNE="390",ID="970",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="960",STAGE="70"},
 	{ID_ATTUNE="390",ID="870",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="860",STAGE="70"},
 	{ID_ATTUNE="390",ID="770",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4362",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="760",STAGE="70",MARKER="dungeon"}, -- quest: The Fate of the Kingdom
 	{ID_ATTUNE="390",ID="570",TYPE="Quest",STEP="",LOCATION=AttuneLang["Redridge Mountains"],ID_WOWHEAD="4223",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="560",STAGE="70"}, -- quest: The True Masters
@@ -2424,7 +2418,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1270",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1260",STAGE="70"},
 	-- STAGE 80
 	{ID_ATTUNE="390",ID="1080",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1070",STAGE="80"},
-	{ID_ATTUNE="390",ID="980",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="970",STAGE="80"},
 	{ID_ATTUNE="390",ID="880",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="870",STAGE="80"},
 	{ID_ATTUNE="390",ID="780",TYPE="Quest",STEP="",LOCATION=AttuneLang["Ironforge"],ID_WOWHEAD="4363",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="770",STAGE="80"}, -- quest: The Princess's Surprise
 	{ID_ATTUNE="390",ID="580",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4224",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="570",STAGE="80"}, -- quest: The True Masters
@@ -2434,7 +2427,6 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1280",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1270",STAGE="80"},
 	-- STAGE 90
 	{ID_ATTUNE="390",ID="1090",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="1080",STAGE="90"},
-	{ID_ATTUNE="390",ID="990",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="980",STAGE="90"},
 	{ID_ATTUNE="390",ID="890",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="880",STAGE="90"},
 	{ID_ATTUNE="390",ID="790",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="780",STAGE="90"},
 	{ID_ATTUNE="390",ID="590",TYPE="Quest",STEP="",LOCATION=AttuneLang["Burning Steppes"],ID_WOWHEAD="4241",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="580",STAGE="90",MARKER="dungeon"}, -- quest: Marshal Windsor
@@ -2467,7 +2459,7 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="390",ID="1602",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="4083",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Spectral Chalice (Inside)
 	{ID_ATTUNE="390",ID="1603",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="7604",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: A Binding Contract (Inside)
 	{ID_ATTUNE="390",ID="1604",TYPE="Quest",STEP="",LOCATION=AttuneLang["Blackrock Depths"],ID_WOWHEAD="9015",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="0",STAGE="100",SIDE=true,MARKER="dungeon"}, -- quest: The Challenge (Inside)
-	{ID_ATTUNE="390",ID="1300",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="1390&1290&1090&990&890&790&590&490&390&290&190&1120&1110&1100&1601&1602&1603&1604",STAGE="100"},
+	{ID_ATTUNE="390",ID="1300",TYPE="End",STEP="Attuned",LOCATION="",ID_WOWHEAD="0",ICON="Interface\\Icons\\inv_misc_book_09",FOLLOWS="1390&1290&1090&890&790&590&490&390&290&190&1120&1110&1100&1601&1602&1603&1604",STAGE="100"},
 
 --vForever dungeon attune 400
 	-- Columns L→R: 20 Molten Core | 4081→4082 KOS | 7201 Last Element | 4022→4024 Taste of Flame | 4063 Argelmach | 3906→4004 Royal Rescue (longest) | 4136 Ribbly | 4134 Recipe | 4123 Heart | 120 Shadowforge Key
