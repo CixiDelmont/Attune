@@ -145,6 +145,7 @@ Attune_Data.questGivers = {
 	[4128] = {1419, 63.6, 20.6, "Enohar Thunderbrew"}, -- Enohar Thunderbrew (Blasted Lands)
 	[4134] = {1418, 3.0, 47.6, "Shadowmage Vivian Lagrave"}, -- Shadowmage Vivian Lagrave (Badlands)
 	[7201] = {1418, 3.0, 47.6, "Shadowmage Vivian Lagrave"}, -- Shadowmage Vivian Lagrave (Badlands)
+	[97197] = {1412, 33.4, 22.4, "Alaana Stormwalker"}, -- Alaana Stormwalker (Mulgore). Turn in to the same NPC.
 	[4136] = {1428, 66.0, 22.0, "Yuka Screwspigot"}, -- Yuka Screwspigot (Burning Steppes)
 	[4182] = {1428, 85.6, 69.0, "Helendis Riverhorn"}, -- Helendis Riverhorn (Burning Steppes)
 	[4183] = {1428, 85.6, 69.0, "Helendis Riverhorn"}, -- Helendis Riverhorn (Burning Steppes)
@@ -451,6 +452,7 @@ Attune_Data.questGivers = {
 	[96078] = {1434, 32.2, 27.8, "Kin'weelay"}, -- Kin'weelay (Grom'gol); turn in to Master Gadrin (Sen'jin Village 56.0, 74.6)
 	[96774] = {1412, 32.6, 20.6, "Mazu'kon"}, -- Mazu'kon (northwest Mulgore); also 32.4, 20.6
 	[96775] = {1412, 32.4, 20.6, "Mazu'kon"}, -- Mazu'kon (Camp Gev'rek, Mulgore); also 32.6, 20.6
+	[96776] = {1412, 32.6, 24.0, "Olana Brighthoof"}, -- Olana Brighthoof (Mulgore). Turn in to the same NPC.
 	-- The Drowned City (both). Krazek, top floor of the Booty Bay inn.
 	[95791] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)
 	[95789] = {1434, 27.0, 77.2, "Krazek"}, -- Krazek (Booty Bay)

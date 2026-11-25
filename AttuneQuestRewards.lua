@@ -273,6 +273,7 @@ Attune_Data.questRewards = {
 	[6144] = {},
 	[6163] = {},
 	[7201] = {},
+	[97197] = {}, -- Fragment of the Firelands; 2 gold 1 silver, Earthen Ring +300
 	[6141] = {},
 	[6402] = {},
 	[6403] = {},
@@ -934,6 +935,7 @@ Attune_Data.questRewards = {
 	[96078] = { choice = {{279885, 1}, {279886, 1}, {279887, 1}}, fixed = {{270312, 1}, {270313, 1}} }, -- A Tale Spun Around the Fire
 	[96774] = {}, -- Ancient Gurubashi Idol; 1 gold
 	[96775] = {}, -- Zum'rah's Head; 65 silver, Earthen Ring +300, Darkspear Trolls +150
+	[96776] = {}, -- An'she's Radiance; 1 gold 37 silver, Earthen Ring +300, Thunder Bluff +200
 	[97130] = {}, -- Ancient Gurubashi Secrets; 50 silver
 	[96773] = {}, -- The Coldbringer's Eye; 55 silver
 	[92914] = {}, -- Strange Pylons

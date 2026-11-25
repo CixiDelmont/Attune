@@ -8,9 +8,16 @@
 --
 -------------------------------------------------------------------------
 
+-- 16001-46
+--   - Fixed an issue where a Maraudon quest was wrongfully marked as 'Inside'.
+--   - Added the Fragment of the Firelands quest to BRD attunement.
+--
 -- 16001-45
 --   - Added missing Undead Paladin class quests
 --   - Fixed an issue where Zum'rah's Head was showing as an inside quest.
+--   - Fixed an issue where An'she's Radiance was showing as an inside quest.
+--   - Added Fragment of the Firelands to Horde Blackrock Depths.
+--   - Swapped the first two columns on Horde Blackrock Depths.
 --   - Added Strange Pylons through Rot and Regret to both Maraudon attunements. A finished Maraudon reopens until those quests are turned in.
 --   - Guild completion messages are sent again. A timer callback was blocked from posting to guild chat.
 --   - Removed the option to automatically survey guild on login.
@@ -3412,6 +3419,26 @@ function Attune_ReopenMaraudonPylonChain()
 end
 
 -------------------------------------------------------------------------
+-- Horde Blackrock Depths swapped Molten Core with Fragment of the Firelands.
+-- Move saved done flags once so a finished step stays on the step that moved.
+-------------------------------------------------------------------------
+
+function Attune_SwapBrd400Columns()
+	local t = Attune_DB.toons[attunelocal_charKey]
+	if t == nil or t.done == nil or t.brd400ColSwap then return end
+	local swap = {
+		{ "1620", "1320" }, { "1630", "1330" }, { "1640", "1340" }, { "1650", "1350" },
+		{ "1660", "1360" }, { "1670", "1370" }, { "1680", "1380" }, { "1690", "1390" },
+	}
+	for _, pair in ipairs(swap) do
+		local a = "400-" .. pair[1]
+		local b = "400-" .. pair[2]
+		t.done[a], t.done[b] = t.done[b], t.done[a]
+	end
+	t.brd400ColSwap = true
+end
+
+-------------------------------------------------------------------------
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
@@ -3424,6 +3451,7 @@ function Attune_CheckComplete(newComplete, quiet)
 
 	Attune_ReopenRazorfenBloodChain()
 	Attune_ReopenMaraudonPylonChain()
+	Attune_SwapBrd400Columns()
 	Attune_AutoCompleteSpacers(attunelocal_charKey)
 
 	-- WoW
