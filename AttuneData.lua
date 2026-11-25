@@ -1537,14 +1537,14 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="310",ID="672",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
 	{ID_ATTUNE="310",ID="572",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
 	{ID_ATTUNE="310",ID="372",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
-	{ID_ATTUNE="310",ID="272",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
+	-- {ID_ATTUNE="310",ID="272",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
 	-- {ID_ATTUNE="310",ID="172",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="72"},
 
     {ID_ATTUNE="310",ID="774",TYPE="Quest",STEP="",LOCATION=AttuneLang["Shen'dralas"],ID_WOWHEAD="93341",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="772",STAGE="74"}, -- quest: Forlorn Gardens
 	{ID_ATTUNE="310",ID="674",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
 	{ID_ATTUNE="310",ID="574",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
 	{ID_ATTUNE="310",ID="374",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
-	{ID_ATTUNE="310",ID="274",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
+	-- {ID_ATTUNE="310",ID="274",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
 	-- {ID_ATTUNE="310",ID="174",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="74"},
 	
     -- STAGE 80
@@ -2918,12 +2918,18 @@ Attune_Data.steps = 	{
 	{ID_ATTUNE="276",ID="430",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="276894",ICON="Interface\\Icons\\inv_misc_archaeology_trollgolem",FOLLOWS="420",STAGE="30",MARKER="dungeon"}, -- item: Ancient Gurubashi Idol (Deathless Marrow)
 	{ID_ATTUNE="276",ID="330",TYPE="Kill",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="260042",ICON="Interface\\Icons\\ability_rogue_ambush",FOLLOWS="320",STAGE="30",MARKER="dungeon"}, -- npc: Captain Dreadrise
 	{ID_ATTUNE="276",ID="230",TYPE="Item",STEP="",LOCATION=AttuneLang["The Drowned City"],ID_WOWHEAD="270333",ICON="Interface\\Icons\\trade_archaeology_troll_tablet",FOLLOWS="220",STAGE="30",COUNT=10,MARKER="dungeon"}, -- item: Voodoo-Infused Artifact
+	-- STAGE 35
+	{ID_ATTUNE="276",ID="918",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="35"},
+	{ID_ATTUNE="276",ID="912",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="598",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="35"}, -- quest: Split Bone Necklace
+	{ID_ATTUNE="276",ID="435",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="430",STAGE="35"},
+	{ID_ATTUNE="276",ID="335",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="330",STAGE="35"},
+	{ID_ATTUNE="276",ID="235",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="230",STAGE="35"},
 	-- STAGE 40
     {ID_ATTUNE="276",ID="905",TYPE="Spacer",STEP="Spacer",LOCATION="",ID_WOWHEAD="",ICON="",FOLLOWS="0",STAGE="40"},
 	{ID_ATTUNE="276",ID="900",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95770",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="910",STAGE="40"}, -- quest: Locating the Lost City
 	{ID_ATTUNE="276",ID="440",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Mulgore"],ID_WOWHEAD="96774",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="430",STAGE="40",MARKER="dungeon"}, -- quest: Ancient Gurubashi Idol
 	{ID_ATTUNE="276",ID="340",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95791",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="330",STAGE="40",MARKER="dungeon"}, -- quest: The Saltseer Captain
-	{ID_ATTUNE="276",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="230",STAGE="40",MARKER="dungeon"}, -- quest: Shady Saltseers
+	{ID_ATTUNE="276",ID="240",TYPE="Turn In",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95789",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="23.0",STAGE="40",MARKER="dungeon"}, -- quest: Shady Saltseers
 	-- STAGE 50
 	{ID_ATTUNE="276",ID="890",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95773",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50"}, -- quest: Enemies in the Water
 	{ID_ATTUNE="276",ID="790",TYPE="Quest",STEP="",LOCATION=AttuneLang["Stranglethorn Vale"],ID_WOWHEAD="95775",ICON="Interface\\Icons\\inv_scroll_03",FOLLOWS="900",STAGE="50",MARKER="dungeon"}, -- quest: The Drowned City

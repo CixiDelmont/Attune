@@ -11,6 +11,8 @@
 -- 16001-46
 --   - Fixed an issue where a Maraudon quest was wrongfully marked as 'Inside'.
 --   - Added the Fragment of the Firelands quest to BRD attunement.
+--   - Fixed a newline issue in the translations.
+--   - A completed attunement keeps consumed items, such as the Black Tome, marked done.
 --
 -- 16001-45
 --   - Added missing Undead Paladin class quests
@@ -2793,6 +2795,9 @@ function Attune_SyncCharacterEnds(toon, silent)
 			end
 		end
 	end
+	if toon == Attune_DB.toons[attunelocal_charKey] then
+		Attune_FillCompletedAttune(toon)
+	end
 	return changed
 end
 
@@ -3439,6 +3444,46 @@ function Attune_SwapBrd400Columns()
 end
 
 -------------------------------------------------------------------------
+-- A finished attunement closes every remaining step on that chain.
+-- Follow-up quests stay open until that quest is turned in.
+-------------------------------------------------------------------------
+
+function Attune_FillCompletedAttune(att)
+	if att == nil or att.done == nil or att.attuned == nil then return end
+	if att ~= Attune_DB.toons[attunelocal_charKey] then return end
+	if Attune_Data == nil or Attune_Data.stepsByAttune == nil then return end
+	local faction = UnitFactionGroup("player")
+	local race = att.race
+	if race == nil or race == "" then race = attunelocal_race end
+	local changed = false
+	for attuneId, pct in pairs(att.attuned) do
+		local a = Attune_Data.attuneById and Attune_Data.attuneById[attuneId]
+		local chain = Attune_Data.stepsByAttune[attuneId]
+		if a and chain and (pct or 0) >= 100 and (a.FACTION == faction or a.FACTION == "Both") and Attune_MayRecordAttuneProgress(att, attuneId) then
+			local pylonSteps = Attune_MaraudonPylonStepQuest[attuneId]
+			for _, s in pairs(chain) do
+				if not s.FOLLOW and Attune_StepShownForRace(s, race) then
+					-- These chains reopen a finished attunement until each quest is turned in.
+					local leaveOpen = false
+					local bloodQuest = Attune_RazorfenBloodEnd[attuneId] and Attune_RazorfenBloodStepQuest[s.ID]
+					if bloodQuest and Attune_QuestFlagKnown(bloodQuest) ~= true then leaveOpen = true end
+					local pylonQuest = pylonSteps and pylonSteps[s.ID]
+					if pylonQuest and Attune_QuestFlagKnown(pylonQuest) ~= true then leaveOpen = true end
+					if not leaveOpen then
+						local key = s.ID_ATTUNE .. "-" .. s.ID
+						if att.done[key] ~= 1 then
+							att.done[key] = 1
+							changed = true
+						end
+					end
+				end
+			end
+		end
+	end
+	if changed then Attune_CheckIsNext(attunelocal_charKey) end
+end
+
+-------------------------------------------------------------------------
 -- Check full Attune completion
 -------------------------------------------------------------------------
 
@@ -3528,6 +3573,8 @@ function Attune_CheckComplete(newComplete, quiet)
 			end
 		end
 	end
+	-- Close every step on an attunement that is already finished, including branches the recurse does not walk.
+	Attune_FillCompletedAttune(att)
 	Attune_CheckIsNext(attunelocal_charKey)
 end
 
@@ -3543,6 +3590,7 @@ function Attune_ApplyCompletedEndSteps(t)
 			t.attuned[s.ID_ATTUNE] = 100
 		end
 	end
+	Attune_FillCompletedAttune(t)
 end
 
 -------------------------------------------------------------------------
@@ -3562,7 +3610,7 @@ function Attune_CheckIsNext(who)
 		-- Inside reminders and follow-ups are not part of attunement completion.
 		if Attune_StepShownForRace(step, att.race) and not step.SIDE and not step.FOLLOW and Attune_MayRecordAttuneProgress(att, step.ID_ATTUNE) then
 
-			if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
+			-- if (step.ID_ATTUNE == "190" and step.ID == "120") then debug = true else debug=false end
 
 			local next = false
 			if  att.done[step.ID_ATTUNE .. "-" .. step.ID] ~= nil then
@@ -6761,6 +6809,12 @@ end
 
 local function Attune_ItemCellTone(step, countNeeded)
 	if Attune_ItemQuestCompleted(step) then return "green" end
+	-- A finished attunement closes items that were used up, such as the Black Tome.
+	-- Follow-up items stay tied to what is actually in the bags.
+	local toon = Attune_DB.toons[attunelocal_charKey]
+	if toon and not step.FOLLOW and toon.attuned and (toon.attuned[step.ID_ATTUNE] or 0) >= 100 then
+		return "green"
+	end
 	local owned = Attune_OwnedItemCount(step.ID_WOWHEAD)
 	if owned >= countNeeded then return "green" end
 	if owned > 0 then return "yellow" end
